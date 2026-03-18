@@ -1,0 +1,10 @@
+{
+  "name": "maiaedge-events",
+  "version": "1.0.0",
+  "skills": ["event-intelligence"],
+  "context": [
+    "core/segment-qualification.md",
+    "hubspot/territory-model.md"
+  ],
+  "static": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "maiaedge-revops",
+  "version": "1.2.0",
+  "skills": ["contact-discovery", "crm-hygiene", "pipeline-analytics", "territory-manager"],
+  "context": [
+    "core/segment-qualification.md",
+    "core/icp-playbook.md",
+    "hubspot/hubspot-values.md",
+    "hubspot/territory-model.md",
+    "hubspot/property-schema.md",
+    "segments/neocloud.md"
+  ],
+  "static": []
+}

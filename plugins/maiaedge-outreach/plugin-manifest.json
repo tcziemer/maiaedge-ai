@@ -1,0 +1,19 @@
+{
+  "name": "maiaedge-outreach",
+  "version": "1.3.0",
+  "skills": ["cold-email", "linkedin-outreach", "prospect-research", "segment-classification"],
+  "context": [
+    "core/segment-qualification.md",
+    "core/messaging-framework.md",
+    "core/competitive-positioning.md",
+    "segments/colocation.md",
+    "segments/fiber-operator.md",
+    "segments/neocloud.md",
+    "segments/network-operator.md",
+    "segments/msp-aggregator.md",
+    "outreach/email-writing-rules.md",
+    "outreach/fallback-messaging.md",
+    "outreach/sender-profiles.md"
+  ],
+  "static": []
+}

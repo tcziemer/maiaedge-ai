@@ -1,0 +1,13 @@
+{
+  "name": "maiaedge-sdr-pipeline",
+  "version": "2.0.0",
+  "skills": ["sdr-pipeline"],
+  "context": [
+    "core/messaging-framework.md",
+    "core/segment-qualification.md",
+    "outreach/email-writing-rules.md",
+    "hubspot/hubspot-values.md",
+    "enrichment/research-routes.md"
+  ],
+  "static": ["evals/"]
+}
