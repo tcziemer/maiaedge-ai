@@ -45,7 +45,7 @@ The HubSpot import file must use HubSpot property names as column headers. Only 
 | 1 | `company_domain` | `domain` | String | Clean domain (strip protocol, www) |
 | 2 | `company_name` | `name` | String | Direct |
 | 3 | `customer_segment` | `customer_segment` | Enumeration | **Value mapping — see 2B** |
-| 3.5 | `customer_sub_segment` | `customer_sub_segment` | Enumeration | **Value mapping — see 2B** |
+| 3.5 | `customer_sub_segment` | `company_sub_segment` | Enumeration | **Value mapping — see 2B** |
 | 4 | `infrastructure_profile` | `infrastructure_profile` | Multi-checkbox | Direct (values already match) |
 | 5 | `fabric_provisioning_approach` | `fabric_provisioning_approach` | Multi-checkbox | **Value substitution — see 2C** |
 | 6 | `geographic_focus` | `geographic_focus` | String | Direct |
@@ -65,7 +65,7 @@ The HubSpot import file must use HubSpot property names as column headers. Only 
 
 ### 2B: Customer Segment + Sub-Segment Mapping (CRITICAL)
 
-The enrichment bot outputs `customer_segment` and `customer_sub_segment` as TWO SEPARATE fields. Both get imported into HubSpot.
+The enrichment bot outputs `customer_segment` and `customer_sub_segment` as TWO SEPARATE fields. Both get imported into HubSpot. The HubSpot property for sub-segment is `company_sub_segment` (not `customer_sub_segment`).
 
 **Segment Mapping:**
 
@@ -77,17 +77,26 @@ The enrichment bot outputs `customer_segment` and `customer_sub_segment` as TWO 
 | `Network Operator` | `Network Operator(Tier 1 / VNO)` |
 | `MSP/Aggregator` | `Enterprise` |
 
-> ⚠️ **CHANGE:** `AI - Colocation Operator` is DEPRECATED. AI colos now use `Data Center Colo Provider` + `customer_sub_segment = AI Infrastructure`.
+> ⚠️ **CHANGE:** `AI - Colocation Operator` is DEPRECATED. AI colos now use `Data Center Colo Provider` + `company_sub_segment = AI Signals - colo`.
 
-**Sub-Segment Mapping** (pass through directly — values already match HubSpot):
+**Sub-Segment Mapping** (bot output → HubSpot `company_sub_segment` value):
 
-| Main Segment | Valid `customer_sub_segment` Values |
+| Bot `customer_sub_segment` | → HubSpot `company_sub_segment` Value |
 |---|---|
-| `Data Center Colo Provider` | `Standard`, `AI Infrastructure` |
-| `NeoCloud` | `Large-Scale GPU NeoClouds`, `Tier 1 Inference Providers`, `AI Infrastructure Providers`, `Sovereign AI Clouds`, `Crypto-to-AI Pivots` |
-| `Fiber Operator` | `Regional CLEC`, `Long-Haul / Backbone`, `Dark Fiber Specialist` |
-| `Network Operator(Tier 1 / VNO)` | `Track A - External Extension`, `Track B - Internal + External Unification` |
-| `Enterprise` (MSP) | `Telecom Aggregator`, `Managed Network Services` |
+| `Standard` | `Standard - colo` |
+| `AI Infrastructure` | `AI Signals - colo` |
+| `Large-Scale GPU NeoClouds` | `Large Scale GPU - Neocloud` |
+| `Tier 1 Inference Providers` | `Tier 1 Inference - Neocloud` |
+| `AI Infrastructure Providers` | `AI Infrastructure providers - Neocloud` |
+| `Sovereign AI Clouds` | `Sovereign AI Clouds - Neocloud` |
+| `Crypto-to-AI Pivots` | `Crypto to AI - Neoclouds` |
+| `Regional CLEC` | `Regional CLEC - Fiber operator` |
+| `Long-Haul / Backbone` | `Long Haul / Backbone - Fiber operator` |
+| `Dark Fiber Specialist` | `Dark Fiber Specialist - Fiber Operator` |
+| `Track A - External Extension` | `External Extension - Network operator` |
+| `Track B - Internal + External Unification` | `Internal + external unification - Network Operator` |
+| `Telecom Aggregator` | `Telecom Aggregator - MSP` |
+| `Managed Network Services` | `Managed Network Services - Network Operator` |
 
 ### 2C: Fabric Provisioning Approach Value Mapping
 
@@ -105,20 +114,23 @@ The bot outputs values that are close but not exact matches to HubSpot labels. A
 
 ### 2D: Account Tier Value Mapping
 
-| Bot `account_tier` | → HubSpot `account_tier` Value |
+| Bot `account_tier` | → HubSpot `account_tier` Internal Value |
 |---|---|
-| `TIER_1_STRATEGIC` | `Tier 1 - Strategic` |
-| `TIER_2_CORE` | `Tier 2 - Core` |
-| `TIER_3_EMERGING` | `Tier 3 - Emerging` |
-| `UNRANKED` | `Unranked` |
+| `TIER_1_STRATEGIC` | `tier_1` |
+| `TIER_2_CORE` | `tier_2` |
+| `TIER_3_EMERGING` | `tier_3` |
+| `UNRANKED` | `tier_4` |
+
+> HubSpot has 5 tiers (`tier_1` through `tier_5`). Tier 1 = highest priority, Tier 5 = lowest. The enrichment pipeline uses 4 output labels that map to `tier_1` through `tier_4`. `tier_5` is reserved for manual assignment.
 
 ### 2E: Segmentation Confidence Value Mapping
 
-| Bot `segmentation_confidence` | → HubSpot `segmentation_confidence` Value |
+| Bot `segmentation_confidence` | → HubSpot `segmentation_confidence` Internal Value |
 |---|---|
-| `HIGH` | `High` |
-| `MEDIUM` | `Medium` |
-| `LOW` | `Low` |
+| `HIGH` | `high_90` |
+| `MEDIUM` | `medium_7089` |
+| `LOW` | `low_5069` |
+| `MANUAL_REVIEW` | `manual_review_required` |
 
 ---
 

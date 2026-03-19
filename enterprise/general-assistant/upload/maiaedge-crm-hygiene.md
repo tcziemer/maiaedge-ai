@@ -18,7 +18,7 @@ The goal is to catch problems before they compound — a missing state leads to 
 ### Company Fields to Audit
 ```
 name, domain, state, hs_state_code, country, city, hubspot_owner_id,
-customer_segment, customer_sub_segment, phone, numberofemployees,
+customer_segment, company_sub_segment, phone, numberofemployees,
 annualrevenue, industry, founded_year, notes_last_contacted,
 notes_last_updated, createdate, hs_lead_status
 ```

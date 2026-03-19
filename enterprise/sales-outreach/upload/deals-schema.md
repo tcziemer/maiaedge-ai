@@ -59,13 +59,50 @@
 
 **Adoption recommendation:** Prioritize Identified Pain, Key Stakeholders, and Competition as minimum viable MEDDPICC. Add Metrics and Use Case for deals >$50K.
 
-### Unused Properties (0% Fill Rate)
+### Deal Info Properties
 
-These properties exist in the schema but have never been populated. Do NOT expect data here:
+| Property | Internal Name | Type | Options | Notes |
+|----------|--------------|------|---------|-------|
+| Deal Source | `deal_source` | Enum | `trade_show`, `founder_network`, `inbound`, `outbound` (Email), `Outbound - Call`, `partner_referral`, `other` | Origin channel |
+| Bandwidth Tier | `bandwidth_tier` | Enum | `p_10_gbps` (10 Gbps), `p_100_gbps` (100 Gbps), `tbd` (TBD) | Network capacity |
+| Deployment Timeline | `deployment_timeline` | Enum | `all_at_once_30_days`, `phased_13_months`, `phased_36_months`, `phased_612_months`, `ongoing_as_sites_added` | Rollout schedule |
+| Target Locations | `target_facilities_for_deployment` | Text | — | Multi-line: facility names and locations |
+| Infrastructure in Scope | `infrastructure_in_scope` | Multi-select | 19 options (see hubspot-values.md) | All infrastructure types in the deal |
+| Expected PBC Count | `expected_pbc_count` | Number | — | Number of PBC devices expected |
+| Wholesale vs Retail Mix | `wholesale_vs_retail_mix__cloned___cloned_` | Enum | `mostly_wholesale_70`, `balanced`, `mostly_retail_70`, `unknown` | Business mix |
+| POC Objective | `poc_objective` | Enum | `Fiber Monetization`, `Speed to Revenue`, `Network Extension`, `Private Connectivity Validation`, `Competitive Displacement` | Type of POC |
 
-`bandwidth_tier`, `deployment_timeline`, `poc_start_date`, `poc_end_date`, `poc_objective`, `poc_pbc_count`, `poc_pilot_agreement_signed`, `poc_success_summary`, `poc_unsuccessful_reasons`, `quote_number`, `quote_status`, `quote_amount`, `quote_sent_date`, `discount_percentage`, `discount_reason`, `target_facilities_for_deployment`, `notion_doc_link`, `poc_scoping_doc_link`
+### Completed Agreements
 
-**Exception:** `contract_term` has 10% fill (2 deals), `expected_pbc_count` has 5% fill (1 deal).
+File upload fields tracking signed legal documents. All are string type (file attachment path).
+
+| Property | Internal Name | Type | Description |
+|----------|--------------|------|-------------|
+| Completed NDA | `completed_nda` | String (file) | Signed NDA document |
+| Completed Pilot Agreement | `poc_pilot_agreement_signed` | String (file) | Signed POC pilot agreement |
+| Completed MSA | `completed_msa` | String (file) | Signed Master Service Agreement |
+| Completed Order Form | `completed_order_form` | String (file) | Signed Order Form |
+
+### Quote Approval
+
+| Property | Internal Name | Type | Options / Notes |
+|----------|--------------|------|-----------------|
+| Quote Number | `quote_number` | Text | — |
+| Quote Status | `quote_status` | Enum | `request_approval` (Approval request), `approved`, `changes_requested`, `sent` |
+| Amount | `amount` | Currency | Total Contract Value in USD |
+| Discount Percentage | `discount_percentage` | Number | Percentage discount applied |
+| Discount Reason | `discount_reason` | Text | Justification for discount |
+| Contract Term | `contract_term` | Text | Term length (10% fill) |
+
+### Legacy POC Properties (Deprecated)
+
+These deal-level POC fields exist but are **no longer used**. POC tracking has moved to the dedicated POC Pipeline on Tickets. See `poc-schema.md` for the current POC system.
+
+`poc_status`, `poc_start_date`, `poc_end_date`, `poc_pbc_count`, `poc_success_summary`, `poc_unsuccessful_reasons`, `poc_scoping_doc_link`
+
+### Other Low-Usage Properties
+
+`notion_doc_link` (0% fill), `quote_amount` (0%), `quote_sent_date` (0%)
 
 ---
 
@@ -79,6 +116,17 @@ When assessing deal health and activity readiness:
 | 15-30 days | **🟡 WARNING** | Recent activity. Check context for pending deliverables (quotes, POC data, legal review). |
 | 31-60 days | **🟠 CAUTION** | Going stale. Check deal for blockers. May need executive escalation or deal review. |
 | 60+ days | **🟢 CLEAR** | Stale deal. Investigate abandonment or lost reason. Assess re-engagement viability. |
+
+---
+
+## Deal-to-POC Ticket Relationship
+
+Deals can be associated with POC Tickets (managed via the POC Pipeline on the Tickets object). The POC is a trial run of MaiaEdge PBC devices in the prospect's network to prove use cases before purchase.
+
+- **POC management lives on Tickets**, not Deals. Site configuration, hardware specs, readiness checklists, and approval workflows are all on the ticket.
+- The deal-level POC fields (`poc_status`, `poc_start_date`, etc.) are **legacy and mostly unused**. The dedicated POC Pipeline replaced them.
+- A deal at the "POC & Technical Validation" stage (`presentationscheduled`) should have an associated POC ticket.
+- See `poc-schema.md` for the full POC ticket property reference.
 
 ---
 

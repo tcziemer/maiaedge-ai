@@ -111,13 +111,13 @@ inference latency, jitter, middle mile, facility, observability, training run, r
 
 ### Sub-Segment Quick Reference
 
-| Sub-Segment | Examples | Key Signal | Messaging Emphasis | HubSpot `customer_sub_segment` |
+| Sub-Segment | Examples | Key Signal | Messaging Emphasis | HubSpot `company_sub_segment` |
 |-------------|----------|------------|-------------------|-------------------------------|
-| **Large-Scale GPU NeoClouds** | CoreWeave*, Nebius, Lambda (15+ US DCs, 320MW) | Multi-facility GPU-as-a-service, 20-50+ locations, bare-metal GPU clusters | Observability across distributed training clusters, deterministic inter-facility paths | `Large-Scale GPU NeoClouds` |
-| **Tier 1 Inference Providers** | Together.ai (25+ cities, 200MW), Groq (35 Equinix POPs), Cirrascale, DeepInfra | Distributed inference endpoints at 20-50+ edge locations, sub-100ms token latency SLAs | Real-time telemetry for latency diagnosis, multi-carrier orchestration between edge POPs | `Tier 1 Inference Providers` |
-| **AI Infrastructure Providers** | Vultr, DigitalOcean, Fluidstack, Modal, RunPod | Mid-market cloud providers adding GPU compute, existing customer base asking for AI/ML | Multi-cloud bridge (white-label portal), Mean Time To Innocence, high-margin port arbitrage | `AI Infrastructure Providers` |
-| **Sovereign AI Clouds** | Nscale (UK/EU, $1.1B Series B), Firmus (Norway), E2E Networks (India), Yotta (India) | Built for GDPR/DPDP/national AI programs, hard restrictions on data storage AND transit | Policy-based sovereign routing, in-country PCE deployment, jurisdictional audit trails | `Sovereign AI Clouds` |
-| **Crypto-to-AI (Power-Rich Landlords)** | IREN (Iris Energy, $9.7B Microsoft contract), Core Scientific, Northern Data Group, TeraWulf | Former Bitcoin mining infrastructure pivoting to AI, cheap power ($0.03/kWh), high-density cooling | Simple fabric for tenant audits, observable uptime, infrastructure arbitrage | `Crypto-to-AI Pivots` |
+| **Large-Scale GPU NeoClouds** | CoreWeave*, Nebius, Lambda (15+ US DCs, 320MW) | Multi-facility GPU-as-a-service, 20-50+ locations, bare-metal GPU clusters | Observability across distributed training clusters, deterministic inter-facility paths | `Large Scale GPU - Neocloud` |
+| **Tier 1 Inference Providers** | Together.ai (25+ cities, 200MW), Groq (35 Equinix POPs), Cirrascale, DeepInfra | Distributed inference endpoints at 20-50+ edge locations, sub-100ms token latency SLAs | Real-time telemetry for latency diagnosis, multi-carrier orchestration between edge POPs | `Tier 1 Inference - Neocloud` |
+| **AI Infrastructure Providers** | Vultr, DigitalOcean, Fluidstack, Modal, RunPod | Mid-market cloud providers adding GPU compute, existing customer base asking for AI/ML | Multi-cloud bridge (white-label portal), Mean Time To Innocence, high-margin port arbitrage | `AI Infrastructure providers - Neocloud` |
+| **Sovereign AI Clouds** | Nscale (UK/EU, $1.1B Series B), Firmus (Norway), E2E Networks (India), Yotta (India) | Built for GDPR/DPDP/national AI programs, hard restrictions on data storage AND transit | Policy-based sovereign routing, in-country PCE deployment, jurisdictional audit trails | `Sovereign AI Clouds - Neocloud` |
+| **Crypto-to-AI (Power-Rich Landlords)** | IREN (Iris Energy, $9.7B Microsoft contract), Core Scientific, Northern Data Group, TeraWulf | Former Bitcoin mining infrastructure pivoting to AI, cheap power ($0.03/kWh), high-density cooling | Simple fabric for tenant audits, observable uptime, infrastructure arbitrage | `Crypto to AI - Neoclouds` |
 
 *CoreWeave: Not an active target per Metro Connect intel (Feb 2026). Reference only.*
 

@@ -148,7 +148,7 @@ These are NOT colos. Neoclouds (CoreWeave, Lambda Labs, Crusoe, Voltage Park, To
 
 **The angle:** See why inference is slow. Diagnose the network. Then fix it with deterministic paths.
 
-**Neocloud Sub-Segments** (assign `customer_sub_segment` in research summary):
+**Neocloud Sub-Segments** (assign `customer_sub_segment` in enrichment research summary, import-processor maps to HubSpot `company_sub_segment`):
 
 | Sub-Segment | Examples | Entry Point |
 |-------------|----------|-------------|
@@ -166,11 +166,11 @@ These are NOT colos. Neoclouds (CoreWeave, Lambda Labs, Crusoe, Voltage Park, To
 
 NeoCloud is its own segment value in HubSpot — it is NOT mapped under "Colocation Operator."
 
-| Classification | HubSpot `customer_segment` | `customer_sub_segment` |
-|---------------|---------------------------|----------------------|
-| GPU cloud provider (neocloud) | NeoCloud | [one of 5 sub-segments above] |
-| Colo with AI infrastructure signals | Data Center Colo Provider | AI Infrastructure |
-| Standard colo (no AI signals) | Data Center Colo Provider | Standard |
+| Classification | HubSpot `customer_segment` | HubSpot `company_sub_segment` |
+|---------------|---------------------------|-------------------------------|
+| GPU cloud provider (neocloud) | `NeoCloud` | [one of 5 neocloud sub-segments — see hubspot-values.md] |
+| Colo with AI infrastructure signals | `Data Center Colo Provider` | `AI Signals - colo` |
+| Standard colo (no AI signals) | `Data Center Colo Provider` | `Standard - colo` |
 
 ### Network Operators (Tier 1/2 Carriers)
 

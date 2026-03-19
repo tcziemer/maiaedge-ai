@@ -65,7 +65,7 @@ Sales AI toolkit for MaiaEdge — carrier infrastructure for federated private n
 - **Speed language:** Always pair speed with ownership ("your team provisions in minutes") EXCEPT for Neoclouds (they ARE the customer — drop sovereignty)
 - **Territory:** East = Tim Lieto, West = Ken Cunningham, International = Tim Ziemer
 - **Account tiers are INVERTED:** Tier 1 = highest priority, Tier 5 = lowest
-- **AI Colo segment:** Use "Data Center Colo Provider" + sub-segment "AI Infrastructure" (deprecated: "AI - Colocation Operator")
+- **AI Colo segment:** Use `customer_segment` = "Data Center Colo Provider" + `company_sub_segment` = "AI Signals - colo" (deprecated: "AI - Colocation Operator")
 - **MSP/Aggregator:** HubSpot internal value is `Enterprise` (legacy naming)
 - **No em dashes** in any customer-facing content
 - **Credibility anchors:** Do NOT use in cold emails or LinkedIn. Reserve for discovery calls and follow-ups.

@@ -138,6 +138,31 @@ Documents all excluded companies with:
 
 ---
 
+## Account Tier Assignment
+
+Assign `account_tier` based on these criteria (Tier 1 = highest priority):
+
+**TIER_1_STRATEGIC** — Timing + fit are both strong:
+- NeoCloud (any sub-segment)
+- Colocation with sub-segment = AI Infrastructure (confirmed GPU tenants or liquid cooling)
+- Any ICP segment with a recent trigger event (expansion, funding, leadership change in past 6 months) AND segmentation_confidence = HIGH
+
+**TIER_2_CORE** — Strong fit, no urgency trigger:
+- Standard Colo with HIGH confidence and Mid-Size or larger infrastructure
+- Fiber Operator with HIGH confidence
+- Network Operator (either track) with HIGH confidence
+
+**TIER_3_EMERGING** — Qualified but smaller or less certain:
+- Any ICP segment with MEDIUM confidence
+- Small-scale accounts (infrastructure_profile = Small in all dimensions)
+- MSP/Aggregator (any confidence)
+
+**UNRANKED** — Not enough signal:
+- LOW confidence or MANUAL_REVIEW confidence
+- Qualified segment but no observable use case signal
+
+---
+
 ## Key Enrichment Rules
 
 1. **Website-first, adaptive approach.** Always start with the company website.

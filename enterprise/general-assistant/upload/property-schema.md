@@ -83,52 +83,51 @@ customer_segment = "NeoCloud"                     ← NeoCloud
 
 > ⚠️ **Gotcha:** The internal value for MSP/Aggregator is `Enterprise` (legacy naming). The display label shows "MSP/Aggregator" but imports must use `Enterprise`.
 
-> ⚠️ **CHANGE (March 2026):** `AI - Colocation Operator` is NO LONGER a main segment. AI colos now use `customer_segment = "Data Center Colo Provider"` + `customer_sub_segment = "AI Infrastructure"`. The `AI - Colocation Operator` value still exists in HubSpot but should not be used for new imports.
+> ⚠️ **CHANGE (March 2026):** `AI - Colocation Operator` is NO LONGER a main segment. AI colos now use `customer_segment = "Data Center Colo Provider"` + `company_sub_segment = "AI Signals - colo"`. The `AI - Colocation Operator` value still exists in HubSpot but should not be used for new imports.
 
 ---
 
-## 2.5 Customer Sub-Segment (`customer_sub_segment`) — NEW
+## 2.5 Company Sub-Segment (`company_sub_segment`)
 
-**Property name:** `customer_sub_segment`
+**Property name:** `company_sub_segment`
 **Type:** Enumeration (single-select)
-**Status:** Needs to be created in HubSpot as a new property
 
-This field provides granular classification within each main segment.
+This field provides granular classification within each main segment. Each value includes the parent segment suffix for clarity.
 
-| Main Segment | Sub-Segment Value | Description |
-|---|---|---|
-| **Data Center Colo Provider** | `Standard` | Traditional colo, no strong AI signals |
-| **Data Center Colo Provider** | `AI Infrastructure` | Confirmed GPU tenants, liquid cooling, 30kW+ racks |
-| **NeoCloud** | `Large-Scale GPU NeoClouds` | Multi-facility GPU cloud, 100MW+, $1B+ valuations |
-| **NeoCloud** | `Tier 1 Inference Providers` | Inference-as-a-service, real-time API SLAs |
-| **NeoCloud** | `AI Infrastructure Providers` | Multi-cloud GPU platforms, API-driven, developer-first |
-| **NeoCloud** | `Sovereign AI Clouds` | Regulatory-driven, national AI initiatives, data sovereignty |
-| **NeoCloud** | `Crypto-to-AI Pivots` | Former crypto miners transitioning to AI compute |
-| **Fiber Operator** | `Regional CLEC` | Licensed carrier, <5 states, metro/regional footprint |
-| **Fiber Operator** | `Long-Haul / Backbone` | Multi-state fiber, 10K+ route miles |
-| **Fiber Operator** | `Dark Fiber Specialist` | Primarily dark fiber/wavelength sales |
-| **Network Operator** | `Track A - External Extension` | Has internal automation, needs cross-carrier extension |
-| **Network Operator** | `Track B - Internal + External Unification` | No internal automation yet |
-| **MSP/Aggregator** | `Telecom Aggregator` | Aggregates carrier circuits, wholesale connectivity |
-| **MSP/Aggregator** | `Managed Network Services` | Managed WAN/MPLS, service-oriented |
+| Main Segment | Internal Value | Display Label | Description |
+|---|---|---|---|
+| **Data Center Colo Provider** | `Standard - colo` | Standard - colo | Traditional colo, no strong AI signals |
+| **Data Center Colo Provider** | `AI Signals - colo` | AI Signals - colo | Confirmed GPU tenants, liquid cooling, 30kW+ racks |
+| **NeoCloud** | `Large Scale GPU - Neocloud` | Large Scale GPU - Neocloud | Multi-facility GPU cloud, 100MW+, $1B+ valuations |
+| **NeoCloud** | `Tier 1 Inference - Neocloud` | Tier 1 Inference - Neocloud | Inference-as-a-service, real-time API SLAs |
+| **NeoCloud** | `AI Infrastructure providers - Neocloud` | AI Infrastructure providers - Neocloud | Multi-cloud GPU platforms, API-driven, developer-first |
+| **NeoCloud** | `Sovereign AI Clouds - Neocloud` | Sovereign AI Clouds - Neocloud | Regulatory-driven, national AI initiatives, data sovereignty |
+| **NeoCloud** | `Crypto to AI - Neoclouds` | Crypto to AI - Neoclouds | Former crypto miners transitioning to AI compute |
+| **Fiber Operator** | `Regional CLEC - Fiber operator` | Regional CLEC - Fiber operator | Licensed carrier, <5 states, metro/regional footprint |
+| **Fiber Operator** | `Long Haul / Backbone - Fiber operator` | Long Haul / Backbone - Fiber operator | Multi-state fiber, 10K+ route miles |
+| **Fiber Operator** | `Dark Fiber Specialist - Fiber Operator` | Dark Fiber Specialist - Fiber Operator | Primarily dark fiber/wavelength sales |
+| **Network Operator** | `External Extension - Network operator` | External Extension - Network operator | Has internal automation, needs cross-carrier extension |
+| **Network Operator** | `Internal + external unification - Network Operator` | Internal + external unification - Network Operator | No internal automation yet |
+| **MSP/Aggregator** | `Telecom Aggregator - MSP` | Telecom Aggregator - MSP | Aggregates carrier circuits, wholesale connectivity |
+| **MSP/Aggregator** | `Managed Network Services - Network Operator` | Managed Network Services - Network Operator | Managed WAN/MPLS, service-oriented |
 
 ### Import Mapping
 
 ```
-customer_sub_segment = "Standard"                           ← Colo (no AI signals)
-customer_sub_segment = "AI Infrastructure"                  ← Colo (confirmed AI signals)
-customer_sub_segment = "Large-Scale GPU NeoClouds"          ← Neocloud
-customer_sub_segment = "Tier 1 Inference Providers"         ← Neocloud
-customer_sub_segment = "AI Infrastructure Providers"        ← Neocloud
-customer_sub_segment = "Sovereign AI Clouds"                ← Neocloud
-customer_sub_segment = "Crypto-to-AI Pivots"                ← Neocloud
-customer_sub_segment = "Regional CLEC"                      ← Fiber
-customer_sub_segment = "Long-Haul / Backbone"               ← Fiber
-customer_sub_segment = "Dark Fiber Specialist"              ← Fiber
-customer_sub_segment = "Track A - External Extension"       ← Network Op
-customer_sub_segment = "Track B - Internal + External Unification" ← Network Op
-customer_sub_segment = "Telecom Aggregator"                 ← MSP
-customer_sub_segment = "Managed Network Services"           ← MSP
+company_sub_segment = "Standard - colo"                                    ← Colo (no AI signals)
+company_sub_segment = "AI Signals - colo"                                  ← Colo (confirmed AI signals)
+company_sub_segment = "Large Scale GPU - Neocloud"                         ← Neocloud
+company_sub_segment = "Tier 1 Inference - Neocloud"                        ← Neocloud
+company_sub_segment = "AI Infrastructure providers - Neocloud"             ← Neocloud
+company_sub_segment = "Sovereign AI Clouds - Neocloud"                     ← Neocloud
+company_sub_segment = "Crypto to AI - Neoclouds"                           ← Neocloud
+company_sub_segment = "Regional CLEC - Fiber operator"                     ← Fiber
+company_sub_segment = "Long Haul / Backbone - Fiber operator"              ← Fiber
+company_sub_segment = "Dark Fiber Specialist - Fiber Operator"             ← Fiber
+company_sub_segment = "External Extension - Network operator"              ← Network Op
+company_sub_segment = "Internal + external unification - Network Operator" ← Network Op
+company_sub_segment = "Telecom Aggregator - MSP"                           ← MSP
+company_sub_segment = "Managed Network Services - Network Operator"        ← MSP
 ```
 
 ---
@@ -140,13 +139,44 @@ customer_sub_segment = "Managed Network Services"           ← MSP
 
 | Internal Value | Display Label | Criteria |
 |----------------|--------------|----------|
-| `tier_1` | Tier 1 | **Highest priority** — Colo + hyperscaler proximity, NaaS fiber, leadership change |
-| `tier_2` | Tier 2 | High — strong ICP signals, large infrastructure |
-| `tier_3` | Tier 3 | Standard — mid-size colo/fiber without trigger |
-| `tier_4` | Tier 4 | Low — smaller scale, weaker ICP fit |
-| `tier_5` | Tier 5 | Lowest priority — MSP/Aggregator, minimal infrastructure |
+| `tier_1` | Tier 1 | **Highest priority** — timing + fit are both strong. See Tier 1 criteria below |
+| `tier_2` | Tier 2 | Strong ICP fit, high confidence, no urgency trigger |
+| `tier_3` | Tier 3 | Qualified but smaller scale or medium confidence |
+| `tier_4` | Tier 4 | Low confidence or no clear use case signal |
+| `tier_5` | Tier 5 | Manual assignment only (enrichment never sets this) |
 
 > ⚠️ **Note:** Tier 1 = highest priority. This is **inverted** from HubSpot's default property description which says "1 (lowest) to 5 (highest)." Our convention: **Tier 1 = best, Tier 5 = worst.**
+
+### Tier 1 Criteria (must meet ANY of the following)
+
+| Condition | Why |
+|-----------|-----|
+| NeoCloud (any sub-segment) | Building and buying now, highest urgency |
+| Colo with `company_sub_segment` = `AI Signals - colo` | Confirmed GPU tenants or liquid cooling, actively serving AI workloads |
+| Any ICP segment + recent trigger event (past 6 months) + `segmentation_confidence` = `high_90` | Trigger (expansion, funding, leadership change) creates a time-sensitive window |
+
+### Tier 2 Criteria
+
+| Condition | Why |
+|-----------|-----|
+| Standard Colo (`Standard - colo`) with `high_90` confidence + Mid-Size or larger infrastructure | Strong fit, no urgency signal |
+| Fiber Operator with `high_90` confidence | Passes all qualification gates, large whitespace |
+| Network Operator (either track) with `high_90` confidence | Carrier-scale, strong use case |
+
+### Tier 3 Criteria
+
+| Condition | Why |
+|-----------|-----|
+| Any ICP segment with `medium_7089` confidence | Qualified but less certain |
+| Small-scale accounts (infrastructure_profile = Small in all dimensions) | Fit is there but deal size may be limited |
+| MSP/Aggregator (any confidence) | Lowest segment priority |
+
+### Tier 4 Criteria
+
+| Condition | Why |
+|-----------|-----|
+| `low_5069` or `manual_review_required` confidence | Not enough evidence for active outreach |
+| Qualified segment but no observable use case signal | Hold for re-enrichment later |
 
 ---
 
@@ -334,13 +364,15 @@ Select ALL that apply per company. Semicolon-separated in output.
 
 ## 12. Enrichment Properties (Text Fields)
 
-| Property Name | Label | Type | Description |
-|--------------|-------|------|-------------|
-| `account_brief` | Company brief | String | 3-6 sentence overview: what they do, who they serve, positioning |
-| `maiaedge_value_proposition` | MaiaEdge value proposition | String | 4-5 sentence email body: prospect situation + problem + MaiaEdge solution + proof |
-| `recent_news_or_trigger_event` | Recent News / Trigger Events | String | Expansion, funding, leadership change — influences timing |
-| `last_enriched_date` | Last enriched date | String | YYYY-MM-DD format, auto-populated |
-| `domain` | Company Domain Name | String | Primary company domain (e.g., `equinix.com`) |
+| Property Name | Label | Type | Max Chars | Description |
+|--------------|-------|------|-----------|-------------|
+| `account_brief` | Company brief | String | 400 | 3-6 sentence overview: what they do, who they serve, positioning |
+| `maiaedge_value_proposition` | MaiaEdge value proposition | String | 500 | 4-5 sentence email body: prospect situation + problem + MaiaEdge solution + proof |
+| `geographic_focus` | Geographic focus | String | 150 | Natural language description of where the company operates (e.g., "Southeast US", "National", "Multi-state Northeast"). Separate from account_brief for geographic personalization |
+| `provisioning_landscape` | Provisioning landscape | String | 500 | Narrative synthesis of the company's fabric and provisioning approach, including platforms/tools/processes they use and a messaging angle for MaiaEdge |
+| `recent_news_or_trigger_event` | Recent News / Trigger Events | String | 250 | Expansion, funding, leadership change from the past calendar year |
+| `last_enriched_date` | Last enriched date | String | — | YYYY-MM-DD format, auto-populated when enrichment runs |
+| `domain` | Company Domain Name | String | — | Primary company domain (e.g., `equinix.com`) |
 
 ---
 
@@ -362,7 +394,7 @@ Select ALL that apply per company. Semicolon-separated in output.
 For HubSpot company imports, use these exact column headers:
 
 ```csv
-Company Domain Name,Name,Customer segment,Customer Sub-Segment,Account Tier,Lifecycle Stage,Company owner,State/Region,Country/Region,Company brief,MaiaEdge value proposition,Infrastructure profile,Hyperscaler Proximity,Segmentation confidence,Target Account,Lead Status
+Company Domain Name,Name,Customer segment,Company Sub Segment,Account Tier,Lifecycle Stage,Company owner,State/Region,Country/Region,Company brief,MaiaEdge value proposition,Geographic focus,Provisioning landscape,Infrastructure profile,Hyperscaler Proximity,Segmentation confidence,Target Account,Lead Status
 ```
 
 ### Default Values for New Sourced Accounts
