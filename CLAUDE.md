@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # MaiaEdge AI Toolkit
 
 Sales AI toolkit for MaiaEdge — carrier infrastructure for federated private networking.
@@ -88,6 +92,24 @@ Sales AI toolkit for MaiaEdge — carrier infrastructure for federated private n
 ## Building Plugins
 
 Run `./build.sh` to assemble all plugins and standalone skill zips into `builds/`.
+
+The build script:
+1. Reads each `plugins/*/plugin-manifest.json` to know which skills and context files to bundle
+2. Copies `skills/<name>/SKILL.md` + declared `context/` files into a staged folder per plugin
+3. Zips plugins → `builds/plugins-zipped/`, standalone skills → `builds/skills-zipped/`
+4. Flattens everything into `enterprise/*/upload/` folders (renaming skills to their upload filenames per the `SKILL_RENAME` map in build.sh)
+
+**Plugin manifest fields:** `skills` (list of skill folder names), `context` (relative paths from `context/`), `static` (extra files from the plugin dir).
+
+**Standalone skill zips** (defined in `build.sh`): `account-brief`, `copy-strategist`, `sales-enablement`, `call-prep`, `competitive-intel`. The `copy-strategist` zip also bundles `context/copy-strategy/` as references.
+
+**Enterprise Projects** (4 targets in `enterprise/`):
+- `sales-outreach/` — outreach + enrichment skills, core/segments/outreach/copy-strategy context
+- `founder-outreach/` — subset of sales-outreach (no sdr-pipeline/import-processor)
+- `account-intelligence/` — RevOps + enrichment skills, all context categories
+- `general-assistant/` — every skill + every context file
+
+Each enterprise folder has a `manifest.md` (upload instructions for Claude.ai) and `upload/` (pre-built files from `build.sh`).
 
 ## Team
 
