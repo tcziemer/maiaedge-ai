@@ -140,7 +140,7 @@ echo ""
 echo "Building enterprise upload folders..."
 
 ENT_DIR="$REPO_DIR/enterprise"
-SKILL_RENAME='{"cold-email":"maiaedge-cold-outreach-writer","linkedin-outreach":"maiaedge-linkedin-outreach","prospect-research":"maiaedge-prospect-research","segment-classification":"maiaedge-segment-classification","company-enrichment":"maiaedge-company-enrichment","import-processor":"maiaedge-enrichment-import-processor","contact-discovery":"maiaedge-contact-discovery","account-brief":"maiaedge-account-brief","sdr-pipeline":"maiaedge-sdr-pipeline","copy-strategist":"copystrategistskill","edge-case-researcher":"maiaedge-edge-case-researcher","account-sourcing":"maiaedge-account-sourcing","crm-hygiene":"maiaedge-crm-hygiene","pipeline-analytics":"maiaedge-pipeline-analytics","territory-manager":"maiaedge-territory-manager","event-intelligence":"maiaedge-event-intelligence","sales-enablement":"maiaedge-sales-enablement","sales-docs":"maiaedge-sales-docs","icp-networking":"maiaedge-icp-networking","call-prep":"maiaedge-call-prep","competitive-intel":"maiaedge-competitive-intel"}'
+SKILL_RENAME='{"cold-email":"maiaedge-cold-outreach-writer","linkedin-outreach":"maiaedge-linkedin-outreach","prospect-research":"maiaedge-prospect-research","segment-classification":"maiaedge-segment-classification","company-enrichment":"maiaedge-company-enrichment","import-processor":"maiaedge-enrichment-import-processor","contact-discovery":"maiaedge-contact-discovery","account-brief":"maiaedge-account-brief","sdr-pipeline":"maiaedge-sdr-pipeline","copy-strategist":"copystrategistskill","edge-case-researcher":"maiaedge-edge-case-researcher","account-sourcing":"maiaedge-account-sourcing","crm-hygiene":"maiaedge-crm-hygiene","pipeline-analytics":"maiaedge-pipeline-analytics","territory-manager":"maiaedge-territory-manager","event-intelligence":"maiaedge-event-intelligence","sales-enablement":"maiaedge-sales-enablement","sales-docs":"maiaedge-sales-docs","icp-networking":"maiaedge-icp-networking","call-prep":"maiaedge-call-prep","competitive-intel":"maiaedge-competitive-intel","call-analysis":"maiaedge-call-analysis","pipeline-discipline":"maiaedge-pipeline-discipline","call-reporting":"maiaedge-call-reporting"}'
 
 copy_skill() {
   local skill_name="$1" dest="$2"
@@ -216,6 +216,22 @@ cp "$CONTEXT_DIR/marketing/sovereign-routing-explainer.md" "$AI/" 2>/dev/null
 copy_context_dir "$CONTEXT_DIR/marketing/media-consumption" "$AI"
 echo "  Account Intelligence: $(ls "$AI" | wc -l) files"
 
+# --- Call Intelligence ---
+# Note: only 3 core files needed (not messaging/competitive/glossary), so cherry-pick instead of copy_context_dir
+CI="$ENT_DIR/call-intelligence/upload"
+mkdir -p "$CI"
+for s in call-analysis pipeline-discipline call-reporting pipeline-analytics; do
+  copy_skill "$s" "$CI"
+done
+cp "$CONTEXT_DIR/core/maiaedge-101.md" "$CI/" 2>/dev/null
+cp "$CONTEXT_DIR/core/icp-playbook.md" "$CI/" 2>/dev/null
+cp "$CONTEXT_DIR/core/segment-qualification.md" "$CI/" 2>/dev/null
+copy_context_dir "$CONTEXT_DIR/segments" "$CI"
+copy_context_dir "$CONTEXT_DIR/hubspot" "$CI"
+cp "$CONTEXT_DIR/sales/use-case-taxonomy.md" "$CI/" 2>/dev/null
+cp "$CONTEXT_DIR/sales/call-intelligence.md" "$CI/" 2>/dev/null
+echo "  Call Intelligence: $(ls "$CI" | wc -l) files"
+
 # --- General Assistant (everything) ---
 GA="$ENT_DIR/general-assistant/upload"
 mkdir -p "$GA"
@@ -229,7 +245,7 @@ echo ""
 echo "=== Build Complete ==="
 echo "Plugins: $(ls "$BUILDS_DIR/plugins-zipped/"*.zip 2>/dev/null | wc -l) zips"
 echo "Skills:  $(ls "$BUILDS_DIR/skills-zipped/"*.zip 2>/dev/null | wc -l) zips"
-echo "Enterprise: 4 upload folders"
+echo "Enterprise: 5 upload folders"
 echo ""
 echo "Plugin zips:      $BUILDS_DIR/plugins-zipped/"
 echo "Skill zips:       $BUILDS_DIR/skills-zipped/"

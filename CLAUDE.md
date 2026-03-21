@@ -58,6 +58,13 @@ Sales AI toolkit for MaiaEdge — carrier infrastructure for federated private n
 | call-prep | skills/call-prep/ | Pre-call briefing + talking points |
 | competitive-intel | skills/competitive-intel/ | Competitive briefs + positioning |
 
+### Call Intelligence
+| Skill | Path | Function |
+|-------|------|----------|
+| call-analysis | skills/call-analysis/ | Extract use cases, segments, signals from HubSpot call summaries |
+| pipeline-discipline | skills/pipeline-discipline/ | 3-column pipeline board: accounts->POC, POC->PO, PO->expansion |
+| call-reporting | skills/call-reporting/ | Call dashboards, trend analysis, audience-specific briefings |
+
 ### Events & Networking
 | Skill | Path | Function |
 |-------|------|----------|
@@ -81,11 +88,11 @@ Sales AI toolkit for MaiaEdge — carrier infrastructure for federated private n
 |----------|------|---------------|
 | Core | context/core/ | Company identity, messaging, competitive, qualification, ICP, glossary |
 | Segments | context/segments/ | Cheatsheets for: colocation, fiber, neocloud, network-op, MSP |
-| HubSpot | context/hubspot/ | Property schema, territory model, field values, deal schema |
+| HubSpot | context/hubspot/ | Property schema, territory model, field values, deal schema, call schema, POC schema |
 | Outreach | context/outreach/ | Email rules, fallback messaging, sender profiles |
 | Enrichment | context/enrichment/ | Research routes, output schemas, sourcing guide |
 | Product | context/product/ | Datasheets, proof points, AI positioning, cloud on-ramp |
-| Sales | context/sales/ | Account brief template, call intel, pricing, neocloud strategy, marketplace seeding |
+| Sales | context/sales/ | Account brief template, call intel, use-case taxonomy, pricing, neocloud strategy, marketplace seeding |
 | Marketing | context/marketing/ | Copywriting guidelines, LinkedIn framework, media consumption |
 | Copy Strategy | context/copy-strategy/ | Outbound playbook, scoring rubric, segment language/messaging |
 
@@ -103,10 +110,11 @@ The build script:
 
 **Standalone skill zips** (defined in `build.sh`): `account-brief`, `copy-strategist`, `sales-enablement`, `call-prep`, `competitive-intel`. The `copy-strategist` zip also bundles `context/copy-strategy/` as references.
 
-**Enterprise Projects** (4 targets in `enterprise/`):
+**Enterprise Projects** (5 targets in `enterprise/`):
 - `sales-outreach/` — outreach + enrichment skills, core/segments/outreach/copy-strategy context
 - `founder-outreach/` — subset of sales-outreach (no sdr-pipeline/import-processor)
 - `account-intelligence/` — RevOps + enrichment skills, all context categories
+- `call-intelligence/` — call analysis + pipeline discipline + reporting, HubSpot/segments/sales context
 - `general-assistant/` — every skill + every context file
 
 Each enterprise folder has a `manifest.md` (upload instructions for Claude.ai) and `upload/` (pre-built files from `build.sh`).
@@ -116,7 +124,7 @@ Each enterprise folder has a `manifest.md` (upload instructions for Claude.ai) a
 | Person | Role | Territory | HubSpot Owner ID |
 |--------|------|-----------|-----------------|
 | Tim Lieto | AVP, North America Sales | East (30 states) | 161889085 |
-| Ken Cunningham | Sales, East Region | West (20 states + DC) | 162339176 |
+| Ken Cunningham | Sales, West Region | West (20 states + DC) | 162339176 |
 | Timothy Ziemer | CRO & Co-Founder | International | 159350430 |
 | Cooper Kennedy | RevOps | — | 160267902 |
 | Abilash Menon | CEO & Co-Founder | Strategic | 159974715 |
