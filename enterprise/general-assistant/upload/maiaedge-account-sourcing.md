@@ -32,17 +32,17 @@ Trigger on any of these patterns:
 **ALWAYS read `sourcing-reference-guide.md` first** — This comprehensive guide contains hit rate benchmarks by source (validated from 2,769+ records), every sourcing website with navigation instructions, broad search queries per segment, qualification signals at three confidence tiers, and source access quick reference tables.
 
 **For each segment, also read the relevant cheatsheet:**
-- **icp-sales-playbook.md** — Full ICP definitions, buyer personas, qualification criteria for all five segments
-- **neocloud-cheatsheet.md** — Neocloud TAM sizing (250-350 companies), 7-signal discovery framework, sub-segment coverage, 90-day sourcing targets
-- **colocation-cheatsheet.md** — Colocation operator deep-dive, asset types, scale indicators, network topology
-- **fiberoperator-cheatsheet.md** — Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
-- **networkoperator-cheatsheet.md** — Network operator deep-dive, Track A/B framework, peering strategies
-- **msp-aggregator-cheatsheet.md** — MSP and aggregator deep-dive, service models, customer bases
+- **icp-playbook.md** — Full ICP definitions, buyer personas, qualification criteria for all five segments
+- **neocloud.md** — Neocloud TAM sizing (250-350 companies), 7-signal discovery framework, sub-segment coverage, 90-day sourcing targets
+- **colocation.md** — Colocation operator deep-dive, asset types, scale indicators, network topology
+- **fiber-operator.md** — Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
+- **network-operator.md** — Network operator deep-dive, Track A/B framework, peering strategies
+- **msp-aggregator.md** — MSP and aggregator deep-dive, service models, customer bases
 
 **For market and product context:**
 - **maiaedge-101.md** — Product overview, marketplace seeding strategy, Ashburn-first priority
 - **competitive-positioning.md** — Market pain quantification, NaaS landscape, competitive context
-- **neocloud-cheatsheet.md** — Also includes Neocloud TAM estimates and discovery signals
+- **neocloud.md** — Also includes Neocloud TAM estimates and discovery signals
 
 Before generating any recommendation, read the relevant segment cheatsheet from the project knowledge base to ensure segment-specific context is accurate.
 
@@ -308,7 +308,7 @@ The original skill referenced `references/sourcing-reference-guide.md` via a dir
 
 **What changed:**
 - Updated sourcing-reference-guide.md path from `references/` directory to project knowledge document
-- Redirected all segment context requests to the relevant cheatsheets (colocation-cheatsheet.md, fiberoperator-cheatsheet.md, etc.)
+- Redirected all segment context requests to the relevant cheatsheets (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
 - Kept all built-in benchmarks from this skill file (hit rate table, segment priorities, decision rules, enrichment economics, batch planning formulas)
 - Retained all six task routing modes unchanged
 
@@ -321,4 +321,4 @@ The original skill referenced `references/sourcing-reference-guide.md` via a dir
 - All core principles
 
 **How to use:**
-When asked for sourcing recommendations or segment-specific guidance, consult the relevant segment cheatsheet from the project knowledge base (neocloud-cheatsheet.md, colocation-cheatsheet.md, etc.) for persona definitions, qualification signals, and segment-specific discovery tactics. Use the hit rate benchmarks and batch planning formulas in this skill file to estimate sourcing yield and cost-effectiveness.
+When asked for sourcing recommendations or segment-specific guidance, consult the relevant segment cheatsheet from the project knowledge base (neocloud.md, colocation.md, fiber-operator.md, network-operator.md, msp-aggregator.md) for persona definitions, qualification signals, and segment-specific discovery tactics. Use the hit rate benchmarks and batch planning formulas in this skill file to estimate sourcing yield and cost-effectiveness.

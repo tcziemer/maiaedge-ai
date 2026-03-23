@@ -9,6 +9,13 @@ Triggers automatically when competitive positioning or objection handling is nee
 - User needs objection handling for a deal
 - User asks "how do we compare to [competitor]?"
 
+## Reference Files
+
+- **competitive-positioning.md** — Detailed battle cards, objection handling frameworks, market context
+- **proof-points.md** — Customer stories and outcomes for competitive situations
+- **pbc-pce-datasheet.md** — Hardware specs for technical comparisons
+- **integrated-switch-datasheet.md** — MPP-48 switch specifications
+
 ## Core Positioning
 
 **MaiaEdge is NOT NaaS.** This is the most important distinction. NaaS providers (Megaport, Equinix Fabric) own the customer relationship. MaiaEdge enables the operator to own the customer relationship.

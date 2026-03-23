@@ -11,6 +11,15 @@ Run comprehensive health checks on HubSpot company, contact, and deal records. I
 
 The goal is to catch problems before they compound — a missing state leads to wrong territory assignment, which leads to wrong rep, which leads to a cold email from the wrong person. Clean data is the foundation everything else runs on.
 
+## Reference Files
+
+For canonical HubSpot schema definitions, read these context files:
+- **property-schema.md** — Company property definitions, valid values, territory model
+- **hubspot-values.md** — Exact HubSpot enum values (case-sensitive)
+- **contact-schema.md** — Contact-level properties, lifecycle, enrichment sync
+- **deals-schema.md** — Deal pipeline stages, MEDDPICC fields, quote workflows
+- **territory-model.md** — State-to-owner mapping, territory boundaries
+
 ---
 
 ## HubSpot Properties Reference

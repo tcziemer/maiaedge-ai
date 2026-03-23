@@ -9,6 +9,13 @@ description: Write cold outreach emails for MaiaEdge prospects. Use when asked t
 
 Get a reply. Not close a deal. Not deliver a pitch deck. Just start a real conversation between two professionals who should be talking.
 
+## Reference Files
+
+When deployed in a project with reference files, also read:
+- **messaging-framework.md** — Segment messaging rules, cloud on-ramp use cases, language rules
+- **email-writing-rules.md** — Core email philosophy, angle-first principle, structure, banned phrases
+- **sender-profiles.md** — Sender identities, voice characteristics, signature protocol
+
 ## Active Senders
 
 | Sender | Title | Territory | Notes |

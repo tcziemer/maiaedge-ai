@@ -10,14 +10,29 @@ TMP_BUILD="/tmp/maiaedge-build-$$"
 
 # Helper: convert MSYS /c/ paths to C:/ for Python on Windows
 winpath() {
-  echo "$1" | sed 's|^/\([a-zA-Z]\)/|\1:/|'
+  local p="$1"
+  # Convert MSYS /c/ paths to C:/
+  p=$(echo "$p" | sed 's|^/\([a-zA-Z]\)/|\1:/|')
+  # Convert /tmp to the real Windows temp path
+  if [[ "$p" == /tmp* ]]; then
+    local win_temp
+    win_temp=$(cmd //c "echo %TEMP%" 2>/dev/null | tr -d '\r')
+    p="${win_temp}${p#/tmp}"
+  fi
+  echo "$p"
 }
 
 echo "=== MaiaEdge AI Toolkit Build ==="
 echo "Repo: $REPO_DIR"
 echo ""
 
-# Use /tmp for zip operations (avoids FUSE filesystem limitations)
+# Use a temp dir for zip operations (avoids FUSE filesystem limitations)
+# On MSYS/Git Bash, use $TEMP or $REPO_DIR/.tmp so PowerShell can resolve the path
+if [ -n "$TEMP" ]; then
+  TMP_BUILD="$TEMP/maiaedge-build-$$"
+else
+  TMP_BUILD="/tmp/maiaedge-build-$$"
+fi
 rm -rf "$TMP_BUILD"
 mkdir -p "$TMP_BUILD/plugins" "$TMP_BUILD/plugins-zipped" "$TMP_BUILD/skills-zipped"
 
@@ -97,7 +112,11 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Zip in /tmp then copy to builds/ (include .claude-plugin/ — required for Cowork)
-  (cd "$TMP_BUILD/plugins" && zip -r "$TMP_BUILD/plugins-zipped/$plugin_name.zip" "$plugin_name" > /dev/null)
+  if command -v zip &>/dev/null; then
+    (cd "$TMP_BUILD/plugins" && zip -r "$TMP_BUILD/plugins-zipped/$plugin_name.zip" "$plugin_name" > /dev/null)
+  else
+    powershell -NoProfile -Command "Compress-Archive -Path '$(winpath "$TMP_BUILD/plugins/$plugin_name")' -DestinationPath '$(winpath "$TMP_BUILD/plugins-zipped/$plugin_name.zip")' -Force"
+  fi
   echo "  -> $plugin_name.zip"
 done
 
@@ -117,7 +136,11 @@ for skill in $STANDALONE_SKILLS; do
       cp "$CONTEXT_DIR/copy-strategy/"* "$TMP_BUILD/skill-stage/$skill/references/"
     fi
 
-    (cd "$TMP_BUILD/skill-stage" && zip -r "$TMP_BUILD/skills-zipped/$skill.zip" "$skill" > /dev/null)
+    if command -v zip &>/dev/null; then
+      (cd "$TMP_BUILD/skill-stage" && zip -r "$TMP_BUILD/skills-zipped/$skill.zip" "$skill" > /dev/null)
+    else
+      powershell -NoProfile -Command "Compress-Archive -Path '$(winpath "$TMP_BUILD/skill-stage/$skill")' -DestinationPath '$(winpath "$TMP_BUILD/skills-zipped/$skill.zip")' -Force"
+    fi
     echo "  -> $skill.zip"
   fi
 done

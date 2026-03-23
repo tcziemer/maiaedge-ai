@@ -11,6 +11,10 @@ Validate and enforce territory assignments in HubSpot. The territory model is si
 
 **Source of truth:** The `state` property in HubSpot reflects HQ location. The `hubspot_owner_id` property determines account ownership. This skill checks that they align.
 
+## Reference Files
+
+For the canonical territory model, see **territory-model.md**. The mapping below is reproduced for quick reference.
+
 ---
 
 ## Territory Model (Effective January 2026)

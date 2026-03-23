@@ -15,6 +15,11 @@ LinkedIn requests are even more stripped down than emails. You have room for exa
 
 Don't try to pitch. Don't try to sell. The goal is for them to accept the connection. That's it. Lead with a segment-specific problem, not company flattery.
 
+## Reference Files
+
+- **messaging-framework.md** — Segment-specific messaging rules and positioning
+- **sender-profiles.md** — Sender identities and voice characteristics
+
 ## Guidelines
 
 - Always customize with at least one company-specific detail from research, baked into a problem statement

@@ -303,6 +303,5 @@ Before finalizing brief:
 
 ## References
 
-- Consult `MaiaEdge_Email_Bot_SKILL.md` for email copywriting guidelines
-- Consult `MaiaEdge_Email_Bot_EXAMPLES.md` for email patterns by segment
-- Consult segment-specific cheat sheets for detailed pain points and personas
+- Consult the cold-email skill (`cold-email/SKILL.md`) for email copywriting guidelines
+- Consult segment cheatsheets for detailed pain points and personas: `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`

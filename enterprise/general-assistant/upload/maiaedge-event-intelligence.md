@@ -7,6 +7,13 @@ description: "MaiaEdge conference and event intelligence skill. Use when prepari
 
 Maximize ROI from every conference by systematically converting attendee lists into pipeline. Three phases: Pre-Event (research + target prioritization), At-Event (real-time notes), Post-Event (follow-up sequencing).
 
+## Reference Files
+
+- **icp-playbook.md** — ICP definitions and qualification criteria
+- **segment-qualification.md** — Proof-based qualification gates per segment
+- **Segment cheatsheets:** `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
+- **territory-model.md** — State-to-owner mapping for routing event contacts
+
 ## Conference Tiers
 
 **Tier 1 (MaiaEdge attends/exhibits):**
@@ -195,16 +202,16 @@ NEXT STEPS
 
 ### Territory Assignment Model
 
-Use HubSpot account HQ state to assign follow-up sender:
+Use HubSpot account HQ state to assign follow-up sender. See **territory-model.md** for the canonical mapping.
 
-**Tim Lieto (North America Sales, East territory):**
-- CT, DE, MA, MD, ME, NH, NJ, NY, PA, RI, VT, VA, WV, DC, OH, IN, KY, TN (East + Midwest expansion)
+**Tim Lieto (North America Sales, East — 30 states):**
+- AL, AR, CT, DE, FL, GA, IA, IL, IN, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NH, NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV
 
-**Ken Cunningham (West territory):**
-- CA, OR, WA, NV, UT, CO, AZ, NM, TX, OK, KS, WY, MT, ID (West + Southwest)
+**Ken Cunningham (West — 20 states + DC):**
+- AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND, NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY
 
 **International:**
-- Tim Ziemer (flagged for international reps)
+- Tim Ziemer (all non-US)
 
 ### Output Format: Post-Event Follow-Up Package
 

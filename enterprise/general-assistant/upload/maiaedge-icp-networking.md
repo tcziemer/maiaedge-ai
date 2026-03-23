@@ -11,6 +11,11 @@ version: 2.0.0
 
 Strategic peer networking in MaiaEdge ICP accounts. Brand exposure and relationship building, not sales outreach. Cooper Kennedy connects as a RevOps/GTM systems peer.
 
+## Reference Files
+
+- **hubspot-values.md** — Exact HubSpot segment and sub-segment enum values
+- **territory-model.md** — State-to-owner mapping for territory routing
+
 ## Sender Profile
 
 - **Name:** Cooper Kennedy

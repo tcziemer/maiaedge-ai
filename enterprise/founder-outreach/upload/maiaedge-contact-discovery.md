@@ -11,6 +11,11 @@ Find the right people at target accounts and identify gaps in contact coverage. 
 
 MaiaEdge sells infrastructure technology, so the buying committee typically involves network engineering, infrastructure/IT leadership, product/strategy, and procurement. Missing any of these personas means deals can stall without warning.
 
+## Reference Files
+
+- **contact-schema.md** — Contact properties, lifecycle stages, enrichment sync mappings
+- **territory-model.md** — State-to-owner mapping for routing new contacts
+
 ---
 
 ## Target Personas by Segment
