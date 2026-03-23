@@ -8,6 +8,8 @@
     "hubspot/hubspot-values.md",
     "hubspot/territory-model.md",
     "hubspot/property-schema.md",
+    "hubspot/contact-schema.md",
+    "hubspot/deals-schema.md",
     "segments/neocloud.md"
   ],
   "static": []

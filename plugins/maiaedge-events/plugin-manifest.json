@@ -4,7 +4,13 @@
   "skills": ["event-intelligence"],
   "context": [
     "core/segment-qualification.md",
-    "hubspot/territory-model.md"
+    "core/icp-playbook.md",
+    "hubspot/territory-model.md",
+    "segments/colocation.md",
+    "segments/fiber-operator.md",
+    "segments/neocloud.md",
+    "segments/network-operator.md",
+    "segments/msp-aggregator.md"
   ],
   "static": []
 }

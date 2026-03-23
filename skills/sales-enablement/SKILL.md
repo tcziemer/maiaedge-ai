@@ -32,7 +32,7 @@ Always frame value around these three pillars:
 
 ## Customer Segments
 
-For segment-specific messaging, personas, and pain points, see the project knowledge document **icp-sales-playbook.md** available in Claude.
+For segment-specific messaging, personas, and pain points, see the project knowledge document **icp-playbook.md** available in Claude.
 
 | Segment | Profile | Primary Value Prop |
 |---------|---------|-------------------|
@@ -57,7 +57,7 @@ For detailed objection handling and competitor responses, see the project knowle
 ## Document Creation Workflows
 
 ### Battle Cards
-1. Lead with segment-specific pain points (see icp-sales-playbook.md)
+1. Lead with segment-specific pain points (see icp-playbook.md)
 2. Frame MaiaEdge value using the three pillars (Automate, Federate, Monetize)
 3. Include persona-specific talk tracks
 4. Add competitive objection responses

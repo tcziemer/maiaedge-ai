@@ -4,6 +4,7 @@
   "skills": ["cold-email", "linkedin-outreach", "prospect-research", "segment-classification"],
   "context": [
     "core/segment-qualification.md",
+    "core/icp-playbook.md",
     "core/messaging-framework.md",
     "core/competitive-positioning.md",
     "segments/colocation.md",

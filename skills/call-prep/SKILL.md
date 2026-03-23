@@ -9,6 +9,15 @@ Triggers automatically when preparing for meetings or calls with MaiaEdge prospe
 - User asks for discovery questions or talk tracks
 - User mentions "call prep," "meeting prep," or "preparing for [company]"
 
+## Reference Files
+
+For deeper context during call preparation, consult:
+- **Segment cheatsheets:** `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
+- **competitive-positioning.md** — Battle cards, objection handling by competitor
+- **proof-points.md** — Customer stories and public quotes (Arvig, RevNet, NTT, IENTC, Ocean Networks)
+- **pricing-reference.md** — PBC/PCE SKUs, term pricing, discount policy
+- **call-intelligence.md** — Patterns from past calls organized by segment
+
 ## Meeting Prep Framework
 
 ### 1. Acknowledge What They've Built

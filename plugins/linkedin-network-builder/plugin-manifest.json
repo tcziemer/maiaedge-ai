@@ -2,6 +2,9 @@
   "name": "linkedin-network-builder",
   "version": "1.0.0",
   "skills": ["icp-networking"],
-  "context": [],
+  "context": [
+    "hubspot/hubspot-values.md",
+    "hubspot/territory-model.md"
+  ],
   "static": []
 }
