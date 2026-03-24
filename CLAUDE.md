@@ -57,6 +57,7 @@ Sales AI toolkit for MaiaEdge — carrier infrastructure for federated private n
 | sales-enablement | skills/sales-enablement/ | Battle cards, discovery guides, collateral |
 | call-prep | skills/call-prep/ | Pre-call briefing + talking points |
 | competitive-intel | skills/competitive-intel/ | Competitive briefs + positioning |
+| bizcase | skills/bizcase/ | Cloud on-ramp business case Excel models (NeoCloud, Fiber Operator, Wholesale Carrier) |
 
 ### Call Intelligence
 | Skill | Path | Function |

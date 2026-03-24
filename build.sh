@@ -163,7 +163,7 @@ echo ""
 echo "Building enterprise upload folders..."
 
 ENT_DIR="$REPO_DIR/enterprise"
-SKILL_RENAME='{"cold-email":"maiaedge-cold-outreach-writer","linkedin-outreach":"maiaedge-linkedin-outreach","prospect-research":"maiaedge-prospect-research","segment-classification":"maiaedge-segment-classification","company-enrichment":"maiaedge-company-enrichment","import-processor":"maiaedge-enrichment-import-processor","contact-discovery":"maiaedge-contact-discovery","account-brief":"maiaedge-account-brief","sdr-pipeline":"maiaedge-sdr-pipeline","copy-strategist":"copystrategistskill","edge-case-researcher":"maiaedge-edge-case-researcher","account-sourcing":"maiaedge-account-sourcing","crm-hygiene":"maiaedge-crm-hygiene","pipeline-analytics":"maiaedge-pipeline-analytics","territory-manager":"maiaedge-territory-manager","event-intelligence":"maiaedge-event-intelligence","sales-enablement":"maiaedge-sales-enablement","sales-docs":"maiaedge-sales-docs","icp-networking":"maiaedge-icp-networking","call-prep":"maiaedge-call-prep","competitive-intel":"maiaedge-competitive-intel","call-analysis":"maiaedge-call-analysis","pipeline-discipline":"maiaedge-pipeline-discipline","call-reporting":"maiaedge-call-reporting"}'
+SKILL_RENAME='{"cold-email":"maiaedge-cold-outreach-writer","linkedin-outreach":"maiaedge-linkedin-outreach","prospect-research":"maiaedge-prospect-research","segment-classification":"maiaedge-segment-classification","company-enrichment":"maiaedge-company-enrichment","import-processor":"maiaedge-enrichment-import-processor","contact-discovery":"maiaedge-contact-discovery","account-brief":"maiaedge-account-brief","sdr-pipeline":"maiaedge-sdr-pipeline","copy-strategist":"copystrategistskill","edge-case-researcher":"maiaedge-edge-case-researcher","account-sourcing":"maiaedge-account-sourcing","crm-hygiene":"maiaedge-crm-hygiene","pipeline-analytics":"maiaedge-pipeline-analytics","territory-manager":"maiaedge-territory-manager","event-intelligence":"maiaedge-event-intelligence","sales-enablement":"maiaedge-sales-enablement","sales-docs":"maiaedge-sales-docs","icp-networking":"maiaedge-icp-networking","call-prep":"maiaedge-call-prep","competitive-intel":"maiaedge-competitive-intel","call-analysis":"maiaedge-call-analysis","pipeline-discipline":"maiaedge-pipeline-discipline","call-reporting":"maiaedge-call-reporting","bizcase":"maiaedge-bizcase"}'
 
 copy_skill() {
   local skill_name="$1" dest="$2"
@@ -225,7 +225,7 @@ echo "  Founder Outreach: $(ls "$FO" | wc -l) files"
 # --- Account Intelligence ---
 AI="$ENT_DIR/account-intelligence/upload"
 mkdir -p "$AI"
-for s in company-enrichment import-processor edge-case-researcher account-sourcing crm-hygiene pipeline-analytics territory-manager contact-discovery event-intelligence sales-enablement; do
+for s in company-enrichment import-processor edge-case-researcher account-sourcing crm-hygiene pipeline-analytics territory-manager contact-discovery event-intelligence sales-enablement bizcase; do
   copy_skill "$s" "$AI"
 done
 copy_context_dir "$CONTEXT_DIR/core" "$AI"
