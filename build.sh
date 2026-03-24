@@ -71,7 +71,7 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Copy skills from shared skills/ directory
-  skills=$(python -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('skills',[])))")
+  skills=$(python3 -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('skills',[])))")
   if [ -n "$skills" ]; then
     mkdir -p "$build_target/skills"
     for skill in $skills; do
@@ -85,7 +85,7 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Copy context files into references/
-  contexts=$(python -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('context',[])))")
+  contexts=$(python3 -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('context',[])))")
   if [ -n "$contexts" ]; then
     mkdir -p "$build_target/references"
     for ctx in $contexts; do
@@ -99,7 +99,7 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Copy static assets
-  statics=$(python -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('static',[])))")
+  statics=$(python3 -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('static',[])))")
   if [ -n "$statics" ]; then
     for static_path in $statics; do
       src="$plugin_dir/$static_path"
@@ -167,7 +167,7 @@ SKILL_RENAME='{"cold-email":"maiaedge-cold-outreach-writer","linkedin-outreach":
 
 copy_skill() {
   local skill_name="$1" dest="$2"
-  local upload_name=$(python -c "import json; print(json.loads('$SKILL_RENAME').get('$skill_name','maiaedge-$skill_name'))")
+  local upload_name=$(python3 -c "import json; print(json.loads('$SKILL_RENAME').get('$skill_name','maiaedge-$skill_name'))")
   if [ -f "$SKILLS_DIR/$skill_name/SKILL.md" ]; then
     cp "$SKILLS_DIR/$skill_name/SKILL.md" "$dest/${upload_name}.md"
   fi
