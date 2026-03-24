@@ -1,4 +1,6 @@
-# MaiaEdge AI Toolkit — Cheat Sheet
+# MaiaEdge AI Toolkit -- Cheat Sheet
+
+> First time? See [SETUP.md](SETUP.md) for installation and setup.
 
 ## The Rule: Edit Once, Build Once, Deploy Everywhere
 

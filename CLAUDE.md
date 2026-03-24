@@ -119,6 +119,81 @@ The build script:
 
 Each enterprise folder has a `manifest.md` (upload instructions for Claude.ai) and `upload/` (pre-built files from `build.sh`).
 
+## Creating & Organizing Content
+
+When asked to create new skills, context files, or plugins, follow these conventions.
+
+### Creating a New Skill
+
+1. Create `skills/<skill-name>/SKILL.md` with this structure:
+   ```markdown
+   ---
+   name: <skill-name>
+   description: <one-line description>
+   ---
+
+   # <Skill Title>
+
+   ## Purpose
+   What this skill does and when to use it.
+
+   ## Reference Files
+   List the context/ files this skill needs (read these before executing).
+
+   ## Workflow
+   Step-by-step instructions Claude follows when running this skill.
+   ```
+2. Add an entry to the `SKILL_RENAME` map in `build.sh` (~line 166): `"<skill-name>":"maiaedge-<skill-name>"`
+3. Add a row to the **Available Skills** table above in the appropriate category
+4. To include in an enterprise project, add the skill name to the relevant `for s in ...` loop in `build.sh`
+5. The **General Assistant** project auto-discovers all skills in `skills/` (no change needed)
+
+### Creating a New Context File
+
+1. Place the .md file in the appropriate `context/<category>/` folder
+2. Existing categories: `core`, `segments`, `hubspot`, `outreach`, `enrichment`, `product`, `sales`, `marketing`, `copy-strategy`
+3. If no existing category fits, create a new subfolder under `context/`
+4. The file auto-appears in the **General Assistant** enterprise project
+5. To include in other enterprise projects, add a `cp` line in the relevant section of `build.sh`
+6. To include in a Cowork plugin, add its path to the plugin's `plugin-manifest.json` under `"context"`
+
+### Creating a New Cowork Plugin
+
+1. Create `plugins/<plugin-name>/`
+2. Create `plugins/<plugin-name>/plugin-manifest.json`:
+   ```json
+   {
+     "name": "<plugin-name>",
+     "version": "1.0.0",
+     "skills": ["skill-a", "skill-b"],
+     "context": ["category/filename.md", "category/other-file.md"],
+     "static": []
+   }
+   ```
+3. Create `plugins/<plugin-name>/.claude-plugin/plugin.json`:
+   ```json
+   {
+     "name": "<Plugin Display Name>",
+     "version": "1.0.0",
+     "description": "<What this plugin does>"
+   }
+   ```
+4. `build.sh` auto-discovers new plugin folders (no `build.sh` edits needed)
+5. Run `bash build.sh` and the new plugin zip appears in `builds/plugins-zipped/`
+
+### Creating a New Enterprise Project
+
+1. Create `enterprise/<project-name>/`
+2. Add a new section in `build.sh` following the pattern of existing projects (set up a variable, loop over skills with `copy_skill`, copy context with `copy_context_dir` or individual `cp` lines)
+3. Create `enterprise/<project-name>/manifest.md` documenting what skills and context files are included
+
+### After Any Content Change
+
+1. Run: `bash build.sh`
+2. **Cowork:** install updated zip from `builds/plugins-zipped/`
+3. **Claude.ai Projects:** upload updated files from `enterprise/<project>/upload/`
+4. **Commit:** `git add -A && git commit -m "description of change"`
+
 ## Team
 
 | Person | Role | Territory | HubSpot Owner ID |
