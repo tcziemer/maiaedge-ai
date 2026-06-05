@@ -143,6 +143,8 @@ Same principle as pipeline-discipline: report what we know, never guess.
 **Step 1  -  Pull all open deals:**
 Pull all open deals (not closed won or lost) from the MaiaEdge Deals pipeline via `search_crm_objects`. Request properties: `dealname, dealstage, amount, hubspot_owner_id, customer_segment, closedate, createdate, hs_deal_stage_probability, hs_manual_forecast_category, hs_v2_time_in_current_stage, num_associated_contacts, notes_last_contacted, notes_last_updated`. Include `associations: ["COMPANY", "TICKET"]`. Paginate if >100 deals.
 
+For each deal, also pull the associated company's `account_tier` and `signal_heat` via the COMPANY association. These power the deal-by-deal context columns (Section 6) and the Signal Heat Distribution section (Section 6b).
+
 **Step 2  -  Stale deal detection:**
 For each deal, determine the most recent activity date by checking:
 - `notes_last_contacted` (deal-level activity)
@@ -217,12 +219,28 @@ Alert card for any deals with `closedate` in the past and still open.
 **Section 6  -  Deal-by-Deal Summary:**
 One row per non-OMIT deal, sorted by adjusted probability descending. Every deal with its full context at a glance.
 
-| Deal | Rep | ACV | Stage | Base % | Adj. % | POC Signal | Category | Latest Summary |
-|------|-----|-----|-------|--------|--------|------------|----------|----------------|
-| [dealname] | [rep] | $[X] | [stage] | [base]% | [adj]% | [POC stage + trend, or "--"] | [category] | [2-3 sentence narrative] |
+| Deal | Rep | ACV | Stage | Base % | Adj. % | POC Signal | Heat | Category | Latest Summary |
+|------|-----|-----|-------|--------|--------|------------|------|----------|----------------|
+| [dealname] | [rep] | $[X] | [stage] | [base]% | [adj]% | [POC stage + trend, or "--"] | [hot/warm/cool/cold] | [category] | [2-3 sentence narrative] |
 
 - If POC modifier applied, show the delta clearly: "50% → 60% (Customer Testing / On Track)"
+- Heat column reads `signal_heat` from the associated company. Apply subtle color band on the cell: hot=red, warm=orange, cool=yellow, cold=gray.
 - If no recent data for narrative: "No activity in [N] days."
+
+**Section 6b  -  Signal Heat Distribution (NEW 2026-05-20):**
+
+Surfaces the intent shape of the open pipeline. Useful for spotting deals that are advancing without current intent signals (a `Cold` deal in `presentationscheduled` is a watch flag) and for prioritizing rep follow-through (`Hot` deals at lower stages are the ones to push this week). Heat values are Title Case per HubSpot enum.
+
+Horizontal bar chart: count of open deals per heat bucket × per stage.
+
+| Heat | Count | Total ACV | Weighted | Notes |
+|------|------:|----------:|---------:|-------|
+| Hot | | | | High intent. Push to next stage this week. |
+| Warm | | | | Recent signal. Maintain momentum. |
+| Cool | | | | Signal stale. Investigate recency. |
+| Cold | | | | No signal in 180d. Discovery call to validate. |
+
+Suppress the section entirely if all four heat buckets contain <3 deals (low signal, the section adds noise without insight).
 
 **Section 7  -  Rep Performance:**
 Horizontal bar chart (pipeline value per rep) + table:
@@ -230,7 +248,7 @@ Horizontal bar chart (pipeline value per rep) + table:
 | Rep | Open Deals | Total ACV | Weighted | Avg Deal Size | Avg Days in Pipeline | Win Rate | Closed This Quarter |
 |-----|-----------|-----------|----------|---------------|---------------------|----------|-------------------|
 
-Segment coverage below: Rep | Colo | Fiber | Neocloud | Network Op | MSP (deal counts per cell)
+Segment coverage below: Rep | Colo | Fiber | Neocloud | Network Op | MSP | Enterprise (deal counts per cell - Enterprise added 2026-05-11 as 6th ICP segment)
 
 **Section 8  -  Deal Velocity (closed-won, last 12 months):**
 How long deals actually take to close and where they get stuck.
@@ -246,6 +264,14 @@ Velocity by segment (3+ deals only):
 
 | Segment | Avg Days to Close | Deal Count |
 |---------|-------------------|------------|
+| Colo | | |
+| Fiber | | |
+| Neocloud | | |
+| Network Op | | |
+| MSP / Aggregator | | |
+| Enterprise (Multi-DC ICP) | | |
+
+Note: Enterprise segment added 2026-05-11 with ICP promotion. Show "--" for Enterprise rows where fewer than 3 closed Enterprise deals exist (sample too small to benchmark - Meijer is the early anchor).
 
 Bottleneck alert card: calls out the single slowest stage with context.
 

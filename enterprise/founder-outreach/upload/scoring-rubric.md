@@ -101,13 +101,15 @@ Opens with solution instead of pain. Or names a problem this person wouldn't rec
 Would a real person actually write this? Not a marketing department. Not a sequence tool. A smart industry peer who sat down and wrote a note.
 
 **9-10  -  Sounds Like a Person:**
-You forget it's a cold email. Natural cadence. Short sentences. Sometimes fragments. "I'd guess" used honestly. One idea, committed to. Some personality shows through. There's a line or two that doesn't "do work" -- it just sounds like how someone talks.
+You forget it's a cold email. The reasoning flows: clauses connected with so / since / but / even though so the email reads as one train of thought arriving at a point, not one-idea-per-sentence declaratives mashed together. Sentence length varies, and there's at most one bare fragment landing for emphasis. "I'd guess" used honestly. One idea, committed to. Some personality shows through. There's a line or two that doesn't "do work" -- it just sounds like how someone talks.
+
+**Scoring note:** Connected reasoning (so / since / but / even though carrying a thought to its point) scores in this top band. Stacked one-idea-per-sentence declaratives - three or more short facts in a row, each its own sentence - score lower (5-6 at best), because that cadence is the single biggest tell of assembled rather than typed copy. One bare fragment per body is fine; three stacked fragments read as ad copy and cap the score.
 
 **Batch note:** In batch review, cap "I'd guess" and "I'd imagine" at 30% of Email 1s. These are good individually but become a detectable template in volume. See Email-Writing-Rules.md "Hedge Variety Requirement" for alternative constructions including premise hedges.
 
-**Sub-criterion: Non-Functional Voice Present.** At least one sentence in E1 should not "do work" structurally — an aside, an honest acknowledgment of uncertainty, a peak-end observation. Not required (don't penalize harshly when absent), but its presence is a +0.5 to +1 score signal because it's the strongest single indicator that a human typed this for a specific person. See Email-Writing-Rules.md "Non-Functional Voice (Required, Not Banned)."
+**Sub-criterion: Non-Functional Voice Present.** At least one sentence in E1 should not "do work" structurally - an aside, an honest acknowledgment of uncertainty, a peak-end observation. Not required (don't penalize harshly when absent), but its presence is a +0.5 to +1 score signal because it's the strongest single indicator that a human typed this for a specific person. See Email-Writing-Rules.md "Non-Functional Voice (Required, Not Banned)."
 
-**Sub-criterion: "I" voice, not "we" voice.** Brand-voice constructions ("We help operators…" / "We work with…" / "Most operators we talk to…") in E1, E2, E3, or LinkedIn body are an automatic 1-point deduction on this dimension. The email is from a person to a person; the "we" voice breaks the peer posture.
+**Sub-criterion: "I" voice, not "we" voice.** Generic-category brand-voice we-claims ("We help operators…" / "We work with companies like yours…" / "Most operators we talk to…" / "What we keep hearing from operators…") in E1, E2, E3, or LinkedIn body are an automatic 1-point deduction on this dimension. The email is from a person to a person; a we-claim with no specific mechanic breaks the peer posture. **Carve-out (do NOT deduct):** the specific-mechanic peer line - "We've been helping similar [cohort] [specific mechanic], so [plain outcome]" - is sanctioned and does not lose a point. The test is whether a reader can tell exactly what we DO from the sentence: a specific mechanic + a plain outcome reads as spoken peer credibility, while a we-claim that could describe any vendor ("we help operators grow") is the banned generic version. The peer line is email-only (never LinkedIn) and one per sequence; for Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale.
 
 > "I'd guess provisioning hasn't caught up with expansion yet. Most operators in your position are still quoting 60-90 days for cross-carrier circuits. Not exactly the speed story your sales team wants to tell."
 
@@ -124,11 +126,13 @@ Every paragraph does visible work. Transitions like "That's why I'm reaching out
 Marketing language, hype words, robotic structure. "I'd love to" + "I'd be happy to" + "Let me know if..."
 
 **Human voice markers (good):**
-- Short sentences. Sometimes fragments.
+- Reasoning that flows: clauses connected with so / since / but / even though, arriving at one point. One bare fragment per body, max.
 - "I'd guess" or "I'd imagine" used genuinely
 - Acknowledging what you don't know: "Not sure if this is on your radar"
-- Active voice, direct statements
+- Active voice, second person: talking to them, not reporting about them
 - Personality in word choice
+
+**Stacked-fragment marker (bad):** three or more short one-idea-per-sentence declaratives in a row. This is the cadence of assembled copy, not typed copy, and it scores lower than connected reasoning.
 
 **Sequence tool markers (bad):**
 - Every sentence doing obvious "work"
@@ -283,7 +287,7 @@ Speed paired with ownership. The operator keeps the customer, the margin, the co
 The email nudges, it doesn't preach. Claims about the recipient's business are hedged or relational. Claims about MaiaEdge or the market are direct but not grandiose. The recipient finishes reading and thinks "this person gets my world and is worth 3 minutes," not "this person is telling me what my business needs."
 
 **9-10 - Peer-to-Peer Throughout:**
-No absolutes. No prescriptive musts. Claims about their business use hypothesis or relational framing ("I'd guess," "the pattern I'm watching at operators in growth mode…"). Claims about the outcome are direct but humble, in "I" voice or product-as-outcome framing. The email invites a conversation, it doesn't demand action. NO brand-voice constructions ("We help operators…" / "Most operators we talk to…" — BANNED).
+No absolutes. No prescriptive musts. Claims about their business use hypothesis or relational framing ("I'd guess," "the pattern I'm watching at operators in growth mode…"). Claims about the outcome are direct but humble, in "I" voice or product-as-outcome framing. The email invites a conversation, it doesn't demand action. NO brand-voice constructions ("We help operators…" / "Most operators we talk to…" - BANNED).
 
 > "New markets look great on the investor deck. The gap is usually between 'route lit' and 'first dollar of revenue flowing.' Closing that gap is what I've been working on."
 
@@ -340,6 +344,22 @@ For neoclouds, redistribute Sovereignty (4%) equally across the other 10 dimensi
 
 ---
 
+## Tier-1 Violation Deductions
+
+Each is a Tier-1-severity flag - not a stylistic point deduction. Score 0 on the relevant dimension or rewrite-required, depending on the violation.
+
+| Violation | Where it lives | Severity | Action |
+|---|---|---|---|
+| **Brand-voice "We built carrier infrastructure that…" / "We built MaiaEdge for…"** in cold body or LinkedIn body | Dimension 4 (Human Voice) and Dimension 11 (Claim Diplomacy) | Tier-1 / -2 points or rewrite | Rewrite to "I" voice ("I've been working on infrastructure that…") or embed-by-contrast. |
+| **"Fabric-in-a-box"** in cold body or LinkedIn body | Dimension 1 (Speaks Their Language) and Dimension 5 (Segment Lock) | Tier-1 / score 0 on Dimension 1 | The phrase is cheatsheet / live-conversation / sales-enablement only. Banned in cold and LinkedIn body. Use "interconnection layer," "service fabric," or "build your own fabric." The anonymized-proof framing ("One operator called it 'fabric in a box'…") is the only allowed cold instance and is capped at 1 per 3-email sequence. |
+| **"Federation" as a verb** ("federate with partners," "federation creates network effects," "cross-carrier federation") in cold body or LinkedIn body | Dimension 5 (Segment Lock) | Tier-1 / score 0 on Dimension 5 | The verb is banned in cold and LinkedIn body. "Federated Private Networking" as a NOUN phrase is allowed in partner-facing materials (101, cheatsheets, deck) but is STILL banned in cold/LinkedIn body. Translate to "extend your reach," "sell into new markets," "connect to partners instantly." |
+| **Hedge cap violation** ("I'd guess" / "I'd imagine" in >30% of E1s in a batch of 10+) | Dimension 11 (Claim Diplomacy) | -1 point per excess instance | Cap stays at 30%. The Smartlead audit found 60%+ usage. Rewrite the excess using direct assertion, illumination question, premise hedge, peer observation, market observation, or role-native voice (see email-writing-rules.md § Hedge Variety Requirement). |
+| **Persona-blocklist contact appears in output** | Pre-cadence gate, not a dimension | Disqualifying - pull from batch | Director-Carrier-Wholesale, Director-Field-Operations, Country-Manager-at-HQ-product-org, Account Executive, CSM. See `context/outreach/persona-targeting-blocklist.md`. The blocklist runs before write-time; if a contact slipped through, surface in the Cooper-review queue. |
+| **"Saw the [event] coming up" template for E3 sent past the event week** | Dimension 11 + Sequence-level Breakup Execution | -1 point per occurrence | Universal "[event] is around the corner" template formally retired (Decision 4). Use the three-option rotation per email-writing-rules.md § E3 three-option rotation. |
+| **Competitor names in cold body** (Megaport, Equinix Fabric, Lumen PCF, Cisco, Juniper, etc.) | Dimension 5 (Segment Lock) | Tier-1 / score 0 on Dimension 5 | Cross-Segment Rule 2 (existing). The anti-position framing in `segment-messaging.md` § Anti-position framing surfaces the cheatsheet anti-position into cold-safe language without naming competitors. |
+
+---
+
 ## Sequence-Level Scoring (Beyond Individual Emails)
 
 When critiquing a full sequence, also evaluate:
@@ -351,7 +371,7 @@ When critiquing a full sequence, also evaluate:
 | **Posture Rotation** | Does the 3-email sequence rotate posture across the touches? E1 declarative, E2 asked, E3 take-away or detached. The same contact getting three declarative pain statements in a row reads as one writer pushing one angle three times. The same contact getting declarative-asked-detached reads as one writer thinking out loud across a window of time. The LinkedIn touch should also use a different posture than E1. Automatic 1-point deduction at the sequence level if all three touches use the same posture. |
 | **Escalation Logic** | Does urgency build naturally? Not manufactured  -  earned through value. |
 | **Spacing** | 3-5 days between touches. Not too aggressive, not too passive. |
-| **Breakup Execution** | Does the final touch provide graceful exit while leaving the door open? E3 has TWO valid energy modes: (1) timing-anchored ("show is coming up" — for accounts with a real milestone) and (2) detached close that matches the silence ("Sounds like the timing isn't right. Easy to reach me if it ever lands differently." / "I'll stop here. Door's open if anything shifts." — for non-event sequences without a real timing hook). Manufactured urgency when there's no real milestone is a deduction. **Deal-cycle phrases are BANNED in cold E3** ("Have you shelved this?" / "Have you given up on this project?" assume the prospect agreed something existed — they belong in active-deal nurture, not cold outreach). Automatic 1-point deduction if a deal-cycle phrase appears in cold E3. |
+| **Breakup Execution** | Does the final touch provide graceful exit while leaving the door open? E3 has TWO valid energy modes: (1) timing-anchored ("show is coming up" - for accounts with a real milestone) and (2) detached close that matches the silence ("Sounds like the timing isn't right. Easy to reach me if it ever lands differently." / "I'll stop here. Door's open if anything shifts." - for non-event sequences without a real timing hook). Manufactured urgency when there's no real milestone is a deduction. **Deal-cycle phrases are BANNED in cold E3** ("Have you shelved this?" / "Have you given up on this project?" assume the prospect agreed something existed - they belong in active-deal nurture, not cold outreach). Automatic 1-point deduction if a deal-cycle phrase appears in cold E3. |
 
 ---
 

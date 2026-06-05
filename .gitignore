@@ -2,3 +2,6 @@ builds/
 *.xlsx
 *.csv
 .DS_Store
+
+# Tim's personal working files - ignored so `git pull` never touches them
+_tim/

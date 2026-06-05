@@ -38,13 +38,20 @@ Trigger on any of these patterns:
 - **fiber-operator.md**  -  Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
 - **network-operator.md**  -  Network operator deep-dive, Track A/B framework, peering strategies
 - **msp-aggregator.md**  -  MSP and aggregator deep-dive, service models, customer bases
+- **enterprise.md**  -  Enterprise (Multi-DC ICP) deep-dive - four sub-segments (Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services), HubSpot mapping, scale gate, hard disqualifiers, persona priority, lead angles by sub-segment. Anchor account: Meijer.
 
 **For market and product context:**
 - **maiaedge-101.md**  -  Product overview, marketplace seeding strategy, Ashburn-first priority
 - **competitive-positioning.md**  -  Market pain quantification, NaaS landscape, competitive context
 - **neocloud.md**  -  Also includes Neocloud TAM estimates and discovery signals
 
-Before generating any recommendation, read the relevant segment cheatsheet from the project knowledge base to ensure segment-specific context is accurate.
+**For sub-segment taxonomy, disqualifiers, and TAM anchors (Phase 3 references):**
+- **context/account-tiering/sub-segment-qualification.md** - Authoritative list of the 30 active sub-segment values (case-sensitive), parent/sub-segment pairing rules; replaces all stale sub-segment labels (e.g., `Tier 1 Global Incumbent` → `Tier 1 Carrier - Network Op`).
+- **context/account-tiering/enrichment-protocols.md** - D1 global disqualifiers (hyperscalers / equipment vendors / OTT / pure consulting / etc.), D5 evidence-verification protocols. Sourcing must exclude D1-disqualified categories at the source-list stage, not waste enrichment credits on them.
+- **context/account-tiering/sub-segment-qualification-full.md** - §3 D1 disqualifiers, §5 D3 disambiguation flowcharts, §6 anchor lists (per-sub-segment 10-15 anchors with revenue band / footprint / geographic spread for TAM benchmarking), §8 industry sources.
+- **context/account-tiering/d1-global-disqualifiers.md** - working-form D1 disqualifier list for sourcing-side exclusion logic.
+
+Before generating any recommendation, read the relevant segment cheatsheet from the project knowledge base plus `context/account-tiering/sub-segment-qualification.md` to ensure sub-segment labels and TAM benchmarks are accurate.
 
 ---
 
@@ -157,6 +164,7 @@ Steps:
    - Network Operators: 800-1,000 US
    - MSP/Aggregators: 2,000-3,000 US
    - Neoclouds: 250-350 global
+   - Enterprise (Multi-DC ICP): ~300-500 US (Fortune 1000 filtered by 4 verticals + scale gate). Sub-segment breakdown: ~80-120 Financial Services, ~60-100 Healthcare Systems (Top 100 IDNs ± expansion), ~60-100 Retail and Distribution (NRF Top 100 ± expansion), ~30-50 Outsourcing Services (Everest Group BPO rankings).
 4. Identify coverage gaps and recommend sourcing actions
 
 Output format:
@@ -170,6 +178,7 @@ CRM SNAPSHOT: [Date]
 | Network | X     | X%       | 800-1K   | X%         |
 | MSP     | X     | X%       | 2-3K     | X%         |
 | Neocloud| X     | X%       | 250-350  | X%         |
+| Enterprise (Multi-DC ICP) | X | X% | 300-500 | X% |
 
 TOP GAPS:
 1. [Segment]  -  Only X% coverage → Recommend [source] (Y% hit rate)
@@ -208,15 +217,37 @@ EXPECTED ICP YIELD: X companies at blended Y% hit rate
 
 ### Sub-Segment Awareness
 
-When recommending sources or evaluating lists, estimate the likely `customer_sub_segment` distribution. This helps prioritize batches by granular value:
+When recommending sources or evaluating lists, estimate the likely `customer_sub_segment` distribution. Labels below use the EXACT HubSpot enum values from `context/account-tiering/sub-segment-qualification.md` (30 active values; case-sensitive). This helps prioritize batches by granular value AND ensures source recommendations map cleanly to downstream import-processor writes.
 
-| Segment | Sub-Segments | Notes |
+| Segment | Sub-Segments (active enum values - VERIFIED LIVE 2026-05-14) | Notes |
 |---------|-------------|-------|
-| Neocloud | Large-Scale GPU, Tier 1 Inference, AI Infra Providers, Sovereign AI, Crypto-to-AI | Conference lists (GTC, OCP) skew Large-Scale GPU; crypto mining lists yield Crypto-to-AI |
-| Colocation | Standard, AI Infrastructure | DataCenterMap/Cloudscene skew Standard; AI corridor searches yield AI Infrastructure |
-| Fiber | Regional CLEC, Long-Haul/Backbone, Dark Fiber Specialist | FCC BDC/State PUC skew Regional CLEC; PeeringDB skews Long-Haul |
-| Network Op | Track A (External Extension), Track B (Internal Unification) | Large carriers skew Track A; mid-market skew Track B |
-| MSP | Telecom Aggregator, Managed Network Services | Channel/reseller lists skew Aggregator; IT services skew MNS |
+| Neocloud (5 + Greenfield) | `Large Scale GPU - Neocloud`, `Tier 1 Inference - Neocloud`, `AI Infrastructure providers - Neocloud` (lowercase p), `Sovereign AI Clouds - Neocloud`, `Crypto to AI - Neoclouds` (trailing s), `Greenfield` (cross-segment) | Conference lists (GTC, OCP) skew Large Scale GPU; crypto-mining + crypto-real-estate-landlord lists yield `Crypto to AI - Neoclouds` (inclusive of both operator and landlord per Cooper 2026-05-14); announced-only / pre-revenue builds -> `Greenfield` |
+| Colocation (4 + Greenfield) | `Standard - colo`, `AI Signals - colo`, `Modular - colo`, `Hyperscale Wholesale - colo`, `Greenfield` (cross-segment) | DataCenterMap / Cloudscene skew `Standard - colo`; AI-corridor searches yield `AI Signals - colo`; distributed/prefab/edge-pod builders yield `Modular - colo`; Synergy Research wholesale rankings yield `Hyperscale Wholesale - colo`; announced-only builds -> `Greenfield` |
+| Fiber (6) | `Regional CLEC - Fiber operator`, `Long Haul / Backbone - Fiber operator`, `Dark Fiber Specialist - Fiber Operator` (capital O), `Tier 2 National Wholesale - Fiber operator`, `Regional Cable Operator - Fiber operator`, `Municipal / Cooperative - Fiber operator` | FCC BDC / State PUC skew `Regional CLEC - Fiber operator`; PeeringDB skews `Long Haul / Backbone`; Omdia + 10-K disclosures yield `Tier 2 National Wholesale` (Zayo, Lightpath, Uniti+Windstream, EXA EU); NTCA / NRECA / state broadband consortium directories yield `Municipal / Cooperative`. NOTE: `Regional CLEC - Fiber operator` is a framework default - sourcing should flag CLEC candidates for positive-evidence verification downstream |
+| Network Op (5) | `Tier 1 Carrier - Network Op`, `Pure Wholesale Carrier - Network Op`, `Cable MSO Enterprise Division - Network Op`, `International Backbone Specialist - Network Op`, `Subsea cable operator` (NEW 2026-05-14; lowercase, NO `- Network Op` suffix; 30th active sub-segment) | Tier 1 anchors from Wikipedia Tier 1 Network + Statista Top Telecoms + GSMA Intelligence; Pure Wholesale Carrier from PeeringDB Tier 1 IP transit + 10-K filings (Cogent, Arelion, EXA Infrastructure); Cable MSO Enterprise Division from cable parent B2B revenue (Comcast Business, Spectrum Enterprise); International Backbone Specialist from TeleGeography Submarine Cable Map + Omdia (Tata, PCCW Global, Telstra International, HGC); `Subsea cable operator` from Submarine Telecoms Forum + TeleGeography pure-play subsea (Aqua Comms, Seaborn, BW Digital, Hawaiki). Use `network_op_track` field (`external_extension` / `internal_external_unification`) NOT a sub-segment value for the Track A/B classification (retired 2026-05-13). |
+| MSP (5) | `Telecom Aggregator - MSP`, `Managed Network Services - MSP`, `TSD Technology Services Distributor - MSP`, `Master Agent - MSP`, `Cloud + Telecom Hybrid MSP - MSP` | Channel / reseller lists skew `Telecom Aggregator - MSP` (framework default - needs positive evidence); IT integrators + Cisco/Fortinet partner directories yield `Managed Network Services - MSP`; Omdia TSD Market Report (Telarus, AVANT, Intelisys/ScanSource, AppDirect, Sandler, Bridgepointe) yields `TSD Technology Services Distributor - MSP`; smaller regional / vertical-focused agencies (X4 Solutions, CyberNet) yield `Master Agent - MSP`; AWS Premier / Azure Expert / GCP Premier partners with network services yield `Cloud + Telecom Hybrid MSP - MSP`. The `- Network Operator` suffix is retired (Phase 1.7c.1). |
+| Enterprise (Multi-DC ICP) (4) | `Financial Services - Enterprise`, `Healthcare Systems - Enterprise`, `Retail and Distribution - Enterprise`, `Outsourcing Services - Enterprise` | Source dictates sub-segment: Fortune 1000 financial -> Financial Services; Modern Healthcare / Becker's IDN -> Healthcare Systems; NRF Top 100 -> Retail and Distribution; Everest Group BPO -> Outsourcing Services. Manufacturing / Energy / Logistics / Government / Defense / SaaS-only are NOT Enterprise sub-segments (Watch List or out of scope per D1) |
+
+**Retired sub-segment values (DO NOT source toward these - they are rejected by import-processor):**
+- `Co-op/consortium` - replaced by `Municipal / Cooperative - Fiber operator`
+- `External Extension - Network operator` - replaced by `network_op_track = external_extension`
+- `Internal + external unification - Network Operator` - replaced by `network_op_track = internal_external_unification`
+- `Managed Network Services - Network Operator` - replaced by `Managed Network Services - MSP`
+
+### D1 Sourcing-Side Exclusion Logic
+
+Per file 06 §3 and `context/account-tiering/enrichment-protocols.md`, the following categories are GLOBAL D1 DISQUALIFIERS - do not source toward them (they will be rejected downstream regardless of segment, so sourcing them wastes enrichment credits):
+
+- **Hyperscalers and their captive infra:** AWS, Microsoft Azure, GCP, Oracle Cloud, IBM Cloud, Alibaba Cloud, Tencent Cloud (and any wholly-owned infra subsidiary)
+- **Equipment vendors / hardware manufacturers:** Cisco, Juniper, Arista, NVIDIA (when sold as a vendor, not as a NeoCloud renter of its own GPUs), Ciena, Nokia, Ericsson, Dell, HPE, Supermicro
+- **Over-the-top (OTT) content and SaaS:** Netflix, Hulu, Spotify, Salesforce, Workday, ServiceNow, Adobe - they CONSUME network but don't operate ICP infra
+- **Pure consulting / advisory firms:** Deloitte (consulting arm), McKinsey, BCG, Bain, Accenture (consulting, not BPO) - see edge-case-researcher Rule 5 for dual-arm BPO/consulting disambiguation
+- **Pure professional services:** law firms, accounting firms, staffing agencies, marketing agencies
+- **Pure software / SaaS:** Salesforce, Workday, Notion, Asana (no multi-DC infra)
+- **Manufacturers, Energy/Utilities, Logistics/Supply Chain, Government/Defense (direct), Education (direct):** Watch List or out-of-scope per Enterprise §3 - sourcing these as Enterprise is a known false-positive trap
+- **Defunct companies, parked domains, holding-company-only shells**
+
+Verified D1 disqualifiers MUST be excluded at the source-list filter stage. Do not pass them into the enrichment pipeline (`maiaedge-company-enrichment`).
 
 ### MODE 6: DEDUPLICATION CHECK
 **Trigger:** "Check for duplicates" or before any batch goes to enrichment
@@ -243,6 +274,7 @@ Always recommend sourcing in this priority unless the user specifies otherwise:
 | 3 | Network Operators | Good fit but longer sales cycles |
 | 4 | Neoclouds | Emerging  -  high strategic value, indirect deployment |
 | 5 | MSP/Aggregators | Deprioritized  -  depends on carrier infra |
+| 6 | Enterprise (Multi-DC ICP) | New ICP as of 2026-05-11. Tier 2 ceiling (no Tier 1 path). Anchor: Meijer. Smaller per-deal TAM than operator segments; longer enterprise procurement cycles. Allocate ~15-20% of monthly sourcing capacity. |
 
 ## Decision Rules
 
@@ -256,6 +288,38 @@ Always recommend sourcing in this priority unless the user specifies otherwise:
 | US vs International | Default US first unless told otherwise |
 | Speed vs accuracy tradeoff | For bot input, speed wins (bot verifies). For analysis, accuracy wins. |
 | Conflicting data between sources | Trust hierarchy: FCC > PeeringDB > ZoomInfo > other |
+
+## TAM Anchor Lists (file 06 §6)
+
+For every sub-segment, file 06 §6 of the consolidated qualification reference contains a 10-15 company anchor list with revenue band, footprint, and geographic spread. Use these anchor lists when:
+1. Sizing TAM at the sub-segment level (not just segment level) - the anchors define the "shape" of qualifying companies
+2. Evaluating a source list - does the source surface companies that LOOK like the anchors (revenue, footprint, geography)?
+3. Generating search queries - the anchors give you proven exemplars to seed similar-company searches
+
+Anchor list categories in file 06 §6 (cross-reference the 30 active sub-segment values):
+- §6.1 Fiber Operator anchors (per `Regional CLEC - Fiber operator` / `Long Haul / Backbone - Fiber operator` / `Dark Fiber Specialist - Fiber Operator` / `Tier 2 National Wholesale - Fiber operator` / `Regional Cable Operator - Fiber operator` / `Municipal / Cooperative - Fiber operator`)
+- §6.2 Colocation anchors (per `Standard - colo` / `AI Signals - colo` / `Modular - colo` / `Hyperscale Wholesale - colo` / cross-segment `Greenfield`)
+- §6.3 Network Operator anchors (per `Tier 1 Carrier - Network Op` / `Pure Wholesale Carrier - Network Op` / `Cable MSO Enterprise Division - Network Op` / `International Backbone Specialist - Network Op` / `Subsea cable operator` - Subsea anchors include Aqua Comms, Seaborn Networks, BW Digital, Hawaiki, Telxius)
+- §6.4 NeoCloud anchors (per `Large Scale GPU - Neocloud` / `Tier 1 Inference - Neocloud` / `AI Infrastructure providers - Neocloud` / `Sovereign AI Clouds - Neocloud` / `Crypto to AI - Neoclouds` / cross-segment `Greenfield`)
+- §6.5 MSP/Aggregator anchors (per `Telecom Aggregator - MSP` / `Managed Network Services - MSP` / `TSD Technology Services Distributor - MSP` / `Master Agent - MSP` / `Cloud + Telecom Hybrid MSP - MSP`)
+- §6.6 Enterprise anchors (per `Financial Services - Enterprise` / `Healthcare Systems - Enterprise` / `Retail and Distribution - Enterprise` / `Outsourcing Services - Enterprise`; Meijer is the named Retail anchor)
+
+Always cross-check a candidate source list against the relevant §6 anchors before recommending the batch.
+
+## Industry Sources (file 06 §8)
+
+File 06 §8 names the authoritative industry sources for each segment. Use these as primary sources during MODE 1 (Source Recommendation) and MODE 5 (Batch Planning):
+
+| Segment | Primary Industry Sources (file 06 §8) |
+|---|---|
+| Fiber | **FCC BDC** (Broadband Data Collection - definitive US fiber-footprint data), State PUC CLEC lists, NTCA member directory, USTelecom membership |
+| Colocation | **Synergy Research Group** (wholesale colo rankings, hyperscale capacity), DataCenterMap, Cloudscene, Data Center Hawk (paid), JLL / CBRE data center market reports |
+| Network Op | **Omdia** (TSD/Tier 1 rankings), TeleGeography (network footprint), PeeringDB (AS-level peering), Submarine Telecoms Forum (subsea) |
+| NeoCloud | **SemiAnalysis ClusterMAX** (GPU-cluster rankings), MLPerf submissions, NVIDIA partner directory, Crusoe / CoreWeave / Lambda alumni-network signal |
+| MSP/Aggregator | Channel Partners 360 rankings, MSP501, MEF member list, Cisco / Cato / VeloCloud / Versa partner directories |
+| Enterprise (Multi-DC ICP) | Fortune 1000 + vertical filter, Modern Healthcare Top 100 Health Systems, Becker's Hospital Review IDN rankings, NRF Top 100 Retailers, **Everest Group BPO rankings**, SEC EDGAR 10-Ks for SOX-regulated financials (DC disclosures) |
+
+These industry sources are higher-precision than ZoomInfo/Apollo broad search and should be exhausted first per the Core Principle "Niche infrastructure sources > broad databases."
 
 ## Hit Rate Quick Reference
 
@@ -272,6 +336,14 @@ Keep these benchmarks top-of-mind for every recommendation:
 | Data Center Hawk | 65-75% | Paid |
 | NANOG | 65-75% | Membership |
 | ZoomInfo/Apollo broad | 27-51% | Paid |
+| Fortune 500/1000 filtered by vertical | 40-50% (financial); 20-30% (retail); 30-40% (healthcare IDN); 50-60% (BPO via Everest Group) | Free / Paid |
+| Modern Healthcare Top 100 Health Systems | 30-40% | Free |
+| Becker's Hospital Review IDN rankings | 30-40% | Free |
+| NRF Top 100 Retailers | 20-30% (multi-DC corporate IT filter is tight) | Free |
+| Everest Group BPO rankings | 50-60% (pre-filtered list) | Paid / Free reports |
+| 10-K filings (DC disclosures for SOX-regulated financials) | High precision per record | Free (SEC EDGAR) |
+| Equinix / CoreSite customer logo pages | 70-80% (enterprise fabric customers are pre-qualified) | Free |
+| LinkedIn senior network-role job postings at qualifying companies | 60-70% (job postings ARE the in-house-net-eng signal) | Free / Sales Nav |
 
 ## Enrichment Pipeline Economics
 

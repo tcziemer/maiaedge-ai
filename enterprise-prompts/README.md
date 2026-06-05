@@ -15,6 +15,7 @@ Skills live at the **Claude.ai instance level** (uploaded once from `builds/inst
 | [revenue-reporting.md](revenue-reporting.md) | MaiaEdge Revenue Reporting | `enterprise/revenue-reporting/upload/` | 21 | 4 |
 | [crm-guardian.md](crm-guardian.md) | MaiaEdge CRM Guardian | `enterprise/crm-guardian/upload/` | 36 | 12 |
 | [sales-docs.md](sales-docs.md) | MaiaEdge Sales Docs | `enterprise/sales-docs/upload/` | 35 | 4 |
+| [branded-content.md](branded-content.md) | MaiaEdge Branded Content | `enterprise/branded-content/upload/` | ~75 | 5 |
 | [general-assistant.md](general-assistant.md) | MaiaEdge General Assistant | `enterprise/general-assistant/upload/` | 56 | all 27 |
 
 ## Deployment workflow

@@ -1,0 +1,8 @@
+{
+  "name": "maiaedge-enrichment-pipeline",
+  "version": "1.4.0",
+  "description": "MaiaEdge company enrichment pipeline. Research, classify, score, and import companies to HubSpot with account sourcing, enrichment, import processing, and edge case research.",
+  "author": {
+    "name": "MaiaEdge"
+  }
+}

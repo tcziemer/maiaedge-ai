@@ -19,9 +19,11 @@ Every segment has a three-pillar structure that organizes its value props. Use t
 | Network Operator | AUTOMATE | EXTEND REACH | MONETIZE |
 | MSP / Aggregator | AUTOMATE | EXTEND REACH | MONETIZE |
 
-**Language rule:** "Federation" is internal MaiaEdge language. NEVER use it in customer-facing copy. Translate to segment-native terms: "extend your reach," "sell into new markets," "connect to partners instantly," "reach beyond your footprint."
+**Language rule - Federation:** "Federation" as a verb ("federate with partners," "federation creates network effects," "cross-carrier federation") is BANNED in cold-email body and LinkedIn body. Translate to segment-native terms: "extend your reach," "sell into new markets," "connect to partners instantly," "reach beyond your footprint." **Carve-out:** "Federated Private Networking" as a noun phrase is the MaiaEdge-owned category descriptor and is ALLOWED in partner-facing materials (101, cheatsheets, deck, datasheets, marketing site). The verb and the noun-as-category-descriptor split by channel, not by sentiment.
 
-**Voice rule:** Brand-voice constructions are BANNED in cold email and LinkedIn body. Examples of BANNED phrases: "We help operators…" / "We work with…" / "We've been doing this with…" / "Many of the operators we talk to…" / "Most operators we talk to…" Use "I" voice instead: "I've been seeing this with…" / "The pattern I'm watching at…" / "I've been talking to operators in your position who…" The fallback messaging blocks below support both embed-by-contrast and "I" voice usage.
+**Language rule - "Fabric-in-a-box":** "Fabric-in-a-box" is BANNED in cold email and LinkedIn body across all segments. The phrase came from a Centra customer paraphrase and remains canonical in cheatsheets, the 101, sales enablement collateral, competitive battlecards, and live conversations. It does NOT appear in cold-email or LinkedIn body. Use "interconnection layer," "service fabric," "build your own fabric," or the segment-specific embed-by-contrast templates below.
+
+**Voice rule:** Generic-category brand-voice we-claims are BANNED in cold email and LinkedIn body. Examples of BANNED phrases: "We help operators…" / "We work with…" / "We work with companies like yours…" / "We've been doing this with…" / "Many of the operators we talk to…" / "Most operators we talk to…" / "What we keep hearing from operators…" / "We built carrier infrastructure that…" / "We built MaiaEdge for…" These are us-to-a-category sentences with no specific mechanic. Use "I" voice instead: "I've been seeing this with…" / "The pattern I'm watching at…" / "I've been talking to operators in your position who…" / "I've been working on infrastructure that…" **Allowed exception - the specific-mechanic peer line:** a "we" attribution IS allowed when it names a SPECIFIC mechanic and a plain outcome, because that reads as spoken peer credibility, not a brand slogan: "We've been helping similar [cohort] [specific mechanic], so [plain outcome]." The test is whether a reader can tell exactly what we DO from the sentence; if it could describe any vendor ("we help operators grow"), it's the banned generic version. Email only, never LinkedIn (no room under the char cap); one per sequence, max. For Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale. The fallback messaging blocks below support both embed-by-contrast and "I" voice usage.
 
 ---
 
@@ -39,16 +41,34 @@ The contrast IS the value bridge. The recipient reads it as one continuous thoug
 
 | Segment | Problem statement (in their words) | Contrast clause (= value bridge) |
 |---|---|---|
-| Fiber Operator | "Routes go lit on schedule, but the cross-carrier piece is still a 60-day conversation." | "The fix is infrastructure that lets your team stand up those paths in minutes, under your brand." |
-| Fiber Operator (BEAD) | "BEAD subgrants are funded, but the revenue clock starts when cross-carrier interconnects go live, not when fiber is lit." | "Paths that activate at your sales team's pace, not the next carrier's, is what closes that gap." |
-| Colocation | "Every cross-connect is still a project: LOAs, truck rolls, VLAN coordination." | "The version that compounds is the one where tenants book paths from your portal in minutes, under your brand." |
-| Colocation (NaaS pressure) | "Tenants asking for cloud connectivity get sent to a third-party fabric, and the relationship moves with the fabric." | "Building the interconnection layer in-house keeps the customer, the margin, and the visibility on your side." |
-| AI Colocation | "GPU tenants asking for deterministic paths between sites at the pace AI deployments demand can't wait for a 6-week interconnect project." | "Cross-connects that activate from your portal at the speed the compute investment demands is what completes the AI infrastructure story." |
-| Neocloud | "Inference latency varies by facility and your team can't tell whether it's the carrier, the colo, or the middle-mile." | "Deterministic paths between GPU clusters with hop-by-hop visibility eliminate the network as a variable." |
-| Network Operator (Track A) | "Internal automation works on-net, but every customer that needs a path beyond your footprint is back to LOAs and BGP sessions." | "Extending the same speed off-net is what closes the gap enterprise customers compare you to AWS on." |
-| MSP / Aggregator | "Three carriers, three tickets, three different answers. The customer is calling every hour and your team is blind to the path." | "End-to-end visibility across all upstream providers from one pane is what stops the finger-pointing and protects the SLA." |
+| Fiber Operator (default - Sidecar §4.4 lead, activation-velocity gap) | "The revenue gap on most fiber networks isn't more route miles in the ground, since the bottleneck is on the activation side - NNIs take weeks to turn up, dark strands depreciate every day they're unlit, so the multi-state deals walk to whoever can provision faster." | "What closes that gap is infrastructure that turns underutilized fiber into instantly sellable, deterministic services under your brand." |
+| Fiber Operator (BEAD anchor) | "BEAD subgrants are funded, but the revenue clock doesn't start when fiber is lit, it starts when the cross-carrier interconnects go live." | "What closes that gap is paths that activate at your sales team's pace, not the next carrier's." |
+| Fiber Operator (Service Assurance - secondary E2 angle, NOT E1 lead) | "Type 2 circuits are still a black hole for SLA verification, so you're on the hook for the SLA but blind to the path." | "Hop-by-hop telemetry across circuits you don't own is how you prove SLA compliance on the first call." (Use as E2 supporting angle; per Sidecar §4.4, SA is not the E1 lead.) |
+| Colocation (Standard, no AI signals - Sidecar §4.1.A lead) | "Interconnection attach rate is what separates colos from being landlords, since space and power alone is a commodity." | "The operators pulling ahead are layering cloud on-ramps, multi-site reach, and self-service interconnection on top of space and power, so they add new services under their brand without a multi-year build." |
+| Colocation (NaaS pressure variant) | "When tenants ask for cloud connectivity you send them to a third-party fabric, so the relationship moves with the fabric instead of staying with you." | "Building the interconnection layer in-house is what keeps the customer, the margin, and the visibility on your side." |
+| Colocation (AI Signals - confirmed GPU tenants, liquid cooling, 30kW+ racks; Sidecar §4.1.B lead) | "You've invested in liquid cooling and high-density power, but the AI tenants are now asking for deterministic paths between GPU clusters and cloud on-ramps that match that spend." | "Best-effort networking is the gap on the bill of materials, and closing it is deterministic Ethernet paths between sites with hop-by-hop visibility, no routing complexity required." |
+| Neocloud | "Inference latency varies by facility, so your team can't tell whether it's the carrier, the colo, or the middle-mile." | "Deterministic paths between GPU clusters with hop-by-hop visibility take the network out as a variable." |
+| Network Operator - Tier 1 Global / Tier 1 National (Track A; Sidecar §4.2 lead) | "The hard part isn't the core, it's extending L2 services to every endpoint you serve, since the transport between you and the endpoint isn't always yours - tower backhaul, enterprise customer drops, partner-network last-mile." | "Each transport adds its own provisioning and visibility process, so extending deterministic L2 services across any transport with the same provisioning as on-net is what unifies that." |
+| Network Operator - Tier 2/3 Regional Wholesale (extend-reach framing retained) | "Internal automation works on-net, but the moment a customer needs a path beyond your footprint you're back to LOAs and BGP sessions." | "Extending the same speed off-net is what closes the gap enterprise customers compare you to AWS on." |
+| MSP / Aggregator | "Three carriers, three tickets, three different answers, so the customer is calling every hour while your team is blind to the path." | "End-to-end visibility across all upstream providers from one pane is what stops the finger-pointing and protects the SLA." |
 
 These are templates, not scripts. The actual problem statement should be tightened with the company's specific situation (a public-signal observation when one applies). The contrast clause is the segment's value bridge in its embeddable form.
+
+### Anti-position framing (cold-safe; no competitor names)
+
+The call-resonance audit found "How is this different from Megaport?" is the #1 objection across nearly every Tier-1 discovery call. The cheatsheets have a clean answer; cold email never previewed it. These rows surface the cheatsheet anti-position into cold-email-safe language (no competitor names per Cross-Segment Rule 2). Use as a sanctioned E1 value-bridge option when the prospect is already on a third-party fabric or SD-WAN provider, or for the Network Operator C-suite "what's our private-fabric answer?" frame.
+
+| Segment | Anti-position frame (cold-safe, no competitor names) |
+|---|---|
+| Colocation | "Most fabrics force the operator to choose between owning the customer and offering instant interconnection, so the version that compounds is the one where the operator owns both." |
+| Fiber Operator | "Most fabrics force the operator to choose between owning the customer and offering instant cross-carrier activation, so the version that compounds is the one where you own both." |
+| Network Operator (Tier 1 C-suite hook - anonymized Lumen PCF frame) | "Every Tier 1 board is asking the same question right now, what's our private-fabric answer, and building one in-house is the years-and-billions path, so the faster path is extending what you've already built across the operators you partner with." |
+| Network Operator (Track A technical) | "Your core routers stay where they are, since the gap is at the boundary, not in the core." |
+| Neocloud (crypto-to-AI / early-growth) | "Most fabrics for this work need a dedicated network team, but the version that scales for compute-first companies is the one your IT admin can operate." |
+| MSP / Aggregator (NaaS Platform Operators specifically - CBC Tech, Epsilon, Console Connect, Arelion, Sparkle) | "The platform is fast, but the partner-NNI cycle behind it is what kills the timeline, so the version that compounds is the one where partner activation matches the platform's quote-to-activate." |
+| Enterprise (Multi-DC ICP) | "Your SD-WAN handles the branches, but the data-center-to-data-center layer is where the visibility ends and the redundancy gets brittle, so that's the layer that's been missing." |
+
+**Rule reminder:** Cold-Segment Rule 2 still applies - no competitor names in cold body. The anti-positions above name the category dynamic ("most fabrics force…" / "the platform is fast, the partner-NNI cycle behind it…") without naming Megaport, Equinix Fabric, Lumen PCF, Cisco, Juniper, etc. The cheatsheet and live conversations name competitors directly; cold email keeps the anti-position abstract.
 
 ### When to use the standalone (1-sentence) value bridge instead
 
@@ -109,7 +129,9 @@ Standalone is allowed when the contrast doesn't fit. It is NOT a default. Embed-
 | VP Sales/Commercial | Sell into markets you can't reach today. Win deals you're currently losing on timeline. |
 | COO | Scale delivery without scaling headcount. Automation. |
 
-**Fallback messaging** (when research is thin): "Monetize the fiber you already have. Stand up an instant private fabric across your network  -  any transport, no routing complexity  -  and start selling services you couldn't before, including cloud on-ramp."
+**Fallback messaging (Sidecar §4.4 lead, activation-velocity gap):** "The revenue gap on most fiber networks isn't more route miles in the ground. It's on the activation side. NNIs that take weeks to turn up, dark strands depreciating every day they're unlit, multi-state deals walking to whoever can provision faster. The fix is infrastructure that turns underutilized fiber into instantly sellable, deterministic services under your brand."
+
+**Note on Service Assurance:** Service Assurance / hop-by-hop telemetry is a supporting E2 angle, NOT the E1 lead. The activation-velocity / monetization-gap frame above is the E1 default. SA stays available as a secondary angle for accounts where Type 2 visibility is a stated pain.
 
 **Variant:** For fiber operators with island-hopping or multi-transport geography (LATAM, Caribbean, archipelago regions), see the Geographic / Transport-Gap Angle Variant below.
 
@@ -155,11 +177,13 @@ Standalone is allowed when the contrast doesn't fit. It is NOT a default. Embed-
 | Role | Lead With |
 |---|---|
 | CEO | Build your own fabric. New high-margin services layer without a multi-year development project. |
-| CTO | Fabric-in-a-box. Automated virtual cross-connects. Virtual meet-me room. Deploy in weeks. |
+| CTO | Build your own interconnection layer in weeks, not years. Automated virtual cross-connects, virtual meet-me room across sites, deterministic paths to cloud and partner DCs. (Note: "fabric-in-a-box" is cheatsheet / live-conversation language only - banned in cold body per email-writing-rules.md.) |
 | VP Sales | Turn "we need 6 weeks" into "it's live today." Cloud on-ramp becomes a native product to sell. |
 | CFO | Higher attach rates without infrastructure buildout. New revenue from services, not more cabinets. |
 
-**Fallback messaging:** "Build your own fabric. Automated virtual cross-connects, a services layer you can productize, and cloud on-ramp under your brand  -  without a multi-year development project or a hyperscale facility build."
+**Fallback messaging (Standard Colo, no confirmed AI signals - Sidecar §4.1.A):** "Interconnection attach rate is what separates colos from being landlords. The operators pulling ahead layer cloud on-ramps, multi-site reach, and self-service interconnection on top of space and power. New services under your brand without a multi-year build."
+
+**Sub-segment routing:** When confirmed AI signals are present (GPU cloud tenants like Lambda / Crusoe / Nebius, liquid cooling, 30kW+ racks per `context/partner-assets/cheatsheet-colocation.md` § AI Signal Detection), use the AI Colocation fallback in section 3 below instead of this Standard lead.
 
 ---
 
@@ -230,7 +254,7 @@ Greenfield colos are net-new builds. How they're messaged depends on whether the
 
 **Pre-flagged Tier 1 AI accounts:** Aligned Data Centers, Cologix, EdgeConneX, QTS Data Centers, Vantage Data Centers, Stack Infrastructure.
 
-**Fallback messaging:** "You solved power and cooling. Now make the connectivity layer match. Low latency deterministic paths for GPU workloads, cloud on-ramps in minutes."
+**Fallback messaging (AI Signals - Sidecar §4.1.B):** "You've invested in liquid cooling and high-density power. Your AI tenants are now asking for deterministic paths between GPU clusters and cloud on-ramps that match the power and cooling spend. Best-effort networking is the gap on the bill of materials. The fix is deterministic Ethernet paths between sites, hop-by-hop visibility, no routing complexity."
 
 ---
 
@@ -343,20 +367,56 @@ A distinct door into the same product, for a narrow slice of the neocloud univer
 
 ---
 
-## 5. Network Operators (Tier 1/2 Carriers)
+## 5. Network Operators - Tier 1 vs Tier 2/3 Split (Sidecar §4.2-4.3)
 
 **Pillars: AUTOMATE | EXTEND REACH | MONETIZE**
 
-**Who they are:** Tier 1/2 carriers with 50+ PoPs, complex multi-domain networks. National/global footprint. Sophisticated internal automation (usually).
+The Network Operator segment splits into two cold-email lead motions based on the prospect's tier and buying question:
+
+- **Tier 1 (Global + National) → "extending L2 services across mixed transport" lead.** The pain isn't reach in the abstract - it's that the transport between them and the endpoint isn't always theirs (tower backhaul, enterprise customer drops, partner-network last-mile). Each transport type adds a separate provisioning, configuration, and visibility process. MaiaEdge extends deterministic L2 services across any transport with the same provisioning as on-net.
+- **Tier 2/3 Regional Wholesale → "extend your reach" lead (existing framing).** The pain IS reach. The buying question is "how do we reach customers and markets beyond our footprint." MaiaEdge lets them sell connectivity into markets they don't cover today without building there.
+
+### Tier 1 definition (for messaging purposes)
+
+| Tier | Defined as | Examples |
+|---|---|---|
+| **Tier 1 Global** | $10B+ public carrier with own global backbone and PCE-class internal automation product organization | AT&T, Verizon, Lumen, NTT, BT, Deutsche Telekom, Orange, PCCW Global, Tata Communications |
+| **Tier 1 National** | $1-10B with own backbone, national footprint, wholesale-product organization, and PCE-class internal automation | National-footprint carriers with public internal-automation announcements (e.g., portal/API/branded wholesale products) |
+| **Tier 2/3 Regional Wholesale** | $500M-$1B regional operators and below | Regional CLECs, mid-market wholesale operators, regional Tier 2s |
+
+For Tier 1 Global and Tier 1 National, use the §5A Tier 1 lead below. For Tier 2/3, use §5B.
+
+**Track A vs Track B (within Tier 1):** §5A assumes Track A (operator has internal automation, the dominant case among Tier 1 carriers). For confirmed Track B Tier 1 accounts (research shows fragmented internal automation across regions or acquired businesses, no public evidence of portal/API/branded automation product), fall back to §5B-style internal-unification framing first and then extend.
+
+---
+
+### 5A. Tier 1 (Global + National, Track A - Sidecar §4.2)
+
+**Lead positioning:** Tier 1 carriers get "extending L2 services across mixed transport" framing. The pain is concrete: tower backhaul, enterprise customer drops, partner-network last-mile. Every transport type adds a separate provisioning, configuration, and visibility process.
+
+**Insider language:** "L2 services" (Mplify/Verizon call: "Verizon has a significant need for layer 2 over broadband solutions" - exact phrase validated). "Core" / "core network" is universal carrier vocabulary - opening with "The hard part isn't the core" acknowledges existing automation (mandatory Track A acknowledgment) and pivots immediately to the boundary pain. "Tower backhaul" / "off-net" / "on-net" / "endpoint" are all network-operator.md MUST-USE vocabulary.
 
 **Their world:**
-- They have sophisticated internal automation (portals, APIs, branded products)
-- AT&T, Verizon, Lumen have self-service everything
-- But ALL of that stops at their network boundary
+- Sophisticated internal automation (portals, APIs, branded products) for on-net paths
+- But every endpoint not on their own fiber requires a different transport (tower backhaul fiber/microwave, enterprise drop, partner-network last-mile)
+- Each transport type has a separate provisioning, configuration, and visibility process
+- Enterprise customers expect AWS-like speed regardless of which transport carries their traffic
+
+**CRITICAL: NEVER claim Tier 1 carriers are slow at what they're fast at.** Acknowledge their internal automation first. The opener "The hard part isn't the core" does that work in one sentence.
+
+**The MaiaEdge angle:** Extend deterministic L2 services across any transport - tower backhaul, partner last-mile, off-net enterprise drops - with the same provisioning experience as on-net. Same asset base, less per-transport complexity.
+
+---
+
+### 5B. Tier 2/3 Regional Wholesale (extend-reach framing - existing)
+
+**Lead positioning:** Tier 2/3 carriers and regional operators expanding into adjacent markets keep the extend-reach framing. The split point: "how do we simplify L2 extension across mixed transport we don't own" (Tier 1) vs "how do we reach customers and markets beyond our footprint" (Tier 2/3).
+
+**Their world:**
+- Sophisticated internal automation may exist but is less universal than Tier 1
+- AT&T, Verizon, Lumen go direct to enterprise customers in their markets
 - Cross-carrier paths beyond their footprint: still 60-90 days of LOAs, BGP config, VLAN negotiation
 - AWS + Lumen partnership is a competitive threat to regional operators
-
-**CRITICAL: NEVER claim they're slow at what they're fast at.** This is the most common mistake. Research what they've built. Acknowledge it. Then position MaiaEdge as extending their reach.
 
 **The MaiaEdge angle:** Extend your reach beyond your footprint. Monetize existing infrastructure. Sell connectivity into markets you can't reach today, activated in minutes, not months.
 
@@ -393,7 +453,10 @@ A distinct door into the same product, for a narrow slice of the neocloud univer
 | CTO | Eliminate multi-domain orchestration complexity. No configuration drift. |
 | VP Sales | Sell connectivity anywhere, not just on-net. Match AWS/Lumen speed. |
 
-**Fallback messaging (Track A):** "Sell into markets beyond your footprint. Monetize the infrastructure you already own."
+**Fallback messaging:**
+- **Tier 1 (Global / National, Track A - Sidecar §4.2):** "The hard part isn't the core. It's extending L2 services to every endpoint you serve when the transport between you and the endpoint isn't always yours. Tower backhaul, enterprise customer drops, partner-network last-mile - each adds a separate provisioning and visibility process. The fix is deterministic L2 services across any transport with the same provisioning as on-net."
+- **Tier 2/3 Regional Wholesale (extend-reach - existing):** "Sell into markets beyond your footprint. Monetize the infrastructure you already own."
+- **Track B (any tier, confirmed fragmented internal automation):** "Unify internally first, then extend your reach to partners." Use when research shows no public evidence of portal/API automation product.
 
 **Variant:** For network operators with island-hopping or multi-transport geography (LATAM, Caribbean, archipelago, mobile-backhaul-heavy), see the Geographic / Transport-Gap Angle Variant below.
 
@@ -449,6 +512,63 @@ A distinct door into the same product, for a narrow slice of the neocloud univer
 
 ---
 
+## 7. Enterprise (Multi-DC ICP)
+
+**Pillars: REDUNDANT | DETERMINISTIC | VISIBLE**
+
+**Status:** Promoted to ICP on 2026-05-11. Four sub-segments: Financial Services - Enterprise, Healthcare Systems - Enterprise, Retail and Distribution - Enterprise, Outsourcing Services - Enterprise. Anchor account: Meijer. Cold-email playbook templates live in `context/outreach/fallback-messaging.md` § Enterprise; full positioning, sub-segment cheat codes, and persona pain language live in `context/segments/enterprise.md`.
+
+**Who they are:** $1B+ enterprises with multi-DC corporate networks AND in-house network engineering teams. Hard gate: vertical (one of the four sub-segments) AND scale ($1B+ revenue AND 3+ DCs, OR direct Equinix Fabric/Megaport port, OR in-house net eng). Manufacturing, Energy/Utilities, Logistics/Supply Chain are Watch List, not Enterprise. Government/Defense is FedRAMP-gated.
+
+**Their world:**
+- Primary DC pairs connected by dark fiber that is often a single pair - one cut from outage
+- DR sites have undertested failover and stale routing-protocol config
+- Multi-cloud is three different on-ramp models, three monitoring stacks, three blast radii
+- M&A events create 12-18 month network integration projects by default
+- Compliance asks "prove the path" and the network team can't, because Type 2 visibility is a black hole
+- They are NOT operators. There's no commercial layer to resell connectivity to.
+
+**The MaiaEdge angle:** Dark fiber redundancy that is actually redundant. Cloud on-ramps under enterprise control. Audit-ready paths. Pair speed with **data sovereignty + audit-trail language**, NEVER operator-sovereignty language.
+
+### Value Prop Matrix
+
+| # | Value Prop | Pillar |
+|---|-----------|--------|
+| 1 | **Dark fiber redundancy that survives a cut.** Diverse fibers into a fabric layer with automated failover. No routing protocols to tune, no manual cut-over, no surprise asymmetric routing. | REDUNDANT |
+| 2 | **Deterministic paths between data centers.** Latency stays within the budget compliance and applications were designed against. The network stops being the unpredictable variable. | DETERMINISTIC |
+| 3 | **Hop-by-hop visibility on every path including the carrier circuits you don't own.** Type 2 visibility stops being a black hole. Compliance can prove the path on the first call. | VISIBLE |
+| 4 | **One fabric across multi-cloud on-ramps.** AWS, Azure, GCP, and other clouds reach through the same policy and monitoring layer, with the same failover behavior. | DETERMINISTIC |
+| 5 | **M&A integration compressed.** Two existing DC footprints, legacy MPLS, and cloud on-ramps unified into one fabric without disrupting service. The 18-month default becomes weeks. | REDUNDANT |
+| 6 | **Audit-ready paths.** Policy-based path control, hop-by-hop telemetry, every change logged. HIPAA / PCI-DSS / SOX / GDPR / HITRUST audits can prove the path, not just the endpoints. | VISIBLE |
+
+**Pain points (their actual words):**
+- "Our DR site failover hasn't been tested under real load in 18 months."
+- "The dark fiber pair between Primary and DR is single-cut-away from an outage."
+- "Multi-cloud sounded clean on the architecture diagram. In practice it's three monitoring stacks."
+- "Every M&A event turns into an 18-month network integration project."
+- "Type 2 is a black hole. We're responsible for the SLA but blind to the path."
+- "Compliance is asking us to prove the path is the place. We can't, today."
+
+**By persona:**
+| Role | Lead With |
+|---|---|
+| CIO / CTO | Multi-cloud feels like one cloud. M&A network integration compressed. Cloud on-ramp under enterprise control. |
+| VP Network Infrastructure / Director Network Engineering | Operational burden ("no headcount to run BGP across the WAN," "every new DC is a six-month networking project"). |
+| CSO / CISO / Head of Compliance | Audit-ready paths. HIPAA / PCI-DSS / SOX / GDPR mention appropriate. "Compliance can prove the path." |
+| Network Architect / Principal Network Engineer | Technical specificity ("HAsync and HAfabric on the SSRs share a single fiber pair," "Type 2 is a black hole"). Lowest credibility-anchor risk. |
+
+**Vocabulary lock (MANDATORY - most strict of any segment):**
+- **BANNED in Enterprise cold body** (these signal the wrong business model): "keep your customer," "your portal your invoice," "build your own fabric to sell," "monetize stranded fiber," "wholesale activation," "extend reach to new markets," "tenant," "meet-me room," "interconnection revenue," "aggregator," "TSD," "fabric-in-a-box," "Federation"-as-a-verb.
+- **ALLOWED in Enterprise cold body:** data center, DC, DR site, dark fiber redundancy, diverse paths, fiber pair, hot-standby, active-active, cloud on-ramp, direct connect, multi-cloud, your network, audit trail, deterministic paths between data centers, hop-by-hop visibility, "policy-based path control," "paths you can prove."
+
+**Active language test (Enterprise-only, 90 days, started May 2026):** "Connect anywhere to anywhere with a click" is the preferred provisioning-simplicity phrase for Enterprise (CIO / CFO personas especially). "No routing complexity" is de-prioritized in Enterprise copy but stays canonical in operator and neocloud copy. See `context/outreach/email-writing-rules.md` § Active Language Test.
+
+**Pilot batch direction:** Financial Services + Outsourcing Services sub-segments first, 50-80 contacts, M&A anchor (E1 alt in fallback-messaging.md). Healthcare Systems + Retail/Distribution in batch 2 with dark-fiber-redundancy anchor (E1 default).
+
+**Fallback messaging:** See `context/outreach/fallback-messaging.md` § Enterprise (Multi-DC ICP) for full E1/E2/E3 templates.
+
+---
+
 ## Geographic / Transport-Gap Angle Variant (Applies Across Network Operators and Fiber Operators)
 
 A distinct door into the same product for carriers whose geography forces them past fiber. Trigger-based, not segment-based. The default angle ("cross-carrier provisioning is slow") undersells the real problem for these operators. The real problem is reach: extending deterministic connectivity to places fiber doesn't go, or doesn't go yet.
@@ -476,8 +596,11 @@ Default: "Cross-carrier provisioning takes 60-90 days." Variant: "Fiber isn't ev
 - "Deterministic Layer 2 over any available transport, same quality your enterprise customers expect from owned fiber."
 - "Every new market doesn't have to wait for fiber to get there."
 
-**Value bridge:**
-"We built infrastructure that delivers deterministic Layer 2 paths over any transport. Fiber, microwave, satellite, subsea, fixed wireless, or a mix. You extend your reach the same day you decide to, regardless of what connects the next island or the next tower."
+**Value bridge (I-voice, embed-by-contrast preferred):**
+"I've been working on infrastructure that delivers deterministic Layer 2 paths over any transport - fiber, microwave, satellite, subsea, fixed wireless, or a mix. Your reach extends the day you decide to, regardless of what connects the next island or the next tower."
+
+Embedded variant (preferred when the prospect's geography is already named in the problem clause):
+"Fiber where it's lit, microwave or satellite where it isn't, same paths either way. The reach extends the day you decide to, not the day the next subsea build wraps."
 
 **Anonymized proof reference** (later-stage conversations; anonymize further in cold email):
 - Later-stage: "A carrier in Latin America runs 800+ cell towers connected to 20+ data centers across mixed transport. Their CEO describes the result as 'peer with us, it's very simple.'"

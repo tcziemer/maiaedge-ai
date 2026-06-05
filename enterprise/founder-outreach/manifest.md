@@ -24,8 +24,8 @@ Same as Sales Outreach MINUS:
 ### Core
 - context/core/* (all 6)
 
-### Segments
-- context/segments/* (all 5)
+### Segments (all 6 as of 2026-05-11)
+- context/segments/* (all 6 — colocation, fiber-operator, neocloud, network-operator, msp-aggregator, **enterprise** [Multi-DC ICP added 2026-05-11; 4 sub-segments — Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services; anchor: Meijer], plus enterprise-use-cases.md for 8 priority use cases)
 
 ### Outreach
 - context/outreach/* (all 3)
@@ -49,4 +49,4 @@ Same as Sales Outreach MINUS:
 ### Copy Strategy
 - context/copy-strategy/* (all 4)
 
-## Last Synced: 2026-03-17
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete)

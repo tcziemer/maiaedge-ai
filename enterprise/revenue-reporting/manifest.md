@@ -25,8 +25,8 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - context/hubspot/hubspot-values.md
 - context/hubspot/territory-model.md
 
-### Segments
-- context/segments/* (all 5 — colocation, fiber-operator, neocloud, network-operator, msp-aggregator)
+### Segments (all 6 as of 2026-05-11)
+- context/segments/* (all 6 — colocation, fiber-operator, neocloud, network-operator, msp-aggregator, **enterprise** [Multi-DC ICP, anchor: Meijer], plus enterprise-use-cases.md for pipeline-analytics segment slicing — Enterprise added as 6th segment column in segment-coverage matrix)
 
 ### Sales
 - context/sales/use-case-taxonomy.md
@@ -52,4 +52,4 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 ## Note on call-intelligence project
 The existing `call-intelligence` enterprise project has the same four skills. This project (`revenue-reporting`) is the intended replacement with a clearer name for leadership use and the updated pipeline-analytics skill (forecast system rewrite, POC signal matrix, unified report output).
 
-## Last Synced: 2026-03-24
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete; Enterprise added as 6th segment in pipeline-analytics + pipeline-discipline reports)

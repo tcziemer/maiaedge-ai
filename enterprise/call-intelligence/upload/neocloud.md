@@ -3,6 +3,8 @@
 **MaiaEdge Sales Quick Reference  -  Neocloud (GPU Cloud Providers)**
 February 2026 | Confidential
 
+> **Classification authority:** Sub-segment classification rules, anchors, and confidence thresholds live in `context/account-tiering/sub-segment-qualification.md` (pointer) and file 06 (`context/account-tiering/sub-segment-qualification-full.md`). Tier computation lives in `context/account-tiering/tier-compute-spec.md`. This cheatsheet covers selling angles, personas, pain points, and discovery.
+
 ---
 
 ## Know Your Customer
@@ -16,7 +18,14 @@ February 2026 | Confidential
 | Key Distinction | Neoclouds ARE the end customer  -  they deploy their own infrastructure. Do NOT use "keep your customer" language. They are the customer. |
 | Priority | HIGH  -  Top 3 segment alongside Colocation and Fiber Operators. |
 
-**Example Companies:** Lambda Labs, Crusoe Energy, Voltage Park, Together AI, Anyscale, RunPod, Paperspace, Nebius, Groq, Cirrascale, DeepInfra, Vultr, DigitalOcean, Fluidstack, Modal, Nscale, Firmus, E2E Networks, Yotta Data Services, IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf
+**Example Companies (grouped by HubSpot `company_sub_segment`):**
+- `Large Scale GPU - Neocloud`: Lambda Labs, Voltage Park (FLAG: merged with Lightning AI Feb 2026 - verify brand independence before outreach; if absorbed entirely by Lightning AI parent, reclassify under `Other`), CoreWeave, Nebius
+- `Tier 1 Inference - Neocloud`: Together AI, RunPod (boundary), Groq, Cirrascale, DeepInfra, Fireworks AI, Mistral La Plateforme (boundary), SambaNova, Baseten
+- `AI Infrastructure providers - Neocloud`: Vultr, DigitalOcean GPU, Fluidstack, Modal, OVHcloud (boundary), Scaleway (boundary), Linode (Akamai), Anyscale, Paperspace (DigitalOcean subsidiary)
+- `Sovereign AI Clouds - Neocloud`: Nscale, Firmus, E2E Networks, Yotta Data Services, G42 / Inception, BSC, Stargate UAE
+- `Crypto to AI - Neoclouds`: Crusoe Energy (flared-gas BTC mining lineage), IREN (Iris Energy), Core Scientific, Galaxy Digital, Bitfarms, TeraWulf, APLD / Applied Digital, Northern Data Group, Prometheus Hyperscale (Hut 8 AI subsidiary), Hut 8, Hive Digital Technologies (public BTC miner since 2017, HPC/AI pivot announced 2023-24)
+
+**NOT a Neocloud (route to `Other` - AI lab / foundation-model developer category):** Sakana AI is an AI research/model-development company that consumes GPU compute (from GMO Internet) rather than provides it. Same applies to OpenAI/Anthropic/Mistral-the-research-lab (separate from Mistral La Plateforme commercial inference platform) - these are AI labs, not infrastructure operators. Route them to `customer_segment = "Other"`.
 
 ---
 
@@ -148,7 +157,7 @@ Not every neocloud is the same company. Where they are in their growth determine
 | **Pre-revenue / single site** | Nodiac, Colony Compute (early). Modular containers at power sites. First facility, no customers yet. | Solving for power, cooling, getting the first tenant in. Network is an afterthought they'll regret later. | **Watch list.** Too early for outreach. Flag when they announce a second site or first GPU tenant. |
 | **Early growth (2-5 sites)** | Duos Edge AI, crypto-to-AI pivots (IREN, TeraWulf, Core Scientific). Small facility count, first real customers. | Each site wired up differently. Carrier relationships are one-off. Starting to feel the pain of inconsistency. | **In-pain-now (early).** "Bitcoin doesn't care about latency. Enterprise AI tenants do. The connectivity that worked for mining doesn't survive an inference SLA." |
 | **Mid-growth (5-15 sites, mixed customers)** | Together.ai, RunPod, Modal, Baseten, DeepInfra. Mix of hyperscaler + enterprise. Lost or never had a network person. | Actively in pain. Latency varies by facility and they can't diagnose it. Each enterprise customer is a manual provisioning project. | **Both angles work.** Research determines which value prop lands  -  latency-debugging vs. scaling-model. |
-| **Scale (15+ sites, hyperscaler-heavy)** | Lambda, Crusoe, Voltage Park, Nebius. Building network teams. Hyperscalers are 80%+ of customer base. | Not in pain today. Hyperscalers bring their own connectivity. But growth plan depends on serving mid-market enterprise who don't bring their own anything. | **Scaling-wall (new).** "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." |
+| **Scale (15+ sites, hyperscaler-heavy)** | Lambda Labs, Voltage Park, Nebius (Crusoe scales similarly but routes to `Crypto to AI - Neoclouds` due to BTC heritage). Building network teams. Hyperscalers are 80%+ of customer base. | Not in pain today. Hyperscalers bring their own connectivity. But growth plan depends on serving mid-market enterprise who don't bring their own anything. | **Scaling-wall (new).** "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." |
 
 **In-pain-now hooks** (mid-growth, latency variance dominant):
 - "Inference latency varies by facility and your team is guessing whether it's the carrier, the colo, or something in between. That guessing game is expensive."
@@ -190,17 +199,18 @@ Not every neocloud is the same company. Where they are in their growth determine
 
 | Sub-Segment | Examples | Key Signal | Messaging Emphasis | HubSpot `company_sub_segment` |
 |-------------|----------|------------|-------------------|-------------------------------|
-| **Large-Scale GPU NeoClouds** | Nebius, Lambda (15+ US DCs, 320MW), Crusoe | Multi-facility GPU-as-a-service, 20-50+ locations, bare-metal GPU clusters | Observability across distributed training clusters, deterministic inter-facility paths | `Large Scale GPU - Neocloud` |
-| **Tier 1 Inference Providers** | Together.ai (25+ cities, 200MW), Groq (35 Equinix POPs), Cirrascale, DeepInfra | Distributed inference endpoints at 20-50+ edge locations, sub-100ms token latency SLAs | Real-time telemetry for latency diagnosis, multi-carrier orchestration between edge POPs | `Tier 1 Inference - Neocloud` |
-| **AI Infrastructure Providers** | Vultr, DigitalOcean, Fluidstack, Modal, RunPod | Mid-market cloud providers adding GPU compute, existing customer base asking for AI/ML | Multi-cloud bridge (white-label portal), Mean Time To Innocence, high-margin port arbitrage | `AI Infrastructure providers - Neocloud` |
-| **Sovereign AI Clouds** | Nscale (UK/EU, $1.1B Series B), Firmus (Norway), E2E Networks (India), Yotta (India) | Built for GDPR/DPDP/national AI programs, hard restrictions on data storage AND transit | Policy-based sovereign routing, in-country PCE deployment, jurisdictional audit trails | `Sovereign AI Clouds - Neocloud` |
-| **Crypto-to-AI (Power-Rich Landlords)** | IREN (Iris Energy, $9.7B Microsoft contract), Core Scientific, Northern Data Group, TeraWulf | Former Bitcoin mining infrastructure pivoting to AI, cheap power ($0.03/kWh), high-density cooling | Simple fabric for tenant audits, observable uptime, infrastructure arbitrage | `Crypto to AI - Neoclouds` |
+| **Large Scale GPU - Neocloud** (19 records) | Nebius, Lambda Labs (15+ US DCs, 320MW), Voltage Park (FLAG: Lightning AI merger Feb 2026; verify brand independence per `context/account-tiering/enrichment-protocols.md` §line 568), CoreWeave (ClusterMAX Platinum) | Multi-facility GPU-as-a-service, 20+ facilities, >100MW disclosed GPU capacity, bare-metal GPU clusters | Observability across distributed training clusters, deterministic inter-facility paths | `Large Scale GPU - Neocloud` |
+| **Tier 1 Inference - Neocloud** (23 records, default T2) | Together.ai (25+ cities, 200MW), Groq (35 Equinix POPs; NVIDIA acqui-hire Dec 2025 $20B), Cirrascale, DeepInfra ($107M Series B May 2026), Fireworks AI, Mistral La Plateforme (boundary - foundation-model lab with own inference API), SambaNova (SN50 Feb 2026, 405B record), Baseten | Distributed inference endpoints at 20-50+ edge locations, sub-100ms token latency SLAs | Real-time telemetry for latency diagnosis, multi-carrier orchestration between edge POPs | `Tier 1 Inference - Neocloud` |
+| **AI Infrastructure providers - Neocloud** (72 records) | Vultr, DigitalOcean GPU, Fluidstack, Modal, RunPod, OVHcloud (boundary with Sovereign), Scaleway (boundary), Linode (Akamai) | Mid-market cloud providers adding GPU compute, per-GPU-hour pricing typical, existing customer base asking for AI/ML | Multi-cloud bridge (white-label portal), Mean Time To Innocence, high-margin port arbitrage | `AI Infrastructure providers - Neocloud` |
+| **Sovereign AI Clouds - Neocloud** (28 records) | Nscale ($14.6B valuation, UK/EU), Firmus (Norway), E2E Networks (India), Yotta (India; 20k Blackwell Ultra Aug 2026), G42 / Inception (UAE; Stargate $30B 1GW Abu Dhabi March 2026), BSC (Barcelona Supercomputing Center, EUR200M EuroHPC), Stargate UAE | Built for GDPR/DPDP/national AI programs, hard restrictions on data storage AND transit | Policy-based sovereign routing, in-country PCE deployment, jurisdictional audit trails | `Sovereign AI Clouds - Neocloud` |
+| **Crypto to AI - Neoclouds** (16 records) | Crusoe (flared-gas BTC mining lineage, Crusoe Cloud + Stargate Abilene 200+MW JV), IREN (Microsoft $9.7B / 200MW landlord), Core Scientific (CoreWeave host landlord), Galaxy Digital (Helios CoreWeave 393MW host), Bitfarms (operator), TeraWulf (operator + landlord hybrid), APLD / Applied Digital (Polaris Forge 200MW Oct 2025 hyperscaler lease, $5B contracted revenue), Northern Data Group, Prometheus Hyperscale (Hut 8 AI hosting subsidiary), Hut 8 ($7B Google-backed AI deal Q1 2026), Hive Digital Technologies (public BTC miner since 2017, HPC/AI pivot confirmed 2023-24 per `context/account-tiering/enrichment-protocols.md` §line 665) | Bitcoin mining past + AI pivot, regardless of current business model (operator OR landlord). Cheap power ($0.03 - $0.05/kWh), high-density cooling already deployed | Simple fabric for tenant audits, observable uptime, infrastructure arbitrage | `Crypto to AI - Neoclouds` |
+| **Greenfield** (cross-segment with Colo) | Series A-C funded, sites under construction, <2 operational sites | Pre-operational neocloud builds. Auto-migrates to operational sub-segment (Large Scale GPU / AI Infrastructure providers / etc.) when first operational site goes live | Pre-build positioning, design-stage architecture conversations | `Greenfield` (pairs with `Data Center Colo Provider` OR `NeoCloud` parent) |
 
 ---
 
 ### Sub-Segment Deep Dives
 
-#### 1. Large-Scale GPU NeoClouds
+#### 1. Large Scale GPU - Neocloud
 
 **Who they are:** Specialized cloud providers focused exclusively on GPU-as-a-Service for LLM training and inference. Massive multi-facility footprints (20-50+ locations). NOT traditional clouds  -  bare-metal GPU clusters with custom network topologies and liquid cooling.
 
@@ -229,7 +239,7 @@ Not every neocloud is the same company. Where they are in their growth determine
 
 ---
 
-#### 2. Tier 1 Inference Providers
+#### 2. Tier 1 Inference - Neocloud
 
 **Who they are:** Providers who've distributed inference endpoints to 20-50+ edge locations to hit <100ms token latency SLAs. NOT centralized like training clouds  -  they're everywhere users are. Many operate out of Equinix carrier hotels with minimal on-site staff.
 
@@ -256,7 +266,7 @@ Not every neocloud is the same company. Where they are in their growth determine
 
 ---
 
-#### 3. AI Infrastructure Providers
+#### 3. AI Infrastructure providers - Neocloud
 
 **Who they are:** Mid-market cloud providers adding GPU compute to their product portfolio. Existing customer bases (developers, startups, SMBs) asking for AI/ML infrastructure. Some scaling rapidly to 30+ locations, many focus on high-density GPU capacity in 5–15 strategic global markets.
 
@@ -329,11 +339,21 @@ Not every neocloud is the same company. Where they are in their growth determine
 
 ---
 
-#### 5. Crypto-to-AI (The Power-Rich Landlords)
+#### 5. Crypto to AI - Neoclouds (Bitcoin Mining Past + AI Pivot)
 
 **Who they are:** Hardware-heavy firms that built massive power and cooling infrastructure for Bitcoin mining. Now pivoting to AI because they have the cheapest electricity ($0.03/kWh vs $0.08-$0.12 industry average), advanced cooling (immersion/liquid) already deployed, and high-density power (100kW+ per rack).
 
-**Business model:** They are LANDLORDS, not cloud operators. They rent space, power, and cooling to Tier 1 Inference providers or Large-Scale GPU clouds. A Tier 1 Inference provider might actually be renting from a Crypto-to-AI company.
+**Defining trait:** Bitcoin mining past + AI pivot, regardless of current business model. They may operate their own GPU compute (Bitfarms), act as pure landlords leasing capacity to hyperscalers and neoclouds (IREN $9.7B Microsoft contract, Core Scientific hosting CoreWeave), or run a hybrid model (TeraWulf). The mining origin story is what classifies them, not the current revenue model.
+
+**Anchor accounts (verified 2026-05-14):** Crusoe Energy (flared-gas BTC mining lineage, Crusoe Cloud + Stargate Abilene 200+MW JV), IREN / Iris Energy (Microsoft $9.7B / 200MW landlord), Core Scientific (CoreWeave host landlord), Galaxy Digital (Helios 393MW CoreWeave host, $1.4B Deutsche Bank loan Aug 2025 for AI conversion), Bitfarms (operator), TeraWulf (operator + landlord hybrid), APLD / Applied Digital (Polaris Forge 200MW Oct 2025 hyperscaler lease, $5B contracted revenue over 15 years), Northern Data Group, Prometheus Hyperscale (Hut 8 AI hosting subsidiary), Hut 8 ($7B Google-backed AI deal Q1 2026).
+
+**Tiebreaker vs Large Scale GPU / AI Signals colo:**
+- Bitcoin mining history confirmed -> `Crypto to AI - Neoclouds` wins (regardless of operator vs landlord).
+- No mining history + GPU compute operator -> `Large Scale GPU - Neocloud`.
+- No mining history + landlord-only with GPU tenants -> AI Signals colo (under Colocation segment).
+- Bitcoin mining history confirmed + pre-operational AI build -> `Crypto to AI - Neoclouds` (NOT `Greenfield`).
+
+**Business model variants:** Operator (own GPUs, sell compute), Landlord (lease capacity to hyperscalers/neoclouds), or Hybrid. Classification stays the same across variants. No `crypto_pivot_model` field is required.
 
 **Their architecture reality:** In crypto, if internet blips for 30 seconds, you lose 30 seconds of mining revenue. Annoying, but not catastrophic. In AI, if the network blips for 30 seconds during a 40TB training run, the entire job crashes. That's a million-dollar mistake for their tenants.
 
@@ -352,6 +372,40 @@ Not every neocloud is the same company. Where they are in their growth determine
 **Opening conversation:**
 - "When a Tier 1 GPU cloud asks if you can provide 99.99% uptime and multi-path network redundancy, what do you tell them?"
 - "How do you prove to tenants that a network issue didn't cause their training job to crash?"
+
+---
+
+#### 6. Greenfield (Cross-Segment with Colo)
+
+**Who they are:** Pre-operational neocloud builds. Companies actively under construction with Series A-C funding and sites in development. <2 operational sites at time of classification. Pairs with EITHER `Data Center Colo Provider` OR `NeoCloud` parent segment depending on whether they're selling space/power or compute when they go live.
+
+**Lifecycle:** Auto-migrates to the operational sub-segment (`Large Scale GPU - Neocloud`, `AI Infrastructure providers - Neocloud`, `Sovereign AI Clouds - Neocloud`, or AI Signals colo) when their first operational site goes live. Greenfield is a temporary classification, not a permanent home.
+
+**Tiebreaker vs Crypto to AI - Neoclouds:** Bitcoin mining history -> `Crypto to AI - Neoclouds` (NOT `Greenfield`, even if the AI site is pre-operational). Mining origin story always wins.
+
+**Their reality:**
+- Architecture decisions are being made right now  -  network choices baked in at design stage are easier to influence than rip-and-replace post-build
+- No legacy carrier relationships, no installed protocol stack
+- Capital is committed, timelines are public, and the first tenant lands inside 12-18 months
+- Founders typically don't have a "VP Network" yet  -  CEO or CTO owns connectivity decisions
+
+**Their pain:**
+- They're building the compute side from scratch and will eventually inherit the same multi-facility connectivity problem the operational neoclouds are stuck with
+- First tenant audits will ask the same uptime, redundancy, and observability questions Crypto-to-AI landlords face
+- Connectivity is rarely on the Series A/B/C investor deck  -  but it surfaces as a blocker the quarter before site one goes live
+
+**What MaiaEdge delivers (Greenfield-specific framing):**
+- Design-stage architecture conversations: PBC/PCE pattern committed before the carrier contracts are signed locks in deterministic paths from day one
+- Single control plane scales as their site count goes from 1 to 5 to 15 without re-architecting
+- No routing protocol burden on a founding engineering team that hasn't hired a network architect yet
+- Sovereign / multi-tenant capability built in before the first regulated-industry customer asks for it
+
+**Walk-away knowing:** "We don't need to build a network team. MaiaEdge gives us deterministic paths from site one, and the same control plane scales with us."
+
+**Opening conversation:**
+- "Your first site goes live in [X months]. What does the network between site one and site two look like in the architecture today?"
+- "You're raising/spending Series [A/B/C] on power and compute. Have you committed the carrier or fabric decisions yet, or is that still open?"
+- "Who on the founding team owns the connectivity decisions today? Most pre-operational neoclouds don't have a VP Network yet  -  is it CEO, CTO, or open?"
 
 ---
 
@@ -396,13 +450,9 @@ Not every neocloud is the same company. Where they are in their growth determine
 
 ---
 
-## Account Tiering
+## Account Tier Defaults
 
-| Tier | Criteria |
-|------|----------|
-| **Tier 1** | 5+ facilities, publicly announced GPU capacity >100MW, rapid expansion trajectory |
-| **Tier 2** | 2–4 facilities, growing, $50M+ revenue or significant funding |
-| **Tier 3** | Early-stage, single facility expanding to second |
+See `context/account-tiering/tier-compute-spec.md` for tier computation. `Large Scale GPU - Neocloud`, `Sovereign AI Clouds - Neocloud`, `AI Infrastructure providers - Neocloud`, `Crypto to AI - Neoclouds` default to Tier 1 (ceiling 1, floor 2). `Tier 1 Inference - Neocloud` defaults to Tier 2 (ceiling 1, floor 2). `Greenfield` (cross-segment) defaults to Tier 2 (ceiling 1, floor 3).
 
 ---
 
@@ -456,14 +506,14 @@ Triangulated from multiple sources (Neocloud.world, SemiAnalysis, McKinsey, Crun
 - Gap to close: ~100–200 companies not yet identified
 
 ### Coverage by Sub-Segment
-| Sub-Segment | Estimated Total | Current Coverage | Gap |
+| Sub-Segment (HubSpot `company_sub_segment` where canonical) | Estimated Total | Current Coverage | Gap |
 |---|---|---|---|
-| Tier 1 Inference Providers | 15–20 | 75–85% | Small |
-| Large-Scale GPU Cloud | 20–30 | 60–70% | Moderate |
-| Crypto-to-AI Pivots | 25–40 | ~45% | Moderate |
-| Serverless/Inference Startups | 40–60 | 35–45% | Large |
-| Sovereign AI / Telco GPU Clouds | 30–50 | ~25% | Very Large |
-| Enterprise AI Platforms | 50–80 | ~20% | Very Large |
+| `Tier 1 Inference - Neocloud` | 15-20 | 75-85% | Small |
+| `Large Scale GPU - Neocloud` | 20-30 | 60-70% | Moderate |
+| `Crypto to AI - Neoclouds` | 25-40 | ~45% | Moderate |
+| `AI Infrastructure providers - Neocloud` (incl. serverless / inference startups) | 40-60 | 35-45% | Large |
+| `Sovereign AI Clouds - Neocloud` (incl. telco GPU clouds) | 30-50 | ~25% | Very Large |
+| Enterprise AI platforms (route to `Other` if not GPU-cloud; otherwise `AI Infrastructure providers - Neocloud`) | 50-80 | ~20% | Very Large |
 
 ### 90-Day Coverage Targets
 - From 142 → 200+ identified companies
@@ -525,8 +575,8 @@ Key events: NVIDIA GTC (March, San Jose), OCP Global Summit, SC/Supercomputing, 
 
 ## Industry Landscape (2025-2026)
 
-### GPU Economics Shifting Fast
-H100 pricing cratered 64-75%: cloud rental from $8-10/hr (Q4 2024) to $2.99/hr (Q1 2026). AWS H100 spot prices dropped up to 88%. NVIDIA Blackwell sold out through mid-2026, but TSMC expanding CoWoS capacity to 120-130K wafers/month by late 2026 (up from 75K)  -  supply bottleneck should ease H2 2026. Midjourney moved from NVIDIA to Google TPU v6e, cutting inference spend from ~$2.1M to under $700K/month  -  a cautionary tale for GPU-only neoclouds.
+### GPU Economics Shifting Fast (Pricing Has Reversed in 2026)
+H100 pricing fell sharply from late 2024 through mid-2025 (cloud rental $8-10/hr Q4 2024 to ~$2.99/hr Q1 2026 spot, AWS H100 spot down up to 88%), but the trend has REVERSED. H100 1-year contract pricing climbed +40% from October 2025 to March 2026, from $1.70/hr to $2.35/hr. The prior assumption that GPU prices were collapsing in a straight line has been invalidated. NVIDIA Blackwell sold out through mid-2026 and B200/GB200 allocation pressure is pulling H100 reserved capacity tighter. TSMC expanding CoWoS capacity to 120-130K wafers/month by late 2026 (up from 75K) may ease supply H2 2026, but contract pricing has already turned. Midjourney moved from NVIDIA to Google TPU v6e, cutting inference spend from ~$2.1M to under $700K/month  -  still a cautionary tale for GPU-only neoclouds, but the underlying economics have shifted from margin compression to margin recovery for operators with locked-in capacity.
 
 ### Inference Overtaking Training
 Inference now represents 55% of AI infrastructure spending (early 2026), up from 33% in 2023. Projected 75-80% by 2030. Inference-optimized ASICs generated $20B+ in 2025 revenue. NVIDIA acquired Groq for ~$20B (Dec 2025), integrating LPU into Vera Rubin. Training tolerates retries. Inference doesn't  -  network quality directly impacts customer experience.
@@ -543,8 +593,8 @@ BMaaS gross margins are 55-65% before depreciation, but net profit margins drop 
 ### Allocation Is the Real Constraint
 The industry narrative frames GPU supply as "easing H2 2026" because TSMC is ramping CoWoS advanced packaging capacity to 120-130K wafers/month. True, but misleading for neocloud operators on the ground. NVIDIA Blackwell sold out through mid-2026. B200/GB200 allocation is tightly managed  -  most neoclouds get what NVIDIA decides to allocate, not what they order. This is why every hour of GPU utilization is existential, not rhetorical. When 128 H100s run at 35% utilization because of 2ms inter-AZ latency, that isn't a networking nuisance  -  it's the equivalent of NVIDIA allocating you 45 GPUs you aren't using. Deterministic paths aren't a networking purchase. They're how you extract revenue from allocation you fought to get.
 
-### Margin Compression Is Explicit Now
-H100 cloud rental dropped from $8-10/hr (Q4 2024) to $2.99/hr (Q1 2026)  -  a 64-75% collapse. AWS H100 spot prices fell up to 88%. That isn't pricing data, it's margin evaporation. BMaaS gross margins are 55-65% before depreciation, 14-16% net after labor, power, and depreciation consumes 40-50% of revenue at 3-4 year GPU useful lives. The gap between gross and net is where network-driven inefficiency hides. Inter-AZ latency (128 H100s at 35% across 3 AZs), recompute tax ($4,800/GPU/month rebuilding KV cache on 128K context Llama-3 70B), and egress bleeding ($0.05-$0.09/GB public vs. $0.02/GB Direct Connect) are now P&L items the CFO sees, not infrastructure footnotes. Boards are asking the CTO to quantify them.
+### Margin Compression, Then Margin Reversal (Network Inefficiency Still on the P&L)
+H100 cloud rental fell from $8-10/hr (Q4 2024) toward $2.99/hr (Q1 2026 spot), and AWS H100 spot prices fell up to 88% through that window. Then it reversed: H100 1-year contract pricing climbed +40% from October 2025 to March 2026 ($1.70/hr to $2.35/hr) as Blackwell allocation tightened and operators with locked-in capacity gained leverage. The prior assumption that GPU prices were collapsing has been invalidated. Either way, the P&L story is the same: BMaaS gross margins are 55-65% before depreciation, 14-16% net after labor, power, and depreciation consumes 40-50% of revenue at 3-4 year GPU useful lives. The gap between gross and net is where network-driven inefficiency hides. Inter-AZ latency (128 H100s at 35% across 3 AZs), recompute tax ($4,800/GPU/month rebuilding KV cache on 128K context Llama-3 70B), and egress bleeding ($0.05-$0.09/GB public vs. $0.02/GB Direct Connect) are now P&L items the CFO sees, not infrastructure footnotes. Pricing reversal means operators can capture the upside instead of bleeding it. Boards are asking the CTO to quantify them.
 
 ### Enterprise Long-Tail Is the Scaling Wall
 Scale neoclouds with hyperscaler-heavy customer mixes are often not in pain today. Hyperscalers bring their own connectivity  -  Direct Connect, ExpressRoute, private fiber  -  so the neocloud rarely has to provision anything. That's the trap. Growth plans depend on mid-market enterprise customers, and those customers don't bring their own anything. Every enterprise onboarding becomes a manual connectivity project: different carrier, different topology, different timeline. At a handful it's friction. As the enterprise ramp accelerates it becomes a structural ceiling on growth. This is not a latency-debugging conversation. It's a scaling-model conversation  -  the hyperscaler contracts that got them here didn't need a network team, the enterprise customers coming behind them will. Research separates the "in pain now" neocloud (debugging latency variance across facilities) from the "approaching the wall" neocloud (hyperscaler-heavy mix, growth strategy shifting toward enterprise long-tail). Same value props. Different door.
@@ -553,7 +603,7 @@ Scale neoclouds with hyperscaler-heavy customer mixes are often not in pain toda
 Modular edge operators and crypto-to-AI pivots straddle segment boundaries. Classification drives vocabulary, messaging, and angle  -  so getting it right matters. Key question: are they selling compute, or selling space?
 - **Sells compute** (GPUaaS, inference-as-a-service) → Neocloud. Example: Duos Edge AI deploys modular edge pods and sells GPU capacity (2,304 NVIDIA GPUs). They ARE the customer for connectivity. Use neocloud messaging.
 - **Sells space/power/cooling to GPU tenants** → AI Colo. Example: Nodiac deploys modular containerized DCs at renewable energy sites and hosts GPU tenants (500+ sites pipeline, 800+ MW). Their GPU tenants are separate neocloud prospects. Use colo messaging.
-- **Crypto-to-AI split**: IREN leasing power capacity to Microsoft = AI colo (landlord model). A former miner launching their own GPUaaS product = neocloud. Research the revenue model, not the origin story.
+- **Crypto-to-AI classification (revised 2026-05-14)**: Bitcoin mining history is the deciding factor, not the current revenue model. IREN (Microsoft $9.7B landlord), Core Scientific (CoreWeave host landlord), Bitfarms (operator), TeraWulf (hybrid) all classify as `Crypto to AI - Neoclouds`. A former miner launching their own GPUaaS product OR a former miner leasing capacity to a neocloud both classify as `Crypto to AI - Neoclouds`. Tiebreaker: mining history wins over operator vs landlord distinction.
 - **Does both**: Lead with primary revenue model. Research the company's site and investor materials to see how they describe themselves. If unclear, the colo angle is usually safer  -  it positions MaiaEdge as an enabler, not a dependency.
 
 ### Agentic Latency Compounding
@@ -615,7 +665,7 @@ How current industry trends connect to problems MaiaEdge solves. Use these acros
 
 | Their Trend | Their Pain | MaiaEdge Angle |
 |---|---|---|
-| H100 pricing crashed 64-75% | Unit economics under pressure  -  must maximize GPU utilization to survive margin compression | "GPUs are cheaper. Utilization is what matters now. 2ms of network latency = 65% wasted GPU capacity." |
+| H100 pricing fell then REVERSED +40% (Oct 2025 -> Mar 2026, $1.70 -> $2.35/hr 1-year contract) | Pricing recovery rewards operators with locked-in capacity and high utilization. Network-driven utilization loss now leaves money on the table instead of bleeding losses | "GPU contract pricing has turned. Operators with high utilization capture the upside. 2ms of network latency = 65% wasted capacity = revenue you're leaving on the table at higher contract rates." |
 | Inference overtaking training (55% of spend) | Inference is latency-sensitive and distributed  -  network quality directly impacts customer experience | "Training tolerates retries. Inference doesn't. Your customers feel every jitter spike." |
 | GPU Debt Wall ($870B industry-wide) | Must keep GPUs utilized to service debt -- network downtime = checkpoints = lost revenue | "Every network interruption forces a checkpoint rollback. Downtime isn't just costly when debt is mounting -- it's existential." |
 | Inter-AZ latency killing utilization | 128 H100s at 35% utilization across 3 AZs  -  network is the bottleneck, not compute | "Your GPUs aren't slow. Your network between facilities is. MaiaEdge gives you deterministic paths so clusters perform." |
@@ -634,7 +684,7 @@ How current industry trends connect to problems MaiaEdge solves. Use these acros
 Things neocloud executives say internally  -  use these to demonstrate you understand their world.
 
 ### Board Meeting Language
-- "H100 spot rates dropped 75% in 12 months. What does our unit economics look like at $2.99/hr?"
+- "H100 spot rates dropped 75% through mid-2025, then 1-year contract pricing reversed +40% Oct 2025 to Mar 2026. Where are our unit economics if pricing keeps recovering?"
 - "Inference is 55% of AI spend and growing. Our back-end fabric was built for training."
 - "128 H100s running at 35% utilization because of 2ms inter-AZ latency"
 - "Every checkpoint rollback is money burning"
@@ -661,4 +711,4 @@ CoWoS, BMaaS, straggler GPUs, stalled collectives, SHARP (halves All-Reduce trav
 
 *Cross-references: Messaging Framework V4 (Section 3.3 Neoclouds), ICP Sales Playbook, AI Market Positioning Guide, Cloud On-Ramp Business Case*
 
-*Last updated: April 2026 (trend refresh: allocation as real constraint, margin compression explicit, agentic latency compounding, enterprise long-tail scaling wall, neocloud/colo disambiguation)*
+*Last updated: 2026-05-14 (Phase 3 segmentation overhaul: classification authority pointer, Tier 1 Inference defaulted to T2, Crypto to AI revised to inclusive Bitcoin-mining-past + AI-pivot definition regardless of operator vs landlord, GPU pricing reversal +40% Oct 2025-Mar 2026, Greenfield cross-segment deep dive added, sub-segment anchors refreshed for Stargate UAE / Nscale / G42 / BSC / SambaNova / DeepInfra Series B / NVIDIA-Groq acqui-hire, tier table replaced with tier-compute-spec.md pointer)*

@@ -26,18 +26,18 @@
 
 ## Deal Creation Defaults (Claude → HubSpot MCP)
 
-When the user asks to "create a deal", "open a deal", "book this as a deal", or otherwise initiate a new deal record — create it directly in HubSpot via the HubSpot MCP (`create_object` on the `deal` object) and apply these defaults unless the user specifies otherwise:
+When the user asks to "create a deal", "open a deal", "book this as a deal", or otherwise initiate a new deal record - create it directly in HubSpot via the HubSpot MCP (`create_object` on the `deal` object) and apply these defaults unless the user specifies otherwise:
 
 | Field | Default on creation | Rationale |
 |-------|--------------------|-----------|
-| `dealstage` | **`appointmentscheduled`** (label: "Appointment Scheduled") | Every deal starts here by definition — MaiaEdge's pipeline entry point is the booked initial meeting. Downstream automation, reporting, and rep ownership all assume stage 1. Never create a deal directly into a later stage without an explicit user instruction. |
+| `dealstage` | **`appointmentscheduled`** (label: "Appointment Scheduled") | Every deal starts here by definition - MaiaEdge's pipeline entry point is the booked initial meeting. Downstream automation, reporting, and rep ownership all assume stage 1. Never create a deal directly into a later stage without an explicit user instruction. |
 | `pipeline` | "MaiaEdge Deals pipeline" | Only active pipeline. |
 | `hubspot_owner_id` | Derived from company `hubspot_owner_id` if associated, otherwise asked | Keep rep ownership consistent with territory. |
-| `dealname` | Derived from `<Company name> — <short opportunity descriptor>` if not provided | Keep naming searchable and consistent. |
+| `dealname` | Derived from `<Company name> - <short opportunity descriptor>` if not provided | Keep naming searchable and consistent. |
 | `dealtype` | `newbusiness` unless clearly expansion | Expansion deals on existing customers should be flagged explicitly. |
 | `customer_segment` | Copy from associated company's `customer_segment` | Keep company and deal segment in sync. |
 
-**Never** default a new deal to `qualifiedtobuy`, `presentationscheduled`, `decisionmakerboughtin`, `contractsent`, `closedwon`, or `closedlost` — those stages represent progress and must be entered by a human decision.
+**Never** default a new deal to `qualifiedtobuy`, `presentationscheduled`, `decisionmakerboughtin`, `contractsent`, `closedwon`, or `closedlost` - those stages represent progress and must be entered by a human decision.
 
 If the user says "create a deal at <stage>" explicitly (e.g. "create this as a POC deal"), honor the stated stage but flag the override in your response so the rep can confirm.
 
@@ -63,7 +63,7 @@ If the user says "create a deal at <stage>" explicitly (e.g. "create this as a P
 
 ### MEDDPICC Fields  -  SYNCED FROM CONTACTS, NOT WRITTEN DIRECTLY
 
-**These deal-level fields are read-only mirrors of contact-level MEDDPICC.** Per Cooper's design (see `contact-schema.md` → "MEDDPICC (Contact-Level) — AUTHORITATIVE LOCATION" and `call-schema.md` → "MEDDPICC and Call Transcripts -- Critical Rule"), HubSpot smart-property auto-fill from call transcripts only targets contacts. A property-sync workflow then propagates contact-level MEDDPICC up to these deal-level fields automatically. **NEVER write to these deal-level properties directly — that bypasses the sync and creates drift between contact (source of truth) and deal (mirror).**
+**These deal-level fields are read-only mirrors of contact-level MEDDPICC.** Per Cooper's design (see `contact-schema.md` → "MEDDPICC (Contact-Level) - AUTHORITATIVE LOCATION" and `call-schema.md` → "MEDDPICC and Call Transcripts -- Critical Rule"), HubSpot smart-property auto-fill from call transcripts only targets contacts. A property-sync workflow then propagates contact-level MEDDPICC up to these deal-level fields automatically. **NEVER write to these deal-level properties directly - that bypasses the sync and creates drift between contact (source of truth) and deal (mirror).**
 
 | Property | Internal Name | Type | Source | Notes |
 |----------|--------------|------|--------|-------|
@@ -76,7 +76,7 @@ If the user says "create a deal at <stage>" explicitly (e.g. "create this as a P
 | Metrics | `metrics_meddpicc` | Text | Synced from contact `meddpicc_metrics_contact` | Success metrics |
 | Use Case | `use_case_meddpicc` | Text | Synced from contact `meddpicc_use_case` | Primary use case |
 
-**Reading guidance:** when reasoning about current MEDDPICC state, prefer reading the contact-level fields directly — the deal-level mirrors may lag the sync interval. The weekly-call-recap routine reads contact-level only and never reads or writes these mirror fields.
+**Reading guidance:** when reasoning about current MEDDPICC state, prefer reading the contact-level fields directly - the deal-level mirrors may lag the sync interval. The weekly-call-recap routine reads contact-level only and never reads or writes these mirror fields.
 
 **Adoption tracking:** fill rate on these mirrors is a downstream signal of contact-level MEDDPICC maturity. Roughly 8-9 deals have MEDDPICC populated as of March 2026, ~40-45% completion across the 8 fields, indicating selective adoption by engaged AEs at the contact level.
 

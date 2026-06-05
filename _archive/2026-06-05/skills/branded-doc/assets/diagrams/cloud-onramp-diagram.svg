@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrowDarkB" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#1A1A1A"/>
+    </marker>
+    <marker id="arrowGoldB" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#FFC200"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#FFFFFF"/>
+
+  <!-- Header -->
+  <text x="40" y="60" font-size="14" letter-spacing="3" font-weight="700" fill="#FF9400">HIGH-MARGIN PRODUCT  ·  WHITE-LABEL CLOUD CONNECTIVITY</text>
+  <text x="40" y="105" font-size="36" font-weight="800" fill="#1A1A1A">Cloud On-Ramp Architecture</text>
+  <line x1="40" y1="125" x2="1560" y2="125" stroke="#FFC200" stroke-width="3"/>
+
+  <!-- ============================================== -->
+  <!-- Frontstage / Backstage rails -->
+  <!-- ============================================== -->
+  <g font-size="13" letter-spacing="3" font-weight="700">
+    <text x="40" y="220" fill="#1A1A1A">FRONTSTAGE</text>
+    <text x="40" y="240" font-size="11" letter-spacing="0" font-weight="400" fill="#4A4A4A">visible to end customer</text>
+    <text x="40" y="540" fill="#FF9400">BACKSTAGE</text>
+    <text x="40" y="560" font-size="11" letter-spacing="0" font-weight="400" fill="#4A4A4A">backend infrastructure</text>
+    <text x="40" y="780" fill="#1A1A1A">DESTINATION</text>
+    <text x="40" y="800" font-size="11" letter-spacing="0" font-weight="400" fill="#4A4A4A">cloud provider</text>
+  </g>
+
+  <!-- horizontal rails -->
+  <line x1="240" y1="290" x2="1560" y2="290" stroke="#E5E1DA" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="240" y1="610" x2="1560" y2="610" stroke="#E5E1DA" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- ============================================== -->
+  <!-- 1. Operator's Customer (frontstage left) -->
+  <!-- ============================================== -->
+  <g transform="translate(240, 200)">
+    <rect x="0" y="0" width="320" height="180" fill="#F4F2EE" stroke="#E5E1DA" stroke-width="2"/>
+    <rect x="0" y="0" width="6" height="180" fill="#FFC200"/>
+    <!-- icon: customer/people -->
+    <g transform="translate(30, 30)" stroke="#1A1A1A" stroke-width="2.5" fill="none">
+      <circle cx="24" cy="14" r="10"/>
+      <path d="M 4 50 C 4 32, 14 28, 24 28 C 34 28, 44 32, 44 50"/>
+      <circle cx="56" cy="20" r="7" stroke-width="2"/>
+      <path d="M 44 52 C 44 38, 50 36, 56 36 C 62 36, 68 38, 68 52"/>
+    </g>
+    <text x="30" y="115" font-size="12" letter-spacing="3" font-weight="700" fill="#FF9400">END CUSTOMER</text>
+    <text x="30" y="140" font-size="20" font-weight="800" fill="#1A1A1A">Operator's Customer</text>
+    <text x="30" y="162" font-size="13" fill="#4A4A4A">Sees only the operator's brand,</text>
+    <text x="30" y="178" font-size="13" fill="#4A4A4A">portal, and invoice.</text>
+  </g>
+
+  <!-- arrow Customer → PBC -->
+  <line x1="560" y1="290" x2="640" y2="290" stroke="#1A1A1A" stroke-width="2.5" marker-end="url(#arrowDarkB)"/>
+  <text x="600" y="277" font-size="11" letter-spacing="2" font-weight="700" fill="#1A1A1A" text-anchor="middle">private path</text>
+  <text x="600" y="307" font-size="11" fill="#4A4A4A" text-anchor="middle">operator's brand</text>
+
+  <!-- ============================================== -->
+  <!-- 2. PBC at operator boundary -->
+  <!-- ============================================== -->
+  <g transform="translate(640, 200)">
+    <rect x="0" y="0" width="320" height="180" fill="#F4F2EE" stroke="#E5E1DA" stroke-width="2"/>
+    <rect x="0" y="0" width="6" height="180" fill="#FFC200"/>
+    <!-- 1RU device icon -->
+    <g transform="translate(30, 32)" stroke="#1A1A1A" stroke-width="2" fill="none">
+      <rect x="0" y="0" width="80" height="32" rx="2" fill="#FFC200" stroke="#1A1A1A" stroke-width="2.5"/>
+      <rect x="8" y="12" width="6" height="6" fill="#1A1A1A"/>
+      <rect x="20" y="12" width="6" height="6" fill="#1A1A1A"/>
+      <rect x="32" y="12" width="6" height="6" fill="#1A1A1A"/>
+      <circle cx="68" cy="16" r="3" fill="#FFFFFF" stroke="#1A1A1A"/>
+    </g>
+    <text x="30" y="115" font-size="12" letter-spacing="3" font-weight="700" fill="#FF9400">EDGE</text>
+    <text x="30" y="140" font-size="20" font-weight="800" fill="#1A1A1A">PBC at Operator Boundary</text>
+    <text x="30" y="162" font-size="13" fill="#4A4A4A">Encrypts the path. Hands traffic</text>
+    <text x="30" y="178" font-size="13" fill="#4A4A4A">to the PCE-orchestrated underlay.</text>
+  </g>
+
+  <!-- arrow PBC down to PCE -->
+  <line x1="800" y1="380" x2="800" y2="500" stroke="#1A1A1A" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowDarkB)"/>
+  <rect x="700" y="425" width="200" height="22" fill="#FFFFFF"/>
+  <text x="800" y="440" font-size="11" letter-spacing="2" font-weight="700" fill="#1A1A1A" text-anchor="middle">API INTEGRATION</text>
+
+  <!-- ============================================== -->
+  <!-- 3. PCE orchestrating Megaport / Equinix Fabric (backstage middle) -->
+  <!-- ============================================== -->
+  <g transform="translate(280, 510)">
+    <rect x="0" y="0" width="1040" height="200" fill="#1A1A1A"/>
+    <rect x="0" y="0" width="8" height="200" fill="#FFC200"/>
+    <!-- cloud icon for PCE -->
+    <g transform="translate(50, 60)" fill="none" stroke="#FFC200" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 22 80 C 8 80, 0 70, 0 56 C 0 42, 12 34, 24 34 C 28 18, 44 8, 60 8 C 76 8, 90 18, 94 34 C 110 34, 122 46, 122 60 C 122 74, 110 84, 94 84 L 22 80 Z"/>
+      <text x="40" y="65" font-size="20" font-weight="700" fill="#FFC200" stroke="none">PCE</text>
+    </g>
+    <text x="220" y="55" font-size="13" letter-spacing="3" font-weight="700" fill="#FFC200">CLOUD ORCHESTRATION  ·  BACKEND</text>
+    <text x="220" y="95" font-size="28" font-weight="800" fill="#FFFFFF">PCE programs the path through Megaport / Equinix Fabric</text>
+    <text x="220" y="130" font-size="14" fill="#D4D0C9">Megaport and Equinix Fabric are leveraged via API as backend infrastructure —</text>
+    <text x="220" y="150" font-size="14" fill="#D4D0C9">invisible to the end customer. The operator's brand stays in front.</text>
+
+    <!-- Backend logos as text-pills -->
+    <g transform="translate(220, 165)">
+      <rect x="0" y="0" width="120" height="22" fill="#2A2A2A" stroke="#FFC200" stroke-width="1"/>
+      <text x="60" y="15" font-size="11" letter-spacing="2" font-weight="700" fill="#FFC200" text-anchor="middle">MEGAPORT</text>
+      <rect x="135" y="0" width="120" height="22" fill="#2A2A2A" stroke="#FFC200" stroke-width="1"/>
+      <text x="195" y="15" font-size="11" letter-spacing="2" font-weight="700" fill="#FFC200" text-anchor="middle">EQUINIX FABRIC</text>
+      <rect x="270" y="0" width="160" height="22" fill="#2A2A2A" stroke="#FFC200" stroke-width="1"/>
+      <text x="350" y="15" font-size="11" letter-spacing="2" font-weight="700" fill="#FFC200" text-anchor="middle">VIA API · NEVER BRANDED</text>
+    </g>
+  </g>
+
+  <!-- arrow PCE down to hyperscalers -->
+  <line x1="800" y1="710" x2="800" y2="820" stroke="#1A1A1A" stroke-width="2.5" marker-end="url(#arrowDarkB)"/>
+  <rect x="680" y="745" width="240" height="22" fill="#FFFFFF"/>
+  <text x="800" y="760" font-size="11" letter-spacing="2" font-weight="700" fill="#1A1A1A" text-anchor="middle">PORT-LEVEL HANDOFF</text>
+
+  <!-- ============================================== -->
+  <!-- 4. Three hyperscaler tiles (destination) -->
+  <!-- ============================================== -->
+  <g transform="translate(180, 830)">
+    <!-- AWS -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="380" height="120" fill="#F4F2EE" stroke="#E5E1DA" stroke-width="2"/>
+      <rect x="0" y="0" width="6" height="120" fill="#FFC200"/>
+      <text x="30" y="40" font-size="12" letter-spacing="3" font-weight="700" fill="#FF9400">CLOUD</text>
+      <text x="30" y="68" font-size="20" font-weight="800" fill="#1A1A1A">AWS Direct Connect</text>
+      <text x="30" y="92" font-size="13" fill="#4A4A4A">Dedicated 1G / 10G / 100G</text>
+      <text x="30" y="108" font-size="13" fill="#4A4A4A">access to AWS regions.</text>
+    </g>
+    <!-- Azure -->
+    <g transform="translate(440, 0)">
+      <rect x="0" y="0" width="380" height="120" fill="#F4F2EE" stroke="#E5E1DA" stroke-width="2"/>
+      <rect x="0" y="0" width="6" height="120" fill="#FFC200"/>
+      <text x="30" y="40" font-size="12" letter-spacing="3" font-weight="700" fill="#FF9400">CLOUD</text>
+      <text x="30" y="68" font-size="20" font-weight="800" fill="#1A1A1A">Azure ExpressRoute</text>
+      <text x="30" y="92" font-size="13" fill="#4A4A4A">Private peering into Azure</text>
+      <text x="30" y="108" font-size="13" fill="#4A4A4A">+ Microsoft 365.</text>
+    </g>
+    <!-- GCP -->
+    <g transform="translate(880, 0)">
+      <rect x="0" y="0" width="380" height="120" fill="#F4F2EE" stroke="#E5E1DA" stroke-width="2"/>
+      <rect x="0" y="0" width="6" height="120" fill="#FFC200"/>
+      <text x="30" y="40" font-size="12" letter-spacing="3" font-weight="700" fill="#FF9400">CLOUD</text>
+      <text x="30" y="68" font-size="20" font-weight="800" fill="#1A1A1A">GCP Cloud Interconnect</text>
+      <text x="30" y="92" font-size="13" fill="#4A4A4A">Direct peering to Google's</text>
+      <text x="30" y="108" font-size="13" fill="#4A4A4A">backbone.</text>
+    </g>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- Right-side callout: Shared port economics -->
+  <!-- ============================================== -->
+  <g transform="translate(1000, 200)">
+    <rect x="0" y="0" width="560" height="180" fill="#1A1A1A"/>
+    <rect x="0" y="0" width="6" height="180" fill="#FFC200"/>
+    <text x="30" y="38" font-size="13" letter-spacing="3" font-weight="700" fill="#FFC200">SHARED PORT ECONOMICS</text>
+    <text x="30" y="78" font-size="22" font-weight="800" fill="#FFFFFF">Each new customer adds margin</text>
+    <text x="30" y="100" font-size="22" font-weight="800" fill="#FFFFFF">against a fixed cost base.</text>
+    <text x="30" y="135" font-size="14" fill="#D4D0C9">The operator pays once for the Megaport / Equinix port.</text>
+    <text x="30" y="155" font-size="14" fill="#D4D0C9">Every additional tenant on top is high-margin revenue.</text>
+  </g>
+
+  <!-- bottom rule -->
+  <text x="40" y="985" font-size="11" letter-spacing="3" font-weight="700" fill="#4A4A4A">MAIAEDGE  ·  CLOUD ON-RAMP  ·  THE OPERATOR'S BRAND STAYS IN FRONT  ·  MARGIN STAYS WITH THE OPERATOR</text>
+</svg>

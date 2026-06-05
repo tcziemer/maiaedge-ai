@@ -22,15 +22,17 @@ This is the comprehensive ICP reference for MaiaEdge. It covers every customer s
 
 ## Segment Quick Reference
 
-| Segment | What They Own | Revenue Model | Scale | Priority | Example Companies |
+| Segment | What They Own | Revenue Model | Scale | Default Tier | Example Companies |
 |---------|---------------|---------------|-------|----------|-------------------|
-| **Neocloud** | GPU clusters across multiple colo facilities, AI/ML software stack | GPU compute rental, inference-as-a-service | Rapidly scaling, $50M–$5B+ revenue, multi-facility | HIGH | Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius |
-| **Colo  -  AI Infrastructure** | Buildings, meet-me rooms, metro fiber + liquid cooling, high-density power | Space/power (premium for AI), cross-connects, AI infrastructure services | 1–50+ facilities, GPU cloud tenants, $50M–$1B+ | HIGH | Aligned, Cologix, EdgeConneX, QTS, Vantage, Stack |
-| **Colo (Standard)** | Buildings, meet-me rooms, metro fiber (NOT route miles) | Space/power (60–80%), cross-connects (10–20%), cloud on-ramps (0–5%) | 1–50+ facilities, $10M–$500M revenue | HIGH | RevNet, Centra, ARK, DataBank, Flexential |
-| **Fiber Operator** | Physical fiber, optical transport (measured in route miles) | Dark fiber (IRUs), lit wavelengths, metro Ethernet, wholesale | 500–100,000 route miles, $25M–$500M revenue | HIGH | Arvig, Ocean Networks, Crown Castle Fiber, Fatbeam |
-| **Network Operator** | National/global network, mix of owned fiber and leased capacity | Enterprise connectivity, MPLS, wavelengths, IP transit | 50+ PoPs, 500+ employees, national/global | MEDIUM | NTT, IENTC, AT&T, Verizon, Lumen |
-| **MSP/Aggregator** | Contracts (not infrastructure), aggregate 3+ carriers | Margin on resold connectivity, managed services fees | 50–500 employees, $20M–$500M revenue | MEDIUM | INDATEL, 11:11 Systems, Granite |
-| **Enterprise (Dark Fiber)** | Own or lease private fiber/WAN for internal use | Internal cost center, not selling services | Varies  -  universities, healthcare, HFT, utilities | LOW | Research universities, hospital networks, financial firms |
+| **Neocloud** | GPU clusters across multiple colo facilities, AI/ML software stack | GPU compute rental, inference-as-a-service | Rapidly scaling, $50M-$5B+ revenue, multi-facility | T1 (most sub-segments); T2 (Tier 1 Inference) | Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius |
+| **Colo - AI Infrastructure** | Buildings, meet-me rooms, metro fiber + liquid cooling, high-density power | Space/power (premium for AI), cross-connects, AI infrastructure services | 1-50+ facilities, GPU cloud tenants, $50M-$1B+ | T1 (`AI Signals - colo`) | Aligned, Cologix, EdgeConneX, QTS, Vantage, Stack |
+| **Colo (Standard)** | Buildings, meet-me rooms, metro fiber (NOT route miles) | Space/power (60-80%), cross-connects (10-20%), cloud on-ramps (0-5%) | 1-50+ facilities, $10M-$500M revenue | T3 (`Standard - colo`); T1 (`Modular - colo`, `Hyperscale Wholesale - colo`) | RevNet, Centra, ARK, DataBank, Flexential |
+| **Fiber Operator** | Physical fiber, optical transport (measured in route miles) | Dark fiber (IRUs), lit wavelengths, metro Ethernet, wholesale | 500-100,000 route miles, $25M-$500M revenue | T2 (Tier 2 National Wholesale / Long Haul / Dark Fiber); T3 (Regional CLEC / Regional Cable Operator); T4 (Municipal / Cooperative) | Arvig, Ocean Networks, Zayo, Bluebird Fiber |
+| **Network Operator** | National/global network, mix of owned fiber and leased capacity | Enterprise connectivity, MPLS, wavelengths, IP transit | 50+ PoPs, 500+ employees, national/global | T1 (Tier 1 Carrier / Pure Wholesale / Cable MSO / International Backbone); T2 (Subsea cable operator) | NTT, AT&T, Verizon, Lumen, Tata Communications |
+| **MSP/Aggregator** | Contracts (not infrastructure), aggregate 3+ carriers | Margin on resold connectivity, managed services fees | 50-500 employees, $20M-$500M revenue | T2 (Telecom Aggregator / Managed Network Services / Cloud + Telecom Hybrid); T3 (TSD / Master Agent) | INDATEL, 11:11 Systems, Granite, Telarus |
+| **Enterprise (Multi-DC ICP)** | Multi-DC corporate network with in-house network engineering team. Own/operate corporate WAN; lease dark fiber between sites; direct carrier contracts. Four sub-segments: Financial Services, Healthcare Systems, Retail and Distribution, Outsourcing Services. | Internal cost center - enterprise IS the customer (no commercial layer to resell to) | $1B+ revenue, 3+ DCs, in-house net eng team. Anchor: Meijer. | T3 (ceiling T2, floor T4) | Meijer, JPMorgan Chase, HCA Healthcare, Cognizant |
+
+**Default Tier** column reflects the framework default per the most common sub-segment in each ICP. Signal modifiers, open deals, and `hs_is_target_account` can move tier up or down within the segment's ceiling and floor. See `context/account-tiering/tier-compute-spec.md` for the full per-sub-segment defaults table + modifier rules. **Greenfield (cross-segment, T2 default)** is a real sub-segment for pre-operational Colo + NeoCloud companies - pairs with either parent.
 
 ---
 
@@ -56,8 +58,13 @@ Tier 1/2 carrier OR national/global scale?
 Aggregates 3+ carriers + minimal owned infrastructure?
  → YES → MSP/AGGREGATOR
  ↓ NO
-Uses internally + doesn't sell services?
- → YES → ENTERPRISE (Low Priority)
+Multi-DC corporate network ($1B+ rev, 3+ DCs, in-house net eng) in one of:
+  financial services / healthcare systems / retail and distribution / outsourcing services?
+ → YES → ENTERPRISE (Multi-DC ICP) - assign one of the four `company_sub_segment` values
+ ↓ NO
+Uses internally + doesn't sell services + outside the four Enterprise verticals
+  (manufacturing, energy/utilities, logistics, government, SaaS-only, sub-$1B, single-DC)?
+ → YES → EXCLUDE (Watch List or out of scope)
  ↓ NO
 Matches any EXCLUDE criteria? → YES → EXCLUDE
  ↓ NO
@@ -75,6 +82,7 @@ END
 | **Fiber Operator** | "lit fiber services," "fiber to the premise," "facilities-based broadband," "fiber network operator," "dark fiber provider," "wholesale fiber," "regional fiber operator," "route miles" |
 | **Network Operator** | "Tier 1 carrier," "Tier 2 carrier," "national backbone," "global carrier," "incumbent carrier," "managed connectivity services," "multi-domain orchestration" |
 | **MSP/Aggregator** | "carrier broker," "white label provider," "B2B marketplace," "carrier aggregator," "network aggregator" |
+| **Enterprise (Multi-DC ICP)** | Vertical keywords: "multi-DC retailer," "national retailer," "hospital system network," "investment bank network engineering," "BPO delivery centers," "global delivery centers," "data center operations VP," "VP Network Infrastructure," "Director Network Engineering," "Principal Network Engineer," "NOC presence." Company-name triggers: Meijer, Kroger, Walmart, Target, Lowe's, Home Depot (retail); JPMorgan Chase, Goldman Sachs, BNY Mellon, State Street, Visa, Mastercard (financial); HCA Healthcare, Ascension, CommonSpirit, Kaiser Permanente, Cleveland Clinic (healthcare); Cognizant, Genpact, Concentrix, TaskUs, Wipro BPS, TCS BPS, Accenture Operations (outsourcing). |
 
 ---
 
@@ -90,7 +98,7 @@ END
 | **Retail ISP (verified no wholesale)** | Consumer broadband providers without wholesale/enterprise connectivity offerings. | Residential-only pricing pages, "home internet," no enterprise/wholesale services page. Must verify  -  some retail ISPs also sell wholesale |
 | **Software/Platform Vendor** | Build orchestration, SDN, or connectivity software. Potential PARTNER, not customer. | "Network orchestration software," "SDN platform," "network automation tool." Examples: Itential, Netcracker, Blue Planet |
 | **Hyperscaler** | AWS, Azure, Google Cloud, Oracle Cloud. They build their own infrastructure at planetary scale. | Self-evident. Also includes hyperscaler subsidiaries focused on cloud services |
-| **Enterprise (internal network only)** | Large enterprises with private networks used exclusively internally. No commercial connectivity sales. | No "Services" page selling connectivity. Network exists to serve their own business (banks, retailers, manufacturers with no wholesale arm) |
+| **Enterprise - Disqualified (not the four ICP sub-segments)** | Large enterprises with private networks used internally that fail the Enterprise vertical gate (not financial services / healthcare systems / retail and distribution / outsourcing services) OR fail the scale gate (<$1B revenue OR <3 DCs AND no direct fabric port AND no in-house net eng) OR trigger a hard disqualifier (network fully outsourced to single MSP, single DC, no direct carrier contracts). | Manufacturing, Energy/Utilities, Logistics/Supply Chain → Watch List (not ICP). Government/Defense → FedRAMP-gated, out of scope. Mid-market <$1B → hold as `Other`. Defense contractors that procure commercially land in `Financial Services - Enterprise` based on commercial profile, not gov work. |
 | **<10 employees (verified)** | Too small to be a viable customer. Must be verified  -  some holding companies appear small but operate significant infrastructure. | LinkedIn employee count <10, confirmed via website/LinkedIn. Flag for manual review if infrastructure signals are strong despite small headcount |
 | **Vendor/Contractor/Manufacturer** | Makes networking equipment, provides installation services, or manufactures hardware. No operator business. | "Network equipment manufacturer," "fiber installation contractor," "cable manufacturer." Examples: Corning, CommScope (unless they have operator divisions) |
 | **Consulting Firm** | Telecom consultants, network design firms, advisory practices. | "Telecom consulting," "network design services," "advisory firm." No owned infrastructure or commercial connectivity |
@@ -132,13 +140,13 @@ Neoclouds are the backbone of Sovereign AI. They create unified compute fabrics 
 
 > **Note:** AI Data Centers (e.g., IREN, Core Scientific, Northern Data Group, TeraWulf) are covered under Colocation Operators  -  AI Infrastructure (Segment 2). Cross-reference when a prospect straddles both segments.
 
-| Sub-Segment | Examples | Lead With | Networking Sophistication |
+| HubSpot `company_sub_segment` | Examples | Lead With | Networking Sophistication |
 |-------------|----------|-----------|--------------------------|
-| **Large-Scale GPU NeoClouds** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers (scale creates all three pains)  -  highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable  -  some have networking staff |
-| **Tier 1 Inference Providers** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate  -  may have some network awareness |
-| **AI Infrastructure Providers** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud)  -  note Megaport/Latitude.sh competitive threat | Minimal  -  developer-first |
-| **Sovereign AI Clouds** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (regulatory compliance is a driver  -  GDPR, EU AI Act, DPDP, CLOUD Act) | Variable  -  compliance-driven |
-| **Crypto-to-AI Pivots** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (they're learning networking as they go  -  legacy crypto infrastructure wasn't built for AI traffic patterns) | Minimal  -  learning curve |
+| **`Large Scale GPU - Neocloud`** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers (scale creates all three pains)  -  highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable  -  some have networking staff |
+| **`Tier 1 Inference - Neocloud`** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate  -  may have some network awareness |
+| **`AI Infrastructure providers - Neocloud`** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud)  -  note Megaport/Latitude.sh competitive threat | Minimal  -  developer-first |
+| **`Sovereign AI Clouds - Neocloud`** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (regulatory compliance is a driver  -  GDPR, EU AI Act, DPDP, CLOUD Act) | Variable  -  compliance-driven |
+| **`Crypto to AI - Neoclouds`** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (they're learning networking as they go  -  legacy crypto infrastructure wasn't built for AI traffic patterns) | Minimal  -  learning curve |
 
 ### MASTER PITCH & MESSAGING PILLARS (V4.1)
 
@@ -245,11 +253,7 @@ Your IT/Network Admin doesn't need to become a BGP expert. They provision paths 
 
 ### Account Tiering
 
-| Tier | Criteria |
-|------|----------|
-| **Tier 1** | 5+ facilities, publicly announced GPU capacity >100MW, rapid expansion trajectory |
-| **Tier 2** | 2–4 facilities, growing, $50M+ revenue or significant funding |
-| **Tier 3** | Early-stage, single facility expanding to second |
+See `context/account-tiering/tier-compute-spec.md` for tier computation. Neocloud sub-segments default to Tier 1 (`Large Scale GPU - Neocloud`, `Sovereign AI Clouds - Neocloud`, `AI Infrastructure providers - Neocloud`, `Crypto to AI - Neoclouds`) or Tier 2 (`Tier 1 Inference - Neocloud`). Signal modifiers + `hs_is_target_account` apply uniformly.
 
 ### Expansion Path
 
@@ -1094,34 +1098,109 @@ When you have visibility into carrier performance, your conversations with carri
 
 ---
 
-## Segment 7: Enterprise (Dark Fiber / Private WAN)
+## Segment 7: Enterprise (Multi-DC ICP)
 
 ### How This Business Works
 
-Large enterprises that own or lease dark fiber or private WAN infrastructure for internal use. They are NOT selling connectivity services  -  the network exists to serve their own operations. This is a LOW PRIORITY segment because deal sizes are smaller and sales cycles are longer.
+Large enterprises that own and operate multi-DC corporate networks with in-house network engineering teams. The enterprise IS the customer - no commercial layer to resell to. Lead use cases: dark fiber redundancy between data centers + cloud on-ramp under enterprise control. Promoted to ICP May 2026; lowest-priority ICP (priority 5) but qualified and sellable.
 
-**Who Qualifies:** Universities with campus fiber networks, healthcare systems with inter-facility fiber, financial services firms with private trading networks (HFT), utilities with SCADA/grid networks, government/military with private networks.
+**Who Qualifies (HARD gate - both must pass):**
+- **Vertical gate:** one of `Financial Services - Enterprise`, `Healthcare Systems - Enterprise`, `Retail and Distribution - Enterprise`, `Outsourcing Services - Enterprise`.
+- **Scale gate:** $1B+ revenue AND (3+ DCs OR direct Equinix Fabric / Megaport port OR confirmed in-house network engineering team via NOC presence or VP / Director / Principal Network Engineering job postings).
 
-**What They Own:** Dark fiber (IRU or owned), private WAN infrastructure, campus networks. May lease some capacity.
+**Hard disqualifiers:** Network fully outsourced to single MSP with no internal engineering ownership; single DC or single geography; no direct carrier contracts (100% reseller / MSP).
 
-**Revenue Model:** Internal cost center. Network is an operational expense, not a revenue line.
+**Out of scope (Watch List, not ICP):** Manufacturing (plant networks are OT, not multi-DC IT), Energy and Utilities (NERC CIP long-tail), Logistics and Supply Chain (multi-warehouse ≠ multi-DC). Government / Defense (FedRAMP-gated, not currently pursued).
 
-**Pain Points:** Manual provisioning, VLAN complexity, project bottlenecks, limited visibility across leased segments.
+**Anchor account:** Meijer (retail/distribution, Ken Cunningham + Woody Acosta, active design with Mark Szymanski on PBC + Port Extender for HAsync / HAfabric dark fiber diversity to SSR1300 nodes between data centers).
 
-**Value Proposition:** Cloud-like agility on infrastructure you already own. Provision paths in minutes for internal projects without routing protocol complexity.
+### Sub-Segments (the only four)
 
-**Why Low Priority:** Smaller deal sizes, longer enterprise procurement cycles (6–12 months), network is cost center not revenue center, harder to quantify ROI.
+| Sub-segment | Lead angle | Persona priority | Examples |
+|---|---|---|---|
+| `Financial Services - Enterprise` | Deterministic inter-DC paths + audit-ready policy enforcement (SOX, PCI-DSS, GDPR) + cloud on-ramps under enterprise control | Principal Network Architect → VP Network Infrastructure → CSO/CISO | JPMorgan Chase, Goldman Sachs, BNY Mellon, State Street, Visa, Mastercard. Defense contractors on commercial procurement (Lockheed, RTX, Northrop, BAE, L3Harris) land here. |
+| `Healthcare Systems - Enterprise` | Diverse dark fiber redundancy between EHR DCs + HIPAA-aligned policy control + cloud on-ramps for radiology/analytics | VP Network Infrastructure → CSO/CISO → CIO | HCA Healthcare, Ascension, CommonSpirit, Kaiser Permanente, Cleveland Clinic |
+| `Retail and Distribution - Enterprise` | Dark fiber redundancy between corporate DCs + cloud on-ramp for SaaS/analytics + deterministic paths into high-traffic distribution centers | Network Architect / Principal Network Engineer → VP Network Infrastructure → CIO | Meijer (anchor), Kroger, Walmart, Target, Lowe's, Home Depot |
+| `Outsourcing Services - Enterprise` | Delivery-center reliability + client data sovereignty (their clients' regulated data on their network) + dark fiber redundancy between primary delivery hubs | VP Network Infrastructure → CSO/CISO → CIO | Cognizant, Genpact, Concentrix, TaskUs, Wipro BPS, TCS BPS, Accenture Operations |
+
+### Key Personas
+
+| Persona | Titles | Primary Concerns |
+|---------|--------|-----------------|
+| **VP Network Infrastructure** / **Director Network Engineering** | VP Network Infrastructure, Director Network Engineering, VP Networks, Director WAN Engineering | Engineering effort on path management, redundancy that is not redundant, visibility gaps. **Primary technical champion.** |
+| **CIO** | CIO, Chief Information Officer, CTO (at retail/healthcare) | Unified private connectivity across all sites; no added routing complexity; AI infrastructure access; cloud cost. **Economic buyer at most enterprises.** |
+| **CSO / CISO** | CSO, CISO, Chief Information Security Officer, VP Cybersecurity | Line-rate AES-256-GCM encryption by default; hop-by-hop path visibility; audit-ready policy enforcement; data sovereignty. |
+| **Network Architect / Principal Network Engineer** | Principal Network Engineer, Network Architect, Lead Network Architect | "HAsync and HAfabric on the SSRs share a single dark fiber pair. That is not redundancy." "Type 2 is a black hole." **Technical influencer.** |
+
+### Pain Points (Their Language)
+
+| Persona | Pain Points |
+|---------|-------------|
+| **VP Network Infrastructure / Director Network Eng** | "Our DR strategy assumes the dark fiber is redundant. It is not." "Every new DC is a six-month networking project. That is the bottleneck on growth." "We do not have the headcount to run BGP across the WAN." |
+| **CIO** | "We are multi-cloud and the network team is being asked to make that feel like one cloud." "AI is pulling traffic in directions we did not design for." "Megaport works until it does not. We need our own answer." |
+| **CSO / CISO** | "Compliance asked us to prove where the data went. We could not." "BGP best-effort cannot prove the path. We need audit trails on the wire, not in the documentation." |
+| **Network Architect / Principal Network Engineer** | "HAsync and HAfabric on the SSRs share a single dark fiber pair. That is not redundancy." "Type 2 is a black hole. We cannot troubleshoot what we cannot see." "Cloud on-ramp is owned by Megaport. Our team owns the SLA." |
+
+### Value Propositions by Sub-Segment
+
+| Sub-Segment | Lead Value Prop | Impact Line |
+|---|---|---|
+| **Retail and Distribution - Enterprise** | Dark fiber redundancy between corporate DCs that is actually redundant (diverse fibers, automated failover, no routing protocols), then cloud on-ramp under enterprise control. | "Your DR assumes the dark fiber is redundant. Make it so without standing up BGP." |
+| **Financial Services - Enterprise** | Deterministic inter-DC paths with audit-ready policy enforcement for SOX / PCI-DSS / GDPR + cloud on-ramps the enterprise controls. | "Audit-ready paths between your DCs. The path itself is the audit artifact." |
+| **Healthcare Systems - Enterprise** | Diverse dark fiber redundancy between EHR DCs + HIPAA-aligned policy control + cloud on-ramps for radiology / analytics under enterprise brand. | "Your EHR DC redundancy is one cut from an outage. Fix it without routing-protocol complexity." |
+| **Outsourcing Services - Enterprise** | Delivery-center reliability across geographies + client data sovereignty (your clients' regulated data on paths you can prove). | "Your clients' regulators are asking where their data went. You have an answer instead of a BGP routing table." |
+
+### Discovery Questions
+
+| Question | Good Answer (Buying Signal) | Red Flag |
+|----------|---------------------------|----------|
+| "How is your dark fiber between DCs redundant today?" | "One pair, one path, no automated failover" | "Diverse fibers + automated failover already in place" |
+| "When you need AWS Direct Connect or Azure ExpressRoute, who handles it?" | "Megaport / Equinix Fabric. Their portal, their SLA" | "We have our own direct connect built out" |
+| "How do you prove to compliance / audit where data went between DCs?" | "We can't, beyond BGP routing tables" | "Full path-level audit reporting already in place" |
+| "How long does a new DC or DR site take to come online from a networking perspective?" | "Months. Carrier coordination, BGP, multiple vendors" | "Days, no networking bottleneck" |
+| "What does your network team look like - VP / Director / Principal? Where are they hiring?" | "Hiring Network Architects / Principal Network Engineers; we have a 24/7 NOC" | "We outsource everything to [single MSP]" - disqualifier signal |
+| "Do you hold direct carrier contracts or procure entirely through a reseller / MSP?" | "Direct contracts with multiple Tier 1s" | "Everything goes through [reseller / MSP]" - disqualifier signal |
+
+### Objection Handling
+
+| Objection | Reframe |
+|-----------|---------|
+| **"We already have SD-WAN"** | "SD-WAN handles branch and user. Different layer. MaiaEdge handles inter-DC and cloud on-ramp - the layer your SD-WAN cannot see. The two run together. Position the SD-WAN overlay as exactly the kind of session-smart routing that benefits from a deterministic, observable underlay." |
+| **"Megaport works fine"** | "Megaport works until your team owns the SLA. The portal is theirs, the support is theirs, the cloud direct-connect bill is theirs. MaiaEdge integrates with Megaport / Equinix Fabric via API where it makes commercial sense - but the customer relationship and the SLA stay with your team." |
+| **"We just signed a long carrier agreement"** | "Use it. MaiaEdge sits over the existing transport. The carrier keeps providing the circuit; MaiaEdge gives your team determinism, visibility, and control across whatever transport is underneath. No carrier replacement, no SLA renegotiation." |
+| **"AWS Direct Connect handles our cloud paths"** | "Per cloud, sure. But Direct Connect / ExpressRoute / Cloud Interconnect don't federate across clouds, and they don't solve the dark fiber redundancy problem at all. MaiaEdge is the cross-cloud, cross-DC layer that does. Direct Connect becomes a transport option, not the architecture." |
+| **"We could build this ourselves"** | "Network team scope is growing faster than headcount. 18-24 months to build, then ongoing maintenance with carrier-grade SDN talent you can't hire fast enough. MaiaEdge is productized fabric - operable by the team you already have, no BGP / MPLS / SRv6 to manage." |
+
+### Exclusion Rules (Enterprise-specific)
+
+DO NOT classify as `Enterprise-CustomerSegment` (revert to `Other` or `Unknown`):
+- Vertical fails: Manufacturing, Energy/Utilities, Logistics/Supply Chain, Government/Defense, SaaS-only
+- Scale fails: <$1B revenue, single DC, no direct fabric port, no in-house net eng (NOC + VP/Director Network Eng titles missing from LinkedIn)
+- Commercial entry fails: network fully outsourced to single MSP, no direct carrier contracts
+- Project-based consulting (Deloitte, McKinsey, BCG, Bain) - explicitly NOT Outsourcing Services Enterprise
+- Single-hospital regional health system (fails scale)
+- Mid-market retailer ($200M-$1B with one DC) - hold as `Other`
+
+### Account Tiering (Enterprise-Specific)
+
+See `context/account-tiering/tier-compute-spec.md` for tier computation. Enterprise sub-segments default to Tier 3 with ceiling Tier 2 and floor Tier 4 - no Tier 1 path for Enterprise.
+
+### Messaging Non-Negotiables (Enterprise)
+
+- "Carrier infrastructure" only - never IaaS / NaaS / platform.
+- **No em dashes** in customer-facing content.
+- **No credibility anchors** (Acme Packet, 128 Technology, Andy Ory) in cold emails or LinkedIn - reserve for discovery calls and follow-ups.
+- **"Federation" is internal language** - never use in customer-facing copy.
+- **Sovereignty framing for Enterprise is different.** Enterprises ARE the customer. Pair speed / automation pitch with **data sovereignty + audit-trail language** (HIPAA, PCI-DSS, SOX, GDPR), NOT "your team provisions in minutes" - that's operator framing.
+- **Lead with the problem in their language**: "your dark fiber between DCs is one cut from an outage" or "your cloud on-ramp goes through Megaport." Then the angle. Do NOT lead with technical detail (SSR / HAsync / 100GigE specifics) - that's for the design call.
 
 ---
 
 ## Account Tiering Logic
 
-| Tier | Criteria | Action |
-|------|----------|--------|
-| **Tier 1 (High Priority)** | Colo + Mid-Size + Hyperscaler <50mi OR Leadership Change; Neocloud with 5+ facilities; Fiber Operator in AI Corridor with stranded capacity | Active outreach, multi-touch sequence, executive engagement |
-| **Tier 2 (Standard)** | Fiber/Colo + Mid-Size OR Network Operator + Large scale; Neocloud 2–4 facilities; MSP/Aggregator with significant scale | Standard outreach sequence, monitor for trigger events |
-| **Tier 3 (Low Priority)** | Small scale OR MSP/Enterprise segments; Early-stage neocloud; Fiber operator outside AI corridors | Nurture, trigger-based outreach only |
-| **Tier 4 (Disqualify)** | Software/Platform Vendors, Other/Unknown, outside North America (for now), matches any Exclusion criteria | No outreach  -  mark as excluded in HubSpot |
+See `context/account-tiering/tier-compute-spec.md` for the canonical `compute_tier()` algorithm - the 30-row defaults table per `(customer_segment, company_sub_segment)` pair, 6 signal modifiers (hot / white-hot / stacked / open deal / stale / sustained quiet), null + unknown-pair fallbacks, and the manual override behavior (`hs_is_target_account = true` freezes `account_tier` only). Every routine that writes tier (R1, R2, Weekly Signal Scan Stage 5b, R6, R-Tier-Audit weekly, D7 weekly) inlines that spec.
+
+Tier 1 = highest priority. Tier 1 + Tier 2 = rep 1:1 attention pool. Tier 3-5 = BDR / mass outreach. Target accounts (`hs_is_target_account = true`) sit independent of tier - they answer "is a rep actively working this?" while tier answers "what does the data say?"
 
 ---
 
@@ -1131,7 +1210,7 @@ Large enterprises that own or lease dark fiber or private WAN infrastructure for
 |-----------------|----------|-------|
 | **High (90%+)** | Colocation Operator (very distinct keywords); Service Provider vs. Enterprise (clear business model difference); Fiber Operator with published route miles <10K | Classification reliable for automation |
 | **Medium-High (80–89%)** | MSP/Aggregator (language patterns strong); Carrier/VNO with 10+ state coverage; Fiber Operator vs. Carrier (when route miles published) | Reliable but verify edge cases |
-| **Medium (70–79%)** | Dark Fiber Enterprise (relies on news/press releases); Carrier/VNO vs. Fiber Operator (when route miles NOT published  -  use employee count as proxy) | Flag for manual review |
+| **Medium (70–79%)** | Enterprise Multi-DC (relies on 10-K disclosures, LinkedIn job postings for Network roles, fabric customer logo pages); Carrier/VNO vs. Fiber Operator (when route miles NOT published  -  use employee count as proxy) | Flag for manual review |
 | **Low (<70%)** | Missing critical data (no services page, minimal web presence); Conflicting signals (MSP language + owned fiber); Company doesn't fit any pattern | Requires human classification |
 
 ### Flag for Manual Review When:
@@ -1212,7 +1291,7 @@ Speed claims must be paired with ownership language:
 | "Who else is using this?" objection | YES |
 | Trade show conversations | YES |
 
-**Credibility anchors — cold-banned, live-allowed (April 2026 rule update):** Founding team credibility ("Same team that built Acme Packet and 128 Technology" / Andy Ory / etc.) is NOT appropriate in cold outreach. It IS allowed in live presentations, demos, proposals, and objection handling. The message earns the reply in outreach; the track record does the talking in rooms.
+**Credibility anchors - cold-banned, live-allowed (April 2026 rule update):** Founding team credibility ("Same team that built Acme Packet and 128 Technology" / Andy Ory / etc.) is NOT appropriate in cold outreach. It IS allowed in live presentations, demos, proposals, and objection handling. The message earns the reply in outreach; the track record does the talking in rooms.
 
 ### Proof Points (Anonymized for Cold Outreach)
 
@@ -1225,6 +1304,7 @@ Speed claims must be paired with ownership language:
 | Fiber Operator | "A regional fiber operator went from 60-day NNIs to same-day activation" |
 | Network Operator | "Tier 1 carriers are using this for network simplification" |
 | MSP/Aggregator | "We're enabling multi-carrier orchestration at scale" |
+| Enterprise (Multi-DC ICP) | "A multi-DC enterprise we work with replaced bespoke dark-fiber redundancy with deterministic paths their network team owns end-to-end" |
 
 ---
 
@@ -1360,7 +1440,7 @@ Real email examples for each segment. Three personas per segment: Decision Maker
 
 Every email follows: Problem → Peer insight → Value hint → Soft CTA. Research is absorbed into the problem framing, not showcased.
 
-Rules: 60-90 words max. No flattery. No em dashes. No credibility anchors (Acme Packet, 128 Technology, Andy Ory) — those are reserved for live presentations, demos, proposals, and objection handling. No competitor names in cold outreach (use "third-party fabric providers"). No sign-offs (signatures auto-append). Soft CTA only.
+Rules: 60-90 words max. No flattery. No em dashes. No credibility anchors (Acme Packet, 128 Technology, Andy Ory) - those are reserved for live presentations, demos, proposals, and objection handling. No competitor names in cold outreach (use "third-party fabric providers"). No sign-offs (signatures auto-append). Soft CTA only.
 
 ### Colocation Operator Emails
 
@@ -1372,7 +1452,7 @@ Subject: RevNet's interconnection revenue
 
 Two data centers plus Azure Stack HCI for Midwest clients, that's a combination that should command premium interconnection revenue. But if cross-connects still take weeks to provision, you're stuck competing on space and power. Deals go to whoever can deliver fastest.
 
-We built carrier infrastructure that lets regional colos stand up their own fabric without a multi-year development project. Automated virtual cross-connects, cloud on-ramp under your brand, all self-service from your portal.
+I've been working on infrastructure that lets regional colos stand up their own interconnection layer without a multi-year development project. Automated virtual cross-connects, cloud on-ramp under your brand, all self-service from your portal.
 
 Is this relevant for RevNet right now?
 
@@ -1382,7 +1462,7 @@ Subject: Cross-connects at RevNet
 
 Managing cross-connects manually between Braham and Cambridge, plus out to partners, that's a lot of LOAs, router configs, and zero visibility once traffic leaves your infrastructure. Every new interconnect adds headcount pressure on a team that's probably already stretched thin.
 
-We built carrier infrastructure that automates path activation without routing protocols. API-driven, protocol-free, deterministic paths across any transport.
+I've been working on infrastructure that automates path activation without routing protocols. API-driven, protocol-free, deterministic paths across any transport.
 
 Dealing with something similar?
 
@@ -1404,7 +1484,7 @@ Subject: Beyond Pilot's 900 buildings
 
 900 buildings across Manhattan and the Bronx, that's real momentum. But it also means more RFPs hitting your desk for enterprise locations just off your fiber path. Traditional partner provisioning takes 60-90 days. That's a long time to wait on revenue you've already invested to capture.
 
-We built carrier infrastructure that monetizes underutilized fiber and extends your reach to partner networks programmatically. Instant private fabric across any transport, no routing complexity, partner interconnection in minutes.
+I've been working on infrastructure that turns underutilized fiber into instantly sellable, deterministic services and extends your reach to partner networks programmatically. Any transport, no routing complexity, partner interconnection in minutes.
 
 Is this relevant for Pilot right now?
 
@@ -1414,7 +1494,7 @@ Subject: Extending Pilot's Control Panel
 
 Your Control Panel and API handle on-net provisioning well. The challenge is extending that automation off-net without manual BGP peering for every partner connection. Each new carrier interconnect adds complexity, breaks visibility, and takes weeks. That doesn't scale with 900 buildings generating off-net demand.
 
-We built carrier infrastructure that lets you activate partner connections via API in minutes over any transport. No VLAN stitching, no BGP, no MPLS, no SRv6 — just deterministic paths.
+I've been working on infrastructure that lets you activate partner connections via API in minutes over any transport. No VLAN stitching, no BGP, no MPLS, no SRv6 - just deterministic paths.
 
 Dealing with something similar?
 
@@ -1436,7 +1516,7 @@ Subject: Monetizing Logix's 7,000 miles
 
 The 400G wavelengths you deployed last week on the 800G backbone, lighting that capacity fast is the difference between revenue and dark fiber sitting idle. 7,000 route miles is a lot of fiber to keep lit. Standard provisioning leaves too much capacity sitting dark for too long while competitors close deals faster.
 
-We built carrier infrastructure that turns underutilized fiber into a programmable, monetizable platform. Service activation in minutes, across any transport, no routing complexity.
+I've been working on infrastructure that turns underutilized fiber into a programmable, monetizable platform. Service activation in minutes, across any transport, no routing complexity.
 
 Is this relevant for Logix right now?
 
@@ -1446,7 +1526,7 @@ Subject: Provisioning across 300 POPs
 
 You're running 7,000 route miles and 300 POPs with Equinox handling billing and orders. That's solid for back-office, but the gap is service activation, which still involves weeks of routing configuration per customer. That bottleneck doesn't scale with an 800G backbone and new 400G services waiting to be sold.
 
-We built carrier infrastructure that adds what your OSS can't provide. API-driven path activation without routing protocol complexity. Deterministic paths over any transport, line-rate encryption.
+I've been working on infrastructure that adds what your OSS can't provide. API-driven path activation without routing protocol complexity. Deterministic paths over any transport, line-rate encryption.
 
 Dealing with something similar?
 
@@ -1468,7 +1548,7 @@ Subject: BCM One's carrier dependencies
 
 7,000 channel partners selling managed connectivity, that's a big machine to keep running. But 40-60% of your costs are locked into AT&T and Verizon, and your provisioning timeline is dictated by theirs. You own the customer relationship but wait weeks for circuits. New leadership often looks at these dependencies differently.
 
-We built carrier infrastructure that breaks that dependency. Instant provisioning across your upstreams, end-to-end visibility, OpEx model.
+I've been working on infrastructure that breaks that dependency. Instant provisioning across your upstreams, end-to-end visibility, OpEx model.
 
 Is this relevant for BCM One right now?
 
@@ -1484,7 +1564,7 @@ Dealing with something similar?
 
 Subject: Closing faster at BCM One
 
-Your channel partners close a multi-site deal. Then what? Weeks waiting on AT&T or Verizon to provision. Every delay is a delay in revenue recognition and a risk the customer second-guesses the decision. That's frustrating when you've done the hard work of winning the business — the fix is infrastructure that lets you activate services the day you close, Tier 1 delivery speed on your asset-light model.
+Your channel partners close a multi-site deal. Then what? Weeks waiting on AT&T or Verizon to provision. Every delay is a delay in revenue recognition and a risk the customer second-guesses the decision. That's frustrating when you've done the hard work of winning the business - the fix is infrastructure that lets you activate services the day you close, Tier 1 delivery speed on your asset-light model.
 
 Worth a conversation?
 
@@ -1590,7 +1670,7 @@ Worth a conversation?
 | **Fiber Operator** | Website (route miles), NTCA Directory (member status), PeeringDB (PoP count), FCC CORES |
 | **Network Operator** | Website (services, portal), PeeringDB, TeleGeography, press releases |
 | **MSP/Aggregator** | Website (carrier partnerships), LinkedIn (employee count), press releases |
-| **Enterprise** | Industry-specific directories (AHA, FDIC, NAM), news about private network investments |
+| **Enterprise (Multi-DC ICP)** | Fortune 1000 lists filtered by vertical; Modern Healthcare Top 100 IDNs; Becker's Hospital Review IDN rankings; NRF Top 100 Retailers; Everest Group BPO rankings; 10-K disclosures (data center counts for SOX-regulated financials); Equinix / CoreSite customer logo pages; LinkedIn job postings for VP Network / Principal Network Engineer / Director Network Engineering at qualifying companies |
 
 ---
 

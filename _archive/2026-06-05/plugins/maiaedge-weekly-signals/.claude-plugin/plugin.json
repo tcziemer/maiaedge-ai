@@ -1,0 +1,8 @@
+{
+  "name": "maiaedge-weekly-signals",
+  "version": "1.0.0",
+  "description": "MaiaEdge Weekly Signal Scan. Scrapes per-segment buying signals every Monday, updates HubSpot recent_news_or_trigger_event fields, enriches net-new accounts, and delivers territory-split rep emails with a ranked Excel prospecting list (max 50 accounts per rep, score floor 12+).",
+  "author": {
+    "name": "MaiaEdge"
+  }
+}

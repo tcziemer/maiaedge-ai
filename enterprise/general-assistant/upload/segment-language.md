@@ -445,6 +445,24 @@ The insider uses: "pointing fingers" (their exact phrase), "depends on the carri
 - **VLAN / Q-in-Q**  -  Banned specifically for neocloud copy. These are compute people, not networking people. Say: "serve multiple customers from the same infrastructure," "each customer gets isolated, private paths"
 - **"Plant"**  -  Use "fiber infrastructure" instead
 
+### Consultant words → conversation words
+
+The copy reads like a person typed it, not like a sequence tool assembled it. Swap consultant words for the words people actually use when they talk. This sits on top of, not instead of, the bans above - "leverage" stays banned regardless.
+
+| Consultant word (swap) | Conversation word |
+|---|---|
+| productizing | sell / turn up |
+| operating model | way of working |
+| addressable market / TAM | the markets (or sites / buildings) you can reach |
+| monetize / monetization | new revenue / get paid for |
+| leverage / utilize | use |
+| enablement | help / lets you |
+| "solution" | the actual thing (the fabric, the path, the port) |
+
+**Segment-native carve-out:** where this file already sanctions a term as insider vocab, that wins. Concrete operator usage like "monetize the fiber you already own" or "monetize idle fiber / idle plant" is peer phrasing operators actually use and stays. The swap targets the abstract consultant usage ("monetization strategy," "monetize your assets") not the concrete operator phrasing. Same logic applies to the rest of the table: the abstract version goes, the concrete operator version stays.
+
+**Keep the per-segment insider terms.** The swaps above never touch the words they actually say at work: DIA, NNI, off-net, hop-by-hop, route miles, lit/dark, meet-me room, cross-connect, attach rate, GPU cluster, deterministic paths, dark fiber pair. Those read peer, not corporate, and the segment insider-vocab lists below remain authoritative.
+
 ### The Sovereignty Pairing Rule
 
 For every segment EXCEPT neoclouds, speed must be paired with ownership:

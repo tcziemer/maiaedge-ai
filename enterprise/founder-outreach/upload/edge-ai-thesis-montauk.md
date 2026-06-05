@@ -1,6 +1,6 @@
-# Edge AI Thesis (Montauk Capital, "The Last Millisecond") — MaiaEdge Perspective
+# Edge AI Thesis (Montauk Capital, "The Last Millisecond") - MaiaEdge Perspective
 
-**Source:** [Montauk Capital, April 2026 — "The Last Millisecond: Why the AI Economy Runs on Edge Compute"](https://montaukcap.substack.com/p/the-last-millisecond-why-the-ai-economy)
+**Source:** [Montauk Capital, April 2026 - "The Last Millisecond: Why the AI Economy Runs on Edge Compute"](https://montaukcap.substack.com/p/the-last-millisecond-why-the-ai-economy)
 
 **Purpose:** Internal reference. How to use Montauk's thesis in discovery, business cases, proposals, and follow-ups across all segments. Full internal strategic brief lives at `messaging rework/the-last-millisecond-maiaedge-perspective.md`.
 
@@ -18,7 +18,7 @@ Montauk names: Crusoe Spark (modular edge compute), NVIDIA AI Grids (telco partn
 
 ## Why This Validates MaiaEdge
 
-Montauk frames edge AI as a compute placement story. It is — but it's also a connectivity story. Distributed inference only works if the paths between compute locations are deterministic. Moving inference to the edge doesn't help if the network between edge sites introduces the same variance centralized routing did. You've just moved the bottleneck from the data center to the middle mile.
+Montauk frames edge AI as a compute placement story. It is - but it's also a connectivity story. Distributed inference only works if the paths between compute locations are deterministic. Moving inference to the edge doesn't help if the network between edge sites introduces the same variance centralized routing did. You've just moved the bottleneck from the data center to the middle mile.
 
 The article validates four pieces of our positioning that were already in place:
 
@@ -31,13 +31,13 @@ The article validates four pieces of our positioning that were already in place:
 
 ## How to Use by Segment
 
-### Neoclouds (primary fit — agentic angle lands hardest here)
+### Neoclouds (primary fit - agentic angle lands hardest here)
 
-**New flagship DETERMINISTIC proof point:** Agentic compounding latency. Layer into Email 2 angles for Tier 1 Inference Providers and Large-Scale GPU NeoClouds.
+**New flagship DETERMINISTIC proof point:** Agentic compounding latency. Layer into Email 2 angles for `Tier 1 Inference - Neocloud` and `Large Scale GPU - Neocloud`.
 
 > "Training tolerates retries. Inference doesn't. Agentic workflows tolerate neither. Ten inference hops across best-effort routing compounds into seconds of delay. Deterministic paths eliminate the compounding."
 
-**Best for:** Large-Scale GPU NeoClouds and Tier 1 Inference Providers where inference is distributed across 20-50+ edge locations and the provider is contractually obligated to deliver sub-100ms token latency.
+**Best for:** `Large Scale GPU - Neocloud` and `Tier 1 Inference - Neocloud` where inference is distributed across 20-50+ edge locations and the provider is contractually obligated to deliver sub-100ms token latency.
 
 ### Colocation (Standard + AI)
 
@@ -77,7 +77,7 @@ Montauk cites 84% of respondents ranking power availability as a top-three const
 
 **vs. Megaport/Equinix Fabric:** Montauk notes Cologix as hyperscale-optimized but underserving distributed clusters. Same critique applies to Megaport/Equinix Fabric: built for centralized interconnection hubs, not distributed metro-edge. And they own the customer. Regional operators using MaiaEdge serve the distributed edge AI market under their own brand.
 
-**vs. Crusoe Spark:** Potential customer, not a competitor. Crusoe is in our Large-Scale GPU NeoCloud segment. Track whether Crusoe Spark sites appear in regional colo facilities where we have relationships — dual-sale opportunity.
+**vs. Crusoe Spark:** Potential customer, not a competitor. Crusoe is in our Large-Scale GPU NeoCloud segment. Track whether Crusoe Spark sites appear in regional colo facilities where we have relationships - dual-sale opportunity.
 
 ---
 

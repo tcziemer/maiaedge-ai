@@ -49,7 +49,7 @@
 All senders use the same voice. The email should read as if written by a smart industry peer who spent 10 minutes learning about the prospect's business.
 
 **Voice characteristics:**
-- Direct. Short sentences, occasional fragments.
+- Direct, but the reasoning flows. Connect clauses with so / since / but / even though so the email reads as one train of thought, not stacked one-idea-per-sentence declaratives. Vary sentence length; one bare fragment per body, max.
 - Problem-first. Lead with their pain, not our solution.
 - Relevance over personalization. Research shapes the problem hypothesis, not the opening line.
 - Uses "I'd guess" and "I'd imagine" honestly, not as filler.
@@ -71,6 +71,23 @@ All senders use the same voice. The email should read as if written by a smart i
 - Sign off with sender's first name only: "Tim" or "Ken"
 - No full signature block. No title. No phone number. No "Best regards."
 - Email platform auto-appends the formal signature block. Skills never write one.
+
+### Auto-appended signature tagline (Outbound vs Collateral Reconcile 5, 2026-05-11)
+
+The Smartlead platform appends the formal signature block to every outbound. **The signature block must include the MaiaEdge category tagline on a single line below the title:**
+
+```
+[First Last]
+[Title] | MaiaEdge
+Private paths. Any network. Instantly.
+[phone, optional]
+```
+
+The tagline does NOT appear in the email body - skills still never write a signature or tagline into the body. The tagline lives only in the platform-managed signature block, which means every sequence email (E1 + E2 + E3) carries three brand-tagline exposures by default with zero impact on body word count or skill output. Three exposures before the prospect ever opens a cheatsheet or lands on maiaedge.io.
+
+Configure in Smartlead per-sender signature settings: Tim Lieto, Ken Cunningham, Tim Ziemer. Founder accounts (Abilash, Tim Ziemer when sending as CRO/CEO) also carry the tagline.
+
+The tagline is the same "Private paths. Any network. Instantly." line used in the 101, datasheets, and partner-grade PDFs from the `branded-doc` skill. Consistent across every channel a prospect sees.
 
 ---
 

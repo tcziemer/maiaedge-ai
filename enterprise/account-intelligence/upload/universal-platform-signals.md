@@ -2,7 +2,7 @@
 
 For use by the `weekly-signal-scan` skill and any other skill that consumes signals. Read alongside [signal-framework.md](signal-framework.md).
 
-This file documents signals that behave **identically across all 5 ICP segments** (Colo, Fiber Operator, MSP/Aggregator, Neocloud, Network Operator). They are primarily Apollo-native signals plus a handful of free cross-segment signals that don't warrant per-segment duplication.
+This file documents signals that behave **identically across all 6 ICP segments** (Colo, Fiber Operator, MSP/Aggregator, Neocloud, Network Operator, **Enterprise** - Enterprise added 2026-05-11 with Multi-DC ICP promotion). They are primarily Apollo-native signals plus a handful of free cross-segment signals that don't warrant per-segment duplication.
 
 **Production stack:** Apollo (paid, already licensed) + free sources + web search. Paid phase-2 signals (PitchBook, Structure Research, Kentik, HG Insights, LinkedIn Sales Navigator, Leadfeeder, 6sense, BuiltWith, etc.) are explicitly **out of scope** and not documented here.
 
@@ -10,9 +10,9 @@ This file documents signals that behave **identically across all 5 ICP segments*
 
 ## Apollo Signals (AP-series)
 
-All Apollo signals are available today through the existing Apollo license. Each one applies across all 5 segments; the target-persona titles differ by segment per the segment files, but the detection mechanism is the same.
+All Apollo signals are available today through the existing Apollo license. Each one applies across all 6 segments; the target-persona titles differ by segment per the segment files, but the detection mechanism is the same. (For Enterprise personas added 2026-05-11, see `context/segments/enterprise.md` persona priority by sub-segment + `routines/claude-code/r8-persona-fill/prompt.md` Step 3 for Apollo title patterns.)
 
-### AP-1 — Job Change to Target Persona (<90 days)
+### AP-1 - Job Change to Target Persona (<90 days)
 
 **Why:** Strongest Apollo signal across all segments. New leaders have a 60-120 day window where they are most receptive to vendor conversations and have authority to scope new platform spend.
 
@@ -27,7 +27,7 @@ All Apollo signals are available today through the existing Apollo license. Each
 - **Network Operator:** CTO / CNO, Chief Product & Strategy Officer, VP Network Strategy, CTrO / CDO.
 - **MSP/Aggregator:** CRO, VP Supplier Strategy, VP Platform, Head of AI Practice, VP Solutions Engineering. For NaaS Platform Operator subtype: CTO, VP Platform, VP Product.
 
-### AP-2 — Competitor / Adjacent-Employer Lateral Hire
+### AP-2 - Competitor / Adjacent-Employer Lateral Hire
 
 **Why:** When a senior technical leader moves from an incumbent or competitor (Equinix → regional colo; Ciena → neocloud; Zayo → regional CLEC; Lumen → network operator), they bring disproportionate buying intent for orchestration / federation platforms. Warm-intro potential is high.
 
@@ -35,7 +35,7 @@ All Apollo signals are available today through the existing Apollo license. Each
 
 **Scoring tier:** A. Score floor: 12.
 
-### AP-3 — Apollo Scoops / News Feed (segment-tuned keywords)
+### AP-3 - Apollo Scoops / News Feed (segment-tuned keywords)
 
 **Why:** Apollo aggregates press and news into per-account scoops. Overlaps with free RSS (DCD, Fierce Network, Light Reading, etc.) but Apollo's binding to account records saves manual match work.
 
@@ -48,7 +48,7 @@ All Apollo signals are available today through the existing Apollo license. Each
 
 **Scoring tier:** B. Pair with AP-1 or FR-1 for Tier A-equivalent weight.
 
-### AP-4 — Apollo Department Headcount Growth (≥15% eng/ops / 6 months)
+### AP-4 - Apollo Department Headcount Growth (≥15% eng/ops / 6 months)
 
 **Why:** Precedes platform initiative by 1-2 quarters. Lags by 4 weeks on Apollo (Apollo updates department counts monthly). Useful as a pairing signal rather than standalone trigger.
 
@@ -56,7 +56,7 @@ All Apollo signals are available today through the existing Apollo license. Each
 
 **Scoring tier:** B. Pair required (AP-1 or AP-7 or segment-specific job-req surge).
 
-### AP-5 — Apollo Technographic Change
+### AP-5 - Apollo Technographic Change
 
 **Why:** Medium-Weak. Apollo's tech detection is thin for networking / OSS tooling (Kentik, ThousandEyes, NSO, Itential, Blue Planet, Crosswork, Paragon Pathfinder). Coverage is inconsistent. Treat as directional only.
 
@@ -64,7 +64,7 @@ All Apollo signals are available today through the existing Apollo license. Each
 
 **Scoring tier:** C. **Noise alone.** Only valuable when paired with a discovery conversation to validate; never surface an account solely on AP-5.
 
-### AP-6 — Apollo Intent (Bombora topic score)
+### AP-6 - Apollo Intent (Bombora topic score)
 
 **Why:** Accounts showing elevated topic-intent scores (≥66-70) on MaiaEdge-relevant topics are researching. But Apollo Intent alone has a >50% false-positive rate in practice across all segments.
 
@@ -79,9 +79,9 @@ All Apollo signals are available today through the existing Apollo license. Each
 
 **Scoring tier:** B (only when paired). C alone.
 
-### AP-7 — Apollo Funding / M&A Filter — Announcement OR Close (two-event firing added 2026-04-27)
+### AP-7 - Apollo Funding / M&A Filter - Announcement OR Close (two-event firing added 2026-04-27)
 
-**Why:** Overlaps with existing U2 (M&A / PE roll-up announcement OR close) and U4 (earnings / 10-Q / 8-K) signals in the framework, but Apollo's metadata is richer  -  counterparty, deal size, round stage, investor identity. Valuable for auto-enrichment of capital-event signals. Fires on BOTH announcement and close events per Cooper 2026-04-27 directive — Apollo distinguishes deal stages (Announced / Pending / Completed) so route each Apollo event to the correct freshness window.
+**Why:** Overlaps with existing U2 (M&A / PE roll-up announcement OR close) and U4 (earnings / 10-Q / 8-K) signals in the framework, but Apollo's metadata is richer  -  counterparty, deal size, round stage, investor identity. Valuable for auto-enrichment of capital-event signals. Fires on BOTH announcement and close events per Cooper 2026-04-27 directive - Apollo distinguishes deal stages (Announced / Pending / Completed) so route each Apollo event to the correct freshness window.
 
 **Detection:** Apollo Funding Events filter + target account match. Refresh weekly. Map Apollo deal-stage values: `Announced` / `Pending` → announcement event; `Completed` / `Closed` → close event. If both stages have fired on the same target within 12 months → +6 stacking auto-elevation per signal-framework.md.
 
@@ -91,9 +91,9 @@ All Apollo signals are available today through the existing Apollo license. Each
 
 ## Free Cross-Segment Signals (FR-series)
 
-Signals that don't fit Apollo's structured filters but apply across all 5 segments.
+Signals that don't fit Apollo's structured filters but apply across all 6 segments (5 operator segments + Enterprise).
 
-### FR-1 — SEC 8-K Material Filings (consolidated reference)
+### FR-1 - SEC 8-K Material Filings (consolidated reference)
 
 **Why:** 8-K filings are the highest-confidence capital-event + material-contract signal across Colo (anchor tenant leases), Neocloud (anchor tenant leases + GPU-backed debt), Fiber Operator (ABS / refinancing / M&A), Network Operator (13D activist + divestitures), MSP (TSD PE recaps). Each segment file documents the 8-K items most relevant to it; this is the consolidated entry point.
 
@@ -101,7 +101,7 @@ Signals that don't fit Apollo's structured filters but apply across all 5 segmen
 
 **Scoring tier:** A.
 
-### FR-2 — Conference Speaking Slots
+### FR-2 - Conference Speaking Slots
 
 **Why:** Executive speaking at a conference on "our programmable story" / "our AI networking answer" / "our monetization strategy" is narrative-building. Useful as **context**  -  confirms the operator is publicly positioning in this direction. Does NOT indicate active procurement.
 
@@ -111,7 +111,7 @@ Signals that don't fit Apollo's structured filters but apply across all 5 segmen
 
 **Scoring tier:** C.
 
-### FR-3 — Website Visitor Tracking
+### FR-3 - Website Visitor Tracking
 
 **Why:** Direct behavioral intent (a target account visits MaiaEdge's solution / pricing / documentation pages) is the highest-confidence real-time signal available. Catches active research before any public signal fires.
 

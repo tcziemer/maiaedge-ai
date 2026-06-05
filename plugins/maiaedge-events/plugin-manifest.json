@@ -1,6 +1,6 @@
 {
   "name": "maiaedge-events",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "skills": [
     "event-intelligence",
     "company-enrichment",
@@ -14,6 +14,9 @@
     "core/icp-playbook.md",
     "core/maiaedge-101.md",
     "core/competitive-positioning.md",
+    "account-tiering/tier-compute-spec.md",
+    "account-tiering/sub-segment-qualification.md",
+    "account-tiering/enrichment-protocols.md",
     "hubspot/territory-model.md",
     "hubspot/property-schema.md",
     "hubspot/hubspot-values.md",
@@ -26,6 +29,10 @@
     "segments/neocloud.md",
     "segments/network-operator.md",
     "segments/msp-aggregator.md",
+    "segments/enterprise.md",
+    "segments/enterprise-use-cases.md",
+    "copy-strategy/segment-messaging.md",
+    "copy-strategy/segment-language.md",
     "product/proof-points.md"
   ],
   "static": []

@@ -18,4 +18,4 @@ Every file from context/ directory (all subdirectories)
 - If hitting Project Knowledge capacity, prioritize context files over skill files
 - Context = knowledge Claude can't infer; Skills = instructions that can be summarized
 
-## Last Synced: 2026-03-17
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete; auto-discovers `context/segments/enterprise.md`, `context/segments/enterprise-use-cases.md`, `context/signals/enterprise-signals.md` via the find-all-md sweep)

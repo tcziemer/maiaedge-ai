@@ -6,6 +6,62 @@ Research is fuel, not decoration. The point of researching the contact, company,
 
 The email should read as if the writer has spent a decade in this person's industry. Not as a salesperson who researched a company. Not as a sequence tool that merged data into a template. As someone who understands their world, their frustrations, their vocabulary, and their goals.
 
+## The Earned-Problem Doctrine (Name the Problem, Not the Flaw)
+
+This is the operating logic for every message we send, in every channel. Four steps:
+
+1. **Find what they care about.** Before choosing an angle, research the contact's public
+   voice (recent posts, talks, quotes, panels, their own headline/positioning) and their
+   role priorities. The problem you name must be something they are *already talking about*
+   or will *predictably hit on the path they are publicly on* — never a problem you have
+   assumed they have.
+2. **Name that problem directly, without offending.** Say the problem plainly. Directness is
+   good and gets replies. What loses the reply is implying their current operation is broken,
+   slow, or amateur. The whole game is the difference between those two (see the current-state
+   vs. forward-state rule below).
+3. **Show the easy solution.** One concrete line on what MaiaEdge does about it, led as an
+   easy hand-off ("that's the easy part to hand off," "drop-in, paths up in minutes," "no
+   network team needed"), never as a rip-and-replace or a lecture.
+4. **Make no bold, unverifiable claims about their business.** If you cannot point to a public
+   signal for it, do not assert it as fact. See the ban below.
+
+### The current-state vs. forward-state rule (the core of not offending)
+
+The fastest way to get ignored by a senior operator — especially an ex-telco, ex-HPC, or
+ex-infrastructure person — is to tell them how their business runs today based on something
+you obviously cannot see, and imply it is bad.
+
+- **BANNED — asserted current-state flaws you cannot verify:** "your customers reach you over
+  best-effort internet," "your provisioning is slow," "every site is a one-off project,"
+  "you're leaving $X on the table," "your current approach is failing," "you don't have X."
+  These are guesses dressed as facts, and they read as an insult to the person who built the thing.
+- **REQUIRED instead — forward-state framing, hedged:** name the problem as the predictable
+  challenge of *where they are going* — the enterprise/government ramp, the new sites, the next
+  40 customers, the multi-region rollout — using "as you…", "as that grows," "tends to,"
+  "I'd guess." This is true to how scaling actually works (e.g. the neocloud scaling-wall logic),
+  and it is non-insulting because it is about growth, not failure.
+
+A forward-state, hedged problem the contact recognizes from their own roadmap reads as a peer
+who gets it. The easy-solution line then gives them a low-friction reason to reply.
+
+### The offense test (run on every message before it ships)
+
+Read each claim as the recipient — someone who has spent years building this company. Does any
+line imply "your current setup is bad" based on something you have not actually verified from a
+public signal? If yes: reframe to forward-state + hedge, or cut it. When in doubt, pose it as a
+question rather than a diagnosis.
+
+### Before / after (real, from the ResetData neocloud batch)
+
+| Offending (asserted current-state flaw) | Earned (forward-state, hedged, easy solution) |
+|---|---|
+| "…customers reach those GPUs over best-effort internet, which undercuts your promise." (we can't see how their customers connect; implies their sovereignty pitch is hollow) | "As enterprise customers come on, the path into the factory has to be as deterministic as the compute. That's the easy part to hand off: private paths, live in minutes." |
+| "every new site and every enterprise customer becomes its own connectivity project" (asserts their operation is a mess) | "As that footprint grows, connecting each new site and onboarding customers onto private paths tends to become real operational drag. That's where we help: paths up in minutes, no network team needed." |
+| "your onshore promise only holds if the path stays private too" (tells the CEO his core promise is at risk) | "The onshore, sustainable story sets you apart. As customers connect in, keeping their data on private paths you control is what keeps that airtight." |
+
+This doctrine governs and is consistent with `## Diplomatic Claims (Nudge, Don't Preach)` below;
+that section gives the sentence-level mechanics, this section gives the strategy.
+
 ## Research Sequence (Company, then Contact, then Tailor)
 
 Research runs in stages. Don't collapse them. Lazy outreach starts with company research, picks a segment-default angle, and sends the same message to every contact on the list. That produces templates with the company name swapped in. The reply rate reflects it.
@@ -66,7 +122,7 @@ Before finalizing any email, scan every sentence for research display. Research 
 
 ### Public-Signal Observations (Allowed When Specific)
 
-The "I noticed" ban applies to the PHRASE, not the act. Pointing at a specific public signal you actually saw is a credibility move, not a research-display move. The current ban has been over-applied to mean "no specific observations at all," which makes every email feel like inference.
+The "I noticed" ban applies to the PHRASE, not the act. Pointing at a specific public signal you actually saw is a credibility move, not a research-display move.
 
 **Allowed (use these openers):**
 - "Saw the Q3 release notes mentioned the Tennessee build wraps in February."
@@ -84,48 +140,45 @@ The "I noticed" ban applies to the PHRASE, not the act. Pointing at a specific p
 
 **The distinction:** A public-signal observation points at a specific PUBLIC ACT (a press release, an earnings call, a conference panel, an SEC filing, a hire announcement). The signal proves the writer looked at a specific thing and had a thought about it. Research display recites facts the recipient already knows about their own company.
 
-**Required: ground observations against the segment signals catalog.** Before writing, the writer must search public sources for cataloged signals from `context/signals/[segment]-signals.md` (Tier A patterns first, then Tier B). When a cataloged signal applies, cite it by code (e.g., "F-A1: BEAD Subgrant Award"). When a real signal exists outside the catalog, cite it as "NON-CATALOG." When nothing exists, mark posture as ASKED and use inferred angle. The output mechanism is the **Research Receipt** — see the next section.
+**Required: ground observations against the segment signals catalog.** Before writing, the writer must search public sources for cataloged signals from `context/signals/[segment]-signals.md` (Tier A patterns first, then Tier B). When a cataloged signal applies, cite it by code (e.g., "F-A1: BEAD Subgrant Award"). When a real signal exists outside the catalog, cite it as "NON-CATALOG." When nothing exists, mark posture as ASKED and use inferred angle. The output mechanism is the **Research Receipt** - see the next section.
 
 ## Research Receipt (Hard Gate Before Writing)
 
-Every email must be preceded by a Research Receipt block above the email body. The Receipt proves research was actually run, not back-filled after writing. An email without a Receipt above it is invalid output.
-
-The single biggest failure mode in cold outreach is writing the email body first and then dropping in a "Public Signal Cited: NONE — inferred angle" line to look compliant. That is research-skipping disguised as compliance. The Receipt format below makes that disguise expensive.
+Every email and every LinkedIn message must be preceded by a Research Receipt block above the body. An email or DM without a Receipt is invalid output.
 
 **Receipt format (mandatory for every E1, every LinkedIn message):**
 
 ```
-RESEARCH RECEIPT — [Contact First Last] @ [Company]
+RESEARCH RECEIPT - [Contact First Last] @ [Company]
 
 Segment: [segment / sub-segment]   Status: VERIFIED | CORRECTED from [X]
 Catalog: context/signals/[segment]-signals.md
 
-Searches run (literal query strings — not paraphrased):
+Searches run (literal query strings - not paraphrased):
 1. `[exact query you ran]` → [URL + date, OR "no Tier A hit"]
 2. `[exact query]` → [URL + date, OR "no Tier A hit"]
 3. `[exact query]` → [URL + date, OR "no Tier A hit"]
 [minimum 3 searches if claiming a cataloged signal; minimum 5 if claiming NONE]
 
-Company-level finding: [signal description with source quote + date, OR "NONE — no Tier A or Tier B hits across [N] searches"]
+Company-level finding: [signal description with source quote + date, OR "NONE - no Tier A or Tier B hits across [N] searches"]
 Contact-level finding: [what THIS specific contact owns / their recent role activity / why they care about THIS facet of the problem. REQUIRED on every Receipt, including when company finding is NONE.]
 
 Signal code: [F-A1 | NC-A2 | NO-B3 | NON-CATALOG | NONE]
-Posture: [DIRECT | ASKED] — [one-line reason tied to the finding above]
+Posture: [DIRECT | ASKED] - [one-line reason tied to the finding above]
 ```
 
-**Why each section enforces what it does:**
-- **Literal queries** make faking research more expensive than running it. Writing three or five specific query strings is roughly the same effort as actually running them — but only one of those produces real findings.
-- **NONE costs more than success** (5 queries vs 3). This inverts the old incentive where the path of least resistance was to declare NONE.
-- **Contact-level finding is its own required line.** The old Public Signal Cited block let the writer fold contact research into the company line or skip it entirely. The separate line forces the two-stage Research Sequence rule (Stage 1 company, Stage 2 contact) to actually happen.
-- **Each query gets its own result line.** Listing queries without per-query results fails the format and is detectable on review.
+**Rules for the Receipt:**
+- Minimum 3 literal queries if claiming a cataloged signal; minimum 5 if claiming NONE.
+- Each query gets its own result line.
+- Contact-level finding is required on every Receipt, including when company finding is NONE.
 
-**If you cannot honestly fill all four sections (Searches Run, Company finding, Contact finding, Posture), you are not ready to write the email.** Go back and research. Do not write the email body until the Receipt above it is complete and truthful.
+If you cannot honestly fill all four sections (Searches Run, Company finding, Contact finding, Posture), you are not ready to write the email. Go back and research. Do not write the email body until the Receipt above it is complete and truthful.
 
 **Self-check before every email:** Look at your output above the email body for THIS contact. Is there a Research Receipt with at least 3 literal queries paired with results, plus a contact-level finding? If no, STOP. Run the searches now. Then write.
 
 ### Non-Functional Voice (Required, Not Banned)
 
-Every E1 should have at least one sentence that doesn't "do work" in the structural sense. An observation, an aside, an honest acknowledgment of uncertainty. The current ban on flattery and overclaiming has bled into a ban on personality. Distinguish: flattery angles for something, observation doesn't. The non-functional sentence is what proves a human wrote this email for this specific person.
+Every E1 should have at least one sentence that doesn't "do work" in the structural sense. An observation, an aside, an honest acknowledgment of uncertainty. Distinguish: flattery angles for something, observation doesn't. The non-functional sentence is what proves a human wrote this email for this specific person.
 
 **Examples that earn their place:**
 - "I might be wrong about your situation."
@@ -192,13 +245,16 @@ The goal is a reply. Overclaims and absolutes push against that. They shift the 
 **What overclaiming looks like:**
 - Absolutes: "the only way," "the single biggest," "you MUST," "this is THE answer," "the future of [anything]"
 - Definitive diagnostics about their business when you can't know: "your team can't do X," "you're leaving $X on the table," "your current approach is failing"
+  - **Unverifiable current-state claims specifically:** never assert how their network,
+    provisioning, or operations work *today* unless a public signal proves it. Reframe to the
+    forward-state challenge of their growth (see The Earned-Problem Doctrine).
 - Prescriptive musts: "you need to," "what you should do is," "the right approach is"
 - Framing their business as broken without acknowledgment of what they've built
 
 **What nudging looks like:**
 - Hypothesis language: "I'd guess," "I'd imagine," "my read is" (used sparingly per hedge variety rule, max 30% of Email 1s in a batch)
 - Premise hedges: "Not sure if you're already solving this, but…" / "Probably already on your radar, but…" / "Could be wrong about the timing, but…"
-- Relational framing in "I" voice: "the pattern I'm watching with operators in your spot," "one thing I keep hearing from operators in growth mode" (NOT "most operators we talk to are seeing" — that's brand voice, banned per Rule H)
+- Relational framing in "I" voice: "the pattern I'm watching with operators in your spot," "one thing I keep hearing from operators in growth mode" (NOT "most operators we talk to are seeing" - that's brand voice, banned per Rule H)
 - Acknowledging what they've built before positioning a gap: "the internal automation is real, the gap hits at the boundary"
 - Inviting the conversation, not demanding it: "worth a conversation?" "dealing with something similar?"
 
@@ -209,11 +265,13 @@ The goal is a reply. Overclaims and absolutes push against that. They shift the 
 **The diplomacy test:** Read every claim as if it were a peer on their team pushing back. Could they disagree? Could they say "that's not actually our problem"? If yes, soften. A claim that invites disagreement opens a conversation. A claim that shuts it down ends it.
 
 Human voice markers (good):
-- Short sentences. Sometimes fragments.
+- Reasoning that flows: clauses connected with so / since / but / even though, arriving at one point. One bare fragment per body, max.
 - "I'd guess" or "I'd imagine" used genuinely
 - Acknowledging what you don't know: "Not sure if this is on your radar"
-- Active voice, direct statements
+- Active voice, second person: talking to them, not reporting about them
 - One idea per email. Commit to it.
+
+See the **Plain-Spoken / Human-Typed Voice** section below for the full profile.
 
 Sequence tool markers (bad):
 - Every sentence doing obvious "work"
@@ -221,6 +279,68 @@ Sequence tool markers (bad):
 - Stacking three value propositions in one email
 - "I'd love to..." / "I'd be happy to..." / "Let me know if..."
 - Perfect parallel structure throughout
+
+## Plain-Spoken / Human-Typed Voice
+
+The copy must read like a person typed it, not like a sequence tool assembled it. A sequence-tool voice optimizes each sentence to "do work"; a human voice lets sentences connect and breathe, and trusts one clear point to carry. This is a voice profile, not a structure change: the Earned-Problem angle, the Receipt, the caps, the posture, and the segment lock all stay exactly as they are. Six qualities, in priority order.
+
+### 1. Reasoning flows; facts don't stack (the biggest tell)
+
+Connect clauses with **so / since / but / even though** so the email reads as one train of thought arriving at a point, not one-idea-per-sentence declaratives mashed together.
+
+- ✗ (Network Operator) "The orchestration works inside each market. The boundary between markets is manual. That leaves circuits stuck in provisioning."
+- ✓ (Network Operator) "The orchestration works fine inside each market, but the moment a circuit crosses the boundary it turns into a manual project, so the off-net leg is where your provisioning time actually goes."
+
+### 2. Say the thing; don't announce the thing
+
+Kill the structural signposts that telegraph the pitch: colon-prefixes ("What we keep doing for similar teams:"), "Here's the thing,", meta-framing openers ("What caught our eye…", "The angle that interests us most…"). State the point as a clause, not a labeled section.
+
+- ✗ (MSP/Aggregator) "Here's what we keep seeing with aggregators: when a customer reports a slowdown, your team can't tell which carrier owns it."
+- ✓ (MSP/Aggregator) "When a customer reports a slowdown, the first hour goes to figuring out which upstream carrier owns it, since once traffic leaves your network you're flying blind on the path."
+
+### 3. Talk to them — active voice, second person
+
+"your team provisions", not "the team provisions". "you hand that experience to someone else", not "the experience ends up owned by another provider". Passive + third person reads like a report written about them; active + direct address reads like someone speaking to them.
+
+- ✗ (Colocation) "When a tenant needs reach beyond the campus, that experience tends to be owned by another provider, and interconnection revenue is left on the table."
+- ✓ (Colocation) "When your tenant needs reach beyond the campus, you hand that experience to someone else, and the interconnection that should sit in your meet-me room walks across to a carrier."
+
+### 4. Plain words, kept industry words
+
+Swap consultant words for conversation words. Keep the words they actually say at work.
+
+| Consultant word (swap) | Conversation word |
+|---|---|
+| productizing | sell / turn up |
+| operating model | way of working |
+| addressable market / TAM | the markets (or sites / buildings) you can reach |
+| monetize / monetization | new revenue / get paid for |
+| leverage / utilize | use |
+| enablement | help / lets you |
+| "solution" | the actual thing (the fabric, the path, the port) |
+
+**Segment-native carve-out:** where `segment-language.md` already sanctions a term as insider vocab, that wins. Concrete operator usage like "monetize the fiber you already own" or "monetize idle plant" stays — the swap targets the abstract consultant usage ("monetization strategy", "monetize your assets"), not the peer phrasing operators actually use. KEEP the real insider terms per segment: DIA, NNI, off-net, hop-by-hop, route miles, lit/dark, meet-me room, cross-connect, attach rate, GPU cluster, deterministic paths, dark fiber pair. Those read peer, not corporate.
+
+- ✗ (Neocloud) "As you scale inference across clusters, you'll need to operationalize deterministic connectivity to monetize your addressable GPU capacity."
+- ✓ (Neocloud) "Once inference starts crossing clusters, the slow part is standing up deterministic paths between them, and right now that usually means waiting on a carrier to turn up the circuit." (customer-side framing — neoclouds are the customer; no operator-monetization language)
+
+### 5. Honest, spoken uncertainty
+
+When inferring, sound like a person being straight: "Not sure if this is already in motion," "Hard to tell from outside," "tends to," "usually." This widens the existing "I'd guess / I'd imagine" bank — keep the 30% hedge cap.
+
+- ✗ (Enterprise, Multi-DC) "Your DR architecture relies on redundant inter-DC dark fiber. A single pair represents a single point of failure, and data residency cannot be substantiated."
+- ✓ (Enterprise, Multi-DC) "Hard to tell from outside, but if the DR plan leans on a single dark fiber pair between the data centers, one cut takes both paths down, and compliance still can't prove where the data went when it reroutes." (data-sovereignty framing — never operator resale)
+
+### 6. Rhythm: vary sentence length; one bare fragment max
+
+A flowing connected sentence next to a short punchy one. One clipped fragment per body lands; three stacked fragments read as ad copy.
+
+- ✗ (Fiber) "Routes go live on schedule. The Ethernet product lags. That leaves revenue on the table. Activation is the gap."
+- ✓ (Fiber) "The buildout moves on schedule, but the part that lags is how fast a new route starts paying once it's lit, since the cross-carrier piece is still a 60-day conversation. Revenue sitting on lit plant."
+
+### The throughline
+
+Don't write to make each sentence efficient. Write so the sentences connect into one thought a peer would actually say out loud, and trust the single clearest point to carry the email. The specific-mechanic peer line (see Banned Phrases → generic-category we-claims) is the one sanctioned "we" sentence; everything else stays "I" voice or second person.
 
 ## CTAs (Rotate)
 
@@ -236,33 +356,39 @@ ONE question per email. Never stack asks. No "I'd love to..." No "Let me know if
 
 - Em dashes (NEVER. Use periods or commas.)
 - "Hope this finds you well" / "Just wanted to reach out"
-- "I noticed..." (the PHRASE; specific public-signal observations using "Saw…" / "Caught your panel…" are allowed — see "Public-Signal Observations Allowed When Specific")
+- "I noticed..." (the PHRASE; specific public-signal observations using "Saw…" / "Caught your panel…" are allowed - see "Public-Signal Observations Allowed When Specific")
 - "Saw your post..." / "I came across..." (LinkedIn surveillance)
 - "As a [role title]..."
 - "Revolutionary" / "Game-changing"
 - Customer names in cold emails (anonymize everything)
 - Competitor names in cold emails ("third-party fabric providers" not Megaport/Equinix/Lumen)
-- "Same team that built Acme Packet" / "128 Technology" / Andy Ory / any credibility anchors (banned in cold email and LinkedIn; allowed in live presentations, demos, proposals, and objection handling)
+- "Same team that built Acme Packet" / "128 Technology" / Andy Ory / any credibility anchors. Banned in cold email and LinkedIn for every sender. Allowed only in live presentations, demos, proposals, and objection handling.
+- **"Fabric-in-a-box"** in cold email and LinkedIn body copy. The phrase is canonical in cheatsheets, the 101, sales-enablement collateral, competitive battlecards, and live conversations as a customer-quote anchor — but does NOT appear in cold-email or LinkedIn body. Use "interconnection layer," "service fabric," "build your own fabric," or the segment-specific embed-by-contrast templates instead.
 - Sign-offs (Tim, Best, etc.). Signatures are auto-appended.
 - "I'd love to schedule..." / "I'd be happy to..."
 - Opening with company facts as standalone observations
 - Flattery or congratulations
 - **Flattery disguised as a problem statement.** Sentences that approve of their strategy before naming a pain. Banned examples: "Growth through acquisition is the right play," "Building Tier-4 facilities is the hard part," "Your expansion is smart." Lead with the problem itself, no validation clause.
 - **Email 2 meta-references to Email 1.** "The other angle on this," "Another way to think about this," "To build on my last note," "Quick follow-up," "Circling back." Email 2 leads with a new thought, not a reference to the prior send.
-- **Brand-voice sentences inside person-to-person email.** Banned standalone constructions in E1, E2, and E3:
+- **Generic-category we-claims inside person-to-person email.** Still banned in E1, E2, and E3:
   - "We help operators…"
-  - "We work with…"
-  - "We've been doing this with…"
+  - "We work with…" / "We work with companies like yours…"
   - "Many of the operators we talk to…"
   - "Most operators we talk to…"
   - "What we keep hearing from operators…"
-  These are us-to-a-category sentences inside a person-to-person email. The mismatch is small but detectable. Replace with "I" voice:
+  These are us-to-a-category sentences with no specific mechanic. The mismatch is small but detectable. Replace with "I" voice or with the peer line below.
   - "I've been seeing this with…"
   - "The pattern I'm watching at…"
   - "I've been talking to operators in your position who…"
-  - "One thing I keep hearing from operators in growth mode…" (acceptable when phrased in the writer's voice, not the company's voice)
-  The "we" is a brand voice; the "I" is a peer voice. Tim and Ken are signing the email; let them speak as themselves.
+
+  **Allowed exception — the specific-mechanic peer line.** A "we" attribution IS allowed when it names a SPECIFIC mechanic and a plain outcome, because that reads as spoken peer credibility, not a brand slogan:
+
+  > We've been helping similar [cohort] [specific mechanic], so [plain outcome].
+
+  Example (Colo): "We've been helping multi-site colos turn a cross-connect request into reach beyond the campus, so the customer stays yours instead of walking to a carrier." The test: a reader can tell exactly what we DO from the sentence. If the "we" sentence could describe any vendor ("we help operators grow"), it's the banned generic claim. If it names the mechanic + outcome, it's the allowed peer line. One per sequence, max; never in LinkedIn (no room under the char cap). For Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale.
 - **Acknowledgment openers.** Banned: "Cold email, so here's the short version." / "Quick cold note since I doubt this is on your radar yet." / "We haven't met, so I'll get to it." These place the sender below the recipient and break the peer-to-peer posture. Premise hedges ("Not sure if you're already solving this, but…") accomplish the epistemic-honesty goal without subordinating the sender.
+- **Meta-framing openers.** Banned: "The [Company] angle that interests us most…" / "What caught our eye…" / "Here's what stood out…" / "The thing we keep coming back to…" / "What's interesting about [Company]…" / "One pattern we keep seeing…" / "The piece that's hardest to ignore…" These announce a thought instead of stating it. The frame around the claim eats the budget the claim itself should occupy. Lead with the claim, not the framing of the claim. A peer doesn't preface; a peer asserts. If the observation is worth making, make it directly.
+- **"No routing complexity" in Enterprise copy** is de-prioritized. In Enterprise outreach use "connect anywhere to anywhere with a click" instead. The phrase remains canonical and acceptable in operator-segment and neocloud copy.
 
 ### Role-Addressing Language (Banned)
 
@@ -306,9 +432,9 @@ These patterns make the sender sound like a consultant describing the recipient,
 - Inferred pain (no public signal found) → premise hedge OR pain hedge ("I'd guess").
 - Variable pain (some operators have it badly, some don't) → illumination question or premise hedge.
 
-Premise hedges are NOT acknowledgment openers. The acknowledgment opener pattern ("Cold email, so here's the short version" / "Quick cold note since I doubt this is on your radar yet") is BANNED — it places the sender below the recipient and breaks the peer-to-peer posture.
+Premise hedges are NOT acknowledgment openers. The acknowledgment opener pattern ("Cold email, so here's the short version" / "Quick cold note since I doubt this is on your radar yet") is BANNED - it places the sender below the recipient and breaks the peer-to-peer posture.
 
-After writing a batch, count the "I'd guess/imagine" instances. If over 30%, rewrite the excess using the constructions above.
+After writing a batch, count the "I'd guess/imagine" instances. If over 30%, rewrite the excess using the constructions above. Reviews should count and reject batches that violate the cap.
 
 ### Direct vs Asked Posture (Decision Criteria, Not Quota)
 
@@ -343,7 +469,7 @@ The MaiaEdge value bridge is where most emails shift from peer conversation to p
 - **Allowed placement: STANDALONE single sentence after the problem paragraph,** in "I" voice or product-as-outcome framing. Example: "I've been working on infrastructure that lets fiber operators stand up cross-carrier paths in minutes, under your brand."
 - BANNED opening constructions: "MaiaEdge is..." / "We built infrastructure that..." / "We help operators..." / "We work with..." / "Many of the operators we talk to..." See "Banned Phrases" for the full list.
 - Maximum 1 MaiaEdge-specific product term per email (choose ONE: "carrier infrastructure" OR "fabric" OR "provisioning in minutes", not all three).
-- The value bridge names the OUTCOME (the result the recipient gets) plus enough specificity that the recipient can tell what category this is. MaiaEdge is a category creator; the outcome alone isn't enough — the category-defining word matters.
+- The value bridge names the OUTCOME (the result the recipient gets) plus enough specificity that the recipient can tell what category this is. MaiaEdge is a category creator; the outcome alone isn't enough - the category-defining word matters.
 - If the value bridge sentence cannot be embedded AND a standalone version reads as marketing, omit it. Let a strong illumination question carry the close.
 
 | BAD (multi-sentence pitch paragraph) | BETTER (1-sentence standalone, "I" voice) | BEST (embedded by contrast) |
@@ -372,19 +498,48 @@ Short. Specific. Not clever.
 - Good: "[Company] provisioning" / "[Company] interconnection" / "[Company] paths"
 - Bad: "Unlock new revenue" / "Quick question" / "The future of connectivity"
 
+### Subject-line variant guidance
+
+Match the subject pattern to the campaign motion:
+
+- **Event-anchored subjects ("Looking to meet at DCD," "connecting at ITW")** for event-driven motions.
+- **Problem-anchored subjects ("[Company] cross-connect speed," "[Company] tenant interconnection," "[Company] partner activation," "[Company] dark fiber monetization")** as default for off-event lists. Pattern: 4 words, company name + problem-vocabulary from segment-language.md insider vocabulary lists.
+- **A/B test variant on under-performing event campaigns:** Run problem-anchored vs event-anchored on the same list when an event-anchored campaign opens at <60%. Validate before swapping in production.
+
 ## Sovereignty Rule
 
-For every segment EXCEPT neoclouds: pair speed with ownership. "Your team provisions in minutes" not just "provision in minutes." The operator keeps the customer, the margin, the control.
+For operator segments (Fiber Operator, Colocation, AI Colocation, Network Operator, MSP/Aggregator): pair speed with **operator** ownership. "Your team provisions in minutes" not just "provision in minutes." The operator keeps the customer, the margin, the control.
 
-Exception: Neoclouds have TWO kinds of sovereignty:
+**Exceptions - segments where the prospect IS the customer, not an operator selling to one:**
+
+**Neoclouds** have TWO kinds of sovereignty:
 - **OPERATOR sovereignty (BANNED):** "keep your customer," "your portal, your invoice," "build your own fabric." They ARE the customer. This language makes no sense.
 - **DATA sovereignty (ALLOWED):** "sovereign by design," "your data stays on paths you control," "provably private paths." This is about their data privacy and path control.
 
+**Enterprise (Multi-DC ICP)** is the same pattern as neoclouds - the enterprise IS the customer, no commercial layer to resell to. Pair speed with **data sovereignty + audit-trail language**, NOT operator sovereignty:
+- **OPERATOR sovereignty for Enterprise (BANNED):** "keep your customer," "your portal your invoice," "build your own fabric to sell," "monetize stranded fiber," "wholesale activation," "tenant," "meet-me room," "interconnection revenue," "aggregator," "TSD." Same logic as neoclouds - they're not selling connectivity to anyone.
+- **DATA sovereignty + regulatory framing for Enterprise (ALLOWED):** "audit-ready paths," "policy-based path control," "paths you can prove," "your data on paths you control," "deterministic paths between data centers," "compliance can prove the path." HIPAA / PCI-DSS / SOX / GDPR / HITRUST mentions are appropriate when the buyer's persona (CISO, Compliance, regulated-vertical CIO) implies regulatory exposure.
+
 ## Language Bans
 
-- **"Federation"** is internal MaiaEdge language. NEVER use in customer-facing copy. Translate to segment-native terms: "extend your reach," "sell into new markets," "connect to partners instantly."
+- **"Federation" as a verb** ("federate with partners," "federation creates network effects," "cross-carrier federation") is BANNED in cold-email body and LinkedIn body. Translate to segment-native terms: "extend your reach," "sell into new markets," "connect to partners instantly," "reach beyond your footprint." Federation-as-verb framing has no place in Enterprise copy either - enterprises are not federating with partners; they are the customer.
+- **"Federated Private Networking" as a noun phrase (carve-out):** This is the MaiaEdge-owned category descriptor. ALLOWED in partner-facing materials — the 101, segment cheatsheets, the Golden Pitch deck, datasheets, marketing-site copy, partner-grade PDFs from the `branded-doc` skill. BANNED in cold-email body, LinkedIn body, and SDR-driven follow-ups. Customer-facing collateral can name the category; outbound prospecting copy translates it.
 - **"Plant"** (for fiber infrastructure). Use "fiber infrastructure" instead.
 - **VLAN / Q-in-Q / BGP / NNI** are BANNED in neocloud copy. Neoclouds are compute people, not networking people. Frame multi-tenancy as "serve multiple customers from the same infrastructure" or "each customer gets isolated, private paths."
+- **For Enterprise copy:** specific operator-side terms ("tenant," "meet-me room," "interconnection revenue," "wholesale activation," "stranded fiber") are banned - they signal the wrong business model. The enterprise is consuming the network, not selling it. Network-engineering terms (BGP, MPLS, dark fiber, Type 2, hop-by-hop visibility, deterministic paths) are FINE for the technical-champion / network-architect personas; reserve product-specific names (SSR, HAsync, 100GigE specifics) for design conversations, not cold emails.
+
+## Enterprise Provisioning-Simplicity Language
+
+**Scope: Enterprise (Multi-DC ICP) copy only.** For operator segments (Fiber, Colo, AI Colo, Network Op, MSP) and neoclouds, "no routing complexity" remains canonical.
+
+Enterprise buyers (CIO / CFO / VP Sales-adjacent) respond better to positive-outcome framing than to negation framing.
+
+**In Enterprise copy:**
+- **Preferred phrase:** "connect anywhere to anywhere with a click" (paraphrases like "anywhere to anywhere with a click" are also acceptable). Pairs naturally with an Intelligent Path Computation Engine / PCE reference when one fits the email.
+- **De-prioritized (rewrite when possible for non-technical personas):** "no routing complexity."
+- Technical-champion Enterprise personas (VP Network, Principal Engineer) can still take "no routing complexity" — writer's judgment.
+
+**In operator-segment and neocloud copy:** "no routing complexity" stays canonical. The translation tables and segment fallback hooks in `context/outreach/fallback-messaging.md` and `context/copy-strategy/segment-messaging.md` continue to use it.
 
 ## Sequence Length & Structure (HARD CAPS)
 
@@ -410,6 +565,32 @@ These caps apply to every 3-email sequence regardless of segment. Segment-specif
 - **Exactly ONE CTA.** No second ask, no "hope to cross paths" tail, no "either way" closer.
 - **"Show is coming up" energy.** Timing nudge, not graceful exit. A reason the window is closing (event date, quarter end, buildout milestone) beats "no worries if not." This holds outside explicit Event Mode.
 - First name on its own line before the body.
+
+#### E3 three-option rotation
+
+Rotate across three E3 categories. Pick the one that matches the contact and prior-sequence signal, not a fixed batch percentage.
+
+**Option 1 - Take-away close (default; works without an event anchor)**
+> [First name],
+>
+> Sounds like timing might be off, or the angle missed the mark. Door's open if this becomes useful.
+
+**Option 2 - Illumination question (works when there's a real plausible "when")**
+> [First name],
+>
+> Curious if this is on your radar this year, or wrong moment? Either is useful to know.
+
+**Option 3 - Peer observation with timing nudge (works when there IS a real event anchor or a real timing reason)**
+> [First name],
+>
+> Most operators who solved this in the last year said the trigger was [event - e.g., DCD-aligned: 'a tenant explicitly asked for cloud on-ramp']. If you're not there yet, no rush - door's open.
+
+**Selection rule:**
+- Has a real event happening within 2 weeks → Option 3 (event-anchored).
+- No event but the contact's segment has a known annual planning cycle (Q4 budget, calendar-year RFP) → Option 2 (illumination question).
+- Generic catch-up batches, off-event lists, and any E3 sent past the event week → Option 1 (take-away).
+
+**Anti-pattern:** Do not use Option 3 generically past the event window. The event reference becomes stale and reads templated. When the event is over, drop the event reference and switch to Option 1 or 2.
 
 ### Segment Soft Floors (calibration only, NOT overrides)
 
@@ -442,16 +623,24 @@ The segment-specific word targets in `context/copy-strategy/segment-messaging.md
 - [ ] Single CTA, low-friction
 - [ ] Subject line specific to them
 - [ ] Reads like a person wrote it, not a sequence tool
+- [ ] **Reasoning flows, facts don't stack** — clauses connected with so / since / but / even though, not one-idea-per-sentence declaratives. One bare fragment per body, max.
+- [ ] **Active voice, second person** — talking to them ("your team provisions"), not reporting about them ("the team provisions")
+- [ ] **No consultant words** (productizing, operating model, addressable/TAM, leverage, utilize, enablement, "solution") — swapped for conversation words; segment insider terms kept
 - [ ] Each sequence email has a genuinely different angle
 - [ ] Correct sender assigned
 - [ ] No research display (company facts invisible, problems named)
 - [ ] No role-addressing language (no "at the [role] level", "from a [function] standpoint", etc.)
 - [ ] **Value bridge is 1 sentence max**, embedded by contrast OR standalone-but-punchy. Multi-sentence value bridge paragraph is BANNED.
-- [ ] **No brand-voice constructions** ("We help operators…" / "We work with…" / "Most operators we talk to…"). Use "I" voice instead.
+- [ ] **No generic-category we-claims** ("We help operators…" / "We work with companies like yours…" / "Most operators we talk to…"). Use "I" voice. The specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]") is the one allowed "we" sentence (email only, not LinkedIn; one per sequence).
 - [ ] **Research Receipt present above the email body** with all four sections complete (literal Searches Run, Company-level finding, Contact-level finding, Posture). Minimum 3 queries if claiming a cataloged signal; minimum 5 if claiming NONE. "NONE" without literal queries above it is research-skipping and fails this check.
 - [ ] **Posture matches signal strength.** DIRECT when there's a real public signal you can point at; ASKED when inferring. NOT randomized to a quota.
 - [ ] **Posture rotates across the 3-email sequence to the same contact.** E1/E2/E3 should NOT all be the same posture; if E1 was DIRECT, E2 should be ASKED, etc.
 - [ ] **Hedge cap: "I'd guess" / "I'd imagine" appear in ≤30% of E1s** in any batch of 10+ contacts.
 - [ ] **Non-functional voice present in E1** when there's a meaningful thing to say (an aside, an honest acknowledgment of uncertainty, a peak-end observation). Optional but encouraged.
 - [ ] **Peak-end observation (if used)** passes the "forwarded by colleague" test: would the recipient find it odd if a colleague added the same line in a forwarded message? If yes, it's flattery, cut it.
-- [ ] **No acknowledgment openers** ("Cold email, so here's the short version" — banned, places sender below recipient).
+- [ ] **No acknowledgment openers** ("Cold email, so here's the short version" - banned, places sender below recipient).
+- [ ] **No meta-framing openers** ("The [Company] angle that interests us most…" / "What caught our eye…" / "Here's what stood out…" / "What's interesting about [Company]…"). The first sentence after the name states the problem or observation directly, not a frame around it. If the line announces a thought instead of stating it, rewrite.
+- [ ] **Earned-Problem check:** the named problem is something the contact is publicly
+  discussing OR a predictable challenge of their stated growth — never an unverifiable claim
+  about how their business runs today. Problem framed forward-state (where they're going), not
+  as a failure of their current setup. One easy-solution line present.

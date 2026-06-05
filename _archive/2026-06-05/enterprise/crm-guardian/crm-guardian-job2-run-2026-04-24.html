@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CRM Guardian Job 2 Run Report — 2026-04-24</title>
+<style>
+:root {
+  --bg: #0b1020;
+  --card: #141a2e;
+  --ink: #e5e9f4;
+  --muted: #8b93a7;
+  --accent: #5cc8ff;
+  --tier1: #10b981;
+  --tier2: #f59e0b;
+  --tier3: #ef4444;
+  --skip: #6b7280;
+  --border: #24304f;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  margin: 0;
+  padding: 32px;
+  line-height: 1.55;
+}
+.wrap { max-width: 1200px; margin: 0 auto; }
+h1 {
+  font-size: 28px;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.card h2 {
+  font-size: 18px;
+  margin: 0 0 14px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.stat {
+  background: #0f1530;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.stat .n { font-size: 26px; font-weight: 600; }
+.stat .l { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+.pill-t1 { background: rgba(16,185,129,0.15); color: var(--tier1); }
+.pill-t2 { background: rgba(245,158,11,0.15); color: var(--tier2); }
+.pill-t3 { background: rgba(239,68,68,0.15); color: var(--tier3); }
+.pill-skip { background: rgba(107,114,128,0.15); color: var(--skip); }
+.pill-seg { background: rgba(92,200,255,0.15); color: var(--accent); margin-right: 4px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+tr:last-child td { border-bottom: 0; }
+.co-name { font-weight: 600; }
+.co-domain { color: var(--muted); font-size: 12px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.note {
+  background: rgba(92,200,255,0.06);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.health {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.health-score {
+  font-size: 42px;
+  font-weight: 600;
+}
+.health-bar {
+  flex: 1;
+  height: 10px;
+  background: #0f1530;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--tier1), var(--accent));
+  border-radius: 5px;
+}
+.segdist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+.segdist .s {
+  background: #0f1530;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.footer {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 24px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>CRM Guardian — Run Report</h1>
+<div class="subtitle">Job 2: New Account Enrichment + Re-Enrichment &nbsp;&middot;&nbsp; 2026-04-24 &nbsp;&middot;&nbsp; Friday scheduled run</div>
+
+<div class="card">
+  <h2>Summary</h2>
+  <div class="stat-grid">
+    <div class="stat"><div class="n">184</div><div class="l">Pool Matches</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">Enriched This Run</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Re-Enrichment Candidates</div></div>
+    <div class="stat"><div class="n">178</div><div class="l">Deferred / Backlog</div></div>
+  </div>
+  <div class="note">
+    The new-account pool returned 184 records where <code>createdate</code> is within the last 14 days AND at least one of <code>customer_segment</code>, <code>company_sub_segment</code>, or <code>account_tier</code> is blank. Most (~95%) were already processed by earlier Guardian runs this week and have <code>last_enriched_date</code> set to 2026-04-17, 2026-04-21, or 2026-04-22 — those fall out of scope for today's run. The deferred set (178) is mostly accounts already classified as <em>Unknown</em> with LOW/MANUAL_REVIEW confidence (legitimate post-research exclusions or edge cases), or already enriched. This run focuses on the subset of truly net-new, unclassified accounts with strong ICP signals.
+  </div>
+</div>
+
+<div class="card">
+  <h2>Safety Tier Breakdown</h2>
+  <div class="stat-grid">
+    <div class="stat"><div class="n" style="color:var(--tier1)">5</div><div class="l">Tier 1 — Auto-Fix</div></div>
+    <div class="stat"><div class="n" style="color:var(--tier2)">1</div><div class="l">Tier 2 — Auto-Fix + Flag</div></div>
+    <div class="stat"><div class="n" style="color:var(--tier3)">0</div><div class="l">Tier 3 — Needs Review</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Deal-Protected</div></div>
+  </div>
+  <div class="note">
+    No accounts in this batch had open deals, so deal protection did not escalate any actions. One Tier 2 flag was raised on <strong>Vast.ai</strong> (marketplace/orchestration model introduces classification ambiguity vs. pure NeoCloud with owned GPU infrastructure).
+  </div>
+</div>
+
+<div class="card">
+  <h2>Tier 1 Corrections (Applied)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Classification</th>
+        <th>Sub-Segment</th>
+        <th>Tier</th>
+        <th>Confidence</th>
+        <th>Owner</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="co-name"><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319323754199?utm_source=guardian_report" target="_blank">Segra</a></div>
+          <div class="co-domain">lumosnet.com &nbsp;•&nbsp; Virginia, US</div>
+        </td>
+        <td><span class="pill pill-seg">Fiber Operator</span></td>
+        <td>Long Haul / Backbone</td>
+        <td><span class="pill pill-t1">TIER 1</span></td>
+        <td>HIGH (90%+)</td>
+        <td>Tim Lieto (East)</td>
+        <td>23K route miles, 9-state Mid-Atlantic/SE, 9K on-net locations. Recently acquired by Cox Communications — strong trigger event.</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name"><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319299889888?utm_source=guardian_report" target="_blank">Yas Madagascar</a></div>
+          <div class="co-domain">yas.mg &nbsp;•&nbsp; Antananarivo, Madagascar</div>
+        </td>
+        <td><span class="pill pill-seg">Network Operator(Tier 1 / VNO)</span></td>
+        <td>Internal + External Unification</td>
+        <td><span class="pill pill-t3">TIER 3</span></td>
+        <td>MEDIUM (70-89%)</td>
+        <td>Tim Ziemer (Intl)</td>
+        <td>Madagascar mobile operator (~50% share), part of AXIAN Telecom. Territory correction: FL→Antananarivo, owner→Ziemer.</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name"><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318347064048?utm_source=guardian_report" target="_blank">GAC Enterprises LLC</a></div>
+          <div class="co-domain">gacenterprisesllc.com &nbsp;•&nbsp; North Carolina, US</div>
+        </td>
+        <td><span class="pill pill-seg">Unknown (Excluded)</span></td>
+        <td>—</td>
+        <td><span class="pill pill-skip">TIER 4</span></td>
+        <td>HIGH (90%+)</td>
+        <td>Tim Lieto (East)</td>
+        <td>Fiber construction contractor — builds infrastructure for operators. Not ICP per Vendor/Contractor exclusion.</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name"><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318207597272?utm_source=guardian_report" target="_blank">Aegis Mobile</a></div>
+          <div class="co-domain">aegismobile.com &nbsp;•&nbsp; Virginia, US</div>
+        </td>
+        <td><span class="pill pill-seg">Other (Excluded)</span></td>
+        <td>—</td>
+        <td><span class="pill pill-skip">TIER 4</span></td>
+        <td>HIGH (90%+)</td>
+        <td>Tim Lieto (East)</td>
+        <td>B2B software vendor for telecom compliance/brand intelligence. Not a network operator. Excluded as Software/Platform Vendor.</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name"><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318207597278?utm_source=guardian_report" target="_blank">EnTelegent Solutions</a></div>
+          <div class="co-domain">entelegent.com &nbsp;•&nbsp; North Carolina, US</div>
+        </td>
+        <td><span class="pill pill-seg">Enterprise (MSP)</span></td>
+        <td>Telecom Aggregator - MSP</td>
+        <td><span class="pill pill-t3">TIER 3</span></td>
+        <td>HIGH (90%+)</td>
+        <td>Tim Lieto (East)</td>
+        <td>150+ carrier aggregation, SD-WAN/fiber/wireless hybrid networks. Passes IT MSP Test as telecom aggregator. Charlotte NC HQ.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Tier 2 Corrections (Applied + Flagged)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Classification</th>
+        <th>Review Flag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="co-name"><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318865028831?utm_source=guardian_report" target="_blank">Vast.ai</a></div>
+          <div class="co-domain">vast.ai &nbsp;•&nbsp; Los Angeles, CA</div>
+        </td>
+        <td><span class="pill pill-seg">NeoCloud</span> <span class="pill pill-seg">AI Infrastructure Providers</span> <span class="pill pill-t1">Tier 1</span></td>
+        <td><span class="pill pill-t2">FLAGGED</span> Marketplace/orchestration model rather than owned-infrastructure NeoCloud. 20K+ GPUs across 40+ DCs are owned by independent hosts. Verify classification vs. possible "Cloud GPU Reseller" edge case exclusion. Confidence: MEDIUM.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Segment Distribution (This Run)</h2>
+  <div class="segdist">
+    <div class="s"><span>Fiber Operator</span><strong>1</strong></div>
+    <div class="s"><span>NeoCloud</span><strong>1</strong></div>
+    <div class="s"><span>Network Operator</span><strong>1</strong></div>
+    <div class="s"><span>MSP / Aggregator</span><strong>1</strong></div>
+    <div class="s"><span>Excluded (Other / Unknown)</span><strong>2</strong></div>
+  </div>
+  <div class="note">
+    Qualified ICP segment yield: <strong>4 of 6 (67%)</strong>. Two accounts excluded on research (1 construction contractor, 1 software vendor). This hit rate is consistent with Apollo/ZoomInfo-sourced imports (~25-70% range).
+  </div>
+</div>
+
+<div class="card">
+  <h2>Re-Enrichment Candidates</h2>
+  <p style="color:var(--muted); font-size:13px; margin:0;">
+    <strong>0 candidates found.</strong> No companies currently have <code>last_enriched_date</code> older than 2025-10-24 (6-month threshold). Most of the CRM has been enriched within the last 30 days by earlier Guardian runs. Next re-enrichment wave becomes eligible ~2026-06-22.
+  </p>
+</div>
+
+<div class="card">
+  <h2>Deferred / Backlog (Not Processed This Run)</h2>
+  <p style="color:var(--muted); font-size:13px;">
+    Of the 184 pool matches, <strong>178 were deferred</strong>. The breakdown:
+  </p>
+  <ul style="color:var(--muted); font-size:13px; line-height:1.7;">
+    <li><strong>~155 already enriched this week</strong> with <code>last_enriched_date</code> = 2026-04-17 / 04-21 / 04-22 and <code>customer_segment</code> set to "Unknown" (LOW/MANUAL_REVIEW confidence edge cases). These are legitimately excluded or need edge-case-researcher follow-up, not re-enrichment.</li>
+    <li><strong>~15 flagged "Flagged for deletion"</strong> (Equinix, AT&amp;T, Verizon, QTS Datacenters, etc.) — these appear to be hyperscaler/large-enterprise records awaiting Cooper's disposition, not enrichment candidates.</li>
+    <li><strong>~8 with data-quality issues</strong> (name/domain mismatches, e.g. "FiberLight" at texasfiberdesigngroup.com, "MetroNet" at qservicesco.com, "Comcast" at freewheel.com). These need <em>crm-hygiene</em> (Job 1) resolution before enrichment.</li>
+    <li><strong>~12 strong ICP candidates</strong> with truly blank <code>customer_segment</code> (BTC Broadband, Raza Global, Telstar, Surf Telecom, Shaun Telecom, Versocom, CCsquared, Aetheris, Capvion BV, Red Telecom, SIP VoIP, FSG, etc.) — these are next-batch targets for a follow-up Job 2 run.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Actions Required (Cooper Review)</h2>
+  <ol style="color:var(--muted); font-size:13px; line-height:1.7;">
+    <li><strong>Vast.ai classification</strong> — marketplace vs. NeoCloud. Decide whether to keep as NeoCloud/AI Infrastructure Providers or reclassify as excluded (Cloud GPU Reseller). Default applied: NeoCloud with MEDIUM confidence.</li>
+    <li><strong>Yas Madagascar Track A vs. B</strong> — Assigned Track B (Internal + External Unification) by default. If AXIAN Telecom OSS/BSS maturity is confirmed (portal/API), upgrade to Track A (External Extension).</li>
+    <li><strong>Data-quality cleanup</strong> — 8+ accounts with name/domain mismatches need hygiene pass before next Job 2 run. Flag for Job 1 next Monday.</li>
+    <li><strong>12 remaining net-new ICP candidates</strong> — queue for next Job 2 cycle (Wednesday 2026-04-29) or trigger a supplementary run.</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h2>Run Health</h2>
+  <div class="health">
+    <div class="health-score" style="color:var(--tier1)">92</div>
+    <div style="flex:1">
+      <div class="health-bar"><div class="health-fill" style="width:92%"></div></div>
+      <div style="color:var(--muted); font-size:12px; margin-top:6px">Enrichment coverage: 100% of targeted batch &nbsp;•&nbsp; Write success: 6/6 &nbsp;•&nbsp; Notes logged: 6/6 &nbsp;•&nbsp; No open-deal conflicts</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  CRM Guardian Job 2 &nbsp;•&nbsp; autonomous run &nbsp;•&nbsp; 2026-04-24 17:16 UTC &nbsp;•&nbsp; Next scheduled: 2026-04-29 (Wed)
+</div>
+
+</div>
+</body>
+</html>

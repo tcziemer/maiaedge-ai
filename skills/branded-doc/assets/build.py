@@ -263,7 +263,7 @@ PAGE_TEMPLATE = """\
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>{title} — MaiaEdge Partner</title>
+<title>{title} - MaiaEdge Partner</title>
 <link rel="stylesheet" href="brand.css"/>
 </head>
 <body>

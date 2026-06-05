@@ -13,13 +13,32 @@ The entire point of the research is to identify which problem to lead with and c
 
 - **segment-language.md**  -  Insider vocabulary, daily reality, and conversational patterns per segment. Read this to understand how they talk about their own problems so your research captures the right signals.
 - **segment-qualification.md**  -  Proof-based qualification gates per segment
-- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
+- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md, **enterprise.md**)
+- **persona-targeting-blocklist.md**  -  Pre-research persona gate. If the contact title is on the blocklist (Director-Carrier-Wholesale, Director-Field-Operations, Country-Manager-at-HQ-product-org, Account Executive, CSM), surface in the Cooper-review queue rather than producing an outreach package. See Step 0a below.
+- **pre-cadence-hygiene.md**  -  Pre-research hygiene gates. LinkedIn-status check on lead pull catches stale roles before research is invested.
+- **sub-segment-qualification.md** (context/core/)  -  Authoritative list of the 30 active `company_sub_segment` values. Use the exact case-sensitive HubSpot string for any sub-segment reference.
+- **enrichment-protocols.md** (context/core/)  -  Canonical definitions of `account_brief`, `recent_news_or_trigger_event`, `fabric_provisioning_approach`, and `geographic_focus` - the four enriched fields the Step 4.5 value-prop check pulls from.
+
+## Step 0a: Persona Pre-Check (Mandatory)
+
+Before any research investment, verify the contact title is NOT on the persona-targeting blocklist (`context/outreach/persona-targeting-blocklist.md`):
+
+- **Universal blocks:** Account Executive, Account Manager, Customer Success Manager.
+- **Aggregator / NaaS / TSD blocks:** Director - Carrier Wholesale, Wholesale Manager, Director - Sales (Wholesale).
+- **Fiber / ISP blocks:** Director - Field Operations, GM / Regional Operations Manager.
+- **International carrier blocks:** Country Manager / GM - [Country] at carriers with HQ product orgs, Finance Director / Treasurer.
+
+If blocked, surface to the Cooper-review queue and do not run Steps 0.5 through 3. The blocklist saves 5-10 minutes of research per blocked contact and prevents the wrong-persona reply pattern (Mark Palma @ iTel "not my purview," Mark Thornton @ Truvista hostile unsubscribe) that consumed 15% of the 60-day corpus replies.
+
+## Step 0b: LinkedIn-Status Check (per pre-cadence-hygiene.md Filter 3)
+
+At list-pull time, verify the contact's current LinkedIn role matches the source list. If different (retired, moved companies, role change), flag for re-research before proceeding to Step 0.5. Catching this here avoids the Dave Furiness @ MCNC pattern (retired contact still in prospect list).
 
 ## Step 0: HubSpot Deep Pull
 
 **Always start here.** Before running any web searches, check HubSpot for an existing company record using MCP tools (`search_crm_objects`):
 - Search by company name or domain
-- Pull ALL available fields: `account_brief`, `recent_news_or_trigger_event`, `customer_segment`, `customer_sub_segment`, `segmentation_confidence`, `account_tier`, `state`, `city`, `country`, `hubspot_owner_id`, `notes_last_contacted`, `num_contacted_notes`
+- Pull ALL available fields: `account_brief`, `recent_news_or_trigger_event`, `customer_segment`, `customer_sub_segment`, `segmentation_confidence`, `account_tier`, `signal_heat`, `state`, `city`, `country`, `hubspot_owner_id`, `notes_last_contacted`, `num_contacted_notes`
 - For contacts: pull `email`, `jobtitle`, `hs_linkedin_url`, `notes_last_contacted`, `num_contacted_notes`, `hs_sequences_is_enrolled`, `hs_latest_sequence_enrolled`, `hs_lead_status`, `linked_in_message`
 - If `account_brief` exists, read it  -  this is your primary research foundation. But do NOT trust blindly. Verify in Step 1.
 - If complete classification exists and data is recent → skip to Step 3 (Contact Research)
@@ -61,6 +80,17 @@ Run these searches:
 4. `[Company] expansion announcement 2025 2026`
 5. **Segment verification search** (run if HubSpot segment is unconfirmed or confidence is Low): `[Company] business model infrastructure services` -- verify the company actually belongs in the assigned segment. See `references/segment-qualification.md` for proof signals and disqualification signals per segment. Do not write outreach for a company you can't verify fits the segment.
 
+### Enterprise (Multi-DC ICP) Research Route
+
+When the HubSpot segment is `Enterprise-CustomerSegment` (or research suggests a multi-DC enterprise in financial services / healthcare / retail / outsourcing), run these instead of/in addition to the operator-route searches:
+
+1. **DC footprint confirmation:** `[Company] data center locations` / `[Company] 10-K data center disclosure` / `site:sec.gov [Company] data center` - confirm 3+ DCs (scale gate). For public companies, 10-K filings often disclose DC count in Item 2 (Properties).
+2. **In-house network engineering signal:** `[Company] "VP Network Infrastructure"` / `[Company] "Director Network Engineering"` / `[Company] "Principal Network Engineer" LinkedIn` - confirm in-house net eng team. NOC presence ("[Company] NOC operations 24/7") is equally strong.
+3. **Third-party fabric dependency:** `[Company] Equinix Fabric customer` / `[Company] Megaport customer` / `Equinix customer logo [Company]` - confirm the third-party fabric they depend on (drives the cloud on-ramp angle).
+4. **Recent trigger event** (Tier 2 ceiling gate): `[Company] M&A 2026` / `[Company] AI workload announcement` / `[Company] CIO hire` / `[Company] data center expansion` - recent trigger (M&A, AI workload, leadership change, DC expansion) ≤6 months is the Tier 2 trigger criterion.
+5. **Regulatory exposure signals** (for sub-segment-specific angle): HIPAA breach disclosures (HHS portal for healthcare), PCI audit findings (news), GDPR enforcement (EU regulator news), SOX disclosures (10-K risk factors for financials).
+6. **Sub-segment verification:** match the company against `context/segments/enterprise.md` four ICP sub-segments. **Confirm exclusions:** if the company is Manufacturing, Energy/Utilities, Logistics/Supply Chain, Government/Defense, or SaaS-only - DO NOT classify as Enterprise (Watch List or out of scope). If the company is a pure consulting firm (Deloitte, McKinsey, BCG, Bain), it is NOT `Outsourcing Services - Enterprise` regardless of multi-site presence.
+
 ## Step 2: AI Signal Check
 
 **When to run:**
@@ -91,6 +121,49 @@ Search `[Name] [Company] LinkedIn`:
 
 Don't over-research individuals. You need enough to know what they care about and how to frame the conversation.
 
+## Step 3.5: maiaedge_value_proposition Refresh Check (Mandatory)
+
+`maiaedge_value_proposition` is OUT OF ENRICHMENT SCOPE. It is an outreach-time concern (Cooper's rule, 2026-05-14: "we figure this out when we are doing outreach to them anyways"). Prospect research is the moment to set up the downstream outreach by populating or refreshing this field if it is empty or stale.
+
+### When to populate (or refresh)
+
+Check the HubSpot company record. Populate `maiaedge_value_proposition` if EITHER:
+- The field is empty.
+- The field is stale (>90 days since last update) OR the underlying enriched inputs have shifted materially since the value-prop was last written.
+
+If the field is present and fresh (<=90 days) AND the enriched inputs are aligned with what research surfaced in Steps 1-3, use the existing value as the angle-recommendation foundation in Step 4. No regeneration needed.
+
+### Inputs the synthesis must read
+
+Pull from HubSpot at research time:
+- `account_brief` - what the prospect does, footprint, business model.
+- `fabric_provisioning_approach` - which competitor / track they are on (Megaport, Equinix Fabric, Lumen PCF, in-house build, manual NNI, etc.).
+- `recent_news_or_trigger_event` - timing wedge.
+- `geographic_focus` - regional personalization.
+- `customer_segment` + `company_sub_segment` (case-sensitive HubSpot values per `context/account-tiering/sub-segment-qualification.md`) - selects the messaging template from `context/core/messaging-framework.md`.
+
+### Synthesis rule
+
+Generate a 4-5 sentence email body that synthesizes:
+1. Prospect situation (account_brief + geographic_focus)
+2. Segment-specific problem (framed for their fabric_provisioning_approach)
+3. MaiaEdge solution (operator-sovereignty for operator segments, data-sovereignty for neocloud + Enterprise)
+4. One proof / differentiator (anonymized - no customer names)
+5. Optional: timing wedge from recent_news_or_trigger_event
+
+### Output and write-back
+
+- **HubSpot character cap:** 500 chars on `maiaedge_value_proposition` per `context/hubspot/property-schema.md`. Trim to fit.
+- **No em dashes** in the value-prop string.
+- **HubSpot write:** use `manage_crm_objects` (MCP) to update the company record. Set `maiaedge_value_proposition` to the synthesized 4-5 sentence string.
+- **Do NOT bump `last_enriched_date`** - outreach-time writes don't gate the R2 rotation. Per CLAUDE.md unified stamping policy.
+
+### Failure mode to avoid
+
+Do not write a segment-template generic to HubSpot. If `account_brief` or `fabric_provisioning_approach` are missing and Steps 1-3 didn't surface equivalent substance, flag the contact for the Cooper-review queue rather than writing thin generics.
+
+The Step 4 output should include a line summarizing whether the value-prop was kept, refreshed, or newly populated, so the downstream cold-email / linkedin-outreach run knows the state.
+
 ## Step 4: Document What You Found
 
 ```
@@ -98,8 +171,9 @@ RESEARCH SUMMARY: [Contact Name] at [Company]
 
 ACCOUNT
 Company: [Name]
-Segment: [Fiber Operator / Colocation Operator / AI Colocation Operator / Neocloud / Network Operator / MSP-Aggregator]
-Customer Sub-Segment: [For Neoclouds: Large-Scale GPU NeoClouds / Tier 1 Inference Providers / AI Infrastructure Providers / Sovereign AI Clouds / Crypto-to-AI Pivots] [For Colos with AI signals: AI Infrastructure] [For others: applicable sub-segment per segment]
+Signal Heat: [Hot / Warm / Cool / Cold]   ← from HubSpot `signal_heat` (Title Case enum); see context/account-tiering/tier-compute-spec.md §11.5 for definition. Reps sort daily by this; a `Cold` account on a target list signals strategic pin without current intent.
+Segment: [Fiber Operator / Data Center Colo Provider / NeoCloud / Network Operator(Tier 1 / VNO) / MSP/Aggregator / Enterprise-CustomerSegment]
+Customer Sub-Segment: [Use one of the 30 active HubSpot `company_sub_segment` values per `context/account-tiering/sub-segment-qualification.md` - e.g., for NeoCloud: `Large Scale GPU - Neocloud` / `Tier 1 Inference - Neocloud` / `AI Infrastructure providers - Neocloud` / `Sovereign AI Clouds - Neocloud` / `Crypto to AI - Neoclouds`; for AI-signal colos: `AI Signals - colo`; for Enterprise: `Financial Services - Enterprise` / `Healthcare Systems - Enterprise` / `Retail and Distribution - Enterprise` / `Outsourcing Services - Enterprise`; cross-segment `Greenfield` pairs with `Data Center Colo Provider` OR `NeoCloud` parent]
 What they've built: [Specific services, products, automation, footprint]
 The gap: [Where automation stops, what's still manual, cross-carrier challenges]
 AI signals: [Found / None]
@@ -123,6 +197,10 @@ SEGMENT VERIFICATION
 HubSpot says: [segment / sub-segment]
 Research says: [segment / sub-segment]
 Status: VERIFIED | MISMATCH (using [Y] for messaging)
+
+VALUE PROP STATE (per Step 3.5)
+maiaedge_value_proposition status: KEPT (fresh, <=90 days) | REFRESHED (was stale) | NEWLY POPULATED (was empty) | FLAGGED (insufficient enriched inputs, surfaced to Cooper-review queue)
+Written value-prop (if KEPT/REFRESHED/NEWLY POPULATED): [4-5 sentence body, trimmed to 500 chars, no em dashes]
 
 ACTIVITY GATE
 Status: CLEAR | WARNING | CAUTION | STOP
@@ -153,3 +231,77 @@ Research drives WHICH problem you lead with. It does not appear as "I noticed" o
 | Recent M&A | Network complexity compounds with every acquisition. Lead with the integration bottleneck. |
 | Underutilized fiber (lit, dark, stranded laterals) | "Monetize what you already have in the ground. Instant private fabric across any transport, no routing complexity." |
 | Multi-state footprint | "Sell into markets beyond your footprint without building there. Partner interconnection in minutes, not 60-90 days." |
+| Enterprise: recent DC expansion or new DC announcement | Frame as the dark fiber redundancy moment. "Your DR strategy assumes the dark fiber is redundant. It is not - unless you've got diverse fibers and automated failover at each new site." |
+| Enterprise: M&A activity | Network integration angle. "Two routing stacks, two carriers, two engineering teams now sharing a fabric the integration plan didn't budget for." |
+| Enterprise: new VP Network / CIO hire | New leadership inheriting legacy provisioning. "First 90 days the conversation is usually about the inter-DC paths nobody's looked at since the SD-WAN cutover." |
+| Enterprise: Equinix Fabric or Megaport customer | Frame the third-party SLA hand-off. "Cloud on-ramp goes through Megaport. Your team owns the SLA." |
+| Enterprise: regulated vertical + recent compliance event (HIPAA breach, PCI audit, GDPR action) | Audit-trail framing. "Compliance is asking you to prove where the data went. With BGP, you can't - beyond a routing table." |
+| Enterprise: AI workload announcement | Inter-DC determinism angle. "AI is pulling traffic in directions you did not design for. The middle mile is the place where best-effort hurts." |
+
+---
+
+## Final Step: Signal Push-Back to HubSpot
+
+**Inviolable rule:** this step runs AFTER Step 4 ("Document What You Found") — the Research Summary block — has been delivered to the rep. The push-back must never gate, delay, or alter the primary output. If anything in this step fails, the rep already has their research summary in hand — signal-engine staleness is a routine-recovery problem, not a rep-blocker. Skip silently on any failure; the next R-Tier-Audit run reconciles the signal fields.
+
+**Coexists with Step 3.5:** This skill already does outreach-time HubSpot write-back for `maiaedge_value_proposition` in Step 3.5. The signal push-back below is a second outreach-time write covering the **signal-engine fields** (narrative + event date + score + count + heat + tier). Same MCP call shape, same stamping policy (no `last_enriched_date` bump), same "do not block the rep" failure handling.
+
+### When to write back
+
+During Steps 1-2 (company + contact research) and Step 3.5 inputs gathering, you ran web search and (optionally) web fetch. If that research surfaced a **signal-grade event** — funding round, exec hire, M&A, facility/market launch, public outage / RCA, earnings-language shift, or any U1-U6 / AP / FR class in [`context/signals/signal-framework.md`](../../context/signals/signal-framework.md) — score it against the Signal Scan rubric (Tier × Freshness × Confidence). **Only events scoring ≥8 trigger the push-back.** Sub-8 noise stays silent.
+
+### Comparison gate (write only if fresher)
+
+Read current `last_signal_date` for this company via `mcp__claude_ai_HubSpot__get_crm_objects`. If your discovered **event date** is strictly newer than HubSpot's value (or HubSpot's value is null), proceed. Otherwise no write. Idempotent no-op.
+
+### The write block
+
+One `mcp__claude_ai_HubSpot__manage_crm_objects` call (separate from the Step 3.5 value-prop write, or batched in the same call — both are acceptable; HubSpot MCP accepts multi-field updates per object). `updateRequest.objects[]`, `objectType: "companies"`, `confirmationStatus: "CONFIRMATION_WAIVED_FOR_SESSION"`. Fields:
+
+- `recent_news_or_trigger_event` — pure narrative, no date prefix. Format: `"[Signal Type] - [one-line summary]"`. 2-4 sentences, ≤250 char hard cap.
+- `last_signal_date` — the **event date** (YYYY-MM-DD), extracted from the source article. Semantics narrowed 2026-05-28 — event date, NOT today's run date.
+- `last_signal_score` — your rubric score (number, typically 0-60).
+- `signal_count_last_30d` — read current value. If current `last_signal_date` is within 30d of your new event date, increment by 1. If current is null or >30d old, write 1.
+- `signal_heat` — recompute per the inlined spec below. **Title Case enum:** `Hot` / `Warm` / `Cool` / `Cold`. Lowercase is silently rejected.
+- `account_tier` — recompute per [`context/account-tiering/tier-compute-spec.md`](../../context/account-tiering/tier-compute-spec.md) §4. **Only write if `hs_is_target_account != true`** — flag freezes tier (heat continues regardless).
+
+### `compute_signal_heat` (inlined from `context/account-tiering/tier-compute-spec.md` §11.5)
+
+```
+signal_heat is computed top-down, first match wins:
+
+Hot   IF (last_signal_score >= 45 AND last_signal_date <= 60 days ago)
+       OR signal_count_last_30d >= 2
+       OR account has any associated open deal past `appointmentscheduled`
+
+Warm  IF last_signal_score 27-44 AND last_signal_date <= 60 days ago
+
+Cool  IF last_signal_date <= 180 days ago AND not already Hot/Warm
+
+Cold  IF last_signal_date > 180 days ago OR last_signal_date IS NULL
+
+Inputs: last_signal_score, last_signal_date (event date), signal_count_last_30d, open-deal state.
+Output: enum `Hot` | `Warm` | `Cool` | `Cold` (Title Case per HubSpot).
+
+Override behavior:
+- hs_is_target_account = true does NOT freeze signal_heat.
+  Tier is rep-locked; heat always reports the truth.
+```
+
+Heat writes are idempotent — skip if `computed_heat == current_heat`.
+
+### Stamping policy
+
+**Do NOT bump `last_enriched_date`.** Outreach-time signal push-backs are partial writes, not full enrichment passes. R2's 120-day rotation owns the freshness guarantee. Same rule as the existing Step 3.5 `maiaedge_value_proposition` write.
+
+### Audit log
+
+Add a HubSpot company note alongside the field writes:
+
+```
+Signal push-back from prospect-research on YYYY-MM-DD: discovered <signal type> event YYYY-MM-DD, score <N>. Heat <prior> -> <new>. Tier <prior> -> <new>.
+```
+
+### Failure handling
+
+If any MCP call fails: log to run report under "Signal push-back deferred" and continue. The rep already has their research summary. R-Tier-Audit reconciles next run. **Never surface push-back failures to the rep as a blocker.**

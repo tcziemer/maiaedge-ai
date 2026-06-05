@@ -20,6 +20,7 @@ February 2026 | Confidential | Go-to-Market Operations
 4. [Segment 3: Network Operators](#4-segment-3-network-operators)
 5. [Segment 4: MSP / Aggregators](#5-segment-4-msp--aggregators)
 6. [Segment 5: Neoclouds / AI Infrastructure (Emerging)](#6-segment-5-neoclouds--ai-infrastructure-emerging)
+6.5. [Segment 6: Enterprise (Multi-DC ICP)](#65-segment-6-enterprise-multi-dc-icp)
 7. [Cross-Segment Sources & Signals](#7-cross-segment-sources--signals)
 8. [Buying Signal Integration Framework](#8-buying-signal-integration-framework)
 9. [Source Access Quick Reference](#9-source-access-quick-reference)
@@ -50,10 +51,12 @@ MaiaEdge sells carrier infrastructure to companies that own and operate physical
 A January 2026 ZoomInfo search using Industry = "Telecommunications" + description keywords yielded:
 - 544 total records processed
 - Only **47 (8.6%)** classified as Colocation Operators
-- **232 (43%)** classified as Enterprise consumers  -  NOT infrastructure providers
+- **232 (43%)** classified as Enterprise consumers  -  at the time of analysis, all flagged as "NOT infrastructure providers" and excluded
 - Misclassified companies included: AI compute buyers (Together AI, Vast AI), telecom software vendors, research firms, banks, law firms, and healthcare organizations
 
-**The takeaway:** "Telecommunications" as an industry filter captures everyone who *uses* telecom, not just who *provides* it. The broad search queries in each segment section below are designed to mitigate this by combining industry filters with infrastructure-ownership keywords.
+**Caveat (added 2026-05-11):** Some of those 232 "Enterprise consumer" records would now qualify as **Enterprise (Multi-DC ICP)** under the post-promotion framing - specifically the banks AND healthcare organizations IF they pass the hard scale gate ($1B+ rev + 3+ DCs OR Equinix Fabric/Megaport port OR confirmed in-house net eng + vertical match to one of the four ICP sub-segments per `context/segments/enterprise.md`). The 43% number was generated under the pre-promotion framing where ALL `Enterprise-CustomerSegment` records were treated as non-ICP. Re-running the same 544-record analysis today would surface a portion of that pool as Enterprise ICP - re-classify on a per-record basis via R1/R2 enrichment + segment-classification's Enterprise scale gate before excluding.
+
+**The takeaway:** "Telecommunications" as an industry filter still captures lots of non-infrastructure consumers. Combine industry filters with infrastructure-ownership keywords for operator-segment sourcing. For Enterprise sourcing, switch to vertical-specific lists (Fortune 1000 by sub-segment, IDN rankings, NRF Top 100, BPO rankings) per the Enterprise allocation in R7 monthly sourcing.
 
 ### Cost Economics
 
@@ -851,7 +854,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 | GPU Cloud Majors (Lambda, Crusoe, etc.) | Good (~65%) | 25-35 | Low | SemiAnalysis, Crunchbase |
 | Hyperscaler GPU Services | Good (~75%) | 5-7 | Low | Direct monitoring |
 | AI Chip + Cloud (Cerebras, Groq, etc.) | Good (~65%) | 10-15 | Low | Crunchbase |
-| Crypto-to-AI Pivots (IREN, Hut 8, etc.) | Moderate (~50%) | 20-25 | Medium | CoinShares, WGMI ETF |
+| `Crypto to AI - Neoclouds` (IREN, Hut 8, etc.) | Moderate (~50%) | 20-25 | Medium | CoinShares, WGMI ETF |
 | Sovereign/Telco GPU Clouds | Thin (~25%) | 30-40 | **High** | NVIDIA Newsroom, gov't announcements |
 | Serverless/Inference-as-a-Service | Thin (35-45%) | 25-35 | **High** | Crunchbase, ProductHunt |
 | GPU Marketplaces/Aggregators | Moderate (~50%) | 15-20 | Medium | Neocloud.world |
@@ -870,6 +873,183 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 | Network engineer hire (first one) | LinkedIn | Company just realized they have a network problem |
 | Multi-site expansion to second facility | Press, job postings | Inter-facility connectivity now needed |
 | Colocation tenant list inclusion | PeeringDB, Cloudscene, colo provider websites | Confirms physical presence; colo is the deployment point |
+
+---
+
+## 6.5 Segment 6: Enterprise (Multi-DC ICP)
+
+**Definition:** $1B+ enterprises that own and operate their own multi-DC corporate networks with in-house network engineering teams. Four sub-segments only: Financial Services, Healthcare Systems, Retail and Distribution, Outsourcing Services. Promoted to ICP 2026-05-11.
+
+**TAM Estimate:** ~300-500 US companies | **Priority:** Tier 2 ceiling (no Tier 1 path) | **Scale:** $1B+ revenue, 3+ DCs, 10-100+ network engineers | **Anchor:** Meijer (retail/distribution, Ken Cunningham + Woody Acosta)
+
+**Sub-segment TAM breakdown:**
+- Financial Services - Enterprise: ~80-120 US (banks, investment firms, insurers, payment networks, capital-markets infra; commercially-procuring defense contractors)
+- Healthcare Systems - Enterprise: ~60-100 US (multi-hospital IDNs, Top 100 health systems)
+- Retail and Distribution - Enterprise: ~60-100 US (NRF Top 100 retailers with multi-DC corporate IT)
+- Outsourcing Services - Enterprise: ~30-50 US (Everest Group BPO rankings; operational delivery, not project consulting)
+
+---
+
+### 6.5.1 Hard Sourcing Qualification Gate (apply BEFORE creating any record)
+
+A record only becomes Enterprise ICP if BOTH gates pass:
+
+- **Vertical gate:** company sits in one of the four ICP sub-segments above. Manufacturing, Energy/Utilities, Logistics/Supply Chain, Government/Defense, SaaS-only are NOT Enterprise ICP - they're Watch List / out of scope.
+- **Scale gate:** $1B+ annual revenue AND (3+ data centers OR direct Equinix Fabric/Megaport port OR confirmed in-house network engineering team via NOC presence or VP/Director/Principal Network Engineering job postings).
+
+**Hard disqualifiers (any one disqualifies):**
+- Network fully outsourced to single MSP with no internal engineering ownership.
+- Single DC or single geography.
+- No direct carrier contracts (100% reseller / MSP procurement).
+
+Records that fail either gate stay as `customer_segment = "Other"` or `"Unknown"`. Mid-market ($200M-$1B) without strong signals is NOT Enterprise ICP - hold and revisit on growth.
+
+---
+
+### 6.5.2 Primary Sourcing Sources (Ranked by Hit Rate)
+
+#### Equinix / CoreSite Customer Logo Pages - GOLD STANDARD for Enterprise
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate** | 70-80% |
+| **Estimated Volume** | ~100-200 enterprise customers on each provider's public logo page |
+| **Cost** | Free |
+| **Access** | equinix.com customers page; coresite.com customer logos |
+| **Why It Works** | Enterprises that hold a direct Equinix Fabric or CoreSite cross-connect have ALREADY passed the scale gate signal-wise. Pre-qualified by the third party's underwriting. |
+| **What You Get** | Company name + vertical clue + (often) facility location. Cross-reference against Fortune 1000 + LinkedIn to confirm the four-vertical gate. |
+| **Overlap Risk** | Medium-High - may overlap with Operator-segment sourcing if the enterprise also shows up as a Colo tenant. Dedupe carefully. |
+
+#### Fortune 1000 / Fortune 500 (filtered by vertical)
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate (Financial Services slice)** | 40-50% |
+| **Hit Rate (Healthcare slice - Top 100 IDNs)** | 30-40% |
+| **Hit Rate (Retail slice - multi-DC filter is tight)** | 20-30% |
+| **Cost** | Free for ranking; Fortune subscription for full filterable data |
+| **Why It Works** | Built-in revenue filter; vertical maps cleanly to the four ICP sub-segments. |
+| **Navigation Tips** | Cross-reference Fortune 500 financial services list with FDIC large-bank database + 10-K data center disclosures. For retail, filter NRF Top 100 by "multi-DC corporate IT" signals (LinkedIn job postings for senior network roles). |
+| **Overlap Risk** | Low for Enterprise (these aren't operators). |
+
+#### Modern Healthcare Top 100 Health Systems / Becker's Hospital Review IDN Rankings
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate** | 30-40% |
+| **Estimated Volume** | Top 100 IDNs annually |
+| **Cost** | Free (annual rankings published) |
+| **Why It Works** | IDN scale = multi-hospital = multi-DC IT footprint. Filters out single-hospital regional systems (which fail Enterprise scale gate). |
+| **What You Get** | System name, hospital count, revenue, geographic footprint. |
+| **Navigation Tips** | Cross-reference HCA, Ascension, CommonSpirit, Kaiser, Cleveland Clinic, NewYork-Presbyterian - these are the archetypes. Single-hospital regionals below the scale gate fail and stay as `Other`. |
+
+#### NRF (National Retail Federation) Top 100 Retailers
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate** | 20-30% (multi-DC corporate IT filter eliminates many) |
+| **Estimated Volume** | Top 100 annually |
+| **Cost** | Free (NRF publishes annually) |
+| **Why It Works** | Revenue and store-count filter; flags national retailers. |
+| **Navigation Tips** | The critical filter is **multi-DC corporate IT**, not store count or warehouse count. Meijer-archetype retailers (multi-DC corporate IT + distribution networks) qualify. Pure e-commerce retailers with one DC don't. Walmart, Kroger, Target, Lowe's, Home Depot, Costco corporate IT all qualify. |
+
+#### Everest Group BPO Rankings
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate** | 50-60% (Everest Group's rankings are pre-filtered for operational BPO) |
+| **Cost** | Some reports free, full subscription paid |
+| **Why It Works** | The rankings filter for operational BPO (not consulting), which is exactly the Outsourcing Services - Enterprise definition. |
+| **What You Get** | Operational BPO firms ranked by capability and scale. Cognizant, Genpact, Concentrix, TaskUs, Wipro BPS, TCS BPS, Accenture Operations, Teleperformance, Conduent appear here. |
+| **Navigation Tips** | Watch out for dual-arm firms (Cognizant has BOTH BPO and consulting arms). Classify on operational delivery revenue mix - see `skills/edge-case-researcher/SKILL.md` Rule 5. Exclude pure consulting (Deloitte, McKinsey, BCG, Bain). |
+
+#### 10-K Filings (SEC EDGAR)
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate** | High precision per record (10-K disclosures are authoritative on DC count for SOX-regulated financials) |
+| **Cost** | Free (SEC EDGAR) |
+| **Why It Works** | Public companies disclose data center counts, IT infrastructure investments, and (sometimes) network engineering team headcount in 10-K filings. Authoritative source. |
+| **Navigation Tips** | Search SEC EDGAR for specific Fortune 500 companies. Cross-reference Item 2 (Properties) and risk factors for DC mentions. Financial services 10-Ks are the most detailed; healthcare 10-Ks variable; retail 10-Ks usually disclose DC footprint. |
+
+#### LinkedIn Senior Network Role Job Postings
+
+| Attribute | Detail |
+|---|---|
+| **Hit Rate** | 60-70% |
+| **Cost** | Free / Sales Navigator paid |
+| **Why It Works** | A company hiring "VP Network Infrastructure," "Director Network Engineering," "Principal Network Engineer," or running a 24/7 NOC IS by definition running an in-house network engineering team. The job posting itself is the qualifying signal for the scale gate. |
+| **Navigation Tips** | Search LinkedIn job postings for the canonical titles at Fortune 1000 companies in the four verticals. Multiple postings = active in-house build-out = strong Tier 2 signal. |
+
+---
+
+### 6.5.3 Broad Search Queries (Google, Apollo, ZoomInfo, LinkedIn)
+
+#### Google Search Queries
+
+| Query | Expected Yield | Why It Works |
+|-------|---------------|--------------|
+| `"VP Network Infrastructure" [vertical] site:linkedin.com` | High precision | The title IS the qualifying signal |
+| `"Director Network Engineering" [healthcare system OR bank OR retailer OR BPO] site:linkedin.com` | High precision | Same - title presence confirms in-house net eng |
+| `"24/7 NOC" "[Company]"` | Medium precision | NOC presence = real network operations |
+| `"data center" "[Company]" site:sec.gov` | High precision (10-K mentions) | Public company DC disclosure |
+| `"Equinix Fabric" customer OR "Megaport" customer "[Company]"` | High precision | Direct fabric customer = scale gate pass |
+
+#### Apollo / ZoomInfo Filters
+
+> **WARNING:** Broad database searches are particularly noisy for Enterprise because "enterprise" is overloaded. Always combine industry + revenue + senior network role filters.
+
+**Best Filter Combination for Enterprise ICP (est. 35-45% hit rate):**
+
+| Filter | Value |
+|--------|-------|
+| Industry | Filter by ONE of: Banking; Financial Services; Insurance; Hospitals / Health Systems; Retail; Outsourcing / BPO |
+| Revenue | $1B+ |
+| Employee Count | 5,000+ |
+| Keywords (description) | "data center" OR "multi-site" OR "in-house network" OR "corporate IT" |
+| Keywords (exclude) | "consulting" OR "advisory" OR "professional services only" - to filter out consulting firms |
+
+#### LinkedIn Sales Navigator Searches
+
+| Search Strategy | Filters |
+|---|---|
+| **Company search - direct** | Industry + Company size 5,001+ + Revenue $1B+. Combine with company keywords ("data center" OR "operations"). |
+| **People search - reverse engineer** | Title: "VP Network Infrastructure" OR "Director Network Engineering" OR "Principal Network Engineer" OR "VP Network" → export companies. These are the technical-champion personas; companies hiring or staffed for these roles are scale-gate pass. |
+| **Job posting search** | "Network Architect" OR "NOC Engineer" OR "Director Network Operations" at Fortune 1000 companies → companies posting these roles ARE the in-house net eng signal. |
+
+---
+
+### 6.5.4 Buying Signals (Enterprise)
+
+| Signal | Where to Monitor | Why It Matters |
+|--------|-----------------|----------------|
+| New VP Network Infrastructure / Director Network Engineering hire | LinkedIn, press releases | New technical-buyer hire; new budget cycle |
+| M&A network integration announcement | Press releases, Mergermarket, S&P Global | Integration projects require deterministic inter-DC paths between newly combined networks |
+| AI / GPU workload kickoff | Press releases, AI vendor case studies | New workload pulls traffic in directions the network team didn't design for |
+| Multi-cloud migration kickoff | Press releases, cloud vendor case studies | Each cloud's native networking is locked to its own cloud; cross-cloud determinism is unsolved |
+| Recent data center expansion announcement | Press releases, 10-K | Expansion = budget cycle + new networking project |
+| HIPAA breach disclosure | HHS breach portal | Compliance pressure event - audit-ready path control angle lands |
+| PCI audit finding disclosure | News, regulatory filings | Same - compliance event |
+| GDPR enforcement action | EU regulator portals, news | Sovereignty / regulatory event |
+| Direct Equinix Fabric / Megaport customer logo appearance | Equinix / Megaport press, customer logo pages | Scale gate signal + active third-party fabric dependency to displace |
+
+---
+
+### 6.5.5 Disqualification Quick Check (run before creating any Enterprise record)
+
+| If the company is... | Action |
+|---|---|
+| Manufacturing (multi-plant) | Watch List - route to `Other`, do NOT assign Enterprise sub-segment |
+| Energy / Utilities | Watch List - route to `Other` |
+| Logistics / Supply Chain (multi-warehouse) | Watch List - route to `Other` (unless their CORPORATE IT footprint is a multi-DC retailer pattern, in which case `Retail and Distribution - Enterprise`) |
+| Federal agency / state / local government / DoD direct | FedRAMP-gated - out of scope, route to `Other` |
+| Defense contractor (Lockheed, RTX, Northrop, BAE, L3Harris) | Classify by commercial procurement profile → `Financial Services - Enterprise` if commercial book qualifies. Their gov work is irrelevant for ICP. |
+| Consulting firm (Deloitte, McKinsey, BCG, Bain) | Out of scope - pure project consulting, not operational BPO. Route to `Other`. |
+| Cognizant-style dual-arm firm | Classify on operational delivery revenue mix. BPO arm material → `Outsourcing Services - Enterprise`. Consulting-dominated → `Other`. |
+| Single-hospital regional health system | Fails scale gate - route to `Other` |
+| Mid-market retailer ($200M-$1B) | Fails scale gate - route to `Other`, revisit on growth |
+| Regional bank under $1B | Fails scale gate - route to `Other` |
+| SaaS-only enterprise with no owned DCs | Out of scope - route to `Other` |
 
 ---
 
@@ -958,7 +1138,7 @@ Monitor AWS, Azure, and GCP new region/availability zone announcements. Every ne
 ### Universal Disqualification Criteria
 
 **IMMEDIATE DISQUALIFICATION  -  If ANY of these are true, exclude:**
-- No owned or operated infrastructure (pure software company or enterprise consumer)
+- No owned or operated infrastructure (pure software company OR enterprise consumer that fails the Enterprise ICP scale gate per `context/segments/enterprise.md` - i.e., Watch List vertical, sub-$1B mid-market, single-DC, network outsourced to single MSP, OR no direct carrier contracts; Multi-DC enterprises in Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services that pass the scale gate ARE ICP as of 2026-05-11)
 - Already deployed Lumen Private Connectivity Fabric (competitor lock-in)
 - Budget holder says "we're not looking at this for 18+ months"
 - Company in bankruptcy or acquisition limbo

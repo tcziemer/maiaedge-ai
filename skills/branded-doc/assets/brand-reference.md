@@ -9,11 +9,11 @@ Detailed reference for the branded-doc skill. Read this **after** SKILL.md when 
 | Gold | `#FFC200` | 7548C | Primary brand accent |
 | Orange | `#FF9400` | 2013C | Secondary accent (eyebrows, anti-position bars) |
 | Heather | `#D4D0C9` | Warm Gray 1C | Warm neutral |
-| Heather Tint | `#F4F2EE` | — | Soft section background |
+| Heather Tint | `#F4F2EE` | - | Soft section background |
 | Black | `#000000` | Process Black C | Type, dark sections |
-| Ink | `#1A1A1A` | — | Body text |
-| Ink-2 | `#4A4A4A` | — | Secondary text |
-| Rule | `#E5E1DA` | — | Hairline borders |
+| Ink | `#1A1A1A` | - | Body text |
+| Ink-2 | `#4A4A4A` | - | Secondary text |
+| Rule | `#E5E1DA` | - | Hairline borders |
 
 ## Typography rules
 
@@ -28,7 +28,7 @@ Tomorrow only. Always embed via `@font-face`.
 
 **Identity rules (non-negotiable):**
 - Never em dashes. Use `·` (middle dot) for inline caps separators.
-- Always "carrier infrastructure" as our category — never IaaS / NaaS / "platform".
+- Always "carrier infrastructure" as our category - never IaaS / NaaS / "platform".
 - Pillar cards rotate top borders: Gold / Orange / Black.
 - Anti-position cards always Orange left bar; component cards always Gold.
 - Status-Quo hero always Black with Gold accents.
@@ -37,20 +37,20 @@ Tomorrow only. Always embed via `@font-face`.
 
 All defined in `brand.css`:
 
-- `.cover` — full-bleed black + gold tagline plate (`@page cover { margin: 0 }`)
-- `h1.section-title` — bold with 2pt gold underline rule
-- `.eyebrow` — orange numbered caps label above section titles
-- `.pullquote` — black bg, gold left bar, serif quote glyph
-- `.pain-grid` / `.pain-quote` — heather-tint with gold left bar
-- `.callout` — heather-tint with orange left bar
-- `.chips` — compact label-value tile row
-- `.component` — black header with gold icon plate
-- `.pillar` — 3-up grid with rotating top borders
-- `.anti-card` — orange left bar (competitive)
-- `.status-quo` — black hero block (#1 Competitor)
-- `table` / `table.qa` — black header + gold caps text + alternating tints
-- `.steps` — numbered process steps
-- `.diagram` — wrapper for embedded SVG diagrams
+- `.cover` - full-bleed black + gold tagline plate (`@page cover { margin: 0 }`)
+- `h1.section-title` - bold with 2pt gold underline rule
+- `.eyebrow` - orange numbered caps label above section titles
+- `.pullquote` - black bg, gold left bar, serif quote glyph
+- `.pain-grid` / `.pain-quote` - heather-tint with gold left bar
+- `.callout` - heather-tint with orange left bar
+- `.chips` - compact label-value tile row
+- `.component` - black header with gold icon plate
+- `.pillar` - 3-up grid with rotating top borders
+- `.anti-card` - orange left bar (competitive)
+- `.status-quo` - black hero block (#1 Competitor)
+- `table` / `table.qa` - black header + gold caps text + alternating tints
+- `.steps` - numbered process steps
+- `.diagram` - wrapper for embedded SVG diagrams
 
 ## Cover icon mapping
 
@@ -67,9 +67,9 @@ All defined in `brand.css`:
 ## Diagram library
 
 In `assets/diagrams/` (use SVG, not PNG):
-- `architecture-diagram.svg` — system architecture (Customer Layer / Control Plane / Data Plane)
-- `activation-flow-diagram.svg` — 8-step path activation timeline
-- `cloud-onramp-diagram.svg` — frontstage / backstage / destination cloud on-ramp pipeline
+- `architecture-diagram.svg` - system architecture (Customer Layer / Control Plane / Data Plane)
+- `activation-flow-diagram.svg` - 8-step path activation timeline
+- `cloud-onramp-diagram.svg` - frontstage / backstage / destination cloud on-ramp pipeline
 
 If you need a NEW diagram, build as SVG: 1600×1100 viewBox, brand colors, layer labels in orange caps on the left, components as cards with gold left bars or full black hero blocks, Tomorrow font.
 
@@ -114,7 +114,7 @@ In `assets/cover-template.html`:
    - `tr { page-break-inside: avoid }`
    - `.component-head { page-break-after: avoid }`
 
-3. **Closer blocks orphan easily.** For cheat sheets, omit the closing tagline block — the cover and footer already establish the tagline. For longer docs (MaiaEdge 101) the closer is OK because it lands with substantial prior content.
+3. **Closer blocks orphan easily.** For cheat sheets, omit the closing tagline block - the cover and footer already establish the tagline. For longer docs (MaiaEdge 101) the closer is OK because it lands with substantial prior content.
 
 4. **Tomorrow has wider metrics** than system fallbacks. When swapping from system-fallback → Tomorrow: body 9.5pt → 9pt, line-height 1.5 → 1.4, table cell padding `7pt 10pt` → `5pt 9pt`. Re-verify page counts.
 
@@ -128,7 +128,7 @@ In `assets/cover-template.html`:
    )
    ```
 
-7. **Page footer** on every body page — `MAIAEDGE / PARTNER EDITION` left, `X / N` right. Configured in `brand.css` via `@page { @bottom-left { content: ... } @bottom-right { content: counter(page) ... } }`.
+7. **Page footer** on every body page - `MAIAEDGE / PARTNER EDITION` left, `X / N` right. Configured in `brand.css` via `@page { @bottom-left { content: ... } @bottom-right { content: counter(page) ... } }`.
 
 8. **Cover uses separate `@page cover` rule.** Margins 0 for full bleed, footer suppressed. Apply via `.cover { page: cover; page-break-after: always; }`.
 
@@ -146,9 +146,9 @@ In `assets/cover-template.html`:
 ## Reference examples
 
 In `partner docs/final/`:
-- `MaiaEdge-101.pdf` — 11-page flagship brief
-- `Cheat-Sheet-Colocation.pdf` — 6-page segment cheat sheet (typical structure)
-- `Cheat-Sheet-Neocloud.pdf` — 7-page cheat sheet with extra "Sub-Segment Cheat Codes" section
-- `Product-Quick-Reference.pdf` — 12-page technical reference with 3 embedded diagrams
+- `MaiaEdge-101.pdf` - 11-page flagship brief
+- `Cheat-Sheet-Colocation.pdf` - 6-page segment cheat sheet (typical structure)
+- `Cheat-Sheet-Neocloud.pdf` - 7-page cheat sheet with extra "Sub-Segment Cheat Codes" section
+- `Product-Quick-Reference.pdf` - 12-page technical reference with 3 embedded diagrams
 
 Open these for examples. Anything new should match visually.

@@ -276,12 +276,12 @@ Does the company have GPU hardware deployed in at least one physical facility, O
 
 ### Sub-Segment Classification
 
-After qualifying, assign sub-segment based on primary business model:
-- **Large-Scale GPU NeoClouds**: Multi-facility (5+), 100MW+ capacity, $1B+ valuation, building or has network teams. Examples: Nebius, Lambda Labs, Crusoe, Voltage Park.
-- **Tier 1 Inference Providers**: Inference-as-a-service is primary product, real-time API SLAs, optimized for latency. Examples: Together AI, Groq, DeepInfra, Anyscale.
-- **AI Infrastructure Providers**: Multi-cloud GPU platform, API-driven, developer-first, marketplace model. Examples: Cirrascale, Vultr, Fluidstack, DigitalOcean GPU.
-- **Sovereign AI Clouds**: Regulatory compliance as primary driver, national AI initiatives, data sovereignty. Examples: Firmus, E2E Networks, Yotta, Nscale EU.
-- **Crypto-to-AI Pivots**: Former cryptocurrency mining operations transitioning to AI compute. Check SEC filings for pivot language. Examples: IREN, Core Scientific, Northern Data Group, TeraWulf.
+After qualifying, assign HubSpot `company_sub_segment` based on primary business model:
+- **`Large Scale GPU - Neocloud`**: Multi-facility (5+), 100MW+ capacity, $1B+ valuation, building or has network teams. Examples: Nebius, Lambda Labs, Crusoe, Voltage Park.
+- **`Tier 1 Inference - Neocloud`**: Inference-as-a-service is primary product, real-time API SLAs, optimized for latency. Examples: Together AI, Groq, DeepInfra, Anyscale.
+- **`AI Infrastructure providers - Neocloud`**: Multi-cloud GPU platform, API-driven, developer-first, marketplace model. Examples: Cirrascale, Vultr, Fluidstack, DigitalOcean GPU.
+- **`Sovereign AI Clouds - Neocloud`**: Regulatory compliance as primary driver, national AI initiatives, data sovereignty. Examples: Firmus, E2E Networks, Yotta, Nscale EU.
+- **`Crypto to AI - Neoclouds`**: Former cryptocurrency mining operations transitioning to AI compute (inclusive of operator AND landlord per Cooper 2026-05-14). Check SEC filings for pivot language. Examples: IREN, Core Scientific, Northern Data Group, TeraWulf.
 
 ### Quick Classification Test
 "Does this company own (or have committed funding to build) GPU hardware in physical facilities and sell compute capacity to other companies?" If no to both halves, it's not a neocloud. Early-stage companies with confirmed GPU buildout funding and a published pricing/product page qualify even if hardware isn't deployed yet.
@@ -356,6 +356,81 @@ When "MSP" appears, apply this test:
 
 ---
 
+## Segment 6: Enterprise (Multi-DC ICP)
+
+### The False Positive Problem
+"Enterprise" is the loosest term in B2B. Every Fortune 1000 company has "enterprise IT," "enterprise network," and "data centers." The MaiaEdge Enterprise ICP is narrow: large enterprises that **own and operate their own multi-DC networks**, have **in-house network engineering teams**, and sit in one of four specific operational profiles (financial services, healthcare systems, retail/distribution, outsourcing services). Mid-market companies, single-DC enterprises, network-outsourced enterprises, and verticals outside the four are NOT Enterprise ICP.
+
+Promoted to ICP May 2026. Anchor account: Meijer (retail/distribution, Ken Cunningham + Woody Acosta).
+
+### Qualification Gate (must pass ALL three)
+
+**Gate 1 - Vertical Fit (one of four sub-segments):**
+Does the company sit in one of the four ICP Enterprise sub-segments?
+- `Financial Services - Enterprise`: banks, investment firms, insurers, payment networks, capital-markets infrastructure. Defense contractors that procure commercially land here based on commercial procurement profile.
+- `Healthcare Systems - Enterprise`: multi-hospital IDNs and large health systems.
+- `Retail and Distribution - Enterprise`: national retailers with multi-DC corporate IT plus distribution-center networks.
+- `Outsourcing Services - Enterprise`: BPO / outsourced operations providers running multi-site delivery centers on an ongoing operational basis (NOT project-based consulting - Deloitte, McKinsey, BCG, Bain are excluded).
+- Manufacturing, Energy/Utilities, Logistics/Supply Chain, Government/Defense, SaaS-only = FAIL (Watch List or out of scope).
+
+**Gate 2 - Scale Gate (revenue AND infrastructure):**
+Does the company have $1B+ annual revenue AND at least one of: 3+ data centers OR direct Equinix Fabric / Megaport port OR confirmed in-house network engineering team (NOC presence, VP / Director / Principal Network Engineering job postings)?
+- Under $1B revenue = FAIL (mid-market $200M-$1B held as `Other`, revisit on growth).
+- Single DC AND no direct fabric port AND no in-house net eng = FAIL (no MaiaEdge use case).
+
+**Gate 3 - Commercial Entry Path:**
+Does the company hold direct carrier contracts (not 100% through reseller or MSP) AND have internal engineering ownership of the network?
+- Network fully outsourced to single MSP with no internal engineering ownership = FAIL (no technical buyer).
+- 100% reseller/MSP procurement with zero direct carrier contracts = FAIL (no commercial entry).
+
+### Required Proof Signals (need 2+ to qualify with High confidence)
+
+| # | Proof Signal | Where to Find |
+|---|---|---|
+| 1 | 3+ data centers disclosed (10-K filings for SOX-regulated financials; press releases; LinkedIn job locations) | SEC EDGAR, company website, press releases |
+| 2 | $1B+ annual revenue (most recent fiscal year) | 10-K, company website, Crunchbase |
+| 3 | VP Network / Director Network Engineering / Principal Network Engineer roles staffed or hiring | LinkedIn job postings, company careers page, LinkedIn profile searches |
+| 4 | Direct Equinix Fabric or Megaport customer (named on customer logo pages or in fabric provider press releases) | Equinix / Megaport customer logo pages, fabric provider blog |
+| 5 | NOC presence disclosed (24/7 Network Operations Center mentioned on website or in job postings) | Company website, LinkedIn |
+| 6 | Recent network-related M&A, AI workload announcement, multi-cloud migration kickoff, or DC expansion (last 6 months) | Press releases, 10-K, industry trade press |
+
+### Quantitative Minimums
+
+- $1B+ revenue (verifiable from 10-K or third-party source)
+- 3+ data centers OR direct fabric port OR confirmed in-house network engineering team
+- Vertical fit (one of four sub-segments) - no exceptions
+
+### Disqualification Signals (exclude even if keywords match)
+
+- Manufacturing, Energy/Utilities, Logistics/Supply Chain (Watch List, not Enterprise ICP)
+- Government, federal agencies, state/local agencies, DoD direct (FedRAMP-gated; not currently pursued)
+- Project-based consulting / advisory firms (Deloitte, McKinsey, BCG, Bain - not Outsourcing Services)
+- Single-DC enterprise
+- Single-geography enterprise (one country, one region)
+- Network fully outsourced to single MSP with no internal engineering ownership
+- No direct carrier contracts (100% reseller / MSP procurement)
+- SaaS-only enterprise with no owned data centers
+- Mid-market under $1B revenue without strong infrastructure signals
+- Single-hospital regional health system (fails scale gate)
+- Retailer where "multi-warehouse" is the only multi-site signal (warehouses ≠ multi-DC corporate IT)
+
+### Sub-Segment Assignment Rules
+
+After qualifying, assign sub-segment based on primary commercial profile:
+- **Financial Services - Enterprise**: banks, insurers, payment networks, capital-markets infra, exchanges; defense contractors on commercial procurement profile.
+- **Healthcare Systems - Enterprise**: multi-hospital IDNs, large health systems.
+- **Retail and Distribution - Enterprise**: national retailers with multi-DC corporate IT + distribution networks.
+- **Outsourcing Services - Enterprise**: BPO / outsourced operations providers; classify dual-arm firms (Cognizant) on operational delivery revenue mix.
+
+### Account Tier Assignment (Enterprise-specific)
+
+See `context/account-tiering/tier-compute-spec.md` for tier computation. Enterprise sub-segments default to Tier 3 with ceiling Tier 2 and floor Tier 4 - no Tier 1 path. Signal modifiers and `hs_is_target_account` apply uniformly.
+
+### Quick Classification Test
+"Is this a $1B+ enterprise in financial services, healthcare, retail/distribution, or operational BPO, with 3+ data centers and an in-house network engineering team, that holds direct carrier contracts?" If no to any half, it's not Enterprise ICP for MaiaEdge.
+
+---
+
 ## Applying the Framework: Enrichment Workflow
 
 ### Step 1: Phase 1 Routing (unchanged)
@@ -394,6 +469,7 @@ When full enrichment research isn't feasible (processing attendee lists, verifyi
 3. **Network Op**: "Is this a national/global carrier with 50+ PoPs that sells enterprise connectivity?"
 4. **Neocloud**: "Does this company own GPU hardware in physical facilities and sell compute capacity to other companies?"
 5. **MSP**: "Does this company buy circuits from multiple telecom carriers and resell bundled connectivity to enterprises?"
+6. **Enterprise**: "Is this a $1B+ enterprise in financial services, healthcare, retail/distribution, or operational BPO, with 3+ data centers and an in-house network engineering team, that holds direct carrier contracts?"
 
 If the answer is uncertain, flag for manual review. Do NOT auto-classify based on keywords alone.
 
@@ -417,6 +493,15 @@ If the answer is uncertain, flag for manual review. Do NOT auto-classify based o
 | Fiber construction contractor | Fiber Operator | Exclude (contractor, not operator) |
 | Cloud service provider (no physical DC) | Colocation Operator | Exclude (cloud hosting, not colo) |
 | Managed hosting provider | Colocation Operator | Exclude unless offers true multi-tenant colo with interconnection |
+| Manufacturer with multi-plant network | Enterprise | Watch List (not ICP). Plant networks are OT, not multi-DC IT. |
+| 3PL / freight / multi-warehouse logistics | Enterprise (Retail/Distribution) | Watch List. Multi-warehouse ≠ multi-DC corporate IT. Refer to Retail only if their corporate IT footprint looks like a multi-DC retailer. |
+| Federal agency / DoD / state-local govt | Enterprise (Government) | Out of scope. FedRAMP-gated; no Government sub-segment exists. |
+| Defense contractor (Lockheed/RTX/Northrop/BAE/L3Harris) | Government | Classify as `Financial Services - Enterprise` based on commercial procurement profile, not gov work. |
+| Consulting firm (Deloitte/McKinsey/BCG/Bain) | Outsourcing Services - Enterprise | Exclude. Project-based, not operational delivery. |
+| Cognizant-style firm (BPO + consulting arms) | Outsourcing Services - Enterprise | Qualify on operational delivery revenue mix. If BPO is a real multi-site delivery-center revenue line, qualify. If consulting dominates, hold as `Other`. |
+| Single-hospital regional health system | Healthcare Systems - Enterprise | Exclude (fails scale gate). Hold as `Other`. |
+| Mid-market retailer ($200M-$1B, one DC) | Retail and Distribution - Enterprise | Hold as `Other` until revenue / DC count grows. |
+| Regional bank under $1B | Financial Services - Enterprise | Hold as `Other`. Fails scale gate. |
 
 ---
 

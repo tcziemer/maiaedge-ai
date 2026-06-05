@@ -108,7 +108,7 @@
 
 ## Special Cases
 
-**Long Haul / Backbone (Zayo, Lumen, Cogent class):** Don't position as automation replacement. They already have it. Lead with cross-carrier federation as an extension layer above incumbent automation.
+**Long Haul / Backbone (Zayo, Lumen, Cogent class):** Don't position as automation replacement. They already have it. Lead with cross-carrier extension as a layer above their incumbent automation - partner activation in minutes across operators they already peer with. ("Cross-carrier federation" as a verb form is banned in cold body and LinkedIn body; "Federated Private Networking" as the noun-phrase category descriptor stays canonical for partner-facing collateral.)
 
 **BEAD-funded operators:** BEAD terms apply only to grant-funded strands. MaiaEdge monetizes the commercial IRU and wholesale segments. Two revenue models on the same plant.
 

@@ -120,12 +120,12 @@ Check the company against these signals:
 - AI model marketplace (hosts models, not infrastructure)
 
 ### Neocloud Sub-Segment Classification Signals
-After research, classify into sub-segment:
-- **Large-Scale GPU NeoClouds**: Multi-facility (5+), 100MW+ capacity, $1B+ valuation, building network teams
-- **Tier 1 Inference Providers**: Inference-as-a-service is primary product, real-time API SLAs, 5-30+ facilities
-- **AI Infrastructure Providers**: Multi-cloud GPU platform, API-driven, developer-first, marketplace model
-- **Sovereign AI Clouds**: Regulatory compliance as driver, national AI initiatives, data sovereignty requirements
-- **Crypto-to-AI Pivots**: Former crypto mining, transitioning to AI compute, SEC pivot filings, legacy power infrastructure
+After research, classify into the HubSpot `company_sub_segment`:
+- **`Large Scale GPU - Neocloud`**: Multi-facility (5+), 100MW+ capacity, $1B+ valuation, building network teams
+- **`Tier 1 Inference - Neocloud`**: Inference-as-a-service is primary product, real-time API SLAs, 5-30+ facilities
+- **`AI Infrastructure providers - Neocloud`**: Multi-cloud GPU platform, API-driven, developer-first, marketplace model
+- **`Sovereign AI Clouds - Neocloud`**: Regulatory compliance as driver, national AI initiatives, data sovereignty requirements
+- **`Crypto to AI - Neoclouds`**: Former crypto mining (operator OR landlord per Cooper 2026-05-14), transitioning to AI compute, SEC pivot filings, legacy power infrastructure
 
 ## Route: Exclude Verification (2-4 searches)
 

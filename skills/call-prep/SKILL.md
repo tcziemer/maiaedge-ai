@@ -87,6 +87,37 @@ Always start by understanding and respecting what the prospect has accomplished.
 
 **Red flags (neocloud poor fit):** Already built 35+ PoPs with dedicated networking team (Groq model), fully solved with unlimited VC, acquired by hyperscaler.
 
+**Enterprise (Multi-DC ICP - sub-segment determines emphasis):**
+
+*Universal discovery (all four Enterprise sub-segments):*
+- "How is your dark fiber between DCs redundant today?" (Signal: one pair, one path, no automated failover = buying signal)
+- "When you need AWS Direct Connect, Azure ExpressRoute, or GCP Cloud Interconnect, who handles it?" (Signal: Megaport / Equinix Fabric, their portal, their SLA = buying signal)
+- "How do you prove to compliance / audit where data went between DCs?" (Signal: can't beyond BGP routing tables = buying signal)
+- "How long does a new DC or DR site take to come online from a networking perspective?" (Signal: months = buying signal)
+- "What does your network team look like - VP Network, Director, Principal? Where are you hiring?" (Signal: 24/7 NOC + active hiring for senior network roles = strong qualifier)
+- "Direct carrier contracts or all through a reseller / MSP?" (Signal: all through reseller / MSP = DISQUALIFIER, not Enterprise ICP)
+
+*Financial Services - Enterprise:*
+- "How are inter-DC paths protected from SOX / PCI-DSS perspective?" (Signal: best-effort BGP + manual audit reconstruction = buying signal)
+- "Have you been through a recent PCI audit finding or GDPR enforcement event?" (Signal: yes + compliance pressure event = urgency lever)
+
+*Healthcare Systems - Enterprise:*
+- "How does EHR DC redundancy survive a single fiber cut today?" (Signal: single fiber pair, no diverse path = buying signal)
+- "Have you had a recent HIPAA breach disclosure or HITRUST audit finding?" (Signal: yes = strong urgency lever, regulatory pressure)
+- "Are your imaging archives + radiology workloads on the same DC paths as EHR?" (Signal: yes + variable latency = buying signal)
+
+*Retail and Distribution - Enterprise:*
+- "How is dark fiber between your corporate DCs redundant today?" (Signal: single pair, no automated failover = buying signal - this is the Meijer-archetype pain)
+- "How do distribution-center networks integrate with corporate IT paths?" (Signal: separate fabrics, manual stitching = buying signal)
+- "What's your cloud on-ramp posture for SaaS and analytics today?" (Signal: Megaport / Equinix Fabric, portal owned by third party = buying signal)
+
+*Outsourcing Services - Enterprise:*
+- "How do you handle delivery-center reliability across geographies?" (Signal: best-effort transport, regional carrier patchwork = buying signal)
+- "When clients ask for path-level audit trails on their data, what do you provide?" (Signal: nothing beyond carrier reports = buying signal)
+- "Are you a project consulting firm primarily or operational delivery primarily?" (Signal: PROJECT consulting = DISQUALIFIER, not Enterprise ICP)
+
+**Red flags (Enterprise poor fit):** Network fully outsourced to single MSP, single DC, no direct carrier contracts, sub-$1B revenue, Manufacturing / Energy-Utilities / Logistics / Government / Defense / SaaS-only vertical, pure project-based consulting firm.
+
 ### 3. Pain Validation (Dig Deeper)
 
 After initial discovery, validate with specific operational questions:
@@ -109,6 +140,7 @@ Map MaiaEdge value to THEIR specific situation. Pillars are segment-specific:
 | Colo | INSTANT \| MONETIZE \| REACH |
 | AI Colo | DETERMINISTIC \| INSTANT \| MONETIZE |
 | Neocloud | DETERMINISTIC \| PRIVATE \| INSTANT |
+| Enterprise (Multi-DC ICP) | REDUNDANT \| SOVEREIGN \| AUTOMATED |
 
 - **Automate:** "Activate deterministic private paths over fiber or DIA instantly. No BGP, no MPLS, no routing complexity."
 - **Extend Reach:** "Extend reach through seamless carrier-to-carrier partnerships while maintaining visibility and customer sovereignty."
@@ -153,6 +185,18 @@ Map MaiaEdge value to THEIR specific situation. Pillars are segment-specific:
 
 **Neocloud CFO / Finance:**
 "Public internet egress at $0.05-0.09/GB vs $0.02/GB via private paths. For training runs moving TBs, that's 60-80% savings. OpEx model, no CapEx."
+
+**Enterprise VP Network Infrastructure / Director Network Engineering (primary technical champion):**
+"Your DR strategy assumes the dark fiber between your DCs is redundant. Unless you've got PBCs at each end, diverse fibers, and automated failover, it's one cut from an outage. MaiaEdge makes that fabric across your sites - productized, operable by the team you already have, no BGP across the WAN."
+
+**Enterprise CIO (economic buyer):**
+"You're multi-cloud and being asked to make that feel like one cloud to the network team and the auditors. AWS Cloud WAN, Azure vWAN, GCP NCC - each works per cloud, none federate across them, and none solve the dark fiber redundancy problem at all. MaiaEdge is the cross-cloud, cross-DC layer under your control. Cloud on-ramps under your brand, audit trails on the wire."
+
+**Enterprise CSO / CISO (security stakeholder):**
+"BGP best-effort cannot prove where data went. With MaiaEdge, the path itself is the audit artifact. Policy-based path control with jurisdictional audit trails. Line-rate AES-256-GCM IPsec on every path. Hop-by-hop visibility including Type 2. Compliance asks where the data went - your network team has the answer."
+
+**Enterprise Network Architect / Principal Network Engineer (technical influencer):**
+"HAsync and HAfabric on the SSRs sharing a single dark fiber pair is the most common pattern I'm seeing. PBCs at each end of dark fiber, diverse fibers, automated failover. No routing protocols to manage, no BGP convergence to debug. Hop-by-hop telemetry across the entire path, including Type 2."
 
 ### 7. Technical Deep Dive (If Needed)
 

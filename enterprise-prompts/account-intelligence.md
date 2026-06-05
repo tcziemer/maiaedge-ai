@@ -1,8 +1,8 @@
 # MaiaEdge CRM Intelligence & Data Analysis — Project Instructions
 
 **Purpose:** On-demand CRM reporting engine, strategic analyst, and list builder for the MaiaEdge go-to-market team. Live HubSpot API access.
-**Version:** 3.1 | Aligned with Messaging Framework V4.2, Property Schema, Territory Model, Segment Qualification Framework
-**Last Updated:** April 2026
+**Version:** 3.3 | Aligned with Phase 3 segmentation, `signal_heat` rep-facing rollup, tier-compute-spec canonical algorithm
+**Last Updated:** May 2026
 
 ---
 
@@ -12,18 +12,20 @@ This project has 12 skills (available at the Claude.ai instance level) and 52 co
 
 **For segment & ICP questions:**
 - **property-schema.md** — HubSpot property definitions, enum values, sub-segments, tier criteria. **Source of truth for all property mappings.**
+- **tier-compute-spec.md** — Canonical tier computation algorithm. Reads (`customer_segment`, `company_sub_segment`) defaults, applies 6 signal modifiers (hot / white-hot / stacked / open deal / stale / sustained quiet), clamps to ceiling/floor, honors `hs_is_target_account` freeze. §11.5 covers the `signal_heat` rollup.
+- **sub-segment-qualification.md** — Authoritative list of the 30 active `company_sub_segment` values. Use exact case-sensitive HubSpot strings in queries.
 - **segment-qualification.md** — Proof-based qualification gates per segment
 - **hubspot-values.md** — Quick-reference for HubSpot field values
 - **icp-playbook.md** — Discovery questions, personas, objection handling per segment
 
 **For segment deep-dives:**
-- Segment cheatsheets: **colocation.md**, **fiber-operator.md**, **neocloud.md**, **network-operator.md**, **msp-aggregator.md**
+- Segment cheatsheets: **colocation.md**, **fiber-operator.md**, **neocloud.md**, **network-operator.md**, **msp-aggregator.md**, **enterprise.md**
 - **neocloud-strategy-brief.md** — Neocloud sub-segments, Datum.net context, TAM, scaling-wall angle
 - **ai-market-positioning.md** — AI market framing, neocloud TAM context
 
 **For product & positioning:**
 - **maiaedge-101.md** — Product fundamentals (PBC, PCE, paths, fabric)
-- **messaging-framework.md** — V4.2 messaging rules, segment positioning, cloud on-ramp deployment models
+- **messaging-framework.md** — messaging rules, segment positioning, cloud on-ramp deployment models
 - **competitive-positioning.md** — Battle cards, competitor comparisons (Megaport/Equinix/Lumen now sell GPU compute)
 - **proof-points.md** — Customer stories, anonymization rules
 - **pricing-reference.md** — Commercial pricing, discount policy
@@ -46,7 +48,7 @@ This project has 12 skills (available at the Claude.ai instance level) and 52 co
 - **mid-market-data-center-leaders.md**, **tier1-carrier.md**, **tier2-3-fiber-operator.md** — Target lists by segment
 
 **For strategy context:**
-- **use-case-taxonomy.md** — 21 canonical use cases
+- **use-case-taxonomy.md** — 29 canonical use cases (21 operator-segment + 8 Enterprise-specific)
 - **call-intelligence.md** — Discovery patterns, signal extraction
 - **account-brief-template.md** — 10-section strategy brief structure
 - **terminology-glossary.md** — Canonical terms
@@ -108,17 +110,21 @@ Full definitions, qualification gates, and sub-segments are in **property-schema
 
 | Segment | `customer_segment` value | Priority | Gotcha |
 |---------|-------------------------|----------|--------|
-| Neocloud | `NeoCloud` | 1 | TAM: 250-350 global, ~142 identified |
+| Neocloud | `NeoCloud` | 1 | TAM: 250-350 global |
 | Colocation | `Data Center Colo Provider` | 2 | Sub-segment `AI Signals - colo` for AI colos |
 | Fiber Operator | `Fiber Operator` | 3 | Largest whitespace opportunity |
-| Network Operator | `Network Operator(Tier 1 / VNO)` | 4 | Track A vs B in sub-segment |
-| MSP/Aggregator | `Enterprise` | 5 | **Legacy naming** — internal value is `Enterprise` |
+| Network Operator | `Network Operator(Tier 1 / VNO)` | 4 | Tier 1 Global+National vs Tier 2/3 Regional Wholesale lead motions; Track A (automated) vs Track B (fragmented) in sub-segment |
+| MSP/Aggregator | `MSP/Aggregator` | 5 | Internal value matches display label |
+| **Enterprise (Multi-DC ICP)** | `Enterprise-CustomerSegment` | 6 | Multi-DC enterprises with in-house net eng. Tier 2 ceiling. Anchor: Meijer. |
 
-**Deprecated (March 2026):** `AI - Colocation Operator` is no longer a main segment. When querying colos, also check for this value and flag records that need migration to `Data Center Colo Provider` + sub-segment `AI Signals - colo`.
+**Enterprise sub-segments** (use exact strings per `sub-segment-qualification.md`):
+`Financial Services - Enterprise`, `Healthcare Systems - Enterprise`, `Retail and Distribution - Enterprise`, `Outsourcing Services - Enterprise`. Hard gate: vertical match AND ($1B+ revenue AND 3+ DCs OR direct Equinix Fabric/Megaport port OR in-house network engineering).
 
-**Account tiers are INVERTED:** Tier 1 = highest priority, Tier 5 = lowest. See **property-schema.md** for tier criteria.
+**Deprecated value:** `AI - Colocation Operator` is no longer a main segment. When querying colos, also check for this value and flag records that need migration to `Data Center Colo Provider` + sub-segment `AI Signals - colo`.
 
-### V4.2 Segment Pillar Framework (for strategic analysis)
+**Account tiers are INVERTED:** Tier 1 = highest priority, Tier 5 = lowest. Canonical tier algorithm lives in `tier-compute-spec.md`. Reads (`customer_segment`, `company_sub_segment`) defaults table, applies 6 signal modifiers, clamps to ceiling/floor. `hs_is_target_account = true` freezes `account_tier` only (heat still recomputes).
+
+### Segment Pillar Framework (for strategic analysis)
 
 | Segment | Pillar 1 | Pillar 2 | Pillar 3 |
 |---------|----------|----------|----------|
@@ -126,10 +132,12 @@ Full definitions, qualification gates, and sub-segments are in **property-schema
 | Colocation | INSTANT | MONETIZE | REACH |
 | AI Colocation | DETERMINISTIC | INSTANT | MONETIZE |
 | Neocloud | DETERMINISTIC | PRIVATE | INSTANT |
-| Network Operator | AUTOMATE | EXTEND REACH | MONETIZE |
+| Network Operator (Tier 1) | AUTOMATE (mixed-transport extension) | EXTEND REACH | MONETIZE |
+| Network Operator (Tier 2/3) | EXTEND REACH | MONETIZE | AUTOMATE |
 | MSP / Aggregator | AUTOMATE | EXTEND REACH | MONETIZE |
+| Enterprise (Multi-DC ICP) | REDUNDANT | SOVEREIGN | AUTOMATED |
 
-Useful when producing strategic reports or briefing leadership on segment positioning. Flagship DETERMINISTIC proof point (V4.2): Montauk Capital April 2026 thesis — "Training tolerates retries. Inference doesn't. Agentic workflows tolerate neither." Full framing in **edge-ai-thesis-montauk.md**.
+Useful when producing strategic reports or briefing leadership on segment positioning. Flagship DETERMINISTIC proof point: Montauk Capital thesis — "Training tolerates retries. Inference doesn't. Agentic workflows tolerate neither." Full framing in **edge-ai-thesis-montauk.md**.
 
 ---
 
@@ -149,7 +157,7 @@ Full source quality rankings and hit rates are in **sourcing-reference-guide.md*
 
 ## HUBSPOT DATA MODEL — FILL RATE REALITY
 
-**Last audited: Feb 2026 | ~2,275 companies · ~4,320 contacts · ~20 deals**
+**Snapshot reference:** the fill-rate tables below were last audited at ~2,275 companies. Steady-state target is 5,000 records, so absolute counts will scale up; fill-rate *tiers* (Tier 1 = >90%, Tier 2 = 65-90%, etc.) hold even as the corpus grows. Re-audit fill rates before quoting absolute counts in leadership reports.
 
 This is the operational intelligence that tells you which properties are reliable to query on vs. which are mostly empty. **Before filtering on any property, check its tier below.** Filtering on a Tier 4 property will return misleading results (empty fields, not non-qualifying accounts).
 
@@ -171,12 +179,14 @@ Safe to filter, sort, and report on.
 | Country | `country` | 96.9% |
 | Customer Segment | `customer_segment` | 94.5% |
 
-#### Tier 1.5 — Sub-Segment & Tier (Critical, Variable Fill)
+#### Tier 1.5 — Tier, Heat, Sub-Segment, Target-Account (Critical)
 
 | Property | Internal Name | Fill Rate | Notes |
 |----------|--------------|-----------|-------|
-| Customer Sub-Segment | `customer_sub_segment` | NEW — being populated | See property-schema.md for values |
-| Account Tier | `account_tier` | 41.6% | Tier 1 = highest. Only ~947 accounts tiered. |
+| Customer Sub-Segment | `company_sub_segment` | Phase 3 backfilled | 30 active values per `sub-segment-qualification.md`. Use exact case-sensitive HubSpot strings. |
+| Account Tier | `account_tier` | Variable | Tier 1 = highest. Algorithm in `tier-compute-spec.md` (segment defaults + 6 signal modifiers + ceiling/floor clamps). |
+| Signal Heat | `signal_heat` | Computed by signal routines | 4-bucket enum (`Hot` / `Warm` / `Cool` / `Cold` — Title Case per HubSpot). Rep-facing intent rollup. Decays automatically with the event-date window (`last_signal_date` stores event date post-2026-05-28). NOT frozen by `hs_is_target_account` (tier is rep-locked; heat tells the truth). Compute spec: `tier-compute-spec.md` §11.5. |
+| Target Account | `hs_is_target_account` | ~382 records `true` post-migration | Manual override. Freezes `account_tier` ONLY. Segment, sub-segment, signal fields, and `signal_heat` all proceed normally. Renamed from legacy `target_account`. |
 
 #### Tier 2 — Enrichment Properties (65-90% fill)
 
@@ -189,10 +199,11 @@ Reliable for most queries but ~15-35% of records will be missing these.
 | Geographic Focus | `geographic_focus` | 81.4% |
 | Phone | `phone` | 81.0% |
 | Provisioning Landscape | `provisioning_landscape` | 75.8% |
-| MaiaEdge Value Prop | `maiaedge_value_proposition` | 72.1% |
-| Infrastructure Profile | `infrastructure_profile` | 72.3% |
+| Infrastructure Profile | `infrastructure_profile` | 72.3% | PRIMARY structured signal for classification. Multi-select enum with bands for Facilities / Route Miles / POPs. When `infrastructure_profile` conflicts with `annualrevenue`, infrastructure wins. |
 | Recent News/Triggers | `recent_news_or_trigger_event` | 69.9% |
 | Fabric Provisioning | `fabric_provisioning_approach` | 65.6% |
+
+**Retired property:** `maiaedge_value_proposition` is being retired. Do NOT build reports filtering on this field or treat it as active enrichment data.
 
 #### Tier 3 — Partially Populated (40-65% fill)
 
@@ -216,11 +227,10 @@ Expect gaps. Useful for enrichment gap analysis.
 
 | Property | Internal Name | Fill Rate |
 |----------|--------------|-----------|
-| Annual Revenue | `annualrevenue` | 14.8% |
+| Annual Revenue | `annualrevenue` | 14.8% — dirty more often than infrastructure_profile. Prefer infrastructure_profile when they conflict. |
 | Number of Locations | `number_of_locations_range` | 8.3% |
 | Type | `type` | 0.4% |
 | Lead Status | `hs_lead_status` | 0% |
-| Target Account | `hs_is_target_account` | 0% |
 | Expected Deal Size | `expected_deal_size` | 0% |
 | Opportunity Description | `opportunity_description` | 0% |
 
@@ -278,13 +288,13 @@ Early-stage pipeline. See **deals-schema.md** for full stage definitions.
 
 ## CRM DATA QUALITY SUMMARY
 
-| Metric | Value | Action |
-|--------|-------|--------|
-| Companies with zero contacts | ~1,393 (61%) | Massive contact enrichment gap — prioritize for Apollo |
-| Companies with no enrichment | ~300 (13%) | Missing `account_brief` |
-| Account tier coverage | ~42% | Most accounts untiered |
+| Metric | Snapshot Value | Action |
+|--------|----------------|--------|
+| Companies with zero contacts | ~1,393 (61%) at snapshot | Re-audit; persistent contact-enrichment gap — prioritize for Apollo |
+| Companies with no enrichment | ~300 (13%) at snapshot | Missing `account_brief` |
+| Account tier coverage | Post-Phase-3 ICP records all tiered via `tier-compute-spec.md` | R-Tier-Audit re-runs daily M-F |
+| `hs_is_target_account` flag | ~382 records `true` post-migration | These are tier-frozen ABM targets |
 | Lead status usage | 0% | Not being used at all |
-| Target account flag | 0% | Not being used |
 | Deal coverage | ~14 companies (0.6%) | Expected for early-stage startup |
 | Hannah Roberts accounts | Unknown count | Need reassignment to Ken Cunningham |
 
@@ -340,7 +350,10 @@ Apply when building outreach or "stale account" lists:
 | Missing/null data detected | Flag proactively with count and % affected |
 | User references a segment | Use exact HubSpot enum value |
 | User says "AI colo" | Query BOTH `Data Center Colo Provider` + sub-segment AND `AI - Colocation Operator` (deprecated) |
-| User says "MSP" | Use `Enterprise` as filter value (legacy naming) |
+| User says "MSP" | Use `MSP/Aggregator` as filter value |
+| User says "Enterprise" / "Multi-DC" | Use `Enterprise-CustomerSegment` with one of 4 sub-segments. Note Tier 2 ceiling and the $1B+/3+DC hard gate. |
+| User asks about hot accounts / intent | Sort by `signal_heat` first (hot/warm/cool/cold), then by `account_tier`. |
+| User asks about ABM target accounts | Filter on `hs_is_target_account = true`. These are tier-frozen by sales-rep direction. |
 | User asks about coverage | Compare CRM count to TAM estimate |
 | User asks about pipeline | Query deals with stage, amount, owner, associated company |
 | User asks about competitors | Filter on `fabric_provisioning_approach` enum values. Note: Megaport/Equinix/Lumen now sell GPU compute directly — surface this context for strategic reports. |

@@ -1,6 +1,10 @@
-# FiberOperator CheatSheet
+﻿# FiberOperator CheatSheet
 
 > Converted from: FiberOperator_CheatSheet.pdf
+
+> **Classification authority:** Sub-segment classification rules, anchors, and confidence thresholds live in `context/account-tiering/sub-segment-qualification.md` (pointer) and file 06 (`context/account-tiering/sub-segment-qualification-full.md`). Tier computation lives in `context/account-tiering/tier-compute-spec.md`. This cheatsheet covers selling angles, personas, pain points, and discovery.
+>
+> **Post-migration note (2026-05-13):** ~1,376 Fiber records in HubSpot post-migration (+327 from NetOp demotion). ~1,008 currently sit on the `Regional CLEC - Fiber operator` catch-all default; R2 + D7 will refine over time. The 6 active sub-segment values are verified live as of 2026-05-14.
 
 Fiber Operator
 Know Your Customer
@@ -316,51 +320,103 @@ partners
 
 ## Fiber Sub-Segments (match HubSpot `company_sub_segment` values)
 
-Four sub-segments drive buying motion, target titles, and messaging angle. Use HubSpot values exactly.
+Six active sub-segments drive buying motion, target titles, and messaging angle (verified live 2026-05-14). Use HubSpot values exactly. **Account Tier defaults vary by sub-segment**  -  see `context/account-tiering/tier-compute-spec.md` for tier computation. Default tiers: Tier 2 National Wholesale / Long Haul / Dark Fiber default Tier 2 (ceiling 1, floor 3); Regional CLEC / Regional Cable Operator default Tier 3 (ceiling 1, floor 4); Municipal / Cooperative default Tier 4 (ceiling 2, floor 5).
 
-### Regional CLEC (`Regional CLEC - Fiber operator`) — strongest fit
+### Regional CLEC (`Regional CLEC - Fiber operator`)  -  catch-all default, ~1,008 records
 
-**Who:** Multi-state CLECs, PE-backed regional platforms. Typical scale: 2,000-30,000 route miles, 3-12 states, 3,500-15,000 on-net buildings, 200-1,500 employees, $120M-$600M revenue. Fiber-island unification is the core pain.
+**Who:** Multi-state competitive local exchange carriers and PE-backed regional fiber platforms whose primary business is selling fiber connectivity (lit Ethernet, wavelengths, dark fiber, DIA) directly to enterprises, mid-market, government, and education in their footprint. Built either via CLEC certification post-1996 Telecom Act or as fiber-overbuilders without ILEC heritage. The canonical "fiber-island unification" archetype  -  most have grown by acquiring smaller regional networks and operate disconnected fiber segments with different OSS/BSS at each site. Default sub-segment for ambiguous mid-size; framework catch-all.
 
-**Target titles (by size):**
-- **Sub-$500M revenue:** CTO / Chief Network Officer (technical champion, veto authority), COO (operational approver), CRO / VP Wholesale (monetization sponsor).
-- **PE-backed (any size):** Add CFO for >$1M OpEx approvals. PE sponsor's infrastructure investment director often signs off on software-platform spend.
+**Quantitative markers:** Revenue $50M-$700M (PE roll-ups exceed $1B); 2,000-30,000 route miles; 3-12 states; 200-2,000 employees; 3,500-15,000 on-net buildings; direct-enterprise revenue share >40%.
 
-**Lead angle:** "Your network is acquisitions stitched together. Each built differently. MaiaEdge turns each of them into an asset class you can sell from  -  standardized services across every strand mile you own."
-
-### Long Haul / Backbone (`Long Haul / Backbone - Fiber operator`) — displacement conversation
-
-**Who:** National / multi-national backbones, public or private. Zayo, Lumen, Cogent archetypes. Typically run incumbent automation (DynamicLink, RapidRoutes) that already provides provisioning at scale.
-
-**Buying motion:** MaiaEdge does NOT replace the incumbent automation. It layers cross-carrier federation above it. Position as "extends what you already have beyond your borders" rather than "replaces what you built."
+**Anchors:** Consolidated Communications (upper edge  -  Searchlight take-private 2024, 23 states, ~58,000 route miles), Lumos, Bluebird Fiber (post-Everstream March 2026, 36,000+ route miles, 12 states, Kansas-Ohio-Canadian border), FirstLight (Antin, Northeast, ~25,000 route miles), Lit Communities, Ritter Communications (AR/TN/MO/TX, ~10,000 route miles), Hargray, Segra (Cox-acquired 2023, 47,000+ route miles, 17 states), MetroNet (Oak Hill/KKR FTTH overbuilder), Hotwire Communications (FL+11 states), Allo Communications (Nelnet), Ziply Fiber (BCE-owned post-2025), Arvig (MN, family-owned, MaiaEdge customer). **Stale anchors flagged:** Crown Castle Fiber (defunct April 2026, absorbed by Zayo, DO NOT use); GTT (legacy  -  moved to Managed Network Services - MSP, not Fiber).
 
 **Target titles (by size):**
-- **Public / $500M+ revenue:** Chief Product & Strategy Officer (owns automation-platform strategy), VP Network Engineering, Principal Architect, CEO for strategy-level shifts.
-- Target size ≥ 1,000 employees.
+- **Sub-$500M revenue:** CTO / Chief Network Officer (technical champion, veto authority), COO (operational approver, owns service delivery + NNI process), CRO / VP Wholesale / VP Sales (monetization sponsor, cares about deal velocity), VP Network Operations / VP Transport / VP Service Delivery.
+- **$500M+ or PE-backed:** Add CFO for >$1M OpEx approvals. PE sponsor's infrastructure investment director signs off on software-platform spend. Chief Product Officer / VP Product if NaaS/portal program exists.
+- **Engineering tier:** Director of Engineering, Sr. Network Engineer, Transport Engineer, DWDM Engineer, Principal Architect.
 
-**Lead angle:** "Your customers want your NNIs automated. They already are. The next question is whether they can reach cities you don't own. MaiaEdge is the cross-operator layer that extends your reach without you laying another strand."
+Strongest pattern: VP Network + VP Wholesale + CRO as three-person buying committee.
 
-### Dark Fiber Specialist (`Dark Fiber Specialist - Fiber Operator`) — monetization-velocity thesis
+**Lead angle:** "Your network is acquisitions stitched together. Each fiber island built differently, with different OSS at each site. MaiaEdge turns each of them into one asset class you can sell from  -  standardized services across every strand mile you own, then extends that automation to partner networks beyond your footprint. Monetize underutilized fiber, unify your network, and win the multi-state deals that go to whoever provisions fastest." Pair speed with ownership: "your team provisions in minutes."
 
-**Who:** Primarily dark fiber / wavelength sales. Long hold times between IRU signings.
+### Tier 2 National Wholesale (`Tier 2 National Wholesale - Fiber operator`)  -  NEW, highest priority
 
-**Target titles:** Wholesale / Business Development leadership, Head of Dark Fiber, VP Capacity.
+**Who:** National or near-national wholesale-primary fiber operators selling dark fiber, lit transport, wavelengths, and IRUs to other carriers, hyperscalers, large enterprises, and ISPs. Smaller than Tier 1 Carriers (no retail consumer; no large-scale direct enterprise) but bigger and broader than Regional CLECs. The "metro + long-haul wholesale fabric" archetype. National US or pan-EU footprint, 80%+ revenue from wholesale, often PE-owned or recently consolidated.
 
-**Lead angle:** "Dark strands depreciate every day they're unlit. MaiaEdge lights them as sellable, deterministic services on demand  -  without committing the strand to a single IRU customer."
+**Quantitative markers:** Revenue $300M-$5B+; 20,000-300,000 route miles; national US (30+ states) or pan-EU; 1,000-5,000+ employees; PE / infrastructure fund-backed (DigitalBridge, EQT, I Squared, Stonepeak); wholesale revenue share >80%.
 
-### Municipal / Co-op / Consortium (`Co-op/consortium`) — federation-ready
+**Anchors:** Zayo Group (DigitalBridge, 224,000 route miles post-Crown Castle Fiber close April 2026, ~$2.5B+ combined revenue, canonical anchor), Lightpath ($468M FY2025 revenue + $362M AI contracts, 10,000+ route miles, Altice 50.01% + Morgan Stanley 49.99% JV), Uniti+Windstream merged (post-Aug 2025 close, 240,000 route miles, 300+ metros, 47 states, ~$5B annualized  -  largest pure-play fiber by route miles in US post-merger), EXA Infrastructure (I Squared, 174,500 km / 37 countries, 65,000 km 400G-enabled, €1.3B refinancing Oct 2025  -  boundary with Long Haul / International Backbone).
 
-**Who:** Muni utility fiber, rural co-ops, multi-operator consortia. EPB Chattanooga, UTOPIA Fiber, Diamond State Networks archetypes. Open-access or federation-organized. Multi-operator consortia are MaiaEdge's federation thesis in production.
+**Target titles:** Chief Product & Strategy Officer / Chief Commercial Officer, VP Wholesale / VP Carrier Relations / VP Network Automation, CTO / Chief Network Officer, VP Network Engineering / Principal Architect, CEO for strategy-level decisions on platform partnerships, PE sponsor's infrastructure investment director / operating partner.
 
-**Target titles:** COO / VP Wholesale, Executive Director (muni/co-op), Technology Committee chairs, consortium CTO.
+Strongest pattern: CPO + VP Wholesale + CTO as buying committee.
 
-**Lead angle:** "You already operate as a federation. MaiaEdge is the operating layer  -  deterministic provisioning across member operators, open-access partner onboarding, cross-boundary service activation in minutes."
+**Lead angle:** "You're squeezed between Tier 1 carriers above and Regional CLECs below. You differentiate on relationships, route choice, and pricing flexibility  -  but your customers want orchestration, not just transport. MaiaEdge is the orchestration layer they expect from AWS Direct Connect, layered above your existing fabric. Your customers see a private, deterministic cloud on-ramp; you keep the customer, the margin, and the route." Pair with monetization velocity: "Every dark mile of fiber you own becomes a sellable, deterministic service in minutes  -  not 60-90 day NNI processes that lose deals."
 
-### Middle-mile-only — structural misfit (exclusion criteria, not a sub-segment)
+### Long Haul / Backbone (`Long Haul / Backbone - Fiber operator`)  -  displacement-resistant federation
 
-Middle-mile-only operators that are purely grant-funded anchor-institution models (KentuckyWired, Project THOR, MassBroadband 123 archetype) are **structurally incompatible with the MaiaEdge SaaS consumption model**. Revenue base is IRU + anchor contracts, not on-demand wholesale. Flag these for exclusion during qualification; do NOT put them in a sub-segment.
+**Who:** National or multi-national fiber operators whose primary business is long-haul / inter-city backbone connectivity, typically 50,000+ route miles spanning major metros. Sell dark fiber, wavelengths (100G/400G/800G), and IP transit to carriers, hyperscalers, content providers, and large enterprises. Run sophisticated incumbent automation (Zayo DynamicLink, Lumen RapidRoutes) that already provides provisioning at scale. MaiaEdge does NOT replace these; it federates above them, extending automation across operator boundaries.
 
-**Exception:** If the operator is also a consortium or has a commercial-strand wholesale arm, qualify on that basis and assign `Co-op/consortium` or the appropriate commercial-strand sub-segment.
+**Quantitative markers:** Revenue $500M-$15B+; 50,000-340,000+ route miles (Lumen at the high end); national US (40+ states) or pan-EU or pan-APAC; 1,500-30,000+ employees; primarily long-haul corridor + cross-metro.
+
+**Anchors:** Lumen Technologies (NYSE:LUMN, 340,000 route miles, 47M intercity fiber miles planned by 2028  -  boundary with Tier 1 Carrier Network Op for the parent record), Cogent Communications (NASDAQ:CCOI, 20,200 miles dark fiber from Sprint assets + 19,000 inter-city wavelength network  -  boundary with Pure Wholesale Carrier Network Op), Zayo (post-CCF expansion, but classified Tier 2 National Wholesale per file 05 canonical resolution), FiberLight (Morrison & Co consortium, 11,000+ miles TX/Atlanta/VA Beach-Richmond corridor), Arelion / formerly Telia Carrier (Polhem Infra, pan-European long-haul + transatlantic). **Stale anchors flagged:** Crown Castle Fiber (defunct April 2026  -  Zayo acquired); GTT (now Managed Network Services - MSP after I Squared 2021 sale + Chapter 11 2022; no longer Long Haul).
+
+**Buying motion:** MaiaEdge does NOT replace the incumbent automation (DynamicLink, RapidRoutes, Cisco Crosswork, Juniper Paragon Pathfinder, Ciena Blue Planet, Nokia NSP). It layers cross-carrier federation above it. Position as "extends what you already have beyond your borders" rather than "replaces what you built." Critical framing: displacement-resistant.
+
+**Target titles (Public / $500M+):** Chief Product & Strategy Officer (owns automation-platform strategy), VP Network Engineering, Principal Architect, CEO for strategy-level shifts, VP Wholesale / VP Carrier Relations, Chief Network Officer / CTO. Engineering tier: Director of Network Architecture, Director of Optical Engineering, DWDM Engineer. Target size ≥1,000 employees.
+
+**Lead angle:** "Your customers want your NNIs automated. They already are. The next question is whether your customers can reach cities you don't own. MaiaEdge is the cross-operator layer that extends your reach without you laying another strand  -  federation on top of your existing automation, not a replacement for it. Your customers see one fabric; you keep the customer, the margin, and the control."
+
+### Dark Fiber Specialist (`Dark Fiber Specialist - Fiber Operator`)  -  capital "O", monetization-velocity
+
+**Who:** Operators whose primary product line is dark fiber sales (IRUs) and wavelength services rather than lit Ethernet or DIA. Typically metro or regional in geographic scope with strand-rich routes that monetize through 20-year IRU contracts and shorter-term wavelength leases. Smaller in revenue than Long Haul / Backbone operators but with disproportionate strategic value because dark fiber is the lever for AI data center interconnect (36x more fiber per route than CPU racks) and hyperscaler buildouts. M&A multiples reflect 25-30x EV/EBITDA on AI-adjacent assets. **Note: HubSpot internal value uses capital "O" in "Operator"  -  the only Fiber sub-segment that breaks lowercase convention.**
+
+**Quantitative markers:** Revenue $20M-$500M; 5,000-30,000 route miles; 1-10 metros OR single regional corridor; 50-500 employees; >50% revenue from IRU contracts + wavelength leases; 80%+ revenue from dark fiber IRUs in the strictest classification; higher strand-density-per-route than long-haul peers (144-432 strand counts on AI-corridor builds vs. 8-12 historically).
+
+**Anchors:** FiberLight (Morrison & Co / Australian Retirement Trust / UBS, 11,000+ miles TX + Atlanta + 200-mile Virginia Beach-Richmond dark fiber corridor with Metro Fiber Networks acquisition April 2025 closed June 2025), Stealth Communications, Allied Fiber, ITS Fiber, Conterra Networks (Southeast US, <$100M est.), Wilcon / Pacific Lightwave (CA), INDATEL (700+ rural ILEC/CLEC consortium  -  hybrid with Municipal/Cooperative), Ocean Networks (HI/Pacific, MaiaEdge customer for INDATEL cross-carrier reach), Summit IG (Dallas metro).
+
+**Target titles:** Wholesale / Business Development leadership (Head of Dark Fiber, VP Capacity, VP Wholesale), CRO / Chief Commercial Officer, CTO / Chief Network Officer, Director of Optical Engineering / DWDM Engineer (technical due diligence). For PE-backed: CEO + PE sponsor's infrastructure investment director.
+
+Strongest pattern: VP Wholesale + Head of Dark Fiber + CTO.
+
+**Lead angle:** "Dark strands depreciate every day they're unlit. MaiaEdge lights them as sellable, deterministic services on demand  -  without committing the strand to a single IRU customer. Productize wavelength-on-demand for hyperscaler AI interconnect, monetize unlit capacity in minutes, and turn every dark mile in your inventory into a sellable path." Pair with the AI DC fiber ratio framing: "AI data centers need 36x more fiber per rack  -  your team's dark strands are the inventory hyperscalers are bidding for."
+
+### Regional Cable Operator (`Regional Cable Operator - Fiber operator`)  -  NEW
+
+**Who:** Regional cable companies (smaller than national MSOs like Comcast, Charter, Cox) with growing commercial fiber arms. Parent is regional cable; the buying angle MaiaEdge sells to is the commercial / business fiber division. Parent's B2B scale puts them under $1.5B in commercial revenue (above that → Cable MSO Enterprise Division - Network Op). Mostly residential HFC plant with selective FTTH overbuild + commercial fiber expansion to chase enterprise revenue. The commercial fiber book is the growth engine because residential ARPU is plateauing under FWA + fiber overbuilder pressure.
+
+**Quantitative markers:** Parent B2B revenue $30M-$1.5B; total parent revenue $200M-$3B; 3-22 states (regional or multi-state but NOT national); 500-5,000 employees; 100K-2M broadband subscribers; mixed HFC + fiber.
+
+**Anchors:** Breezeline / Cogeco US (13 US states CT/DE/FL/ME/MD/MA/NH/NY/OH/PA/SC/VA/WV, Q3 2025 revenue $1.448B, 622,000+ broadband customers, 1.8M passings, ~28K new FTTP passings/quarter, 8th largest US cable operator), WideOpenWest / WOW! (NYSE:WOW, 2024 revenue $629M  -  borderline scale post-divestiture to Astound), Mediacom Business (22 states, 1.44M broadband subs, family-owned by Rocco Commisso), Midco Business (MN/SD/ND/KS/WI, ~13% of customers fiber-eligible), Service Electric (PA regional cable + fiber, independent), GCI (Alaska  -  Liberty Broadband owned, geographically isolated special case), Cable ONE / Sparklight (NYSE:CABO, ~$1.7B revenue  -  boundary case with Cable MSO Network Op), Astound Broadband (Stonepeak  -  pending merger with Alphabet's GFiber announced March 11, 2026, close Q4 2026; pre-close `manual_review_required`, post-close moves to Cable MSO Enterprise Division Network Op).
+
+**Target titles:** VP Business / VP Commercial Services / President of Business Services (the commercial fiber arm leadership  -  distinct from residential), Chief Commercial Officer, VP Network Operations / VP Engineering, CTO (parent  -  sometimes shared between residential + business), Director of Wholesale / VP Carrier Relations (if commercial fiber wholesale book exists).
+
+Strongest pattern: VP Business + VP Network + CTO.
+
+**Lead angle:** "Residential ARPU is plateauing under FWA and fiber overbuilder pressure. Your commercial fiber book is the growth engine  -  but you compete with Comcast Business, AT&T Business, and the regional CLECs for the same mid-market customers. MaiaEdge is the SaaS fabric layer that lets your team tell commercial customers 'we connect you to AWS / Azure / GCP / Equinix the same way the big carriers do  -  no orchestration team required.' Monetize the commercial fiber you've built, win the multi-state SMB deals you're losing to slow provisioning, and productize cloud on-ramp without building a NaaS." Pair speed with ownership.
+
+### Municipal / Cooperative (`Municipal / Cooperative - Fiber operator`)  -  RENAMED 2026-05-13, ~142 records
+
+**Who:** Municipal utility fiber networks, electric cooperatives running broadband programs, telephone cooperatives (RLEC heritage), tribal broadband authorities, and multi-operator consortia. Community-owned, member-owned, or municipally-owned rather than investor-owned. Operating models include retail FTTH direct-to-subscribers, open-access wholesale platforms (UTOPIA Fiber model), and federation consortia where multiple member operators share infrastructure (Diamond State Networks, INDATEL model). The federation thesis MaiaEdge is ahead of carrier messaging on  -  these operators are already organized around shared infrastructure and need an operating layer for cross-boundary provisioning. **Renamed from `Co-op/consortium` 2026-05-13.** Includes the BEAD subgrant recipient cohort (Q2-Q4 2026 = peak award velocity with binding 4-year build obligations). ~142 records post-migration.
+
+**Quantitative markers:** Revenue $5M-$300M typical; consortia like Diamond State Networks reach $1.66B fiber investment across 13 cooperative members; 500-50,000 route miles; typically single-state for munis/co-ops, 1-5 states for consortia; 50K-1.4M customers passed.
+
+**Anchors:** EPB Chattanooga (city-owned electric utility, 9,000-mile fiber network, first 1 Gig city in Western Hemisphere 2010, $5.3B in net community benefits 2011-2026), UTOPIA Fiber (20 Utah cities + 3 operational partners, open-access wholesale, lowest latency of all 14 muni broadband providers at 6-8ms), Diamond State Networks / DSN (13 Arkansas electric co-ops + AECC, 50,000 miles covering 64% of Arkansas, 1.25M rural Arkansans, $1.66B invested  -  canonical large-consortium anchor), NEMR Telecom, NRECA member operators (~200 co-ops with broadband programs), NTCA member operators (~850 independent community-based RLECs/co-ops across 46 states), USDA RUS-funded co-ops, OzarksGo / Wave Rural Connect / Four States Fiber / Arkansas Fiber Network (DSN members, also standalone records), GVTC Communications (TX telephone co-op), Conexon-managed projects, CO-MO Connect (MO rural electric co-op), INDATEL (700+ rural ILEC/CLEC consortium  -  hybrid with Dark Fiber Specialist).
+
+**Target titles:**
+- **Municipal utility fiber:** CEO / President / Executive Director (utility leadership), VP Telecommunications / VP Broadband / Director of Fiber Operations, CTO, City Manager (technology committee).
+- **Electric / Telephone Cooperative:** CEO / General Manager (small co-ops are CEO-led), COO / VP Broadband Services, CTO / Director of Network Operations, Board Chair / Technology Committee Chair (member governance), CFO (grant compliance + capital budget).
+- **Consortium:** CEO / Managing Member / Co-Managing Members (Diamond State has co-Managing Members), CTO / VP Network Operations, VP Wholesale / Director of Carrier Services, Member co-op CEOs (consortium is governed by its members  -  individual member CEOs are gatekeepers).
+
+Strongest pattern for consortia: Consortium CEO + 2-3 Member CEOs as a governance buying committee.
+
+**Lead angle:** "You already operate as a federation  -  multiple member operators sharing infrastructure with manual coordination at every boundary. MaiaEdge is the operating layer for it. Deterministic provisioning across member operators, open-access partner onboarding in minutes (not the 60-90 day NNI process), and cross-boundary service activation that lets your federation sell commercial wholesale on the commercial strands while BEAD-funded strands stay compliant with grant terms." Two revenue models on the same physical plant, run separately. For BEAD/grant-funded subgrant recipients: "BEAD builds the last mile. MaiaEdge monetizes the middle mile you already own  -  and lets you commercialize the new builds the moment they're lit."
+
+### Middle-mile-only  -  structural misfit (exclusion criteria, not a sub-segment)
+
+Middle-mile-only operators that are purely grant-funded anchor-institution models (KentuckyWired, Project THOR, MassBroadband 123, Mid-Atlantic Broadband Communities Corporation archetypes) are **structurally incompatible with the MaiaEdge SaaS consumption model**. Revenue base is IRU + anchor contracts, not on-demand wholesale. Flag these for exclusion during qualification; do NOT put them in a sub-segment.
+
+**Exception:** If the operator is also a consortium or has a commercial-strand wholesale arm with on-demand pricing, qualify on that basis and assign `Municipal / Cooperative - Fiber operator` or the appropriate commercial-strand sub-segment.
 
 ---
 
@@ -520,5 +576,6 @@ inference, jitter, GPU, tenant, meet-me room, attach rate, upstream carrier, fin
 
 ---
 
-*Cross-references: Messaging Framework V4, ICP Sales Playbook (Complete Reference), Cloud On-Ramp Business Case, Competitive Positioning Guide, Terminology Glossary*
-*Updated: April 2026 (trend refresh: hyperscaler buildout posture, AI DC fiber ratio as valuation lever, 23-state pole attachment variance, sovereign middle-mile)*
+*Cross-references: Messaging Framework V4, ICP Sales Playbook (Complete Reference), Cloud On-Ramp Business Case, Competitive Positioning Guide, Terminology Glossary, `context/account-tiering/sub-segment-qualification.md`, `context/account-tiering/tier-compute-spec.md`*
+*Updated: May 2026 (Phase 3 Account Tiering & Segmentation Overhaul: added Tier 2 National Wholesale + Regional Cable Operator sub-segments; renamed Co-op/consortium → Municipal / Cooperative - Fiber operator; refreshed anchors per Phase B research; flagged Crown Castle Fiber + GTT + Wave as stale; classification authority + tier computation moved to file 06 and tier-compute-spec.md).*
+*Prior update: April 2026 (trend refresh: hyperscaler buildout posture, AI DC fiber ratio as valuation lever, 23-state pole attachment variance, sovereign middle-mile).*

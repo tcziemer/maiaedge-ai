@@ -166,9 +166,9 @@ Discovery Questions:
 "Do you have infrastructure investments you'd like to monetize more effectively?"
 Persona-Specific Talk Tracks:
 Decision Maker (CEO/CFO/VP):
-"Lumen PCF is impressive infrastructure, but here's the strategic question: Do you want to be a tenant or a landlord? With Lumen, you're renting connectivity capability. They own the fabric, they own the customer relationship ultimately, and they can compete with you whenever they choose. With MaiaEdge, you build your own fabric, you federate with partners you select, and you maintain complete control. Same capability-different ownership model."
+"Lumen PCF is impressive infrastructure, but here's the strategic question: Do you want to be a tenant or a landlord? With Lumen, you're renting connectivity capability. They own the fabric, they own the customer relationship ultimately, and they can compete with you whenever they choose. With MaiaEdge, you build your own fabric, extend reach across the partners you select, and maintain complete control. Same capability - different ownership model." (Live-conversation script. The verb "federate" is intentionally translated here; "Federated Private Networking" as a noun is still acceptable as the category descriptor when needed.)
 Technical (CTO/VP Engineering):
-"Lumen PCF is a powerful platform built on their 340K route miles. But you're limited to their footprint and their integrations. With MaiaEdge, you deploy PBCs on your infrastructure and federate with any partner who also has PBCs. The PCE computes paths across your network and your partners' networks. You get the same instant provisioning without being locked into a single Tier 1's roadmap."
+"Lumen PCF is a powerful platform built on their 340K route miles. But you're limited to their footprint and their integrations. With MaiaEdge, you deploy PBCs on your infrastructure and connect to any partner who also has PBCs. The PCE computes paths across your network and your partners' networks. You get the same instant provisioning without being locked into a single Tier 1's roadmap." (Live-conversation script.)
 Commercial (VP Sales/BD):
 "Your sales team can compete more effectively when you own the fabric. With Lumen PCF, every deal is ultimately on their network. With MaiaEdge, you can offer the same instant provisioning under your brand, with your pricing, to your customers. When they need cloud connectivity, they see your portal, not Lumen's."
 Credibility Point:
@@ -345,7 +345,7 @@ Key Insight: For neoclouds, Status Quo is the #1 competitor (same as other segme
 
 #### Megaport/Latitude.sh Competitive Threat (Emerging  -  2024+)
 
-Megaport acquired Latitude.sh in 2024, creating a bundled GPU-as-a-Service + networking play. This is a direct threat to neoclouds  -  especially AI Infrastructure Providers  -  who might accept a single-vendor bundle rather than building their own connectivity.
+Megaport acquired Latitude.sh in 2024, creating a bundled GPU-as-a-Service + networking play. This is a direct threat to neoclouds  -  especially `AI Infrastructure providers - Neocloud`  -  who might accept a single-vendor bundle rather than building their own connectivity.
 
 | Dimension | Megaport/Latitude.sh | MaiaEdge |
 |-----------|---------------------|----------|
@@ -356,7 +356,7 @@ Megaport acquired Latitude.sh in 2024, creating a bundled GPU-as-a-Service + net
 
 **Counter-positioning:** "Megaport wants to be your GPU provider AND your network provider. That's a lot of control to hand one vendor. MaiaEdge gives you deterministic paths under YOUR control. Use Megaport for reach if you want  -  but own the path."
 
-**Most relevant to:** AI Infrastructure Providers sub-segment (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) who are evaluating bundled alternatives.
+**Most relevant to:** `AI Infrastructure providers - Neocloud` sub-segment (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) who are evaluating bundled alternatives.
 
 Neocloud Discovery Signal: If a colo prospect mentions GPU cloud tenants (Lambda Labs, Crusoe, etc.), that's a neocloud lead. Every colo conversation should generate neocloud intelligence.
 Dimension | Orchestration Platforms | MaiaEdge
@@ -384,6 +384,7 @@ Colocation Operator | Megaport/Equinix Fabric | Status Quo | Lumen PCF
 Fiber Operator | Status Quo | Internal Build | NaaS Platforms
 Network Operator | Lumen PCF | Orchestration Platforms | Status Quo
 MSP/Aggregator | Tier 1 Direct to Enterprise | Status Quo | NaaS Platforms
+Enterprise (Multi-DC ICP) | SD-WAN expansion / Megaport+Equinix Fabric / cloud-native networking (AWS Cloud WAN, Azure vWAN, GCP NCC) | Status Quo / Internal Build | Lumen PCF direct-to-enterprise
 Dimension | Lumen PCF | MaiaEdge
 Infrastructure Model | Lumen-owned backbone | Operator-owned fabric
 Customer Ownership | Lumen relationship | Your relationship
@@ -412,6 +413,58 @@ Lumen PCF | Lumen's backbone only; their roadmap | Your network + any partner op
 Orchestration | Software-only; no partner interconnection | Hardware + software + instant partner activation
 Internal Build | Bilateral agreements for each partner | Instant partner interconnection with any MaiaEdge operator
 Status Quo | 60-90 day NNI process per partner | Minutes to activate a partner; commercial terms still apply
+
+---
+
+## 3.6 Enterprise Competitive Context (Multi-DC ICP)
+
+Enterprise (`Enterprise-CustomerSegment`, promoted to ICP May 2026) buys differently from the operator segments. The enterprise IS the customer - no commercial layer to resell to. They are choosing between MaiaEdge and a different set of alternatives.
+
+### Competitive Landscape for Enterprise
+
+| Alternative | What It Looks Like | MaiaEdge Advantage |
+|---|---|---|
+| **Status Quo / Do Nothing** | Manual provisioning, BGP across the WAN, dark fiber "redundancy" via a single fiber pair, cloud on-ramps through Megaport or Equinix Fabric with the SLA owned by the enterprise but the portal owned by someone else. Type 2 fiber is a black hole. The #1 competitor in Enterprise, same as every other segment. | "Your DR strategy assumes the dark fiber is redundant. It is not. MaiaEdge makes it actually redundant â€” without standing up BGP across the WAN." |
+| **SD-WAN (Cisco / Juniper SSR / 128T / Versa / Cato / Fortinet / Palo Alto)** | Branch and user connectivity overlay. Optimizes WAN traffic across multiple transports at the enterprise edge. Does NOT handle inter-DC determinism or cloud on-ramp under enterprise control. | Different layer. SD-WAN handles branch/user; MaiaEdge handles inter-DC and cloud on-ramp. The two run together. Position the SD-WAN overlay as session-smart routing that benefits from a deterministic, observable underlay. |
+| **Carrier-Managed Circuits (AT&T, Verizon, Lumen, BT, NTT)** | Enterprise leases transport from a carrier and inherits the carrier's SLA, the carrier's visibility, and the carrier's provisioning timelines. New site = months. | Use them. MaiaEdge sits over the existing transport. The carrier keeps providing the circuit; MaiaEdge gives the enterprise determinism, visibility, and control across whatever transport is underneath. |
+| **Third-party fabric providers (Megaport / Equinix Fabric / PacketFabric / Console Connect)** | Enterprise subscribes to a third-party fabric for cloud on-ramps. The portal is theirs, the support is theirs, the bill is theirs. The enterprise team owns the SLA but not the architecture. | Coexist. MaiaEdge integrates with Megaport / Equinix Fabric via API where it makes commercial sense. The enterprise stops depending on the third-party portal; cloud on-ramps run under enterprise control. |
+| **Cloud-native networking (AWS Cloud WAN, Azure vWAN, Google NCC)** | Each cloud has its own. They do not federate well across clouds, and they do not solve the dark fiber redundancy problem at all. Enterprise ends up with one of each + bespoke glue. | MaiaEdge is the cross-cloud, cross-DC layer that does. Direct Connect / ExpressRoute / Cloud Interconnect become transport options the fabric uses, not the architecture itself. |
+| **Internal Build** | "We could build this ourselves." 18-24 month project requiring carrier-grade SDN expertise the enterprise can't hire fast enough. Then ongoing maintenance, then the cross-DC redundancy problem, then the audit-trail problem. | Productized fabric. Operable by the team they already have. No BGP / MPLS / SRv6 to manage. New DC, DR site, or cloud region online in days. |
+| **Lumen PCF + AWS Interconnect (direct-to-enterprise)** | Rare for the Enterprise ICP because the four sub-segments tend to want sovereignty over their fabric, not a Tier 1 dependency. But it surfaces in conversations. | "Lumen builds their empire. MaiaEdge gives you the same instant provisioning capability under your control. You're not a tenant on Lumen's fabric â€” you own the fabric." |
+
+### Enterprise-Specific Objection Reframes
+
+Use these in discovery and follow-up. The compressed forms also work in cold-email rebuttals.
+
+| Objection | Reframe |
+|-----------|---------|
+| "We already have SD-WAN" | SD-WAN handles branch and user. Different layer. MaiaEdge handles inter-DC and cloud on-ramp. The two run together â€” MaiaEdge is the underlay your SD-WAN overlay benefits from. |
+| "Megaport works fine" | Until your team owns the SLA. The portal is theirs, the support is theirs, the cloud bill is theirs. MaiaEdge integrates with Megaport via API where it makes commercial sense â€” the customer relationship and the SLA stay with your team. |
+| "We just signed a long carrier agreement" | Use it. MaiaEdge sits over the existing transport. The carrier keeps providing the circuit; we give your team determinism, visibility, and control over whatever's underneath. |
+| "AWS Direct Connect handles our cloud paths" | Per cloud. AWS Cloud WAN, Azure vWAN, GCP NCC don't federate across clouds, and they don't solve dark fiber redundancy at all. MaiaEdge is the cross-cloud, cross-DC layer that does. |
+| "We could build this ourselves" | 18-24 months. Network team scope is growing faster than headcount, and carrier-grade SDN talent is scarce. MaiaEdge is productized fabric â€” operable by the team you already have. |
+
+### Sub-Segment-Specific Competitive Context
+
+| Sub-segment | Most-Likely Competitor | Counter-Frame |
+|---|---|---|
+| `Financial Services - Enterprise` | Carrier-managed circuits + Megaport for cloud + audit-as-process (compliance team manually reconstructs paths from logs) | "Audit-ready paths between DCs. The path itself is the audit artifact, not a reconstructed log." |
+| `Healthcare Systems - Enterprise` | Single carrier per region + Megaport / Equinix for cloud + manual DR planning | "Dark fiber redundancy that is actually redundant. EHR continuity without standing up BGP across the WAN." |
+| `Retail and Distribution - Enterprise` | SD-WAN at branches + carrier MPLS between DCs + Megaport for cloud + Status Quo | "Your dark fiber between corporate DCs is one cut from an outage. Fix it without routing-protocol complexity." |
+| `Outsourcing Services - Enterprise` | Carrier-managed delivery-center connectivity + per-client bespoke compliance paths | "Your clients' regulators are asking where their data went. With MaiaEdge, the path is the audit artifact across every delivery center." |
+
+### When the Enterprise Says "We Already Have an Answer"
+
+Discovery probes to surface the gap:
+- "How is your dark fiber between DCs redundant today?" (Looking for: "one pair, one path, no automated failover.")
+- "When you need AWS Direct Connect or Azure ExpressRoute, who handles it?" (Looking for: "Megaport / Equinix Fabric.")
+- "How do you prove to compliance / audit where data went between DCs?" (Looking for: "We can't, beyond BGP routing tables.")
+- "How long does a new DC or DR site take to come online from a networking perspective?" (Looking for: "Months.")
+- "Direct carrier contracts or all through a reseller / MSP?" (Disqualifier signal if 100% reseller / MSP.)
+
+### Federation Note for Enterprise
+
+The Enterprise segment is a **direct-to-customer** sale. The "federation flywheel" framing used in operator segments (federate with partners, monetize) does NOT apply. Enterprises are not federating with anyone - they are the customer. Drop federation language from Enterprise messaging.
 
 ---
 
@@ -479,7 +532,7 @@ Status Quo | 60-90 day NNI process per partner | Minutes to activate a partner; 
 
 **For network operators considering Lumen PCF:**
 
-"Lumen PCF is impressive infrastructure. 340K route miles and AWS partnership is real. But ask yourself: Do you want to be a tenant or a landlord? With Lumen, you're renting connectivity. They own the fabric, they own the customer relationship, and they can compete with you whenever they choose. With MaiaEdge, you build your own fabric, you federate with partners you select, and you maintain complete control. Same instant provisioning. Different ownership model."
+"Lumen PCF is impressive infrastructure. 340K route miles and AWS partnership is real. But ask yourself: Do you want to be a tenant or a landlord? With Lumen, you're renting connectivity. They own the fabric, they own the customer relationship, and they can compete with you whenever they choose. With MaiaEdge, you build your own fabric, extend reach across the partners you select, and maintain complete control. Same instant provisioning. Different ownership model." (Live-conversation script. "Federated Private Networking" as a noun phrase remains acceptable as the MaiaEdge-owned category descriptor.)
 
 **For investors/board:**
 

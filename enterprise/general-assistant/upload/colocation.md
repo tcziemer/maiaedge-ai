@@ -2,6 +2,8 @@
 
 > Converted from: Colocation_CheatSheet.pdf
 
+> **Classification authority:** Sub-segment classification rules, anchors, and confidence thresholds live in `context/account-tiering/sub-segment-qualification.md` (pointer) and file 06 (`context/account-tiering/sub-segment-qualification-full.md`). Tier computation lives in `context/account-tiering/tier-compute-spec.md`. This cheatsheet covers selling angles, personas, pain points, and discovery.
+
 Colocation Operator
 Know Your Customer
 Attribute Details
@@ -434,11 +436,13 @@ Deterministic paths with hop-by-hop visibility give you the control GPU workload
 
 ## Colo Sub-Segments (match HubSpot `company_sub_segment` values)
 
-Three sub-segments drive buying motion, target titles, and messaging angle. Use the HubSpot values exactly  -  research agents and skills key off these strings.
+Four colo sub-segments plus one cross-segment (`Greenfield`) drive buying motion, target titles, and messaging angle. Use the HubSpot values exactly  -  research agents and skills key off these strings. Full classification rules in `context/account-tiering/sub-segment-qualification.md` and file 06.
 
-### Standard Colocation (`Standard - colo`)
+See `context/account-tiering/tier-compute-spec.md` for tier computation. `AI Signals - colo`, `Modular - colo`, `Hyperscale Wholesale - colo` default to Tier 1 (ceiling 1, floor 3). `Standard - colo` defaults to Tier 3 (ceiling 1, floor 5). `Greenfield` (cross-segment) defaults to Tier 2 (ceiling 1, floor 3).
 
-**Who:** Traditional interconnection colos. Retail cross-connect margin focus. Equinix, CoreSite/AMT, Digital Realty archetypes.
+### Standard Colocation (`Standard - colo`) - ~318 records
+
+**Who:** Traditional interconnection colos. Retail cross-connect margin focus. Equinix parent record, Digital Realty parent record, CoreSite, Cologix, Iron Mountain (retail side), DataBank (retail side), Switch.
 
 **Buying motion:** Interconnection revenue protection. Margin stacking via SLA-backed cross-connect upsell. Self-service portal parity with Equinix Fabric.
 
@@ -446,23 +450,27 @@ Three sub-segments drive buying motion, target titles, and messaging angle. Use 
 - **Large public / Tier 1** (Equinix-class): VP Interconnection / Head of Fabric Services (primary), VP Data Center Operations, CRO.
 - **Regional multi-facility** ($100M–$500M revenue): VP Operations, VP Commercial / Head of Wholesale, CTO / VP Engineering.
 
-**Lead angle:** "Fabric-in-a-box in months, not years. Self-service cross-connect portal your tenants already expect." Retail yield thesis: high XC volume × SLA-backed upsell margin = incremental revenue without capex.
+**Lead angle (live conversations / cheatsheet only):** "Fabric-in-a-box in months, not years. Self-service cross-connect portal your tenants already expect." Retail yield thesis: high XC volume × SLA-backed upsell margin = incremental revenue without capex.
 
-### AI Signals Colocation (`AI Signals - colo`)
+> **Cold-email translation:** "Fabric-in-a-box" is banned in cold-email and LinkedIn body. The cold-email lead for Standard Colo is the **interconnection-attach-rate-vs-landlord frame** per `context/outreach/fallback-messaging.md` § Colocation Standard (Sidecar §4.1.A). The phrase here stays canonical for cheatsheet use, sales-enablement collateral, and live discovery conversations.
 
-**Who:** AI-native or AI-retrofit colos. Confirmed GPU tenants, liquid cooling, 30kW+ racks. Crusoe, Applied Digital, Prometheus Hyperscale, Colovore-class. Also traditional colos with anchor AI tenants.
+### AI Signals Colocation (`AI Signals - colo`) - ~160 records
+
+**Who:** AI-native or AI-retrofit colos. Confirmed GPU tenants, liquid cooling, 30kW+ racks. Anchors (verified 2026-05-14, NO Bitcoin mining heritage): Colovore (Santa Clara, liquid-cooled, GPU-tenant-anchored), NTT Global Data Centers Americas (AI side), Nexus Data Centers. Also traditional colos with anchor AI tenants and no mining history.
+
+> **Crypto-to-AI classification carve-out (Cooper 2026-05-14):** Operators with a Bitcoin mining past who pivoted to AI (whether operator OR landlord model) classify as `Crypto to AI - Neoclouds` per `context/account-tiering/sub-segment-qualification.md`. **Companies that previously appeared in C2 anchor lists but route to NC5 because of mining heritage: Crusoe Energy (flared-gas BTC), Applied Digital / APLD (hosted Marathon Digital), Prometheus Hyperscale / Hut 8 lineage, IREN, Core Scientific.** The defining trait is mining history + AI pivot, regardless of current business model. C2 anchor pool is intentionally thin as a result; quarterly anchor refresh 2026-08-14 will expand the no-mining-history list as more pure-play AI colos reach commercial scale.
 
 **Buying motion:** Anchor-tenant economics. 10-15 year lease commitments, tenant-backed financing, embedded networking SLA as a price add-on rather than a standalone product. Tenants (hyperscaler or enterprise) require deterministic multi-region paths, cross-facility failover, orchestrated traffic steering.
 
 **Target titles (by size):**
-- **Anchor-tenant model** (Applied Digital / Crusoe archetype): Chief Network Engineer / VP Infrastructure (primary technical buyer), CFO (material co-signer on anchor leases, since the MaiaEdge OpEx embed is priced into tenant MSA), CTO (strategic validation).
+- **Anchor-tenant model** (Colovore archetype; or Applied Digital / Crusoe archetype if they were NC5 classification - note both are NC5 not C2): Chief Network Engineer / VP Infrastructure (primary technical buyer), CFO (material co-signer on anchor leases, since the MaiaEdge OpEx embed is priced into tenant MSA), CTO (strategic validation).
 - **AI-retrofit regional** (traditional colo with AI tenants): VP Interconnection + VP Data Center Operations.
 
 **Lead angle:** "Deterministic paths between your AI tenants' clusters. Multi-region GPU-to-GPU, GPU-to-cloud, and inter-facility failover  -  as a marketed SLA, not a best-effort cross-connect."
 
-### Modular Colocation (`Modular - colo`)
+### Modular Colocation (`Modular - colo`) - ~10 records
 
-**Who:** Distributed, prefabricated, or edge-pod operators. Nodiac, EdgePresence/Ubiquity, Armada, Compass-class. Growth is site-count, not campus-size.
+**Who:** Distributed, prefabricated, or edge-pod operators. Growth is site count, not campus size. Anchors: Nodiac (500+ sites pipeline, 800+ MW), EdgePresence/Ubiquity, Armada, Colony Compute.
 
 **Buying motion:** First-multi-site-design moment. Pod #1 → pod #2 is the inflection  -  each new site is either a separate networking project or a day-one join to the same fabric. Centralized decision authority at founder/CEO level; technical delegation often to systems integrators or hyperscaler partners.
 
@@ -471,6 +479,38 @@ Three sub-segments drive buying motion, target titles, and messaging angle. Use 
 - **Mid-growth** (50-250, 3-10 pods): COO + VP Engineering + Head of Infrastructure.
 
 **Lead angle:** "Every new pod at a new power site is either a separate networking project or a day-one join to your fabric. Make it the second one. One fabric across every pod, whatever the location."
+
+**Tier default:** Tier 1 (ceiling 1, floor 3).
+
+### Hyperscale Wholesale Colocation (`Hyperscale Wholesale - colo`) - ~12 records
+
+**Who:** Wholesale-only or wholesale-anchored colos. 10MW+ standard deployments, 5-15 year terms, 60%+ revenue from hyperscalers (AWS / Azure / Google / Meta / Oracle), per-MW sales (vs Standard per-rack). Anchors: Compass, Aligned (Macquarie; BlackRock H1 2026 pending), Stack Infrastructure (IPI + Blue Owl), NTT Global Data Centers Americas, QTS (Blackstone, 4,752 MW), CyrusOne (KKR + GIP), Vantage (DigitalBridge + Silver Lake $25B Frontier campus), DataBank, Iron Mountain, Equinix xScale (child record), EdgeConneX (EQT), AirTrunk (Blackstone 2024).
+
+**Split-book operator handling:** Several operators run dual books (retail + wholesale). The HubSpot parent record reflects the majority revenue line; a separate child record (if it exists) carries the wholesale book. Equinix parent record = `Standard - colo` (majority revenue retail interconnection); Equinix xScale child record (if separate) = `Hyperscale Wholesale - colo`. Same logic for Vantage, Aligned, NTT, Iron Mountain, QTS  -  classify each record by its book, not by the umbrella brand.
+
+**Buying motion:** Per-MW commercial framing, multi-year tenant MSA embeds, fabric-as-anchor-tenant-benefit. Network determinism and isolated tenant paths sold into the lease structure, not retrofitted post-occupancy. Decision authority concentrated in VP Wholesale / Head of Hyperscale Sales + CFO (lease economics) + Chief Network / Infrastructure Officer (tenant SLA).
+
+**Target titles:** VP Wholesale Sales, Head of Hyperscale / Strategic Accounts, VP Infrastructure, CFO, Chief Network Engineer.
+
+**Lead angle:** "Hyperscale tenants buy per MW and expect cross-facility determinism baked into the lease. Make the fabric a marketed line item in the MSA, not a post-occupancy networking project."
+
+**Tier default:** Tier 1 (ceiling 1, floor 3).
+
+### Greenfield (`Greenfield`) - cross-segment
+
+**Who:** Pre-operational colo or NeoCloud builds. Series A-C funded, sites under construction, fewer than 2 operational sites. Per Cooper 2026-05-14, Greenfield is a real sub-segment that pairs with EITHER `Data Center Colo Provider` OR `NeoCloud` as the parent `customer_segment`. Anchors are announced AI campus builds mid-construction in 2025-26 that don't yet have operational sites.
+
+**Auto-migration rule:** When the first operational site goes live, the record auto-migrates to its operational sub-segment (`AI Signals - colo`, `Modular - colo`, `Hyperscale Wholesale - colo`, or `Standard - colo` on the colo side; the appropriate NeoCloud sub-segment on the compute side).
+
+**Tiebreaker vs Crypto-to-AI:** Bitcoin mining history + AI pivot → `Crypto to AI - Neoclouds` (NOT Greenfield, even if pre-operational). Greenfield is for net-new builds without a mining past.
+
+**Buying motion:** Design-phase fabric selection. The decision to commit to a fabric layer happens during site-design and capital-planning  -  not after the first rack lights up. Founders, CTOs, and lead infrastructure architects are the buyers; financing-stage co-signers (CFO / Head of Strategic Finance) often participate.
+
+**Target titles:** Founder / CEO, CTO, VP Infrastructure / Chief Network Architect, CFO (financing co-sign).
+
+**Lead angle:** "Pick the fabric while you're picking the racks. The day your first site lights up, the second site is already a day-one join, not a separate networking project."
+
+**Tier default:** Tier 2 (ceiling 1, floor 3).
 
 ---
 
@@ -523,7 +563,7 @@ H100 rental prices crashed 64-75% between Q4 2024 and Q1 2026 ($8-10/hr to $2.99
 Modular edge operators and crypto-to-AI pivots straddle segment boundaries. Classification drives messaging  -  so getting it right matters. Key question: are they selling space, or selling compute?
 - **Sells space/power/cooling to GPU tenants** → AI Colo (this segment). Example: Nodiac deploys modular containerized DCs at renewable energy sites and hosts GPU tenants (500+ sites pipeline, 800+ MW). Their GPU tenants are separate neocloud prospects. Use colo messaging  -  connectivity is a service they offer TENANTS, not a problem they own themselves.
 - **Sells compute** (GPUaaS, inference-as-a-service) → Neocloud. Example: Duos Edge AI deploys modular edge pods and sells GPU capacity. They ARE the customer for connectivity. Use neocloud messaging.
-- **Crypto-to-AI split**: IREN leasing power capacity to Microsoft = AI colo (landlord model). A former miner launching their own GPUaaS product = neocloud.
+- **Crypto-to-AI split** (Cooper 2026-05-14): Bitcoin mining past + AI pivot = `Crypto to AI - Neoclouds`, inclusive of operator AND landlord models. IREN (Microsoft $9.7B landlord deal) and Core Scientific (CoreWeave host) are `Crypto to AI - Neoclouds`, NOT AI colo. A former miner launching their own GPUaaS product is also `Crypto to AI - Neoclouds`. The defining trait is mining history + AI pivot, regardless of current business model.
 - **Does both**: Lead with primary revenue model. If unclear, the colo angle is usually safer  -  it positions MaiaEdge as an enabler for their tenants, not a dependency for the facility itself.
 
 ### Modular DC Variant (AI Colo sub-segment)
@@ -540,11 +580,12 @@ Modular DC operators scale by deploying containerized capacity at partner power 
 - "Power is solved at the site level. Connectivity between sites is the part that decides whether you keep the tenant."
 
 ### Greenfield Colo Disambiguation
-Greenfield colos are net-new builds. Which angle to use depends on what they're building, not that they're building. Read their plans before writing.
+Greenfield colos are net-new builds, pre-operational or with fewer than 2 operational sites. Per Cooper 2026-05-14, `Greenfield` is now a formal cross-segment sub-segment (`company_sub_segment = Greenfield`) that pairs with either `Data Center Colo Provider` or `NeoCloud`. The record auto-migrates to its operational sub-segment when the first site goes live. While the build is mid-construction, classify as `Greenfield` and pick messaging based on what they're building, not that they're building. Read their plans before writing.
 
 - **AI-ready greenfield** (liquid cooling, high-density power, announced GPU tenants, "AI campus" language on their site, partnerships with neoclouds): use AI Colo messaging. Lead: "Build the connectivity layer alongside the compute layer. Second site onward, it's one fabric across all of them  -  not N separate networking projects."
 - **Standard greenfield** (traditional colo build, no AI-ready signals in the plans): use Standard Colo messaging. Lead: "Build your own fabric from day one. Automated virtual cross-connects and cloud on-ramp as native products  -  without the multi-year development project."
 - **Shared across both**: "The day your second site comes online, it joins the same fabric as your first. Tenants who want capacity in both get one interconnection order, not two."
+- **Tiebreaker vs Crypto-to-AI:** Bitcoin mining history + AI pivot → `Crypto to AI - Neoclouds`, NOT `Greenfield`, even when the AI build is pre-operational.
 
 ### Vertical Integration: Your Fabric Referral Is Now a Compute Competitor
 The connectivity layer is integrating into compute. Third-party fabric providers have acquired or launched native bare-metal GPU offerings, and hyperscaler interconnect products (Direct Connect, ExpressRoute) bundle GPU capacity on the other end. The referral you send for cloud on-ramp is no longer just an interconnection-margin giveaway. It now introduces your AI tenants to a platform actively selling the same GPU compute they sell. Regional colos that don't own their own fabric are increasingly exposed to fabric providers whose business model competes with their tenants, not just with their interconnection revenue. Owning the connectivity layer is now about tenant retention, not just margin capture.
@@ -661,4 +702,4 @@ route miles, NNI, dark fiber, plant, fiber islands, upstream carrier, finger-poi
 ---
 
 *Cross-references: Messaging Framework V4, ICP Sales Playbook (Complete Reference), Cloud On-Ramp Business Case, Competitive Positioning Guide, Terminology Glossary*
-*Updated: April 2026 (trend refresh: sovereign tenant requirements, inference-profile shift, metro-edge diffusion, colo/neocloud disambiguation, vertical-integration competitive sharpening)*
+*Updated: 2026-05-14 (Phase 3 Account Tiering & Segmentation Overhaul: classification authority pointer added; `Hyperscale Wholesale - colo` sub-segment added with split-book operator handling; `Greenfield` cross-segment formalized with auto-migration rule; Crypto-to-AI classification carve-out applied to IREN / Core Scientific landlord-model accounts; sub-segment record counts surfaced; tier defaults pointed at `context/account-tiering/tier-compute-spec.md`).*

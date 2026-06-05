@@ -15,8 +15,8 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 ### Core (all)
 - context/core/* (maiaedge-101, icp-playbook, segment-qualification, competitive-positioning, messaging-framework, terminology-glossary, revops-copilot)
 
-### Segments (all)
-- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator)
+### Segments (all 6 as of 2026-05-11)
+- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator, **enterprise** [Multi-DC ICP, anchor: Meijer], plus enterprise-use-cases.md — required for sales-enablement battle cards + call-prep + competitive-intel briefs covering Enterprise sub-segments)
 
 ### Product (all)
 - context/product/* (proof-points, ai-market-positioning, integrated-switch-datasheet, pbc-pce-datasheet, cloud-onramp-business-case)
@@ -65,4 +65,4 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - `price_list.md` (if pricing diverges from `context/sales/pricing-reference.md`, update both)
 - Per-doc spec files (`order_form_specs.md`, `msa_specs.md`, `poc_specs.md`, `nda_specs.md`)
 
-## Last Synced: 2026-04-17
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete; sales collateral now covers Enterprise sub-segments with sub-segment-specific battle cards / discovery guides per `context/segments/enterprise-use-cases.md`)

@@ -392,7 +392,7 @@ Deep-dive research on edge cases.
 | **Fiber Operator** | Owns fiber network (500+ route miles), sells connectivity | Regional CLEC, Long-Haul/Backbone, Dark Fiber Specialist |
 | **Network Operator (Tier 1 / VNO)** | Tier 1/2 carrier, 100K+ route miles, national/global backbone | Track A (external extension), Track B (internal + external unification) |
 | **NeoCloud** | IS a GPU cloud provider (CoreWeave, Lambda Labs, Crusoe, etc.) | Large-Scale GPU, Tier 1 Inference, AI Infrastructure Providers, Sovereign AI, Crypto-to-AI Pivots |
-| **Enterprise (MSP)** | Aggregates carrier services (no owned infrastructure) | Telecom Aggregator, Managed Network Services |
+| **MSP/Aggregator** | Aggregates carrier services (no owned infrastructure) | Telecom Aggregator, Managed Network Services |
 
 ---
 

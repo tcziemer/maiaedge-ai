@@ -11,7 +11,7 @@ Generate comprehensive account strategy briefs for high-value MaiaEdge prospects
 
 - **segment-language.md**  -  Insider vocabulary, daily reality, conversational patterns per segment. Read before writing angles, outreach drafts, or discovery questions to sound like a peer, not a salesperson.
 - **segment-qualification.md**  -  Proof-based qualification gates
-- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
+- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md, **enterprise.md**)
 - **email-writing-rules.md**  -  For the ready-to-send email draft (angle-first, segment lock, no credibility anchors)
 
 ## Output Format
@@ -30,6 +30,8 @@ Deliver as:
 | Field | Options |
 |-------|---------|
 | Company | Name, segment, HQ |
+| Account Tier | `tier_1` - `tier_5` (from HubSpot `account_tier`) |
+| Signal Heat | `Hot` / `Warm` / `Cool` / `Cold` (Title Case; from HubSpot `signal_heat`; see `context/account-tiering/tier-compute-spec.md` §11.5). Tier = strategic value; heat = current intent. A `tier_1` + `Cold` account is strategic but quiet; `tier_3` + `Hot` is opportunistic. |
 | Deal Tier | Strategic / Large / Mid / Small |
 | Contract Potential | POC only / 1-year / Multi-year expansion |
 | Technical Fit | Deploy now / 6-12 months / Long-term / Disqualified |
@@ -111,6 +113,42 @@ Deliver as:
 - Recent news (last 12 months)
 - What they've built (acknowledge strengths)
 - The gap (where MaiaEdge fits)
+
+---
+
+### Section 5.5: Enterprise-Specific Context (use ONLY when segment = Enterprise Multi-DC ICP)
+
+When the account is `customer_segment = "Enterprise-CustomerSegment"`, replace the generic Section 5 fields with this Enterprise-specific block. Skip this section entirely for operator segments.
+
+**Sub-segment (must be one of):** `Financial Services - Enterprise` / `Healthcare Systems - Enterprise` / `Retail and Distribution - Enterprise` / `Outsourcing Services - Enterprise`.
+
+**Hard gate check (BOTH must be confirmed in research):**
+- Vertical: one of the four ICP sub-segments. If Manufacturing / Energy-Utilities / Logistics / Government / SaaS-only → not Enterprise ICP.
+- Scale: $1B+ revenue AND (3+ DCs OR direct Equinix Fabric / Megaport port OR confirmed in-house net eng).
+
+**DC footprint:** Number of data centers, geographic distribution, any DCs disclosed in 10-K Item 2 (Properties) for SOX-regulated public companies. Note new-DC announcements in the last 12 months.
+
+**Current fabric posture (semantic flip for Enterprise - what they CONSUME):** Megaport user? Equinix Fabric customer? PacketFabric / Console Connect? Carrier-managed (AT&T, Verizon, Lumen, BT, NTT)? Self-built corporate WAN? How is cloud on-ramp handled today and who owns the SLA?
+
+**Regulatory framework:** HIPAA + HITRUST for healthcare; SOX + PCI-DSS for financial services; GDPR if EU operations; client-specific compliance for outsourcing services (often a mix of HIPAA / PCI-DSS / SOX / GDPR depending on client portfolio).
+
+**AI / GPU strategy (if any):** AI workload announcements, GPU infrastructure investments, multi-cloud migration kickoffs. Pulls inter-DC traffic in directions the network team didn't design for.
+
+**Recent network-relevant events:** M&A activity, new VP Network / CIO / CSO hires (last 6 months), DC expansion announcements, AI workload kickoffs, regulatory pressure events (HIPAA breach disclosures, PCI audit findings, GDPR actions).
+
+**Account tier note:** Enterprise records cap at Tier 2 unless an exceptional trigger emerges. There is no Tier 1 path. Tier 2 requires `high_90` confidence + $1B+ revenue + 3+ DCs + in-house net eng + recent trigger event ≤6 months. Tier 3 is most baseline-qualified Enterprise records. Reflect this in the Quick Qualification table at Section 1.
+
+**Lead angle by sub-segment** (use this for Section 4 Value Proposition mapping):
+- **Retail and Distribution**: dark fiber redundancy between corporate DCs first, cloud on-ramp under enterprise control second.
+- **Financial Services**: deterministic inter-DC paths + audit-ready policy enforcement (SOX / PCI-DSS / GDPR) + cloud on-ramps under enterprise control.
+- **Healthcare Systems**: diverse dark fiber redundancy between EHR DCs + HIPAA-aligned policy control + cloud on-ramps for radiology / analytics.
+- **Outsourcing Services**: delivery-center reliability + client data sovereignty + dark fiber redundancy between primary delivery hubs.
+
+**Personas to prioritize for Section 7 Contact Matrix:**
+- Technical Champion: VP Network Infrastructure / Director Network Engineering / Principal Network Engineer
+- Economic Buyer: CIO (or CTO at retail/healthcare)
+- Security Stakeholder: CSO / CISO
+- Compliance (regulated verticals only): Chief Compliance Officer / VP Risk
 
 ---
 
@@ -308,6 +346,78 @@ Before finalizing brief:
 | Neoclouds (in-pain-now, 5-15 sites) | "Inference latency varies by facility and your team is guessing whether it's the carrier, the colo, or something in between." | Multi-tenancy, deterministic paths, observability as supporting benefit |
 | Neoclouds (scaling-wall, 15+ sites hyperscaler-heavy) | "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." | Instant customer on-ramp, enterprise-ramp velocity, private cloud connectivity |
 | Neoclouds (early-growth, crypto-to-AI) | "Bitcoin doesn't care about latency. Enterprise AI tenants do." | Tenant-readiness + basic connectivity + observability |
+| Enterprise - Retail and Distribution (Multi-DC ICP) | "Your dark fiber between corporate DCs is one cut from an outage. Diverse fibers and automated failover, no BGP across the WAN." | Dark fiber redundancy that is actually redundant + cloud on-ramp under enterprise control |
+| Enterprise - Financial Services | "Inter-DC paths are best-effort. Compliance is asking you to prove the path." | Deterministic inter-DC paths + audit-ready policy enforcement (SOX/PCI-DSS/GDPR) + cloud on-ramps under enterprise control |
+| Enterprise - Healthcare Systems | "EHR DC redundancy depends on a single fiber pair. PHI rides that path." | Diverse dark fiber redundancy between EHR DCs + HIPAA-aligned policy control + cloud on-ramps for radiology/analytics |
+| Enterprise - Outsourcing Services | "Your clients' regulators are asking where their data went. You have a BGP routing table." | Delivery-center reliability + client data sovereignty + dark fiber redundancy between primary delivery hubs |
+
+---
+
+## Final Step: Signal Push-Back to HubSpot
+
+**Inviolable rule:** this step runs AFTER the 10-section strategy brief has been delivered to the rep. The push-back must never gate, delay, or alter the primary output. If anything in this step fails, the rep already has their brief in hand — signal-engine staleness is a routine-recovery problem, not a rep-blocker. Skip silently on any failure; the next R-Tier-Audit run reconciles the signal fields.
+
+**Why account-brief is the highest-value push-back surface:** the 10-section brief is the deepest signal-rich research the toolkit produces. Trigger events, exec moves, M&A, funding, facility launches — all of these surface during account-brief research. Pushing them back into HubSpot at the end means every brief generation refreshes the engine.
+
+### When to write back
+
+During the deep research that produced sections like Trigger Events, Recent News, Funding & Capital, M&A, Strategic Moves, etc., you almost certainly surfaced **signal-grade events** — funding round, exec hire, M&A, facility/market launch, public outage / RCA, earnings-language shift, or any U1-U6 / AP / FR class in [`context/signals/signal-framework.md`](../../context/signals/signal-framework.md). Score each event against the Signal Scan rubric (Tier × Freshness × Confidence). **Pick the single highest-scored event ≥8** for the push-back. Sub-8 events stay in the brief but don't drive the push-back.
+
+### Comparison gate (write only if fresher)
+
+Read current `last_signal_date` for this company via `mcp__claude_ai_HubSpot__get_crm_objects`. If your discovered **event date** is strictly newer than HubSpot's value (or HubSpot's value is null), proceed. Otherwise no write. Idempotent no-op.
+
+### The write block
+
+One `mcp__claude_ai_HubSpot__manage_crm_objects` call with `updateRequest.objects[]`, `objectType: "companies"`, `confirmationStatus: "CONFIRMATION_WAIVED_FOR_SESSION"`. Fields:
+
+- `recent_news_or_trigger_event` — pure narrative, no date prefix. Format: `"[Signal Type] - [one-line summary]"`. 2-4 sentences, ≤250 char hard cap.
+- `last_signal_date` — the **event date** (YYYY-MM-DD), extracted from the source article or research note. Semantics narrowed 2026-05-28 — event date, NOT today's run date.
+- `last_signal_score` — your rubric score (number, typically 0-60).
+- `signal_count_last_30d` — read current value. If current `last_signal_date` is within 30d of your new event date, increment by 1. If current is null or >30d old, write 1.
+- `signal_heat` — recompute per the inlined spec below. **Title Case enum:** `Hot` / `Warm` / `Cool` / `Cold`. Lowercase is silently rejected.
+- `account_tier` — recompute per [`context/account-tiering/tier-compute-spec.md`](../../context/account-tiering/tier-compute-spec.md) §4. **Only write if `hs_is_target_account != true`** — flag freezes tier (heat continues regardless).
+
+### `compute_signal_heat` (inlined from `context/account-tiering/tier-compute-spec.md` §11.5)
+
+```
+signal_heat is computed top-down, first match wins:
+
+Hot   IF (last_signal_score >= 45 AND last_signal_date <= 60 days ago)
+       OR signal_count_last_30d >= 2
+       OR account has any associated open deal past `appointmentscheduled`
+
+Warm  IF last_signal_score 27-44 AND last_signal_date <= 60 days ago
+
+Cool  IF last_signal_date <= 180 days ago AND not already Hot/Warm
+
+Cold  IF last_signal_date > 180 days ago OR last_signal_date IS NULL
+
+Inputs: last_signal_score, last_signal_date (event date), signal_count_last_30d, open-deal state.
+Output: enum `Hot` | `Warm` | `Cool` | `Cold` (Title Case per HubSpot).
+
+Override behavior:
+- hs_is_target_account = true does NOT freeze signal_heat.
+  Tier is rep-locked; heat always reports the truth.
+```
+
+Heat writes are idempotent — skip if `computed_heat == current_heat`.
+
+### Stamping policy
+
+**Do NOT bump `last_enriched_date`.** Outreach-time signal push-backs are partial writes, not full enrichment passes. R2's 120-day rotation owns the freshness guarantee.
+
+### Audit log
+
+Add a HubSpot company note alongside the field writes:
+
+```
+Signal push-back from account-brief on YYYY-MM-DD: discovered <signal type> event YYYY-MM-DD, score <N>. Heat <prior> -> <new>. Tier <prior> -> <new>.
+```
+
+### Failure handling
+
+If any MCP call fails: log to run report under "Signal push-back deferred" and continue. The rep already has their brief. R-Tier-Audit reconciles next run. **Never surface push-back failures to the rep as a blocker.**
 
 ---
 

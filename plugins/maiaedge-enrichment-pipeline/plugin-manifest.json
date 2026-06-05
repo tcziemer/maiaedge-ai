@@ -1,13 +1,17 @@
 {
   "name": "maiaedge-enrichment-pipeline",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "skills": ["account-sourcing", "company-enrichment", "import-processor", "edge-case-researcher"],
   "context": [
     "core/maiaedge-101.md",
     "core/segment-qualification.md",
     "core/competitive-positioning.md",
+    "account-tiering/tier-compute-spec.md",
+    "account-tiering/sub-segment-qualification.md",
+    "account-tiering/enrichment-protocols.md",
     "hubspot/hubspot-values.md",
     "hubspot/territory-model.md",
+    "hubspot/property-schema.md",
     "enrichment/research-routes.md",
     "enrichment/output-schemas.md",
     "enrichment/sourcing-reference-guide.md",
@@ -18,6 +22,8 @@
     "segments/neocloud.md",
     "segments/network-operator.md",
     "segments/msp-aggregator.md",
+    "segments/enterprise.md",
+    "segments/enterprise-use-cases.md",
     "copy-strategy/segment-messaging.md",
     "copy-strategy/segment-language.md"
   ],

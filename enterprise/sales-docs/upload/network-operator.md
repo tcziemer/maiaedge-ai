@@ -2,6 +2,12 @@
 
 > Converted from: NetworkOperator_CheatSheet.pdf
 
+> **Classification authority:** Sub-segment classification rules, anchors, and confidence thresholds live in `context/account-tiering/sub-segment-qualification.md` (pointer) and file 06 (`context/account-tiering/sub-segment-qualification-full.md`). Tier computation lives in `context/account-tiering/tier-compute-spec.md`. This cheatsheet covers selling angles, personas, pain points, and discovery.
+
+> **Post-migration footprint (2026-05-13):** ~315 Network Operator records active post-migration. ~263 are international wholesale arms of Tier 1 parents held on the NetOp parent record via `hs_is_target_account = true` (single-record-per-DUNS policy, per file 06 §4 / D2 wholesale-arm policy). Wholesale activity within a single parent entity is captured via `network_op_track` + notes, not a separate record.
+
+> **Tier reference:** See `context/account-tiering/tier-compute-spec.md` for tier computation. Most Network Operator sub-segments default to Tier 1 (ceiling 1, floor 2); Subsea cable operator defaults to Tier 2 (ceiling 1, floor 3).
+
 Network Operator
 Know Your Customer
 Attribute Details
@@ -281,15 +287,67 @@ provisioning across your entire network, then extends that speed to partners. Wi
 currently losing to provisioning delays."
 ---
 
-## Network Operator Approach: Track A vs Track B
+## Network Op Tracks
 
-**Track A (Has Internal Automation):** Acknowledge their sophistication first. Lead with extending automation beyond their borders. "Your internal automation is impressive. On-net provisioning is fast and productized. But the moment a customer needs a path that crosses a carrier boundary..." Pattern of operators running this shape: PCCW Console Connect Private Label SaaS, Tata IZO DC Dynamic Connectivity, Orange Wholesale MEF Sonata APIs (all live in production).
+Tracks now live in a dedicated `network_op_track` HubSpot field, NOT in `company_sub_segment`. The two legacy sub-segment values `External Extension - Network operator` and `Internal + external unification - Network Operator` were archived 2026-05-13. Use the field values below.
 
-**Track B (No Internal Automation):** Lead with internal unification first. "Even within your own network, provisioning across domain boundaries is manual. MaiaEdge unifies your internal domains first, then extends to partners." Pattern of operators here: fragmented internal automation across regions / acquired businesses, often visible in job postings for "domain unification" or "OSS consolidation."
+- **Track A = `external_extension`** (Has Internal Automation): Acknowledge their sophistication first. Lead with extending automation beyond their borders. "Your internal automation is impressive. On-net provisioning is fast and productized. But the moment a customer needs a path that crosses a carrier boundary..." Pattern of operators running this shape: PCCW Console Connect Private Label SaaS, Tata IZO DC Dynamic Connectivity, Orange Wholesale MEF Sonata APIs (all live in production).
+
+- **Track B = `internal_external_unification`** (No Internal Automation): Lead with internal unification first. "Even within your own network, provisioning across domain boundaries is manual. MaiaEdge unifies your internal domains first, then extends to partners." Pattern of operators here: fragmented internal automation across regions / acquired businesses, often visible in job postings for "domain unification" or "OSS consolidation."
 
 Always research which track applies before writing. Getting this wrong kills credibility instantly.
 
 **Strategic framing (applies to both tracks):** The "why" for network operators is now reach and monetization. Track A/B determines HOW to position, but the lead angle for both tracks is: "Sell connectivity beyond your footprint. Monetize the infrastructure you already own."
+
+---
+
+## Network Operator Sub-Segments
+
+Five `company_sub_segment` values sit under `customer_segment = Network Operator(Tier 1 / VNO)`. Definitions, anchors, and confidence thresholds are authoritative in file 06 §6.1 (deep-dive: `context/account-tiering/icp-deep-dives/B-and-C-network-op.md`). Below: selling-side summary of each.
+
+### `Tier 1 Carrier - Network Op`
+
+State-protected former incumbents and post-Bell-System nationals. Vertically integrated retail + enterprise + wholesale + (typically) international. Distinguished from Pure Wholesale by retail consumer presence; from International Backbone Specialist by dominant home-market retail; from Cable MSO by telephone/wireless legacy (not cable/HFC).
+
+- **Quantitative markers:** consolidated parent revenue $20B+; 50+ countries of meaningful wholesale/enterprise presence; subsea cable ownership or co-ownership typical; ASN count 10-100+; 50,000+ employees; pre-1990 founding (or post-Bell-breakup US).
+- **Top anchors:** AT&T, Verizon, Deutsche Telekom, NTT Group, Orange, KDDI, BT, Telstra, China Telecom (also China Mobile / China Unicom as separate records).
+- **`hs_is_target_account`:** true on the parent record holds the international wholesale arm (Orange International, T-Wholesale, BT Wholesale, NTT Communications, Telstra International, etc.) unless the arm has its own separate DUNS / tax ID.
+- **Selling angle:** Operational scale to negotiate with hyperscalers as equals. Position MaiaEdge as the fabric layer between their footprint and the hyperscalers their enterprise customers are buying from. Reference NTT's PCF partnership template. Track A (Orange / DT / PCCW / NTT / Tata) lead: "your team extends that automation beyond your borders without rebuilding." Track B (Verizon / AT&T / T-Mobile) lead: "your team gets where Orange and NTT already are without a 3-year build."
+
+### `Pure Wholesale Carrier - Network Op`
+
+Wholesale-only carriers. Sell capacity, IP transit, ports, dedicated connectivity to other carriers, hyperscalers, large enterprises. No consumer retail. Often spun from larger carriers (Arelion from Telia, EXA from GTT InfraCo, Sparkle from TIM) or built wholesale-first (Hurricane Electric, Cogent).
+
+- **Quantitative markers:** revenue $100M-$5B; 100% B2B / B2B2x (no consumer); BGP Tier 1 or markets as Tier 1 IP transit; 30,000-300,000 route miles fiber; 200-5,000 employees; PE-owned or publicly traded.
+- **Top anchors:** Cogent, Arelion (formerly Telia Carrier), EXA Infrastructure, Hurricane Electric, Sparkle (TIM), Liberty Networks. Removed per Phase B: Lumen Wholesale (no separable entity); GTT (now Managed Network Services); Zayo (now Tier 2 National Wholesale Fiber Operator post-CCF).
+- **Selling angle:** Their margin is wholesale spread. Position MaiaEdge as inventory that improves their customer-facing fabric without touching their core backbone. "We give your customers a private path on top of your transit; you keep the relationship. They buy fabric experience from us through you." For Tier 1 IP transit sellers: "your wholesale customers want orchestration on top of routes they already get from you; we deliver that without you having to build it."
+
+### `Cable MSO Enterprise Division - Network Op`
+
+Business / enterprise / commercial fiber arm of a national cable parent. Sells fiber, Ethernet, MPLS, SD-WAN to mid-market and enterprise. Distinct from residential parent (Comcast Business, not Comcast residential).
+
+- **Quantitative markers:** B2B revenue $1.5B+; parent residential cable in 10+ states; 5,000+ route miles fiber + HFC; distinct B2B sales org and brand. National cable + B2B ≥$1.5B is the decisive cut from Regional Cable Operator (Fiber Operator segment).
+- **Top anchors:** Comcast Business ($9.7B), Spectrum Enterprise (~$7-9B; pending Charter-Cox), Cox Business (~$3-4B; pending Charter merger), Optimum Business (Altice USA).
+- **Selling angle:** They're the "second carrier" to enterprise procurement. AT&T / Verizon won the first contract; Comcast Business / Spectrum Enterprise sell the diverse path. MaiaEdge gives them programmable cross-carrier reach so the diverse-path conversation extends beyond the Northeast / their cable footprint. Vertical Systems Group Leaderboard recognition is a credibility hook.
+
+### `International Backbone Specialist - Network Op`
+
+Carriers whose primary business is international long-haul / subsea backbone WITH significant terrestrial component. The anchor between continents. Distinct from Subsea cable operator (terrestrial-light pure-play) and from Tier 1 Carrier (no dominant home-market retail).
+
+- **Quantitative markers:** revenue $100M-$5B; HQ outside the US; subsea ownership or IRU positions on ≥3 cable systems; 60-80% revenue from international wholesale; significant terrestrial backbone alongside subsea.
+- **Top anchors:** Tata Communications, PCCW Global, Telstra International, HGC Global, Epsilon (KT-owned per Phase B correction), Console Connect (HKT-owned; Infratil deal cancelled Oct 2024), Bharti Airtel International, EXA Infrastructure, Sparkle.
+- **Tiebreaker vs Subsea cable operator:** Subsea + significant terrestrial = International Backbone Specialist. Subsea-only with minimal terrestrial = Subsea cable operator.
+- **Selling angle:** They already federate across continents via subsea cables and partner agreements. MaiaEdge productizes that federation programmatically so they sell "instant cross-continental private fabric" instead of "long-cycle subsea capacity." Track A is the default here; most have programmable wholesale live in production (Tata IZO, PCCW Console Connect Private Label, NTT Communications, EXA Federation).
+
+### `Subsea cable operator` (NEW 2026-05-14)
+
+Pure-play subsea cable operators whose primary business is owning, operating, and selling capacity on submarine fiber cables. Minimal or no terrestrial backbone. Distinct from International Backbone Specialist (significant terrestrial + subsea hybrid).
+
+- **Quantitative markers:** revenue $20M-$500M; owns ≥1 named cable system (verifiable via TeleGeography Submarine Cable Map); landing stations as facilities; customer base = hyperscalers + content providers + regional carriers buying wet-plant capacity.
+- **Top anchors:** Aqua Comms (pre-EXA acquisition; flag if record post-acquisition), Seaborn Networks, BW Digital, Hawaiki Submarine Cable, Telxius (borderline; some terrestrial). Hyperscaler subsea SPVs (Anjana, Cap-1) flag for D1 review whether they're sellable entities.
+- **D1 boundary:** Pure consortia without an operating entity (FLAG, SEA-ME-WE 4/5/6, ACE) are D1.4 disqualifiers, NOT this sub-segment.
+- **Default tier:** Tier 2 (ceiling 1, floor 3). Lower default than the other four NetOp sub-segments because the federation use case is thinner. Their product is wet-plant capacity, not orchestration-needing services.
+- **Selling angle:** They're being squeezed by hyperscaler subsea builds and need to add fabric-on-top services to defend ARPU. MaiaEdge gives them a programmable terrestrial extension that turns landing-station capacity into instant private fabric for regional carrier customers, without them having to build a terrestrial backbone.
 
 ---
 

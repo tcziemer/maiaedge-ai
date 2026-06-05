@@ -39,6 +39,7 @@ Pillars are segment-specific. Always frame value around the correct set for the 
 | Colo | INSTANT \| MONETIZE \| REACH |
 | AI Colo | DETERMINISTIC \| INSTANT \| MONETIZE |
 | Neocloud | DETERMINISTIC \| PRIVATE \| INSTANT |
+| Enterprise (Multi-DC ICP) | REDUNDANT \| SOVEREIGN \| AUTOMATED |
 
 **Pillar definitions:**
 1. **Automate** – Activate deterministic private paths over fiber or DIA instantly. No BGP, no MPLS, no routing complexity.
@@ -60,10 +61,11 @@ For segment-specific messaging, personas, and pain points, see the project knowl
 | Segment | Profile | Primary Value Prop |
 |---------|---------|-------------------|
 | Neocloud | GPU cloud providers across multiple colo facilities | Deterministic performance + private connectivity + instant on-ramp |
-| Colocation | Data centers, meet-me rooms | Fabric-in-a-box without multi-year development |
+| Colocation | Data centers, meet-me rooms | (Live / proposal language) Fabric-in-a-box without multi-year development. **Cold-email lead** (Sidecar §4.1.A) for Standard Colo: "Interconnection attach rate is what separates colos from being landlords. New services on top of space and power, under your brand, without a multi-year build." For AI Signals Colo (Lambda/Crusoe/Nebius tenant, liquid cooling, 30kW+ racks): "deterministic paths between GPU clusters and cloud on-ramps that match the power and cooling spend." |
 | Service Provider | Tier 1/2 carriers | Extend reach, monetize existing assets, automate beyond network boundary |
 | MSP/Aggregator | Asset-light, multi-carrier | Unified visibility across fragmented carriers |
 | Fiber Operator | Regional fiber owners | Extend reach, monetize existing fiber infrastructure |
+| Enterprise (Multi-DC ICP) | $1B+ enterprises with multi-DC corporate networks + in-house net eng (4 sub-segments: Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services). Anchor: Meijer. Promoted to ICP 2026-05-11. | Dark fiber redundancy that is actually redundant + cloud on-ramps under enterprise control + audit-ready paths. Pair speed with data sovereignty (NOT operator sovereignty). |
 
 ## Competitive Positioning
 
@@ -86,12 +88,28 @@ For detailed objection handling and competitor responses, see the project knowle
 4. Add competitive objection responses
 5. End with proof points and customer quotes
 
+**Enterprise battle cards** carry different objections than operator segments. Build Enterprise battle cards around these four reframes:
+- **"We already have SD-WAN"** - Different layer. SD-WAN handles branch/user; MaiaEdge handles inter-DC and cloud on-ramp. The two run together; SD-WAN is the overlay that benefits from a deterministic, observable underlay.
+- **"Megaport works fine"** - Until the team owns the SLA. Portal is theirs, support is theirs, cloud bill is theirs. MaiaEdge integrates with Megaport via API where it makes commercial sense - customer relationship and SLA stay with the enterprise team.
+- **"We just signed a long carrier agreement"** - Use it. MaiaEdge sits over the existing transport; the carrier keeps providing the circuit, MaiaEdge gives the team determinism + visibility + control over whatever's underneath.
+- **"AWS Direct Connect handles our cloud paths"** - Per cloud. AWS Cloud WAN / Azure vWAN / GCP NCC don't federate across clouds, and they don't solve dark fiber redundancy at all. MaiaEdge is the cross-cloud, cross-DC layer that does.
+
+Source: `context/core/competitive-positioning.md` §3.6 Enterprise Competitive Context.
+
 ### Discovery Guides
 1. Open with segment-identifying questions
 2. Probe for core pain points: provisioning delays, visibility gaps, sovereignty concerns
 3. Quantify the problem: "How long does provisioning take today?"
 4. Identify buying triggers: hyperscaler proximity, Lumen competition
 5. Map to MEDDPICC qualification
+
+**Enterprise discovery guides** lead with different probes than operator discovery - Enterprises are the customer, not selling connectivity to anyone:
+- "How is your dark fiber between DCs redundant today?" (Looking for: one pair, one path, no automated failover.)
+- "When you need AWS Direct Connect or Azure ExpressRoute, who handles it?" (Looking for: Megaport / Equinix Fabric, their portal, their SLA.)
+- "How do you prove to compliance / audit where data went between DCs?" (Looking for: can't, beyond BGP routing tables.)
+- "How long does a new DC or DR site take to come online from a networking perspective?" (Looking for: months.)
+- "Direct carrier contracts or all through a reseller / MSP?" (Disqualifier signal if 100% reseller/MSP - no Enterprise ICP path.)
+- "What does your network team look like - where are you hiring?" (Confirms in-house net eng team via VP Network / Director Network Eng / Principal roles.)
 
 ### One-Pagers
 1. Hero statement + segment-specific hook at top

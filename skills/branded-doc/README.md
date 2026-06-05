@@ -19,25 +19,25 @@ assets/
 
 ## How to use it
 
-### Option 1 — Drop into a Claude.ai Project
+### Option 1 - Drop into a Claude.ai Project
 
 1. Create or open a Project at claude.ai.
 2. Upload `SKILL.md` plus everything in `assets/` into the Project's knowledge base.
 3. In the Project's custom instructions, paste:
    > "When the user asks for a branded doc, partner cheat sheet, battle card, playbook, or any PDF deliverable in the MaiaEdge brand system, follow the workflow in SKILL.md and produce a PDF that matches the partner cheat sheets visually."
-4. Then in any chat, say: *"Build me a branded doc about [topic]"* — Claude will follow the skill.
+4. Then in any chat, say: *"Build me a branded doc about [topic]"* - Claude will follow the skill.
 
-### Option 2 — Add as a Cowork plugin
+### Option 2 - Add as a Cowork plugin
 
 This skill folder is structured to work as a Cowork plugin. Zip the whole `branded-doc/` folder, install via Cowork's plugin manager.
 
-### Option 3 — Use the assets directly
+### Option 3 - Use the assets directly
 
 If you just need the source files (Tomorrow fonts, logos, the brand stylesheet, the architecture diagrams):
-- `assets/fonts/` — drop into Word, Figma, Adobe, etc.
-- `assets/brand.css` — reference for any custom HTML / Notion / web work.
-- `assets/diagrams/` — drop into slides, decks, web pages as-is. They're SVG so they scale infinitely.
-- `assets/logos/` — official MaiaEdge logos.
+- `assets/fonts/` - drop into Word, Figma, Adobe, etc.
+- `assets/brand.css` - reference for any custom HTML / Notion / web work.
+- `assets/diagrams/` - drop into slides, decks, web pages as-is. They're SVG so they scale infinitely.
+- `assets/logos/` - official MaiaEdge logos.
 
 ## What "branded" means here
 
@@ -54,13 +54,13 @@ Every doc produced with this skill has:
 ## Examples in production
 
 Open the partner docs final folder (`partner docs/final/` on Cooper's machine) for reference:
-- `MaiaEdge-101.pdf` — flagship 101 brief, 11 pages
+- `MaiaEdge-101.pdf` - flagship 101 brief, 11 pages
 - `Cheat-Sheet-Colocation.pdf`
 - `Cheat-Sheet-Fiber-Operator.pdf`
 - `Cheat-Sheet-Network-Operator.pdf`
 - `Cheat-Sheet-Neocloud.pdf`
 - `Cheat-Sheet-MSP-Aggregator.pdf`
-- `Product-Quick-Reference.pdf` — 12 pages, 3 embedded diagrams
+- `Product-Quick-Reference.pdf` - 12 pages, 3 embedded diagrams
 
 Any new doc you build with this skill should look visually consistent with these.
 

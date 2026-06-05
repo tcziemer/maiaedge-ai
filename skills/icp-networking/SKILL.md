@@ -57,8 +57,9 @@ Target companies in this order. Only target companies already in HubSpot (networ
 | 2 | Colocation | `Data Center Colo Provider` |
 | 3 | Network Operator | `Network Operator(Tier 1 / VNO)` |
 | 3 | Fiber Operator | `Fiber Operator` |
+| 4 | Enterprise (Multi-DC ICP) | `Enterprise-CustomerSegment` - added 2026-05-11 with ICP promotion. Target Tier 1+2 Enterprise accounts only (Meijer-class). Personas: VP Network Infrastructure, Director Network Engineering, Principal Network Engineer, CIO, CSO/CISO. Avoid CMOs, sales execs, and non-network leaders - Enterprise buying happens through network + IT + security personas. |
 
-**Do not target:** MSP/Aggregators (`Enterprise`), pure IT MSPs, enterprise consumers, residential ISPs, tower REITs, resellers/VARs.
+**Do not target:** MSP/Aggregators (`MSP/Aggregator`), pure IT MSPs, residential ISPs, tower REITs, resellers/VARs. Also avoid: Enterprise accounts that haven't passed the scale gate (Watch List verticals - Manufacturing, Energy/Utilities, Logistics - and sub-$1B mid-market). The previous "enterprise consumers" do-not-target rule is RETIRED as of 2026-05-11 - Enterprise is now ICP, but only the four qualified sub-segments above and only at Tier 1+2 accounts.
 
 ---
 
@@ -86,6 +87,22 @@ Prioritize GTM/RevOps peers, then infrastructure leadership, then partnerships.
 - VP Business Development, Director BD
 - VP Strategic Alliances
 - Head of Channel, VP Channel Sales
+
+### Enterprise (Multi-DC ICP) personas (added 2026-05-11)
+For `customer_segment = "Enterprise-CustomerSegment"` accounts only - use the operator-segment titles above as fallback but lead with these:
+
+**Primary (technical champion + economic buyer):**
+- VP Network Infrastructure, Director Network Engineering, Principal Network Engineer, Principal Network Architect, Senior Director Networking, Head of Network Architecture
+- CIO, Chief Information Officer
+
+**Secondary (security stakeholder - load-bearing for FS + Healthcare Enterprise):**
+- CSO, CISO, Chief Information Security Officer, VP Information Security, VP Cybersecurity
+
+**Sub-segment-specialized title boosts (when present):**
+- Financial Services - Enterprise: + "Markets Network", "Trading Infrastructure", "Connectivity Engineering"
+- Healthcare Systems - Enterprise: + "Clinical Network Operations", "EHR Infrastructure", "Imaging Network"
+- Retail and Distribution - Enterprise: + "Store-and-DC Network", "Distribution Network Operations", "Retail Connectivity"
+- Outsourcing Services - Enterprise: + "Delivery Center Network", "Client Connectivity", "Site Operations Network"
 
 ### Seniority Filter
 VP, Director, C-Suite, Head-of, Owner/Founder only. Skip ICs and managers unless the company is very small (<50 employees).
@@ -181,6 +198,7 @@ After presenting misclassification flags, if Cooper approves a correction:
    - Neocloud -> `NeoCloud`
    - Fiber Operator -> `Fiber Operator`
    - Network Operator -> `Network Operator(Tier 1 / VNO)`
+   - Enterprise (Multi-DC ICP, added 2026-05-11) -> `Enterprise-CustomerSegment` + one of the four sub-segments: `Financial Services - Enterprise`, `Healthcare Systems - Enterprise`, `Retail and Distribution - Enterprise`, `Outsourcing Services - Enterprise`. Cooper must confirm the scale gate ($1B+ rev + 3+ DCs OR Equinix Fabric/Megaport port OR in-house net eng + vertical match) before this rewrite - segment-classification owns the gate validation.
 2. Update `customer_sub_segment` if applicable
 3. Log the change
 

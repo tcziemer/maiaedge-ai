@@ -78,7 +78,7 @@ The data is dramatic:
 - Companies that trimmed emails by 40% saw: open rates +86%, reply rates +181%, meetings +78%
 - One point. One CTA. One reason to reply.
 
-**For MaiaEdge:** Sequence length is governed by hard caps in `context/outreach/email-writing-rules.md` — Email 1 at 70-85 words, Email 2 under 55 words, Email 3 at 2-3 sentences max. These caps apply across every segment. A tight email under the cap beats a padded one that hits any number.
+**For MaiaEdge:** Sequence length is governed by hard caps in `context/outreach/email-writing-rules.md` - Email 1 at 70-85 words, Email 2 under 55 words, Email 3 at 2-3 sentences max. These caps apply across every segment. A tight email under the cap beats a padded one that hits any number.
 
 ### Hook Types  -  What's Working
 
@@ -169,6 +169,29 @@ Enterprise deals take 9-18 months. The cold sequence is just the opening move. B
 - Conference/event-based reconnection
 
 ---
+
+## Persona Targeting Discipline (pre-cadence gate, 2026-05-11)
+
+The replied-thread audit isolated persona-mistargeting as the single largest non-content driver of the depressed reply rate in the 60-day Smartlead corpus. ~15% of replies were wrong-persona redirects ("not my purview," forward-to-engineer, hostile unsubscribe). Fixing the title-targeting model lifts reply rate by ~0.5-1.0 points before any copy work compounds.
+
+The full blocklist lives in `context/outreach/persona-targeting-blocklist.md`. The gate runs at the SDR pipeline stage before any contact enters Smartlead or a LinkedIn batch cadence. High-level summary:
+
+- **Universal blocks:** Account Executive, Account Manager, Customer Success Manager.
+- **Aggregator / NaaS / TSD blocks:** Director - Carrier Wholesale, Wholesale Manager, Director - Sales (Wholesale).
+- **Fiber / ISP blocks:** Director - Field Operations, GM / Regional Operations Manager.
+- **International carrier blocks:** Country Manager / GM - [Country] at carriers with HQ product orgs, Finance Director / Treasurer.
+
+Blocked contacts route to a Cooper-review queue, not silently dropped. The Wholesale-Director partner-recruitment cadence (Sidecar Decision 11) is deferred - if a Konnexx-pattern engagement materializes, that motion gets a separate cadence outside the standard SDR pipeline.
+
+## Pre-Cadence List Hygiene (pre-cadence gate, 2026-05-11)
+
+11 of 34 replies in the 60-day corpus were auto-OOO, address-change, autoresponder, unsubscribe-bot, "I retired," or sender-bounce - 32% of all replies on no-content signal. These don't lift raw reply count but lift signal density: every auto-OOO suppressed is a slot freed for a contact who can actually buy.
+
+The three filters live in `context/outreach/pre-cadence-hygiene.md`. Expected impact: ~10-15% relative lift on reply-rate as a metric (raw reply count holds, denominator drops as bounce/OOO contacts are removed before the second touch).
+
+- **Filter 1 - Auto-bounce / autoresponder detection:** suppress from E2/E3 after a first-send autoresponder.
+- **Filter 2 - OOO detection at send-time:** delay the cadence until after declared return.
+- **Filter 3 - LinkedIn-status check on lead pull:** flag for re-research if current role differs from source list.
 
 ## A/B Testing Framework
 

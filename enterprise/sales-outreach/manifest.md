@@ -26,12 +26,14 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - context/core/icp-playbook.md
 - context/core/terminology-glossary.md
 
-### Segments
+### Segments (6 ICP segments as of 2026-05-11)
 - context/segments/colocation.md
 - context/segments/fiber-operator.md
 - context/segments/neocloud.md
 - context/segments/network-operator.md
 - context/segments/msp-aggregator.md
+- context/segments/enterprise.md (Multi-DC ICP, added 2026-05-11; 4 sub-segments — Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services; anchor: Meijer)
+- context/segments/enterprise-use-cases.md (8 priority Enterprise use cases × sub-segment fit × persona × insider phrases × lead-angle templates)
 
 ### Outreach
 - context/outreach/email-writing-rules.md
@@ -61,4 +63,4 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - context/copy-strategy/segment-language.md
 - context/copy-strategy/segment-messaging.md
 
-## Last Synced: 2026-03-17
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete; Enterprise added as 6th ICP segment with Meijer as anchor account)

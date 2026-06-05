@@ -20,8 +20,9 @@ The primary data source is `hs_call_summary` -- HubSpot's AI-generated call summ
 - **Call properties, query patterns, pagination, property sets:** See `call-schema.md`
 - **Contact properties and persona framework:** See `contact-schema.md`
 - **Owner IDs and territory mapping:** See `territory-model.md`
-- **Segment HubSpot values:** See `hubspot-values.md` (note: MSP/Aggregator = `Enterprise` in HubSpot)
-- **Use case taxonomy:** Classify calls against the 21 canonical use cases in `use-case-taxonomy.md`. A single call typically maps to 2-5 use cases. Use the trigger keywords as a guide but consider context -- a passing mention is not a substantive discussion.
+- **Segment HubSpot values:** See `hubspot-values.md`
+- **Use case taxonomy:** Classify calls against the canonical use cases in `use-case-taxonomy.md` (21 operator-segment use cases + Enterprise-specific use cases added 2026-05-11). A single call typically maps to 2-5 use cases. Use the trigger keywords as a guide but consider context -- a passing mention is not a substantive discussion. **Enterprise calls** (where the associated company has `customer_segment = "Enterprise-CustomerSegment"`) classify primarily against the Enterprise-specific use cases section in `use-case-taxonomy.md`, with secondary mapping to operator-shared use cases (Cloud On-Ramp, Data Center Interconnection, E2E Visibility, Security/Encryption) where relevant.
+- **Enterprise segment context (added 2026-05-11):** Read `context/segments/enterprise.md` and `context/segments/enterprise-use-cases.md` for Enterprise calls. Sub-segment-specific Insider Language Banks (FFIEC physical-path verification, Epic downtime procedure, peak readiness, seat ramp / paired site / client carve-out) drive accurate use-case extraction and PMF signal classification on Enterprise call transcripts.
 - **Messaging baseline (for Modes 5 & 6):** `messaging-framework.md`, `segment-language.md`, `segment-messaging.md`, `competitive-positioning.md` -- these define our CURRENT messaging. Call analysis compares what prospects actually say against these files to find alignment gaps and PMF signals.
 
 ---
@@ -147,7 +148,7 @@ RELATIONSHIP HEALTH
 
 **Steps:**
 1. Pull all calls in requested date range (default: last 90 days). Include `associations: ["COMPANY"]` for segment classification. Paginate through all pages (see `call-schema.md`).
-2. Parse each call summary and classify against the 21 canonical use cases
+2. Parse each call summary and classify against the canonical use cases in `use-case-taxonomy.md` (21 operator-segment use cases #1-21 + 8 Enterprise-specific use cases #22-29 added 2026-05-11 with Multi-DC ICP promotion)
 3. Count frequency of each use case across all calls
 4. Calculate % of calls mentioning each use case
 5. Break down by segment (from associated company `customer_segment`) and by rep (`hubspot_owner_id`)

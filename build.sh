@@ -36,15 +36,21 @@ fi
 rm -rf "$TMP_BUILD"
 mkdir -p "$TMP_BUILD/plugins" "$TMP_BUILD/plugins-zipped" "$TMP_BUILD/skills-zipped"
 
-# Check python3 availability (only needed for plugin + standalone-skill-zip builds).
+# Check Python availability (only needed for plugin + standalone-skill-zip builds).
 # Enterprise uploads + instance-skills bundle are pure bash and always run.
+# Try python3, then python, then py — first one that actually executes wins.
 HAS_PYTHON3=0
-if command -v python3 &>/dev/null && python3 -c "import sys" 2>/dev/null; then
-  HAS_PYTHON3=1
-fi
+PYTHON=""
+for candidate in python3 python py; do
+  if command -v "$candidate" &>/dev/null && "$candidate" -c "import sys" &>/dev/null; then
+    PYTHON="$candidate"
+    HAS_PYTHON3=1
+    break
+  fi
+done
 
 if [ $HAS_PYTHON3 -eq 0 ]; then
-  echo "NOTE: python3 not available — skipping plugin zips and standalone skill zips."
+  echo "NOTE: no working Python found — skipping plugin zips and standalone skill zips."
   echo "      Enterprise upload folders and instance-skills bundle will still build."
   echo ""
 fi
@@ -85,7 +91,7 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Copy skills from shared skills/ directory
-  skills=$(python3 -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('skills',[])))")
+  skills=$("$PYTHON" -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('skills',[])))")
   if [ -n "$skills" ]; then
     mkdir -p "$build_target/skills"
     for skill in $skills; do
@@ -99,7 +105,7 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Copy context files into references/
-  contexts=$(python3 -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('context',[])))")
+  contexts=$("$PYTHON" -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('context',[])))")
   if [ -n "$contexts" ]; then
     mkdir -p "$build_target/references"
     for ctx in $contexts; do
@@ -113,7 +119,7 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
   fi
 
   # Copy static assets
-  statics=$(python3 -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('static',[])))")
+  statics=$("$PYTHON" -c "import json; m=json.load(open('$(winpath "$manifest")')); print(' '.join(m.get('static',[])))")
   if [ -n "$statics" ]; then
     for static_path in $statics; do
       src="$plugin_dir/$static_path"
@@ -238,8 +244,6 @@ skill_upload_name() {
     pre-deletion-audit)     echo "maiaedge-pre-deletion-audit" ;;
     weekly-signal-scan)     echo "maiaedge-weekly-signal-scan" ;;
     branded-doc)            echo "maiaedge-branded-doc" ;;
-    bizcase)                echo "maiaedge-bizcase" ;;
-    sales-call-tracker)     echo "maiaedge-sales-call-tracker" ;;
     *)                      echo "maiaedge-$1" ;;
   esac
 }
@@ -292,7 +296,9 @@ SO="$ENT_DIR/sales-outreach/upload"
 mkdir -p "$SO"
 strip_skills_from_upload "$SO"
 copy_context_dir "$CONTEXT_DIR/core" "$SO"
+copy_context_dir "$CONTEXT_DIR/account-tiering" "$SO"
 copy_context_dir "$CONTEXT_DIR/segments" "$SO"
+copy_context_dir "$CONTEXT_DIR/signals" "$SO"
 copy_context_dir "$CONTEXT_DIR/outreach" "$SO"
 copy_context_dir "$CONTEXT_DIR/copy-strategy" "$SO"
 cp "$CONTEXT_DIR/enrichment/research-routes.md" "$SO/" 2>/dev/null
@@ -317,7 +323,9 @@ FO="$ENT_DIR/founder-outreach/upload"
 mkdir -p "$FO"
 strip_skills_from_upload "$FO"
 copy_context_dir "$CONTEXT_DIR/core" "$FO"
+copy_context_dir "$CONTEXT_DIR/account-tiering" "$FO"
 copy_context_dir "$CONTEXT_DIR/segments" "$FO"
+copy_context_dir "$CONTEXT_DIR/signals" "$FO"
 copy_context_dir "$CONTEXT_DIR/outreach" "$FO"
 copy_context_dir "$CONTEXT_DIR/copy-strategy" "$FO"
 cp "$CONTEXT_DIR/enrichment/research-routes.md" "$FO/" 2>/dev/null
@@ -341,6 +349,8 @@ AI="$ENT_DIR/account-intelligence/upload"
 mkdir -p "$AI"
 strip_skills_from_upload "$AI"
 copy_context_dir "$CONTEXT_DIR/core" "$AI"
+copy_context_dir "$CONTEXT_DIR/account-tiering" "$AI"
+copy_context_dir "$CONTEXT_DIR/account-tiering/icp-deep-dives" "$AI"   # per-ICP B-and-C deep dives (edge-case-researcher)
 copy_context_dir "$CONTEXT_DIR/segments" "$AI"
 copy_context_dir "$CONTEXT_DIR/signals" "$AI"
 for d in hubspot enrichment product sales; do
@@ -358,12 +368,13 @@ echo "  Account Intelligence: $(ls "$AI" | wc -l) files"
 
 # --- Call Intelligence ---
 # Transcript/summary analysis on contact records: use cases, pain points, objections, competitive intel
-# Skills (upload at instance level): call-analysis, pipeline-discipline, call-reporting, pipeline-analytics, sales-call-tracker
+# Skills (upload at instance level): call-analysis, pipeline-discipline, call-reporting, pipeline-analytics
 CI="$ENT_DIR/call-intelligence/upload"
 mkdir -p "$CI"
 strip_skills_from_upload "$CI"
 # Core context (full set -- competitive and messaging needed for call classification)
 copy_context_dir "$CONTEXT_DIR/core" "$CI"
+copy_context_dir "$CONTEXT_DIR/account-tiering" "$CI"
 # Segments (call analysis needs segment context to classify discussions)
 copy_context_dir "$CONTEXT_DIR/segments" "$CI"
 # HubSpot (all schemas -- calls associate with contacts, companies, deals, tickets)
@@ -385,7 +396,7 @@ cp "$CONTEXT_DIR/sales/call-report-styles.css" "$CI/" 2>/dev/null
 echo "  Call Intelligence: $(ls "$CI" | wc -l) files"
 
 # --- Revenue Reporting ---
-# Skills (upload at instance level): pipeline-analytics, call-reporting, call-analysis, pipeline-discipline, sales-call-tracker
+# Skills (upload at instance level): pipeline-analytics, call-reporting, call-analysis, pipeline-discipline
 RR="$ENT_DIR/revenue-reporting/upload"
 mkdir -p "$RR"
 strip_skills_from_upload "$RR"
@@ -396,6 +407,7 @@ copy_context_dir "$CONTEXT_DIR/segments" "$RR"
 copy_context_dir "$CONTEXT_DIR/hubspot" "$RR"
 cp "$CONTEXT_DIR/sales/use-case-taxonomy.md" "$RR/" 2>/dev/null
 cp "$CONTEXT_DIR/sales/call-intelligence.md" "$RR/" 2>/dev/null
+cp "$CONTEXT_DIR/sales/call-report-styles.css" "$RR/" 2>/dev/null
 # Context deps picked up by call-analysis, call-reporting, pipeline-discipline skills
 cp "$CONTEXT_DIR/core/messaging-framework.md" "$RR/" 2>/dev/null
 cp "$CONTEXT_DIR/core/competitive-positioning.md" "$RR/" 2>/dev/null
@@ -411,6 +423,8 @@ CG="$ENT_DIR/crm-guardian/upload"
 mkdir -p "$CG"
 strip_skills_from_upload "$CG"
 copy_context_dir "$CONTEXT_DIR/core" "$CG"
+copy_context_dir "$CONTEXT_DIR/account-tiering" "$CG"
+copy_context_dir "$CONTEXT_DIR/account-tiering/icp-deep-dives" "$CG"   # per-ICP B-and-C deep dives (edge-case-researcher)
 copy_context_dir "$CONTEXT_DIR/segments" "$CG"
 copy_context_dir "$CONTEXT_DIR/hubspot" "$CG"
 copy_context_dir "$CONTEXT_DIR/enrichment" "$CG"
@@ -428,11 +442,12 @@ echo "  CRM Guardian: $(ls "$CG" | wc -l) files"
 
 # --- Sales Docs ---
 # Legal docs + sales collateral + call prep + competitive briefs
-# Skills (upload at instance level): sales-docs, sales-enablement, call-prep, competitive-intel, bizcase
+# Skills (upload at instance level): sales-docs, sales-enablement, call-prep, competitive-intel
 SD="$ENT_DIR/sales-docs/upload"
 mkdir -p "$SD"
 strip_skills_from_upload "$SD"
 copy_context_dir "$CONTEXT_DIR/core" "$SD"
+copy_context_dir "$CONTEXT_DIR/account-tiering" "$SD"
 copy_context_dir "$CONTEXT_DIR/segments" "$SD"
 copy_context_dir "$CONTEXT_DIR/product" "$SD"
 cp "$CONTEXT_DIR/hubspot/hubspot-values.md" "$SD/" 2>/dev/null
@@ -458,11 +473,30 @@ cp "$CONTEXT_DIR/copy-strategy/segment-language.md" "$SD/" 2>/dev/null
 cp "$CONTEXT_DIR/copy-strategy/segment-messaging.md" "$SD/" 2>/dev/null
 echo "  Sales Docs: $(ls "$SD" | wc -l) files"
 
+# --- Branded Content (full repo context; branded-doc + strategy skills) ---
+# Skills (upload at instance level): branded-doc, account-brief, sales-enablement,
+# competitive-intel, call-prep
+# Ships the FULL repo context — segment business cases and branded deliverable design
+# both pull across every category (core, segments, signals, hubspot, enrichment, product,
+# sales, marketing, copy-strategy, partner-assets, account-tiering).
+BC="$ENT_DIR/branded-content/upload"
+mkdir -p "$BC"
+strip_skills_from_upload "$BC"
+find "$CONTEXT_DIR" -name "*.md" -exec cp {} "$BC/" \;
+# partner-assets/maiaedge-101.md collides with core/maiaedge-101.md (different content —
+# partner edition vs strategy doc). Preserve both with explicit names.
+cp "$CONTEXT_DIR/partner-assets/maiaedge-101.md" "$BC/maiaedge-101-partner-edition.md"
+cp "$CONTEXT_DIR/core/maiaedge-101.md" "$BC/maiaedge-101.md"
+# Branded-doc skill consumes the call-report-styles.css as a brand stylesheet reference
+cp "$CONTEXT_DIR/sales/call-report-styles.css" "$BC/" 2>/dev/null
+echo "  Branded Content: $(ls "$BC" | wc -l) files"
+
 # --- General Assistant (every context file; all skills at instance level) ---
 GA="$ENT_DIR/general-assistant/upload"
 mkdir -p "$GA"
 strip_skills_from_upload "$GA"
 find "$CONTEXT_DIR" -name "*.md" -exec cp {} "$GA/" \;
+cp "$CONTEXT_DIR/sales/call-report-styles.css" "$GA/" 2>/dev/null   # non-md asset the find above misses (call-reporting)
 echo "  General Assistant: $(ls "$GA" | wc -l) files"
 
 echo ""
@@ -470,7 +504,7 @@ echo "=== Build Complete ==="
 echo "Plugins:         $(ls "$BUILDS_DIR/plugins-zipped/"*.zip 2>/dev/null | wc -l) zips"
 echo "Standalone zips: $(ls "$BUILDS_DIR/skills-zipped/"*.zip 2>/dev/null | wc -l) zips"
 echo "Instance skills: $(ls "$INSTANCE_SKILLS_DIR" 2>/dev/null | wc -l) files (one-time Claude.ai upload)"
-echo "Enterprise:      8 context-only upload folders"
+echo "Enterprise:      9 context-only upload folders"
 echo ""
 echo "Plugin zips:      $BUILDS_DIR/plugins-zipped/"
 echo "Skill zips:       $BUILDS_DIR/skills-zipped/"

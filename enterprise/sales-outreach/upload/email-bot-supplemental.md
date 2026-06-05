@@ -86,13 +86,13 @@ Digital Realty, DataBank, T5 Data Centers, Flexential, Stream Data Centers
 
 **⚠️ Sub-segment routing  -  match messaging to the specific neocloud type:**
 
-| Sub-Segment | Signal | Messaging Approach |
+| HubSpot `company_sub_segment` | Signal | Messaging Approach |
 |-------------|--------|-------------------|
-| **Large-Scale GPU NeoClouds** (Crusoe, Voltage Park, Nebius, Lambda Labs) | Multi-facility GPU deployments, 100MW+ capacity, rapid expansion | "Every network interruption forces a checkpoint rollback. At $4,800/GPU/month, the recompute tax dwarfs our subscription." |
-| **Tier 1 Inference Providers** (Together AI, Groq, DeepInfra, Anyscale) | Inference-as-a-service, real-time API SLAs | "Your SLA guarantees depend on network determinism you can't see today. Tail latency kills inference." |
-| **AI Infrastructure Providers** (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) | Multi-cloud GPU platform, API-driven, developer-first | "See why inference latency varies by facility. Then fix it. Own your paths  -  don't rent Megaport's." |
-| **Sovereign AI Clouds** (Firmus, E2E Networks, Yotta, Nscale EU) | Regulatory requirements, national AI initiatives, data sovereignty | "Prove data stays within geographic boundaries. Sovereign routing with compliance reporting." |
-| **Crypto-to-AI Pivots** (IREN, Core Scientific, Northern Data Group, TeraWulf) | Former crypto mining, transitioning to AI compute | "Your crypto infrastructure wasn't built for AI traffic. See where the network is slowing you down." |
+| **`Large Scale GPU - Neocloud`** (Crusoe, Voltage Park, Nebius, Lambda Labs) | Multi-facility GPU deployments, 100MW+ capacity, rapid expansion | "Every network interruption forces a checkpoint rollback. At $4,800/GPU/month, the recompute tax dwarfs our subscription." |
+| **`Tier 1 Inference - Neocloud`** (Together AI, Groq, DeepInfra, Anyscale) | Inference-as-a-service, real-time API SLAs | "Your SLA guarantees depend on network determinism you can't see today. Tail latency kills inference." |
+| **`AI Infrastructure providers - Neocloud`** (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) | Multi-cloud GPU platform, API-driven, developer-first | "See why inference latency varies by facility. Then fix it. Own your paths  -  don't rent Megaport's." |
+| **`Sovereign AI Clouds - Neocloud`** (Firmus, E2E Networks, Yotta, Nscale EU) | Regulatory requirements, national AI initiatives, data sovereignty | "Prove data stays within geographic boundaries. Sovereign routing with compliance reporting." |
+| **`Crypto to AI - Neoclouds`** (IREN, Core Scientific, Northern Data Group, TeraWulf - operator AND landlord) | Former crypto mining, transitioning to AI compute | "Your crypto infrastructure wasn't built for AI traffic. See where the network is slowing you down." |
 
 **General neocloud signals (any sub-segment):**
 
@@ -245,11 +245,11 @@ Subject: KIO Networks interconnection
 
 Octavio,
 
-Across 20+ data centers, I'd guess every cross-connect is still a project (LOAs, truck rolls, VLAN config) and a tenant who wants capacity in more than one site is still a separate order per site. Tenants expect portal-driven self-service they can't get today, and the version that compounds is the one where they book paths from your portal in minutes — automated virtual cross-connects, cloud on-ramp as a native product, one interconnection layer across all your sites, without a multi-year development project.
+Across 20+ data centers, I'd guess every cross-connect is still a project (LOAs, truck rolls, VLAN config) and a tenant who wants capacity in more than one site is still a separate order per site. Tenants expect portal-driven self-service they can't get today, and the version that compounds is the one where they book paths from your portal in minutes - automated virtual cross-connects, cloud on-ramp as a native product, one interconnection layer across all your sites, without a multi-year development project.
 
 On your radar for this year?
 
-**Why this works:** Leads with the problem (tenant connectivity requests going to third parties), not a company description. The "20+ data centers" detail is baked into the problem framing, not displayed as a standalone observation. Value bridge embedded by contrast as "the version that compounds is the one where…" rather than a standalone "We help operators build their own fabric" pitch (BANNED — "we help operators" is brand voice, not peer voice). No "impressive" flattery. Strong sovereignty language. CEO-appropriate strategic framing.
+**Why this works:** Leads with the problem (tenant connectivity requests going to third parties), not a company description. The "20+ data centers" detail is baked into the problem framing, not displayed as a standalone observation. Value bridge embedded by contrast as "the version that compounds is the one where…" rather than a standalone "We help operators build their own fabric" pitch (BANNED - "we help operators" is brand voice, not peer voice). No "impressive" flattery. Strong sovereignty language. CEO-appropriate strategic framing.
 
 ---
 
@@ -269,7 +269,7 @@ Subject: BIG Fiber provisioning
 
 Patton,
 
-I'd guess the provisioning side hasn't caught up to what you've built physically. When a hyperscaler or enterprise signs up, it's still manual. LOAs, VLAN coordination, scheduling. Fiber that can carry 400G, but activation takes weeks. The infrastructure is differentiated; the provisioning isn't, yet — and the fix is paths your team can stand up in minutes over any transport, no routing complexity, monetizing what's already in the ground.
+I'd guess the provisioning side hasn't caught up to what you've built physically. When a hyperscaler or enterprise signs up, it's still manual. LOAs, VLAN coordination, scheduling. Fiber that can carry 400G, but activation takes weeks. The infrastructure is differentiated; the provisioning isn't, yet - and the fix is paths your team can stand up in minutes over any transport, no routing complexity, monetizing what's already in the ground.
 
 Dealing with something similar?
 

@@ -52,7 +52,8 @@ Triggers automatically when competitive positioning or objection handling is nee
 
 ### Orchestration Platforms (Ciena Blue Planet, Nokia NSP, Juniper Paragon)
 **Their model:** Multi-vendor orchestration software. Complex integration projects.
-**Our positioning:** "6-18 month deployments, $1-5M+ integration cost vs. MaiaEdge fabric-in-a-box in weeks, OpEx subscription."
+**Our positioning (live conversations / proposals only):** "6-18 month deployments, $1-5M+ integration cost vs. MaiaEdge fabric-in-a-box in weeks, OpEx subscription."
+**In cold email and LinkedIn body:** "Fabric-in-a-box" is banned. Translate to "build your own interconnection layer in weeks, not years" or "deterministic paths and policy on a platform you operate, no multi-vendor integration project required."
 **Key difference:** They orchestrate existing infrastructure. MaiaEdge IS the infrastructure.
 
 ### Hyperscalers Going Direct (AWS, Azure, Google Cloud)
@@ -94,6 +95,30 @@ Triggers automatically when competitive positioning or objection handling is nee
 - **Datum.net (channel partner):** Datum solves Layer 7 (proxy, anycast, DDoS). MaiaEdge solves Layer 2/3 (paths, observability, encryption). Together = full-stack answer. CEO Zac Smith has direct relationships with decision-makers at Together.ai, Inference.net, RunPod, Modal. **Do not position as competing with Datum. They're a channel partner.**
 - **Equinix Fabric / Megaport (for neoclouds):** Different positioning than operator segment. Neoclouds use these for cloud on-ramps. MaiaEdge automates Direct Connect provisioning through their APIs. Frame as: "Private paths via Equinix Fabric/Megaport API, automated by MaiaEdge."
 - **Public internet transit (the real competitor for neoclouds):** Most neoclouds don't know alternatives exist. They move data over public internet at $0.05-0.09/GB because nobody told them about Direct Connect at $0.02/GB. The competition is inertia and ignorance, not another vendor.
+
+### For Enterprise (Multi-DC ICP)
+
+Enterprise (`Enterprise-CustomerSegment`, promoted to ICP 2026-05-11) buys differently from operator segments - the enterprise IS the customer, not selling connectivity. The competitive set is different. Full positioning lives in `context/core/competitive-positioning.md` §3.6 Enterprise Competitive Context.
+
+- **Status Quo / Do Nothing:** #1 competitor (same as every other segment). Manual provisioning, BGP across the WAN, dark fiber "redundancy" via a single fiber pair, cloud on-ramps through Megaport with the SLA owned by the enterprise but the portal owned by someone else. Frame: "Your DR strategy assumes the dark fiber is redundant. It is not - fix it without standing up BGP."
+- **SD-WAN (Cisco / Juniper SSR / 128T / Versa / Cato / Fortinet / Palo Alto):** Different layer. SD-WAN handles branch/user; MaiaEdge handles inter-DC and cloud on-ramp. The two run together. Position SD-WAN as session-smart routing that benefits from a deterministic, observable underlay. Do NOT position as a replacement.
+- **Carrier-managed circuits (AT&T, Verizon, Lumen, BT, NTT):** Use them. MaiaEdge sits over the existing transport; the carrier keeps providing the circuit, MaiaEdge gives the enterprise determinism + visibility + control across whatever transport is underneath. No carrier replacement, no SLA renegotiation.
+- **Third-party fabric providers (Megaport / Equinix Fabric / PacketFabric / Console Connect) - for Enterprise:** Coexist via API where commercially sensible. The portal is theirs, the support is theirs, the cloud bill is theirs, but the customer relationship and SLA stay with the enterprise team. Frame as: "Cloud on-ramps under your brand and your control. Megaport / Equinix become transport options the fabric uses by API rather than vendors you depend on."
+- **Cloud-native networking (AWS Cloud WAN, Azure vWAN, GCP NCC):** Each cloud has its own. They do not federate well across clouds, and they do not solve dark fiber redundancy at all. MaiaEdge is the cross-cloud, cross-DC layer that does. Direct Connect / ExpressRoute / Cloud Interconnect become transport options the fabric uses, not the architecture itself.
+- **Internal Build:** "We could build this ourselves." 18-24 months, carrier-grade SDN talent enterprises can't hire fast enough. Frame: MaiaEdge is productized fabric - operable by the team you already have, no BGP / MPLS / SRv6 to manage.
+- **Lumen PCF + AWS Interconnect direct-to-enterprise:** Rare for the Enterprise ICP because the four sub-segments tend to want sovereignty over their fabric, not a Tier 1 dependency. But surfaces in conversations. Frame: "Lumen builds their empire. MaiaEdge gives you the same instant provisioning capability under your control. You're not a tenant on Lumen's fabric - you own the fabric."
+
+**Enterprise objection reframes (use in discovery + follow-up):**
+
+| Objection | Reframe |
+|---|---|
+| "We already have SD-WAN" | Different layer. SD-WAN handles branch/user; MaiaEdge handles inter-DC and cloud on-ramp. The two run together - MaiaEdge is the underlay your SD-WAN overlay benefits from. |
+| "Megaport works fine" | Until your team owns the SLA. The portal is theirs, the support is theirs, the cloud bill is theirs. MaiaEdge integrates with Megaport via API where it makes commercial sense - the customer relationship and the SLA stay with your team. |
+| "We just signed a long carrier agreement" | Use it. MaiaEdge sits over the existing transport; we give your team determinism, visibility, and control over whatever's underneath. |
+| "AWS Direct Connect handles our cloud paths" | Per cloud. AWS Cloud WAN, Azure vWAN, GCP NCC don't federate across clouds, and they don't solve dark fiber redundancy at all. MaiaEdge is the cross-cloud, cross-DC layer that does. |
+| "We could build this ourselves" | 18-24 months. Network team scope is growing faster than headcount, and carrier-grade SDN talent is scarce. MaiaEdge is productized fabric - operable by the team you already have. |
+
+**Federation note for Enterprise:** Federation framing does NOT apply. Enterprises are not federating with partners - they are the customer. Drop federation language from Enterprise messaging entirely.
 
 ## Proof Points for Competitive Situations
 

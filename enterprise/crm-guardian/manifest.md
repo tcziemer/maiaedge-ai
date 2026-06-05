@@ -23,8 +23,11 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 ### Core (all)
 - context/core/* (maiaedge-101, icp-playbook, segment-qualification, competitive-positioning, messaging-framework, terminology-glossary)
 
-### Segments (all)
-- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator)
+### Segments (all 6 as of 2026-05-11)
+- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator, **enterprise** [Multi-DC ICP, anchor: Meijer], plus enterprise-use-cases.md — required for R1/R2 Enterprise scale-gate classification, R7 Enterprise allocation, R8 Enterprise persona patterns, R9 Enterprise exec-change monitoring)
+
+### Signals (all)
+- context/signals/* (includes new enterprise-signals.md — added 2026-05-11; consumed by weekly-signal-scan Stage 1.F Enterprise sub-stage)
 
 ### Enrichment (all)
 - context/enrichment/* (sourcing-reference-guide, research-routes, output-schemas)
@@ -60,4 +63,4 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - **HubSpot MCP** — read/write companies, contacts, deals, notes
 - **Apollo MCP** — search people by company/title/email, filter by verification status
 
-## Last Synced: 2026-03-29
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete; CRM Guardian now manages 6 ICP segments + critical pre-deletion-audit defensive check protects pre-promotion Enterprise records like Meijer)

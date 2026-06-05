@@ -1,8 +1,8 @@
 # MaiaEdge Call Intelligence — Project Instructions
 
 **Purpose:** Deep analysis of HubSpot call transcripts and summaries to extract actionable intelligence: what prospects are saying, what messaging is landing, where product-market fit is strongest, and what needs to change. The "listening" side of the go-to-market stack (Revenue Reporting is the "numbers" side).
-**Version:** 1.1 | Aligned with Messaging Framework V4.2, Call Schema, Use Case Taxonomy
-**Last Updated:** April 2026
+**Version:** 1.3 | Aligned with Earned-Problem Doctrine, Phase 3 segmentation, `signal_heat` rep-facing rollup
+**Last Updated:** May 2026
 
 ---
 
@@ -28,7 +28,7 @@ What it does: Pulls ALL calls associated with a specific contact. Builds a chron
 
 **Mode 2 — Use Case Frequency**
 Trigger: "What use cases are we discussing?," "Topic breakdown," "Use case frequency"
-What it does: Classifies all calls in a date range against the 21 canonical use cases, counts frequency, breaks down by segment and rep, compares to prior periods.
+What it does: Classifies all calls in a date range against the canonical use cases in `use-case-taxonomy.md` (21 operator-segment + 8 Enterprise-specific use cases), counts frequency, breaks down by segment and rep, compares to prior periods.
 
 **Mode 3 — Segment Call Analysis**
 Trigger: "How are [segment] calls going?," "What are colos saying?," "Neocloud conversations"
@@ -40,11 +40,11 @@ What it does: Summarizes a rep's calls: companies engaged, segments covered, use
 
 **Mode 5 — Messaging Alignment Analysis**
 Trigger: "How does our messaging match what prospects say?," "Messaging alignment," "What's resonating?"
-What it does: Compares what prospects actually say on calls against the V4.2 messaging framework, segment language, and competitive positioning. Identifies: pain alignment gaps, language differences (what they say vs. what we say), value prop traction, proof point effectiveness, pillar distribution, sovereignty-language usage, unaddressed needs. Produces specific adjustment recommendations.
+What it does: Compares what prospects actually say on calls against the current messaging framework, segment language, and competitive positioning. Identifies: pain alignment gaps, language differences (what they say vs. what we say), value prop traction, proof point effectiveness, pillar distribution, sovereignty-language usage, unaddressed needs. Produces specific adjustment recommendations.
 
 **Mode 6 — Product-Market Fit Signals**
 Trigger: "Product-market fit," "PMF analysis," "Where's our strongest fit?," "Which segments are landing?"
-What it does: Aggregates resonance vs. resistance signals across all calls by segment. Grades each segment A-D. Identifies strongest/weakest fit signals, unmet needs, use case traction, the "messaging delta" between framework and reality, agentic-latency proof point traction (V4.2 flagship), and quarter-over-quarter trends.
+What it does: Aggregates resonance vs. resistance signals across all calls by segment. Grades each segment A-D. Identifies strongest/weakest fit signals, unmet needs, use case traction, the "messaging delta" between framework and reality, agentic-latency proof point traction, and quarter-over-quarter trends.
 
 ### Call Reporting (5 modes)
 
@@ -107,13 +107,15 @@ Full HTML report with weighted forecasts, deal narratives, velocity, stale flags
 
 5. **MEDDPICC rule.** HubSpot only auto-fills MEDDPICC from the FIRST call transcript. If a contact has multiple calls, always extract MEDDPICC from the most recent call summary, not stale deal-level properties.
 
-6. **For Modes 5 and 6 (Messaging Alignment + PMF):** Read these files as the V4.2 messaging baseline before analysis:
-   - **messaging-framework.md** — V4.2 rules, segment pillar framework, cloud on-ramp deployment models, critical sovereignty qualification rule
+6. **For Modes 5 and 6 (Messaging Alignment + PMF):** Read these files as the messaging baseline before analysis:
+   - **email-writing-rules.md** — Earned-Problem Doctrine (the doctrine messaging-alignment scoring tracks), banned phrases, hard rules
+   - **messaging-framework.md** — segment pillar framework, cloud on-ramp deployment models, sovereignty qualification rule
    - **segment-messaging.md** — detailed messaging per segment, pillar value-prop matrices
    - **segment-language.md** — insider vocabulary per segment (what prospects actually say)
-   - **competitive-positioning.md** — how we position; note V4.2: Megaport/Equinix/Lumen now sell GPU compute directly
-   - **edge-ai-thesis-montauk.md** — Montauk April 2026 thesis, flagship DETERMINISTIC proof (agentic compounding latency)
+   - **competitive-positioning.md** — how we position; Megaport/Equinix/Lumen now sell GPU compute directly
+   - **edge-ai-thesis-montauk.md** — Montauk thesis, flagship DETERMINISTIC proof (agentic compounding latency)
    - **neocloud.md** + **neocloud-strategy-brief.md** — scaling-wall angle, maturity-based angle routing
+   - **enterprise.md** — Enterprise (Multi-DC ICP) positioning, sub-segment cheatsheets, persona pain language
 
    Compare what prospects say on calls against this baseline. Flag divergences. Surface their language. Track what lands vs. what doesn't.
 
@@ -128,18 +130,20 @@ Full HTML report with weighted forecasts, deal narratives, velocity, stale flags
 - **hubspot-values.md** — Quick-reference enum values
 
 ### Classification & Segment Context
-- **use-case-taxonomy.md** — The 21 canonical use cases. Source of truth for Mode 2 classification.
+- **use-case-taxonomy.md** — The 29 canonical use cases (21 operator-segment + 8 Enterprise-specific). Source of truth for Mode 2 classification.
 - **segment-qualification.md** — Proof-based qualification gates per segment
 - **icp-playbook.md** — Discovery questions, personas, objection handling per segment
-- **colocation.md**, **fiber-operator.md**, **neocloud.md**, **network-operator.md**, **msp-aggregator.md** — Segment cheatsheets
+- **colocation.md**, **fiber-operator.md**, **neocloud.md**, **network-operator.md**, **msp-aggregator.md**, **enterprise.md** + **enterprise-use-cases.md** — Segment cheatsheets (6 ICP segments)
+- **sub-segment-qualification.md** — 30 active `company_sub_segment` values; use exact case-sensitive strings in queries
+- **tier-compute-spec.md** — Canonical tier algorithm + `signal_heat` rollup compute spec (§11.5)
 - **neocloud-strategy-brief.md** — Neocloud sub-segments, scaling-wall angle, Datum.net context
 - **ai-market-positioning.md** — AI market framing, neocloud TAM
 
 ### Messaging & Positioning (critical for Modes 5 + 6)
-- **messaging-framework.md** — V4.2 rules, pillar framework, on-ramp deployment models
+- **messaging-framework.md** — current rules, pillar framework, on-ramp deployment models
 - **segment-messaging.md** — Pillar value-prop matrices per segment
 - **segment-language.md** — Segment-native vocabulary
-- **competitive-positioning.md** — Battle cards, V4.2 competitive sharpening
+- **competitive-positioning.md** — Battle cards, competitive sharpening
 - **edge-ai-thesis-montauk.md** — Flagship DETERMINISTIC proof point
 - **proof-points.md** — Customer stories and outcomes referenced on calls
 - **pricing-reference.md** — Commercial terms discussed on calls
@@ -161,10 +165,13 @@ Full HTML report with weighted forecasts, deal narratives, velocity, stale flags
 | Standard Colo | `Data Center Colo Provider` + `company_sub_segment = "Standard - colo"` | |
 | AI Colo | `Data Center Colo Provider` + `company_sub_segment = "AI Signals - colo"` | Display label reads "AI Infrastructure." Deprecated value `AI - Colocation Operator` still exists on legacy records — include it in AI-colo queries. |
 | Fiber Operator | `Fiber Operator` | Largest whitespace |
-| Network Operator | `Network Operator(Tier 1 / VNO)` | Track A vs. Track B differentiator |
-| MSP / Aggregator | `Enterprise` | Legacy naming — internal value is `Enterprise` |
+| Network Operator | `Network Operator(Tier 1 / VNO)` | Tier 1 Global+National vs Tier 2/3 Regional Wholesale lead motions; Track A (automated) vs Track B (fragmented) |
+| MSP / Aggregator | `MSP/Aggregator` | Internal value matches display label |
+| **Enterprise (Multi-DC ICP)** | `Enterprise-CustomerSegment` | 6th ICP. Four sub-segments: `Financial Services - Enterprise`, `Healthcare Systems - Enterprise`, `Retail and Distribution - Enterprise`, `Outsourcing Services - Enterprise`. Anchor: Meijer. Tier 2 ceiling. |
 
-**Account tiers are INVERTED:** Tier 1 = highest priority.
+**Account tiers are INVERTED:** Tier 1 = highest priority. Canonical algorithm: `tier-compute-spec.md`. `hs_is_target_account = true` freezes `account_tier` only.
+
+**`signal_heat`** is the rep-facing intent rollup (`Hot` / `Warm` / `Cool` / `Cold` — Title Case per HubSpot). When pulling call lists or briefings, prioritize calls on `Hot` and `Warm` accounts. `Hot`-account calls are the highest-signal data for messaging-alignment and PMF analysis (Modes 5 + 6) because they reflect what's working *now*. See `tier-compute-spec.md` §11.5.
 
 **Team:**
 
@@ -178,7 +185,7 @@ Full HTML report with weighted forecasts, deal narratives, velocity, stale flags
 | Kyle Blackwell | Sales Engineering | — | `159701452` |
 | Woody Acosta | Sales Support | — | `162281129` |
 
-## V4.2 Messaging Baseline (for Modes 5 + 6)
+## Messaging Baseline (for Modes 5 + 6)
 
 When running Messaging Alignment (Mode 5) or PMF (Mode 6), score calls against this baseline. Deviations between what prospects say and this baseline are the whole analysis.
 
@@ -190,20 +197,31 @@ When running Messaging Alignment (Mode 5) or PMF (Mode 6), score calls against t
 | Colocation | INSTANT | MONETIZE | REACH |
 | AI Colocation | DETERMINISTIC | INSTANT | MONETIZE |
 | Neocloud | DETERMINISTIC | PRIVATE | INSTANT |
-| Network Operator | AUTOMATE | EXTEND REACH | MONETIZE |
+| Network Operator (Tier 1) | AUTOMATE (mixed-transport extension) | EXTEND REACH | MONETIZE |
+| Network Operator (Tier 2/3) | EXTEND REACH | MONETIZE | AUTOMATE |
 | MSP / Aggregator | AUTOMATE | EXTEND REACH | MONETIZE |
+| Enterprise (Multi-DC ICP) | REDUNDANT | SOVEREIGN | AUTOMATED |
 
-### Flagship DETERMINISTIC Proof Point (V4.2)
-Montauk Capital April 2026 thesis: 10-step agentic workflows compound best-effort hops into tens of seconds of cumulative lag. One-liner: **"Training tolerates retries. Inference doesn't. Agentic workflows tolerate neither."** Track: are neocloud and AI colo prospects echoing this? Are reps using it? When it's used, does it land?
+### Flagship DETERMINISTIC Proof Point
+Montauk Capital thesis: 10-step agentic workflows compound best-effort hops into tens of seconds of cumulative lag. One-liner: **"Training tolerates retries. Inference doesn't. Agentic workflows tolerate neither."** Track: are neocloud and AI colo prospects echoing this? Are reps using it? When it's used, does it land?
 
-### Key V4.2 Rules to Track on Calls
+### Earned-Problem Doctrine (Track on Calls)
+Canonical: `email-writing-rules.md` § "The Earned-Problem Doctrine." When scoring messaging alignment, flag whether reps are:
+- Naming problems the prospect is publicly discussing OR will predictably hit on their growth path → ✓ on-doctrine
+- Asserting how the prospect's business runs *today* without verified evidence (e.g., "your provisioning is slow") → ✗ off-doctrine; reframe to forward-state
+- Showing the easy-solution line as a hand-off ("that's the easy part to hand off") vs. as a rip-and-replace → former is on-doctrine
+
+Track adoption + resonance of forward-state framing vs. asserted current-state flaws. Forward-state framing should correlate with better call outcomes.
+
+### Key Rules to Track on Calls
 - **"Carrier infrastructure"** is the only category descriptor we should use. Flag if reps or prospects say IaaS, NaaS, platform, service.
-- **Sovereignty must be qualified.** Track whether reps say "sovereign by design," "sovereign routing," "sovereign middle-mile," "provably private" — or bare "sovereign" (which causes operator-sovereignty misread for neoclouds).
+- **Sovereignty must be qualified.** Track whether reps say "sovereign by design," "sovereign routing," "sovereign middle-mile," "provably private" — or bare "sovereign" (which causes operator-sovereignty misread for neoclouds + Enterprise).
 - **Neocloud operator-sovereignty banned.** If rep says "keep your customer, your portal, your invoice" to a neocloud, flag it. They ARE the customer.
-- **Neocloud DATA sovereignty allowed** (qualified: "sovereign by design," "paths you control").
-- **Scaling-wall angle** (V4.2) for 15+ site hyperscaler-heavy neoclouds whose growth depends on mid-market enterprise customers. Track adoption + resonance.
-- **"Federation" is internal language** in cold; live-only on April 2026 deck slides 8 and 13. Translate in cold outreach to "extend your reach." Track call usage.
-- **Cloud on-ramp deployment models** (V4.2 formalized): Private Wavelength, DIA, Partnership, Full Marketplace. Track which models prospects ask about.
+- **Enterprise operator-sovereignty banned.** If rep says "tenant," "meet-me room," "interconnection revenue," "build your own fabric to sell" to an Enterprise prospect, flag it. Enterprises are consuming the network, not selling it.
+- **Neocloud + Enterprise DATA sovereignty allowed** (qualified: "sovereign by design," "paths you control," "audit-ready paths").
+- **Scaling-wall angle** for 15+ site hyperscaler-heavy neoclouds whose growth depends on mid-market enterprise customers. Track adoption + resonance.
+- **"Federation" as a verb is banned in cold copy.** The noun phrase "Federated Private Networking" is the MaiaEdge category descriptor and is allowed in partner-facing collateral (101, cheatsheets, deck, branded PDFs). Track verb-vs-noun usage on calls.
+- **Cloud on-ramp deployment models:** Private Wavelength, DIA, Partnership, Full Marketplace. Track which models prospects ask about.
 - **Competitive sharpening:** Megaport/Equinix/Lumen now sell GPU compute directly. Track competitive mentions — are prospects raising this?
 - **Credibility anchors** (Acme Packet / 128 Technology / Andy Ory) are allowed in demos, proposals, objection handling, live presentations. Banned in cold email/LinkedIn. Track usage on live calls and whether they land.
 

@@ -1,13 +1,13 @@
-# Fiber Operator — Weekly Signal Catalog
+# Fiber Operator - Weekly Signal Catalog
 
 For use by the `weekly-signal-scan` skill. Read alongside `signal-framework.md` and `segments/fiber-operator.md`.
 
 HubSpot `customer_segment`: **Fiber Operator**
-Sub-segments: **Regional CLEC**, **Long Haul / Backbone**, **Dark Fiber Specialist**, **Co-op/consortium**, **Greenfield** (pre-operational)
+Sub-segments (6 active post-Phase 1.6 2026-05-13 + Phase 3 2026-05-14): **Regional CLEC - Fiber operator** (catch-all default), **Long Haul / Backbone - Fiber operator**, **Dark Fiber Specialist - Fiber Operator** (capital O), **Tier 2 National Wholesale - Fiber operator**, **Regional Cable Operator - Fiber operator**, **Municipal / Cooperative - Fiber operator** (renamed from `Co-op/consortium`). Note: the cross-segment `Greenfield` sub-segment pairs with `Data Center Colo Provider` OR `NeoCloud` parent only - it does NOT pair with `Fiber Operator`. See `context/account-tiering/sub-segment-qualification.md` for the full 30-value reference.
 
 ---
 
-## Tier A — Meeting-Ready Signals (1wk-30d window)
+## Tier A - Meeting-Ready Signals (1wk-30d window)
 
 ### F-A1. BEAD Subgrant Award (by state broadband office)
 
@@ -15,15 +15,15 @@ Sub-segments: **Regional CLEC**, **Long Haul / Backbone**, **Dark Fiber Speciali
 
 **Source:** State broadband office award pages (47+ active: Texas Comptroller, Michigan LEO, CA CPUC, PA Broadband Authority), NTIA BEAD Progress Dashboard, fiberbroadband.org news, Telecompetitor.
 
-**Pattern:** `"BEAD subgrant awarded" + entity name + route miles` — filter fiber tech selections > $5M.
+**Pattern:** `"BEAD subgrant awarded" + entity name + route miles` - filter fiber tech selections > $5M.
 
 **Freshness:** 1wk (Q2-Q4 2026 = peak award velocity). **Confidence:** HIGH.
 
-### F-A2. Regional Fiber PE Acquisition / Roll-up — Announcement OR Close (two-event firing added 2026-04-27)
+### F-A2. Regional Fiber PE Acquisition / Roll-up - Announcement OR Close (two-event firing added 2026-04-27)
 
-**Why:** PE-backed operators integrate 2-5 networks in year one — classic "fiber islands" problem. Two distinct windows of opportunity:
+**Why:** PE-backed operators integrate 2-5 networks in year one - classic "fiber islands" problem. Two distinct windows of opportunity:
 - **At announcement** (deal signed, not yet closed): 6-12 month pre-close runway. Sponsor's value-creation plan is being finalized; OSS/BSS unification and provisioning standardization are top-of-deck items. Engaging during this window means we're known when the operating plan locks.
-- **At close**: First 90-day priorities are OSS/BSS unification and provisioning standardization — Day 60-90 post-close is the integration sweet spot.
+- **At close**: First 90-day priorities are OSS/BSS unification and provisioning standardization - Day 60-90 post-close is the integration sweet spot.
 
 If both events fire on same fiber operator within 12 months → +6 stacking auto-elevation.
 
@@ -51,11 +51,11 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 **Source:** Fierce Network Modernization, Light Reading, MEF.net news, Capacity Media, LinkedIn company pages.
 
-**Pattern:** `("launches"|"unveils") + ("NaaS"|"on-demand portal"|"API-driven"|"self-service provisioning")`. Zayo DynamicLink is the benchmark — track copycat announcements explicitly.
+**Pattern:** `("launches"|"unveils") + ("NaaS"|"on-demand portal"|"API-driven"|"self-service provisioning")`. Zayo DynamicLink is the benchmark - track copycat announcements explicitly.
 
 **Freshness:** 30d. **Confidence:** HIGH.
 
-### F-A5. Executive Hire — VP Network Automation / Chief Network Officer / VP Wholesale / VP Carrier Relations
+### F-A5. Executive Hire - VP Network Automation / Chief Network Officer / VP Wholesale / VP Carrier Relations
 
 **Why:** 90-day modernization plan mandate. Budget, pain, vendor-shopping mode, approachable.
 
@@ -63,7 +63,7 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 **Pattern:** `"named"|"appointed"|"joins as" + (VP|SVP|Chief) + (Network Automation|Network Operations|Wholesale|Carrier Relations|Service Delivery|Transport|Interconnection)`
 
-**Freshness:** 30d post-hire (not day 1). **Confidence:** HIGH — single best relationship-entry signal.
+**Freshness:** 30d post-hire (not day 1). **Confidence:** HIGH - single best relationship-entry signal.
 
 ### F-A6. Dark Fiber IRU / Long-Haul Sold-Out Announcement
 
@@ -75,10 +75,10 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 **Freshness:** 30d. **Confidence:** HIGH.
 
-### F-A7. Merger / Acquisition / Consolidation — Announcement OR Close (broader than F-A2; two-event firing added 2026-04-27)
+### F-A7. Merger / Acquisition / Consolidation - Announcement OR Close (broader than F-A2; two-event firing added 2026-04-27)
 
-**Why:** User-flagged as explicit priority signal. Broader than `F-A2` (PE-only) — includes any fiber-operator merger, acquisition, divestiture, carve-out, or consolidation regardless of sponsor type. Two distinct windows:
-- **At announcement**: 6-12 month pre-close engagement runway. Buyer-side strategy team is scoping the post-close integration — being on their shortlist before close changes everything.
+**Why:** User-flagged as explicit priority signal. Broader than `F-A2` (PE-only) - includes any fiber-operator merger, acquisition, divestiture, carve-out, or consolidation regardless of sponsor type. Two distinct windows:
+- **At announcement**: 6-12 month pre-close engagement runway. Buyer-side strategy team is scoping the post-close integration - being on their shortlist before close changes everything.
 - **At close**: Island-unification pain is the operational reality on Day 1. Day 60-120 post-close is the sweet spot where new leadership can spend.
 
 If both events fire on same fiber operator within 12 months → +6 stacking auto-elevation.
@@ -103,7 +103,7 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 ### F-A9. Consortium / Federation / Co-op Announcement
 
-**Why:** Multi-operator consortia, co-op federations, or cross-operator partnership announcements are direct federation-readiness signals. Applies especially to the new `Co-op/consortium` sub-segment. Pattern matches the federation thesis MaiaEdge is ahead of carrier messaging on  -  these operators are already organized around it.
+**Why:** Multi-operator consortia, co-op federations, or cross-operator partnership announcements are direct federation-readiness signals. Applies especially to the `Municipal / Cooperative - Fiber operator` sub-segment (renamed from `Co-op/consortium` 2026-05-13). Pattern matches the federation thesis MaiaEdge is ahead of carrier messaging on  -  these operators are already organized around it.
 
 **Source:** Fierce Network, Telecompetitor, state broadband office press, NRECA (co-op coverage), NTIA middle-mile grant announcements, BroadbandCommunities.
 
@@ -113,7 +113,7 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 ---
 
-## Tier B — Strong Signals (30-90d window)
+## Tier B - Strong Signals (30-90d window)
 
 ### F-B1. 400G/800G Optical Upgrade Press
 
@@ -157,17 +157,17 @@ Pattern: Session titles matching automation/NaaS/provisioning/monetization; extr
 
 ---
 
-## Tier C — Directional Signals (60-90d window)
+## Tier C - Directional Signals (60-90d window)
 
 ### F-C1. FCC Pole-Attachment / Make-Ready Complaint Filings (RBAT docket)
 
-Operators filing pole disputes are watching BEAD timelines slip — forcing them back to monetizing existing middle-mile fiber.
+Operators filing pole disputes are watching BEAD timelines slip - forcing them back to monetizing existing middle-mile fiber.
 
 Source: FCC EDOCS/ECFS, docs.fcc.gov, FCC RBAT docket page, Davis Wright Tremaine Broadband Advisor.
 
 Pattern: Docket search `"pole attachment"` + complaint filings past 90d; filter attacher = fiber operator. Confidence: MED.
 
-### F-C2. State PSC / PUC Filings — Tariff Changes, CLEC Certifications
+### F-C2. State PSC / PUC Filings - Tariff Changes, CLEC Certifications
 
 CLEC certification in new state = multi-state expansion. Tariff filings for new wholesale products = productizing.
 
@@ -201,44 +201,49 @@ Pattern: `"middle-mile"|"carrier-grade NaaS"|"automated provisioning" + NAICS 51
 
 ---
 
-## Sources for This Segment (scrape weekly — Phase 2 expanded 2026-04-27)
+## Sources for This Segment (scrape weekly - pruned 2026-05-11)
 
 **Reliability tier in [brackets]** per `signal-framework.md` → Source Reliability + Validation Framework.
 
+**Search-anchor pattern is the canonical access method** - direct `web_fetch` is gated by URL-provenance on Cowork's runtime. Anchor each source via `web_search "{domain} {topic} {year}"` and read snippets from search results. Article URLs returned in search can then be fetched directly. Do NOT skip a documented source because direct fetch fails - use search anchoring.
+
 ### Robust tier
 
-1. Fierce Network + Fierce Telecom RSS — M&A tracker, hiring roundups, carrier-agreements, layoff tracker, **People column** [Robust]
-2. Light Reading RSS — optical, M&A Watch, People moves [Robust]
-3. Lightwave Online — 400G/800G, IRU, AI-DC fiber [Robust]
-4. Telecompetitor + BroadbandCommunities — regional operators, BEAD coverage [Robust]
-5. SEC EDGAR full-text — public fiber operators (Uniti, Lumen, Frontier, Consolidated, Cogent, Crown Castle, Zayo if public, Altice USA); 8-K Items 1.01 / 2.01 / 5.02; S-1 / S-3 / 424 (ABS prospectuses for F-A8) [Robust]
-6. NTIA BEAD Progress Dashboard — subgrant awards (broadbandusa.ntia.gov) [Robust]
-7. **Federal Register** — daily filings; BEAD allocation announcements + FCC RDOF + Affordable Connectivity Program [Robust]
-8. LinkedIn public posts + Greenhouse + Lever + Ashby — public job posts and exec posts at target operators (F-A5) [Robust]
-9. Apollo MCP — `apollo_organizations_enrich`, Job Postings filter, Job Changes, Funding events (covers AP-1 / AP-2 / AP-7) [Robust]
-10. **USTelecom** + **NTCA (Rural Broadband Association)** + **Fiber Broadband Association (FBA)** + **INCOMPAS** member press [Robust — trade groups publish reliable major-news releases]
-11. **Lit Communications + CommScope + Calix + Adtran customer-win press** — supplier announcements often reveal big customer ramps before operator press [Robust]
-12. PR Newswire / Business Wire — fiber + telecom feed + Appointments tag [Robust]
+1. Fierce Network + Fierce Telecom - M&A tracker, hiring roundups, carrier-agreements, layoff tracker, **People column** (fiercetelecom.com now redirects to fierce-network.com) [Robust]
+2. Light Reading - optical, M&A Watch, People moves [Robust]
+3. Lightwave Online - 400G/800G, IRU, AI-DC fiber [Robust]
+4. Telecompetitor + Broadband Communities (bbcmag.com) - regional operators, BEAD coverage [Robust]
+5. **StockTitan** (SEC 8-K mirror with parsed summaries - `stocktitan.net/sec-filings/{ticker}/`) - primary surrogate for SEC EDGAR direct queries on public fiber operators (LUMN, UNIT, FYBR, ZIYO if public, CCOI, CCS-Vistance, ATUS); covers 8-K Items 1.01 / 2.01 / 5.02 + S-1 / S-3 / 424 (ABS prospectuses for F-A8) [Robust]
+6. SEC EDGAR full-text via search-anchor - backup to StockTitan; preferred when StockTitan misses an issuer [Robust]
+7. NTIA BEAD Progress Dashboard - subgrant awards (broadbandusa.ntia.gov) [Robust]
+8. **Federal Register** - daily filings; BEAD allocation announcements + FCC RDOF + Affordable Connectivity Program [Robust]
+9. Greenhouse + Lever + Ashby public job boards at target operators (F-A5) [Robust]
+10. Apollo MCP - `apollo_organizations_enrich`, Job Postings filter, Job Changes, Funding events (covers AP-1 / AP-2 / AP-7) - enrichment tool used at this cadence [Robust]
+11. **USTelecom** + **NTCA (Rural Broadband Association)** + **Fiber Broadband Association (FBA)** + **INCOMPAS** member press [Robust - trade groups publish reliable major-news releases]
+12. **Vendor customer-win press: Calix + Adtran + CommScope / Vistance Networks (post-CCS-divestiture rebrand, Jan 2026 - verify) + Lit Communications** - supplier announcements often reveal big customer ramps before operator press [Robust]
+13. PR Newswire / Business Wire / GlobeNewswire - fiber + telecom feed + Appointments tag [Robust]
 
 ### Medium tier
 
-13. State broadband office press — 47+ state offices (prioritize TX, CA, NY, PA, MI, VA, FL, OH, NC, GA, AZ, WA, OR, CO, MN, WI, IL, OH, IN, NJ) [Medium where state has reliable RSS; Aspirational for states publishing irregularly]
-14. **BroadbandBreakfast** — DC-policy-focused fiber coverage [Medium]
-15. **Fiber Connect + ISE Expo + FTTH Conference + USTelecom-NTCA Summit** — agenda scrapers [Medium]
-16. Tele-Tech (telecom trade) [Medium]
+14. State broadband office press - 47+ state offices (prioritize TX, CA, NY, PA, MI, VA, FL, OH, NC, GA, AZ, WA, OR, CO, MN, WI, IL, IN, NJ) [Medium where state has reliable RSS; downgrade to Tier C if state publishes irregularly]
+15. **BroadbandBreakfast** - DC-policy-focused fiber coverage [Medium]
+16. **Fiber Connect + ISE Expo + FTTH Conference + USTelecom-NTCA Summit** - agenda scrapers (context only) [Medium]
 17. **WTA (Wireless ISP Association)** + **NCTA (cable + fiber trade)** press [Medium]
-18. Earnings transcripts — Seeking Alpha free tier; SEC 10-Q transcripts (more reliable) [Medium]
-19. ABS market data — **Fitch ABS reports** + **Moody's ABS reports** + **KBRA** + **Bloomberg Terminal ABS** public summaries (covers F-A8) [Medium]
+18. Earnings transcripts - **Seeking Alpha** (free-tier headlines) + **Motley Fool** + **MarketBeat** + SEC 10-Q transcripts (most reliable - accessed via StockTitan or search-anchor) [Medium]
+19. ABS market data - **Fitch ABS reports** + **Moody's ABS reports** + **KBRA** public summaries (covers F-A8) [Medium - paywalled but headlines surface]
 20. **USAC (Universal Service Administrative Co)** Connect America Fund news [Medium]
+21. SubmarineNetworks + TeleGeography free-tier - subsea + cross-border [Medium]
+22. FCC EDOCS - pole-attachment + RBAT docket [Medium - layout-fragile but reachable]
 
-### Aspirational tier (never standalone for major signals)
+### Excluded (do NOT scrape - cut 2026-05-11)
 
-21. FCC EDOCS — pole-attachment + RBAT docket [Aspirational — government data, scrape-able but layout-fragile]
-22. State PUC dockets — TX PUC, FL PSC, NY PSC, CA CPUC, others by request [Aspirational]
-23. SubmarineNetworks + TeleGeography — subsea + cross-border [Aspirational where free-tier; Medium for paid summaries]
-24. Wayback Machine month-over-month diffs of target operator websites — new BEAD project mentions, new POPs, new wholesale-tier products [Aspirational]
-25. Reddit r/networking + r/HomeNetworking — ground-truth on operator service quality [Aspirational]
-26. Glassdoor reviews — engineer reviews mentioning current network architecture / NaaS efforts at target operators [Aspirational]
+- State PUC dockets (TX PUC, FL PSC, NY PSC, CA CPUC) - fragmented per-state portals, low cadence. Material orders surface in trade press.
+- Wayback Machine month-over-month diffs of operator websites - theoretical, never actually run.
+- Reddit r/networking + r/HomeNetworking - low signal density, unstructured.
+- Glassdoor reviews - login-gated, low cadence.
+- Tele-Tech (telecom trade) - domain not consistently reachable; replaced by core trade-press list above.
+
+LinkedIn public posts retained for **named-account research only** (specific company pages), not market-wide discovery - moved to `signal-framework.md`.
 
 ### International (Tim Z's territory)
 
@@ -253,7 +258,7 @@ See `signal-framework.md` "International Source Stack" for the full regional sta
 
 | Signal | Validation rule for HIGH confidence |
 |---|---|
-| **F-A1 BEAD subgrant award** | NTIA portal entry [Robust] + state broadband office press [Medium]. NTIA alone for major awards → HIGH; trade press alone → MEDIUM (recipient may be sub-contractor not operator — apply contractor/operator filter) |
+| **F-A1 BEAD subgrant award** | NTIA portal entry [Robust] + state broadband office press [Medium]. NTIA alone for major awards → HIGH; trade press alone → MEDIUM (recipient may be sub-contractor not operator - apply contractor/operator filter) |
 | **F-A2 PE acquisition / roll-up (announcement)** | SEC 8-K Item 1.01 [Robust] + ≥1 trade press OR 2 independent trade press [Robust] |
 | **F-A2 PE acquisition / roll-up (close)** | SEC 8-K Item 2.01 [Robust] + ≥1 trade press OR 2 independent trade press [Robust] |
 | **F-A3 AI-DC fiber win** | Operator press [Robust] + counterparty named (anchor cloud / DC operator named); supplier-press from Lit Comm / CommScope often surfaces this first [Robust] |

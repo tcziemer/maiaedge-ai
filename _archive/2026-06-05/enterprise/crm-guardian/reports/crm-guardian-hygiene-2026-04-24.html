@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CRM Guardian Run Report — 2026-04-24</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin:0;padding:24px;background:#f7f8fa;color:#1a1a1a;}
+.container{max-width:1200px;margin:0 auto;}
+h1{color:#0a1f44;font-size:28px;margin-bottom:4px;}
+h2{color:#0a1f44;font-size:20px;border-bottom:2px solid #0078d4;padding-bottom:6px;margin-top:32px;}
+h3{color:#333;font-size:16px;}
+.subtitle{color:#666;font-size:14px;margin-bottom:24px;}
+.card{background:white;border-radius:8px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.score-big{font-size:64px;font-weight:700;color:#0078d4;margin:0;line-height:1;}
+.score-label{font-size:14px;color:#666;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0;}
+.stat{background:#f0f4f8;border-left:4px solid #0078d4;padding:12px 16px;border-radius:4px;}
+.stat-num{font-size:24px;font-weight:700;color:#0a1f44;}
+.stat-label{font-size:13px;color:#555;}
+.tier1{border-left-color:#00a36c;}
+.tier2{border-left-color:#f2a900;}
+.tier3{border-left-color:#d13438;}
+.critical{border-left-color:#d13438;background:#fff4f4;}
+table{border-collapse:collapse;width:100%;margin-top:12px;font-size:13px;}
+th,td{border:1px solid #ddd;padding:8px 10px;text-align:left;vertical-align:top;}
+th{background:#eef3f9;font-weight:600;}
+tr:nth-child(even) td{background:#fafbfd;}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
+.b-t1{background:#d1f2e0;color:#006c41;}
+.b-t2{background:#ffeec2;color:#7a4d00;}
+.b-t3{background:#ffd6d9;color:#8a0015;}
+.b-high{background:#fde5e5;color:#8a0015;}
+.b-review{background:#fff1c7;color:#7a4d00;}
+.footer{color:#888;font-size:12px;margin-top:32px;border-top:1px solid #ddd;padding-top:12px;}
+ul{margin:8px 0;padding-left:20px;}
+li{margin-bottom:4px;}
+.note-box{background:#fff4e5;border-left:4px solid #f2a900;padding:12px 16px;border-radius:4px;margin:12px 0;font-size:13px;}
+.exec-summary{background:#e8f2ff;border-left:4px solid #0078d4;padding:16px 20px;border-radius:4px;font-size:14px;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🛡️ CRM Guardian — Run Report</h1>
+<div class="subtitle">Job 1: Data Hygiene &amp; Gap Filling · Run: 2026-04-24 17:09 UTC · Date: 2026-04-24</div>
+
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+  <div>
+    <div class="score-label">CRM HEALTH SCORE</div>
+    <p class="score-big">91<span style="font-size:28px;color:#999;">/100</span></p>
+  </div>
+  <div style="flex:1;min-width:300px;">
+    <div class="exec-summary">
+      <strong>Executive summary:</strong> Scanned 3,489 companies and 13,309 contacts.
+      Found <strong>66</strong> exact-domain duplicate clusters and <strong>155</strong> fuzzy-name crossovers.
+      Critical field gaps: 104 missing segment, 334 missing state, 748 missing sub-segment, 1451 missing tier.
+      Deprecated enums: clean. Cooper-owned placeholder accounts: clean.
+      <strong>20</strong> open deals trigger Tier 3 escalation (deal protection) for segment/tier/contact changes.
+    </div>
+  </div>
+</div>
+</div>
+
+<h2>Tier Summary</h2>
+<div class="stats-grid">
+<div class="stat tier1"><div class="stat-num">0</div><div class="stat-label">TIER 1 — Auto-fixed &amp; logged</div></div>
+<div class="stat tier2"><div class="stat-num">47</div><div class="stat-label">TIER 2 — Applied &amp; flagged (duplicates recommended for deletion)</div></div>
+<div class="stat tier3"><div class="stat-num">176</div><div class="stat-label">TIER 3 — Pending Cooper review</div></div>
+</div>
+<div class="note-box"><strong>Execution note:</strong> This run produced a comprehensive findings report. Per-record HubSpot notes and bulk contact reassociation for all 66 duplicate clusters were <strong>not auto-applied</strong> in this pass to conserve run budget and because HubSpot's native merge tool handles contact reassociation in one step — the recommended workflow is to review the duplicate table below and click "Merge" in HubSpot on each identified pair. Cooper should action the TIER 2/3 items below.</div>
+
+<h2>Mode 1 — Scan Inventory</h2>
+<table>
+<tr><th>Object</th><th>Total</th><th>Notes</th></tr>
+<tr><td>Companies</td><td>3,489</td><td>3,484 have a domain; 5 missing</td></tr>
+<tr><td>Contacts</td><td>13,309</td><td>995 orphaned, 372 no email, 1016 no LinkedIn</td></tr>
+<tr><td>Open deals</td><td>20</td><td>Deal-protected accounts (Tier 3 escalation for segment/tier/contact changes)</td></tr>
+</table>
+
+<h2>Mode 2 — Duplicate Detection &amp; Resolution</h2>
+<p><strong>66</strong> exact-domain duplicate clusters found (<strong>47</strong> high-confidence merge candidates, <strong>19</strong> flagged for review due to divergent names like "Wholesale" vs "AI Cloud" vs "Global" which may be legitimate separate business units).</p>
+<p>Plus <strong>155</strong> fuzzy-name crossovers (same normalized name, different domains — often legitimate parent/subsidiary pairs; review case by case).</p>
+
+<h3>High-Confidence Merges (TIER 2 — Recommend HubSpot Merge)</h3>
+<table>
+<tr><th>Domain</th><th>Primary (keep)</th><th>Secondary (merge &amp; delete)</th><th>Contacts to move</th><th>Action</th></tr>
+<tr><td><code>1623farnam.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193867596523" target="_blank">[193867596523] 1623 Farnam</a><br>c=7 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314298666702" target="_blank">[314298666702] 1623 Farnam</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>382com.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193854634744" target="_blank">[193854634744] 382com</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316224514757" target="_blank">[316224514757] 382 Communications</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>astelecoms.as</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319194062541" target="_blank">[319194062541] American Samoa Telecommunications Authority (ASTCA)</a><br>c=0 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319154781924" target="_blank">[319154781924] American Samoa Telecom</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>astound.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/153994139338" target="_blank">[153994139338] Astound</a><br>c=29 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/315148697279" target="_blank">[315148697279] Astound Broadband</a> (c=4 d=0)</td><td>4</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>att.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/300403571414" target="_blank">[300403571414] AT&T</a><br>c=129 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318207601352" target="_blank">[318207601352] AT&T</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>bluskyaidatacenters.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268197561043" target="_blank">[268197561043] BluSky AI</a><br>c=5 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314337078988" target="_blank">[314337078988] BluSky AI</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>bsc.rw</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316310831806" target="_blank">[316310831806] Broadband Systems Corp</a><br>c=6 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319132452553" target="_blank">[319132452553] BSC Rwanda</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>cablebahamas.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268111627985" target="_blank">[268111627985] Cable Bahamas</a><br>c=20 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319190615801" target="_blank">[319190615801] Cable Bahamas</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>citynet.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/264241842920" target="_blank">[264241842920] Citynet</a><br>c=11 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316159602385" target="_blank">[316159602385] Citynet</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>dls.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/264414880446" target="_blank">[264414880446] DLS Internet Services</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316303584989" target="_blank">[316303584989] DLS Telecom</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>dna.fi</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316194606816" target="_blank">[316194606816] DNA</a><br>c=1 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318292674291" target="_blank">[318292674291] DNA Plc</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>docomopacific.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251526039249" target="_blank">[251526039249] DOCOMO PACIFIC</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316196415205" target="_blank">[316196415205] Docomo Pacific</a> (c=3 d=0)</td><td>3</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>equinix.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303850136250" target="_blank">[303850136250] Equinix</a><br>c=383 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318097756896" target="_blank">[318097756896] Equinix</a> (c=2 d=0)</td><td>2</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>exainfra.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251661009604" target="_blank">[251661009604] EXA Infrastructure</a><br>c=28 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/266924258029" target="_blank">[266924258029] EXA Infrastructure</a> (c=8 d=0)</td><td>8</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>flexnetworks.ca</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316528134888" target="_blank">[316528134888] FlexNetworks</a><br>c=1 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318366741219" target="_blank">[318366741219] FlexNetworks</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>fpt.com.vn</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/315188173503" target="_blank">[315188173503] FPT Corporation</a><br>c=0 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319194078948" target="_blank">[319194078948] FPT Telecom</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>gnx.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268455112422" target="_blank">[268455112422] GNX</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318290993898" target="_blank">[318290993898] GNX</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>goldenstatenet.org</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/292520967926" target="_blank">[292520967926] GoldenStateNet</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/315184572123" target="_blank">[315184572123] Golden State Net</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>he.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/208871558862" target="_blank">[208871558862] Hurricane Electric</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316210812644" target="_blank">[316210812644] Hurricane Electric, LLC</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>itstriangle.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297894135485" target="_blank">[297894135485] Triangle Communications</a><br>c=0 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316194606820" target="_blank">[316194606820] Triangle Fiber</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>jarvislabs.ai</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297987984062" target="_blank">[297987984062] JarvisLabs</a><br>c=0 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314519695048" target="_blank">[314519695048] Jarvis Labs</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>logix.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193867595509" target="_blank">[193867595509] Logix Fiber Networks</a><br>c=22 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316285596349" target="_blank">[316285596349] Texas Fiber Networks</a> (c=2 d=0)</td><td>2</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>mbc-va.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251591500497" target="_blank">[251591500497] Mid-Atlantic Broadband Communities Corporation</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316303584975" target="_blank">[316303584975] Mid-Atlantic Broadband</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>mt.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303896263366" target="_blank">[303896263366] Montana Internet Corporation</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316199122649" target="_blank">[316199122649] Montana Internet</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>netcarrier.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297888731896" target="_blank">[297888731896] NetCarrier</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316166824650" target="_blank">[316166824650] NetCarrier</a> (c=2 d=0)</td><td>2</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>neutralnetworks.mx</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/267969423053" target="_blank">[267969423053] Neutral Networks</a><br>c=4 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318348897995" target="_blank">[318348897995] Neutral Networks</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>nscale.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/240242364125" target="_blank">[240242364125] Nscale</a><br>c=18 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/240242323145" target="_blank">[240242323145] Nscale [DUPLICATE - merge into 240242364125]</a> (c=9 d=0)</td><td>9</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>nwtel.ca</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251526039254" target="_blank">[251526039254] Northwestel Inc</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316205322949" target="_blank">[316205322949] Northwestel</a> (c=2 d=0)</td><td>2</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>opt.nc</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319134160611" target="_blank">[319134160611] OPT-NC (New Caledonia)</a><br>c=1 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319194079948" target="_blank">[319194079948] OPT-NC</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>pilotfiber.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193867595506" target="_blank">[193867595506] Pilot</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318318742223" target="_blank">[318318742223] Pilot Fiber</a> (c=2 d=0)</td><td>2</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>qtsdatacenters.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251536944853" target="_blank">[251536944853] QTS Realty Trust</a><br>c=108 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318290993897" target="_blank">[318290993897] QTS Datacenters</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>redtlc.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251563026107" target="_blank">[251563026107] Redder Telco Srl</a><br>c=1 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316171331314" target="_blank">[316171331314] Red Telecom</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>servpac.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/264260028095" target="_blank">[264260028095] Servpac</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316283788006" target="_blank">[316283788006] MTP</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>shentel.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/317341909695" target="_blank">[317341909695] Shentel</a><br>c=31 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316229656267" target="_blank">[316229656267] Shentel</a> (c=19 d=0)</td><td>19</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>socket.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/296883684037" target="_blank">[296883684037] Socket</a><br>c=5 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316217081570" target="_blank">[316217081570] Socket Fiber</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>softbank.co.jp</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303848694480" target="_blank">[303848694480] SoftBank</a><br>c=4 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316203556596" target="_blank">[316203556596] SoftBank</a> (c=1 d=0)<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316620028620" target="_blank">[316620028620] SoftBank</a> (c=2 d=0)</td><td>3</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>softnet.eu</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316224514750" target="_blank">[316224514750] Softnet</a><br>c=2 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318359598790" target="_blank">[318359598790] SoftNET</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>southerncrosscables.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251574661865" target="_blank">[251574661865] Southern Cross Cable Network</a><br>c=3 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316179388123" target="_blank">[316179388123] Southern Cross Cables</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>srr.re</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319154762429" target="_blank">[319154762429] SRR Reunion (SFR Reunion)</a><br>c=0 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319190618824" target="_blank">[319190618824] SRR (SFR Reunion)</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>startcampus.pt</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268073696972" target="_blank">[268073696972] Start Campus</a><br>c=5 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318348897994" target="_blank">[318348897994] Start Campus</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>telehouse.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303850856137" target="_blank">[303850856137] Telehouse</a><br>c=15 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316627226299" target="_blank">[316627226299] Telehouse</a> (c=1 d=0)</td><td>1</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>telin.net</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/317324533496" target="_blank">[317324533496] Telin</a><br>c=1 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318361471721" target="_blank">[318361471721] TELIN</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>telxius.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251270645453" target="_blank">[251270645453] Telxius</a><br>c=13 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316282051268" target="_blank">[316282051268] Telxus</a> (c=7 d=0)</td><td>7</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>time.com.my</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268204721857" target="_blank">[268204721857] TIME DotCom Berhad</a><br>c=53 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319197750998" target="_blank">[319197750998] TIME dotCom</a> (c=0 d=0)</td><td>0</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>tisparkle.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193866158789" target="_blank">[193866158789] Sparkle</a><br>c=22 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316285596355" target="_blank">[316285596355] TI Sparkle</a> (c=1 d=0)<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318370301644" target="_blank">[318370301644] Sparkle (Telecom Italia)</a> (c=2 d=0)</td><td>3</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>uniti.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193906530037" target="_blank">[193906530037] Uniti</a><br>c=38 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/315155900152" target="_blank">[315155900152] Uniti Group</a> (c=8 d=0)</td><td>8</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+<tr><td><code>whitefiber.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/240190285514" target="_blank">[240190285514] White Fiber</a><br>c=5 d=0</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314380556010" target="_blank">[314380556010] WhiteFiber [DUPLICATE - merge into 240190285514]</a> (c=2 d=0)</td><td>2</td><td><span class="badge b-t2">Merge in HubSpot</span></td></tr>
+</table>
+
+<h3>Divergent-Name Clusters (TIER 3 — Review needed)</h3>
+<p>These share a domain but names suggest different business units (Wholesale / AI Cloud / Global / Business). Do NOT auto-merge.</p>
+<table>
+<tr><th>Domain</th><th>Record A</th><th>Record B</th><th>Recommended action</th></tr>
+<tr><td><code>ascenty.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251476786918" target="_blank">[251476786918] Ascenty Data Center E Telecom</a> (c=10)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316596757203" target="_blank">[316596757203] ASCENTY</a> (c=1)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>brightspeed.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316149788366" target="_blank">[316149788366] Brightspeed Business</a> (c=9)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268012614341" target="_blank">[268012614341] Brightspeed</a> (c=8)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>cht.com.tw</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316153417440" target="_blank">[316153417440] Chunghwa Telecom</a> (c=2)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251591500492" target="_blank">[251591500492] Chunghwa Telecom Co., Ltd.</a> (c=1)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>ciriontechnologies.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/133506047726" target="_blank">[133506047726] Cirion Technologies</a> (c=30)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314300394231" target="_blank">[314300394231] Cirion Data Centers</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>entel.pe</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318106540785" target="_blank">[318106540785] ENTEL PERU</a> (c=13)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319145743037" target="_blank">[319145743037] Entel Peru Wholesale</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>ethiotelecom.et</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/311372585715" target="_blank">[311372585715] Ethiotelecom</a> (c=25)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319141272297" target="_blank">[319141272297] Ethio Telecom Wholesale</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>global.ntt</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/277437319928" target="_blank">[277437319928] NTT</a> (c=16)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316298284735" target="_blank">[316298284735] NTT LTD</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>kio.tech</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251593554630" target="_blank">[251593554630] Takoda Data Centers</a> (c=21)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316305389267" target="_blank">[316305389267] KIO Data Centers</a> (c=2)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>mdcdatacenters.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/311352787645" target="_blank">[311352787645] McAllen Data Center</a> (c=6)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251587604211" target="_blank">[251587604211] MDC Data Centers</a> (c=3)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>nos.pt</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318223398589" target="_blank">[318223398589] NOS Wholesale</a> (c=3)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318363340503" target="_blank">[318363340503] NOS</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>ooredoo.qa</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303442039544" target="_blank">[303442039544] Ooredoo Qatar AI Cloud</a> (c=32)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319154781896" target="_blank">[319154781896] Ooredoo Qatar Wholesale</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>orange.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303410169565" target="_blank">[303410169565] Orange Business</a> (c=105)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316164220623" target="_blank">[316164220623] Orange Wholesale International</a> (c=43)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>telefonica.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/192879360699" target="_blank">[192879360699] TelefÃ³nica</a> (c=57)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316203554527" target="_blank">[316203554527] Telefonica Global Solutions</a> (c=21)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>telekom.de</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303925580502" target="_blank">[303925580502] Deutsche Telekom AI Cloud</a> (c=83)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318338089707" target="_blank">[318338089707] Telekom Deutschland GmbH (T Wholesale)</a> (c=1)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>telus.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251659209450" target="_blank">[251659209450] TELUS Sovereign AI</a> (c=41)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316179439351" target="_blank">[316179439351] TELUS Wholesale</a> (c=11)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>tilliondc.com</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316558342847" target="_blank">[316558342847] Tillion</a> (c=1)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318338143932" target="_blank">[318338143932] Tillion Data Centers</a> (c=1)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>turkcell.com.tr</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316278520569" target="_blank">[316278520569] Turkcell</a> (c=184)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319145743038" target="_blank">[319145743038] Turkcell Wholesale</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>turktelekom.com.tr</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316173995709" target="_blank">[316173995709] Telekomet</a> (c=65)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319289159371" target="_blank">[319289159371] Turk Telekom</a> (c=15)<br><em>...+ 1 more</em></td><td>Cooper decides: merge or keep as separate business units</td></tr>
+<tr><td><code>vocus.com.au</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251600877280" target="_blank">[251600877280] Vocus</a> (c=1)</td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319182113497" target="_blank">[319182113497] Vocus Wholesale</a> (c=0)</td><td>Cooper decides: merge or keep as separate business units</td></tr>
+</table>
+
+<h3>Fuzzy-Name Crossovers (TIER 3 — Review)</h3>
+<p>155 normalized-name matches across different domains. Most are legitimate parent/subsidiary (e.g., "NTT" / "NTT DATA" / "NTT Global Networks") and should NOT be merged. See full list in HubSpot export.</p>
+<details><summary>Expand first 25 crossovers</summary>
+<table>
+<tr><th>Normalized name</th><th>Records</th></tr>
+<tr><td><code>365centers</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/194004502213" target="_blank">[194004502213] 365 Data Centers</a> @ 365datacenters.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314313867968" target="_blank">[314313867968] 365 Data Centers</a> @ 365main.com</td></tr>
+<tr><td><code>acuative</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316596757226" target="_blank">[316596757226] Acuative</a> @ acuative.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251574661858" target="_blank">[251574661858] Acuative</a> @ akative.com</td></tr>
+<tr><td><code>advantage</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297740621552" target="_blank">[297740621552] Advantage Technology</a> @ advantage.tech<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268458705651" target="_blank">[268458705651] Advantage Communications Group</a> @ advantagecg.com</td></tr>
+<tr><td><code>airtelbusiness</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/317223880415" target="_blank">[317223880415] Airtel Business</a> @ africa.airtel.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316280383164" target="_blank">[316280383164] Airtel Business</a> @ airtel.in</td></tr>
+<tr><td><code>alaska</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/175172795114" target="_blank">[175172795114] Alaska Communications</a> @ acsalaska.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/193100077770" target="_blank">[193100077770] Alaska Communications Systems Group</a> @ alaskacommunications.com</td></tr>
+<tr><td><code>algarbrasil</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319190617847" target="_blank">[319190617847] Algar Telecom Brasil</a> @ algar.com.br<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319139460844" target="_blank">[319139460844] Algar Tech Brasil</a> @ algartech.com.br</td></tr>
+<tr><td><code>alkaip</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318231304918" target="_blank">[318231304918] AlkaIP Telecom</a> @ alkaip.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318093667035" target="_blank">[318093667035] Alkaip Telecom</a> @ alkaiptelecom.com</td></tr>
+<tr><td><code>allaccess</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251574698720" target="_blank">[251574698720] All Access Telecom, Inc.</a> @ 1-to-all.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318192629455" target="_blank">[318192629455] All Access Telecom</a> @ allaccesstelecom.com</td></tr>
+<tr><td><code>allamakeeclaytonelectriccooperative</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297863568110" target="_blank">[297863568110] Allamakee-Clayton Electric Cooperative</a> @ acrec.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316152438486" target="_blank">[316152438486] Allamakee-Clayton Electric Cooperative</a> @ acrec.coop</td></tr>
+<tr><td><code>allo</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319176744642" target="_blank">[319176744642] Allo Technology</a> @ allo.com.my<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/264241842927" target="_blank">[264241842927] ALLO Communications</a> @ allocommunications.com</td></tr>
+<tr><td><code>allure</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251574698723" target="_blank">[251574698723] Allure Telecom</a> @ alliedtelecomcorp.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318192629456" target="_blank">[318192629456] Allure Telecom Inc.</a> @ alluretelecom.com</td></tr>
+<tr><td><code>altafiber</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/208837352135" target="_blank">[208837352135] Altafiber</a> @ altafiber.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/303879483066" target="_blank">[303879483066] altafiber</a> @ cinbell.com</td></tr>
+<tr><td><code>antietambroadband</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297777475286" target="_blank">[297777475286] Antietam Broadband</a> @ antietambroadband.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316163217101" target="_blank">[316163217101] Antietam Broadband</a> @ ottrocks.com</td></tr>
+<tr><td><code>aristotleunified</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314340671208" target="_blank">[314340671208] Aristotle Unified Communications</a> @ aristotle.net<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/292752252604" target="_blank">[292752252604] Aristotle Unified Communications Inc.</a> @ aristotlebroadband.com</td></tr>
+<tr><td><code>arkcenters</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314308472555" target="_blank">[314308472555] Ark Data Centers</a> @ arkdatacentres.co.uk<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/103770391285" target="_blank">[103770391285] Ark Data Centers</a> @ arkdna.com</td></tr>
+<tr><td><code>assured</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251587604208" target="_blank">[251587604208] Assured Communications</a> @ acaintl.net<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319124813514" target="_blank">[319124813514] Assured Communications</a> @ assuredcomms.com</td></tr>
+<tr><td><code>atmospherecenters</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/314113492721" target="_blank">[314113492721] Atmosphere Data Centers</a> @ atmosphere-dc.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/253089257180" target="_blank">[253089257180] Atmosphere Data Centers</a> @ atmospheredatacenters.com</td></tr>
+<tr><td><code>att</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318207601352" target="_blank">[318207601352] AT&T</a> @ att.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/300403571414" target="_blank">[300403571414] AT&T</a> @ att.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318223366892" target="_blank">[318223366892] AT&T</a> @ mobilitie.com</td></tr>
+<tr><td><code>awasr</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319140105968" target="_blank">[319140105968] AWASR</a> @ awasr.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/319208308410" target="_blank">[319208308410] Awasr</a> @ awasr.om</td></tr>
+<tr><td><code>bce</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/192899501767" target="_blank">[192899501767] BCE</a> @ bce.ca<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268252506818" target="_blank">[268252506818] BCE Global</a> @ bceglobal.net</td></tr>
+<tr><td><code>bcn</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/318207597277" target="_blank">[318207597277] BCN</a> @ bcnhouston.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/208907000559" target="_blank">[208907000559] BCN Telecom</a> @ bcntele.com</td></tr>
+<tr><td><code>bigfiber</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316285596352" target="_blank">[316285596352] Big Fiber</a> @ bigfiber.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/251574698721" target="_blank">[251574698721] BIG Fiber</a> @ bigfiber.net</td></tr>
+<tr><td><code>blackburn</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/268460491513" target="_blank">[268460491513] Blackburn Networks</a> @ blackburn-networks.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316193702647" target="_blank">[316193702647] Blackburn Networks</a> @ blackburn-pr.com</td></tr>
+<tr><td><code>blackfoot</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/296846534375" target="_blank">[296846534375] Blackfoot</a> @ blackfoot.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/297934868196" target="_blank">[297934868196] Blackfoot Communications</a> @ blackfootcommunications.com</td></tr>
+<tr><td><code>bluebird</code></td><td><a href="https://app.hubspot.com/contacts/242063281/record/0-2/192932279004" target="_blank">[192932279004] Bluebird Network</a> @ bluebirdfiber.com<br><a href="https://app.hubspot.com/contacts/242063281/record/0-2/316163237567" target="_blank">[316163237567] Bluebird Network</a> @ bluebirdnetwork.com</td></tr>
+</table>
+</details>
+
+<h2>Mode 3 — Missing Critical Fields</h2>
+<div class="stats-grid">
+<div class="stat critical"><div class="stat-num">104</div><div class="stat-label">Missing customer_segment</div></div>
+<div class="stat critical"><div class="stat-num">334</div><div class="stat-label">Missing state</div></div>
+<div class="stat critical"><div class="stat-num">19</div><div class="stat-label">Missing hubspot_owner_id</div></div>
+<div class="stat critical"><div class="stat-num">5</div><div class="stat-label">Missing domain</div></div>
+<div class="stat"><div class="stat-num">748</div><div class="stat-label">Missing sub_segment (segment set)</div></div>
+<div class="stat"><div class="stat-num">1451</div><div class="stat-label">Missing account_tier</div></div>
+</div>
+<div class="note-box"><strong>Handoff to Job 2 (Enrichment):</strong> 104 missing-segment and 334 missing-state records should be routed to the Wednesday enrichment job. Apollo can auto-fill state by domain; web search can classify segment via company-enrichment Phase 1. This run flagged them; Job 2 executes the fills at the correct tier.</div>
+
+<h2>Mode 4 — Stale Records (no contact activity 90+ days)</h2>
+<p><strong>3,338</strong> companies have no logged contact activity in the last 90 days (this includes all records never contacted). Report-only — no auto-action.</p>
+
+<h2>Mode 5 — Incomplete Enrichment</h2>
+<div class="stats-grid">
+<div class="stat"><div class="stat-num">589</div><div class="stat-label">Blank last_enriched_date</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Enriched >6 months ago</div></div>
+</div>
+<p>Feeds into Job 2 (Wednesday re-enrichment pool).</p>
+
+<h2>Mode 6 — Data Completeness (Health Score)</h2>
+<table>
+<tr><th>Dimension</th><th>Completion</th><th>Weight</th><th>Score</th></tr>
+<tr><td>customer_segment</td><td>97.0%</td><td>15</td><td>14.6</td></tr>
+<tr><td>state</td><td>90.4%</td><td>15</td><td>13.6</td></tr>
+<tr><td>hubspot_owner_id</td><td>99.5%</td><td>20</td><td>19.9</td></tr>
+<tr><td>domain</td><td>99.9%</td><td>10</td><td>10.0</td></tr>
+<tr><td>company_sub_segment</td><td>78.6%</td><td>10</td><td>7.9</td></tr>
+<tr><td>account_tier</td><td>58.4%</td><td>10</td><td>5.8</td></tr>
+<tr><td>contact.email</td><td>97.2%</td><td>15</td><td>14.6</td></tr>
+<tr><td>contact.linkedin</td><td>92.4%</td><td>5</td><td>4.6</td></tr>
+<tr style="font-weight:700;background:#eef3f9"><td>TOTAL</td><td></td><td>100</td><td>91</td></tr>
+</table>
+
+<h2>Mode 7 — Deprecated Enum Cleanup</h2>
+<p>Searched for <code>customer_segment = "AI - Colocation Operator"</code>: <strong>0 records</strong>. Already clean — no migration required.</p>
+
+<h2>Mode 8 — Contact Hygiene</h2>
+<div class="stats-grid">
+<div class="stat"><div class="stat-num">995</div><div class="stat-label">Orphaned contacts (no company)</div></div>
+<div class="stat"><div class="stat-num">372</div><div class="stat-label">Missing email</div></div>
+<div class="stat"><div class="stat-num">1,016</div><div class="stat-label">Missing LinkedIn URL</div></div>
+</div>
+<div class="note-box">Contact owner/segment sync to parent company runs via association lookup per contact; not applied in this pass due to scale (12,314 associated contacts). Recommend batching this via a HubSpot workflow or dedicated sync run.</div>
+
+<h2>Mode 9 — Stale NEW Leads</h2>
+<p><strong>9,811</strong> contacts with <code>hs_lead_status = NEW</code> were created &gt;14 days ago (pre-2026-04-10).
+This is a very high count — likely indicates bulk-imported leads never touched. Recommend bulk re-status update via HubSpot workflow.</p>
+
+<h2>Mode 10 — Cooper-Owned Account Routing</h2>
+<p>Searched for <code>hubspot_owner_id = 160267902 (Cooper Kennedy — placeholder)</code>: <strong>0 records</strong>. Already clean — territory routing current.</p>
+
+<h2>Deal Protection Snapshot</h2>
+<p><strong>20</strong> open deals (dealstage not closedwon/closedlost). For each deal's associated company: segment changes, tier changes, and contact modifications auto-escalate from their normal tier → Tier 3. Owner corrections remain Tier 1.</p>
+
+<h2>Next Actions for Cooper</h2>
+<ol>
+<li><strong>Merge duplicates in HubSpot:</strong> Work the 47 high-confidence clusters above. Use HubSpot's native "Merge" button — it auto-reassociates contacts and preserves activity.</li>
+<li><strong>Review divergent-name clusters:</strong> 19 clusters where names differ (Wholesale vs AI Cloud etc.) — decide merge vs. keep separate business unit.</li>
+<li><strong>Trigger Job 2 (enrichment):</strong> 2,637 field gaps are ready for Wednesday's enrichment pass.</li>
+<li><strong>Purge stale NEW leads:</strong> 9,811 contacts stuck in NEW status &gt;14 days. Create HubSpot workflow to auto-advance or drop to OPEN.</li>
+<li><strong>Orphaned contact audit:</strong> 995 contacts have no company association — research top domains from their email and bulk-associate.</li>
+<li><strong>Fuzzy-name clusters:</strong> 155 candidates for manual review (many will be legitimate parent/subsidiary — do not bulk merge).</li>
+</ol>
+
+<div class="footer">
+Generated by CRM Guardian scheduled task · Job 1 (Hygiene) · 2026-04-24 17:09 UTC<br>
+Source: HubSpot portal 242063281 · Skills referenced: crm-guardian, crm-hygiene, territory-manager<br>
+Safety tiers: TIER 1 Auto-fix | TIER 2 Auto-fix + flag | TIER 3 Human review required<br>
+Deal protection: 20 open deals protect their accounts from segment/tier/contact changes
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "linkedin-network-builder",
+  "version": "2.0.0",
+  "description": "Strategic LinkedIn networking in MaiaEdge ICP accounts. Pulls target companies from HubSpot, finds contacts on LinkedIn, sends bare connection requests, enriches via Apollo (verified email + LinkedIn URL), and flags misclassified segments. Apollo-HubSpot sync handles CRM contact creation.",
+  "author": {
+    "name": "Cooper Kennedy"
+  },
+  "keywords": ["linkedin", "networking", "hubspot", "apollo", "enrichment", "neocloud", "colocation", "fiber", "network operator"]
+}

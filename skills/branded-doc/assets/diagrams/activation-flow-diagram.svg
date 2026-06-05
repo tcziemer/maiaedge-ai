@@ -38,7 +38,7 @@
     <text x="120" y="62" font-size="26" font-weight="800" fill="#1A1A1A" text-anchor="middle">03</text>
     <text x="190" y="42" font-size="13" letter-spacing="3" font-weight="700" fill="#FF9400">DISCOVERY</text>
     <text x="190" y="72" font-size="22" font-weight="700" fill="#1A1A1A">PCE discovers available paths &amp; transport</text>
-    <text x="190" y="98" font-size="14" fill="#4A4A4A">Fiber, lit waves, DIA, partner networks — auto-detected and inventoried.</text>
+    <text x="190" y="98" font-size="14" fill="#4A4A4A">Fiber, lit waves, DIA, partner networks - auto-detected and inventoried.</text>
   </g>
 
   <!-- STEP 4 -->
@@ -65,7 +65,7 @@
     <text x="120" y="62" font-size="26" font-weight="800" fill="#1A1A1A" text-anchor="middle">06</text>
     <text x="190" y="42" font-size="13" letter-spacing="3" font-weight="700" fill="#FF9400">PROGRAM</text>
     <text x="190" y="72" font-size="22" font-weight="700" fill="#1A1A1A">PCE programs the PBCs</text>
-    <text x="190" y="98" font-size="14" fill="#4A4A4A">Instructions only — no local config, no routing protocols, no truck rolls.</text>
+    <text x="190" y="98" font-size="14" fill="#4A4A4A">Instructions only - no local config, no routing protocols, no truck rolls.</text>
   </g>
 
   <!-- STEP 7 — gold-filled circle, this is when traffic flows -->

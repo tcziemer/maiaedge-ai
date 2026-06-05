@@ -20,7 +20,7 @@ Produce visually rich, audience-specific reports from HubSpot call data. This sk
 ### Reference Files
 
 - **Owner IDs and territory mapping:** See `territory-model.md`
-- **Segment HubSpot values:** See `hubspot-values.md` (note: MSP/Aggregator = `Enterprise` in HubSpot)
+- **Segment HubSpot values:** See `hubspot-values.md`
 - **Call properties, query patterns, pagination, property sets:** See `call-schema.md`
 - **Use case taxonomy:** See `use-case-taxonomy.md`
 
@@ -70,6 +70,7 @@ Inspired by Stripe/Linear aesthetics. Muted, professional, built for executive s
 | 3 | `#8B5CF6` | Neocloud (violet) |
 | 4 | `#14B8A6` | Network Op (teal) |
 | 5 | `#F59E0B` | MSP (amber) |
+| 6 | `#EC4899` | Enterprise (pink - added 2026-05-11 with Enterprise ICP promotion) |
 
 Segment-to-color mapping is fixed. Same segment = same color across every chart in every report.
 

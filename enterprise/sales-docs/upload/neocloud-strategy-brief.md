@@ -174,14 +174,13 @@ End customers don't deploy MaiaEdge. They benefit through their neocloud or Datu
 
 ### Coverage by Sub-Segment
 
-| Sub-Segment | Our List | Est. TAM | Coverage |
+| Sub-Segment (HubSpot `company_sub_segment` where canonical) | Our List | Est. TAM | Coverage |
 |---|---|---|---|
-| Tier 1 Inference | 15-20 | 20-25 | 75-85% |
-| Large-Scale GPU Cloud | 15-20 | 25-30 | 60-70% |
-| Crypto-to-AI Pivots | 11 | 20-25 | ~50% |
-| Serverless / Inference-as-a-Service | 10-12 | 25-35 | 35-45% |
-| GPU Marketplaces / Aggregators | 8-10 | 15-20 | ~50% |
-| Sovereign AI / Telco GPU Clouds | 8-10 | 30-40 | ~25% |
+| `Tier 1 Inference - Neocloud` | 15-20 | 20-25 | 75-85% |
+| `Large Scale GPU - Neocloud` | 15-20 | 25-30 | 60-70% |
+| `Crypto to AI - Neoclouds` | 11 | 20-25 | ~50% |
+| `AI Infrastructure providers - Neocloud` (incl. serverless / inference startups, GPU marketplaces) | 18-22 | 40-55 | 35-45% |
+| `Sovereign AI Clouds - Neocloud` (incl. telco GPU clouds) | 8-10 | 30-40 | ~25% |
 | AI Chip + Cloud | 8-10 | 10-15 | ~65% |
 | Regional / Emerging Market | 20-25 | 50-70 | ~35% |
 

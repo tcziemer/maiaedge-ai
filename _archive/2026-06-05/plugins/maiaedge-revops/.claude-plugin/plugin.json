@@ -1,0 +1,8 @@
+{
+  "name": "maiaedge-revops",
+  "version": "1.2.0",
+  "description": "MaiaEdge RevOps toolkit. CRM hygiene, pipeline analytics, territory management, and contact discovery for HubSpot.",
+  "author": {
+    "name": "MaiaEdge"
+  }
+}

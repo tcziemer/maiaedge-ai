@@ -57,6 +57,21 @@ The right contacts to find depend on the customer segment. Here's who matters at
 | **Technical Champion** | VP Engineering, Director of Network Services | Evaluates integration with their platform |
 | **Business Sponsor** | VP Sales, VP Partnerships, GM | Cares about adding value to their service portfolio |
 
+### Enterprise (Multi-DC ICP)
+
+HubSpot `customer_segment = "Enterprise-CustomerSegment"`. Four sub-segments: Financial Services, Healthcare Systems, Retail and Distribution, Outsourcing Services. Promoted to ICP 2026-05-11.
+
+| Persona | Typical Titles | Role in Deal |
+|---------|---------------|--------------|
+| **Technical Champion** | VP Network Infrastructure, Director Network Engineering, VP Networks, Director WAN Engineering, Principal Network Engineer, Network Architect, Lead Network Architect | **Primary technical champion.** Owns inter-DC paths, dark fiber redundancy, BGP / MPLS burden, Type 2 visibility gaps. Runs technical evaluation and POC. |
+| **Business Sponsor** | CIO, Chief Information Officer, CTO (at retail/healthcare) | Cares about unified private connectivity across all sites, AI infrastructure access, cloud cost. Budget visibility. |
+| **Economic Buyer** | CIO (most enterprises) OR CTO (at retail/healthcare) | Approves spend, signs the order form. Same person as Business Sponsor at most enterprises. |
+| **Security Stakeholder** | CSO, CISO, Chief Information Security Officer, VP Cybersecurity | Cares about line-rate AES-256-GCM encryption, hop-by-hop visibility, audit-ready policy enforcement, data sovereignty. Regulatory framing (HIPAA / PCI-DSS / SOX / GDPR / HITRUST) lands here. |
+| **Compliance** (regulated verticals only) | Chief Compliance Officer, VP Risk, VP Audit, Compliance Director | Owns regulatory exposure (HIPAA at healthcare, PCI-DSS at retail/financial, SOX at financials, GDPR at multi-national, client-specific at BPO). May be involved in audit-trail / policy-control conversations. |
+| **Procurement** | Director of Procurement, Vendor Management, Strategic Sourcing | Handles MSAs, multi-year terms. Active later in the cycle, not early. |
+
+**Persona-gap detection rules for Enterprise:** An Enterprise account is "well-covered" when at least **Technical Champion + Business Sponsor (CIO)** are mapped in HubSpot. For regulated verticals (`Financial Services - Enterprise` / `Healthcare Systems - Enterprise` / `Outsourcing Services - Enterprise` when handling regulated client data), "well-covered" raises to **Technical Champion + Business Sponsor + Security Stakeholder (CSO/CISO)**. Flag a gap if only one role is in HubSpot. Coverage of all 6 personas is rarely needed before Stage 3 deal progression.
+
 ---
 
 ## Task Routing
@@ -146,7 +161,7 @@ ACTION:
 
 **Steps:**
 
-1. Pull target companies (Tier 1/2 from HubSpot where `account_tier` = `tier_1` or `tier_2`)
+1. Pull target companies (Tier 1/2 from HubSpot where `account_tier` = `tier_1` or `tier_2`). Also pull `signal_heat` for each (Title Case enum: `Hot` / `Warm` / `Cool` / `Cold`). **Rank companies for persona-fill priority by `signal_heat` first, then `account_tier`**: `Hot` before `Warm` before `Cool` before `Cold`; within each heat bucket, Tier 1 before Tier 2. Apollo budget hits the highest-intent accounts first. `Cold` Tier 1 accounts still get filled, they just queue behind `Hot` accounts.
 2. For each company, run Mode 1 (HubSpot contact audit) to identify persona gaps
 3. For each persona gap:
 
@@ -166,8 +181,8 @@ ACTION:
         - `hubspot_owner_id` = company owner (inherited)
         - `customer_segment` = company segment (inherited)
         - `company` = company name
-        - `hs_marketable_status` = `"false"` (non-marketing — MANDATORY default for every auto-created contact; prevents silent inflation of the paid marketing contact tier)
-      - **Apollo data only** (no LinkedIn URL from Apollo): Auto-create with Apollo data + `hs_marketable_status = "false"`. Flag in the daily email report as `LinkedIn unverified — Apollo data only` so Cooper can spot-check. No HubSpot note is created.
+        - `hs_marketable_status` = `"false"` (non-marketing - MANDATORY default for every auto-created contact; prevents silent inflation of the paid marketing contact tier)
+      - **Apollo data only** (no LinkedIn URL from Apollo): Auto-create with Apollo data + `hs_marketable_status = "false"`. Flag in the daily email report as `LinkedIn unverified - Apollo data only` so Cooper can spot-check. No HubSpot note is created.
       - **LinkedIn shows different company:** Skip this candidate. Try next Apollo result.
       - **When running under CRM Guardian:** The Guardian's safety tier system and deal protection rule apply. See crm-guardian skill for the authoritative tier definitions.
 
@@ -240,7 +255,7 @@ SUMMARY: [N] companies audited, [N] gaps found, [N] auto-created (LinkedIn), [N]
       - **LinkedIn validate replacement:** If Apollo returns a LinkedIn URL for the replacement, `web_fetch` to confirm company match + get accurate title
       - **Opt-out / suppression check (MANDATORY):** Before creating the replacement, apply the same suppression check as Mode 3 step 5. Check the proposed email against HubSpot for any existing record with `hs_email_optout = true`, `hs_email_hard_bounced = true`, `flagged_for_deletion = true`, or suppression notes. Also check Apollo's own opt-out status on the returned email. If suppressed: do not create, log as skipped candidate, flag the persona gap for the rep instead.
       - If validated replacement found AND no suppression hits → auto-create in HubSpot with LinkedIn-corrected title. Set `hs_marketable_status = "false"` (non-marketing default for every auto-created contact).
-      - If replacement found but no LinkedIn URL → auto-create with Apollo data + `hs_marketable_status = "false"`. Flag in the run report as `LinkedIn unverified — Apollo data only`.
+      - If replacement found but no LinkedIn URL → auto-create with Apollo data + `hs_marketable_status = "false"`. Flag in the run report as `LinkedIn unverified - Apollo data only`.
       - If no replacement found → flag for rep:
         ```
         ACTION NEEDED: [Company]  -  [contact name] departed, [Persona] gap

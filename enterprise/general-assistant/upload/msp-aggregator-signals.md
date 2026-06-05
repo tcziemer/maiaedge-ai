@@ -1,9 +1,9 @@
-# MSP / Aggregator — Weekly Signal Catalog
+# MSP / Aggregator - Weekly Signal Catalog
 
 For use by the `weekly-signal-scan` skill. Read alongside `signal-framework.md` and `segments/msp-aggregator.md`.
 
-HubSpot `customer_segment`: **Enterprise** (legacy naming — this is telecom/network aggregators, NOT IT MSPs).
-Sub-segments: **Telecom Aggregator - MSP**, **Managed Network Services - Network Operator**.
+HubSpot `customer_segment`: **MSP/Aggregator** (telecom/network aggregators, NOT IT MSPs).
+Sub-segments (5 active, post-Phase 1.6 2026-05-13): **Telecom Aggregator - MSP**, **Managed Network Services - MSP** (`- MSP` suffix; legacy `- Network Operator` suffix archived), **TSD Technology Services Distributor - MSP**, **Master Agent - MSP**, **Cloud + Telecom Hybrid MSP - MSP**. See `context/account-tiering/sub-segment-qualification.md` for full reference.
 
 **Two subtypes in scope per [msp-aggregator.md](../segments/msp-aggregator.md):**
 1. US TSD / TA channel (Telarus / AppDirect / Upstack / AVANT / Bridgepointe / Sandler / ScanSource Intelisys, plus TA agencies).
@@ -13,9 +13,9 @@ Sub-segments: **Telecom Aggregator - MSP**, **Managed Network Services - Network
 
 ---
 
-## Tier A — Meeting-Ready Signals (1wk-30d window)
+## Tier A - Meeting-Ready Signals (1wk-30d window)
 
-### M-A1. PE Acquisition / TSD Roll-up — Announcement OR Close (two-event firing added 2026-04-27)
+### M-A1. PE Acquisition / TSD Roll-up - Announcement OR Close (two-event firing added 2026-04-27)
 
 **Why:** Two distinct windows of opportunity:
 - **At announcement** (deal signed, not yet closed): 6-12 month pre-close runway. Acquirer's integration team is scoping multi-carrier reconciliation requirements; orchestration platform decisions are being made.
@@ -53,7 +53,7 @@ If both events fire on same TSD within 12 months → +6 stacking auto-elevation.
 
 ### M-A4. "AI Practice" / "AI Solutions" Launch
 
-**Why:** 58% of buyers want AI help; only 13% of Technology Advisors feel ready. AI-practice press releases almost always lack the network story (AI workloads need deterministic paths). Opener: "You launched an AI practice — how's the network layer?"
+**Why:** 58% of buyers want AI help; only 13% of Technology Advisors feel ready. AI-practice press releases almost always lack the network story (AI workloads need deterministic paths). Opener: "You launched an AI practice - how's the network layer?"
 
 **Source:** Channel Futures, ChannelE2E, Dialpad/UJET partner award releases, TSIA "State of Channel Partnerships 2026," Mindmatrix PartnerTechX.
 
@@ -61,7 +61,7 @@ If both events fire on same TSD within 12 months → +6 stacking auto-elevation.
 
 **Freshness:** 30d. **Confidence:** HIGH.
 
-### M-A5. Executive Hires — CRO / VP Solutions Engineering / VP Product / VP AI Practice
+### M-A5. Executive Hires - CRO / VP Solutions Engineering / VP Product / VP AI Practice
 
 **Why:** 90-day "new strategy" window. SEs and Product VPs feel orchestration pain first.
 
@@ -93,7 +93,7 @@ If both events fire on same TSD within 12 months → +6 stacking auto-elevation.
 
 ---
 
-## Tier B — Strong Signals (30-90d window)
+## Tier B - Strong Signals (30-90d window)
 
 ### M-B1. Layoffs / Restructuring at Major Aggregators
 
@@ -119,9 +119,9 @@ Source: ScanSource / Intelisys investor pages, AppDirect press, Telarus news, Ch
 
 Pattern: `"new portal"|"marketplace"|"quote engine"|"partner platform"|"self-serve" + TSD`. Confidence: MED-HIGH.
 
-### M-B4. Public-Company Earnings — Agent Business / Automation / Convergence Mentions
+### M-B4. Public-Company Earnings - Agent Business / Automation / Convergence Mentions
 
-CFO language previews 6-month priorities. ScanSource Q2 FY26 flagged "converged communication sales team" unifying Intelisys with hardware — orchestration pain signaled from top.
+CFO language previews 6-month priorities. ScanSource Q2 FY26 flagged "converged communication sales team" unifying Intelisys with hardware - orchestration pain signaled from top.
 
 Source: Motley Fool transcripts, investor pages for ScanSource (SCSC), TD SYNNEX (TDSYN), Comcast Business (CMCSA).
 
@@ -137,7 +137,7 @@ Pattern: `"selected by"|"chosen by"|"wins"|"new customer" + SLA/multi-site/enter
 
 ---
 
-## Tier C — Context Signals (30-90d window)
+## Tier C - Context Signals (30-90d window)
 
 ### M-C1. Channel Conference Speaking Slots
 
@@ -173,7 +173,7 @@ Pattern: `"healthcare practice"|"financial services practice"|"manufacturing ver
 
 ### M-C5. Multi-Carrier Outage / SLA Finger-Pointing Public Incident
 
-Perfect timing — aggregator in crisis-comms with enterprise customer; reminded they can't prove performance across carriers. Reach out 7-14 days post.
+Perfect timing - aggregator in crisis-comms with enterprise customer; reminded they can't prove performance across carriers. Reach out 7-14 days post.
 
 Source: Downdetector spikes, Reddit r/networking + r/sysadmin, ThousandEyes Internet Report, Telecom Ramblings outage coverage.
 
@@ -181,49 +181,55 @@ Pattern: Carrier + `"outage"|"degraded"` with aggregator customer reports. Confi
 
 ---
 
-## Sources for This Segment (scrape weekly — Phase 2 expanded 2026-04-27)
+## Sources for This Segment (scrape weekly - pruned 2026-05-11)
 
 **Reliability tier in [brackets]** per `signal-framework.md` → Source Reliability + Validation Framework.
 
+**Search-anchor pattern is the canonical access method** - direct `web_fetch` is gated by URL-provenance on Cowork's runtime. Anchor each source via `web_search "{domain} {topic} {year}"` and read snippets from search results. Article URLs returned in search can then be fetched directly. Do NOT skip a documented source because direct fetch fails - use search anchoring.
+
+**Segment-thinness caveat:** MSP/Aggregator is the lowest-velocity segment and the thinnest source-list of the five. CRN's content has been drifting toward award-press syndication (Channel Chiefs / Women of the Channel) rather than M&A/buildout news, so weight Channel Futures + ChannelE2E + TSD direct IR over CRN. If MSP yield consistently falls below the 25-floor, promote the Tier B EMEA channel press (Channel Partner Insight UK + IT Europa + ChannelBiz DACH) into the weekly scrape rotation.
+
 ### Robust tier
 
-1. Channel Futures RSS — M&A, hirings, carrier agreements, layoffs, vertical tags + **Channel Futures Hiring Roundup column** [Robust]
-2. ChannelE2E RSS + **ChannelE2E People column** [Robust]
-3. TSD press pages — Telarus, AppDirect, Sandler, AVANT, Bridgepointe, Upstack, **AppSmart, Intelisys (ScanSource subsidiary), Telarus, ScanSource agent business** (weekly diff) [Robust]
-4. **CRN** — channel + agent + TSD news [Robust]
-5. FCC Daily Digest RSS [Robust]
-6. SEC EDGAR — public TSDs and parents: ScanSource (SCSC), TD SYNNEX (SNX), Comcast Business (CMCSA), public agent operators; 8-K Items 1.01 / 2.01 / 5.02 [Robust]
-7. **ScanSource + TD SYNNEX investor relations + earnings calls** — quarterly deeper read; SCSC/SNX 10-Q transcripts [Robust]
-8. PR Newswire / Business Wire — Channel + Telecom feed + Appointments tag [Robust]
-9. LinkedIn public posts at target TSDs + agents [Robust]
-10. Apollo MCP — `apollo_organizations_enrich`, Job Postings, Job Changes, Funding events [Robust]
-11. **Megaport + Console Connect + PacketFabric partner-add announcements** — when an aggregator partners with a NaaS platform, that's M-A3 (new carrier added) [Robust]
+1. Channel Futures - M&A, hirings, carrier agreements, layoffs, vertical tags + **Channel Futures Hiring Roundup column** [Robust]
+2. ChannelE2E + **ChannelE2E People column** [Robust]
+3. TSD press pages - Telarus, AppDirect, Sandler Partners, AVANT, Bridgepointe, Upstack, **AppSmart, Intelisys (ScanSource subsidiary), ScanSource agent business** (weekly diff) [Robust]
+4. **CRN** - channel + agent + TSD news; weight lower than Channel Futures + ChannelE2E given award-press drift [Robust with caveat]
+5. **StockTitan** (SEC 8-K mirror with parsed summaries - `stocktitan.net/sec-filings/{ticker}/`) - primary surrogate for SEC EDGAR on public TSDs and parents (SCSC ScanSource, SNX TD SYNNEX, CMCSA Comcast Business); covers 8-K Items 1.01 / 2.01 / 5.02 [Robust]
+6. SEC EDGAR full-text via search-anchor - backup to StockTitan [Robust]
+7. FCC Daily Digest [Robust]
+8. **ScanSource + TD SYNNEX investor relations + earnings calls** - quarterly deeper read; SCSC/SNX 10-Q transcripts via StockTitan or search-anchor [Robust]
+9. PR Newswire + Business Wire + GlobeNewswire - Channel + Telecom feed + Appointments tag [Robust]
+10. Apollo MCP - `apollo_organizations_enrich`, Job Postings, Job Changes, Funding events - enrichment tool [Robust]
+11. **Megaport + Console Connect + PacketFabric partner-add announcements** - when an aggregator partners with a NaaS platform, that's M-A3 (new carrier added) [Robust]
+12. Greenhouse + Lever + Ashby public job boards at target TSDs (covers M-A6 platform replatforming signal) [Robust]
 
 ### Medium tier
 
-12. **CompTIA news** + research (channel research org) [Medium]
-13. **Channel Partner Insight** (UK) + **IT Europa** + **ChannelBiz (DACH)** [Medium]
-14. FedRAMP Marketplace new-authorization feed [Medium]
-15. **Telecompetitor channel section** [Medium]
-16. CP Expo / MSP Summit / NexGen agenda scrapers + **Channel Partners Conference & Expo** [Medium]
-17. **Gartner SD-WAN Magic Quadrant** + **Forrester Wave** reports — paywalled, but headlines on TSD / aggregator coverage [Medium]
-18. **Frost & Sullivan TSD analysis** [Medium]
-19. **TBI Connect (UK)** + **Channel Asia** [Medium]
-20. Greenhouse / Lever / Ashby — public job posts at target TSDs (covers M-A6 platform replatforming signal) [Robust]
+13. **CompTIA / GTIA** (CompTIA community spun out as GTIA in 2025; both names in use depending on topic) - channel research org [Medium]
+14. **Channel Partner Insight (UK)** + **IT Europa** + **ChannelBiz (DACH)** - promote into weekly rotation if domestic yield falls below 25-floor [Medium → Tier B fallback]
+15. FedRAMP Marketplace new-authorization feed [Medium]
+16. **Telecompetitor channel section** [Medium]
+17. CP Expo / MSP Summit / NexGen + **Channel Partners Conference & Expo** agenda scrapers (context only) [Medium]
+18. **Gartner SD-WAN Magic Quadrant** + **Forrester Wave** reports - paywalled, but headlines surface in search snippets [Medium]
+19. **Frost & Sullivan TSD analysis** - paywalled, headlines only [Medium]
+20. **TBI Connect (UK)** + **Channel Asia** [Medium]
 
-### Aspirational tier (never standalone for major signals)
+### Excluded (do NOT scrape - cut 2026-05-11)
 
-21. Wayback Machine month-over-month diffs of TSD line-card / partner pages — carriers added/removed (covers M-A2 + M-A3 most reliably; many TSDs don't issue press for line-card changes) [Aspirational — but high yield where it works]
-22. Reddit r/sysadmin + r/MSP + r/networking — ground-truth on TSD service quality and carrier coverage [Aspirational]
-23. Glassdoor reviews — engineer reviews mentioning TSD platform / orchestration tooling [Aspirational]
-24. TheOrg.com free tier — org-structure diffs at TSDs [Aspirational]
-25. **Public Slack channels** — Channel-related Slack workspaces (Cloud Native, NetDev) where TSD employees discuss platform challenges [Aspirational]
+- Wayback Machine month-over-month diffs of TSD line-card / partner pages - high theoretical value but never actually run; replaced by direct TSD press page scrape (#3) which covers carrier-add events when TSDs publish them. For unpublished line-card changes, accept the visibility gap.
+- Reddit r/sysadmin + r/MSP + r/networking - low signal density, IT-MSP-heavy bias confuses segment classification.
+- Glassdoor reviews - login-gated.
+- TheOrg.com free tier - Aspirational, never produced a signal.
+- Public Slack channels (Cloud Native, NetDev) - not actually accessible.
 
-### International (Tim Z's territory — thinnest of the 5 segments internationally)
+LinkedIn public posts retained for **named-account research only** (specific company pages), not market-wide discovery - moved to `signal-framework.md`.
+
+### International (Tim Z's territory - thinnest of the 5 segments internationally)
 
 MSP / Aggregator ICP is predominantly a US channel concept. Europe has adjacent plays but coverage is sparse.
 
-- **EMEA:** Channel Partner Insight (UK) [Medium], IT Europa [Medium], ChannelBiz (DACH) [Medium]. Low cadence — flag only significant moves. Target companies: Expereo, Masergy legacy assets, Wavenet, ITancia.
+- **EMEA:** Channel Partner Insight (UK) [Medium], IT Europa [Medium], ChannelBiz (DACH) [Medium]. Low cadence - flag only significant moves. Target companies: Expereo, Masergy legacy assets, Wavenet, ITancia.
 - **APAC / LATAM / MENA:** Minimal ICP fit. Deprioritize unless Tim Z flags specific regional aggregator activity.
 
 ### Validation patterns per Tier A signal
@@ -233,23 +239,23 @@ MSP / Aggregator ICP is predominantly a US channel concept. Europe has adjacent 
 | **M-A1 PE acquisition / TSD roll-up (announcement OR close)** | SEC 8-K [Robust] (Item 1.01 announcement / Item 2.01 close) + ≥1 trade press OR 2 independent trade press [Robust] |
 | **M-A2 carrier dropped from line card** | TSD press release [Robust] OR Wayback Machine line-card diff [Aspirational] confirmed by ≥1 trade press [Robust]. Wayback alone → MEDIUM |
 | **M-A3 new carrier added to portfolio** | TSD press release [Robust] OR partner platform's announcement (Megaport / Console Connect / PacketFabric) [Robust]. Either alone scores HIGH |
-| **M-A4 AI Practice / AI Solutions launch** | TSD press release [Robust] + (TSD careers page hiring AI practice roles [Robust] OR partner award press [Medium]). **MUST pass IT MSP Test** — if the announcement is from a helpdesk/cybersecurity MSP not a telecom aggregator, EXCLUDE per signal-framework False Positive Patterns |
+| **M-A4 AI Practice / AI Solutions launch** | TSD press release [Robust] + (TSD careers page hiring AI practice roles [Robust] OR partner award press [Medium]). **MUST pass IT MSP Test** - if the announcement is from a helpdesk/cybersecurity MSP not a telecom aggregator, EXCLUDE per signal-framework False Positive Patterns |
 | **M-A5 CRO / VP SE / VP Product / VP AI Practice hire** | LinkedIn profile change [Robust] + (PR Newswire Appointments [Robust] OR Channel Futures hiring roundup [Robust] OR ChannelE2E People [Robust]) |
 | **M-A6 TSD platform replatforming (job-post signal)** | Greenhouse/Lever/Ashby [Robust] showing 2+ concurrent platform/supplier-strategy/developer-experience roles at target TSD. LinkedIn-public-only → MEDIUM |
 | **M-A7 ScanSource / TD SYNNEX recurring-revenue disclosure** | SEC 10-Q transcript [Robust] OR investor day press [Robust] alone scores HIGH; Seeking Alpha summary alone → MEDIUM |
 
 ---
 
-### International Sources (Tim Z's territory — thinnest of the 5 segments internationally)
+### International Sources (Tim Z's territory - thinnest of the 5 segments internationally)
 
 MSP / Aggregator ICP is predominantly a US channel concept. Europe has adjacent plays but coverage is sparse.
 
-- **EMEA:** Channel Partner Insight (UK), IT Europa, ChannelBiz (DACH). Low cadence — flag only significant moves. Target companies: Expereo, Masergy legacy assets, Wavenet, ITancia.
+- **EMEA:** Channel Partner Insight (UK), IT Europa, ChannelBiz (DACH). Low cadence - flag only significant moves. Target companies: Expereo, Masergy legacy assets, Wavenet, ITancia.
 - **APAC / LATAM / MENA:** Minimal ICP fit. Deprioritize unless Tim Z flags specific regional aggregator activity.
 
 ## Priority Routing
 
-Signals M-A1, M-A2, M-A4, M-A5, M-A6, M-A7, M-B4 are highest-conversion — route to rep within 48 hours of detection. Channel moves fast; the 48-hour window matters more here than any other segment.
+Signals M-A1, M-A2, M-A4, M-A5, M-A6, M-A7, M-B4 are highest-conversion - route to rep within 48 hours of detection. Channel moves fast; the 48-hour window matters more here than any other segment.
 
 ---
 

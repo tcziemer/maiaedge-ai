@@ -119,15 +119,15 @@
 
 ## Sub-Segment Cheat Codes
 
-**Large-Scale GPU NeoClouds (Nebius, Lambda, Crusoe):** Lead with deterministic paths between facilities for distributed training. The "recompute tax" angle. Network jitter during a 40TB training run causes session failures (~$4,800/GPU/month rebuilding KV cache).
+**`Large Scale GPU - Neocloud` (Nebius, Lambda, Crusoe):** Lead with deterministic paths between facilities for distributed training. The "recompute tax" angle. Network jitter during a 40TB training run causes session failures (~$4,800/GPU/month rebuilding KV cache).
 
-**Tier 1 Inference Providers (Together.ai, Groq, Cirrascale, DeepInfra):** Lead with real-time telemetry to diagnose latency. Sub-100ms token latency SLAs need observable paths. White-label customer portal for enterprise self-service.
+**`Tier 1 Inference - Neocloud` (Together.ai, Groq, Cirrascale, DeepInfra):** Lead with real-time telemetry to diagnose latency. Sub-100ms token latency SLAs need observable paths. White-label customer portal for enterprise self-service.
 
-**AI Infrastructure Providers (Vultr, DigitalOcean, Fluidstack, Modal, RunPod):** Lead with multi-cloud bridge. Deterministic L2 paths to AWS, Azure, GCP. White-label portal so they own the customer relationship. High-margin port arbitrage on shared 100G ports.
+**`AI Infrastructure providers - Neocloud` (Vultr, DigitalOcean, Fluidstack, Modal, RunPod):** Lead with multi-cloud bridge. Deterministic L2 paths to AWS, Azure, GCP. White-label portal so they own the customer relationship. High-margin port arbitrage on shared 100G ports.
 
-**Sovereign AI Clouds (Nscale, Firmus, E2E, Yotta):** Lead with policy-based sovereign routing. Jurisdictional audit trails. In-country PCE deployment. The compute is multi-tenant; the connectivity isn't. That's the gap.
+**`Sovereign AI Clouds - Neocloud` (Nscale, Firmus, E2E, Yotta):** Lead with policy-based sovereign routing. Jurisdictional audit trails. In-country PCE deployment. The compute is multi-tenant; the connectivity isn't. That's the gap.
 
-**Crypto-to-AI (IREN, Core Scientific, Northern Data, TeraWulf):** Lead with the uptime trap. Tier 1 tenants won't sign leases without Tier 3+ network reliability. MaiaEdge upgrades a power-rich facility from "mining shed" to "AI-grade data center."
+**`Crypto to AI - Neoclouds` (IREN, Core Scientific, Northern Data, TeraWulf - operator AND landlord):** Lead with the uptime trap. Tier 1 tenants won't sign leases without Tier 3+ network reliability. MaiaEdge upgrades a power-rich facility from "mining shed" to "AI-grade data center."
 
 ---
 

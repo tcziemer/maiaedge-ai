@@ -39,6 +39,7 @@
 | Neocloud | DETERMINISTIC | PRIVATE | INSTANT |
 | Network Operator | AUTOMATE | EXTEND REACH | MONETIZE |
 | MSP / Aggregator | AUTOMATE | EXTEND REACH | MONETIZE |
+| Enterprise (Multi-DC ICP) | REDUNDANT | SOVEREIGN | AUTOMATED |
 
 ---
 
@@ -276,7 +277,13 @@ Tier 1/2 carrier OR national/global scale? â†’ YES â†’ NETWORK OPERATO
  â†“ NO
 Aggregates 3+ carriers + minimal infrastructure? â†’ YES â†’ MSP/AGGREGATOR
  â†“ NO
-Uses internally + doesn't sell services? â†’ YES â†’ ENTERPRISE (Low Priority)
+Multi-DC corporate network ($1B+ rev, 3+ DCs, in-house net eng) in
+  financial services / healthcare systems / retail and distribution / outsourcing services?
+ â†’ YES â†’ ENTERPRISE (Multi-DC ICP) â€” assign one of the four `company_sub_segment` values
+ â†“ NO
+Uses internally + doesn't sell services + outside the four Enterprise verticals
+  (manufacturing, energy/utilities, logistics, government, SaaS-only, sub-$1B, single-DC)?
+ â†’ YES â†’ EXCLUDE (Watch List or out of scope)
  â†“ NO
 Pure reseller/VAR/consultancy? â†’ YES â†’ EXCLUDE - LOW VALUE
 END
@@ -292,6 +299,7 @@ END
 | **Fiber Operator** | "lit fiber services," "fiber to the premise," "facilities-based broadband," "fiber network operator," "dark fiber provider," "wholesale fiber," "regional fiber operator," "route miles" |
 | **Network Operator** | "Tier 1 carrier," "Tier 2 carrier," "national backbone," "global carrier," "incumbent carrier," "managed connectivity services," "multi-domain orchestration" |
 | **MSP/Aggregator** | "carrier broker," "white label provider," "B2B marketplace," "carrier aggregator," "network aggregator" |
+| **Enterprise (Multi-DC ICP)** | Vertical keywords: "multi-DC retailer," "national retailer," "hospital system network," "investment bank network engineering," "BPO delivery centers," "VP Network Infrastructure," "Director Network Engineering," "Principal Network Engineer," "NOC presence." Company-name triggers: Meijer, Kroger, Walmart, Target, Lowe's, Home Depot, JPMorgan Chase, Goldman Sachs, BNY Mellon, HCA Healthcare, Ascension, CommonSpirit, Kaiser, Cognizant, Genpact, Concentrix, TaskUs, Wipro BPS, TCS BPS, Accenture Operations |
 
 ### 1.3 Segment Attributes Reference
 
@@ -303,6 +311,7 @@ END
 | **Fiber Operator** | Physical fiber, optical transport (measured in route miles) | Dark fiber (IRUs), lit wavelengths, metro Ethernet, wholesale | 500-100,000 route miles, $25M-$500M revenue | Arvig, Ocean Networks, Crown Castle Fiber, Fatbeam |
 | **Network Operator** | National/global network, mix of owned fiber and leased capacity | Enterprise connectivity, MPLS, wavelengths, IP transit | 50+ PoPs, 500+ employees, national/global | NTT, IENTC, AT&T, Verizon, Lumen |
 | **MSP/Aggregator** | Contracts (not infrastructure), aggregate 3+ carriers | Margin on resold connectivity, managed services fees | 50-500 employees, $20M-$500M revenue | INDATEL, 11:11 Systems, Granite |
+| **Enterprise (Multi-DC ICP)** | Multi-DC corporate network, in-house engineering team, direct carrier contracts. Four verticals only: Financial Services, Healthcare Systems, Retail and Distribution, Outsourcing Services. | Internal cost center â€” enterprise IS the customer (no commercial layer to resell to) | $1B+ revenue, 3+ DCs, 10-100+ network engineers. Tier 2 ceiling. | Meijer (anchor), JPMorgan Chase, HCA Healthcare, Cognizant |
 
 ---
 
@@ -602,13 +611,13 @@ The core message applies to all neoclouds. Sub-segment determines which priority
 
 > **Note:** AI Data Centers (e.g., IREN, Core Scientific, Northern Data Group, TeraWulf) are covered under Section 3.2 Colocation Operators  -  AI Infrastructure. Cross-reference when a prospect straddles both segments.
 
-| Sub-Segment | Examples | Lead With | Networking Sophistication |
+| HubSpot `company_sub_segment` | Examples | Lead With | Networking Sophistication |
 |-------------|----------|-----------|--------------------------|
-| **Large-Scale GPU NeoClouds** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers  -  highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable  -  some have networking staff |
-| **Tier 1 Inference Providers** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate  -  may have some network awareness |
-| **AI Infrastructure Providers** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud)  -  note Megaport/Latitude.sh competitive threat | Minimal  -  developer-first |
-| **Sovereign AI Clouds** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (GDPR, EU AI Act, DPDP, CLOUD Act) | Variable  -  compliance-driven |
-| **Crypto-to-AI Pivots** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (learning networking as they go  -  legacy crypto infra wasn't built for AI traffic) | Minimal  -  learning curve |
+| **`Large Scale GPU - Neocloud`** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers  -  highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable  -  some have networking staff |
+| **`Tier 1 Inference - Neocloud`** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate  -  may have some network awareness |
+| **`AI Infrastructure providers - Neocloud`** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud)  -  note Megaport/Latitude.sh competitive threat | Minimal  -  developer-first |
+| **`Sovereign AI Clouds - Neocloud`** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (GDPR, EU AI Act, DPDP, CLOUD Act) | Variable  -  compliance-driven |
+| **`Crypto to AI - Neoclouds`** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (learning networking as they go  -  legacy crypto infra wasn't built for AI traffic) | Minimal  -  learning curve |
 
 #### Pain Points by Persona
 
@@ -929,6 +938,87 @@ Network Operators require research to determine which messaging track to use. Th
 
 ---
 
+### 3.7 ENTERPRISE (MULTI-DC ICP)
+
+**HubSpot:** `customer_segment = "Enterprise-CustomerSegment"` (display "Enterprise"). Four sub-segments only: `Financial Services - Enterprise`, `Healthcare Systems - Enterprise`, `Retail and Distribution - Enterprise`, `Outsourcing Services - Enterprise`. Promoted to ICP May 2026; priority 5 (lowest ICP); Tier 2 ceiling. Anchor: Meijer.
+
+#### Three-Pillar Framework: REDUNDANT | SOVEREIGN | AUTOMATED
+
+| Pillar | What It Means for Enterprise | Lead Angle |
+|---|---|---|
+| **REDUNDANT** | Dark fiber redundancy between DCs that is actually redundant. PBCs at each end + diverse fibers + automated failover. No routing protocols, no BGP convergence. | "Your DR strategy assumes the dark fiber is redundant. It is not." |
+| **SOVEREIGN** | Cloud on-ramps under enterprise control. Audit-ready policy enforcement for HIPAA / PCI-DSS / SOX / GDPR. Hop-by-hop visibility including Type 2. | "Compliance asked you to prove where the data went. With MaiaEdge, the path is the audit artifact." |
+| **AUTOMATED** | New DC, DR site, or cloud region online in days, not months. PBC ships, attaches to fabric, paths live the same day. Operable by the team they already have. | "Every new DC is a six-month networking project. That is the bottleneck on growth." |
+
+#### Critical Sovereignty Distinction
+
+**Sovereignty framing for Enterprise pairs with DATA sovereignty + regulatory audit language, NOT operator sovereignty.** Enterprises ARE the customer - they are not selling connectivity back to anyone. Banned language from operator segments:
+- "Keep your customer," "your portal, your invoice," "build your own fabric to sell" - operator monetization, does NOT apply.
+- "Monetize stranded fiber," "wholesale activation," "extend reach to new markets" - carrier economics, does NOT apply.
+- "Tenant," "meet-me room," "cross-connect," "interconnection revenue" - colo language, does NOT apply.
+
+**USE instead:** "your network," "your fabric," "your team owns the SLA," "audit-ready paths," "data sovereignty," "regulatory compliance," "deterministic paths," "your control."
+
+#### Primary Hook
+
+**Lead with the problem in their language.** Examples by sub-segment:
+- **Retail/Distribution:** "Your dark fiber between corporate DCs is one cut from an outage."
+- **Financial Services:** "Your inter-DC paths are best-effort. Compliance is asking you to prove the path. You can't."
+- **Healthcare Systems:** "Your EHR DC redundancy depends on a single fiber pair. PHI rides that path."
+- **Outsourcing Services:** "Your clients' regulated data rides your delivery-center network. Their regulators are asking where it went."
+
+Do NOT lead with technical detail (SSR / HAsync / 100GigE specifics) - that's for the design call, not the cold email.
+
+#### Pain Points by Persona
+
+| Persona | Pain Points |
+|---------|-------------|
+| **VP Network Infrastructure / Director Network Engineering** | "Our DR strategy assumes the dark fiber is redundant. It is not." "Every new DC is a six-month networking project." "We do not have the headcount to run BGP across the WAN." |
+| **CIO** | "We are multi-cloud and the network team is being asked to make that feel like one cloud." "AI is pulling traffic in directions we did not design for." "Megaport works until it does not. We need our own answer." |
+| **CSO / CISO** | "Compliance asked us to prove where the data went. We could not." "BGP best-effort cannot prove the path." |
+| **Network Architect / Principal Network Engineer** | "HAsync and HAfabric on the SSRs share a single dark fiber pair. That is not redundancy." "Type 2 is a black hole." "Cloud on-ramp is owned by Megaport. Our team owns the SLA." |
+
+#### Value Props by Persona
+
+| Persona | Value Proposition | Impact Line |
+|---|---|---|
+| **VP Network Infrastructure / Director Network Eng** | Productized fabric across all sites. Deterministic dark fiber redundancy without standing up routing protocols. Operable by the team they already have. | "Redundancy that actually is. Without standing up BGP across the WAN." |
+| **CIO** | One fabric across AWS, Azure, GCP. Same provisioning, same visibility, same control. Cloud on-ramps under your brand. | "Multi-cloud feels like one cloud to your team and your auditors." |
+| **CSO / CISO** | Policy-based path control with jurisdictional audit trails. Line-rate AES-256-GCM encryption by default. Hop-by-hop path visibility. | "Compliance can prove the path. The path itself is the audit artifact." |
+| **Network Architect / Principal Network Engineer** | PBCs at each end of dark fiber, diverse fibers, automated failover. No routing protocols to manage. Hop-by-hop telemetry including Type 2. | "Deterministic paths between data centers. No BGP convergence, no protocol complexity." |
+
+#### Discovery Questions (Enterprise)
+
+| Question | Good Answer (Buying Signal) | Red Flag |
+|----------|---------------------------|----------|
+| "How is your dark fiber between DCs redundant today?" | "One pair, one path, no automated failover" | "Diverse fibers + automated failover already in place" |
+| "When you need AWS Direct Connect or Azure ExpressRoute, who handles it?" | "Megaport / Equinix Fabric. Their portal, their SLA" | "We have our own direct connect built out" |
+| "How do you prove to compliance / audit where data went between DCs?" | "We can't, beyond BGP routing tables" | "Full path-level audit reporting in place" |
+| "How long does a new DC or DR site take to come online?" | "Months. Carrier coordination, BGP, multiple vendors" | "Days, no networking bottleneck" |
+| "Where is the network team hiring?" | "VP Network / Director Network Eng / Principal Network Engineer / NOC" | "We outsource everything to [single MSP]" - disqualifier signal |
+| "Direct carrier contracts or all through a reseller / MSP?" | "Direct with multiple Tier 1s" | "Everything goes through [reseller / MSP]" - disqualifier signal |
+
+#### Objection Handling (Enterprise)
+
+| Objection | Rebuttal |
+|-----------|----------|
+| **"We already have SD-WAN"** | SD-WAN handles branch and user. Different layer. MaiaEdge handles inter-DC and cloud on-ramp - the layer your SD-WAN cannot see. The two run together. Your SSR / 128T / Versa overlay is exactly the kind of session-smart routing that benefits from a deterministic, observable underlay. |
+| **"Megaport works fine"** | Megaport works until your team owns the SLA. The portal is theirs, the support is theirs, the cloud direct-connect bill is theirs. MaiaEdge integrates with Megaport / Equinix Fabric via API where it makes commercial sense - but the customer relationship and the SLA stay with your team. |
+| **"We just signed a long carrier agreement"** | Use it. MaiaEdge sits over the existing transport. The carrier keeps providing the circuit; MaiaEdge gives your team determinism, visibility, and control across whatever transport is underneath. |
+| **"AWS Direct Connect handles our cloud paths"** | Per cloud, yes. But Direct Connect / ExpressRoute / Cloud Interconnect don't federate across clouds, and they don't solve the dark fiber redundancy problem at all. MaiaEdge is the cross-cloud, cross-DC layer that does. |
+| **"We could build this ourselves"** | Network team scope is growing faster than headcount. 18-24 months to build, then ongoing maintenance with carrier-grade SDN talent you can't hire fast enough. MaiaEdge is productized fabric - operable by the team you already have. |
+
+#### Cold Outreach Rules (Enterprise-Specific)
+
+- **No em dashes** in customer-facing content.
+- **No credibility anchors** (Acme Packet, 128 Technology, Andy Ory) in cold emails or LinkedIn - reserve for discovery calls, follow-ups, demos.
+- **"Federation" is internal language** - never in customer-facing copy.
+- **No sign-offs in emails** - signatures are auto-appended.
+- **Pair speed with data sovereignty / audit language**, NOT "your team provisions in minutes" (that's operator framing).
+- HIPAA / PCI-DSS / SOX / GDPR / HITRUST mentions are fine in Enterprise emails where the buyer's persona implies regulatory exposure.
+
+---
+
 ## SECTION 4: EMAIL & LINKEDIN PATTERNS
 
 **Important:** The patterns below are structural guides, not fill-in-the-blank templates. Every email must be driven by a company-specific angle -- the ONE thing happening at that company right now that creates an urgent, MaiaEdge-relevant problem. These patterns show the arc of a good email; the angle provides the substance.
@@ -956,9 +1046,9 @@ Network Operators require research to determine which messaging track to use. Th
 
 **No credibility anchors in cold outreach.** Team credibility (Acme Packet, 128 Technology, Andy Ory, Abilash Menon's heritage) is reserved for live conversations, demos, proposals, and objection handling only. The April 2026 deck uses these on slides 3 and 16  -  that is live-presentation context, not cold outreach.
 
-âœ… OK (LIVE ONLY — presentations, demos, proposals, objection handling): "Same team that built Acme Packet and 128 Technology"
+âœ… OK (LIVE ONLY - presentations, demos, proposals, objection handling): "Same team that built Acme Packet and 128 Technology"
 
-NOT OK IN COLD EMAIL / LINKEDIN: "Same team that built Acme Packet and 128 Technology" — team anchors are banned in cold outreach under the April 2026 rule.
+NOT OK IN COLD EMAIL / LINKEDIN: "Same team that built Acme Packet and 128 Technology" - team anchors are banned in cold outreach under the April 2026 rule.
 âŒ NOT OK: "Arvig is seeing great results with MaiaEdge"
 
 ---
@@ -983,7 +1073,7 @@ Sequence length is set centrally and applies across every segment. Canonical sou
 |-------|-------|-----------|
 | Email 1 | 70-85 words | 1-3 paragraphs, proper spacing, first name on its own line. Value bridge 1 sentence MAX, embed-by-contrast preferred. |
 | Email 2 | Under 55 words | First name on its own line, no re-intro, no meta-references. Posture differs from E1 (per posture rotation rule). |
-| Email 3 | 2-3 sentences max | First name on its own line, exactly one CTA, "show is coming up" energy OR detached close. NO deal-cycle phrases ("Have you shelved this?" — banned in cold). |
+| Email 3 | 2-3 sentences max | First name on its own line, exactly one CTA, "show is coming up" energy OR detached close. NO deal-cycle phrases ("Have you shelved this?" - banned in cold). |
 | LinkedIn | Target 35-50 words / max 280 chars (under LinkedIn's 300 hard limit) | NO sender intro in body (recipient sees sender from LinkedIn UI). Format: `[Recipient first name], [observation/question]. [Optional context]. [CTA or no CTA].` Public Signal Cited block above. |
 
 Per-segment targets are NOT set in this file. Segment references provide vocabulary, angles, and tone calibration only. A tight email under the cap beats a padded one that hits any number.
@@ -1039,18 +1129,18 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 
 ### 4.4 LinkedIn Connection Request (Target 35-50 words / max 280 chars; under LinkedIn's 300 hard limit)
 
-NO sender intro in body — recipient sees sender from LinkedIn UI; "Tim from MaiaEdge." / "Ken from MaiaEdge." in the message body is BANNED. Public Signal Cited block above the message (catalog code from `context/signals/[segment]-signals.md`, "NON-CATALOG", or "NONE — inferred angle"). Embed-by-contrast preferred for the value bridge.
+NO sender intro in body - recipient sees sender from LinkedIn UI; "Tim from MaiaEdge." / "Ken from MaiaEdge." in the message body is BANNED. Public Signal Cited block above the message (catalog code from `context/signals/[segment]-signals.md`, "NON-CATALOG", or "NONE - inferred angle"). Embed-by-contrast preferred for the value bridge.
 
 **Structure:** Problem statement or public-signal observation, embedded value bridge as a contrast clause, optional low-friction CTA. Lead with segment problems or specific public signals, not company flattery.
 
 **Pattern (adapt to company-specific angle):**
 ```
-[Recipient first name], [observation/question with company-specific signal — embed value bridge as contrast clause when applicable]. [Optional CTA].
+[Recipient first name], [observation/question with company-specific signal - embed value bridge as contrast clause when applicable]. [Optional CTA].
 ```
 
 **AI-Focused Colo LinkedIn Example:**
 ```
-Public Signal Cited: NONE — using inferred segment angle
+Public Signal Cited: NONE - using inferred segment angle
 
 Paul, GPU tenants deploy dense interconnection fast, and the connectivity layer either keeps up or becomes the gap in the facility. The version that keeps up is the one your team controls end-to-end. Worth connecting?
 ```
@@ -1335,7 +1425,7 @@ STEP 1: SELECT EMAIL PATTERN
 â”œâ”€â”€ Apply segment-specific pattern:
 â”‚   â”œâ”€â”€ Neocloud â†’ Neocloud Pattern (distributed inference, multi-facility)
 â”‚   â”œâ”€â”€ Colo - AI Infrastructure â†’ AI Infrastructure Pattern (deterministic for tenants)
-â”‚   â”œâ”€â”€ Colo (Standard) â†’ Standard Colo Pattern (fabric-in-a-box, third-party fabric competition)
+â”‚   â”œâ”€â”€ Colo (Standard) â†’ Standard Colo Pattern (interconnection-attach-rate vs landlord, third-party fabric competition; Sidecar §4.1.A)
 â”‚   â”œâ”€â”€ Network Op + has_internal_automation=True â†’ Track A Pattern
 â”‚   â””â”€â”€ Network Op + has_internal_automation=False â†’ Track B Pattern
 â””â”€â”€ OUTPUT: email_pattern
@@ -1411,7 +1501,7 @@ IF segment = "Colo - AI Infrastructure"
     â†’ AI Infrastructure Track (deterministic paths for AI tenants, complete the AI story, inference-grade connectivity)
 
 IF segment = "Colo (Standard)"
-    â†’ Standard Colo Track (fabric-in-a-box, third-party fabric competition, tenant ownership)
+    â†’ Standard Colo Track (interconnection-attach-rate vs landlord, third-party fabric competition, tenant ownership; Sidecar §4.1.A)
     
 IF segment = "Fiber"
     â†’ Fiber Track (NNI speed, dark fiber monetization, Type 2 visibility, sovereignty)
@@ -1451,6 +1541,7 @@ IF segment = "MSP"
 | Network Operator (Track A) | "You've automated internally. MaiaEdge extends that everywhere else." |
 | Network Operator (Track B) | "Unify internally first, then extend externally. One infrastructure for both." |
 | MSP/Aggregator | "You own the customer relationship. We give you visibility into everything behind it." |
+| Enterprise (Multi-DC ICP) | "Your dark fiber between data centers is one cut from an outage. Make redundancy actually redundant â€” without standing up routing protocols." Pair with sub-segment-specific framing (HIPAA / PCI-DSS / SOX / GDPR for regulated; client data sovereignty for outsourcing). |
 
 ### A.2 Segment â†’ Proof Point (Anonymized for Cold Outreach)
 
@@ -1465,6 +1556,7 @@ IF segment = "MSP"
 | Fiber Operator | "A regional fiber operator went from 60-day NNIs to same-day activation" |
 | Network Operator | "Tier 1 carriers are using this for network simplification" |
 | MSP/Aggregator | "We're enabling multi-carrier orchestration at scale" |
+| Enterprise (Multi-DC ICP) | "A multi-DC enterprise we work with replaced bespoke dark-fiber redundancy with deterministic paths their network team owns end-to-end â€” no routing protocols, audit-ready by default" |
 
 ### A.3 Infrastructure vs. NaaS Quick Check
 

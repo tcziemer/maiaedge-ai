@@ -15,8 +15,8 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 ### Core (all)
 - context/core/* (maiaedge-101, icp-playbook, segment-qualification, competitive-positioning, messaging-framework, terminology-glossary, revops-copilot)
 
-### Segments (all)
-- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator)
+### Segments (all 6 as of 2026-05-11)
+- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator, **enterprise** [Multi-DC ICP, anchor: Meijer], plus enterprise-use-cases.md for call-analysis Enterprise use-case extraction — Enterprise-specific use cases #22-29 added to use-case-taxonomy.md)
 
 ### HubSpot (all — calls associate with every object)
 - context/hubspot/* (property-schema, territory-model, hubspot-values, contact-schema, deals-schema, poc-schema, call-schema)
@@ -63,4 +63,4 @@ Both are live. Use Call Intelligence when the question is about what prospects a
 - ~~context/marketing/*~~ (not creating marketing content)
 - ~~copy-strategy/outbound-playbook, scoring-rubric~~ (cold email critique lives in Sales Outreach)
 
-## Last Synced: 2026-04-17
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete; Enterprise added as 6th ICP for call-analysis use-case extraction)

@@ -194,11 +194,11 @@ See `call-schema.md` "Activity Gate (Engagement Health)" for full rules, thresho
 **Steps:**
 
 **Column 1 -- Accounts Converting to POC:**
-1. Query open deals in pre-POC stages (`appointmentscheduled`, `qualifiedtobuy`, `1996673735`) via `search_crm_objects` with `associations: ["COMPANY", "CONTACT"]`. See `deals-schema.md` for stage reference.
+1. Query open deals in pre-POC stages (`appointmentscheduled`, `qualifiedtobuy`, `1996673735`) via `search_crm_objects` with `associations: ["COMPANY", "CONTACT"]`. See `deals-schema.md` for stage reference. Pull `signal_heat` and `account_tier` from each associated company.
 2. For each deal's associated company, query recent calls with `associations: ["COMPANY"]` to get latest call context
 3. ALSO query companies with multiple recent calls (2+ in last 30 days) but NO deal yet -- these are momentum accounts gaining traction from conversations
 4. For each account, extract from most recent call: use cases discussed, next step, engagement signal
-5. Rank by: (a) deal value if available, (b) call recency, (c) call frequency
+5. Rank by: (a) `signal_heat` (hot > warm > cool > cold - high-intent accounts at top of board), (b) deal value if available, (c) call recency, (d) call frequency
 6. Show top 10
 
 **Column 2 -- POCs Converting to Purchase Order:**
@@ -228,17 +228,19 @@ Rep: [All / specific rep] | Period: [date range for call data]
 
 COLUMN 1: ACCOUNTS -> POC ([N] accounts)
 ──────────────────────────────────────────
-| # | Company | Segment | Deal Stage | Value | Last Outbound | Last Inbound | Use Cases | Next Step | Engagement |
-|---|---------|---------|-----------|-------|---------------|--------------|-----------|-----------|-----------|
-| 1 | [name] | [seg] | [stage] | $[X] | [date] | [date] | [use cases] | [from call] | [HEALTHY] |
-| 2 | [name] | [seg] | No Deal |  -  | [date] | [date] | [use cases] | [from call] | [AT RISK] |
+| # | Company | Segment | Heat | Deal Stage | Value | Last Outbound | Last Inbound | Use Cases | Next Step | Engagement |
+|---|---------|---------|------|-----------|-------|---------------|--------------|-----------|-----------|-----------|
+| 1 | [name] | [seg] | [hot/warm/cool/cold] | [stage] | $[X] | [date] | [date] | [use cases] | [from call] | [HEALTHY] |
+| 2 | [name] | [seg] | [hot/warm/cool/cold] | No Deal |  -  | [date] | [date] | [use cases] | [from call] | [AT RISK] |
 ...
 
 COLUMN 2: POCs -> PURCHASE ORDER ([N] POCs)
 ──────────────────────────────────────────────
-| # | Company | Segment | POC Stage | Health | Trend | Days in Stage | End Date | Sites Ready | Data | POC Owner | Sales Rep | Validating | Engagement |
-|---|---------|---------|----------|--------|-------|---------------|----------|-------------|------|-----------|-----------|-----------|-----------|
-| 1 | [name] | [seg] | [stage] | [RED] | [trend] | [N] | [date/OVERDUE] | [2/3] | [65%] | [name] | [name] | [use cases] | [HEALTHY] |
+| # | Company | Segment | Heat | POC Stage | Health | Trend | Days in Stage | End Date | Sites Ready | Data | POC Owner | Sales Rep | Validating | Engagement |
+|---|---------|---------|------|----------|--------|-------|---------------|----------|-------------|------|-----------|-----------|-----------|-----------|
+| 1 | [name] | [seg] | [Hot/Warm/Cool/Cold] | [stage] | [RED] | [trend] | [N] | [date/OVERDUE] | [2/3] | [65%] | [name] | [name] | [use cases] | [HEALTHY] |
+
+The Heat column reads `signal_heat` from the associated company (Title Case per HubSpot enum). Subtle color band on the cell mirrors the same scheme as POC Health (red=Hot, orange=Warm, yellow=Cool, gray=Cold). A `Cold` deal in a late stage is a watch flag - it advanced without current intent and may stall.
 
 When fields are blank, show clean labels per the "Handling Blank Fields" rules. Never show raw nulls or placeholder asterisks in output.
 ...
@@ -413,12 +415,12 @@ STAGE DWELL ANALYSIS
 ...
 
 POC CONVERSION BENCHMARKS (last 6 months, N=[total closed POCs])
-| Metric | Overall | Colo | Fiber | Neocloud | Network Op | MSP |
-|--------|---------|------|-------|----------|-----------|-----|
-| Success Rate | [N]% | [N]% | [N]% | [N]% | [N]% | [N]% |
-| Avg Duration (days) | [N] | [N] | [N] | [N] | [N] | [N] |
-| Avg Sites | [N] | [N] | [N] | [N] | [N] | [N] |
-Note: Show "--" for any segment with fewer than 3 closed POCs. Sample too small to benchmark.
+| Metric | Overall | Colo | Fiber | Neocloud | Network Op | MSP | Enterprise |
+|--------|---------|------|-------|----------|-----------|-----|------------|
+| Success Rate | [N]% | [N]% | [N]% | [N]% | [N]% | [N]% | [N]% |
+| Avg Duration (days) | [N] | [N] | [N] | [N] | [N] | [N] | [N] |
+| Avg Sites | [N] | [N] | [N] | [N] | [N] | [N] | [N] |
+Note: Show "--" for any segment with fewer than 3 closed POCs. Sample too small to benchmark. Enterprise segment added 2026-05-11; expect "--" for the first 6-12 months until Meijer-class POCs close.
 
 BY POC OBJECTIVE
 | Objective | Count | Success Rate | Avg Duration |

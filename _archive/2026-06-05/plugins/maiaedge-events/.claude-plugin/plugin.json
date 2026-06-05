@@ -1,0 +1,8 @@
+{
+  "name": "maiaedge-events",
+  "version": "1.0.0",
+  "description": "MaiaEdge conference and event intelligence. Pre-event prep, attendee processing, and post-event follow-up for trade shows and industry conferences.",
+  "author": {
+    "name": "MaiaEdge"
+  }
+}

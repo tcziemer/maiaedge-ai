@@ -1,6 +1,6 @@
 ---
 name: crm-guardian
-description: "MaiaEdge CRM Guardian  -  autonomous CRM maintenance orchestrator, split into nine independent routines (territory & hygiene, duplicate account audit, flagged-for-deletion consolidation, fresh enrichment, stale re-enrichment, contact duplicate flagging, persona gap fill, monthly account sourcing, quarterly job-change detection) plus the sibling weekly-signal-scan. Writes corrections to HubSpot via MCP and manages contacts via Apollo MCP. Per-routine Slack DM is the audit trail. Use when asked to run CRM guardian, check CRM health, auto-fix CRM issues, run territory corrections, enrich new or stale accounts, audit accounts proposed for deletion, consolidate duplicate contacts, source new prospects, fill persona gaps, detect job changes, or review the CRM change log."
+description: "MaiaEdge CRM Guardian  -  autonomous CRM maintenance orchestrator, split into eleven independent routines (territory & hygiene, duplicate account audit, flagged-for-deletion consolidation, fresh enrichment, stale re-enrichment, contact duplicate flagging, persona gap fill, monthly account sourcing, quarterly job-change detection, monthly tier-audit, weekly edge-case-resolution) plus the sibling weekly-signal-scan. Writes corrections to HubSpot via MCP and manages contacts via Apollo MCP. Per-routine Slack DM is the audit trail. Use when asked to run CRM guardian, check CRM health, auto-fix CRM issues, run territory corrections, enrich new or stale accounts, audit accounts proposed for deletion, consolidate duplicate contacts, source new prospects, fill persona gaps, detect job changes, run tier-audit drift correction, resolve manual-review edge cases, or review the CRM change log."
 ---
 
 # MaiaEdge CRM Guardian
@@ -11,22 +11,24 @@ CRM Guardian is the autonomous maintenance layer for MaiaEdge's HubSpot CRM. It 
 
 **Architecture:** CRM Guardian is orchestration-only. It defines WHAT to run, WHEN, and at what safety tier. The sub-skills define HOW. Each sub-skill is the single source of truth for its domain logic. CRM Guardian never duplicates sub-skill logic  -  it references it.
 
-**Execution model: 10 independent routines, scheduled separately.** The previous monolithic "run all jobs at 2 AM" master cycle has been split into ten routines (Routine 0 added 2026-04-27), each with its own schedule, scope, session budget, and report. Failures in one routine do not block the others. Each routine is defined by its own prompt file in `Claude routine prompts/`. The routines reference this SKILL.md for shared invariants, safety tiers, sub-skill domain logic, and the Cross-Routine Ledger — but the scheduling boundary is the routine, not the job.
+**Execution model: 11 independent routines + 1 cross-routine drift sweep, scheduled separately.** The previous monolithic "run all jobs at 2 AM" master cycle has been split into eleven routines plus the weekly R-Tier-Audit drift sweep (R-Tier-Audit + D7 added 2026-05-14 as Phase 3 of the Account Tiering & Segmentation Overhaul; R-Tier-Audit cadence widened from monthly to weekly 2026-05-14 per Cooper). Each has its own schedule, scope, session budget, and report. Failures in one routine do not block the others. Each routine is defined by its own prompt file in `routines/claude-code/` (Claude Code), `cowork-scheduled-tasks/` (Cowork scheduled tasks - sibling of `routines/`), or `routines/cowork/` (Cowork manual-trigger tasks), with `trigger.md` / `task.md` sidecar metadata. The routines reference this SKILL.md for shared invariants, safety tiers, sub-skill domain logic, and the Cross-Routine Ledger - but the scheduling boundary is the routine, not the job.
 
 | # | Routine | Cadence | Prompt file | Goal |
 |---|---------|---------|-------------|------|
-| 0 | Import Validator | Daily, 12:30 AM ET | `crm-guardian-routine-0-import-validator.md` | Validate name vs. domain on records imported in the last 24h; auto-rename mismatches, auto-flag hard-category junk (restaurants, apparel, churches, etc.) before enrichment wastes credits |
-| 1 | Fresh Account Enrichment | Daily, 6:00 AM ET | `crm-guardian-routine-1-fresh-enrichment.md` | Pre-score triage → enrich blank-segment ICP candidates (50/day Apollo cap), fast-classify non-ICP without Apollo |
-| 2 | Stale Account Re-Enrichment | Daily, 8:00 AM ET | `crm-guardian-routine-2-stale-reenrichment.md` | Pre-score triage → full re-enrichment of ICP only; light-touch idempotency bump on Other / Partner Target / non-ICP records |
-| 3 | Duplicate Account Audit | Daily, 2:00 AM ET | `crm-guardian-routine-3-duplicate-accounts.md` | Detect company duplicates, reassociate contacts, flag losers |
-| 4 | Flagged-for-Deletion Consolidation | Daily, 3:00 AM ET | `crm-guardian-routine-4-flagged-consolidation.md` | Resolve contacts on flagged companies (preserve + reassociate, else flag) |
-| 5 | Contact Duplicate Flagging | Weekly, Sun 1:00 AM ET | `crm-guardian-routine-5-contact-dedup.md` | Flag exact-email contact duplicates |
-| 6 | Territory & Hygiene Sweep | Daily, 1:00 AM ET | `crm-guardian-routine-6-territory-hygiene.md` | Territory audit, enum migration, contact owner cascade, Mode 11 junk flags, **drain mode** for stale NEW leads (1000/run) + orphan contacts (300/run) + missing tier/sub-segment cascades (650/run combined) |
-| 7 | Monthly New Account Sourcing | Monthly, 1st of month 9:00 AM ET | `crm-guardian-routine-7-monthly-sourcing.md` | account-sourcing CRM gap analysis + web search; surfaces Tier 3 candidates only (no auto-create) |
-| 8 | Weekly Persona Gap Fill | Weekly, Fri 9:00 AM ET | `crm-guardian-routine-8-weekly-persona-fill.md` | Audit Tier 1+2 accounts for persona gaps; **auto-create via Apollo two-step (search → reveal → LinkedIn validate)** at Tier 2 |
-| 9 | Quarterly Job-Change Detection | Quarterly, 1st of Jan/Apr/Jul/Oct 9:00 AM ET | `crm-guardian-routine-9-quarterly-job-changes.md` | Apollo + LinkedIn cross-check on Tier 1+2 + open-deal contacts; surface departures, auto-create verified replacements at Tier 2 |
+| 0 | Import Validator | Daily, 9:00 AM CT *(Cowork)* | `cowork-scheduled-tasks/r0-import-validator/prompt.md` | Validate name vs. domain on records imported in the last 24h; auto-rename mismatches, auto-flag hard-category junk (restaurants, apparel, churches, etc.) before enrichment wastes credits |
+| 1 | Fresh Account Enrichment | Daily, 10:00 AM CT *(Cowork)* | `cowork-scheduled-tasks/r1-fresh-enrichment/prompt.md` | Pre-score triage → enrich blank-segment ICP candidates (50/day Apollo cap), fast-classify non-ICP without Apollo. Inlines `context/account-tiering/tier-compute-spec.md` for the tier write at Stage 4. |
+| 2 | Stale Account Re-Enrichment | Daily, 11:00 AM CT *(Cowork)* | `cowork-scheduled-tasks/r2-stale-reenrichment/prompt.md` | Pre-score triage → full re-enrichment of ICP only; light-touch idempotency bump on Other / Partner Target / non-ICP records. Inlines `context/account-tiering/tier-compute-spec.md` for the tier write at Stage 4. |
+| 3 | Duplicate Account Audit | Daily, 2:00 AM ET *(Claude Code)* | `routines/claude-code/r3-duplicate-accounts/prompt.md` | Detect company duplicates, reassociate contacts, flag losers |
+| 4 | Flagged-for-Deletion Consolidation | Daily, 12:00 PM CT *(Cowork)* | `cowork-scheduled-tasks/r4-flagged-consolidation/prompt.md` | Resolve contacts on flagged companies (preserve + reassociate, else flag) |
+| 5 | Contact Duplicate Flagging | Weekly, Sun 1:00 AM ET *(Claude Code)* | `routines/claude-code/r5-contact-dedup/prompt.md` | Flag exact-email contact duplicates |
+| 6 | Territory & Hygiene Sweep | Daily, 1:00 AM ET *(Claude Code)* | `routines/claude-code/r6-territory-hygiene/prompt.md` | Territory audit, enum migration, contact owner cascade, Mode 11 junk flags, **drain mode** for stale NEW leads (1000/run) + orphan contacts (300/run) + missing tier/sub-segment cascades (650/run combined). Tier corrections during cascades inline `context/account-tiering/tier-compute-spec.md`; `hs_is_target_account = true` records are skipped on the tier write. Step 5.5 also writes `signal_heat` alongside tier (heat is NOT frozen by the target-account flag). |
+| 7 | Monthly New Account Sourcing | Monthly, 1st of month 9:00 AM ET *(Claude Code)* | `routines/claude-code/r7-monthly-sourcing/prompt.md` | account-sourcing CRM gap analysis + web search; surfaces Tier 3 candidates only (no auto-create) |
+| 8 | Weekly Persona Gap Fill | Weekly, Fri 9:00 AM ET *(Claude Code)* | `routines/claude-code/r8-persona-fill/prompt.md` | Audit Tier 1+2 accounts for persona gaps; **auto-create via Apollo two-step (search → reveal → LinkedIn validate)** at Tier 2. Sort target accounts by `signal_heat` (`Hot` first — Title Case per HubSpot enum) for Apollo-budget priority. |
+| 9 | Quarterly Job-Change Detection | Quarterly, 1st of Jan/Apr/Jul/Oct 9:00 AM ET *(Claude Code)* | `routines/claude-code/r9-quarterly-job-changes/prompt.md` | Apollo + LinkedIn cross-check on Tier 1+2 + open-deal contacts; surface departures, auto-create verified replacements at Tier 2 |
+| 10 | R-Tier-Audit (Daily Drift Sweep) *— Cowork scheduled task* | Daily M-F 3:00 PM CT (cron `0 20 * * 1-5` UTC = 3pm CT during CDT; cadence widened to daily 2026-05-21 per Cooper) | `cowork-scheduled-tasks/r-tier-audit/prompt.md` (Cowork-only) | Cross-routine drift correction sweep over all ICP records. Recompute `account_tier` AND `signal_heat` per `context/account-tiering/tier-compute-spec.md` and surface drift > expected delta. **10% circuit breaker** (loosened 2026-05-21 from 5% for daily cadence). Apollo budget = 0 (HubSpot-only read + compute). `hs_is_target_account = true` records audited but tier write skipped (heat writes proceed). Daily cadence catches open-deal Hot transitions within 24h instead of 7 days; task is Apollo-free + idempotent (no-op when computed_tier == current_tier AND computed_heat == current_heat) so the cost is trivial. **Execution model: Cowork scheduled task (cron-fired, fire-and-forget, stateless across runs), not a Cowork routine.** |
+| D7 | Edge Case Resolution (Weekly) *— Cowork scheduled task* | Weekly, Cooper-chosen day (suggested Wed 9am CT, cron `0 14 * * 3` UTC = Wed 9am CT during CDT) | `cowork-scheduled-tasks/d7-edge-case-resolution/prompt.md` (Cowork-only) | Deep-research targeted resolution queue. Entry criteria: (a) records on `manual_review_required` for >7 days, (b) records on `low_5069` confidence for >60 days, (c) Unknown / Other classifications with deal activity in last 30d, (d) crm-hygiene flagged records from its weekly audit (defense-in-depth feed). **Per-run cap 30 records; hard 14-day max wall-clock time on any single record before forced Cooper-escalation.** Apollo budget = 0 (deep web research + segment-classification only; if Apollo enrichment needed, defer to next R1 run). Complements R2 (broad re-enrichment cadence) and crm-hygiene (audit-only flagging). **Execution model: Cowork scheduled task (HubSpot is source of truth for the queue; no persistent task-local state across runs).** |
 
-**Daily run order:** **0 (12:30 AM) → 6 (1 AM) → 3 (2 AM) → 4 (3 AM) → 1 (6 AM) → 2 (8 AM).** Import validation FIRST so the day's bad imports get killed before territory verifies them and before enrichment burns Apollo credits on them. Territory next so downstream routines see correct owners; dedup before enrichment so Apollo credits don't get burned on duplicates; flagged-cleanup before enrichment so contacts land on the correct primary; fresh + stale enrichment consume Apollo budget last. Routines 7, 8, 9 run at 9 AM ET on their own cadences (after the daily window closes), and the sibling weekly-signal-scan runs Mon 10 UTC.
+**Daily run order:** **0 (12:30 AM) → 6 (1 AM) → 3 (2 AM) → 4 (3 AM) → 1 (6 AM) → 2 (8 AM).** Import validation FIRST so the day's bad imports get killed before territory verifies them and before enrichment burns Apollo credits on them. Territory next so downstream routines see correct owners; dedup before enrichment so Apollo credits don't get burned on duplicates; flagged-cleanup before enrichment so contacts land on the correct primary; fresh + stale enrichment consume Apollo budget last. Routines 7, 8, 9 run at 9 AM ET on their own cadences (after the daily window closes); the sibling weekly-signal-scan was split 2026-05-28 into 6 per-ICP scans + 1 aggregator firing Mon 8:30am–2:30pm CT (see `cowork-scheduled-tasks/signal-scan-*`); R-Tier-Audit runs daily M-F 3pm CT (cadence widened from Sunday-weekly 2026-05-21 per Cooper; cron `0 20 * * 1-5` UTC); D7 runs once a week on Cooper's chosen day (no overlap constraint with daily routines - its 30-record cap keeps the runtime small).
 
 **Job-to-Routine mapping** (for context when reading the Job Definitions below):
 - Routine 1 ↔ Job 2 (new-accounts half only)
@@ -38,7 +40,7 @@ CRM Guardian is the autonomous maintenance layer for MaiaEdge's HubSpot CRM. It 
 - Routine 7 ↔ Job 4 (monthly account sourcing)
 - Routine 8 ↔ Job 5 (weekly persona gap fill, Fridays)
 - Routine 9 ↔ Job 6 (quarterly contact job-change detection)
-- (Sibling routine, not numbered) ↔ Job 8 (weekly signal scan, Mondays — its own prompt file `weekly-signal-scan-prompt.md`)
+- (Sibling routine, not numbered) ↔ Job 8 (weekly signal scan, Mondays - its own prompt file `weekly-signal-scan-prompt.md`)
 
 **All 8 jobs are now split into independent routines.** The legacy `crm-guardian-prompt.md` monolithic prompt is kept in the repo for manual "run everything at once" backfill scenarios but is no longer the production execution path. The Job Definitions section below remains the canonical domain-logic reference for all eight jobs; the routine prompts reference these definitions rather than redefining them.
 
@@ -46,9 +48,9 @@ CRM Guardian is the autonomous maintenance layer for MaiaEdge's HubSpot CRM. It 
 
 **HubSpot schemas:** property-schema.md, hubspot-values.md, contact-schema.md, deals-schema.md, territory-model.md, poc-schema.md
 
-**Core:** icp-playbook.md, segment-qualification.md, maiaedge-101.md
+**Core:** icp-playbook.md, segment-qualification.md, maiaedge-101.md, **`context/account-tiering/tier-compute-spec.md`** (canonical tier function - read by R1, R2, R6, Signal Scan Stage 5b, R-Tier-Audit, and D7 for every `account_tier` write; honors `hs_is_target_account = true` by computing-then-skipping the write), **`context/account-tiering/sub-segment-qualification.md`** (canonical 30-value list of active `company_sub_segment` enums, case-sensitive - supersedes scattered enum lists; key new values: `Subsea cable operator` added 2026-05-14 as the 30th, `Greenfield` is a real sub-segment paired with Colo or NeoCloud parent, `Crypto to AI - Neoclouds` inclusive of operator AND landlord; 3 retired values archived 2026-05-13: `Co-op/consortium`, `External Extension - Network operator`, `Internal + external unification - Network Operator`, plus pre-Phase-1.7c.1 `Managed Network Services - Network Operator`), **`context/account-tiering/enrichment-protocols.md`** (research-first workflow + D1 disqualifier check + D5 v2 per-sub-segment protocols + §8-§9 verification queries used by crm-hygiene's weekly audit). The consolidated qualification reference also lives at `context/account-tiering/sub-segment-qualification-full.md` - file 06 is the canonical source if `sub-segment-qualification.md` and the upstream consolidated reference diverge.
 
-**Segments:** colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md
+**Segments:** colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md, **enterprise.md** (added 2026-05-11 with Enterprise ICP promotion - Multi-DC ICP, 4 sub-segments only, anchor account Meijer), **enterprise-use-cases.md** (8 priority Enterprise use cases × sub-segment × persona)
 
 **Enrichment:** sourcing-reference-guide.md, research-routes.md, output-schemas.md
 
@@ -110,9 +112,9 @@ The routine is safe to run multiple times per day (manual test + scheduled, or r
 These are repo-level conventions that do not match intuition. Skills reference them, but the orchestrator must respect them:
 
 - **`account_tier` is INVERTED.** Tier 1 = highest priority, Tier 5 = lowest. When logic says "upgrade to Tier 1," it means make it MORE important (higher priority), not numerically higher.
-- **`customer_segment` value `Enterprise` is legacy naming for MSP/Aggregator**, NOT enterprise consumer. Enterprise consumers use `Enterprise-CustomerSegment` (which is non-ICP). Do not re-classify MSPs as something else to "fix" the naming.
+- **MSP/Aggregator and Enterprise are BOTH ICP segments now.** `customer_segment = "MSP/Aggregator"` is the operator-segment ICP (telecom aggregators / TSDs / NaaS platform operators). `customer_segment = "Enterprise-CustomerSegment"` (display label "Enterprise") is the **6th ICP segment as of 2026-05-11** - Multi-DC enterprises in financial services / healthcare systems / retail and distribution / outsourcing services with $1B+ revenue + in-house network engineering. Do not confuse the two. (Pre-2026-05-07 the MSP value was `Enterprise` - any stale reference to that should now be `MSP/Aggregator`. Pre-2026-05-11 `Enterprise-CustomerSegment` was non-ICP - any stale reference to that framing should now be ICP.)
 - **AI Colo accounts** use `customer_segment = "Data Center Colo Provider"` + `company_sub_segment = "AI Signals - colo"`. The old value `AI - Colocation Operator` is DEPRECATED and auto-migrated by Job 1 Mode 7.
-- **No em dashes in customer-facing field values.** When writing `account_brief`, `maiaedge_value_proposition`, `provisioning_landscape`, `recent_news_or_trigger_event`  -  use hyphens or restructure sentences. Never `—`.
+- **No em dashes in customer-facing field values.** When writing `account_brief`, `maiaedge_value_proposition`, `provisioning_landscape`, `recent_news_or_trigger_event`  -  use hyphens or restructure sentences. Never `-`.
 - **Category descriptor: "Carrier infrastructure" only.** Never "IaaS," "NaaS," "platform," or any other term in customer-facing fields.
 
 ---
@@ -136,7 +138,8 @@ Apply immediately. No HubSpot note is created  -  the field value change itself 
 - Set contact `flagged_for_deletion = true` when pre-deletion-audit confirms: non-ICP company, zero activity in 90 days, no open-deal association
 - Set contact `flagged_for_deletion = true` on clear-cut junk contacts via crm-hygiene Mode 11: hard-bounced emails (`hs_email_hard_bounce_reason_enum` populated), generic spam addresses (`noreply@`, `no-reply@`, `donotreply@`, `mailer-daemon@`), test/placeholder addresses (`test@test`, `@example.com`, `@yourdomain`, firstname+lastname both "test"), and contacts associated ONLY to `Flagged for deletion` companies with zero open deals
 - Clear contact `flagged_for_deletion = false` when a previously flagged contact shows activity within 90 days
-- Set company `customer_segment = "Flagged for deletion"` ONLY after pre-deletion-audit has fully resolved all associated contacts (reassociated, preserved, or flagged)
+- Set company `customer_segment = "Flagged for deletion"` ONLY after pre-deletion-audit has fully resolved all associated contacts (reassociated, preserved, or flagged). The SAME write MUST also set `flagged_for_deletion_reason` (leading with a canonical reason code + colon + evidence sentence) per the Non-ICP Eviction Rule's "`flagged_for_deletion_reason` companion write" table below
+- Clear company `flagged_for_deletion_reason` to empty whenever a company is moved OFF `Flagged for deletion` back into an active segment (reason code must never linger on an unflagged record)
 
 ### TIER 2  -  AUTO-FIX WITH FLAG
 Apply the correction AND flag it in the run report for Cooper's review.
@@ -183,33 +186,33 @@ Summary: re-derive sub-segment → tier → confidence → infrastructure_profil
 
 ## Model Selection per Routine
 
-**Per Cooper directive 2026-04-28: All routines run on Opus 4.7 with 1M context window (`claude-opus-4-7[1m]`).** The CRM is the single source of truth for the entire MaiaEdge GTM motion — every downstream output (cold emails, signal-scan rep DMs, persona fills, MEDDPICC writes, weekly call recap) cascades off the data quality these routines produce. The cost difference between Sonnet and Opus is dwarfed by the cost of a bad classification reaching production. The 1M context variant adds zero cost on small runs (you only pay for tokens used) but eliminates context-overflow risk on heavy runs (big import weeks for Routine 0, large transcript bundles for Weekly Call Recap, M&A-rich weeks for Weekly Signal Scan, full table scans for Routine 6). Opus 1M across the board.
+**Per Cooper directive 2026-04-28: All routines run on Opus 4.7 with 1M context window (`claude-opus-4-7[1m]`).** The CRM is the single source of truth for the entire MaiaEdge GTM motion - every downstream output (cold emails, signal-scan rep DMs, persona fills, MEDDPICC writes, weekly call recap) cascades off the data quality these routines produce. The cost difference between Sonnet and Opus is dwarfed by the cost of a bad classification reaching production. The 1M context variant adds zero cost on small runs (you only pay for tokens used) but eliminates context-overflow risk on heavy runs (big import weeks for Routine 0, large transcript bundles for Weekly Call Recap, M&A-rich weeks for Weekly Signal Scan, full table scans for Routine 6). Opus 1M across the board.
 
 | Routine | Model | Why Opus matters here |
 |---|---|---|
-| 0  -  Import Validator | **Opus 4.7** | Semantic name-vs-domain matching, 18-category hard-flag judgment, PARTNER_KEEP carveout — all reasoning-intensive |
+| 0  -  Import Validator | **Opus 4.7** | Semantic name-vs-domain matching, 18-category hard-flag judgment, PARTNER_KEEP carveout - all reasoning-intensive |
 | 1  -  Fresh Enrichment | **Opus 4.7** | Multi-page company research, segment qualification gates, edge-case detection, eviction-rule decision tree. Sonnet drops accuracy on borderline ICP cases (AI Colo vs standard, Network Op Track A vs B, NeoCloud vs Cloud GPU Reseller) |
 | 2  -  Stale Re-Enrichment | **Opus 4.7** | Same depth as Routine 1 plus diff-detection and trigger-event recognition (M&A, funding, leadership changes). Eviction-rule path also requires nuanced PARTNER_KEEP decisions on existing `Other` records |
 | 3  -  Duplicate Account Audit | **Opus 4.7** | Mostly mechanical pattern matching, but the divergent-name disambiguation (Wholesale vs AI Cloud vs Business unit) and customer-history-conflict adjudication benefit from deeper reasoning |
-| 4  -  Flagged Consolidation | **Opus 4.7** | pre-deletion-audit Mode A consolidation requires identifying the correct ICP primary across the CRM — entity-resolution reasoning that Sonnet handles less reliably on edge cases |
-| 5  -  Contact Dedup (Weekly) | **Opus 4.7** | Mode 11 protection filters and lifecycle-stage rules need careful reasoning to avoid false positives — Cooper would rather pay Opus than have a wrongly-flagged contact reach archival |
-| 6  -  Territory & Hygiene | **Opus 4.7** | Field Resolution Ladder + drain-mode auto-fill cascades + Mode 11 contact flagging — multiple judgment calls per record, some with reversible/irreversible consequences |
+| 4  -  Flagged Consolidation | **Opus 4.7** | pre-deletion-audit Mode A consolidation requires identifying the correct ICP primary across the CRM - entity-resolution reasoning that Sonnet handles less reliably on edge cases |
+| 5  -  Contact Dedup (Weekly) | **Opus 4.7** | Mode 11 protection filters and lifecycle-stage rules need careful reasoning to avoid false positives - Cooper would rather pay Opus than have a wrongly-flagged contact reach archival |
+| 6  -  Territory & Hygiene | **Opus 4.7** | Field Resolution Ladder + drain-mode auto-fill cascades + Mode 11 contact flagging - multiple judgment calls per record, some with reversible/irreversible consequences |
 | 7  -  Monthly Sourcing | **Opus 4.7** | Web-search candidate evaluation against ICP gates, dedup against existing CRM, segment routing |
-| 8  -  Persona Fill (Weekly) | **Opus 4.7** | Apollo persona search + LinkedIn validation + suppression check + Tier 2 auto-create — quality of contact creates is high-stakes |
+| 8  -  Persona Fill (Weekly) | **Opus 4.7** | Apollo persona search + LinkedIn validation + suppression check + Tier 2 auto-create - quality of contact creates is high-stakes |
 | 9  -  Job Changes (Quarterly) | **Opus 4.7** | Apollo + LinkedIn cross-check, departure detection, replacement persona routing |
-| weekly-signal-scan | **Opus 4.7 (1M context)** | 7-stage pipeline with 5 parallel per-segment sub-stages, multi-source signal scoring with cross-source validation, segment cascade, account brief regeneration. Reads ~30+ catalog/skill/segment files per run — 1M context variant gives headroom |
+| weekly-signal-scan | **Opus 4.7 (1M context)** | 7-stage pipeline with 5 parallel per-segment sub-stages, multi-source signal scoring with cross-source validation, segment cascade, account brief regeneration. Reads ~30+ catalog/skill/segment files per run - 1M context variant gives headroom |
 | weekly-call-recap | **Opus 4.7** | Per-call MEDDPICC extraction with material-update guard, drift detection, deal-trajectory reads, PMF signal synthesis |
 | weekly-market-news | **Opus 4.7** | Disabled by default; when enabled, multi-source synthesis with brand-voice constraint |
 
-When the routine platform schedules a routine, the model setting in the platform takes precedence over this table — but the routine prompt includes a Model directive at the top to make the requirement visible to whoever configures it.
+When the routine platform schedules a routine, the model setting in the platform takes precedence over this table - but the routine prompt includes a Model directive at the top to make the requirement visible to whoever configures it.
 
 ---
 
 ## Non-ICP Eviction Rule
 
-**Goal:** Every record entering or refreshed by the enrichment pipeline must have its **actual domain fetched and verified**. Records confirmed as non-ICP that don't qualify as strategic Partner Target keepers get **flagged for deletion**, not classified as low-tier `Other` and left in the CRM. This stops outreach pollution at the source — a CRM full of "Tier 5 Other" records dilutes rep dashboards, persona-fill candidate pools, and signal-scan prioritization.
+**Goal:** Every record entering or refreshed by the enrichment pipeline must have its **actual domain fetched and verified**. Records confirmed as non-ICP that don't qualify as strategic Partner Target keepers get **flagged for deletion**, not classified as low-tier `Other` and left in the CRM. This stops outreach pollution at the source - a CRM full of "Tier 5 Other" records dilutes rep dashboards, persona-fill candidate pools, and signal-scan prioritization.
 
-This is the canonical rule referenced by Routines 0, 1, 2, and any other routine that touches segment classification. Do not duplicate the logic — reference this section.
+This is the canonical rule referenced by Routines 0, 1, 2, and any other routine that touches segment classification. Do not duplicate the logic - reference this section.
 
 ### Mandatory domain fetch
 
@@ -223,15 +226,31 @@ For each record, after fetching the domain root + (if needed) `/about` + `/conta
 
 | Bucket | Definition | Action | Tier |
 |---|---|---|---|
-| **ICP** | Domain confirms a Colocation Operator, Fiber Operator, NeoCloud, Network Operator (Tier 1 / VNO), or MSP/Aggregator per the segment cheatsheets in `context/segments/` | Run full company-enrichment pipeline (Stages 1-3) → segment-classification → write enrichment fields | Tier 1 / 2 / 3 per confidence |
+| **ICP** | Domain confirms a Colocation Operator, Fiber Operator, NeoCloud, Network Operator (Tier 1 / VNO), MSP/Aggregator, **OR Multi-DC Enterprise (4 sub-segments per `context/segments/enterprise.md`)** per the segment cheatsheets in `context/segments/`. Enterprise verdicts MUST pass the hard scale gate ($1B+ rev + 3+ DCs OR Equinix Fabric/Megaport port OR confirmed in-house net eng + vertical match to Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services) - segment-classification owns the gate logic | Run full company-enrichment pipeline (Stages 1-3) → segment-classification → write enrichment fields | Tier 1 / 2 / 3 per confidence |
 | **PARTNER_KEEP** | Domain confirms a strategic partner candidate per the keep-list below | Write `customer_segment = "Other"`, `account_tier = TIER_5`, populate `account_brief` with one line: `Partner Target keep: [reason] (eviction-rule applied [date])` | Tier 1 |
-| **HARD_DELETE** | Domain confirms one of the hard-flag categories listed below | Write `customer_segment = "Flagged for deletion"`, populate `account_brief` with the discovered entity + category | Tier 2 (auto-flag + surface in Slack DM) |
-| **DEAD_DOMAIN** | Domain returns parked/for-sale/no content/DNS-fail across all fetch attempts | Write `customer_segment = "Flagged for deletion"`, `account_brief = "Dead/parked domain ([domain]) — eviction-rule applied [date]"` | Tier 2 |
+| **HARD_DELETE** | Domain confirms one of the hard-flag categories listed below | Write `customer_segment = "Flagged for deletion"` + `flagged_for_deletion_reason = "Hard junk / non-business: [discovered entity + category]"` (or `D1 disqualified (no reference value): ...` if the category is a D1 disqualifier with no reference value); populate `account_brief` with the discovered entity + category | Tier 2 (auto-flag + surface in Slack DM) |
+| **DEAD_DOMAIN** | Domain returns parked/for-sale/no content/DNS-fail across all fetch attempts | Write `customer_segment = "Flagged for deletion"` + `flagged_for_deletion_reason = "Dead domain: [domain] returns parked/for-sale/no-content/DNS-fail (NOT a proxy block)"`, `account_brief = "Dead/parked domain ([domain]) - eviction-rule applied [date]"` | Tier 2 |
 | **AMBIGUOUS** | Domain content unclear, partial business signals, or borderline category | Hold. Write nothing. Surface to Cooper's Slack DM + ledger | Tier 3 |
 
-### PARTNER_KEEP — strategic partner-target keep-list
+### `flagged_for_deletion_reason` companion write (MANDATORY on every eviction)
 
-A record is PARTNER_KEEP only if it falls into one of these specific categories AND the domain confirms it. When in doubt, route to AMBIGUOUS (Tier 3 hold), not PARTNER_KEEP — Cooper would rather review borderline cases than lose a potential partner.
+Every time any routine inheriting this rule sets `customer_segment = "Flagged for deletion"`, the SAME HubSpot `updateRequest` MUST also set `flagged_for_deletion_reason` (multi-line text on the Company object). The value leads with ONE of the 7 canonical reason codes, then a colon and one concrete sentence of evidence. **No em dashes - use a colon.** The scannable code lives in `flagged_for_deletion_reason`; the 2-4 sentence prose rationale stays in `account_brief` (unchanged - see "account_brief is pure prose" below). This is the canonical companion-write rule referenced by Routines 0, 1, 2, 4 and pre-deletion-audit - do not duplicate the code list elsewhere; reference this table.
+
+| Reason code | When it applies |
+|---|---|
+| `Dead domain` | DNS NXDOMAIN / parked / for-sale / persistent destination 4xx-5xx (NOT a proxy block). Maps to the DEAD_DOMAIN bucket. |
+| `Hard junk / non-business` | Non-business / hard-flag category (restaurant, church, school, personal site), junk TLD, spoofed-brand or test record. Maps to the HARD_DELETE bucket (non-business categories). |
+| `D1 disqualified (no reference value)` | Matched a D1 global disqualifier (gov / academic / pure-SaaS / logistics / equipment-vendor, etc.) with NO competitive/partner reference value. |
+| `No ICP fit` | Researched; no positive evidence for any of the 6 ICP sub-segments; not a partner/competitor reference. |
+| `Duplicate (merged)` | Duplicate of an existing record; contacts reassociated to primary (cite primary name + record ID). pre-deletion-audit Mode A. |
+| `Defunct / out of business` | Confirmed defunct / ceased ops / absorbed post-acquisition (cite the event). |
+| `Stalled greenfield` | Greenfield record with no construction progress or signal in 18+ months; web-verified stalled. |
+
+**Clear-on-exit:** if any path moves a record OFF `Flagged for deletion` back into an active segment, clear `flagged_for_deletion_reason` to empty in the same write. The reason code must never linger on a record that is no longer flagged. Full canonical spec: `context/hubspot/property-schema.md` §2.1.
+
+### PARTNER_KEEP - strategic partner-target keep-list
+
+A record is PARTNER_KEEP only if it falls into one of these specific categories AND the domain confirms it. When in doubt, route to AMBIGUOUS (Tier 3 hold), not PARTNER_KEEP - Cooper would rather review borderline cases than lose a potential partner.
 
 | Category | Examples | Why kept |
 |---|---|---|
@@ -242,11 +261,11 @@ A record is PARTNER_KEEP only if it falls into one of these specific categories 
 | **Cloud orchestration / interconnection partners** | Megaport, PacketFabric, Equinix Fabric, Console Connect, Aviatrix | Co-existence partners (channel routing per `context/sales/` notes) |
 | **Named channel partners** | Datum (per `context/sales/` neocloud strategy), and any partner explicitly listed in MaiaEdge's partner ecosystem | Channel routing |
 
-**Not on the keep-list = not PARTNER_KEEP.** Software vendors, IT MSPs that don't aggregate carriers, generic consulting firms, manufacturing companies, vendor/contractor businesses (fiber construction, ISP installer crews), and similar companies are NOT partner targets just because they're "tech-adjacent" — they go to HARD_DELETE.
+**Not on the keep-list = not PARTNER_KEEP.** Software vendors, IT MSPs that don't aggregate carriers, generic consulting firms, manufacturing companies, vendor/contractor businesses (fiber construction, ISP installer crews), and similar companies are NOT partner targets just because they're "tech-adjacent" - they go to HARD_DELETE.
 
-### HARD_DELETE — confirmed non-ICP, non-partner categories
+### HARD_DELETE - confirmed non-ICP, non-partner categories
 
-Auto-flag these for deletion at HIGH confidence (Tier 2 — applied + surfaced):
+Auto-flag these for deletion at HIGH confidence (Tier 2 - applied + surfaced):
 
 **Clear non-business categories** (also covered by Routine 0 first-pass):
 - Restaurants / food service / hospitality
@@ -270,8 +289,8 @@ Auto-flag these for deletion at HIGH confidence (Tier 2 — applied + surfaced):
 
 **Tech-adjacent but not partner-target categories:**
 - Software / SaaS vendors not in the carrier-infrastructure space (e.g., Aegis Mobile compliance software, MNJ IT, Open Systems IT, Aristotle Unified Comms when it's helpdesk-MSP not telecom-aggregator)
-- IT MSPs that fail the IT MSP Test (don't aggregate carrier circuits) — see `context/segments/msp-aggregator.md`
-- Network construction contractors (texasfiberdesigngroup.com, GAC Enterprises) — they build infrastructure but don't operate it
+- IT MSPs that fail the IT MSP Test (don't aggregate carrier circuits) - see `context/segments/msp-aggregator.md`
+- Network construction contractors (texasfiberdesigngroup.com, GAC Enterprises) - they build infrastructure but don't operate it
 - Generic consulting firms with no telecom/network practice
 - Manufacturing companies with no telecom operations
 - Media companies / broadcasters / publishers (FreeWheel ad-tech, Endeavor Business Media, Telemetro Reporta TV)
@@ -285,23 +304,27 @@ Auto-flag-for-deletion is reversible (Cooper can clear `customer_segment` back t
 
 A record that has been HARD_DELETE'd in a prior run is `customer_segment = "Flagged for deletion"` already and is excluded from Routines 1, 2, and 6 by their trigger queries. Routine 4 owns the contact-consolidation work on flagged records. So the eviction rule is idempotent: a record can only be evicted once.
 
-### Routine attribution in account_brief
+### account_brief is pure prose — NO routine attribution prefix
 
-Every eviction (HARD_DELETE or DEAD_DOMAIN) MUST write the `account_brief` field with a one-line attribution: `[Routine N] [YYYY-MM-DD]: Eviction rule applied — [discovered_entity / dead-domain] — [category if applicable]`. This is the audit trail Cooper uses when reviewing flags.
+`account_brief` (and every other enriched narrative field — `recent_news_or_trigger_event`, `provisioning_landscape`) is pure prose describing what the entity IS. NO leading `[Routine N]` tag, NO leading `[YYYY-MM-DD]:` date prefix, NO bracketed metadata of any kind. The routine identity that wrote the field is recoverable from `last_enriched_date` + the on-disk per-run report + git history; the date is already structured in `last_enriched_date`. Tagging breaks rep-facing readability and bloats the field with audit metadata that has its own home.
+
+On eviction paths (HARD_DELETE / DEAD_DOMAIN), the brief should describe the actual entity at the domain — what it does, scale if visible, why it falls in the [category] — followed by a single trailing clause noting that the record was flagged for deletion. The flag itself is structured by `customer_segment = "Flagged for deletion"`; the brief explains the WHO, not the routine machinery.
+
+Audit trail of which routine touched what lives in the on-disk run report under `weekly-reports/YYYY-MM-DD/` + the per-run Slack DM, NOT inside `account_brief`.
 
 ---
 
 ## Cross-Routine Ledger
 
-A single Slack canvas — `CRM Guardian — Open Items Ledger` — held in Cooper's self-DM is the shared accountability surface across all routines. The pre-split routines surfaced unactioned items (47 unmerged dupes, 9 hard-delete records, 5 Apollo persona candidates) in successive reports without a closure path. The ledger fixes that: each routine reads the canvas at start, drains its own previously-surfaced items first, then appends new Tier 3 holds at end.
+A single Slack canvas - `CRM Guardian - Open Items Ledger` - held in Cooper's self-DM is the shared accountability surface across all routines. The pre-split routines surfaced unactioned items (47 unmerged dupes, 9 hard-delete records, 5 Apollo persona candidates) in successive reports without a closure path. The ledger fixes that: each routine reads the canvas at start, drains its own previously-surfaced items first, then appends new Tier 3 holds at end.
 
 ### Canvas structure
 
 ```
-# CRM Guardian Open Items — Updated [timestamp]
+# CRM Guardian Open Items - Updated [timestamp]
 
 ## Tier 3 Holds (need Cooper)
-- [routine] [date_first_surfaced] [record_id] — [reason]
+- [routine] [date_first_surfaced] [record_id] - [reason]
 - ...
 
 ## Apollo Reveals Pending (Routine 8)
@@ -313,7 +336,7 @@ A single Slack canvas — `CRM Guardian — Open Items Ledger` — held in Coope
 - ...
 
 ## Cooper-Decided Divergent Dupes (Routine 3)
-- [primary_id] vs [other_id] — [domain] — [recommendation] [date_first_surfaced]
+- [primary_id] vs [other_id] - [domain] - [recommendation] [date_first_surfaced]
 - ...
 
 ## Stale (>30 days, Cooper decide or close)
@@ -325,11 +348,11 @@ A single Slack canvas — `CRM Guardian — Open Items Ledger` — held in Coope
 1. **At run start (after the trigger query, before any writes):**
    - Call `slack_read_canvas` on the ledger canvas ID.
    - Filter to items belonging to THIS routine.
-   - For each item: re-evaluate against current HubSpot state. If the underlying issue is now resolved (Cooper acted manually, the record was deleted, etc.), mark for removal from the ledger. If still open, mark as priority work for THIS run — these are the routine's first work items, ahead of new candidates.
+   - For each item: re-evaluate against current HubSpot state. If the underlying issue is now resolved (Cooper acted manually, the record was deleted, etc.), mark for removal from the ledger. If still open, mark as priority work for THIS run - these are the routine's first work items, ahead of new candidates.
 2. **At run end (after writes complete):**
-   - For every Tier 3 hold this routine produced this run: append to the ledger under the appropriate section with `[YYYY-MM-DD]` as `date_first_surfaced` (only for new items — items already in the ledger keep their original surface date).
+   - For every Tier 3 hold this routine produced this run: append to the ledger under the appropriate section with `[YYYY-MM-DD]` as `date_first_surfaced` (only for new items - items already in the ledger keep their original surface date).
    - Items the routine resolved this run: remove from the ledger.
-   - Auto-cleanup: any item whose `date_first_surfaced` is more than 30 days old gets demoted to the "Stale" section. Don't delete — Cooper still needs visibility on long-tail holds, but they shouldn't clog the active sections.
+   - Auto-cleanup: any item whose `date_first_surfaced` is more than 30 days old gets demoted to the "Stale" section. Don't delete - Cooper still needs visibility on long-tail holds, but they shouldn't clog the active sections.
    - Call `slack_update_canvas` to persist.
 
 ### Canvas ID
@@ -338,21 +361,21 @@ A single Slack canvas — `CRM Guardian — Open Items Ledger` — held in Coope
 **URL:** `https://maia-edge.slack.com/docs/T06S5P1EGJC/F0B0AFSB9LN`
 
 Canvas structure (as scaffolded):
-- **Active routines table** — one row per routine, with `_name TBD_` placeholders for routines not yet named.
-- **Status emoji conventions** — single source of truth for what each emoji means (`:large_green_circle:` HEALTHY, `:large_yellow_circle:` DEGRADED, `:red_circle:` BLOCKED, etc.). Routines must read this section and use the existing emojis — do NOT invent new ones.
-- **Tier 3 open items** — append-only across runs, organized by routine and `date_first_surfaced`.
+- **Active routines table** - one row per routine, with `_name TBD_` placeholders for routines not yet named.
+- **Status emoji conventions** - single source of truth for what each emoji means (`:large_green_circle:` HEALTHY, `:large_yellow_circle:` DEGRADED, `:red_circle:` BLOCKED, etc.). Routines must read this section and use the existing emojis - do NOT invent new ones.
+- **Tier 3 open items** - append-only across runs, organized by routine and `date_first_surfaced`.
 - **Run log** (append-only, one row per run): `| YYYY-MM-DD | <routine name> | <status emoji> | <one-sentence summary> | <artifact links> |`
 
 Run-time contract for every routine that reads/writes the canvas:
-1. **At run start** — call `slack_read_canvas(canvas_id="F0B0AFSB9LN")`. Read the Active routines table, the status emoji conventions, and any Tier 3 items belonging to this routine. Drain prior holds: re-evaluate against current HubSpot state, resolve where Cooper acted manually since the prior run.
-2. **At run end** — call `slack_update_canvas(canvas_id="F0B0AFSB9LN", ...)`. Append new Tier 3 holds from THIS run with `[YYYY-MM-DD]` as `date_first_surfaced`. Append exactly ONE row to the Run log table.
-3. **Failure handling** — if `slack_read_canvas` returns an error (canvas archived, MCP disconnected, transient network failure), log the error in the routine's Slack DM Errors section and continue without ledger reads/writes. Do NOT abort the routine — the canvas is observability, not a hard dependency.
+1. **At run start** - call `slack_read_canvas(canvas_id="F0B0AFSB9LN")`. Read the Active routines table, the status emoji conventions, and any Tier 3 items belonging to this routine. Drain prior holds: re-evaluate against current HubSpot state, resolve where Cooper acted manually since the prior run.
+2. **At run end** - call `slack_update_canvas(canvas_id="F0B0AFSB9LN", ...)`. Append new Tier 3 holds from THIS run with `[YYYY-MM-DD]` as `date_first_surfaced`. Append exactly ONE row to the Run log table.
+3. **Failure handling** - if `slack_read_canvas` returns an error (canvas archived, MCP disconnected, transient network failure), log the error in the routine's Slack DM Errors section and continue without ledger reads/writes. Do NOT abort the routine - the canvas is observability, not a hard dependency.
 
 ### Why a Slack canvas (not HubSpot custom object, not repo file)
 
-- **Persistent + editable via MCP** (`slack_read_canvas`, `slack_update_canvas`) — fits the routines' write-only-via-MCP model.
-- **Visible to Cooper** in the same Slack DM thread where routine reports already land — no context switch.
-- **No new HubSpot schema** — adding a custom object would require schema management.
+- **Persistent + editable via MCP** (`slack_read_canvas`, `slack_update_canvas`) - fits the routines' write-only-via-MCP model.
+- **Visible to Cooper** in the same Slack DM thread where routine reports already land - no context switch.
+- **No new HubSpot schema** - adding a custom object would require schema management.
 - **Searchable** by Slack search like the routine DMs themselves.
 
 ---
@@ -366,43 +389,28 @@ Run-time contract for every routine that reads/writes the canvas:
 - **Job 1 migrated or filled a field:** Current field value speaks for itself (e.g., `customer_segment` is now `Data Center Colo Provider` instead of the deprecated `AI - Colocation Operator`).
 - **Job 7 flagged a contact or consolidated a company:** `flagged_for_deletion = true` on the contact OR `customer_segment = "Flagged for deletion"` on the company tells the story.
 
-The **single source of audit truth** is the daily consolidated email report (see Email Delivery below). Every Tier 1, Tier 2, and Tier 3 item across all jobs is listed there with record IDs, old/new values, and reasons. Keep the email archive  -  that's your history.
+### Report Delivery - quiet on success, ping only on hard failure
 
-### Report Delivery — Slack DM (end of every routine run)
+Routines do NOT DM Cooper a per-run debrief. The single ops surface is the **CRM Ops Daily Digest** (`cowork-scheduled-tasks/crm-ops-daily-digest/`, M-F 4:45pm CT), which reads HubSpot + the working-ledger canvas `F0B0AFSB9LN` and renders the whole fleet's day on a dashboard canvas + one short DM. Per-run self-DMs are therefore redundant and are removed.
 
-Each routine produces its own report and delivers it as a self-DM to Cooper via the Slack MCP. The previous Microsoft 365 / Outlook path is deprecated — no email delivery is wired up.
+Every routine's run record is:
+1. **On-disk run report** at `weekly-reports/YYYY-MM-DD/<routine>/run-report.md` (or `audit.md`) — the structure below.
+2. **One Run-log row** appended to canvas `F0B0AFSB9LN` with a status emoji from the canvas conventions.
 
-**Transport:** Slack MCP `slack_send_message` tool. Workspace: `maia-edge.slack.com`.
-
-**Recipient:** `U0A24D9RJLS` (Cooper Kennedy's Slack user ID — DM to self). Pass this as `channel_id` to `slack_send_message`; Slack treats self-DMs as a normal DM channel.
-
-**First line of message (acts as subject — use for consistent grouping):**
+**Send a Slack DM to Cooper (`U0A24D9RJLS`) ONLY on a hard failure** — HubSpot/Slack/Apollo MCP unreachable, an abort, a circuit-breaker pause, or zero records processed against a non-empty queue. Keep it to ONE line and still write the matching ❌/⚠️ Run-log row:
 ```
-:emoji: *CRM Guardian — [routine name]* — [YYYY-MM-DD] — [N] Tier 2 flagged, [M] Tier 3 held
+:red_circle: [Routine name] [FAILED / ABORTED / PAUSED] — [one-clause reason].
 ```
-If both N and M are zero, use `All clean` in place of the counts. Per-routine emoji + prefix:
-- `:warning: *CRM Guardian — Import Validator*` (Routine 0, 12:30 AM)
-- `:broom: *CRM Guardian — Territory & Hygiene*` (Routine 6, 1 AM)
-- `:busts_in_silhouette: *CRM Guardian — Duplicate Accounts*` (Routine 3, 2 AM)
-- `:wastebasket: *CRM Guardian — Flagged Consolidation*` (Routine 4, 3 AM)
-- `:wrench: *CRM Guardian — Fresh Enrichment*` (Routine 1, 6 AM)
-- `:arrows_counterclockwise: *CRM Guardian — Stale Re-Enrichment*` (Routine 2, 8 AM)
-- `:mag: *CRM Guardian — Contact Dedup (Weekly)*` (Routine 5, Sun 1 AM)
+On a clean or partial-but-recoverable run, send nothing to Cooper — the disk report + Run-log row are the full record, and the digest surfaces the work.
 
-Slack search on the prefix groups all runs of a given routine into a single stream.
-
-**Body format:** Slack mrkdwn. Use `**bold**` for section headings, `_italic_` for emphasis, `>` for blockquotes / callouts, triple-backtick fenced code blocks for tables (monospace preserves column alignment). Avoid HTML — Slack renders it as plain text.
-
-**Body structure:**
+**On-disk run report structure** (Slack mrkdwn or plain markdown; tables in fenced code blocks):
 1. Hero: routine-specific counters (records scanned, Tier 1/2/3 counts, Apollo credits if any, health score if applicable)
-2. Needs your attention (Tier 2 + Tier 3, grouped, tables in code blocks)
+2. Tier 2 + Tier 3 items, grouped, with record IDs / old→new values / reasons
 3. Auto-fixed (Tier 1 summary counts)
 4. Per-routine highlights (e.g., Mode A / Mode B for Routine 4)
 5. Errors / API failures (if any)
 
-**Size & threading:** 5,000-character limit per text element. If the report exceeds this (common on Routine 4 first-run drain), split into a hero + threaded replies (one thread per table) using `thread_ts` from the hero message. Overflow inside a thread keeps the DM clean.
-
-**Failure handling:** on `slack_send_message` error, retry once with exponential backoff (1s → 2s). If still failing, log in the report's Errors section and rely on the routine-platform's fallback notification. No email fallback exists.
+**Failure-ping handling:** on `slack_send_message` error for the hard-failure ping, retry once (1s → 2s); if still failing, the on-disk report + the ❌ Run-log row are the fallback record.
 
 ### Per-Run: Summary Report
 ```
@@ -450,18 +458,20 @@ CRM Guardian no longer runs as a single 2 AM master cycle. As of 2026-04-24 the 
 | 8  -  Weekly Persona Gap Fill | 9:00 AM | Weekly | Fridays |
 | 7  -  Monthly New Account Sourcing | 9:00 AM | Monthly | 1st of each month |
 | 9  -  Quarterly Job-Change Detection | 9:00 AM | Quarterly | 1st of Jan / Apr / Jul / Oct |
+| 10 -  R-Tier-Audit (Drift Sweep) | 11:00 PM CT | Weekly | Every Sunday (Cowork-only; Apollo budget 0; 5% circuit breaker; widened from monthly to weekly 2026-05-14 per Cooper) |
+| D7 -  Edge Case Resolution | Cooper-chosen | Weekly | Cooper-chosen day (Cowork-only; Apollo budget 0; per-run cap 30; 14-day max wall-clock per record) |
 
 Each routine produces its own report and delivers it as a self-DM to Cooper via Slack with a distinct subject prefix so Slack search groups runs independently:
-- `CRM Guardian — Import Validator —` (Routine 0)
-- `CRM Guardian — Territory & Hygiene —` (Routine 6)
-- `CRM Guardian — Duplicate Accounts —` (Routine 3)
-- `CRM Guardian — Flagged Consolidation —` (Routine 4)
-- `CRM Guardian — Fresh Enrichment —` (Routine 1)
-- `CRM Guardian — Stale Re-Enrichment —` (Routine 2)
-- `CRM Guardian — Contact Dedup (Weekly) —` (Routine 5)
-- `CRM Guardian — Persona Fill (Weekly) —` (Routine 8)
-- `CRM Guardian — Monthly Sourcing —` (Routine 7)
-- `CRM Guardian — Job Changes (Quarterly) —` (Routine 9)
+- `CRM Guardian - Import Validator -` (Routine 0)
+- `CRM Guardian - Territory & Hygiene -` (Routine 6)
+- `CRM Guardian - Duplicate Accounts -` (Routine 3)
+- `CRM Guardian - Flagged Consolidation -` (Routine 4)
+- `CRM Guardian - Fresh Enrichment -` (Routine 1)
+- `CRM Guardian - Stale Re-Enrichment -` (Routine 2)
+- `CRM Guardian - Contact Dedup (Weekly) -` (Routine 5)
+- `CRM Guardian - Persona Fill (Weekly) -` (Routine 8)
+- `CRM Guardian - Monthly Sourcing -` (Routine 7)
+- `CRM Guardian - Job Changes (Quarterly) -` (Routine 9)
 
 ### Sibling routine on its own dedicated prompt
 
@@ -471,7 +481,7 @@ Each routine produces its own report and delivers it as a self-DM to Cooper via 
 
 This is conceptually Job 8 from the Job Definitions section but lives outside the numbered Routines 1-9 series because its skill (`weekly-signal-scan`) is a full standalone skill rather than a thin orchestrator over crm-hygiene/territory-manager modes. It still emits its own per-rep Slack DMs + Cooper audit DM and respects all the same safety tiers and invariants.
 
-**Note on Job 8 timing:** weekly-signal-scan must complete by Monday 7:00 AM ET for rep delivery. Since the daily routines 6/3/4 finish by ~3 AM, Job 8 has a clear 3-7 AM window. On a delayed Monday run, Slack delivery may slip — the routine surfaces this in its Cooper run report.
+**Note on Job 8 timing:** weekly-signal-scan must complete by Monday 7:00 AM ET for rep delivery. Since the daily routines 6/3/4 finish by ~3 AM, Job 8 has a clear 3-7 AM window. On a delayed Monday run, Slack delivery may slip - the routine surfaces this in its Cooper run report.
 
 ### Why the split
 
@@ -499,7 +509,7 @@ The legacy `crm-guardian-prompt.md` is retained for manual "run everything at on
 6. Run crm-hygiene **Mode 5** (Incomplete Enrichment Tracking). Feed stale enrichment candidates into Job 2's re-enrichment pool.
 7. Run crm-hygiene **Mode 9** (Stale Lead Detection). Report only.
 8. Run crm-hygiene **Mode 8** (Contact-Level Hygiene). Auto-sync owner and segment mismatches. Tier 1. Orphaned contacts and missing emails → report only.
-9. Run crm-hygiene **Mode 11** (Contact Deletion Flagging). Populate `flagged_for_deletion = true` on Contact records that meet clear-cut junk criteria so Cooper can bulk-delete from the HubSpot UI after reviewing the daily email report. Tier 1 auto-flag: hard bounces, generic spam patterns, test/placeholder addresses, contacts orphaned to flagged companies with zero open deals. Tier 2 auto-flag + review: no-contact-info aged-inactive contacts, duplicate-email siblings (keep freshest). Never-flag safety: any `hs_email_optout = true`, customer/opportunity lifecycle, any open-deal association, contacts < 30 days old with no contact info (Apollo-enrichment pipeline candidates — route to Job 5 instead). Full criteria per crm-hygiene Mode 11; Guardian only orchestrates + applies tiers.
+9. Run crm-hygiene **Mode 11** (Contact Deletion Flagging). Populate `flagged_for_deletion = true` on Contact records that meet clear-cut junk criteria so Cooper can bulk-delete from the HubSpot UI after reviewing the daily email report. Tier 1 auto-flag: hard bounces, generic spam patterns, test/placeholder addresses, contacts orphaned to flagged companies with zero open deals. Tier 2 auto-flag + review: no-contact-info aged-inactive contacts, duplicate-email siblings (keep freshest). Never-flag safety: any `hs_email_optout = true`, customer/opportunity lifecycle, any open-deal association, contacts < 30 days old with no contact info (Apollo-enrichment pipeline candidates - route to Job 5 instead). Full criteria per crm-hygiene Mode 11; Guardian only orchestrates + applies tiers.
 10. Run crm-hygiene **Mode 6** (Data Completeness Analysis). Calculate health score.
 11. Produce run report. Include a **"Contacts Flagged for Deletion"** section with Tier 1 count, Tier 2 count, and bulk-delete instruction pointer.
 
@@ -509,13 +519,31 @@ The legacy `crm-guardian-prompt.md` is retained for manual "run everything at on
 **Cadence:** Daily
 **Executes:** company-enrichment (Stages 1-3 + Step 0C), segment-classification, import-processor value mappings, edge-case-researcher
 
-1. **New accounts:** Query HubSpot for companies where `createdate` is within the last 24 hours AND (`customer_segment` is blank OR `company_sub_segment` is blank OR `account_tier` is blank). Daily cadence means the window is always "since last run" rather than the prior 14 days.
-2. **Re-enrichment candidates:** The ONLY trigger for re-enrichment is the company-level property `last_enriched_date`. Query HubSpot for companies where `last_enriched_date < [today - 120 days]` OR (`last_enriched_date` IS EMPTY AND `customer_segment` is populated). Do not use `hs_lastmodifieddate`, `createdate`, or any other recency signal as a proxy  -  `last_enriched_date` is the authoritative field and it is set to today (YYYY-MM-DD) at the end of every enrichment run so the next rotation is predictable. Process in batches of 50 per day to keep the daily cycle bounded  -  tune the batch size based on total CRM account volume so the full stale pool rotates within the 120-day window (rough sizing: `daily_batch >= active_accounts / 120`). Apollo organization enrichment is the authoritative source for refreshed `state`, `country`, and firmographic data on every re-enrichment; territory owner is re-derived from the new state value.
-3. For each company: execute company-enrichment full pipeline (Step 0C skips for re-enrichment, then Stages 1-3). Classify per segment-classification qualification gates. Map values per import-processor. Write all enrichment fields to HubSpot. Set `last_enriched_date` to today. Execute segment-classification cascade rules if segment changed. Sync to contacts.
-4. Safety tiers by confidence: HIGH → Tier 1, MEDIUM → Tier 2, LOW/MANUAL_REVIEW → Tier 3
+**Routine 1 (Fresh Enrichment) covers the new-account half. Routine 2 (Stale Re-Enrichment) covers the re-enrichment half.** Both routines run on Cowork (per "Scheduled Routines - Platform Split" in CLAUDE.md). The canonical, current-state spec for R1 is `cowork-scheduled-tasks/r1-fresh-enrichment/prompt.md` (redesigned 2026-05-06 - three-path workflow + 4-filter-group trigger query).
+
+1. **New accounts (Routine 1, redesigned 2026-05-06):** Trigger query is FOUR logical filter groups (split as 5 HubSpot filterGroups because B's "at least one of sub_segment/tier blank" must be OR'd):
+   - **A** - `customer_segment NOT_HAS_PROPERTY` (and not MaiaEdge own).
+   - **B** - `customer_segment` IN one of 7 ICP values AND (`company_sub_segment NOT_HAS_PROPERTY` OR `account_tier NOT_HAS_PROPERTY`). Catches partial-fills.
+   - **C** - `customer_segment EQ "Unknown"` (any confidence). "Unknown" is NEVER a deliberate Cooper-set state; routine resolves it.
+   - **D** - `customer_segment IN ["Other", "Partner Target"]` AND `segmentation_confidence IN ["low_5069", "manual_review_required"]`. Re-evaluates low-confidence non-ICP records.
+   - **Excluded:** `Other`/`Partner Target` with `high_90` confidence (deliberate, vetted - out of scope until R2's stale rotation).
+   - **Pre-flight:** read canvas `F0B0AFSB9LN` for cross-routine Tier 3 holds (R0/R1/R2/R4) and exclude those HubSpot IDs client-side. Prevents same-day routine collisions.
+   - **Cap:** dynamic - 100/run at ≤200 candidates, 125/run at 201-400, 150/run above 400 (with backlog-elevated DM hero flag).
+   - **Three paths:**
+     - **α - Full enrichment** (LIKELY_ICP keyword match in name/domain): web_search + web_fetch → company-enrichment Stages 1-3 → Apollo enrich → segment-classification → ICP Completeness Gate. Apollo cost ~1 credit/record. Cap 50/run (Apollo budget-bound).
+     - **β - Re-research** (Filter Groups C, D, and B without LIKELY_ICP keywords): web_search-only re-classification, no Apollo unless mid-research promotion to LIKELY_ICP. Output domain ICP / Other / Partner Target / Flagged for deletion / explicit Tier 3 hold. NEVER outputs "Unknown". Cap 50/run.
+     - **γ - Eviction-decision** (Filter Group A's LIKELY_NON_ICP and LIKELY_JUNK pools): web_search + MISDOMAIN check + Non-ICP Eviction Rule. No Apollo. Cap 50/run.
+   - **Slot rebalancing:** if any path's pool < its allocated slots, roll unused slots to Path β (the highest-volume path on the new query).
+
+2. **Re-enrichment candidates (Routine 2):** The ONLY trigger for re-enrichment is the company-level property `last_enriched_date`. Query HubSpot for companies where `last_enriched_date < [today - 120 days]` OR (`last_enriched_date` IS EMPTY AND `customer_segment` is populated). Do not use `hs_lastmodifieddate`, `createdate`, or any other recency signal as a proxy  -  `last_enriched_date` is the authoritative field and it is set to today (YYYY-MM-DD) at the end of every enrichment run that passes its Completeness Gate so the next rotation is predictable. Process in batches of 100 per day to keep the daily cycle bounded  -  tune the batch size based on total CRM account volume so the full stale pool rotates within the 120-day window (rough sizing: `daily_batch >= active_accounts / 120`). Apollo organization enrichment is the authoritative source for refreshed `state`, `country`, and firmographic data on every re-enrichment; territory owner is re-derived from the new state value.
+
+3. For each company: execute company-enrichment full pipeline (Step 0C skips for re-enrichment, then Stages 1-3). Classify per segment-classification qualification gates. Map values per import-processor. **Differentiated Completeness Gates by classification outcome:** ICP Gate (full ICP write - segment + sub_segment + tier ≥ medium_7089 + state + country + owner + infra_profile + brief + value_prop), Non-ICP Gate (Other/Partner Target - tier_5 + high_90 + None Identified infra + brief), Eviction Gate (Flagged for deletion - high_90 + brief explaining reason), Tier 3 Hold Gate (NO segment/tier write; segmentation_confidence = manual_review_required + brief + canvas hold). `last_enriched_date` stamps ONLY on a passing ICP / Non-ICP / Eviction gate; Tier 3 holds keep the prior `last_enriched_date` so the record stays in the active pool.
+
+4. Safety tiers by confidence: HIGH → Tier 1, MEDIUM → Tier 2, LOW/MANUAL_REVIEW → Tier 3 Hold Gate.
 5. Deal protection applies per the rule above.
-6. Run edge-case-researcher on any excluded/uncertain accounts.
-7. Produce run report.
+6. Run edge-case-researcher on any excluded/uncertain accounts before falling through to Tier 3.
+7. **Apollo budget post-run (R1+R2):** required local write to `weekly-reports/apollo-budget.json`; `git commit/push` is **best-effort** with a 10s timeout. If `.git/index.lock` is held by a concurrent routine OR git exits non-zero, log "Git commit deferred (concurrent routine); JSON updated locally" in the Slack DM and continue. The Slack DM is the audit trail of record.
+8. Produce run report.
 
 ---
 
@@ -576,13 +604,13 @@ The legacy `crm-guardian-prompt.md` is retained for manual "run everything at on
 
 1. Invoke `weekly-signal-scan` skill with full pipeline (Stages 1-7 per its SKILL.md).
 2. Safety tier integration:
-   - Stage 3 new-account creation: HIGH confidence → Tier 1 auto-create; MEDIUM → Tier 2 auto-create + flag; LOW / MANUAL_REVIEW → Tier 3 hold (surface in rep report's "possible new accounts — review needed" section, NOT auto-created).
+   - Stage 3 new-account creation: HIGH confidence → Tier 1 auto-create; MEDIUM → Tier 2 auto-create + flag; LOW / MANUAL_REVIEW → Tier 3 hold (surface in rep report's "possible new accounts - review needed" section, NOT auto-created).
    - Stage 5 field updates on deal-protected accounts (any open deal) → Tier 2 (applied + flagged).
    - Stage 5 LOW-confidence signals on Tier 1 accounts → Tier 3 hold, not written.
 3. Apollo credit soft floor: if remaining credits < 20% of monthly allocation at Stage 3 entry, pause new-account enrichment for the run and defer to next Monday. Surface in Cooper's run report. Matched accounts (already in HubSpot) still get enriched since they're priority spend.
 4. Account brief regeneration: the skill regenerates `account_brief` via the `account-brief` skill whenever either (a) brief is >30 days old, or (b) fresh research materially diverges from the existing brief. Apply Tier 1 (auto-write) on accounts without open deals, Tier 2 (auto-write + flag) on deal-protected accounts.
 5. Delivery: 3 rep emails (Tim Lieto / Ken Cunningham / Tim Ziemer) + Cooper CC. Cooper also receives a consolidated run report folded into the daily Guardian email.
-6. Idempotency: Job 8 is safe to re-trigger manually (e.g., for testing) but will NOT re-send rep emails outside the scheduled Monday AM run — manual triggers return report content only.
+6. Idempotency: Job 8 is safe to re-trigger manually (e.g., for testing) but will NOT re-send rep emails outside the scheduled Monday AM run - manual triggers return report content only.
 
 ---
 
@@ -595,7 +623,7 @@ This job is the single choke point through which every "mark this non-fit for de
 1. **Build the candidate set** by pulling companies that are:
    - Newly classified as non-ICP in the last 24h (Job 2 or segment-classification output where verdict was EXCLUDE)
    - Already `customer_segment = "Flagged for deletion"` but still have associated contacts unresolved (safety sweep for records that were flagged manually without the audit running)
-   - Any company where `customer_segment` is in: `Dark Fiber - Commercial Enterprise`, `Enterprise-CustomerSegment`, `Partner Target`, `Other`, `Unknown` AND `last_enriched_date` > 30 days ago (periodic re-evaluation pool, batch of 25/day to keep the daily cycle bounded)
+   - Any company where `customer_segment` is in: `Enterprise-CustomerSegment`, `Partner Target`, `Other`, `Unknown` AND `last_enriched_date` > 30 days ago (periodic re-evaluation pool, batch of 25/day to keep the daily cycle bounded)
 2. **Execute pre-deletion-audit** workflow Steps 0-5 on each candidate. All methodology per pre-deletion-audit SKILL.md  -  Guardian does not override the process, only applies safety tiers.
 3. Open-deal hard stop → Tier 3. Mode A consolidation → Tier 1 field writes + Tier 2 reassociations. Mode B standalone flag with all-contacts-inactive → Tier 1. Mode B with preserved active contacts → Tier 3.
 4. Every contact flag, reassociation, and company segment change is captured in the daily email report. No per-record HubSpot notes are created.
@@ -627,24 +655,24 @@ This job is the single choke point through which every "mark this non-fit for de
 
 Real production routines hit API limits. The master cycle must degrade gracefully, not silently drop data.
 
-### Apollo monthly budget — HARD CAP 6,000 credits/month
+### Apollo monthly budget - HARD CAP 6,000 credits/month
 
 **Effective 2026-04-26: total Apollo consumption across ALL routines is capped at 6,000 credits per calendar month.** The cap is enforced at the routine level via per-routine sub-caps that mathematically sum below 6,000/month at full hit rate, plus a pre-flight budget check that every Apollo-consuming routine performs at run start.
 
-**Per-routine sub-caps (ALL routines must respect these — see each routine's Caps & Budgets section):**
+**Per-routine sub-caps (ALL routines must respect these - see each routine's Caps & Budgets section):**
 
 | Routine | Sub-cap | Monthly max | Steady-state burn |
 |---|---|---|---|
 | Routine 0 (Import Validator) | 0 (Apollo-free, website-only) | 0 | 0 |
-| Routine 1 (Fresh Enrichment) | 100 accounts/day, ICP-only via pre-score (~40% Apollo hit rate) | 1,500 | ~600 |
-| Routine 2 (Stale Re-Enrichment) | 100 accounts/day, ICP+reclassify-only via pre-score (~40% Apollo hit rate) | 1,500 | ~750 |
-| Routine 6 (Territory & Hygiene) | 25 Apollo state-verifications/day | 750 | ~300 |
-| Routine 8 (Persona Fill, Fri) | 250 credits/week | 1,075 | ~1,000 |
-| Routine 9 (Job Changes, quarterly) | 750 credits/quarter | 250 | 250 |
-| weekly-signal-scan (Mon) | 200 credits/week | 860 | ~215 |
-| **Combined cap** | | **5,935** | **3,115** |
+| Routine 1 (Fresh Enrichment) | 50 credits/run × 5 runs/week (Path α only; β and γ are Apollo-free) | ~1,000 | ~1,000 |
+| Routine 2 (Stale Re-Enrichment) | 30 credits/run × 5 runs/week, ICP+reclassify-only via pre-score | ~600 | ~600 |
+| Routine 6 (Territory & Hygiene) | 5 Apollo state-verifications/run × 5 runs/week | ~100 | ~100 |
+| Routine 8 (Persona Fill, Fri) | 175 credits/week | ~750 | ~750 |
+| Routine 9 (Job Changes, quarterly) | spare-capacity (up to 750/quarter) | 250 | 250 |
+| weekly-signal-scan (Mon) | 250 credits/week | ~1,075 | ~1,075 |
+| **Steady-state weekly draw (R1+R2+R6+R8+SS)** | **850 credits/week** | **~3,650/month** | **~3,650** |
 
-The cap leaves ~65 credits/month of buffer at full hit and runs at ~52% of budget in steady state. **The 100/day record cap on Routines 1+2 is the throughput lever** — paired with pre-score triage that routes ~60% of records to no-Apollo paths, the effective Apollo cost per record drops to ~0.4 credits, so doubling the daily record throughput only modestly raises monthly Apollo burn (from ~2,240 at 50/day to ~3,115 at 100/day). The cap enables draining 500-record import spikes in 5 days instead of 10 and keeps fresh enrichment from starving downstream routines (signal-scan, persona fill, call recap, rep prospecting all cascade off accurate `customer_segment` + `account_tier`).
+The 6,000/month ceiling leaves ~2,350 credits/month of headroom for ad-hoc enrichment, conference prep, and surge weeks. **The 850-credit weekly hard cap on routines is the throughput lever** - enforced via `weekly-reports/apollo-budget.json` per `routines/_shared/apollo-weekly-budget-spec.md`. R1's 50/run sub-cap (raised from 30/run on 2026-05-06 alongside the trigger-query redesign) lets Path α process up to 50 LIKELY_ICP records per run while Path β and Path γ (re-research and eviction) consume zero Apollo and run uncapped within the dynamic record cap. The combined design enables draining 500-record import spikes in ~3-4 days at the 150/run elevated cap.
 
 **Pre-flight monthly budget check (mandatory for every Apollo-consuming routine):**
 
@@ -653,8 +681,8 @@ At run start, before any Apollo call, every routine MUST:
 1. Call `apollo_users_api_profile` (or equivalent budget-introspection endpoint) to fetch the current month's credit consumption.
 2. Compute `remaining = 6000 - consumed_this_month`.
 3. Compute `planned_for_this_run` (the routine's worst-case Apollo burn for this run, e.g. 50 credits for Routine 1 at full cap, 250 for Routine 8 first-run, etc.).
-4. If `planned_for_this_run > remaining`: scale down the run to `remaining` credits worth of work, prioritized per the routine's priority rules, and surface in the Slack DM as "Apollo monthly budget cap reached — N items deferred to next month / next run."
-5. If `remaining <= 50` (near zero): defer the entire run with a one-line Slack DM "Apollo monthly budget exhausted — routine deferred until next billing cycle."
+4. If `planned_for_this_run > remaining`: scale down the run to `remaining` credits worth of work, prioritized per the routine's priority rules, and surface in the Slack DM as "Apollo monthly budget cap reached - N items deferred to next month / next run."
+5. If `remaining <= 50` (near zero): defer the entire run with a one-line Slack DM "Apollo monthly budget exhausted - routine deferred until next billing cycle."
 
 **Priority ordering on capped scans (Routines 8, 9):**
 - Routine 9: open-deal contacts always covered first; then Tier 1 contacts; then Tier 2 round-robin (oldest-Apollo-checked first). Full base cycles in ~5 quarters at the 750-credits/quarter cap.
@@ -701,7 +729,7 @@ Never skip writing `last_enriched_date` after a successful enrichment  -  it's t
 - `get_object`  -  read individual records with all properties
 - `update_object`  -  write field corrections to company/contact records
 - `create_object`  -  create new contact records from Apollo data
-- *(not used — per-record notes are intentionally skipped; see Change Log Format)*
+- *(not used - per-record notes are intentionally skipped; see Change Log Format)*
 - `get_associations`  -  get contacts associated with a company, deals associated with a company
 
 ### Apollo MCP

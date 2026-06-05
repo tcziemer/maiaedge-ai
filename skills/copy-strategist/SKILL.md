@@ -25,14 +25,14 @@ Every segment has its own vocabulary. Fiber operators talk about "route miles" a
 
 When you use their words, something clicks. They stop reading a sales email and start reading a message from someone in their world. That's everything.
 
-When you use OUR words  -  "fabric-in-a-box," "session-smart routing," "PBC/PCE"  -  in a cold email, you sound like marketing. Save the product vocabulary for after they reply.
+When you use OUR words  -  "fabric-in-a-box," "session-smart routing," "PBC/PCE"  -  in a cold email, you sound like marketing. Save the product vocabulary for after they reply. "fabric-in-a-box" is BANNED in cold-email and LinkedIn body across all senders and segments. It stays canonical in cheatsheets, the 101, sales enablement, and live conversations as a Centra customer-paraphrase anchor - never as an outbound pitch term.
 
 **Be genuine. Stand out by being real.**
 
 Every executive gets 30-50 cold emails a week. They can smell a template in two seconds. What stands out? The email that sounds like a real person who actually understands their business wrote it  -  not a perfectly polished marketing message, but a genuine note from someone who gets their world.
 
 This means:
-- Short sentences. Sometimes fragments. The way people actually write.
+- Reasoning that flows: clauses connected with so / since / but / even though, arriving at one point. One bare fragment per body, max. The way people actually write.
 - "I'd guess" and "I'd imagine" used honestly, because you're making a hypothesis, not a claim.
 - One idea per email. Not three value props crammed into 120 words.
 - Admitting what you don't know. "Not sure if this is on your radar" is more human than "I know this is a priority for you."
@@ -75,6 +75,19 @@ The user pastes copy and wants your honest assessment.
 
 4. **First-pass filter: Research Display.** Before the full critique, scan every sentence for research display. This is the #1 issue in batch processing. If any sentence displays company facts as standalone observations (route miles, facility counts, geographic descriptions, funding amounts), flag it immediately as the primary fix. Research display is a disqualifying flaw, not a deduction. The email scores 0 on "Research as Fuel" (15% weight) if research is visible. The test: "If the email's opening 2 sentences could not have been written without specific research, but the research is invisible, the email passes. If the research is VISIBLE, it fails."
 
+   **4a. Multi-fact opening density (sub-check, catches the sophisticated form):** Research display has two forms. The OBVIOUS form is "I noticed [fact]" - easy to detect with a regex. The SOPHISTICATED form is multi-fact stacking in the opener: "Saw the $X.XB credit close on top of the [tenant] sale. With [Project Name] [verb-ing] and the [Partnership] anchored by [Tenant1] and [Tenant2]…" Each fact is individually a legitimate public signal, but stacking 2+ in the opening 2 sentences crosses from "research absorbed" to "research summary handed to the recipient."
+
+   Count these markers in the opening 2 sentences after the first-name greeting:
+   - Dollar amounts ($X B/M)
+   - Power figures (X MW, Y GW)
+   - Named hyperscaler tenants (Microsoft, NVIDIA, AWS, Oracle, OpenAI, AMD, Meta, Google, Stargate, AI Infrastructure Partnership, Blackstone, PGIM, BlackRock, MGX, Fluidstack, etc.)
+   - Named projects/campuses (Caprock, Comanche Circle, TCDC, Project Jupiter, Goodnight, Abilene, Matador, Frontier, Delta Forge, Corsicana, LBB-01, Barber Lake, Stingray, etc.)
+   - Building/site/facility counts ("6 buildings", "540 MW with 6 facilities", "9 campuses")
+
+   If ≥2 of these markers appear in the opening 2 sentences, flag as a Cited-Signal Cap violation (see `skills/cold-email/SKILL.md` "Cited-Signal Cap"). Rewrite by keeping the single strongest signal and pushing the rest into framing.
+
+   This catches the failure mode that the simple "I noticed" regex misses. Run this check on EVERY email even when the obvious-form filter returns clean.
+
 5. **Second-pass filter: Claim Diplomacy.** After research display, scan every sentence for overclaims. Flag any of these immediately as a primary fix:
    - Absolutes ("the only way," "the single biggest," "you MUST")
    - Prescriptive musts ("you need to," "what you should do is," "the right approach is")
@@ -90,24 +103,27 @@ The user pastes copy and wants your honest assessment.
 
 6b. **Fifth-pass filter: Brand-voice constructions.** Scan for "We help operators…" / "We work with…" / "We've been doing this with…" / "Most operators we talk to…" / "Many of the operators we talk to…" / "What we keep hearing from operators…" These are us-to-a-category sentences inside person-to-person email and are BANNED. Flag and rewrite in "I" voice ("I've been seeing this with…" / "The pattern I'm watching at…").
 
-6c. **Sixth-pass filter: Public Signal Cited block.** Verify the email comes with a Public Signal Cited block above it (cataloged signal code from `context/signals/[segment]-signals.md`, "NON-CATALOG", or "NONE — inferred angle"). If the block is missing, the writer skipped the catalog-grounded research step. Flag this as a process violation, not a copy fix — the right answer is to send back for re-research, not to polish the email.
+6c. **Sixth-pass filter: Public Signal Cited block.** Verify the email comes with a Public Signal Cited block above it (cataloged signal code from `context/signals/[segment]-signals.md`, "NON-CATALOG", or "NONE - inferred angle"). If the block is missing, the writer skipped the catalog-grounded research step. Flag this as a process violation, not a copy fix - the right answer is to send back for re-research, not to polish the email.
 
-6d. **Seventh-pass filter: Posture matches signal strength.** If the Public Signal Cited block shows a HIGH-confidence cataloged signal but the E1 used ASKED posture (illumination question + hedges), that's a mismatch — DIRECT would land harder. If the block shows NONE but E1 used DIRECT posture (declarative diagnosis without backing), that's a mismatch — ASKED would be more honest. See scoring-rubric.md Dimension 11 sub-criterion.
+6d. **Seventh-pass filter: Posture matches signal strength.** If the Public Signal Cited block shows a HIGH-confidence cataloged signal but the E1 used ASKED posture (illumination question + hedges), that's a mismatch - DIRECT would land harder. If the block shows NONE but E1 used DIRECT posture (declarative diagnosis without backing), that's a mismatch - ASKED would be more honest. See scoring-rubric.md Dimension 11 sub-criterion.
+
+6e. **Eighth-pass filter: Meta-framing openers.** Scan the FIRST sentence after the recipient's name for any of these patterns: "The [Company] angle that interests us most…" / "What caught our eye…" / "Here's what stood out…" / "The thing we keep coming back to…" / "What's interesting about [Company]…" / "One pattern we keep seeing…" / "The piece that's hardest to ignore…" These all announce a thought instead of stating it - the frame around the claim eats the budget the claim itself should occupy. This is a high-frequency tell that's easy to miss because the prose sounds polished. BANNED. Flag and rewrite by deleting the frame and leading with the observation directly. A peer doesn't preface; a peer asserts. See email-writing-rules.md "Meta-framing openers" under Banned Phrases.
 
 7. **Identify the biggest thing that's wrong.** Not 12 things. The ONE thing that, if fixed, would make the biggest difference. Usually it's one of:
    - Wrong segment (research reveals a different segment than assumed, see step 3)
    - Wrong voice (sounds like marketing, not a peer)
    - Wrong language (our words instead of their words)
    - Research displayed instead of absorbed
-   - **Standalone value bridge paragraph** (the structural tell — see 6a)
-   - **Brand-voice constructions** ("We help…" — see 6b)
-   - **Missing Public Signal Cited block** (process violation — see 6c)
+   - **Standalone value bridge paragraph** (the structural tell - see 6a)
+   - **Brand-voice constructions** ("We help…" - see 6b)
+   - **Missing Public Signal Cited block** (process violation - see 6c)
    - **Posture mismatched to signal strength** (see 6d)
+   - **Meta-framing opener** ("The [Company] angle that interests us most…" / "What caught our eye…" - see 6e). Announces a thought instead of stating it.
    - Overclaiming / prescriptive tone (preaches instead of nudges, recipient wouldn't want to reply)
    - Missing contact-level tailoring (would work for any role at this company)
    - Wrong segment framing (right segment, but using another segment's vocabulary)
    - No real problem named
-   - **No non-functional voice** (every sentence does structural work — feels manufactured even if technically correct)
+   - **No non-functional voice** (every sentence does structural work - feels manufactured even if technically correct)
 
 8. **Score it** using the rubric (11 dimensions). Be honest but constructive. The score should tell them where they stand.
 
@@ -120,7 +136,7 @@ The user pastes copy and wants your honest assessment.
 When creating sequences, think about the narrative arc through the recipient's eyes:
 - Email 1: Name a problem they live with daily, in their words. Make them think "this person gets it." Posture (DIRECT or ASKED) depends on whether a public signal exists.
 - Email 2: Add a new dimension they haven't considered. A peer's experience, a market shift, a different way to frame the cost. Posture is the OPPOSITE of E1 (declarative if E1 was asked, asked if E1 was declarative). Same problem, different posture, different lens.
-- Email 3: Provide the graceful exit while leaving the door open. Respect their time. TWO valid energy modes: timing-anchored ("show is coming up" — when there's a real milestone) OR detached close that matches the silence ("Sounds like the timing isn't right. Easy to reach me if it ever lands differently." / "I'll stop here. Door's open if anything shifts." — when there's no milestone). Match the energy of what's actually true, not manufactured urgency. NEVER use deal-cycle phrases like "Have you shelved this?" or "Have you given up on this project?" in cold E3 — those assume the prospect agreed something existed and belong in active-deal nurture, not cold outreach.
+- Email 3: Provide the graceful exit while leaving the door open. Respect their time. TWO valid energy modes: timing-anchored ("show is coming up" - when there's a real milestone) OR detached close that matches the silence ("Sounds like the timing isn't right. Easy to reach me if it ever lands differently." / "I'll stop here. Door's open if anything shifts." - when there's no milestone). Match the energy of what's actually true, not manufactured urgency. NEVER use deal-cycle phrases like "Have you shelved this?" or "Have you given up on this project?" in cold E3 - those assume the prospect agreed something existed and belong in active-deal nurture, not cold outreach.
 
 Each email must bring a genuinely different angle AND a different posture. Not a shorter version of Email 1.
 
@@ -147,16 +163,19 @@ When reviewing 5+ emails (batch from SDR pipeline, event outreach, etc.), run ba
 7. **Proof point variety check:** Is "one operator told us..." in every Email 2? Cap at 1 per 3 unique companies.
 8. **Value bridge weight check:** Flag ANY email where the value bridge is more than 1 sentence. The standalone multi-sentence value bridge paragraph is BANNED.
 9. **Email 2 differentiation check:** Are all Email 2s from the same angle category as their Email 1? They should differ.
-10. **Brand-voice sweep:** Scan all emails and LinkedIn messages for "We help operators…" / "We work with…" / "Most operators we talk to…" / "We give you…" / "We've been doing this with…" These are BANNED. Flag every instance for rewrite to "I" voice.
+10. **Generic-category we-claim sweep:** Scan all emails and LinkedIn messages for "We help operators…" / "We work with…" / "We work with companies like yours…" / "Most operators we talk to…" / "We give you…" / "We've been doing this with…" / "We built carrier infrastructure that…" / "We built MaiaEdge for…" These are generic-category we-claims with no specific mechanic and are BANNED. Flag every instance for rewrite to "I" voice. Treat every instance as a Tier-1 violation (-2 points or rewrite-required, not a stylistic note). **Carve-out: do NOT flag the specific-mechanic peer line.** A "we" attribution that names a SPECIFIC mechanic plus plain outcome ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]"; e.g. "We've been helping multi-site colos turn a cross-connect request into reach beyond the campus, so the customer stays yours") is the one sanctioned "we" sentence and reads as spoken peer credibility, not a brand slogan. The test: if the reader can tell exactly what we DO from the sentence, it passes; if the "we" sentence could describe any vendor, it's the banned generic claim. One per sequence, email only (never LinkedIn).
+10a. **Fabric-in-a-box cold-body sweep:** Scan all cold emails and LinkedIn messages for "fabric-in-a-box" / "fabric in a box" in body text. BANNED in cold body and LinkedIn body - cheatsheet/live-conversation/sales-enablement only. Flag every cold-body instance. The phrase is allowed in anonymized-proof framing ("One operator called it 'fabric in a box'…") inside the cap of 1 per sequence.
+10b. **Federation-verb cold-body sweep:** Scan all cold emails and LinkedIn messages for "federate with partners" / "federation creates" / "cross-carrier federation" as a verb. BANNED in cold body and LinkedIn body. Translate to "extend your reach" / "sell into new markets" / "connect to partners instantly." Note: "Federated Private Networking" as a noun phrase is allowed in partner-facing materials (101, cheatsheets, deck) - but NOT in cold-email or LinkedIn body.
 11. **Public Signal Cited block sweep:** Verify EVERY E1 in the batch has a Public Signal Cited block above it. Count emails by signal type:
-    - Catalog code (F-A1, NC-A2, etc.) — good, writer grounded against the catalog
-    - NON-CATALOG — acceptable, writer found a real signal outside the catalog
-    - NONE — acceptable individually but a high rate (>50% of batch) signals research-skipping. Flag if NONE rate >50%.
-    - Block missing entirely — process violation. Send back for re-research, don't score.
+    - Catalog code (F-A1, NC-A2, etc.) - good, writer grounded against the catalog
+    - NON-CATALOG - acceptable, writer found a real signal outside the catalog
+    - NONE - acceptable individually but a high rate (>50% of batch) signals research-skipping. Flag if NONE rate >50%.
+    - Block missing entirely - process violation. Send back for re-research, don't score.
 12. **Posture distribution check:** Count DIRECT vs ASKED postures across the batch. The ratio is NOT a target (per the anti-quota rule), but a heavily-skewed batch (e.g., 95% DIRECT or 95% ASKED) suggests the writer is defaulting to one posture instead of matching to signal. Cross-reference with the Public Signal Cited blocks: if 80% have NONE and 80% are DIRECT, the postures are not matching signals.
 13. **Posture rotation per sequence:** For each contact's full 3-email sequence, verify the postures rotate (E1, E2, E3 should not all be the same). Flag any sequence where all three touches use the same posture.
-14. **Sender intro check for LinkedIn:** Scan all LinkedIn messages for "Tim from MaiaEdge." or "Ken from MaiaEdge." in the body. These are BANNED — sender is identified by LinkedIn UI. Flag every instance for rewrite.
+14. **Sender intro check for LinkedIn:** Scan all LinkedIn messages for "Tim from MaiaEdge." or "Ken from MaiaEdge." in the body. These are BANNED - sender is identified by LinkedIn UI. Flag every instance for rewrite.
 15. **LinkedIn length check:** Verify all LinkedIn messages target 35-50 words and stay under 280 chars. Flag any over.
+16. **Multi-fact opening density sweep:** For every E1, count specific-fact markers in the opening 2 sentences (dollar amounts, MW/GW figures, named hyperscaler tenants, named projects/campuses, building/site counts). Flag any E1 with ≥2 markers as a Cited-Signal Cap violation. This catches the sophisticated form of research display that the regex-based "research display sweep" in check 2 misses ("Saw the $X.XB credit close on top of the [tenant] sale. With [Project Name] and [Partnership] anchored by [Tenant1] and [Tenant2]…"). Especially important when 3+ contacts at the same account are in the batch - when the same fact recap appears across 5 contacts at one company, recipients who compare notes read the campaign instantly. Cross-check against E2 and LinkedIn for the same contacts: if the recap bleeds into E2 and LI as well, all three touches are stamped. See `skills/cold-email/SKILL.md` "Cited-Signal Cap" for the full constraint.
 
 **Report batch-level findings FIRST**, then proceed to individual email review. Batch patterns are more important than individual email tweaks because they affect how the entire campaign reads to recipients who may compare notes.
 
@@ -171,13 +190,13 @@ Full details in `references/scoring-rubric.md`. The rubric is intentionally weig
 | **Speaks Their Language** | Uses the recipient's industry vocabulary, not ours. Frames problems the way they'd frame them. | 16% |
 | **Research as Fuel** | Research powers the voice and angle but never shows up as display. No "I noticed..." or dropped facts. | 15% |
 | **Problem Authenticity** | The problem named is something the recipient would recognize from their daily reality, in their words. | 14% |
-| **Human Voice** | Reads like a person who's lived in their world, not a sequence tool. Has genuine personality. | 14% |
+| **Human Voice** | Reads like a person who's lived in their world, not a sequence tool. Has genuine personality. Reward connected reasoning (clauses joined with so / since / but / even though, arriving at one point); penalize stacked one-idea-per-sentence declaratives. One bare fragment per body, max. Reward active voice plus second person ("your team provisions"), penalize passive/third-person reporting. Do NOT penalize the specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]"): that reads as peer credibility, not brand voice; only generic-category we-claims ("We help operators…") lose points. | 14% |
 | **Segment Accuracy** | Correct ICP framing. Sovereignty for operators, observability for neoclouds, visibility for MSPs. | 10% |
 | **Role Alignment** | The angle matches what this specific persona cares about in their daily work. | 8% |
 | **Brevity & Density** | Every sentence earns its place. No filler. Within segment word counts. | 5% |
 | **CTA Quality** | Single, natural, low-friction. Sounds like something you'd actually say. | 5% |
 | **No Credibility Anchor** | No Acme Packet or 128 Technology in cold email or LinkedIn. Message earns the reply, track record does talking in rooms. | 4% |
-| **Sovereignty Thread** | Speed paired with ownership for operators. Skip for neoclouds. | 4% |
+| **Sovereignty Thread** | Speed paired with operator ownership for operator segments (Fiber, Colo, AI Colo, Network Op, MSP). For neoclouds AND Enterprise (Multi-DC ICP), pair speed with DATA sovereignty + audit-trail language instead - operator sovereignty is BANNED ("keep your customer," "your portal your invoice," "build your own fabric to sell") because these segments ARE the customer, not selling to one. | 4% |
 | **Claim Diplomacy & Reply-Worthiness** | Nudge, don't preach. No absolutes or prescriptive musts. Would the recipient want to reply? | 5% |
 
 **Scoring scale:**
@@ -230,12 +249,33 @@ Never in cold email. "Third-party fabric providers" or "someone else's fabric." 
 4. CTA (1 sentence): One natural question.
 No credibility line. No "Same team that built Acme Packet." Save credibility anchors for live conversations only.
 
-**Banned phrases:**
+**Banned phrases (universal):**
 - Em dashes ( - ). Periods or commas instead.
 - "Hope this finds you well" / "Just wanted to reach out" / "I noticed..."
 - "As a [role title]..." / "Revolutionary" / "Game-changing"
 - Customer names in cold email. Anonymize.
 - "I'd love to..." / "Let me know if..." / Calendar links / "Quick call"
+
+**Additional banned phrases for Enterprise copy (extends universal list):**
+
+- **"No routing complexity" in Enterprise copy** (active language test, May 2026, **Enterprise scope only**). Preferred replacement: **"connect anywhere to anywhere with a click"** (or close paraphrase) - especially for non-technical Enterprise personas (CIO / CFO / VP Sales-adjacent). Score Enterprise copy that uses the preferred phrase higher in provisioning-simplicity dimensions; flag Enterprise copy that reaches for "no routing complexity" as needing rewrite WHEN the recipient is a non-technical persona. Technical-champion Enterprise personas (VP Network, Principal Engineer) may still respond well to "no routing complexity" - judgment call. **This rule does NOT apply to operator-segment copy (Fiber, Colo, AI Colo, Network Op, MSP) or neocloud copy** - "no routing complexity" stays canonical there. Revisit 2026-08.
+
+- "Keep your customer" / "your portal your invoice" / "build your own fabric to sell" - operator-monetization framing; Enterprises are not selling connectivity to anyone.
+- "Monetize stranded fiber" / "wholesale activation" / "extend reach to new markets" - carrier/operator economics; do not apply.
+- "Tenant" / "meet-me room" / "cross-connect" / "interconnection revenue" - colo-segment language.
+- "GPU cluster" / "inference latency" / "training run" / "recompute tax" - neocloud-segment language (unless the enterprise is consuming GPU infrastructure as a customer).
+- "Aggregator" / "TSD" / "line-card" - MSP-segment language.
+- "Federation" / "federate with partners" - internal MaiaEdge language and conceptually wrong for Enterprise (they're not federating, they're the customer).
+
+**Preferred Enterprise phrasings to score higher:**
+- "Connect anywhere to anywhere with a click" (provisioning simplicity, active test)
+- "Audit-ready paths" / "the path is the audit artifact" / "compliance can prove the path"
+- "Deterministic paths between data centers"
+- "Your team owns the SLA" (when discussing the third-party fabric hand-off problem)
+- "Diverse fibers + automated failover" (when discussing dark fiber redundancy)
+- HIPAA / PCI-DSS / SOX / GDPR / HITRUST mentions are APPROPRIATE for Enterprise copy where the buyer's persona implies regulatory exposure (CISO, regulated-vertical CIO, Compliance). Score this as voice authenticity, not as overclaim.
+
+**Enterprise reference benchmark:** Meijer (Retail and Distribution - Enterprise, anchor account, Ken Cunningham + Woody Acosta + Mark Szymanski on PBC + Port Extender for HAsync/HAfabric dark fiber diversity). When scoring Enterprise copy, ask: "Could this email plausibly be sent to a Meijer-class Network Architect and get a reply?" Use as the calibration benchmark for retail/distribution Enterprise copy.
 
 **Subject lines:** Short. Specific. "[Company] provisioning" not "Unlock new revenue."
 
@@ -265,6 +305,8 @@ Full vocabulary and daily reality in `references/segment-language.md`. Here's th
 **Network Operators**  -  Sophisticated internal automation that stops at their border. They talk about multi-domain orchestration, cross-carrier coordination, LOAs, BGP configuration.
 
 **MSPs**  -  Own customer relationships, blind to carrier networks. They talk about upstream providers, finger-pointing, carrier SLAs, provisioning timelines.
+
+**Enterprise (Multi-DC ICP)**  -  They ARE the customer, not selling connectivity to anyone. Drop operator-monetization framing entirely. Four sub-segments: Financial Services, Healthcare Systems, Retail and Distribution, Outsourcing Services. They talk about inter-DC paths, dark fiber redundancy (or lack of it), Type 2 black holes, HAsync/HAfabric sharing a single fiber pair, BGP across the WAN, audit-ready paths, HIPAA/PCI-DSS/SOX/GDPR, cloud on-ramps Megaport owns the SLA on. Sovereignty pairs with **data sovereignty + audit trails**, NOT operator sovereignty.
 
 ---
 

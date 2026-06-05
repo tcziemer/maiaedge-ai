@@ -15,6 +15,17 @@ Validate and enforce territory assignments in HubSpot. The territory model is si
 
 For the canonical territory model, see **territory-model.md**. The mapping below is reproduced for quick reference.
 
+**Informational refs (territory logic does NOT depend on these - they're for context when audit reports surface segment / sub-segment / tier data alongside owner data):**
+- `context/account-tiering/tier-compute-spec.md`  -  Canonical `account_tier` function. **Territory changes do NOT affect tier.** Tier reads via this spec; territory-manager never writes tier. When the audit report cross-references owner and tier, this is where tier values come from.
+- `context/account-tiering/sub-segment-qualification.md`  -  Canonical 30-value list of active `company_sub_segment` enums (case-sensitive) - informational only when audit output displays sub-segments alongside owners. Territory-manager does not classify, gate, or modify sub-segments. Key 2026-05-14 entries: `Subsea cable operator` (30th active), `Greenfield` is a real sub-segment paired with Colo or NeoCloud parent, `Crypto to AI - Neoclouds` inclusive of operator AND landlord.
+- File 06 (`context/account-tiering/sub-segment-qualification-full.md`)  -  upstream consolidated source for sub-segment qualification. File 06 wins if it diverges from `sub-segment-qualification.md`.
+
+### Independence rule
+
+**Territory assignment is independent of `customer_segment` and `company_sub_segment`.** The territory function takes inputs (`state`, `hs_state_code`, `country`) and returns an owner - full stop. It does NOT branch on segment / sub-segment / tier. A Tier 1 NeoCloud in California routes to Ken Cunningham the same way a Tier 5 Other in California does. Strategic exceptions are the only override path (see Routing Rules below).
+
+**Territory changes do NOT cascade to tier.** A correction from Tim Lieto → Ken Cunningham (e.g., HQ relocation NJ → CA) writes `hubspot_owner_id` and cascades to associated contacts' `hubspot_owner_id`, but it never touches `account_tier`. The tier value lives at the company level and is owned by R1 / R2 / Signal Scan Stage 5b / R-Tier-Audit per `context/account-tiering/tier-compute-spec.md`. Territory-manager and tier-compute have non-overlapping write domains.
+
 ---
 
 ## Territory Model (Effective January 2026)

@@ -1,7 +1,8 @@
 # MaiaEdge Use Case Taxonomy
 
-> Last updated: March 2026
+> Last updated: May 2026 (Enterprise use cases added 2026-05-11 with Multi-DC ICP promotion)
 > **Standardized vocabulary for classifying use cases discussed in sales calls. Use this taxonomy for consistent tracking across all call analysis and reporting.**
+> Operator-segment use cases (#1-21 below) cover Colocation / Fiber Operator / NeoCloud / Network Operator / MSP-Aggregator. Enterprise (Multi-DC ICP) use cases (#22-29) cover Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services. See `context/segments/enterprise-use-cases.md` for sub-segment fit + persona fit + insider phrases + lead-angle templates + proof points per Enterprise use case.
 
 ---
 
@@ -114,33 +115,95 @@
 
 ---
 
+## Enterprise (Multi-DC ICP) Use Cases - added 2026-05-11
+
+These use cases apply to calls with companies where `customer_segment = "Enterprise-CustomerSegment"` (4 sub-segments only: Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services). Full sub-segment fit matrix, persona fit, insider phrases, lead-angle templates, and proof-point patterns per use case in `context/segments/enterprise-use-cases.md`.
+
+### 22. Dark Fiber Redundancy Between Data Centers
+**Definition:** Discussions about dark fiber paths between corporate DCs that are not actually redundant (single conduit, shared regional aggregation, no automated failover). Most enterprise DR plans assume the dark fiber is diverse; in practice the pair is often one path. MaiaEdge PBC+Port Extender deployment at each end + diverse fibers + automated failover makes it truly redundant without standing up routing protocols.
+**Trigger Keywords:** dark fiber, fiber pair, diverse path, physically diverse, protected wave, unprotected wave, dual entrance, dual entry, redundancy, DR site, brownout, single conduit, shared aggregation, manhole, backhoe, FFIEC physical-path, BCM IV.A.6, carrier of last resort, replication lag, RPO, Epic primary-DR, BOPIS replication, paired site, BCP site
+**Primary Sub-Segments:** Financial Services - Enterprise (HIGH), Healthcare Systems - Enterprise (HIGH), Retail and Distribution - Enterprise (HIGH - anchor at Meijer), Outsourcing Services - Enterprise (MED)
+**Primary Persona:** VP Network Infrastructure / Director Network Engineering / Principal Network Engineer
+
+### 23. Cloud On-Ramp Under Enterprise Control
+**Definition:** Discussions about cloud on-ramps (AWS Direct Connect, Azure ExpressRoute, GCP Cloud Interconnect) currently delivered via third-party fabric vendors (Megaport, Equinix Fabric, PacketFabric, Console Connect) where the enterprise team owns the SLA but doesn't own the portal. MaiaEdge gives enterprises their own on-ramp under their control, with third-party fabrics reduced to API-driven transport options the fabric uses by API.
+**Trigger Keywords:** cloud on-ramp, Direct Connect, ExpressRoute, Cloud Interconnect, AWS, Azure, GCP, Oracle Cloud, multi-cloud, Megaport, Equinix Fabric, PacketFabric, Console Connect, whose SLA, hairpin, DORA CTPP, concentration risk, dual-redundant pair, egress cost, Azure OpenAI egress, ExpressRoute renewal, Epic Cogito on Azure, AWS for Health, client tenant, per-client ExpressRoute, BigQuery analytics path, in-store inference
+**Primary Sub-Segments:** All four sub-segments HIGH
+**Primary Persona:** CIO / VP Network Infrastructure (split - economic buyer vs technical evaluator)
+
+### 24. Hop-by-Hop Visibility on Every Path Including Type 2
+**Definition:** Discussions about network observability on paths that leave the enterprise's owned infrastructure (Type 2 leased circuits, carrier-managed waves, partner networks). Visibility dies once traffic leaves the enterprise; SLA accountability stays with the enterprise team. MaiaEdge PCE telemetry gives hop-by-hop visibility on every path including Type 2.
+**Trigger Keywords:** Type 2, black hole, brownout, microbursts, queue drops, latency-equalized, NY4, NY5, jitter envelope, HL7 integration engine path, DICOM C-STORE, PACS retrieval, store-to-DC link jitter, BOPIS failure attribution, WMS replication lag, Symbotic control plane, path-level proof, client-jurisdictional attestation, in-country processing, per-tenant traffic attestation, SD-WAN dashboard, Kentik, ThousandEyes, NetFlow, "whose problem is this"
+**Primary Sub-Segments:** Financial Services - Enterprise (HIGH), Retail and Distribution - Enterprise (HIGH), Outsourcing Services - Enterprise (HIGH), Healthcare Systems - Enterprise (MED)
+**Primary Persona:** Network Architect / Principal Network Engineer (at BPOs, can also be CSO/CISO when audit framing is the entry)
+
+### 25. AI / GPU Infrastructure Access via Direct Private Path
+**Definition:** Discussions about enterprise consumption of GPU infrastructure (CoreWeave, Lambda, Crusoe, Nebius) requiring a private path from corporate network to the neocloud's GPU clusters. Public-internet inference latency variance compounds per token in agentic workflows. East-west fabric between GPU sites is the gap most enterprises hit when scaling AI beyond a single cluster.
+**Trigger Keywords:** GPU east-west fabric, inference latency variance, agentic workflow, compounding latency, GPU bond, CoreWeave debt, private path to CoreWeave, Lambda, Crusoe, Nebius, Together AI, IndexGPT, GS AI, Knowledge Assistant, MedLM, DAX Copilot, Walmart Sparky, Lowe's Mylow, Cognizant Neuro, Genpact AI Gigafactory, Teleperformance Azure OpenAI 170 markets, agent-assist LLM, first-token latency, VDI traffic, asymmetric bursty traffic
+**Primary Sub-Segments:** Financial Services - Enterprise (MED-HIGH), Healthcare Systems - Enterprise (MED), Retail and Distribution - Enterprise (MED), Outsourcing Services - Enterprise (MED)
+**Primary Persona:** CTO / CIO (Head of AI / Chief AI Officer where role exists)
+
+### 26. M&A Network Integration
+**Definition:** Discussions about post-merger or post-acquisition network integration - two ADs, two MPLS cores, two SD-WAN orchestrators, two security stacks, two cloud-account hierarchies. Most enterprise M&A integrations take 18-36 months and run parallel-WAN bridges for the duration. MaiaEdge fabric absorbs two parallel WANs and shortens the integration runway.
+**Trigger Keywords:** acquisition close, post-merger, integration, parallel WAN, bridge network, regulator-notified MSA termination, two AD forests, two MPLS cores, acquired-hospital cutover, Epic consolidation, Hyperdrive cutover at acquired site, Concentrix-Webhelp, TP-Majorel, Cognizant-Astreya, EXL tuck-in, post-merger network alignment, client carve-out re-papering
+**Primary Sub-Segments:** Financial Services - Enterprise (HIGH), Healthcare Systems - Enterprise (HIGH), Outsourcing Services - Enterprise (HIGH), Retail and Distribution - Enterprise (LOW)
+**Primary Persona:** VP Network Infrastructure / Director Network Engineering
+
+### 27. New Site Bring-Up in Days, Not Months
+**Definition:** Discussions about provisioning new DCs, DR sites, cloud regions, or delivery centers - typically 8-16 weeks of carrier installation + 4-8 weeks of integration work (3-6 months "site approved" to "first customer traffic"). For BPOs especially, sales cycles (4-6 week ramps) don't match carrier install timelines. MaiaEdge fabric stands up a new site in days.
+**Trigger Keywords:** seat ramp, site activation timeline, client commit date, 8-16 week carrier install, nearshore expansion, Manila, Cebu, Pune, Bangalore, Medellín, Cali, acquired-hospital cutover, add-site to parent Epic, new DC opening timeline, fiber-to-the-wave install window
+**Primary Sub-Segments:** Outsourcing Services - Enterprise (HIGH), Healthcare Systems - Enterprise (MED-HIGH for acquired-hospital cutover), Retail and Distribution - Enterprise (MED), Financial Services - Enterprise (MED)
+**Primary Persona:** VP Network Operations / Director Network Engineering
+
+### 28. Policy-Based Path Control with Audit Trails
+**Definition:** Discussions about regulatory audit requirements that demand proof of where data went, not just that data was encrypted. BGP routing tables are not an audit artifact. Encryption-in-transit, segmentation, and jurisdictional control on the wire are moving from "addressable" to "required" across every framework. MaiaEdge makes the path itself the audit artifact.
+**Trigger Keywords:** prove the path, BGP best-effort, OCR portal disclosure, DORA CTPP, NY DFS Part 500 certification, FFIEC physical-path verification, T+1 settlement, SCCs, BCRs, right-to-audit, HIPAA Security Rule NPRM, encryption in transit, TLS 1.3, HITRUST scope, HSCC Sector Mapping, Cal AB 749 microsegmentation, post-Ascension segmentation, PCI DSS v4.0, CDE scope, in-scope vs out-of-scope, annual scope re-attestation, tokenization path, path-level proof, client-jurisdictional attestation, in-country processing, data residency clause, client InfoSec audit
+**Primary Sub-Segments:** All four sub-segments HIGH
+**Primary Persona:** CSO / CISO / Chief Compliance Officer (regulated verticals)
+
+### 29. Enterprise New DC Build / Capacity Expansion Connectivity Design
+**Definition:** Discussions about new corporate IT data center builds, DC expansions, or major capacity adds at multi-DC enterprises - each surfaces a fresh fabric decision (inter-DC dark fiber pair sizing, on-ramp design, BCP path topology). Existing DC capacity uprate redesigns the connectivity envelope; incumbent carrier wave contracts may not survive the redesign.
+**Trigger Keywords:** new corporate IT campus, new fulfillment center, regional flow center, Symbotic deployment, robotics-enabled DC, acquired hospital go-live, new IDN data center, PACS consolidation site, new corporate IT campus, NY4 colo expansion, new delivery center, new home office IT, new bank campus, capex disclosure, 10-K Item 2 Properties
+**Primary Sub-Segments:** All four sub-segments fire when a named ICP enterprise opens or expands a DC; Retail and Distribution highest velocity
+**Primary Persona:** VP Network Infrastructure / Director Network Engineering / CIO
+
+---
+
 ## Use Case x Segment Matrix
 
-| Use Case | Colo | Fiber | Network Op | Neocloud | MSP |
-|----------|------|-------|-----------|----------|-----|
-| POC / Deployment Logistics | X | X | X | X | X |
-| Partner / Reseller Channel | X | X | | | X |
-| Cloud On-Ramp | X | X | | | X |
-| Carrier / SP Federation | | X | X | | X |
-| Data Center Interconnection | X | | | X | |
-| Network Automation | X | X | X | X | X |
-| Fiber Monetization | | X | | | |
-| Wholesale Connectivity | | X | X | | |
-| Multi-Cloud Access | X | | | X | X |
-| Customer Portal | X | X | | | X |
-| NaaS / Managed Services | | X | X | | X |
-| Sovereignty / Brand Control | X | X | | | |
-| E2E Visibility / Telemetry | | | X | X | X |
-| Marketplace | X | X | X | X | X |
-| AI / GPU Networking | X* | | | X | |
-| Security / Encryption | | | X | X* | |
-| Cross-Connect Optimization | X | X | | | |
-| Egress Cost Reduction | X | | | X | |
-| Geographic Expansion | | X | X | X | |
-| Competitive Displacement | X | X | | | |
-| Revenue Pull-Forward | | X | | | |
+| Use Case | Colo | Fiber | Network Op | Neocloud | MSP | Enterprise |
+|----------|------|-------|-----------|----------|-----|------------|
+| 1. POC / Deployment Logistics | X | X | X | X | X | X |
+| 2. Partner / Reseller Channel | X | X | | | X | |
+| 3. Cloud On-Ramp | X | X | | | X | X† |
+| 4. Carrier / SP Federation | | X | X | | X | |
+| 5. Data Center Interconnection | X | | | X | | X†† |
+| 6. Network Automation | X | X | X | X | X | |
+| 7. Fiber Monetization | | X | | | | |
+| 8. Wholesale Connectivity | | X | X | | | |
+| 9. Multi-Cloud Access | X | | | X | X | X† |
+| 10. Customer Portal | X | X | | | X | |
+| 11. NaaS / Managed Services | | X | X | | X | |
+| 12. Sovereignty / Brand Control | X | X | | | | |
+| 13. E2E Visibility / Telemetry | | | X | X | X | X†† |
+| 14. Marketplace | X | X | X | X | X | |
+| 15. AI / GPU Networking | X* | | | X | | X†† |
+| 16. Security / Encryption | | | X | X* | | X†† |
+| 17. Cross-Connect Optimization | X | X | | | | |
+| 18. Egress Cost Reduction | X | | | X | | |
+| 19. Geographic Expansion | | X | X | X | | |
+| 20. Competitive Displacement | X | X | | | | |
+| 21. Revenue Pull-Forward | | X | | | | |
+| 22. Dark Fiber Redundancy Between DCs | | | | | | X |
+| 23. Cloud On-Ramp Under Enterprise Control | | | | | | X |
+| 24. Hop-by-Hop Visibility incl Type 2 | | | | | | X |
+| 25. AI/GPU Direct Private Path | | | | | | X |
+| 26. M&A Network Integration | | | | | | X |
+| 27. New Site Bring-Up in Days | | | | | | X |
+| 28. Policy-Based Path Control with Audit Trails | | | | | | X |
+| 29. Enterprise New DC Build Connectivity Design | | | | | | X |
 
-*X = primary segment for this use case. X* = sub-segment specific (AI Colo, Sovereign AI).*
+*X = primary segment for this use case. X\* = sub-segment specific (AI Colo, Sovereign AI). X† = also applies to Enterprise but Enterprise has a more specific use case (Cloud On-Ramp #3 also applies to Enterprise but #23 Cloud On-Ramp Under Enterprise Control is the more specific framing). X†† = operator-segment use case that also applies to Enterprise calls when the Enterprise-specific use case (#22-29) isn't a closer fit.*
 
 ---
 

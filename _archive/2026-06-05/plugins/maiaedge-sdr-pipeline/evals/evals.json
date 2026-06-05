@@ -1,0 +1,23 @@
+{
+  "skill_name": "maiaedge-sdr-pipeline",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Hey - can you run outreach on these companies? I want to go after VP-level and above at each one. Tim is sending. Segment is colo.\n\nCompanies:\n1. Flexential - VP Product or Director of Network Ops\n2. H5 Data Centers - COO or SVP Operations\n\nI already have emails for these folks in HubSpot.",
+      "expected_output": "Should: (1) Pull both companies from HubSpot including account_brief, segment, activity, contacts. (2) Check activity gates on all contacts found. (3) Read account briefs. (4) Run web searches to verify briefs and find timing signals. (5) Verify segments. (6) Write 3-email sequences + LinkedIn for each contact that passes the activity gate. (7) Produce Smartlead XLSX + Review XLSX. Should flag territory mismatch (both CO companies = Ken's territory, but Tim is sending). Flexential has branded 'Flexential Fabric' that should appear in emails. H5 has 27 DCs and Megaport dependency.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run the pipeline on these - fiber operator segment, Ken sending:\n\n1. Surewest Communications - CTO\n2. Lumos Networks - VP Engineering\n\nI have verified emails for both.",
+      "expected_output": "Should: (1) Search HubSpot for both companies. (2) One or both may not exist in HubSpot — handle gracefully. (3) If account brief exists, read and verify. (4) Research both as fiber operators. (5) Check if Surewest was acquired (it was acquired by Consolidated Communications ~2012) — should flag as potentially defunct/acquired. (6) Lumos Networks was acquired by Segra/EQT — should flag. (7) Demonstrate proper exclusion handling for acquired companies. (8) Produce output files even if some contacts are excluded, with clear explanation.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need outreach for RadiusDC. They're a colo in Denver. Go after Pack Janes, VP Commercial Operations - his email is pjanes@radius-dc.com and his LinkedIn is linkedin.com/in/pack-janes. Tim sending.\n\nAlso hit Joseph Guerriero there, COO - jguerriero@radius-dc.com, linkedin.com/in/joeguerriero-83b912",
+      "expected_output": "Should: (1) Pull RadiusDC from HubSpot. (2) Check activity on both contacts — both are already in HubSpot. (3) If active conversations exist, STOP and flag. (4) Read account brief. (5) Research: carrier hotel model, 55 Marietta acquisition, 22 carriers on-net Atlanta, Blue Owl Capital backed. (6) Verify segment (colo standard). (7) Write unique emails for each contact — Pack (ex-EdgeConneX, commercial angle) vs Joseph (COO/GC, operational angle, ex-Flexential). (8) Flag territory: Denver CO = Ken's territory but Tim sending. (9) Produce both output files.",
+      "files": []
+    }
+  ]
+}

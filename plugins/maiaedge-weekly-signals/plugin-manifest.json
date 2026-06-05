@@ -1,14 +1,27 @@
 {
   "name": "maiaedge-weekly-signals",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "skills": ["weekly-signal-scan"],
   "context": [
+    "account-tiering/tier-compute-spec.md",
+    "account-tiering/sub-segment-qualification.md",
+    "account-tiering/enrichment-protocols.md",
+    "core/maiaedge-101.md",
+    "core/icp-playbook.md",
+    "core/segment-qualification.md",
+    "core/competitive-positioning.md",
+    "core/messaging-framework.md",
+    "hubspot/contact-schema.md",
+    "hubspot/deals-schema.md",
+    "hubspot/poc-schema.md",
     "signals/signal-framework.md",
     "signals/colocation-signals.md",
     "signals/fiber-signals.md",
     "signals/network-operator-signals.md",
     "signals/neocloud-signals.md",
     "signals/msp-aggregator-signals.md",
+    "signals/enterprise-signals.md",
+    "signals/universal-platform-signals.md",
     "hubspot/property-schema.md",
     "hubspot/hubspot-values.md",
     "hubspot/territory-model.md",
@@ -16,7 +29,9 @@
     "segments/fiber-operator.md",
     "segments/network-operator.md",
     "segments/neocloud.md",
-    "segments/msp-aggregator.md"
+    "segments/msp-aggregator.md",
+    "segments/enterprise.md",
+    "segments/enterprise-use-cases.md"
   ],
   "static": []
 }

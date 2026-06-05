@@ -94,7 +94,7 @@
     </g>
     <text x="220" y="55" font-size="13" letter-spacing="3" font-weight="700" fill="#FFC200">CLOUD ORCHESTRATION  ·  BACKEND</text>
     <text x="220" y="95" font-size="28" font-weight="800" fill="#FFFFFF">PCE programs the path through Megaport / Equinix Fabric</text>
-    <text x="220" y="130" font-size="14" fill="#D4D0C9">Megaport and Equinix Fabric are leveraged via API as backend infrastructure —</text>
+    <text x="220" y="130" font-size="14" fill="#D4D0C9">Megaport and Equinix Fabric are leveraged via API as backend infrastructure -</text>
     <text x="220" y="150" font-size="14" fill="#D4D0C9">invisible to the end customer. The operator's brand stays in front.</text>
 
     <!-- Backend logos as text-pills -->

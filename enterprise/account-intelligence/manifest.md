@@ -21,8 +21,11 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 ### Core
 - context/core/* (all 6)
 
-### Segments
-- context/segments/* (all 5)
+### Segments (all 6 as of 2026-05-11)
+- context/segments/* (all 6 — colocation, fiber-operator, neocloud, network-operator, msp-aggregator, **enterprise** [Multi-DC ICP, anchor: Meijer], plus enterprise-use-cases.md)
+
+### Signals
+- context/signals/* (all per-segment catalogs including new enterprise-signals.md — required for weekly-signal-scan + Phase 5 cross-segment work)
 
 ### HubSpot
 - context/hubspot/* (all 3 — property-schema, territory-model, hubspot-values)
@@ -44,4 +47,4 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - ~~context/outreach/*~~ (this project does research, not email writing)
 - ~~context/copy-strategy/*~~ (scoring/critique not relevant here)
 
-## Last Synced: 2026-03-17
+## Last Synced: 2026-05-11 (Enterprise ICP promotion — Phase 6 rollout complete)

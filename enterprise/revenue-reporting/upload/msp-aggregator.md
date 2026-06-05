@@ -2,6 +2,10 @@
 
 > Converted from: MSP_Aggregator_CheatSheet.pdf
 
+> **Classification authority:** Sub-segment classification rules, anchors, and confidence thresholds live in `context/account-tiering/sub-segment-qualification.md` (pointer) and file 06 (`context/account-tiering/sub-segment-qualification-full.md`). Tier computation lives in `context/account-tiering/tier-compute-spec.md`. This cheatsheet covers selling angles, personas, pain points, and discovery.
+>
+> **Tier defaults:** See `context/account-tiering/tier-compute-spec.md` for tier computation. `Telecom Aggregator`, `Managed Network Services`, `Cloud + Telecom Hybrid` default to Tier 2 (ceiling 1, floor 4). `TSD Technology Services Distributor`, `Master Agent` default to Tier 3 (ceiling 1, floor 5).
+
 MSP / Aggregator
 Know Your Customer
 Attribute Details
@@ -276,36 +280,68 @@ provision as fast as they can? MaiaEdge gives you instant activation across your
 asset-light model, same relationships - now with the speed to win."
 ---
 
-## Two Subtypes Within This Segment
+## Sub-Segments Within This Segment (HubSpot enum values)
 
-The MSP/Aggregator segment is broader than the US TSD/TA channel. Two subtypes fit under `customer_segment = Enterprise` with different vocabularies, different target personas, and different competitive lenses. Keep the file unified  -  every talk track, proof point, and objection rebuttal below is flagged with its subtype scope so the copy engine picks the right register.
+The MSP/Aggregator segment splits into **5 explicit sub-segments** matching HubSpot `company_sub_segment` enum values (case-sensitive). Each has its own vocabulary, target personas, anchor accounts, and competitive lens. Keep the file unified - every talk track, proof point, and objection rebuttal below is flagged with its sub-segment scope so the copy engine picks the right register.
 
-### Subtype 1: US TSD / TA Channel (existing default)
+**Classification rules, anchors, confidence thresholds:** See file 06 §6.5 and `context/account-tiering/icp-deep-dives/B-and-C-msp-aggregator.md`.
 
-What They Own: Contracts with carriers + relationships with Technology Advisors (TAs). Asset-light. Revenue from residual commissions + managed-services margin.
+### Sub-segment 1: `Telecom Aggregator - MSP`
 
-Examples: Telarus, AppDirect, Upstack, AVANT, Bridgepointe, ScanSource Intelisys, Sandler Partners, TD SYNNEX. Independent TAs / owner-operator agencies are the downstream channel.
+- **CRM volume:** ~288 records.
+- **Tier:** default Tier 2 (ceiling 1, floor 4).
+- **Who they are:** Traditional channel aggregators / telecom brokers reselling carrier connectivity to enterprises. Direct sales, no sub-agent layer.
+- **Scale:** $20M-$2B revenue, 30-100 carrier vendors, US-focused.
+- **Anchors:** Granite Telecommunications ($1.85B 2024), Nitel (post-Hypercore 2022).
+- **Exclude (D1.5 disqualifier):** IoT/eSIM platforms (Aeris, EMnify, Wireless Logic). They operate mobile packet cores and ride GSMA-layer interconnects, not fixed-line L2/L3 NNIs.
+- **Vocabulary:** carrier line-card, single invoice, multi-carrier procurement, enterprise direct sales, SLA aggregation.
 
-Scale: TSDs 200-2,000 employees, $50M-$500M+ wholesale-equivalent revenue. TAs are 1-50 person agencies.
+### Sub-segment 2: `Managed Network Services - MSP`
 
-Vocabulary: residual commissions, SPIFF, line-card, master supplier agreement, deal registration, TSD, Technology Advisor, channel manager, quoting platform, partner enablement.
+- **CRM volume:** ~26 records.
+- **Tier:** default Tier 2 (ceiling 1, floor 4).
+- **Who they are:** MSPs, integrators, and VARs whose primary offering is managed network services (NOT commission resell). 70%+ managed services contracts.
+- **Scale:** $50M-$10B revenue.
+- **Anchors:** Open Systems; Hughes Network Systems (EchoStar; pending DISH merger); Logicalis (Datatec); Presidio (BC Partners 2019, ~$5B+); GTT (post-2021 divestiture managed services); IT integrators CDW, Insight, ePlus, WWT are boundary cases.
+- **Note:** Post-Phase 1.7c.1 the suffix is `- MSP` (legacy `- Network Operator` suffix archived 2026-05-13).
+- **Vocabulary:** managed SD-WAN, NOC operations, MTTR, ITIL change control, managed services contract, co-managed network, vCIO.
 
-### Subtype 2: NaaS Platform Operator (new)
+### Sub-segment 3: `TSD Technology Services Distributor - MSP`
 
-**What They Own:** A proprietary customer-facing platform (portal, API, self-service ordering) + some owned PoPs + partner carriers for reach beyond owned footprint.
+- **CRM volume:** 0 records currently. Canonical TSD brands (TD SYNNEX, ScanSource, Intelisys, AppDirect) are not yet sourced into CRM and are flagged for follow-up sourcing.
+- **Tier:** default Tier 3 (ceiling 1, floor 5).
+- **Who they are:** Distribution-tier orgs with sub-agent / 1099 channels of 100+ active agents. Gross billings $1B+.
+- **Scale:** 100+ carrier vendors, US national plus Canada / EU.
+- **Anchors (per Omdia CY2024):** Telarus ($2.9B GB), AVANT ($2.1B), Intelisys/ScanSource ($2.7B; net agency $84.7M ScanSource), AppDirect ($2.0B), Sandler Partners (~$209M revenue - UPWARD revision from prior $25M), Bridgepointe ($755M GB; firmly TSD-tier post April 2026 Charlesbank+Carlyle recap at $1B+ valuation).
+- **Vocabulary:** TSD, Technology Advisor, master supplier agreement, residual commissions, SPIFF, line-card, deal registration, quoting platform, partner enablement.
 
-**Examples:** CBC Tech (eNet Fabric), Epsilon (Infiny), PCCW (Console Connect), Arelion wholesale, Sparkle Sparkhub.
+### Sub-segment 4: `Master Agent - MSP`
 
-**Revenue Model:** Subscription / usage-based NaaS billing (not channel commissions). Margin compression comes from platform-vendor competition (Megaport, Equinix Fabric), not from Tier 1 direct sales.
+- **CRM volume:** ~3 records.
+- **Tier:** default Tier 3 (ceiling 1, floor 5).
+- **Who they are:** Smaller, often regional or vertical-focused master agencies with sub-agent networks. Boutique cousins of TSDs.
+- **Scale:** Net commission $5M-$100M, 10-50 sub-agents.
+- **Anchors (post-consolidation, per Phase B):** X4 Solutions (confirmed independent 2025; 35+ carriers, founded 2004); CyberNet Communications (medium confidence; regional, scale unverified). Only 2 verified independents per Phase B.
+- **Default policy (Cooper feedback 2026-05-14):** Classify best-fit (no default `manual_review_required`). REVERSED from prior policy that defaulted to manual review. Use `low_5069` confidence for thin anchor verification; D7 weekly routine re-validates.
+- **Vocabulary:** sub-agent network, master agency, regional carrier panel, vertical specialization, residual book.
 
-**Scale:** 200-2,000 employees, $50M-$500M+ revenue. Typically APAC/EMEA-HQ rather than US-channel-centric.
+### Sub-segment 5: `Cloud + Telecom Hybrid MSP - MSP`
 
-**Competitive Reality:** The platform looks seamless to the customer. The cross-carrier delivery layer underneath doesn't match the platform's speed. Every partner-extended path is a manual activation cycle the customer doesn't see on the portal but absolutely feels in the delivery timeline.
+- **CRM volume:** ~24 records.
+- **Tier:** default Tier 2 (ceiling 1, floor 4).
+- **Who they are:** MSPs whose business spans cloud reselling AND telecom managed services. 30-60% cloud / 30-60% network.
+- **Scale:** $30M-$5B revenue, AWS Premier / Azure Expert / GCP Premier partner.
+- **Anchors:** AHEAD ($3B 2024 est., reportedly exploring sale); CDW (post-Mission Cloud Dec 2024 - boundary case); Insight Enterprises (post-SADA Dec 2023 - boundary case); WWT; ePlus; Effectual Cloud; RapidScale (Cox/RapidScale; pending Charter merger).
+- **Exclude (D1.5 disqualifier):** Pure cloud MSPs without network services (post-acquisition Mission Cloud standalone, SADA standalone).
+- **Vocabulary:** cloud landing zone, hyperscaler partner tier, multi-cloud networking, managed cloud + connectivity, cloud-adjacent network managed services.
 
-**⚠️ Relationship-to-MaiaEdge caveat:** This subtype is the trickiest in the entire segment file. MaiaEdge is **both a competing platform AND a potential partner** to them.
-- **Treat as partner** when we're helping them extend reach beyond their PoPs via our orchestration (their customer stays on their portal; we run underneath).
-- **Treat as competitor** when they want to own the entire stack.
-- **Messaging must default to the partner frame.** Do NOT position as platform-replacement. This caveat applies to every downstream NaaS-subtype talk track, proof point, and objection rebuttal.
+### NaaS Platform Operator subtype - RETIRED (2026-05-14)
+
+Per Cooper 2026-05-14: NaaS platforms (CBC Tech, Epsilon, Console Connect, Arelion wholesale, Sparkle Sparkhub) are **no longer mapped to any MSP sub-segment**. Classify as:
+- `customer_segment = "Other"` when the org is a competitive reference / platform peer we want visibility on but won't sell to.
+- `customer_segment = "Flagged for deletion"` when no commercial or competitive value remains.
+
+The NaaS Platform Operator talk tracks, proof point archetypes, and anti-patterns below remain in the file as historical reference. Do NOT use them on `customer_segment = "MSP/Aggregator"` records. They may still inform competitive intel work routed through the `competitive-intel` skill.
 
 ---
 

@@ -35,6 +35,28 @@ Maximize ROI from every conference by systematically converting attendee lists i
 - Regional/niche events
 - Webinars with published attendee lists
 
+**Enterprise-relevant conferences (added 2026-05-11 with Enterprise ICP promotion - currently low priority for booth attendance, but flag for future planning + use for attendee processing when Cooper or reps attend):**
+
+By Enterprise sub-segment:
+
+| Conference | Sub-segment | Why Enterprise-relevant | Tier |
+|---|---|---|---|
+| **Sibos** (annual SWIFT financial-services event) | Financial Services - Enterprise | Where bank CIOs / VP Network Infrastructure converge; DORA + NY DFS Part 500 panels live here | Tier 3 (intel) |
+| **Money 20/20** | Financial Services - Enterprise | Payment networks, fintech infra; Visa/Mastercard adjacent | Tier 3 (intel) |
+| **AFP Annual Conference** | Financial Services - Enterprise | Corporate treasury + IT - broader than just FS-services BPOs | Tier 3 (intel) |
+| **HIMSS** (Healthcare Information & Management Systems Society) | Healthcare Systems - Enterprise | Premier healthcare IT event; CIO + CISO + VP Network Eng at every multi-hospital IDN | Tier 3 (intel) |
+| **CHIME** (College of Healthcare Information Management Executives) | Healthcare Systems - Enterprise | Healthcare CIO peer network; HIPAA NPRM + Cal AB 749 panels | Tier 3 (intel) |
+| **Becker's Hospital Review IT** | Healthcare Systems - Enterprise | IT-leadership-focused hospital conference; broader than HIMSS | Tier 3 (intel) |
+| **ViVE** (HLTH spinoff) | Healthcare Systems - Enterprise | Digital health innovation; AI infrastructure conversations | Tier 3 (intel) |
+| **NRF Big Show** (National Retail Federation) | Retail and Distribution - Enterprise | Premier retail-IT event; Walmart / Kroger / Meijer / Target IT leadership; Sparky / WIBEY / Mylow demos | Tier 3 (intel) |
+| **Shoptalk** | Retail and Distribution - Enterprise | Retail innovation + tech; smaller than NRF but more architecture-focused | Tier 3 (intel) |
+| **RILA Retail CIO Forum** | Retail and Distribution - Enterprise | Retail CIO peer network | Tier 3 (intel) |
+| **CCW (Customer Contact Week)** | Outsourcing Services - Enterprise | BPO + contact center industry event; Concentrix / TaskUs / Teleperformance leadership | Tier 3 (intel) |
+| **NASSCOM Technology & Leadership Forum** | Outsourcing Services - Enterprise | India IT services + BPO premier event; Cognizant / Infosys / TCS / Wipro / HCL leadership | Tier 3 (intel) |
+| **BPO Connect** (Everest Group) | Outsourcing Services - Enterprise | BPO industry roundtable; specifically operational delivery focus | Tier 3 (intel) |
+
+**Default mode for Enterprise conferences:** Intelligence-gathering only (attendee list processing + post-event follow-up to identified Enterprise prospects). Do NOT plan booth presence at Enterprise conferences in 2026 - MaiaEdge GTM bandwidth is reserved for operator-segment events (GTC, OCP, MEF, Fiber Connect, INCOMPAS). Re-evaluate booth presence at HIMSS / NRF / Sibos for 2027 once Meijer-class anchor account references are deployable.
+
 ## MODE 1: PRE-CONFERENCE PREP
 
 **Trigger:** "Prep for [conference]" or "Build target list for [event]"
@@ -488,6 +510,7 @@ FOLLOW-UP COMPLETION CHECKLIST
 - Neoclouds (sub: GPU cloud, inference platforms, emerging cloud providers)
 - Network Operators / Carriers (sub: Tier-1 carriers, regional carriers, wireless operators)
 - MSP / Aggregators (sub: managed service providers, VARs, systems integrators)
+- **Enterprise - Multi-DC ICP (added 2026-05-11):** 4 sub-segments only - Financial Services, Healthcare Systems, Retail and Distribution, Outsourcing Services. Hard scale gate per `context/segments/enterprise.md`. Anchor: Meijer.
 - Vendors / Ecosystem (complementary tech, integration partners)
 
 **Key value drivers by segment:**
@@ -496,6 +519,7 @@ FOLLOW-UP COMPLETION CHECKLIST
 - **Neocloud:** Inference connectivity, multi-DC GPU resource access, latency optimization
 - **NetOp:** Automation (LSO Sonata), service velocity, cost per bit
 - **MSP:** White-label offerings, instant service activation, customer stickiness
+- **Enterprise:** Dark fiber redundancy between corporate DCs, cloud on-ramp under enterprise control, hop-by-hop visibility on every path, audit-ready policy enforcement for HIPAA / PCI-DSS / SOX / GDPR / DORA / NY DFS Part 500
 
 ---
 

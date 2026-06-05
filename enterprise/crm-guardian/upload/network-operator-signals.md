@@ -1,13 +1,13 @@
-# Network Operator — Weekly Signal Catalog
+# Network Operator - Weekly Signal Catalog
 
 For use by the `weekly-signal-scan` skill. Read alongside `signal-framework.md` and `segments/network-operator.md`.
 
-HubSpot `customer_segment`: **Network Operator (Tier 1 / VNO)**
-Sub-segments: **External Extension**, **Internal + External Unification**
+HubSpot `customer_segment` internal value: `Network Operator(Tier 1 / VNO)` (NO space before paren; display label is "Network Operator").
+Sub-segments (5 active, post-Phase 1.6 2026-05-13 + Phase 3 2026-05-14): **Tier 1 Carrier - Network Op**, **Pure Wholesale Carrier - Network Op**, **Cable MSO Enterprise Division - Network Op**, **International Backbone Specialist - Network Op**, **Subsea cable operator** (NEW 2026-05-14, 30th sub-segment; lowercase, no `- Network Op` suffix). The legacy sub-segment values `External Extension - Network operator` and `Internal + external unification - Network Operator` were archived 2026-05-13 (Phase 1.6) and migrated to the dedicated `network_op_track` field (values: `external_extension` for Track A, `internal_external_unification` for Track B). See `context/account-tiering/sub-segment-qualification.md` for the full 30-value reference.
 
 ---
 
-## Tier A — Board-Level Urgency Triggers (weekly)
+## Tier A - Board-Level Urgency Triggers (weekly)
 
 ### N-A1. Private-Connectivity-Fabric Copycat / Multi-Billion AI Deal Announcement
 
@@ -19,17 +19,17 @@ Sub-segments: **External Extension**, **Internal + External Unification**
 
 **Freshness:** 1wk. **Confidence:** HIGH.
 
-### N-A2. Earnings Transcript Mentions — NaaS / Network APIs / Private Fabric / Programmable
+### N-A2. Earnings Transcript Mentions - NaaS / Network APIs / Private Fabric / Programmable
 
 **Why:** If a CEO/CFO mentions these terms on a call, strategy teams are ALREADY being asked to show progress. Outreach within 2 weeks of a call gets read.
 
 **Source:** Seeking Alpha, Motley Fool, company IR, AlphaSense, SEC 10-Q/10-K, investor-day decks.
 
-**Pattern:** Transcript search `"NaaS"`, `"network API"`, `"private fabric"`, `"programmable network"`, `"wholesale automation"`, `"AI connectivity"`, `"cross-carrier"`, `"beyond connectivity"` — rank by frequency AND speaker role (CEO/CTO > CFO).
+**Pattern:** Transcript search `"NaaS"`, `"network API"`, `"private fabric"`, `"programmable network"`, `"wholesale automation"`, `"AI connectivity"`, `"cross-carrier"`, `"beyond connectivity"` - rank by frequency AND speaker role (CEO/CTO > CFO).
 
 **Freshness:** 30d (earnings windows). **Confidence:** HIGH.
 
-### N-A3. Executive Transition — CTO / CNO / VP Automation / Chief Network Strategy
+### N-A3. Executive Transition - CTO / CNO / VP Automation / Chief Network Strategy
 
 **Why:** New network leaders have a 90-day window to propose something new. Actively taking meetings.
 
@@ -39,11 +39,11 @@ Sub-segments: **External Extension**, **Internal + External Unification**
 
 **Freshness:** 30d post-hire (first week is too early). **Confidence:** HIGH.
 
-### N-A4. Wholesale / Consumer Divestiture or Spin-off — Announcement OR Close (two-event firing added 2026-04-27)
+### N-A4. Wholesale / Consumer Divestiture or Spin-off - Announcement OR Close (two-event firing added 2026-04-27)
 
-**Why:** Following Lumen playbook — divest consumer, pivot to enterprise/AI. Forces strategic shift AND frees capex. Two distinct windows:
+**Why:** Following Lumen playbook - divest consumer, pivot to enterprise/AI. Forces strategic shift AND frees capex. Two distinct windows:
 - **At announcement** (intent to divest, not yet closed): 6-18 month pre-close runway. Carrier's strategic shift is now public; the post-divest network architecture is being scoped. This is when MaiaEdge can shape the platform conversation.
-- **At close**: Post-divestiture is peak window — strategic shift complete, capex freed, enterprise/AI pivot underway.
+- **At close**: Post-divestiture is peak window - strategic shift complete, capex freed, enterprise/AI pivot underway.
 
 If both events fire on same carrier within 18 months → +6 stacking auto-elevation.
 
@@ -85,7 +85,7 @@ If both events fire on same carrier within 18 months → +6 stacking auto-elevat
 
 **Freshness:** 90d. **Confidence:** HIGH.
 
-### N-A8. Public RFI / RFP — Multi-Domain Orchestrator / TE Controller / Inter-Carrier Automation
+### N-A8. Public RFI / RFP - Multi-Domain Orchestrator / TE Controller / Inter-Carrier Automation
 
 **Why:** Most direct buying signal  -  the operator is actively procuring. Public procurement portals (TED in EU, SAM.gov in US, carrier own RFP portals) publish RFIs and RFPs for infrastructure orchestration platforms.
 
@@ -117,11 +117,11 @@ If both events fire on same carrier within 18 months → +6 stacking auto-elevat
 
 ---
 
-## Tier B — Strategic-Posture Signals (weekly)
+## Tier B - Strategic-Posture Signals (weekly)
 
 ### N-B1. Tier 1 Supplier Customer Win (Ciena / Nokia / Cisco / Juniper)
 
-Optical/routing wins reveal who's modernizing. Carrier buying WaveLogic 6 / 800G / coherent pluggables is rebuilding east-west capacity — needs a control plane on top.
+Optical/routing wins reveal who's modernizing. Carrier buying WaveLogic 6 / 800G / coherent pluggables is rebuilding east-west capacity - needs a control plane on top.
 
 Source: Ciena newsroom, Nokia press, Cisco Provider news, Juniper press, Light Reading optical, Fierce Network optical, OFC/ECOC coverage.
 
@@ -129,7 +129,7 @@ Pattern: `(Ciena|Nokia|Infinera|Cisco|Juniper) AND (target carrier) AND ("deploy
 
 ### N-B2. GSMA Open Gateway / Network API Commercial Launch in New Market
 
-Programmable pivot at mobile layer. Transport/wholesale side needs to catch up — and they know it.
+Programmable pivot at mobile layer. Transport/wholesale side needs to catch up - and they know it.
 
 Source: GSMA newsroom, CAMARA project, MWC coverage, Open Gateway blog, operator press.
 
@@ -137,7 +137,7 @@ Pattern: `"Open Gateway" AND ("launch"|"live"|"commercially available") AND ("Nu
 
 ### N-B3. TM Forum Autonomous Network Level 3 / Level 4 Certification
 
-Public commitment to autonomous networking. Needs cross-domain coverage — the gap MaiaEdge fills.
+Public commitment to autonomous networking. Needs cross-domain coverage - the gap MaiaEdge fills.
 
 Source: TM Forum Inform, tmforum.org/news, DTW Ignite announcements, Fierce Network, Ericsson/Huawei/Nokia partner press.
 
@@ -153,7 +153,7 @@ Pattern: `("cable landing"|"RFS"|"ready for service"|"joined consortium"|"subsea
 
 ### N-B5. MEF LSO Sonata / Open API Certification
 
-Public commitment to inter-carrier automation standards. LSO Sonata alone doesn't solve same-day provisioning — we're complementary.
+Public commitment to inter-carrier automation standards. LSO Sonata alone doesn't solve same-day provisioning - we're complementary.
 
 Source: Mplify (formerly MEF) press, MEF registry, GlobeNewswire, Fierce Network.
 
@@ -161,7 +161,7 @@ Pattern: `("MEF 3.0"|"LSO Sonata"|"LSO Cantata") AND ("certification"|"certified
 
 ---
 
-## Tier C — Context / Timing Signals (bi-weekly)
+## Tier C - Context / Timing Signals (bi-weekly)
 
 ### N-C1. Private 5G + Network Slicing Enterprise Win
 
@@ -189,13 +189,13 @@ Pattern: 13D on target carrier + news mentions `"strategic review"|"review alter
 
 ### N-C4. Hyperscaler Carrier Deal (bypass signal)
 
-Hyperscaler picking ONE carrier for a region pressures every other carrier to show AI networking story — or watch traffic bypass them.
+Hyperscaler picking ONE carrier for a region pressures every other carrier to show AI networking story - or watch traffic bypass them.
 
 Source: Microsoft/Google/AWS/Meta/Oracle press, DCD, Network World, Light Reading, carrier earnings.
 
 Pattern: `(Microsoft|Azure|AWS|Google Cloud|Meta|Oracle) AND (carrier) AND ("fiber"|"capacity"|"connectivity"|"dedicated"|"private"|"multi-year")`. Confidence: HIGH (losers call fastest).
 
-### N-C5. Carrier Layoff / Restructuring (nuanced — classify reason)
+### N-C5. Carrier Layoff / Restructuring (nuanced - classify reason)
 
 MIXED signal. Good: "automation-driven headcount reduction" (Verizon-style tied to automation) = they want MORE programmable infrastructure. Bad: cost-cutting from declining 5G capex (Ericsson-style) without AI pivot = window closed, defer 60d.
 
@@ -205,47 +205,52 @@ Pattern: Layoff mention + cross-reference latest earnings for automation/NaaS me
 
 ---
 
-## Sources for This Segment (scrape weekly — Phase 2 expanded 2026-04-27)
+## Sources for This Segment (scrape weekly - pruned 2026-05-11)
 
 **Reliability tier in [brackets]** per `signal-framework.md` → Source Reliability + Validation Framework.
 
+**Search-anchor pattern is the canonical access method** - direct `web_fetch` is gated by URL-provenance on Cowork's runtime. Anchor each source via `web_search "{domain} {topic} {year}"` and read snippets from search results. Article URLs returned in search can then be fetched directly. Do NOT skip a documented source because direct fetch fails - use search anchoring.
+
 ### Robust tier
 
-1. Company IR pages + SEC EDGAR daily — 8-Ks (Items 1.01 / 2.01 / 5.02), 13D/G (activist), 10-Q (earnings); for international: 20-F annual filings of foreign private issuers [Robust]
-2. Fierce Network + Light Reading + TelecomTV + Capacity Media + RCR Wireless + Total Telecom RSS [Robust]
-3. Ciena / Nokia / Cisco / Juniper / Arista / Infinera newsrooms — supplier customer-win press often surfaces big carrier deals first [Robust]
-4. **MEF / Mplify** + **TM Forum** newsroom + Catalyst announcements [Robust]
-5. **GSMA newsroom** + **CAMARA project** GitHub + GSMA Open Gateway press [Robust]
-6. GlobeNewswire / PR Newswire filtered to carrier list + Appointments tag [Robust]
-7. LinkedIn public posts at target Tier 1/2 carriers [Robust]
-8. Apollo MCP — `apollo_organizations_enrich`, Job Postings, Job Changes, Funding events (covers AP-1 / AP-2 / AP-7) [Robust]
-9. **GitHub commit feeds** for CAMARA / Nephio / ONAP / OpenConfig / Sylva — corporate-domain authors only (covers NO-A5) [Robust]
-10. **Seeking Alpha + SEC 10-Q / 10-K transcripts** — earnings keyword-filter for "NaaS" / "API" / "private fabric" / "programmable network" / "SRv6" / "autonomous network" / "MEF" / "TM Forum" (covers NO-A2) [Robust — SEC 10-Q is authoritative]
-11. **FedBizOpps + SAM.gov + state procurement portals** — federal + state RFI / RFP for multi-domain orchestration / TE controllers / inter-carrier automation (covers NO-A8) [Robust]
+1. Company IR pages - direct newsroom diffs at target Tier 1/2 carriers (Lumen, AT&T, Verizon, T-Mobile, Charter, Cox, Comcast Business, BT, Vodafone, DT, Orange, Telefónica, NTT, Tata Comms, Singtel, Telstra) - highest single-source yield [Robust]
+2. **StockTitan** (SEC 8-K mirror with parsed summaries - `stocktitan.net/sec-filings/{ticker}/`) - primary surrogate for SEC EDGAR direct queries; covers 8-K Items 1.01 / 2.01 / 5.02, 13D/G activist, 10-Q earnings; for international: 20-F annual filings [Robust]
+3. SEC EDGAR full-text via search-anchor - backup to StockTitan [Robust]
+4. **Earnings transcripts** - Seeking Alpha (free-tier headlines) + Motley Fool + MarketBeat + SEC 10-Q transcripts via StockTitan; keyword-filter for "NaaS" / "API" / "private fabric" / "programmable network" / "SRv6" / "autonomous network" / "MEF" / "TM Forum" (covers NO-A2) [Robust]
+5. Fierce Network + Light Reading + TelecomTV + RCR Wireless + Total Telecom - primary US trade press [Robust]
+6. Ciena / Nokia / Cisco / Juniper / Arista / Infinera newsrooms - supplier customer-win press often surfaces big carrier deals first [Robust]
+7. **MEF / Mplify** (MEF rebranded to Mplify 2025; both names in use) + **TM Forum** newsroom + Catalyst announcements [Robust]
+8. **GSMA newsroom** + **CAMARA project** GitHub + GSMA Open Gateway press [Robust]
+9. GlobeNewswire + PR Newswire + Business Wire filtered to carrier list + Appointments tag [Robust]
+10. Apollo MCP - `apollo_organizations_enrich`, Job Postings, Job Changes, Funding events (covers AP-1 / AP-2 / AP-7) - enrichment tool [Robust]
+11. **GitHub commit feeds** for CAMARA / Nephio / ONAP / OpenConfig / Sylva - corporate-domain authors only (covers NO-A5) [Robust - accessed via search anchor since direct GitHub fetches are URL-gated]
+12. **FedBizOpps + SAM.gov + state procurement portals** - federal RFI / RFP for multi-domain orchestration / TE controllers / inter-carrier automation (covers NO-A8) [Robust at federal, Tier C reference at state portals]
+13. Greenhouse + Lever + Ashby public job boards at target carriers (covers NO-A9 PCEP/SR-TE/BGP-LS/YANG job reqs) [Robust]
 
-### Medium tier
+### Medium tier (Tier B fallback)
 
-12. **TIA (Telecommunications Industry Association)** + **USTelecom** + **CTIA** press [Medium]
-13. **ONUG (Open Networking User Group)** announcements [Medium]
-14. **ONF (Open Networking Foundation)** press [Medium]
-15. **LFN (Linux Foundation Networking)** member commits + leadership announcements [Medium]
-16. **ETSI standards activity** — NFV / MEC / MANO / Open RAN working group output [Medium — leading indicator]
-17. **3GPP work item tracker** — release content reveals carrier roadmap commitments [Medium]
-18. **IETF working groups** — especially carrier-participation WGs (PCE, IDR, BESS, SR, OPSAWG) [Medium]
-19. Mobile World Live + Mobile Network UK [Medium]
-20. RCR Wireless News [Medium]
-21. **Public RFI/RFP via FedBizOpps + state procurement portals** for federal carrier procurements [Robust where federal — Aspirational where individual state portals]
-22. Greenhouse / Lever / Ashby — public job posts at target carriers (covers NO-A9 PCEP/SR-TE/BGP-LS/YANG job reqs) [Robust where via these platforms — Medium for direct careers pages]
+14. Capacity Media - content depth weaker than peer trade press, mostly event marketing; use as international fallback only [Tier B]
+15. Mobile World Live + Mobile Network UK - strong on carrier-economic news, weak on infra-buying signals; for Fiber/NetOp segments only [Tier B]
+16. **TIA (Telecommunications Industry Association)** + **USTelecom** + **CTIA** press [Medium]
+17. **ONUG (Open Networking User Group)** announcements [Medium]
+18. **ONF (Open Networking Foundation)** press [Medium]
+19. **LFN (Linux Foundation Networking)** member commits + leadership announcements [Medium]
+20. **ETSI standards activity** - NFV / MEC / MANO / Open RAN working group output [Medium - leading indicator]
+21. **3GPP work item tracker** - release content reveals carrier roadmap commitments [Medium]
+22. **IETF working groups** - carrier-participation WGs (PCE, IDR, BESS, SR, OPSAWG) [Medium]
 
-### Aspirational tier (never standalone for major signals)
+### Excluded (do NOT scrape - cut 2026-05-11)
 
-23. Wayback Machine month-over-month diffs of carrier websites — new product names, NaaS portal launches, "private fabric" page additions [Aspirational]
-24. Reddit r/networking + r/telecom + r/networkengineering — ground-truth on carrier service quality + product gripes [Aspirational]
-25. Glassdoor reviews — engineer reviews mentioning current network architecture / NaaS efforts at target carriers [Aspirational]
-26. YouTube transcripts from MWC + TM Forum DTW + Network X + ITW events [Aspirational — high-value but compute-expensive]
-27. TheOrg.com free tier — org-structure diffs at carriers [Aspirational]
+- Wayback Machine month-over-month diffs - theoretical, never run.
+- Reddit r/networking + r/telecom + r/networkengineering - low signal density.
+- Glassdoor reviews - login-gated.
+- YouTube transcripts from MWC / TM Forum DTW / Network X / ITW - compute-expensive, redundant with trade-press coverage.
+- TheOrg.com diffs - Aspirational, never produced a signal.
+- Reuters telco feed - UA-blocked + JS rendering breaks search anchor. Use Bloomberg headlines (paywalled but search-snippet-reachable) instead.
 
-### International (Tim Z's territory — elevated priority here)
+LinkedIn public posts retained for **named-account research only** (specific company pages), not market-wide discovery - moved to `signal-framework.md`.
+
+### International (Tim Z's territory - elevated priority here)
 
 Tim Z's territory leans heaviest on this segment (global Tier 1/2 carriers). Elevate Capacity Media + TelecomTV to **primary** trade press (vs. US stack where Fierce / Light Reading lead). See `signal-framework.md` "International Source Stack" for full detail.
 
@@ -256,7 +261,7 @@ Tim Z's territory leans heaviest on this segment (global Tier 1/2 carriers). Ele
 - **Subsea (global):** TeleGeography Submarine Cable Map RFS feed (PRIMARY) [Robust], SubmarineNetworks.com [Medium].
 - **I-series signals (see `signal-framework.md`):** I2 Sovereign AI Compute Grants hit Network Op targets frequently (carriers winning government sovereign-network contracts).
 
-**Quarterly batch:** Earnings transcript sweep across full Tier 1/2 target list — highest-yield recurring task.
+**Quarterly batch:** Earnings transcript sweep across full Tier 1/2 target list - highest-yield recurring task.
 
 ### Validation patterns per Tier A signal
 
@@ -273,7 +278,7 @@ Tim Z's territory leans heaviest on this segment (global Tier 1/2 carriers). Ele
 | **NO-A9 PCEP/SR-TE/BGP-LS/YANG job reqs** | Greenhouse/Lever/Ashby [Robust] showing 2+ concurrent reqs at the carrier. LinkedIn-public-only → MEDIUM |
 | **NO-A10 CTrO/CDO appointment** | LinkedIn profile change [Robust] + PR Newswire OR SEC 8-K Item 5.02 |
 
-### International Sources (Tim Z's territory — elevated priority here)
+### International Sources (Tim Z's territory - elevated priority here)
 
 Tim Z's territory leans heaviest on this segment (global Tier 1/2 carriers). Elevate Capacity Media + TelecomTV to **primary** trade press (vs. US stack where Fierce / Light Reading lead). See `signal-framework.md` "International Source Stack" for full detail.
 
@@ -284,7 +289,7 @@ Tim Z's territory leans heaviest on this segment (global Tier 1/2 carriers). Ele
 - **Subsea (global):** TeleGeography Submarine Cable Map RFS feed (PRIMARY), SubmarineNetworks.com.
 - **I-series signals (see `signal-framework.md`):** I2 Sovereign AI Compute Grants hit Network Op targets frequently (carriers winning government sovereign-network contracts).
 
-**Quarterly batch:** Earnings transcript sweep across full Tier 1/2 target list — highest-yield recurring task.
+**Quarterly batch:** Earnings transcript sweep across full Tier 1/2 target list - highest-yield recurring task.
 
 ---
 
