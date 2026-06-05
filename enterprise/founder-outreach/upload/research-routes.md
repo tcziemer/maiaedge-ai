@@ -5,12 +5,12 @@ Run ONLY the searches relevant to the company's likely classification from Phase
 **Key change:** Phase 1 routing is a HYPOTHESIS. Phase 2 research validates or invalidates that hypothesis. Actively look for disqualifying signals during every search, not just qualifying ones.
 
 ## Route: Colocation Operator (3-6 searches)
-1. `[company_name] data center facilities locations MW` — facility count, capacity, locations
-2. `[company_name] CoreWeave Lambda Labs Crusoe GPU liquid cooling` — AI infrastructure signals
-3. `[company_name] expansion acquisition announcement 2024 2025 2026` — recency/timing
-4. `[company_name] customers tenants case study` — named customers (only if not found on website)
-5. `[company_name] PeeringDB` — directory verification (only if not already confident)
-6. `[company_name] managed hosting cloud hosting dedicated servers` — DISQUALIFICATION CHECK (only if website was ambiguous between colo and hosting)
+1. `[company_name] data center facilities locations MW`  -  facility count, capacity, locations
+2. `[company_name] Lambda Labs Crusoe Nebius GPU liquid cooling`  -  AI infrastructure signals
+3. `[company_name] expansion acquisition announcement 2024 2025 2026`  -  recency/timing
+4. `[company_name] customers tenants case study`  -  named customers (only if not found on website)
+5. `[company_name] PeeringDB`  -  directory verification (only if not already confident)
+6. `[company_name] managed hosting cloud hosting dedicated servers`  -  DISQUALIFICATION CHECK (only if website was ambiguous between colo and hosting)
 
 **Proof signals to track (need 2+ to qualify):**
 - PeeringDB "Facility" listing
@@ -27,12 +27,12 @@ Run ONLY the searches relevant to the company's likely classification from Phase
 - Single-rack/fractional offerings as entire business
 
 ## Route: Fiber Operator (3-6 searches)
-1. `[company_name] fiber route miles network states` — infrastructure scale
-2. `[company_name] Megaport PacketFabric Equinix NaaS partnership` — all NaaS in one query
-3. `[company_name] expansion acquisition announcement 2024 2025 2026` — recency/timing
-4. `[company_name] enterprise wholesale carrier customers` — customer types (only if not on website)
-5. `[company_name] NTCA cooperative member` — only if company name suggests cooperative/rural telco
-6. `[company_name] residential broadband ISP internet service` — DISQUALIFICATION CHECK (only if website suggested possible retail-only ISP)
+1. `[company_name] fiber route miles network states`  -  infrastructure scale
+2. `[company_name] Megaport PacketFabric Equinix NaaS partnership`  -  all NaaS in one query
+3. `[company_name] expansion acquisition announcement 2024 2025 2026`  -  recency/timing
+4. `[company_name] enterprise wholesale carrier customers`  -  customer types (only if not on website)
+5. `[company_name] NTCA cooperative member`  -  only if company name suggests cooperative/rural telco
+6. `[company_name] residential broadband ISP internet service`  -  DISQUALIFICATION CHECK (only if website suggested possible retail-only ISP)
 
 **Proof signals to track (need 2+ to qualify):**
 - Route miles published (minimum 100)
@@ -49,12 +49,12 @@ Run ONLY the searches relevant to the company's likely classification from Phase
 - Fiber construction contractor (builds for others, doesn't operate)
 
 ## Route: Network Operator (3-6 searches)
-1. `[company_name] network infrastructure backbone route miles POPs` — scale metrics
-2. `[company_name] customer portal API self-service provisioning` — automation maturity (critical for Track A vs B)
-3. `[company_name] expansion acquisition partnership 2024 2025 2026` — recency
-4. `[company_name] enterprise wholesale customers` — only if not on website
-5. `[company_name] Megaport PacketFabric Equinix NaaS` — only if not found on website
-6. `[company_name] VoIP UCaaS SD-WAN IT services` — DISQUALIFICATION CHECK (only if "network operator" claim seemed loose)
+1. `[company_name] network infrastructure backbone route miles POPs`  -  scale metrics
+2. `[company_name] customer portal API self-service provisioning`  -  automation maturity (critical for Track A vs B)
+3. `[company_name] expansion acquisition partnership 2024 2025 2026`  -  recency
+4. `[company_name] enterprise wholesale customers`  -  only if not on website
+5. `[company_name] Megaport PacketFabric Equinix NaaS`  -  only if not found on website
+6. `[company_name] VoIP UCaaS SD-WAN IT services`  -  DISQUALIFICATION CHECK (only if "network operator" claim seemed loose)
 
 **Proof signals to track (need 2+ to qualify):**
 - 50+ PoPs or 10+ market presence
@@ -71,10 +71,10 @@ Run ONLY the searches relevant to the company's likely classification from Phase
 - Under 50 PoPs AND under 5K route miles AND under 200 employees (likely Fiber instead)
 
 ## Route: MSP/Aggregator (2-4 searches)
-1. `[company_name] managed services carrier aggregation multi-carrier` — confirm business model
-2. `[company_name] customers case study partners` — named customers
-3. `[company_name] announcement expansion 2024 2025` — only if needed for scoring
-4. `[company_name] IT support helpdesk cybersecurity endpoint managed IT` — DISQUALIFICATION CHECK (always run for MSP hypothesis)
+1. `[company_name] managed services carrier aggregation multi-carrier`  -  confirm business model
+2. `[company_name] customers case study partners`  -  named customers
+3. `[company_name] announcement expansion 2024 2025`  -  only if needed for scoring
+4. `[company_name] IT support helpdesk cybersecurity endpoint managed IT`  -  DISQUALIFICATION CHECK (always run for MSP hypothesis)
 
 **The IT MSP Test (MANDATORY for every MSP-routed company):**
 Check the company against these signals:
@@ -96,12 +96,12 @@ Check the company against these signals:
 - "Services" page lists IT support, cloud migration, cybersecurity with no connectivity
 
 ## Route: Neocloud (3-6 searches)
-1. `[company_name] GPU cloud infrastructure facilities locations` — scale, facility count
-2. `[company_name] expansion funding partnership 2024 2025 2026` — recency and scale
-3. `[company_name] customers partners` — only if not on website
-4. `[company_name] sovereign AI GDPR compliance data residency` — only if website mentions regulatory/sovereign (Sovereign AI Cloud sub-segment)
-5. `[company_name] cryptocurrency mining bitcoin pivot AI` — only if company has crypto/mining history (Crypto-to-AI sub-segment, check SEC filings for pivot language)
-6. `[company_name] pricing GPU compute instances API` — PROOF CHECK (verify they actually sell GPU compute, not just AI software)
+1. `[company_name] GPU cloud infrastructure facilities locations`  -  scale, facility count
+2. `[company_name] expansion funding partnership 2024 2025 2026`  -  recency and scale
+3. `[company_name] customers partners`  -  only if not on website
+4. `[company_name] sovereign AI GDPR compliance data residency`  -  only if website mentions regulatory/sovereign (Sovereign AI Cloud sub-segment)
+5. `[company_name] cryptocurrency mining bitcoin pivot AI`  -  only if company has crypto/mining history (Crypto-to-AI sub-segment, check SEC filings for pivot language)
+6. `[company_name] pricing GPU compute instances API`  -  PROOF CHECK (verify they actually sell GPU compute, not just AI software)
 
 **Proof signals to track (need 2+ to qualify):**
 - GPU fleet specs published (NVIDIA A100, H100, H200, B200, GB200)
@@ -152,17 +152,17 @@ After research, classify into sub-segment:
 
 ## Route: ISP Verification (2-3 searches)
 Retail ISPs are the #1 source of false exclusions. Many are BOTH retail ISP and wholesale fiber operators.
-1. `[company_name] wholesale carrier enterprise dark fiber services` — look for B2B/wholesale
-2. `[company_name] NTCA cooperative` — cooperatives almost always have wholesale fiber
+1. `[company_name] wholesale carrier enterprise dark fiber services`  -  look for B2B/wholesale
+2. `[company_name] NTCA cooperative`  -  cooperatives almost always have wholesale fiber
 3. If wholesale/carrier found → reclassify as **Fiber Operator** and run fiber route
 4. If purely residential → exclude as Retail ISP
 
 ## Route: Broad Search Fallback (4-6 searches)
 When Phase 1 was insufficient:
-1. `[company_name] [company_domain] company` — find what they do
-2. `[company_name] fiber data center network infrastructure` — broad infrastructure search
-3. `[company_name] PeeringDB` — directory check
-4. `[company_name] [headquarters_state] telecom` — add state for disambiguation
+1. `[company_name] [company_domain] company`  -  find what they do
+2. `[company_name] fiber data center network infrastructure`  -  broad infrastructure search
+3. `[company_name] PeeringDB`  -  directory check
+4. `[company_name] [headquarters_state] telecom`  -  add state for disambiguation
 5. Based on results, run 1-2 targeted follow-ups from appropriate route
 6. If still ambiguous → `needs_manual_review = TRUE`
 7. If truly nothing → exclude as Insufficient Data

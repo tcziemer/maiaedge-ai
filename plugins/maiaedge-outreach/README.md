@@ -7,7 +7,7 @@ A cold email and LinkedIn outreach plugin for MaiaEdge, primarily designed for C
 - **Researches** companies with mandatory web searches before writing anything
 - **Classifies** prospects into qualified segments (fiber operators, colocation, AI colo, neoclouds, network operators, MSPs) or flags exclusions
 - **Writes cold emails** with peer-to-peer tone, segment-specific messaging, and role-based pain points
-- **Writes LinkedIn connection requests** under 300 characters with credibility anchors
+- **Writes LinkedIn connection requests** targeting 35-50 words / max 280 characters (no credibility anchors in cold; no sender intro in body — sender is identified by LinkedIn UI)
 - **Checks AI signals** for colocation operators to apply AI-specific messaging when warranted
 
 ## Commands

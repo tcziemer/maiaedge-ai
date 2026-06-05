@@ -50,7 +50,7 @@ Universal messaging leads with:
 | Customer Success & Proof | 20% | POC wins, testimonials (Arvig, RevNet), use case spotlights, metrics | Social proof drives credibility across all segments |
 | Educational Content | 10% | Federated Private Networking explainers, PBC/PCE concepts, benefits deep-dives | Builds authority, shareable, searchable |
 
-For Thought Leadership posts, draw from the three business outcomes: **Automate, Federate, Monetize** — or the three benefits: **Automation, Sovereignty, Visibility**.
+For Thought Leadership posts, draw from the three business outcomes: **Automate, Federate, Monetize**  -  or the three benefits: **Automation, Sovereignty, Visibility**.
 
 ### Technical Signal Pillars (for Authority-Building Posts)
 When a post targets Network Architects, CTOs, or Carrier Infrastructure Leads, map it to one of these:
@@ -311,10 +311,10 @@ Here's what most people don't know about [topic]:
 ### Company Page (2-3x weekly)
 | Pillar | Content Mix |
 |---|---|
-| Product in Action | 30% — Hardware deployment, site visits, team milestones |
-| Thought Leadership | 40% — Network Isolation, federation vision, market trends |
-| Customer Success | 20% — POC wins, testimonials, use case spotlights |
-| Educational | 10% — PBC/PCE explainers, benefits deep-dives |
+| Product in Action | 30%  -  Hardware deployment, site visits, team milestones |
+| Thought Leadership | 40%  -  Network Isolation, federation vision, market trends |
+| Customer Success | 20%  -  POC wins, testimonials, use case spotlights |
+| Educational | 10%  -  PBC/PCE explainers, benefits deep-dives |
 
 ### CEO Strategy (2x weekly)
 Goal: Establish Abilash as the visionary technical leader in Federated Private Networking.
@@ -366,7 +366,7 @@ For major announcements (funding, launches, customer wins):
 ```
 [1-2 sentence personal take on why this matters to you]
 
-[Your own context or angle — not just a reshare of the company post]
+[Your own context or angle  -  not just a reshare of the company post]
 
 [Optional: Your own question or invitation to discuss]
 ```
@@ -397,16 +397,16 @@ Example: "This is exactly what I've been explaining to prospects all week. The p
 ### Week 1 Example
 | Day / Author | Post Details |
 |---|---|
-| Monday — Company | Type: Product in Action | Format: Photo carousel | Topic: Team deploying PBC at customer site | Hook: Behind-the-scenes installation story |
-| Wednesday — CEO | Type: Thought Leadership | Format: Text + image | Topic: "Why NNIs shouldn't take 90 days" | Hook: Contrarian take on industry standard |
-| Friday — Company | Type: Customer Success | Format: Text post | Topic: Quote / testimonial from Arvig or RevNet | Hook: "Here's what operators are saying..." |
+| Monday  -  Company | Type: Product in Action | Format: Photo carousel | Topic: Team deploying PBC at customer site | Hook: Behind-the-scenes installation story |
+| Wednesday  -  CEO | Type: Thought Leadership | Format: Text + image | Topic: "Why NNIs shouldn't take 90 days" | Hook: Contrarian take on industry standard |
+| Friday  -  Company | Type: Customer Success | Format: Text post | Topic: Quote / testimonial from Arvig or RevNet | Hook: "Here's what operators are saying..." |
 
 ### Week 2 Example
 | Day / Author | Post Details |
 |---|---|
-| Monday — CRO | Type: Market Insight | Format: Poll or question | Topic: "How long does your team spend on manual provisioning?" | Hook: Engagement-first, conversation starter |
-| Wednesday — Company | Type: Educational | Format: Carousel or video | Topic: "What is Federated Private Networking?" | Hook: "Your automation stops at the edge. Here's what changes that." |
-| Friday — CEO | Type: Personal / Vision | Format: Text post | Topic: Why we started MaiaEdge / founding story | Hook: Vulnerable founder narrative |
+| Monday  -  CRO | Type: Market Insight | Format: Poll or question | Topic: "How long does your team spend on manual provisioning?" | Hook: Engagement-first, conversation starter |
+| Wednesday  -  Company | Type: Educational | Format: Carousel or video | Topic: "What is Federated Private Networking?" | Hook: "Your automation stops at the edge. Here's what changes that." |
+| Friday  -  CEO | Type: Personal / Vision | Format: Text post | Topic: Why we started MaiaEdge / founding story | Hook: Vulnerable founder narrative |
 
 ### Weekly Content Batching Workflow
 | Day | Tasks |

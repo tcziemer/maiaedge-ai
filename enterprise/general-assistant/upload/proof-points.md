@@ -274,7 +274,7 @@ Cloud On-Ramps | RevNet, Ocean Networks | Azure/AWS through partners, gateway to
 
 ---
 
-## IENTC — Detailed Reference Customer Profile
+## IENTC  -  Detailed Reference Customer Profile
 
 **Segment:** Network Operator (VNO / Mobile Backhaul Provider)
 

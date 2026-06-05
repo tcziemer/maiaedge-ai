@@ -1,20 +1,22 @@
 ---
 name: import-processor
-description: "MaiaEdge enrichment import processor. Transforms enrichment pipeline output into HubSpot-optimized import files. Use when processing enrichment output, preparing for HubSpot import, separating qualified and excluded records, cleaning enrichment data, or finding edge cases in results. Transforms all values to match HubSpot property labels, separates edge cases for deeper research, produces definitive excludes log with normalized categories. Input: 33-column enrichment output XLSX/CSV. Output: (1) Qualified accounts ready for HubSpot import, (2) Edge cases flagged for researcher skill, (3) Definitive excludes. Zero manual adjustment required — column headers match HubSpot properties, values match enums, multi-checkbox delimited correctly."
+description: "MaiaEdge file-to-HubSpot-import transform. Use ONLY when the user hands you an existing CSV/XLSX of enrichment output (e.g. a historical export, a manually-prepared spreadsheet, a partner-supplied list) and asks for an import-ready file. For any workflow that starts with company names or domains — use `company-enrichment` instead, which writes directly to HubSpot via MCP. When this skill does run: transforms all values to match HubSpot property labels, separates edge cases for deeper research, produces definitive excludes log with normalized categories. Input: 33-column enrichment output XLSX/CSV. Output: (1) Qualified accounts ready for HubSpot import, (2) Edge cases flagged for researcher skill, (3) Definitive excludes. Zero manual adjustment required — column headers match HubSpot properties, values match enums, multi-checkbox delimited correctly."
 ---
 
 # MaiaEdge Enrichment Import Processor
 
+> **File-to-import transform only.** Do not invoke unless the user has handed you an existing CSV/XLSX file and explicitly wants an import-ready spreadsheet. For any request that starts with company names or domains ("enrich these companies", "classify this list"), use `company-enrichment` instead — it writes directly to HubSpot via MCP and no import file is needed.
+
 ## Skill Name: `maiaedge-enrichment-import-processor`
-## Call Action: Use when asked to "process enrichment output", "prepare for HubSpot import", "separate qualified and excluded", "clean enrichment data", or "find edge cases in enrichment results"
+## Call Action: Use when the user hands you a CSV/XLSX enrichment file and asks to "process enrichment output", "prepare for HubSpot import", "separate qualified and excluded", "clean enrichment data", or "find edge cases in enrichment results"
 
 ## Purpose
-Take the final enrichment output file from the n8n workflow (or the enrichment-bot skill) and produce HubSpot-optimized import files. This skill:
+Take a CSV/XLSX enrichment output file (from an external system, a historical export, a partner-supplied list, or the `company-enrichment` skill's optional XLSX fallback) and produce HubSpot-optimized import files. This skill:
 1. **Separates qualified accounts** → transforms all values to match HubSpot property labels exactly, ready for drag-and-drop import
 2. **Identifies edge cases** within the excludes → accounts that may have been incorrectly excluded and deserve deeper research
 3. **Separates definitive excludes** → clean list with normalized exclusion categories
 
-The HubSpot import file should require ZERO manual adjustment — column headers match HubSpot property names, values match HubSpot enum labels, multi-checkbox fields are properly delimited, and domains are cleaned for matching.
+The HubSpot import file should require ZERO manual adjustment  -  column headers match HubSpot property names, values match HubSpot enum labels, multi-checkbox fields are properly delimited, and domains are cleaned for matching.
 
 ## Input
 An XLSX or CSV file with the 33-column enrichment output format. Key columns:
@@ -36,7 +38,7 @@ An XLSX or CSV file with the 33-column enrichment output format. Key columns:
 
 ## STEP 2: Transform Qualified Accounts for HubSpot Import
 
-### 2A: Column Mapping — Enrichment Output → HubSpot Property
+### 2A: Column Mapping  -  Enrichment Output → HubSpot Property
 
 The HubSpot import file must use HubSpot property names as column headers. Only include columns that map to actual HubSpot properties.
 
@@ -44,20 +46,29 @@ The HubSpot import file must use HubSpot property names as column headers. Only 
 |---|---|---|---|---|
 | 1 | `company_domain` | `domain` | String | Clean domain (strip protocol, www) |
 | 2 | `company_name` | `name` | String | Direct |
-| 3 | `customer_segment` | `customer_segment` | Enumeration | **Value mapping — see 2B** |
-| 3.5 | `customer_sub_segment` | `company_sub_segment` | Enumeration | **Value mapping — see 2B** |
-| 4 | `infrastructure_profile` | `infrastructure_profile` | Multi-checkbox | Direct (values already match) |
-| 5 | `fabric_provisioning_approach` | `fabric_provisioning_approach` | Multi-checkbox | **Value substitution — see 2C** |
-| 6 | `geographic_focus` | `geographic_focus` | String | Direct |
-| 7 | `account_tier` | `account_tier` | Enumeration | **Value mapping — see 2D** |
-| 8 | `account_brief` | `account_brief` | String | Trim whitespace |
-| 9 | `provisioning_landscape` | `provisioning_landscape` | String | Trim whitespace |
-| 10 | `maiaedge_value_proposition` | `maiaedge_value_proposition` | String | Trim whitespace |
-| 11 | `recent_trigger` | `recent_news_or_trigger_event` | String | Direct |
-| 12 | `segmentation_confidence` | `segmentation_confidence` | Enumeration | **Value mapping — see 2E** |
-| 13 | *(generated)* | `last_enriched_date` | Date | Set to today: YYYY-MM-DD |
+| 3 | `customer_segment` | `customer_segment` | Enumeration | **Value mapping  -  see 2B** |
+| 3.5 | `customer_sub_segment` | `company_sub_segment` | Enumeration | **Value mapping  -  see 2B** |
+| 4 | `state` | `state` | String | 2-letter state abbreviation for US HQs |
+| 5 | `country` | `country` | String | Country name for all accounts |
+| 6 | *(derived from state)* | `hubspot_owner_id` | Owner | **Territory lookup  -  see 2F** |
+| 7 | `infrastructure_profile` | `infrastructure_profile` | Multi-checkbox | Direct (values already match) |
+| 8 | `fabric_provisioning_approach` | `fabric_provisioning_approach` | Multi-checkbox | **Value substitution  -  see 2C** |
+| 9 | `geographic_focus` | `geographic_focus` | String | Direct |
+| 10 | `hyperscaler_proximity` | `hyperscaler_proximity` | Enumeration | Direct (values already match) |
+| 11 | `key_tenant_segments` | `key_tenant_segments__cloned_` | Multi-checkbox | Direct, semicolon-separated. Colo only. |
+| 12 | `account_tier` | `account_tier` | Enumeration | **Value mapping  -  see 2D** |
+| 13 | `account_brief` | `account_brief` | String | Trim whitespace |
+| 14 | `provisioning_landscape` | `provisioning_landscape` | String | Trim whitespace |
+| 15 | `maiaedge_value_proposition` | `maiaedge_value_proposition` | String | Trim whitespace |
+| 16 | `recent_trigger` | `recent_news_or_trigger_event` | String | Direct |
+| 17 | `segmentation_confidence` | `segmentation_confidence` | Enumeration | **Value mapping  -  see 2E** |
+| 18 | *(static)* | `lifecyclestage` | Enumeration | Set to `subscriber` for all new accounts |
+| 19 | *(static)* | `hs_lead_status` | Enumeration | Set to `NEW` for all new accounts |
+| 20 | *(static)* | `type` | Enumeration | Set to `PROSPECT` for all new accounts |
+| 21 | *(static)* | `hs_is_target_account` | Boolean | Set to `true` for all qualified accounts |
+| 22 | *(generated)* | `last_enriched_date` | Date | Set to today: YYYY-MM-DD |
 
-**Reference-only columns** (append at end, prefix with `_ref_` — HubSpot will skip unrecognized column names during import):
+**Reference-only columns** (append at end, prefix with `_ref_`  -  HubSpot will skip unrecognized column names during import):
 
 | `_ref_priority_score` | For sorting/review | priority_score value |
 | `_ref_account_tier_label` | For context | account_tier_label value |
@@ -132,6 +143,37 @@ The bot outputs values that are close but not exact matches to HubSpot labels. A
 | `LOW` | `low_5069` |
 | `MANUAL_REVIEW` | `manual_review_required` |
 
+### 2F: Owner Assignment from State (Territory Lookup)
+
+Derive `hubspot_owner_id` from `state` using the territory map in property-schema.md:
+
+| State | Owner ID | Owner |
+|---|---|---|
+| AL, AR, CT, DE, FL, GA, IA, IL, IN, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NH, NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV | `161889085` | Tim Lieto (East) |
+| AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND, NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY | `162339176` | Ken Cunningham (West) |
+| Non-US (any `country` that is not "United States" or "US") | `159350430` | Tim Ziemer (International) |
+| State unknown or blank | *(leave blank)* | Manual routing required |
+
+### 2G: Hyperscaler Proximity Values
+
+Values pass through directly from enrichment. Valid values:
+- `Announced: <50 miles`
+- `Announced: 50-200 miles`
+- `Existing Facility Nearby`
+- `None Known`
+
+If the enrichment output is blank or missing, set to `None Known`.
+
+### 2H: Key Tenant Segments (Colo Only)
+
+Multi-select, semicolon-separated. Only populate for colo operators. Valid values:
+`cloud_providers`, `enterprises`, `carriers`, `content__hyperscale`, `financial_services`, `other`
+
+Example: `cloud_providers;enterprises;carriers`
+
+If the enrichment output is blank for a colo operator, leave blank (do not guess).
+If the account is not a colo operator, leave blank.
+
 ---
 
 ## STEP 3: Identify Edge Cases Within Excludes
@@ -160,16 +202,16 @@ For each edge case identified, output to `edge_cases_for_research.xlsx`:
 All other excluded records (that don't match edge case rules):
 - `company_name`, `company_domain`, `exclusion_reason`
 - `exclusion_category` (normalized, standardized labels)
-- Audit trail — what was researched and why excluded
+- Audit trail  -  what was researched and why excluded
 
 Exclusion categories:
-- `Non-Target Vertical` — Staffing, software, consulting, manufacturing (not telecom/infra)
-- `Retail ISP Only` — Confirmed residential broadband, no wholesale
-- `Insufficient Data` — Couldn't determine classification with available data
-- `Defunct / Inactive` — Company no longer operating or domain parked
-- `Duplicate` — Already in HubSpot
-- `Parent/Subsidiary` — Not decision-maker level, subsidiary of larger company
-- `Vendor/Contractor` — No infrastructure ownership
+- `Non-Target Vertical`  -  Staffing, software, consulting, manufacturing (not telecom/infra)
+- `Retail ISP Only`  -  Confirmed residential broadband, no wholesale
+- `Insufficient Data`  -  Couldn't determine classification with available data
+- `Defunct / Inactive`  -  Company no longer operating or domain parked
+- `Duplicate`  -  Already in HubSpot
+- `Parent/Subsidiary`  -  Not decision-maker level, subsidiary of larger company
+- `Vendor/Contractor`  -  No infrastructure ownership
 
 ---
 

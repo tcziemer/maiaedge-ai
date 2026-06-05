@@ -17,7 +17,7 @@ Use this to decide whether to use AI messaging or standard segment messaging.
 
 | Signal Type | Specific Signals | Strength |
 |-------------|-----------------|----------|
-| GPU Cloud Tenants | CoreWeave, Lambda Labs, Crusoe, Voltage Park, Together AI as tenants | 🔥 Strong |
+| GPU Cloud Tenants | Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius as tenants | 🔥 Strong |
 | Infrastructure | Liquid cooling, 30kW+ racks, DeltaFlow cooling, power upgrades for AI | 🔥 Strong |
 | Partnerships | Announced deals with GPU cloud providers, hyperscaler AI workloads | 🔥 Strong |
 | Marketing | "AI-ready," "GPU cloud," "AI infrastructure," "inference hosting" in messaging | Medium |
@@ -32,7 +32,7 @@ Use this to decide whether to use AI messaging or standard segment messaging.
 
 | Market | Why It Matters | Key Players |
 |--------|---------------|-------------|
-| Dallas-Fort Worth | Power availability, hyperscaler campuses | Lambda Labs, Crusoe, CoreWeave |
+| Dallas-Fort Worth | Power availability, hyperscaler campuses | Lambda Labs, Crusoe, Nebius |
 | Columbus, OH | Lambda Labs buildout, Intel Chips Act facility | Lambda Labs, AWS |
 | Atlanta, GA | 176% planned capacity increase | Lambda Labs, hyperscaler expansion |
 | Phoenix, AZ | Power availability, favorable climate | Vantage, QTS |
@@ -48,7 +48,7 @@ Use this to decide whether to use AI messaging or standard segment messaging.
 | Company | GPU Cloud Tenant | Notes |
 |---------|------------------|-------|
 | Aligned Data Centers | Lambda Labs | DeltaFlow liquid cooling (300kW/rack) |
-| Cologix | Lambda Labs, CoreWeave | Columbus, Chicago, Dallas. 320MW+ committed |
+| Cologix | Lambda Labs | Columbus, Chicago, Dallas. 320MW+ committed |
 | EdgeConneX | Lambda Labs | Distributed edge portfolio |
 | QTS Data Centers | Hyperscaler AI workloads | Dallas-Fort Worth, Phoenix |
 | Vantage Data Centers | Multiple GPU cloud | Phoenix, Dallas, Atlanta campuses |
@@ -75,22 +75,22 @@ Digital Realty, DataBank, T5 Data Centers, Flexential, Stream Data Centers
 
 | Signal | Messaging Approach |
 |--------|-------------------|
-| GPU cloud tenants (CoreWeave, Lambda Labs, Crusoe, Voltage Park) | "GPU cloud providers require 35+ cross-connects per deployment with sub-10ms latency. Are you delivering that in minutes?" |
+| Confirmed GPU cloud tenants | "GPU tenants deploy dense interconnection fast. The connectivity layer either keeps up or it becomes the gap in the facility." |
 | Liquid cooling / 30kW+ racks / DeltaFlow | "You've built the infrastructure. Now complete the AI story with instant interconnection." |
 | AI-ready marketing but no confirmed tenants | "AI tenants are coming. Will your provisioning be ready?" |
 | None of the above | Use standard Equinix/provisioning messaging |
 
 ### Neoclouds (GPU Cloud Providers)
 
-**INVERTED HIERARCHY: Lead with observability, NOT deterministic paths.**
+**MASTER PITCH: Connecting distributed AI infrastructure simply. All value props (multi-tenancy, deterministic, private, instant) are benefits of this. NO operator sovereignty. DATA sovereignty allowed ("sovereign by design"). No network jargon (VLAN, Q-in-Q).**
 
-**⚠️ Sub-segment routing — match messaging to the specific neocloud type:**
+**⚠️ Sub-segment routing  -  match messaging to the specific neocloud type:**
 
 | Sub-Segment | Signal | Messaging Approach |
 |-------------|--------|-------------------|
 | **Large-Scale GPU NeoClouds** (Crusoe, Voltage Park, Nebius, Lambda Labs) | Multi-facility GPU deployments, 100MW+ capacity, rapid expansion | "Every network interruption forces a checkpoint rollback. At $4,800/GPU/month, the recompute tax dwarfs our subscription." |
 | **Tier 1 Inference Providers** (Together AI, Groq, DeepInfra, Anyscale) | Inference-as-a-service, real-time API SLAs | "Your SLA guarantees depend on network determinism you can't see today. Tail latency kills inference." |
-| **AI Infrastructure Providers** (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) | Multi-cloud GPU platform, API-driven, developer-first | "See why inference latency varies by facility. Then fix it. Own your paths — don't rent Megaport's." |
+| **AI Infrastructure Providers** (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) | Multi-cloud GPU platform, API-driven, developer-first | "See why inference latency varies by facility. Then fix it. Own your paths  -  don't rent Megaport's." |
 | **Sovereign AI Clouds** (Firmus, E2E Networks, Yotta, Nscale EU) | Regulatory requirements, national AI initiatives, data sovereignty | "Prove data stays within geographic boundaries. Sovereign routing with compliance reporting." |
 | **Crypto-to-AI Pivots** (IREN, Core Scientific, Northern Data Group, TeraWulf) | Former crypto mining, transitioning to AI compute | "Your crypto infrastructure wasn't built for AI traffic. See where the network is slowing you down." |
 
@@ -98,24 +98,24 @@ Digital Realty, DataBank, T5 Data Centers, Flexential, Stream Data Centers
 
 | Signal | Messaging Approach |
 |--------|-------------------|
-| Multi-facility GPU deployments (3+ locations) | "See why inference latency varies by facility. Then fix it." |
-| Rapid expansion (adding facilities quarterly) | "Every new facility doesn't have to be a connectivity project." |
-| Single facility expanding | Too early — monitor for second facility |
-
-> **⚠️ CoreWeave Targeting Note:** Not an active target (MetroConnect Feb 2026 intel). Do not include in outreach campaigns.
+| Multi-facility GPU deployments (5-15 locations, mixed customers, network person lost or never had one) | **In-pain-now angle.** "Inference latency varies by facility and your team is guessing whether it's the carrier, the colo, or something in between." |
+| Scale GPU cloud (15+ locations, hyperscaler-heavy, enterprise ramp plan) | **Scaling-wall angle.** "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." |
+| Rapid expansion (adding facilities quarterly) | "Every new facility doesn't have to be a connectivity project. Every enterprise customer doesn't have to be either." |
+| Crypto-to-AI pivot (2-5 sites) | **Early-growth angle.** "Bitcoin doesn't care about latency. Enterprise AI tenants do. The connectivity that worked for mining doesn't survive an inference SLA." |
+| Single facility, pre-revenue | Too early  -  watch list. Flag on second site or first GPU tenant. |
 
 ### Network Operators
 
 | Signal | Messaging Approach |
 |--------|-------------------|
-| Announcements about AI/enterprise services | "AI workloads span multiple carriers. 33% of inference latency is network. Can you prove you're not the bottleneck?" |
+| Announcements about AI/enterprise services | "Your enterprise customers are deploying inference across hybrid environments. The network is the variable they can't diagnose and you can't prove. Deterministic paths with hop-by-hop visibility turn that into a conversation you can win." |
 | Partnerships with cloud/AI companies | Emphasize multi-carrier AI paths with deterministic latency |
 | Marketing about low-latency enterprise services | "Deterministic paths for AI workloads" |
 | None of the above | Use standard cross-carrier/AWS-Lumen threat messaging |
 
 ---
 
-## 6. TECHNICAL TERMINOLOGY — WHEN TO USE EACH TERM
+## 6. TECHNICAL TERMINOLOGY  -  WHEN TO USE EACH TERM
 
 The main prompt lists approved terms. This adds context on when each one lands best.
 
@@ -195,7 +195,7 @@ Each turn makes the network smarter, faster, and more valuable. Use in strategic
 
 ## 13. VISION STATEMENTS (Thought Leadership)
 
-- "By 2030, private connectivity will behave like cloud compute — instant, elastic, deterministic."
+- "By 2030, private connectivity will behave like cloud compute  -  instant, elastic, deterministic."
 - "Enterprises will stop buying 'lines.' They'll subscribe to reach."
 - "The Internet connected everything except the networks themselves. Federation fixes that."
 
@@ -221,13 +221,11 @@ Subject: Fatbeam provisioning
 
 Paul,
 
-I'd guess NNI provisioning across an 8-state fiber footprint still takes your team weeks. Enterprise customers are starting to expect hyperscaler-speed activation, and most regional operators are still quoting 60-90 days for cross-carrier circuits.
-
-We built infrastructure that lets your team activate services in minutes, under your brand. No routing protocols, no manual coordination. Same team that built Acme Packet.
+I'd guess NNI provisioning across an 8-state fiber footprint still takes your team weeks. Enterprise customers are starting to expect hyperscaler-speed activation, and the gap shows up as deals lost on timeline. The fix is infrastructure that lets your team activate services in minutes over any transport, under your brand. No VLAN stitching, no BGP, no MPLS, no SRv6.
 
 Is this something you're thinking about?
 
-**Why this works:** Leads with the problem (provisioning speed gap), not a personal observation. Research (8-state footprint, Lumen background) is absorbed into the problem framing, not showcased. Speed paired with ownership. One idea. Credibility dropped in naturally.
+**Why this works:** Leads with the problem (provisioning speed gap), not a personal observation. Research (8-state footprint, Lumen background) is absorbed into the problem framing, not showcased. Value bridge embedded by contrast as the fix to the named problem ("The fix is…") rather than a standalone "We built infrastructure that…" pitch (BANNED). Speed paired with ownership. One idea.
 
 ---
 
@@ -236,9 +234,9 @@ Is this something you're thinking about?
 **Research Summary:**
 - Company: KIO Networks. Colocation. 20+ data centers, 2,000+ enterprises, LATAM.
 - Built: Carrier-neutral ecosystem, significant tenant base
-- Gap: Tenant connectivity requests likely go to third parties, revenue/control walking out
+- Gap: Cross-connect provisioning is still project-based; cloud on-ramp isn't offered natively; 20+ sites have no single interconnection layer a tenant can use across all of them
 - Contact: Octavio, CEO. Cares about competitive positioning, customer ownership.
-- Angle: Build your own fabric rather than joining someone else's.
+- Angle: Build your own fabric + automated virtual cross-connects + cloud on-ramp as a native product.
 - Fit: STRONG
 
 **Email** (~85 words):
@@ -247,15 +245,11 @@ Subject: KIO Networks interconnection
 
 Octavio,
 
-When tenants across 20+ data centers ask for instant cloud connectivity, I'd guess the answer is either "call a third-party fabric provider" or "give us a few weeks." That's revenue and control walking out the door.
-
-We help operators build their own connectivity fabric rather than joining someone else's. You keep the customer relationship, the margin, and the roadmap control. Your team provisions in minutes, not weeks.
-
-Same team that built Acme Packet.
+Across 20+ data centers, I'd guess every cross-connect is still a project (LOAs, truck rolls, VLAN config) and a tenant who wants capacity in more than one site is still a separate order per site. Tenants expect portal-driven self-service they can't get today, and the version that compounds is the one where they book paths from your portal in minutes — automated virtual cross-connects, cloud on-ramp as a native product, one interconnection layer across all your sites, without a multi-year development project.
 
 On your radar for this year?
 
-**Why this works:** Leads with the problem (tenant connectivity requests going to third parties), not a company description. The "20+ data centers" detail is baked into the problem framing, not displayed as a standalone observation. No "impressive" flattery. Strong sovereignty language. CEO-appropriate strategic framing.
+**Why this works:** Leads with the problem (tenant connectivity requests going to third parties), not a company description. The "20+ data centers" detail is baked into the problem framing, not displayed as a standalone observation. Value bridge embedded by contrast as "the version that compounds is the one where…" rather than a standalone "We help operators build their own fabric" pitch (BANNED — "we help operators" is brand voice, not peer voice). No "impressive" flattery. Strong sovereignty language. CEO-appropriate strategic framing.
 
 ---
 
@@ -275,15 +269,11 @@ Subject: BIG Fiber provisioning
 
 Patton,
 
-I'd guess the provisioning side hasn't caught up to what you've built physically. When a hyperscaler or enterprise signs up, it's still manual. LOAs, VLAN coordination, scheduling. Fiber that can carry 400G, but activation takes weeks.
-
-For a company marketing AI-ready infrastructure with a subsea Bay crossing, that gap matters. The infrastructure is differentiated. The provisioning isn't, yet.
-
-We built infrastructure that lets your team provision in minutes. Protocol-free, API-driven. No routing complexity. Same team that built Acme Packet.
+I'd guess the provisioning side hasn't caught up to what you've built physically. When a hyperscaler or enterprise signs up, it's still manual. LOAs, VLAN coordination, scheduling. Fiber that can carry 400G, but activation takes weeks. The infrastructure is differentiated; the provisioning isn't, yet — and the fix is paths your team can stand up in minutes over any transport, no routing complexity, monetizing what's already in the ground.
 
 Dealing with something similar?
 
-**Why this works:** Leads with the provisioning problem, not the Bay Crossing observation. Research details (400G capacity, subsea route, AI-ready positioning) are woven into the problem framing, not displayed as standalone flattery. Speed paired with ownership. One idea: great infrastructure deserves matching provisioning.
+**Why this works:** Leads with the provisioning problem, not the Bay Crossing observation. Research details (400G capacity, subsea route, AI-ready positioning) are woven into the problem framing, not displayed as standalone flattery. Value bridge embedded as "the fix is…" rather than a standalone "We built infrastructure that…" pitch (BANNED). Speed paired with ownership. One idea: great infrastructure deserves matching provisioning.
 
 ---
 

@@ -58,22 +58,22 @@ What MaiaEdge Is: Fabric-in-a-box. Hardware (PBC) plus cloud software (PCE) plus
 One-Liner: "We're fabric-in-a-box. Rack it, claim it, offer services. No 6-12 month integration project."
 Key Differentiators:
 3.1.5 NOT a Traditional NNI Solution
-What Traditional NNIs Are: The only federation model most carriers know: 60-90 day projects involving commercial negotiations, LOAs, VLAN coordination spreadsheets, BGP peering configuration, manual testing, and extensive documentation. Every new partner relationship is a custom build.
-What MaiaEdge Is: Instant federation. Deploy PBCs at partner boundaries and the PCE handles path computation across both networks. No BGP peering sessions to configure, no VLAN coordination spreadsheets. Partner activation in minutes, not months.
-One-Liner: "Traditional NNIs take 60-90 days. We federate in minutes."
+What Traditional NNIs Are: The only cross-carrier partnership model most carriers know: 60-90 day projects involving commercial negotiations, LOAs, VLAN coordination spreadsheets, BGP peering configuration, manual testing, and extensive documentation. Every new partner relationship is a custom build.
+What MaiaEdge Is: Instant partner interconnection. Deploy PBCs at partner boundaries and the PCE handles path computation across both networks. No BGP peering sessions to configure, no VLAN coordination spreadsheets. Partner activation in minutes, not months.
+One-Liner: "Traditional NNIs take 60-90 days. We activate partners in minutes."
 Why This Matters:
-Federation has always been technically possible but practically painful. The 60-90 day timeline means deals are lost to whoever can provision faster, and partnerships that should unlock revenue become projects nobody prioritizes. MaiaEdge makes federation both technically simple and commercially valuable.
+Cross-carrier partnership has always been technically possible but practically painful. The 60-90 day timeline means deals are lost to whoever can provision faster, and partnerships that should unlock revenue become projects nobody prioritizes. MaiaEdge makes partner interconnection both technically simple and commercially valuable. (Internal GTM note: we still use "federation" as the internal product/capability term; customer-facing materials translate to "partner interconnection" / "cross-carrier activation" / "extend reach.")
 
 ### Market Pain Quantification
 
-**Type 2 Connection Failure Rate:** 35% of all Type 2 network orders fail — creating massive operational cost and customer churn risk.
+**Type 2 Connection Failure Rate:** 35% of all Type 2 network orders fail  -  creating massive operational cost and customer churn risk.
 
 **Physical NNI Economics:**
 - Carriers maintain numerous physical NNIs "just in case," costing close to **$10 million per year in aggregate**
 - Minimum 90–120 days to establish a new physical NNI
 - MaiaEdge dynamic NNI creation: instant, over DIA, with AES-256 encryption
 
-**VLAN ID Space Limitation:** Only ~4,094 usable VLAN identifiers per Ethernet segment without MAC-in-MAC encapsulation — creating a hard ceiling on customer density.
+**VLAN ID Space Limitation:** Only ~4,094 usable VLAN identifiers per Ethernet segment without MAC-in-MAC encapsulation  -  creating a hard ceiling on customer density.
 
 3.2 Competitive Landscape Overview
 3.2.1 Market Context: The Lumen/AWS Announcement
@@ -332,33 +332,33 @@ All paths secured with end-to-end AES-256-GCM IPsec encryption
 
 3.5 Neocloud Competitive Context
 
-For neoclouds (GPU cloud providers like CoreWeave, Lambda Labs, Crusoe, Together AI, RunPod), the competitive landscape is different. These companies are NOT choosing between MaiaEdge and Megaport. They're choosing between:
+For neoclouds (GPU cloud providers like Lambda Labs, Crusoe, Together AI, RunPod, Nebius), the competitive landscape is different. These companies are NOT choosing between MaiaEdge and Megaport. They're choosing between:
 
 | Alternative | What It Looks Like | MaiaEdge Advantage |
 |-------------|-------------------|-------------------|
-| **Status Quo (do nothing)** | No WAN monitoring, no inter-facility visibility, move workloads when slow | Observability first: see the path, understand where latency lives |
+| **Status Quo (do nothing)** | No WAN monitoring, no inter-facility visibility, move workloads when slow. For scaling-wall neoclouds (15+ sites, hyperscaler-heavy), every enterprise customer is a manual connectivity project. | MaiaEdge's angle depends on maturity: in-pain-now (5-15 sites) → deterministic paths + observability; scaling-wall (15+ sites) → instant customer on-ramp for the enterprise ramp ahead. Agentic workflows compound best-effort latency into seconds of lag; deterministic paths eliminate the compounding. |
 | **DriveNets** | Network operating system, requires dedicated network team | MaiaEdge requires no networking expertise. IT admins can manage it. |
 | **Build internal network team** | Expensive, slow to hire, networking talent scarce | Capability without headcount. Protocol complexity handled by MaiaEdge. |
 | **Rely on colo partners** | Each facility different, no cross-facility visibility | Unified control plane across all facilities and carriers |
 
-Key Insight: For neoclouds, Status Quo is the #1 competitor (same as other segments). They don't know they have a network problem. They know they're slow. Lead with observability.
+Key Insight: For neoclouds, Status Quo is the #1 competitor (same as other segments). They don't know they have a network problem. They experience it as distributed AI infrastructure that's hard to connect. Lead with "connecting distributed AI infrastructure simply" - observability is a supporting benefit under the DETERMINISTIC pillar, not the lead (V4.1).
 
-#### Megaport/Latitude.sh Competitive Threat (Emerging — 2024+)
+#### Megaport/Latitude.sh Competitive Threat (Emerging  -  2024+)
 
-Megaport acquired Latitude.sh in 2024, creating a bundled GPU-as-a-Service + networking play. This is a direct threat to neoclouds — especially AI Infrastructure Providers — who might accept a single-vendor bundle rather than building their own connectivity.
+Megaport acquired Latitude.sh in 2024, creating a bundled GPU-as-a-Service + networking play. This is a direct threat to neoclouds  -  especially AI Infrastructure Providers  -  who might accept a single-vendor bundle rather than building their own connectivity.
 
 | Dimension | Megaport/Latitude.sh | MaiaEdge |
 |-----------|---------------------|----------|
-| **Model** | Bundled GPU + networking. One vendor, one contract. | Sovereignty — own your paths, own your data, own your roadmap. |
+| **Model** | Bundled GPU + networking. One vendor, one contract. | Sovereignty  -  own your paths, own your data, own your roadmap. |
 | **Customer Relationship** | Megaport owns the customer and the margin. | You own the customer, the brand, and the pricing. |
-| **Lock-in Risk** | High. GPU + network bundle creates switching costs. | Low. MaiaEdge is a fabric layer — you choose carriers, colos, and cloud partners. |
+| **Lock-in Risk** | High. GPU + network bundle creates switching costs. | Low. MaiaEdge is a fabric layer  -  you choose carriers, colos, and cloud partners. |
 | **Sovereign Routing** | No geographic path guarantees. | Policy-based sovereign routing with jurisdictional compliance. |
 
-**Counter-positioning:** "Megaport wants to be your GPU provider AND your network provider. That's a lot of control to hand one vendor. MaiaEdge gives you deterministic paths under YOUR control. Use Megaport for reach if you want — but own the path."
+**Counter-positioning:** "Megaport wants to be your GPU provider AND your network provider. That's a lot of control to hand one vendor. MaiaEdge gives you deterministic paths under YOUR control. Use Megaport for reach if you want  -  but own the path."
 
 **Most relevant to:** AI Infrastructure Providers sub-segment (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) who are evaluating bundled alternatives.
 
-Neocloud Discovery Signal: If a colo prospect mentions GPU cloud tenants (CoreWeave, Lambda Labs, etc.), that's a neocloud lead. Every colo conversation should generate neocloud intelligence.
+Neocloud Discovery Signal: If a colo prospect mentions GPU cloud tenants (Lambda Labs, Crusoe, etc.), that's a neocloud lead. Every colo conversation should generate neocloud intelligence.
 Dimension | Orchestration Platforms | MaiaEdge
 Deployment Time | 6-12 months integration | 30-60 days to production
 Investment Model | Multi-million dollar platform + PS | OpEx subscription
@@ -406,16 +406,16 @@ Risk | Project failure, scope creep, talent loss | Proven technology, reference 
 Component | Location | Function
 Core Routers (Cisco/Juniper) | Network backbone, aggregation points | BGP/OSPF routing, MPLS, traffic aggregation
 PBCs (MaiaEdge) | Network edge, boundaries, customer demarcation | Private path automation, visibility, encryption
-Alternative | Their Approach to Reach | MaiaEdge Federation
+Alternative | Their Approach to Reach | MaiaEdge Partner Interconnection
 NaaS (Megaport) | Single provider's network; you're a tenant | Any partner with PBCs; you're the landlord
-Lumen PCF | Lumen's backbone only; their roadmap | Your network + any federated partner; your roadmap
+Lumen PCF | Lumen's backbone only; their roadmap | Your network + any partner operator; your roadmap
 Orchestration | Software-only; no partner interconnection | Hardware + software + instant partner activation
-Internal Build | Bilateral agreements for each partner | Instant federation with any MaiaEdge operator
-Status Quo | 60-90 day NNI process per partner | Minutes to federate; commercial terms still apply
+Internal Build | Bilateral agreements for each partner | Instant partner interconnection with any MaiaEdge operator
+Status Quo | 60-90 day NNI process per partner | Minutes to activate a partner; commercial terms still apply
 
 ---
 
-## Lumen Private Connectivity Fabric (PCF) + AWS Interconnect Last Mile — 2024-2025
+## Lumen Private Connectivity Fabric (PCF) + AWS Interconnect Last Mile  -  2024-2025
 
 ### Context: Market Consolidation Trend
 
@@ -432,7 +432,7 @@ Status Quo | 60-90 day NNI process per partner | Minutes to federate; commercial
 - Instant provisioning with automated BGP peering and VLAN configuration
 - Go-to-market: Direct to enterprises (bypassing regional operators)
 
-**AWS Interconnect Last Mile (November 2025 — Gated Preview):**
+**AWS Interconnect Last Mile (November 2025  -  Gated Preview):**
 - Customers enter location, select bandwidth, choose AWS Region
 - Instant private, high-speed connection to AWS
 - Powered by Lumen backbone in many regions
@@ -446,7 +446,7 @@ Status Quo | 60-90 day NNI process per partner | Minutes to federate; commercial
 3. Wholesale opportunity (Lumen captures the value chain)
 4. Pricing control (Lumen sets rates; operator becomes supplier)
 
-**The pattern:** Exactly what NaaS platforms (Megaport, Equinix Fabric) did to colos, Lumen/AWS is doing to regional operators — vertical integration, direct-to-customer model, supplier relationship.
+**The pattern:** Exactly what NaaS platforms (Megaport, Equinix Fabric) did to colos, Lumen/AWS is doing to regional operators  -  vertical integration, direct-to-customer model, supplier relationship.
 
 ### MaiaEdge Response Strategy
 

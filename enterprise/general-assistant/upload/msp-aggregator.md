@@ -20,6 +20,8 @@ Responsible for SLA but can't see the path Hop-by-hop telemetry, prove SLAs to c
 CapEx burden doesn't match asset-light model OpEx subscription, no infrastructure buildout required
 Tier 1s going direct to your customers Match Tier 1 speed and capabilities, keep relationships
 "Depends on the carrier" kills deals Instant activation, same-day provisioning
+Reach limited to markets where your carriers operate Reach beyond your carriers. Connect to partners and providers in new markets instantly.
+No way to monetize spare capacity Turn spare capacity into sellable services. Deterministic paths, cloud on-ramps, connectivity marketplace.
 Top Pain Points (Their Words)
 "We're responsible for the SLA but we can't see what's happening inside carrier networks"
 "When there's an issue, we're stuck between our customer and the carrier pointing fingers"
@@ -155,10 +157,10 @@ relationship.
 Proof Points & Talk Tracks
 Proof Points
 Customer Quote When to Use
-INDATEL Federation partner enabling reach for regional Aggregation model, partner
+INDATEL Partnership enabling reach for regional Aggregation model, partner
 carriers reach
-Ocean Uses MaiaEdge to federate with INDATEL for Geographic expansion,
-Networks mainland reach federation
+Ocean Uses MaiaEdge to extend reach to INDATEL for Geographic expansion,
+Networks mainland connectivity partner reach
 RevNet "Imagine having Megaport capability between NaaS comparison, multi-
 providers" carrier
 Talk Tracks by Persona
@@ -224,8 +226,8 @@ ask for this visibility"
  |  |  |  |  | 
 
 Megaport /
-Equinix Fabric |  |  | They're your competition, not your tool. They aggregate customers on THEIR fabric.
-MaiaEdge lets YOU be the aggregator with the same capabilities. |  | 
+Equinix Fabric /
+Lumen PCF |  |  | Backend infrastructure you can leverage via API  -  and increasingly, direct competitors for your customers' GPU compute spend. Without MaiaEdge, every tenant you send to their portal for connectivity discovers their compute offering. With MaiaEdge, you offer the same reach and on-demand experience under your brand, keep the customer relationship, and don't expose them to a competitor's portal. In cold outreach, reference them as "third-party fabric providers"  -  never by name. |  | 
 
  |  |  |  |  | 
 
@@ -243,15 +245,15 @@ relationship. |  |
 
  |  |  |  |  |  |  |  | 
 
-INDATEL |  |  | Federation partner enabling reach for regional
+INDATEL |  |  | Partnership enabling reach for regional
 carriers |  |  | Aggregation model, partner
 reach |  | 
 
  |  |  |  |  |  |  |  | 
 
- | Ocean |  |  | Uses MaiaEdge to federate with INDATEL for |  |  | Geographic expansion, | 
+ | Ocean |  |  | Uses MaiaEdge to extend reach to INDATEL for |  |  | Geographic expansion, | 
 
- | Networks |  |  | mainland reach |  |  | federation | 
+ | Networks |  |  | mainland connectivity |  |  | partner reach | 
 
  |  |  |  |  |  |  |  | 
 
@@ -274,21 +276,288 @@ provision as fast as they can? MaiaEdge gives you instant activation across your
 asset-light model, same relationships - now with the speed to win."
 ---
 
+## Two Subtypes Within This Segment
+
+The MSP/Aggregator segment is broader than the US TSD/TA channel. Two subtypes fit under `customer_segment = Enterprise` with different vocabularies, different target personas, and different competitive lenses. Keep the file unified  -  every talk track, proof point, and objection rebuttal below is flagged with its subtype scope so the copy engine picks the right register.
+
+### Subtype 1: US TSD / TA Channel (existing default)
+
+What They Own: Contracts with carriers + relationships with Technology Advisors (TAs). Asset-light. Revenue from residual commissions + managed-services margin.
+
+Examples: Telarus, AppDirect, Upstack, AVANT, Bridgepointe, ScanSource Intelisys, Sandler Partners, TD SYNNEX. Independent TAs / owner-operator agencies are the downstream channel.
+
+Scale: TSDs 200-2,000 employees, $50M-$500M+ wholesale-equivalent revenue. TAs are 1-50 person agencies.
+
+Vocabulary: residual commissions, SPIFF, line-card, master supplier agreement, deal registration, TSD, Technology Advisor, channel manager, quoting platform, partner enablement.
+
+### Subtype 2: NaaS Platform Operator (new)
+
+**What They Own:** A proprietary customer-facing platform (portal, API, self-service ordering) + some owned PoPs + partner carriers for reach beyond owned footprint.
+
+**Examples:** CBC Tech (eNet Fabric), Epsilon (Infiny), PCCW (Console Connect), Arelion wholesale, Sparkle Sparkhub.
+
+**Revenue Model:** Subscription / usage-based NaaS billing (not channel commissions). Margin compression comes from platform-vendor competition (Megaport, Equinix Fabric), not from Tier 1 direct sales.
+
+**Scale:** 200-2,000 employees, $50M-$500M+ revenue. Typically APAC/EMEA-HQ rather than US-channel-centric.
+
+**Competitive Reality:** The platform looks seamless to the customer. The cross-carrier delivery layer underneath doesn't match the platform's speed. Every partner-extended path is a manual activation cycle the customer doesn't see on the portal but absolutely feels in the delivery timeline.
+
+**⚠️ Relationship-to-MaiaEdge caveat:** This subtype is the trickiest in the entire segment file. MaiaEdge is **both a competing platform AND a potential partner** to them.
+- **Treat as partner** when we're helping them extend reach beyond their PoPs via our orchestration (their customer stays on their portal; we run underneath).
+- **Treat as competitor** when they want to own the entire stack.
+- **Messaging must default to the partner frame.** Do NOT position as platform-replacement. This caveat applies to every downstream NaaS-subtype talk track, proof point, and objection rebuttal.
+
+---
+
+## Talk Track: Credit the Platform (NaaS Platform Operator subtype only)
+
+Highest-performing first-touch angle for NaaS platform operators with their own proprietary fabric or portal. Structure is three moves.
+
+1. **Name their platform.** Use its actual product name if known (eNet Fabric, Infiny, Conexa, Console Connect, etc.). If unknown, reference the platform generically ("your NaaS platform," "your customer portal"). Signals research and respects the asset they've built.
+2. **Acknowledge what it does well.** The platform itself is fast, automated, on-demand. Don't pitch them on attributes they already own.
+3. **Name where the platform ends.** Every deal that requires partner carriers for delivery hits a timeline the platform can't solve. That partner-boundary gap is where MaiaEdge fits.
+
+### Template sentence patterns
+
+- "[Platform name] is what you control end-to-end. The moment a deal requires partner carriers, your automation hits someone else's timeline."
+- "[Platform name]'s click-to-order experience meets their activation queue."
+- "The overlay scales fast. The underlying carrier capacity in each market doesn't scale with it."
+- "Every deal outside your direct PoP footprint rides partner carriers."
+
+### Anti-patterns (do NOT do)
+
+- Don't pitch "visibility" or "automation" as primary value. They have those. The gap is at the partner boundary, not inside their platform.
+- Don't imply the platform is slow. It isn't. The partner-NNI cycle behind it is.
+- Don't use "break carrier dependency" or "cut out carriers." Their business IS multi-carrier orchestration. MaiaEdge extends their reach through partners, not around them.
+- Don't position as platform-replacement. They built the platform; we extend it.
+
+---
+
+## TSD Landscape (verified anchors, for Subtype 1 targeting)
+
+Tier 1 TSDs (US channel):
+- **Telarus** (Sandy, UT)  -  #1 market share per Omdia/Canalys. GeoQuote + Telarus Hub platform.
+- **AppDirect** (CDPQ-backed)  -  10K advisors, 1,000+ providers. 2025-26 M&A: NXTSYS, vCom Solutions, Tackle.io, PartnerStack. ⚠️ Building in-house orchestration post-vCom  -  competitive risk.
+- **Upstack** (Berkshire Partners-backed)  -  36 acquisitions through 2025.
+- **AVANT** (Pamlico / Court Square recapitalization Dec 2025)  -  300+ providers. Pathfinder decision platform.
+- **Bridgepointe** (Charlesbank / Carlyle AlpInvest recap April 2026, >$1B valuation)  -  400+ IT Strategists. "The Signal" portal processes 100% of orders. Scott Kinka positioning: "competitor to the big five consulting firms, not to TSDs."
+- **ScanSource Intelisys** (NASDAQ SCSC)  -  FY25 $3.04B total. Recurring revenue mix 29.3% → 36.0% Q3 FY25 (public earnings-disclosed shift from bandwidth reselling to platform / recurring services).
+
+Tier 2 TSDs:
+- **Sandler Partners** (independent)
+- **TD SYNNEX** (NYSE SNX)  -  connectivity is secondary to IT hardware motion.
+
+### Technology Advisor (TA) Persona Split
+
+**Owner-operator TA** (1-5 person agency): Multi-TSD on average (per Channel Futures Q3 2024: 2.9 TSDs per TA; 24% single-TSD, 32% dual). Residual-driven. Full autonomy on vendor selection. Risk-averse because churn hits paycheck directly.
+
+**W-2 TA at large TSD** (Bridgepointe IT Strategist, AVANT Trusted Advisor, Intelisys AE): Approved-vendor gated. Single-organization loyalty. Can deploy new vendors rapidly once TSD onboards them. Enterprise logo scale.
+
+### Target Priority (for MSP line-card entry)
+
+CRO / VP Supplier Strategy / VP Platform / Head of AI Practice / VP Solutions Engineering at the TSD drive line-card onboarding. Target these first. TAs are secondary  -  once a TSD onboards MaiaEdge, TAs can pull it into deals via the quoting platform.
+
+### Discovery Mechanism (for TSD line-card entry)
+
+- **Podcasts:** Telarus "Next Level BizTech" (weekly, Josh Lupresto host), Bridgepointe "The Bridgecast with Scott Kinka" (biweekly), Telecom Reseller (Doug Green host), TalkingPointz / TalkingHeadz (Dave Michels).
+- **Events:** Channel Partners Expo (April 13-16, 2026, Las Vegas), AVANT Special Forces, Telarus Partner Summit, Sandler Partners National Summit, Bridgepointe Tech Summit.
+- **LinkedIn influencers:** Scott Kinka (Bridgepointe), Drew Lydecker (AVANT), Adam Edwards (Telarus), Patrick Oborn (Telarus).
+
+### Entry Motion
+
+TSD master supplier agreement is the path. Line-card onboarding, not direct-to-TA bypass. TAs work off TSD-gated approved-vendor lists.
+
+---
+
+## ICP Exclusion List (NOT MaiaEdge ICP)
+
+Companies that pattern-match "aggregator" by name or positioning but are NOT MaiaEdge ICP. Filter these out of outreach:
+
+- **Voice termination wholesalers.** LD / VoIP / SIP-termination businesses managing voice routes (LCR tables, ASR/ACD quality, PDD), not L2/L3 data paths. Title tells: "Network Profitability," "Route Management," "Voice Operations." Examples: iBasis voice, Tata voice, IDT, BICS voice, Intelepeer, Sangoma, Flowroute, Vinculum, Telstar Express, SIPSTATUS.
+- **SMS / A2P / CPaaS aggregators.** Message routing over SMPP/SS7/HTTP, not connectivity. Examples: Sinch, Infobip, Bird/MessageBird, Twilio, Bandwidth, Route Mobile, Monty Mobile, Telnyx, Vonage, TeleSign, Soprano, BICS Messaging, Go4Mobility.
+- **Cellular IoT MVNOs.** Operate their own mobile packet core (5G Core / EPC), ride GSMA-layer interconnects (roaming, IPX, eSIM), not L2/L3 fixed-line NNIs. Examples: Wireless Logic, Kore Wireless, 1NCE, EMnify, Aeris, Transatel, Telit Cinterion, Soracom, Cisco Jasper, floLIVE, Truphone/1GLOBAL.
+- **Roaming hubs / IPX providers** (not data transit). Examples: BICS, Syniverse, TATA IPX, Orange IPX, iBasis roaming.
+- **eSIM / SIM platform vendors.** Examples: Thales, Giesecke+Devrient, IDEMIA, Valid.
+
+### Self-Filtering Copy Rule
+
+If Email 1 vocabulary reads coherent to any of the above categories, the copy is too generic. Fixed-line-specific terms (Ethernet NNI, IP transit, wavelength, L2/L3 path, cross-connect, Direct Connect, ExpressRoute, dark fiber, cloud on-ramp) filter these out because voice/SMS/IoT MVNO recipients don't operate in that vocabulary. **Aim for copy that sounds unintelligible to voice wholesalers.** That's how you know it's hitting the right ICP.
+
+---
+
+## Proof Point Archetypes (anonymized  -  cold outreach rule)
+
+Existing US-channel proof points (INDATEL, Ocean Networks, RevNet) remain available for Subtype 1 (US TSD/TA). For Subtype 2 (NaaS Platform Operator), use these anonymized archetypes:
+
+| Customer Archetype | Anonymized Frame | When to Use |
+|---|---|---|
+| Global NaaS platform with proprietary fabric | "A NaaS platform operator with a proprietary customer portal uses MaiaEdge to extend their portal's activation experience across partner carriers in markets where they don't own PoPs." | CBC Tech / Epsilon / Console Connect-style prospects |
+| International wholesale carrier with multi-region expansion | "A regional wholesale carrier operating in three countries uses MaiaEdge to automate partner-NNI activation at every cross-border handoff." | Media Commerce / regional LatAm or APAC operators |
+| Subsea / landing-station operator | "A global carrier with transatlantic landings uses MaiaEdge for terrestrial extension from landing stations into customer networks across EMEAA." | Telxius / subsea-wholesale prospects |
+
+All remain anonymized per the cold-outreach rule.
+
+---
+
+## Industry Landscape (2025-2026)
+
+### Channel Rebranding & Growth
+The channel hit $16B in 2025 (Bain estimate), up from $12B in 2024, with industry leaders setting $100B 10-year ambitions. The rebranding is complete: "Master agents" are now "Technology Services Distributors" (TSDs). "Agents" are "Technology Advisors" (TAs). Use THEIR new terminology  -  calling someone an "agent" signals you're behind.
+
+### SD-WAN Is Table Stakes
+~90% of companies using or adopting SD-WAN. Market: $7.91B (2025) to $21.67B (2030). No longer a differentiator  -  not offering it is a competitive disadvantage. SASE cannibalizing MPLS: ~$4B (2024) to ~$17B (2030) at 25-30% CAGR.
+
+### The AI Readiness Gap
+58% of buyers identified AI as their top priority (up from 13% in 2023), but only 13% of TAs feel "very prepared" to sell AI solutions. This is the single biggest opportunity-gap in the channel right now.
+
+### AI-Augmented Operations
+AI automating up to 70% of routine NOC tasks. "Dark NOC" concept = fully autonomous network operations powered by agentic AI. Major vendors pushing "NOCless" operations. Incident response times cut by 50%, 30% operational cost reduction. Leading MSPs already have AI-powered NOC dashboards in production.
+
+### What the Leaders Are Doing
+The most advanced MSPs are launching unified service portals, AI-powered NOC dashboards, and on-demand networking models that eliminate fixed contracts and ETFs. TSDs are acquiring CX and AI specialty firms to expand their offering. Deal sizes are growing  -  top TAs increasingly selling six-figure deals into upper-midmarket and enterprise.
+
+### Cybersecurity as Growth Engine
+Fastest-growing MSP category at 18% annual growth (outpacing overall MSP growth of 14%). UCaaS, networking, and cybersecurity are the top-three TA revenue categories. vCIO, compliance-as-a-service, and automation consulting emerging as premium offerings.
+
+### Enterprise Bypass Accelerating
+Azure ExpressRoute going 400G in 2026. AWS Direct Connect expanding. Google Cloud Interconnect growing. Each expansion is another path for enterprises to bypass MSP/carrier relationships entirely. Mid-market outpacing enterprise in AI adoption  -  92% expect IT budget increases.
+
+### Financial Pressures
+MSP M&A surged 20% to 466 deals in 2025 ($4.3B disclosed value). Margin compression from carrier direct sales, hyperscaler bypass, and SD-WAN vendors going direct (Fortinet, Palo Alto, Cato). Well-run telecom resellers still capturing 50-75% gross margins on voice/UCaaS bundles. White-label solutions providing 30-50% margins on MRR.
+
+### AI Supply Constraints Flow Through to Your Customers
+NVIDIA B200/GB200 allocation is tightly managed, CoWoS advanced packaging has 60-week lead times, and mid-2026 compute supply won't meaningfully ease until late 2026. That isn't just an AI cloud problem  -  it's why your customers can't get AI capacity on demand from AWS, Azure, or direct AI clouds when they need it. The 58/13 gap (58% of buyers want AI, 13% of TAs feel prepared) isn't just a readiness story. It's a capacity-access story. MSPs who can guarantee AI capacity to mid-market customers through upstream partnerships with sovereign AI clouds, regional AI clouds, and AI-ready colos win the deals Fortune 500-focused hyperscalers can't serve fast enough. This is the AI-as-a-service conversation you are positioned to capture  -  if you have the upstream relationships and the visibility layer to deliver on the promise.
+
+### Forced Modernization from Regulation Is a Pipeline Driver
+STIR/SHAKEN enforcement, TDM sunset timelines, copper retirement mandates, and 18 US state privacy laws are creating reluctant-buyer demand you can convert. Customers who weren't planning to modernize are now legally required to  -  and they're looking for a Technology Advisor who can run the transition, not just quote circuits. Frame compliance-forced projects as the pipeline driver they are, not as paperwork. EU AI Act enforcement (August 2026) starts reaching US MSP customers through extraterritoriality and the contracts they sign with EU subsidiaries. DPDP Act enforcement (May 2027) does the same for customers with Indian users. Regulation is a demand creation engine for MSPs willing to sell the transition, not just the circuit.
+
+### Sovereignty Pass-Through: Your Customers Are Inheriting It
+Sovereign data requirements are no longer a "government and healthcare only" problem. Your mid-market customers are inheriting data-residency and path-sovereignty requirements from their OWN customers (EU subsidiaries, regulated industry contracts, government procurement passthrough). They don't have the sophistication to answer these requirements  -  they need a Technology Advisor who can. MSPs who can deliver sovereign-capable upstream fabric (paths with policy control and jurisdictional audit trails, not just BGP best-effort) keep these deals. MSPs who send customers to Megaport/Equinix portals for connectivity lose the touchpoint AND can't answer the sovereignty question at all.
+
+### What the C-Suite Is Focused On
+- AI readiness: 58% of buyers want it, only 13% of TAs feel prepared
+- Differentiation beyond resale  -  what can you offer that carriers going direct can't?
+- Platform consolidation: unified PSA + RMM + monitoring + security + reporting
+- The "Technology Advisor" identity  -  moving from order-taker to strategic partner
+- Cybersecurity and AI as new revenue pillars beyond UCaaS/networking
+- Enterprise bypass risk from hyperscaler direct interconnects
+
+---
+
+## Their Information Diet
+
+### What They Read
+- Channel Futures, CRN, Channel Partners, SDxCentral
+
+### Analyst Firms They Trust
+- Bain (channel sizing), Canalys, IDC
+
+### Where They Gather
+- AVANT Special Forces, Telarus Partner Summit, Channel Partners Conference & Expo
+
+---
+
+## Competitive Dynamics (Their Market)
+
+These are who MSPs/AGGREGATORS compete against  -  not MaiaEdge competitors.
+
+### Carrier Direct Sales
+Tier 1s increasingly selling directly to enterprise, bypassing the channel for large/complex deals. Aggressive bundling and SaaS disintermediation.
+
+### Hyperscaler Networking
+AWS Direct Connect, Azure ExpressRoute (400G in 2026), Google Cloud Interconnect. Each lets enterprises bypass traditional carrier/MSP relationships entirely.
+
+### SD-WAN Vendors Going Direct
+Broadcom VeloCloud, Fortinet, Palo Alto Prisma, Cato Networks selling their own managed offerings. Customers choosing vendor-managed SD-WAN over MSP-managed.
+
+### MSP/TA Convergence
+Both compete for the "single provider" relationship. Clients demanding all-in-one service delivery from a single vendor.
+
+### PE-Backed Competitors
+35% of new US passes are PE-funded, bringing aggressive pricing and acquisition-driven scale that organic-growth MSPs can't match.
+
+---
+
+## MaiaEdge Relevance Bridges
+
+> **⚠️ Internal angle-selection guide.** Specific figures (channel $16B, SD-WAN market sizing, 58/13 AI readiness gap, 70% NOC automation, $4.3B MSP M&A value, ScanSource 29.3% → 36.0% recurring-revenue mix) are **internal triggers for picking which angle to lead with**. They are NOT customer-facing talking points. Do not cite these figures in cold outreach or LinkedIn. Use them to determine which relevance bridge fits the account, then write in segment vocabulary with the subtype-appropriate register.
+
+How current industry trends connect to problems MaiaEdge solves. Use across the full sales motion.
+
+| Their Trend | Their Pain | MaiaEdge Angle |
+|---|---|---|
+| Carrier direct sales bypassing channel | Losing enterprise deals to carriers who sell direct  -  need differentiation beyond resale | "Carriers are going direct. You need something they can't offer  -  real-time visibility into THEIR networks." |
+| Azure ExpressRoute going 400G | Another path for enterprises to bypass MSP/carrier relationships entirely | "Every new hyperscaler interconnect option is one more reason your customers might not need you. Visibility is your moat." |
+| Dark NOC / AI-augmented operations | Competitors automating 70% of NOC tasks  -  manual operations becoming a cost disadvantage | "Your competitors are automating their NOC. MaiaEdge gives you the visibility layer to do the same." |
+| Finger-pointing during outages | Responsible for SLA but blind to carrier networks  -  customer trust erodes with every "depends on the carrier" | "Stop saying 'depends on the carrier.' MaiaEdge shows you exactly where the problem is, in real time." |
+| Channel rebranding to "Technology Advisor" | Expected to advise on AI, cybersecurity, cloud  -  not just resell circuits | "Your customers expect a Technology Advisor. MaiaEdge lets you advise on network performance with data, not guesses." |
+| Mid-market AI adoption outpacing enterprise | Fastest-growing buyer segment wants AI-powered networking but MSPs aren't ready | "Mid-market is buying AI solutions faster than enterprise. They're looking for an advisor who can deliver." |
+| NVIDIA/CoWoS AI supply constraints (60-week lead times, allocation scarcity) | Customers can't get AI capacity from hyperscalers fast enough  -  the 58/13 gap is partly an access problem, not just a readiness problem | "Your customers can't get AI capacity when they need it. MSPs with robust upstream partner access guarantee capacity. That's the AI-as-a-service conversation, not 'we can resell your Azure bill.'" |
+| TDM sunset + STIR/SHAKEN + 18 state privacy laws | Regulation forcing modernization pipeline  -  customers need a Technology Advisor to run the transition, not a circuit quote | "Compliance deadlines are a pipeline. Reframe 'we have to migrate off TDM' from paperwork to project  -  and be the advisor who runs it." |
+| TSD recurring-revenue mix shifting from bandwidth reselling to platform / recurring services | The bandwidth-residual model is compressing; platforms are where growth is | "Existing residuals stay flat. MaiaEdge adds an OpEx tier on top of the bandwidth revenue chain  -  white-label platform you can sell, not another bandwidth line-card." |
+| TSD platform / portal / quoting-engine replatforming (integration team hiring) | Connector-building window opens when TSDs hire supplier strategy / platform engineering / developer experience roles | "Replatforming windows are connector-building windows. MaiaEdge slots in as an OpEx platform you white-label during the rebuild." |
+| NaaS platform operators facing portal-speed vs. partner-NNI delivery-gap problem | The click-to-order experience ends the moment a deal rides partner carriers | "Credit their platform. Extend its activation experience across partner carriers in markets where they don't own PoPs." (NaaS subtype only) |
+| AI Practice / AI Solutions launches at TSDs (58/13 readiness gap) | Buyer demand outpaces TA readiness to sell AI; TSDs launching AI practices are looking for pre-integrated platforms | "Audio Codes Live Platform pattern: provisioning weeks → hours, OpEx -30%. MaiaEdge is the multi-operator equivalent your AI Practice can white-label." |
+| Sovereignty pass-through to mid-market | Customers inheriting data-residency requirements from THEIR customers (EU subsidiaries, regulated industry contracts) and have no answer | "Your customers are about to be asked to prove path sovereignty. You either have a sovereign-capable fabric to deliver it, or you lose the touchpoint to a third-party fabric that can." |
+| EU AI Act Aug 2026 + DPDP extraterritorial enforcement | US mid-market customers facing EU/India compliance obligations through their own contracts | "EU AI Act fines reach 7% of global revenue. Your customers with EU users need you to have an answer now, not in Q3." |
+
+---
+
+## Insider Language Bank
+
+Things MSP/aggregator executives say internally  -  use these to demonstrate you understand their world.
+
+### Board Meeting Language
+- "58% of our customers want AI solutions. Are we ready to sell them?"
+- "The leading MSPs just launched on-demand networking with no fixed contracts. Our customers are going to ask."
+- "The Dark NOC isn't science fiction  -  autonomous network operations are going mainstream"
+- "Azure ExpressRoute goes 400G this year. Another path for our customers to bypass us."
+- "Our buyers rebranded us from 'agent' to 'Technology Advisor.' Are we advising on AI yet?"
+- "UCaaS got us here. Cybersecurity and AI will get us to the next level."
+- "We're blind to what happens inside carrier networks but we own the SLA"
+- "'Depends on the carrier' is losing us deals"
+- "The 58/13 gap isn't just about readiness  -  our customers can't GET AI capacity from hyperscalers on demand"
+- "Compliance deadlines (TDM, STIR/SHAKEN, state privacy laws) are a pipeline, not paperwork"
+- "Our mid-market customers are inheriting sovereignty requirements from THEIR customers. We need an answer."
+
+### KPIs They Report
+MRR, churn rate, TCV per deal, residual commission rates, MTTR, SLA compliance %, ticket resolution time, NOC utilization, customer acquisition cost, revenue per TA
+
+### Business Terms to Know
+TSD (replacing "master agent"), TA (replacing "agent"), Dark NOC, agentic AI operations, quote-to-cash, zero trust, ZTNA, FWaaS, CASB, MDR, CX platforms, CCaaS, CPaaS, deal registration, SPIFF, MDF, partner portal, E-Rate, STIR/SHAKEN, TDM sunset, POTS replacement, copper retirement, residual commissions, TCV
+
+---
+
 ## Segment Vocabulary Lock
 
 ### MUST-Use Terms (MSP / Aggregator)
-upstream carriers, finger-pointing, SLA compliance, asset-light, single pane of glass, carrier relationships, Tier 1, aggregation, multi-carrier, provisioning timeline, managed services, OpEx
 
-### BANNED Terms (From Other Segments)
-route miles, NNI, tenant, meet-me room, cross-connect, attach rate, dark fiber, plant, fiber islands, inference, jitter, GPU, facility (colo context), middle mile, training run, recompute tax, egress (neocloud context), LOA (fiber/network operator context)
+**General (both subtypes):** finger-pointing, SLA compliance, asset-light, single pane of glass, carrier relationships, Tier 1, aggregation, multi-carrier, provisioning timeline, managed services, OpEx, reach beyond your carriers, turn spare capacity into sellable services, connectivity marketplace.
+
+**NaaS Platform Operator subtype (additions):** platform speed, click-to-order, customer portal, self-service ordering, on-demand connectivity, platform experience, underlying carrier, partner boundary, partner-NNI, activation queue, activation cycle.
+
+**Proprietary-fabric awareness (NaaS subtype):** When the prospect's platform has a product name (eNet Fabric, Infiny, Conexa, Console Connect, etc.), ALWAYS use the actual product name in the copy  -  never generic "your platform."
+
+**Cross-border / international expansion (NaaS subtype):** cross-border activation, new-market expansion, partner extension, reach beyond your footprint, monetize internationally, region-to-region corridor.
+
+**Downgraded:** `upstream carrier` is acceptable only when paired with L2/L3-specific context. It reads coherent to voice wholesalers today. Prefer "partner carrier," "downstream carrier handoff," or "cross-carrier handoff" in NaaS aggregator copy.
+
+### BANNED Terms (From Other Segments + exclusion-category filters)
+
+**From other MaiaEdge segments:** route miles, NNI (fiber/network operator context), tenant, meet-me room, cross-connect, attach rate, dark fiber, plant, fiber islands, inference, jitter, GPU, facility (colo context), middle mile, training run, recompute tax, egress (neocloud context), LOA (fiber/network operator context).
+
+**Voice / SMS terminology** (filters out voice wholesaler + CPaaS false positives): ACD, ASR, PDD, CLI, SIP trunking, A2P, SMPP, SS7, LCR, route margin, per-minute margin, call completion, CNAM, STIR/SHAKEN.
+
+**Cellular / mobile terminology** (filters out IoT MVNO false positives): eSIM, IMSI, multi-IMSI, MNO, MVNO, roaming agreement, GSMA, IPX, IR.21, IR.85, SIM profile, AITRAS, 5G Core, EPC, PGW, UPF.
 
 ### Cold Outreach Rules
-- NO credibility anchors in cold emails (no "Same team that built Acme Packet" / "128 Technology"). The message does the talking, not our history. Credibility anchors are reserved for live objection handling only.
+- Credibility anchors ("Same team that built Acme Packet" / "128 Technology" / Andy Ory etc.) are BANNED in cold emails and LinkedIn. The message does the talking in outreach. Allowed in live presentations, demos, proposals, and objection handling  -  the track record does the talking in rooms.
 - NO sign-offs in emails. Signatures are auto-appended by the email platform.
 - Respect the asset-light model. Never use "build infrastructure" or "deploy hardware" language. MaiaEdge is a visibility and control layer, not an infrastructure buildout.
 - Pair speed with ownership where it fits, but the MSP's value is aggregation and simplification, not infrastructure ownership. Lead with visibility and speed.
+- New angles: reach (extend coverage to new markets through partners without new carrier contracts) and monetization (turn spare capacity into sellable services, not just resell carrier circuits).
 
 ---
 
 *Cross-references: Messaging Framework V4, ICP Sales Playbook (Complete Reference), Cloud On-Ramp Business Case, Competitive Positioning Guide, Terminology Glossary*
-*Updated: March 2026 (Phase 5 messaging update)*
+*Updated: April 2026 (trend refresh: AI supply constraints flow-through, regulation as pipeline driver, sovereignty pass-through to mid-market)*

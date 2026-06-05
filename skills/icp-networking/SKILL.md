@@ -1,9 +1,13 @@
 ---
 name: icp-networking
 description: >
-  Use when asked to "build a LinkedIn target list", "find people to connect with on LinkedIn",
-  "network into ICP accounts", "grow my LinkedIn network in target accounts", "run a networking
-  batch", or any task involving strategic LinkedIn connection building at MaiaEdge ICP accounts.
+  MaiaEdge ICP LinkedIn networking tool. Pulls target companies from HubSpot by segment priority,
+  finds VP/Director/C-suite contacts via LinkedIn search, sends bare connection requests (no message),
+  then enriches connected contacts via Apollo (which auto-syncs to HubSpot). Also detects and flags
+  segment misclassifications during company review. Use when asked to build a LinkedIn target list,
+  find people to connect with at ICP accounts, run a networking batch, grow LinkedIn network in target
+  accounts, or network into ICP companies. Single sender: Cooper Kennedy (RevOps). Max 20 connections
+  per session.
 version: 2.0.0
 ---
 
@@ -13,8 +17,9 @@ Strategic peer networking in MaiaEdge ICP accounts. Brand exposure and relations
 
 ## Reference Files
 
-- **hubspot-values.md** — Exact HubSpot segment and sub-segment enum values
-- **territory-model.md** — State-to-owner mapping for territory routing
+- **segment-language.md**  -  Insider vocabulary per segment. Helps identify correct segment during misclassification checks.
+- **hubspot-values.md**  -  Exact HubSpot segment and sub-segment enum values
+- **territory-model.md**  -  State-to-owner mapping for territory routing
 
 ## Sender Profile
 
@@ -54,8 +59,6 @@ Target companies in this order. Only target companies already in HubSpot (networ
 | 3 | Fiber Operator | `Fiber Operator` |
 
 **Do not target:** MSP/Aggregators (`Enterprise`), pure IT MSPs, enterprise consumers, residential ISPs, tower REITs, resellers/VARs.
-
-**CoreWeave exclusion:** NOT an active target (MetroConnect partnership, Feb 2026).
 
 ---
 
@@ -216,3 +219,11 @@ This plugin reads existing MaiaEdge skills at runtime for domain logic. Strategy
 Skills live in:
 - `/sessions/cool-great-tesla/mnt/.skills/skills/{skill-name}/SKILL.md`
 - `/sessions/cool-great-tesla/mnt/.local-plugins/marketplaces/local-desktop-app-uploads/{plugin-name}/skills/{skill-name}/SKILL.md`
+
+---
+
+## Skill Chain
+
+- **Reads from:** HubSpot (target accounts by segment priority), LinkedIn (people search)
+- **Outputs to:** Apollo (contact enrichment) → HubSpot (auto-sync creates contacts)
+- **Side output:** Segment misclassification flags for Cooper to review and approve corrections

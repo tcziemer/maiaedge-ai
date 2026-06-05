@@ -34,7 +34,7 @@ Arguments provided: $ARGUMENTS
 For each contact, deliver:
 - Research summary (abbreviated)
 - Email with subject line
-- LinkedIn connection request (under 300 characters)
+- LinkedIn connection request (target 35-50 words / max 280 characters; no sender intro in body; Public Signal Cited block above)
 - Segment classification
 - Any flags or notes
 

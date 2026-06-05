@@ -1,4 +1,4 @@
-# MaiaEdge 101 — Product Knowledge Guide
+# MaiaEdge 101  -  Product Knowledge Guide
 
 > Converted from: MaiaEdge101.docx (OneDrive)
 
@@ -45,17 +45,17 @@ The Path Border Controller (PBC) is the edge infrastructure, a single 1RU device
 Key Specifications
 
 How the PBC Works
-The PBC is a stateless forwarder. It doesn’t make routing decisions—all path computation happens centrally in the PCE. The PBC simply executes the instructions it receives. This stateless design means simpler failure recovery: if a PBC fails, there’s no complex state to rebuild. Traffic can be rerouted immediately by the PCE without waiting for routing protocols to reconverge.
+The PBC is a stateless forwarder. It doesn’t make routing decisions - all path computation happens centrally in the PCE. The PBC simply executes the instructions it receives. This stateless design means simpler failure recovery: if a PBC fails, there’s no complex state to rebuild. Traffic can be rerouted immediately by the PCE without waiting for routing protocols to reconverge.
 Dual 100G Interfaces Explained
 The two 100G interfaces provide both high throughput and redundancy. In a typical deployment, one interface connects to the customer/tenant side while the other connects to the network/transport side. This architecture supports failover scenarios and enables the PBC to handle traffic from multiple directions simultaneously.
 Line-Rate Encryption
-Every path through the PBC is encrypted end-to-end with AES-256-GCM IPsec. “Line-rate” means encryption happens at wire speed—there’s no throughput penalty for enabling security. Unlike traditional VPN approaches where encryption creates bottlenecks, the PBC encrypts all traffic without performance degradation. This is critical for latency-sensitive applications and high-bandwidth workloads.
+Every path through the PBC is encrypted end-to-end with AES-256-GCM IPsec. “Line-rate” means encryption happens at wire speed - there’s no throughput penalty for enabling security. Unlike traditional VPN approaches where encryption creates bottlenecks, the PBC encrypts all traffic without performance degradation. This is critical for latency-sensitive applications and high-bandwidth workloads.
 Why <2μs Latency Matters
-Traditional routers introduce milliseconds of latency overhead as they process packets through complex routing stacks. The PBC’s <2 microsecond overhead is orders of magnitude faster because there’s no routing protocol processing—just deterministic forwarding based on instructions from the PCE. For applications like financial trading, real-time video, or distributed AI workloads, this difference is significant.
+Traditional routers introduce milliseconds of latency overhead as they process packets through complex routing stacks. The PBC’s <2 microsecond overhead is orders of magnitude faster because there’s no routing protocol processing - just deterministic forwarding based on instructions from the PCE. For applications like financial trading, real-time video, or distributed AI workloads, this difference is significant.
 Switch Pairing (Colocation Deployments)
 In colocation environments, the PBC is paired with a fully managed switch that fans out to tenant cross-connect ports. Ports remain inactive until assigned to a tenant in the PCE, ensuring security and control. This “fabric-in-a-box” approach lets colo operators deploy interconnection capability without building complex infrastructure.
 High Availability Architecture
-PBCs support redundant active/standby architecture. HA units are priced at approximately 70% of standard units and can be added to any deployment for failover capability. Additionally, PBCs operate independently if the cloud control plane goes offline—they continue forwarding traffic based on their last received instructions until connectivity to the PCE is restored.
+PBCs support redundant active/standby architecture. HA units are priced at approximately 70% of standard units and can be added to any deployment for failover capability. Additionally, PBCs operate independently if the cloud control plane goes offline - they continue forwarding traffic based on their last received instructions until connectivity to the PCE is restored.
 What PBCs Do NOT Do
 NOT a router replacement: PBCs complement core routers, they don't replace Cisco/Juniper/etc
 NOT SD-WAN: SD-WAN sits at enterprise branches; PBCs sit at carrier boundaries
@@ -89,16 +89,16 @@ Traffic Flows: PBCs forward deterministically with line-rate encryption
 Continuous Monitoring: PCE collects telemetry, auto-reroutes if needed
 CRITICAL: After initial physical deployment, ALL subsequent provisioning happens remotely through PCE. No truck rolls. Path activation in minutes, not months.
 The Layer 2.5 Foundation
-MaiaEdge operates at what we call “Layer 2.5” extending Ethernet’s simplicity beyond the LAN into the WAN with added intelligence for multi-hop routing, encryption, and multi-tenancy. It’s Ethernet in, and Ethernet out. Cloud and AI data centers leverage Ethernet because it’s the most reliable and scalable standard in the world—we’re extending that same Ethernet scalability to the WAN.
+MaiaEdge operates at what we call “Layer 2.5” extending Ethernet’s simplicity beyond the LAN into the WAN with added intelligence for multi-hop routing, encryption, and multi-tenancy. It’s Ethernet in, and Ethernet out. Cloud and AI data centers leverage Ethernet because it’s the most reliable and scalable standard in the world - we’re extending that same Ethernet scalability to the WAN.
 Q-in-Q: Handles multi-tenant tagging so every customer remains isolated
 Mac-in-Mac: Ensures the core network scales without the usual limitations of traditional carrier infrastructure
 The result: Layer 3 reach with Layer 2 simplicity. No BGP. No OSPF. No MPLS complexity.
 Dynamic Path Selection
 If fiber conditions change or links fail, traffic is steered deterministically over alternate fiber or DIA paths within seconds. The PCE continuously monitors all paths and automatically reroutes based on real-time performance metrics, SLA requirements, policy constraints, and available capacity. This happens without manual intervention and without waiting for routing protocols to reconverge.
 Zero-Touch Turn-Up
-Services are created, validated, and activated automatically—no CLI sessions or ticket queues. Once PBCs are physically deployed, the entire service lifecycle is managed through the PCE: path creation, bandwidth changes, failover configuration, customer onboarding, and service decommissioning.
+Services are created, validated, and activated automatically - no CLI sessions or ticket queues. Once PBCs are physically deployed, the entire service lifecycle is managed through the PCE: path creation, bandwidth changes, failover configuration, customer onboarding, and service decommissioning.
 Mix Fiber + DIA Seamlessly
-MaiaEdge lets operators combine leased lines, dark fiber, and DIA within a unified fabric—all encrypted end-to-end with AES-256-GCM IPsec. Start with DIA for instant connectivity, add fiber when available, and keep DIA as automatic failover. One fabric, any transport. The PCE abstracts the underlying transport type—customers see deterministic paths while operators choose the most cost-effective transport for each segment.
+MaiaEdge lets operators combine leased lines, dark fiber, and DIA within a unified fabric - all encrypted end-to-end with AES-256-GCM IPsec. Start with DIA for instant connectivity, add fiber when available, and keep DIA as automatic failover. One fabric, any transport. The PCE abstracts the underlying transport type - customers see deterministic paths while operators choose the most cost-effective transport for each segment.
 Resilience When PCE is Unreachable
 PBCs operate independently if the cloud control plane goes offline. They continue forwarding traffic based on their last received instructions until connectivity to the PCE is restored. This means no service interruption during PCE maintenance, traffic continues flowing during network partitions, and local forwarding decisions don’t depend on real-time PCE communication.
 
@@ -114,26 +114,26 @@ Most conversations should connect to one of these pillars unless a niche use cas
 Pillar 1: Speed & Simplicity (AUTOMATE)
 Activate deterministic private paths instantly, with protocol-free simplicity. No BGP, no MPLS.
 Proof: Arvig (Fiber, MN): "Almost instantaneous" provisioning
-Pillar 2: Visibility & Sovereignty (FEDERATE)
-Extend reach through carrier partnerships while maintaining visibility and customer sovereignty.
+Pillar 2: Visibility & Sovereignty (EXTEND REACH)
+Extend reach through cross-carrier partnerships while maintaining visibility and customer sovereignty.
 Proof: Equinix: "Revolutionary and creative" - Josh Sordelet, Principal PM
-Pillar 3: Revenue & Federation (MONETIZE)
+Pillar 3: Revenue & Monetization (MONETIZE)
 Turn infrastructure into revenue. Monetize idle fiber and offer cloud connectivity under your brand.
 Proof: RevNet (Colo, DFW): "Imagine having Megaport capability between providers"
 
 ### Marketplace Seeding Strategy
 
 **Priority Order:**
-1. **Ashburn** (70–80% of traffic) — Atlantec has ports
-2. **Silicon Valley / LA** — Atlantec has ports
-3. **Seattle / Dallas / Chicago** — Arvig covers Chicago
-4. **European PoP** — CMC Networks, Ecotel, IENTC deployments
+1. **Ashburn** (70–80% of traffic)  -  Atlantec has ports
+2. **Silicon Valley / LA**  -  Atlantec has ports
+3. **Seattle / Dallas / Chicago**  -  Arvig covers Chicago
+4. **European PoP**  -  CMC Networks, Ecotel, IENTC deployments
 
 **Approach:** Marketplace needs inventory before it has value (iPhone analogy: ship with mail and browser before App Store). Free PBC gear until breakeven for seeders removes risk.
 
 **ConnectBase Integration:** The phone book of fiber ownership. Billions of addresses showing which operators serve each building. Will show which operators have PBCs, enabling instant connectivity. Operators without PBCs lose deals.
 1.9 Commercial Model & Contract Structure
-The goal is to sell ONE Master Subscription Agreement (MSA) that serves as the framework for adding PBCs over time—without requiring sales negotiations for each addition.
+The goal is to sell ONE Master Subscription Agreement (MSA) that serves as the framework for adding PBCs over time - without requiring sales negotiations for each addition.
 Two-Document Structure
 
 Why This Matters: Once MSA is signed, adding more PBCs is a simple Order Form - no legal review, no sales cycle. Customer can scale deployment without friction.
@@ -152,7 +152,7 @@ Importer of Record: Customer acts as Importer of Record-handles all customs docu
 Taxes/Duties: Customer responsible for all taxes, duties, tariffs, VAT - not included in quote
 1.10 Pricing & SKU Reference
 Current list prices as of December 2025. All prices USD.
-Path Border Controller (PBC + PCE) — Standard
+Path Border Controller (PBC + PCE)  -  Standard
 
 High Availability (Standby) Units
 Note: HA units are priced at ~70% of standard units. Add to any deployment for failover capability.
@@ -179,7 +179,7 @@ Real example from first customer (November 2025):
 Key Notes: 
 Prices exclude taxes, duties, shipping, and import fees
 Payment: Billed quarterly in advance, Net 30
-Hardware is service equipment—title remains with MaiaEdge
+Hardware is service equipment - title remains with MaiaEdge
 Quote valid 30 days, subject to credit approval
 
 Discount Discussion Tips
@@ -217,7 +217,7 @@ Layer 3 | Scalable across WANs using BGP, OSPF, MPLS. Complex configuration
 Layer 2.5 | Ethernet simplicity extended to WAN. No protocols in field. Centralized computation
 Document | Purpose
 Master Subscription Agreement (MSA) | Sets the legal framework: licensing terms, IP, confidentiality, liability, support SLAs, indemnification. Signed once, governs all future orders within selected term length.
-Order Form | Specifies commercial terms: SKUs, quantities, pricing, term length, discount. Simple add-on process—no legal renegotiation.
+Order Form | Specifies commercial terms: SKUs, quantities, pricing, term length, discount. Simple add-on process - no legal renegotiation.
 SKU | Bandwidth | Term | List Price
 ME-PBC-PCE-100G-12M | 100G | 12 months | $29,900
 ME-PBC-PCE-100G-36M | 100G | 36 months | $67,686
@@ -252,7 +252,7 @@ TOTAL |  |  | $58,305
 
 ## 2. FOUNDING TEAM BIOS
 
-### Andy Ory — Executive Chairman
+### Andy Ory  -  Executive Chairman
 
 **Background:** Co-founded Acme Packet and 128 Technology. Harvard education. Brings institutional credibility and network experience spanning carrier and enterprise infrastructure markets.
 
@@ -266,7 +266,7 @@ TOTAL |  |  | $58,305
 
 ---
 
-### Patrick MeLampy — CFO, Investor & Board Member
+### Patrick MeLampy  -  CFO, Investor & Board Member
 
 **Background:** Co-founded Acme Packet and 128 Technology alongside Andy Ory, Abilash Menon, and Timothy Ziemer. CFO at both exits. Deep experience in carrier infrastructure financing and scaling.
 
@@ -280,7 +280,7 @@ TOTAL |  |  | $58,305
 
 ---
 
-### Abilash Menon — CEO & Co-Founder
+### Abilash Menon  -  CEO & Co-Founder
 
 **Background:** 15+ years in carrier infrastructure. Deep technical expertise in routing, MPLS, SD-WAN. Built the technical architecture at both Acme Packet and 128 Technology.
 
@@ -296,7 +296,7 @@ TOTAL |  |  | $58,305
 
 ---
 
-### Timothy Ziemer — CRO & Co-Founder
+### Timothy Ziemer  -  CRO & Co-Founder
 
 **Background:** Commercial and go-to-market leader at Acme Packet and 128 Technology. Deep carrier sales experience. Understands the P&L pressure, competitive dynamics, and board conversations at carrier companies.
 

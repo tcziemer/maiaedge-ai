@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(attrib \"skills/edge-case-researcher/SKILL.md\")",
+      "Bash(attrib \"skills/sales-docs/SKILL.md\")",
+      "Bash(attrib -R \"skills/edge-case-researcher/SKILL.md\")",
+      "Bash(attrib -R \"skills/sales-docs/SKILL.md\")",
+      "Bash(python -c ':*)"
+    ]
+  }
+}

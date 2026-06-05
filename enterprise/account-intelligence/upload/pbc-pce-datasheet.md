@@ -71,5 +71,5 @@ Operating Temperature  | 0°C to 50°C / (32 to 104°F)
 Storage Temperature  | -40 to 70°C / (-40 to 158°F) 
 Operating Humidity   | 
 Cooling | Internal fan-based forced-air cooling
-Airflow  | Front-to-Back (F2B) — intake at front bezel / port side, exhaust at rear (fan/PSU side)
+Airflow  | Front-to-Back (F2B)  -  intake at front bezel / port side, exhaust at rear (fan/PSU side)
 Data center airflow | Standard hot-aisle/cold-aisle layouts: cold aisle at front (bezel/port side) intake, hot aisle at rear exhaust.

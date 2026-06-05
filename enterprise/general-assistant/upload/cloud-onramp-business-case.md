@@ -54,13 +54,26 @@ Multi-cloud access becomes a service capability, not a networking project.
 
 ## Path to Market
 
+### Four Deployment Models (April 2026 Deck)
+
+The April 2026 deck formalizes four deployment models for cloud on-ramp. Operators pick the one that matches their existing infrastructure and appetite  -  nothing requires hyperscale facility presence from scratch.
+
+| Model | Architecture | Best For |
+|-------|--------------|----------|
+| **1. Private Wavelength** | PBC at operator edge, wave to Equinix PoP. Automate cloud provisioning over owned fiber. | Operators with existing fiber to Equinix or a metro fiber presence near one. |
+| **2. DIA** | PBC at operator edge AND at Equinix PoP. Instant cloud access over DIA while a physical interconnect is built, or permanently for lower-volume markets. | Operators without direct fiber, or operators who want revenue flowing while a physical NNI is being built. Replaces the 90-120 day wait. |
+| **3. Partnership** | Connect through a partner provider that already holds a port. Partner's infrastructure is invisible to the end customer. | Operators in markets without local fabric access. Originating operator sells a fully branded service, sets the price, owns the relationship. |
+| **4. Full Marketplace** | Offer any service in the Equinix fabric  -  cloud, SaaS, AI, partner interconnects  -  not just cloud on-ramp. | Operators wanting to deliver more than cloud connectivity. Turns the facility or operator into a services exchange, not just an access provider. |
+
 ### For Operators Not Currently Offering Cloud Connectivity
 
-Getting to market doesn't require building hyperscale facility presence from scratch. Operators can either establish a port on Equinix Fabric or Megaport directly, or partner with a PBC-holding operator that already has one. Both routes enable a fully branded cloud access product and scale with customer demand.
+Getting to market doesn't require building hyperscale facility presence from scratch. Operators pick one of the four deployment models above. All four enable a fully branded cloud access product and scale with customer demand.
 
-**Direct port establishment:** MaiaEdge handles provisioning, VLAN management, and cloud API integration from there. Where a physical fabric connection doesn't yet exist, a dynamic NNI over a DIA circuit can be stood up immediately, enabling revenue generation while a physical interconnect is built, rather than waiting the 90 to 120 days a traditional NNI build typically requires.
+**Direct port establishment (Models 1 or 2):** MaiaEdge handles provisioning, VLAN management, and cloud API integration from there. Where a physical fabric connection doesn't yet exist, a dynamic NNI over a DIA circuit (Model 2) can be stood up immediately, enabling revenue generation while a physical interconnect is built, rather than waiting the 90 to 120 days a traditional NNI build typically requires.
 
-**Federation with a partner:** For operators in markets without local fabric access, federation with a MaiaEdge partner that already holds a port removes the infrastructure requirement entirely. The partner's infrastructure is invisible to the end customer. The originating operator sells a fully branded service, sets the price, and owns the relationship. A regional fiber operator with a wave to a major market can effectively become the cloud on-ramp for its region, competing for business that would otherwise require customers to contract directly with a fabric provider.
+**Partnership route (Model 3):** For operators in markets without local fabric access, partnering with a MaiaEdge operator that already holds a port removes the infrastructure requirement entirely. The partner's infrastructure is invisible to the end customer. The originating operator sells a fully branded service, sets the price, and owns the relationship. A regional fiber operator with a wave to a major market can effectively become the cloud on-ramp for its region, competing for business that would otherwise require customers to contract directly with a fabric provider.
+
+**Full Marketplace route (Model 4):** For operators ready to offer more than cloud on-ramp  -  SaaS, AI services, partner interconnects, virtual cross-connects  -  the marketplace model turns the operator or facility into a services exchange under their own brand. This is the Fabric of Fabrics positioning: interconnected distributed data centers with reach and revenue extended via a carrier-neutral marketplace.
 
 ### For Operators Already Delivering Cloud Connectivity
 
@@ -94,10 +107,10 @@ Customers access cloud services through the operator's portal, under the operato
 | Segment | Cloud On-Ramp Angle |
 |---------|---------------------|
 | **Colocation** | Tenants stop leaving for Equinix Fabric. The colo becomes the cloud on-ramp. Offer AWS/Azure/GCP direct access under your brand. Higher attach rates, premium pricing alongside space and power. |
-| **Fiber Operators** | Cloud connectivity becomes a new revenue stream from fiber already owned. Operators in markets without local fabric access federate with a partner. Regional fiber operators become the cloud on-ramp for their region. |
+| **Fiber Operators** | Cloud connectivity becomes a new revenue stream from fiber already owned. Operators in markets without local fabric access partner with another operator who has one (Deployment Model 3). Regional fiber operators become the cloud on-ramp for their region. |
 | **MSP/Aggregators** | White-label cloud on-ramp under their own brand. No Equinix/Megaport dependency visible to customers. Asset-light cloud access product. |
 | **Neoclouds** | Accelerated cloud and hyperscaler connectivity across multi-facility deployments. Cloud on-ramp is Layer 2 of the neocloud pain hierarchy (after observability). |
-| **Network Operators** | Extend cloud access beyond their own PoP footprint via federation. Cloud on-ramp as a cross-carrier product. |
+| **Network Operators** | Extend cloud access beyond their own PoP footprint via cross-carrier partnerships (Deployment Model 3). Cloud on-ramp as a cross-carrier product. |
 
 ---
 

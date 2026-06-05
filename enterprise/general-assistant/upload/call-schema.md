@@ -76,15 +76,24 @@ Calls associate with multiple HubSpot objects:
 
 ## MEDDPICC and Call Transcripts -- Critical Rule
 
-HubSpot's smart properties auto-populate MEDDPICC fields on the deal **only from the FIRST call transcript**. After that first call, MEDDPICC smart properties require a manual re-run to update.
+**MEDDPICC is written at the CONTACT level, not the deal level.** This is a deliberate design choice by Cooper: HubSpot's smart-property auto-fill from call transcripts can ONLY target the Contact object — there is no smart-property path that writes MEDDPICC directly on Deals. So the workaround is:
+
+1. **Source of truth = contact-level MEDDPICC fields** on the prospect contacts associated with the call. These are the 8 fields listed in `contact-schema.md` → "MEDDPICC (Contact-Level)".
+2. **Deal-level MEDDPICC fields auto-populate via a HubSpot property-sync workflow** that copies contact-level MEDDPICC up to the deal. So deal-level values are mirrors, not authority.
+3. **Writes always target contacts.** Routines (weekly-call-recap, others) MUST write MEDDPICC to the contact-level properties. Never write to deal-level — that bypasses the sync and creates drift.
+4. **Reads should also pull from contacts** when reasoning about current MEDDPICC state. Deal-level values may lag the sync window.
+
+### Smart-property snapshot rule (still applies, just at the contact level)
+
+HubSpot's smart-property auto-fill writes MEDDPICC contact fields once -- from the FIRST call transcript that contact appears on -- and then snapshots. Every subsequent transcript on the same contact goes uncaptured unless a routine actively re-fills, or someone manually re-triggers the smart property in the UI.
 
 ### When analyzing MEDDPICC from calls:
 
-1. **Single transcript on contact:** Safe to use the deal-level MEDDPICC properties directly (`buying_process_meddpicc`, `identified_pain_meddpicc`, etc. -- see deals-schema.md)
-2. **Multiple transcripts on contact:** Do NOT rely on deal-level MEDDPICC properties -- they may be stale from the first call. Instead:
-   - Pull the **most recent** call transcript/summary
+1. **Contact's first call (lifetime call count = 1):** the contact's MEDDPICC fields reflect the auto-fill from this call's transcript. Safe to read directly.
+2. **Contact has been on ≥2 calls (lifetime count ≥2):** the contact's MEDDPICC fields are stale snapshots from the first call. Don't trust them as current. Instead:
+   - Pull the **most recent** call transcript/summary on this contact
    - Extract MEDDPICC insights directly from the call summary text
-   - Compare against deal-level MEDDPICC to identify what has changed
+   - The weekly-call-recap routine refreshes contact-level MEDDPICC at Tier 1 when the new transcript materially adds or updates info vs. the existing value (see `Claude routine prompts/weekly-call-recap-prompt.md` → MEDDPICC Backfill + Refresh Policy)
 
 ### Always use the most recent transcript for:
 - Current pain points and priorities

@@ -1,15 +1,44 @@
-# MaiaEdge Messaging Framework V4 - n8n Email Bot Reference
+# MaiaEdge Messaging Framework V4
 
-**Purpose:** Consolidated messaging rules for automated email/LinkedIn generation at scale
-**Version:** 4.0 | Consolidated from all segment cheat sheets + Neocloud Strategy Brief + Cloud On-Ramp Positioning
-**Last Updated:** February 2026
+**Purpose:** Consolidated messaging rules for Claude-driven email/LinkedIn generation at scale
+**Version:** 4.2 | V4.1 + April 2026 deck + Neocloud-Colo Messaging Shift Brief + Montauk Capital thesis
+**Last Updated:** April 2026
 
-### What Changed in V4
-- **Neocloud messaging rewritten:** Inverted messaging hierarchy per Datum.net intelligence. Lead with observability and cloud on-ramp, NOT deterministic paths. Neoclouds don't know they have a network problem. They know they're slow.
-- **Cloud on-ramp positioning added:** Cross-segment use case. Operators deliver cloud connectivity (AWS Direct Connect, Azure ExpressRoute) under their own brand via MaiaEdge API integrations with Equinix Fabric and Megaport. The fabric providers are backend infrastructure.
-- **Megaport/Equinix = backend infrastructure:** Not competitors, not partners in the traditional sense. They are backend fabric that operators leverage through MaiaEdge. Operator owns the customer, the pricing, the brand.
-- **"Carrier infrastructure" as primary identity:** MaiaEdge is carrier infrastructure. Not IaaS, not NaaS, not a platform. Purpose-built carrier infrastructure that network operators deploy.
-- **Segment priority updated:** Top 3 segments are Neocloud, Colocation (standard + AI), and Fiber Operators.
+### What Changed in V4.2 (April 2026)
+- **New neocloud angle: scaling-wall.** For 15+ site hyperscaler-heavy neoclouds whose growth plan depends on mid-market enterprise customers who don't bring their own connectivity. Research (maturity, customer mix) determines which angle to use. See context/segments/neocloud.md "Neocloud Angle by Maturity" section.
+- **Agentic compounding latency is the flagship DETERMINISTIC proof point.** Montauk Capital April 2026 thesis: 10-step agentic workflows compound best-effort hops into tens of seconds of lag. "Training tolerates retries. Inference doesn't. Agentic workflows tolerate neither."
+- **Credibility anchors rule clarified:** BANNED in cold email and LinkedIn. ALLOWED in live presentations, demos, proposals, and objection handling (where the deck uses them on slides 3 and 16).
+- **Sovereignty must be qualified in writing.** Never use "sovereign" as a bare attribute. Always pair: "sovereign by design," "sovereign routing," "sovereign middle-mile," "provably private." Prevents operator-sovereignty misread for neoclouds.
+- **Colo additions:** GPU Tenant Readiness angle (standard colo, when AI corridor / GPU tenant signals present) and AI Colo category positioning (live-only, CEO-level strategic frame  -  not cold).
+- **Competitive sharpening (Megaport/Equinix/Lumen):** Those fabric providers now sell GPU compute directly. Every tenant/enterprise customer sent to their portal discovers a competitor. Cold email still uses "third-party fabric providers."
+- **Cloud on-ramp deployment models formalized:** Private Wavelength, DIA, Partnership, Full Marketplace. See context/product/cloud-onramp-business-case.md.
+
+### What Changed in V4.1
+- **Three-pillar framework added per segment:** Each segment now has three organizing pillars (e.g., AUTOMATE/EXTEND REACH/MONETIZE for service providers, DETERMINISTIC/PRIVATE/INSTANT for neoclouds). See Segment Messaging Deep-Dive for full matrices.
+- **Fiber/Network Operator lead shifted:** "Extend your reach, monetize existing assets" replaces cloud on-ramp as the lead angle.
+- **Neocloud master pitch reframed:** Lead is now "connecting distributed AI infrastructure simply." Observability demoted from lead to benefit. Multi-tenancy, customer on-ramp, and egress competitive advantage elevated.
+- **Neocloud sovereignty clarified:** OPERATOR sovereignty still banned ("keep your customer," "your portal"). DATA sovereignty now allowed ("sovereign by design," "paths you control").
+- **AI Colo gets own messaging lead:** Deterministic paths + cloud on-ramps for AI workloads. NOT a standard colo variant.
+- **New value props added:** Virtual MMR and service fabric/marketplace (colo), reach extension and monetization (all service providers), multi-tenancy and customer on-ramp (neocloud).
+- **"Federation" banned from customer-facing copy:** Always translate to segment-native language. The April 2026 deck uses "Federated" as a live-presentation pillar header on slides 8 and 13  -  that is live-only framing. Cold outreach, written derivatives, and marketplace collateral should still translate.
+- **"Fiber infrastructure" replaces "plant"** in all fiber operator messaging.
+
+### Still True from V4
+- **Cloud on-ramp positioning:** Cross-segment use case. Operators deliver cloud connectivity under their own brand via MaiaEdge API integrations with Equinix Fabric and Megaport. The fabric providers are backend infrastructure.
+- **Megaport/Equinix = backend infrastructure:** Operator owns the customer, the pricing, the brand.
+- **"Carrier infrastructure" as primary identity:** MaiaEdge is carrier infrastructure. Not IaaS, not NaaS, not a platform.
+- **Segment priority:** Top 3 segments are Neocloud, Colocation (standard + AI), and Fiber Operators.
+
+### Cross-Segment Pillar Framework
+
+| Segment | Pillar 1 | Pillar 2 | Pillar 3 |
+|---------|----------|----------|----------|
+| Fiber Operator | MONETIZE | AUTOMATE | EXTEND REACH |
+| Colocation | INSTANT | MONETIZE | REACH |
+| AI Colocation | DETERMINISTIC | INSTANT | MONETIZE |
+| Neocloud | DETERMINISTIC | PRIVATE | INSTANT |
+| Network Operator | AUTOMATE | EXTEND REACH | MONETIZE |
+| MSP / Aggregator | AUTOMATE | EXTEND REACH | MONETIZE |
 
 ---
 
@@ -21,7 +50,7 @@
 
 MaiaEdge delivers **carrier infrastructure** that enables network operators to build and deliver their own private connectivity services while retaining complete customer ownership.
 
-- **Carrier infrastructure** (hardware + cloud orchestration) — not a platform, not a service, not IaaS
+- **Carrier infrastructure** (hardware + cloud orchestration)  -  not a platform, not a service, not IaaS
 - **Enables operators to CREATE their own fabric** capability
 - **Does NOT own circuits, sell bandwidth, or compete with operators**
 - **Operators keep**: the customer, the invoice, the brand, the margin, sovereignty
@@ -56,7 +85,7 @@ Once a port is in place, every new customer adds higher-margin revenue against a
 
 **Why Cloud On-Ramp Matters in Every Segment:**
 - **Colocation:** Tenants stop leaving for Equinix Fabric. The colo becomes the cloud on-ramp.
-- **Fiber Operators:** Cloud connectivity becomes a new revenue stream from fiber they already own. Operators in markets without local fabric access can federate with a partner that already holds a port.
+- **Fiber Operators:** Cloud connectivity becomes a new revenue stream from fiber they already own. Operators in markets without local fabric access can extend reach through a partner that already holds a port.
 - **MSP/Aggregators:** White-label cloud on-ramp under their own brand. No Equinix/Megaport dependency visible to customers.
 - **Neoclouds:** Accelerated cloud and hyperscaler connectivity across their multi-facility deployments.
 
@@ -70,7 +99,7 @@ Once a port is in place, every new customer adds higher-margin revenue against a
 - "Keep the customer, the margin, the control"
 - "Your brand, your invoice, your portal"
 - "Maintain sovereignty across network boundaries"
-- "Federate while maintaining sovereignty"
+- "Extend reach while maintaining sovereignty"
 - "Fabric-in-a-box" (for colos)
 - "Extend your reach while keeping customer ownership"
 - "Purpose-built carrier infrastructure"
@@ -112,7 +141,7 @@ When provisioning speed is the value prop, we risk sounding exactly like NaaS pr
 - âœ… "Turn weeks into minutes, on your infrastructure"
 - âœ… "What takes weeks today, your team does in minutes"
 
-**Speed + Sovereignty Pairings:**
+**Speed + Sovereignty Pairings:** [Canonical source: context/outreach/email-writing-rules.md]
 
 Always pair speed language with ownership language:
 
@@ -137,8 +166,8 @@ Always pair speed language with ownership language:
 | Segment | NaaS Threat | MaiaEdge Positioning |
 |---------|-------------|---------------------|
 | **Colocation** | Third-party fabric providers calling on your tenants, capturing interconnection revenue | Build your own fabric capability. Keep the tenant relationship, the margin, the control. |
-| **Fiber Operator** | Lumen PCF positioning you as their supplier | Extend your reach through federation while maintaining sovereignty. Your customers, your brand. |
-| **Network Operator** | Hyperscalers going direct, NaaS providers capturing enterprise | Build the federation layer that lets you compete. Deliver off-net as seamlessly as on-net. |
+| **Fiber Operator** | Lumen PCF positioning you as their supplier | Extend your reach through cross-carrier partnerships while maintaining sovereignty. Your customers, your brand. |
+| **Network Operator** | Hyperscalers going direct, NaaS providers capturing enterprise | Build the cross-carrier layer that lets you compete. Deliver off-net as seamlessly as on-net. |
 | **MSP/Aggregator** | Tier 1s and NaaS going direct to your customers | Get Tier 1 capabilities without becoming dependent on them. Maintain customer ownership. |
 
 ### The "Lumen Line"
@@ -190,9 +219,11 @@ Name-dropping in cold outreach:
 | Case study requests | âœ… Yes |
 | Trade show conversations | âœ… Yes |
 
-#### No Name-Dropping in Cold Outreach
+#### Credibility Anchor Rule (Cold-Banned, Live-Allowed)
 
-No customer names AND no credibility anchors in cold emails or LinkedIn. The message earns the reply, not our history.
+Customer names AND credibility anchors (Acme Packet, 128 Technology, Andy Ory, specific fabric-provider proof points) are BANNED in cold emails and LinkedIn. The message earns the reply in outreach, not our history.
+
+**Allowed in:** Live presentations, demos, proposals, objection handling, discovery calls, case study discussions, trade show conversations. The April 2026 deck uses these on slides 3 and 16 for exactly this reason  -  the track record does the talking in rooms, not in cold emails.
 
 ---
 
@@ -233,7 +264,7 @@ Research is essential. But its purpose is to inform which problem to lead with a
 ```
 START
  â†“
-GPU cloud provider (CoreWeave, Lambda Labs, Crusoe, Voltage Park, etc.)? â†’ YES â†’ NEOCLOUD
+GPU cloud provider (Lambda Labs, Crusoe, Voltage Park, Nebius, etc.)? â†’ YES â†’ NEOCLOUD
  â†“ NO
 Owns DC facilities + offers colo? â†’ YES â†’ Check AI signals
  â”‚                                         â”œâ”€â”€ AI signals STRONG â†’ COLOCATION - AI INFRASTRUCTURE
@@ -255,7 +286,7 @@ END
 
 | Segment | Instant Classification Keywords |
 |---------|--------------------------------|
-| **Neocloud** | "GPU cloud," "GPU-as-a-service," "AI cloud provider," "inference cloud," "ML infrastructure provider," company names: CoreWeave, Lambda Labs, Crusoe Energy, Voltage Park, Together AI, Anyscale, RunPod, Paperspace |
+| **Neocloud** | "GPU cloud," "GPU-as-a-service," "AI cloud provider," "inference cloud," "ML infrastructure provider," company names: Lambda Labs, Crusoe Energy, Voltage Park, Together AI, Anyscale, RunPod, Paperspace, Nebius |
 | **Colocation - AI Infrastructure** | Colo keywords + "liquid cooling," "DeltaFlow," "GPU-ready," "AI-ready data center," "high-density colocation," "30kW racks," confirmed GPU cloud tenants |
 | **Colocation (Standard)** | "colocation provider," "carrier hotel," "interconnection facility," "data center operator," "meet-me room," "carrier neutral," "interconnection fabric" |
 | **Fiber Operator** | "lit fiber services," "fiber to the premise," "facilities-based broadband," "fiber network operator," "dark fiber provider," "wholesale fiber," "regional fiber operator," "route miles" |
@@ -266,7 +297,7 @@ END
 
 | Segment | What They Own | Revenue Model | Scale | Example Companies |
 |---------|---------------|---------------|-------|-------------------|
-| **Neocloud** | GPU clusters distributed across multiple colo facilities, AI/ML software stack | GPU compute rental, inference-as-a-service, training clusters | Rapidly scaling, $50M-$5B+ revenue, multi-facility | CoreWeave, Lambda Labs, Crusoe, Voltage Park, Together AI |
+| **Neocloud** | GPU clusters distributed across multiple colo facilities, AI/ML software stack | GPU compute rental, inference-as-a-service, training clusters | Rapidly scaling, $50M-$5B+ revenue, multi-facility | Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius |
 | **Colocation - AI Infrastructure** | Buildings, meet-me rooms, metro fiber + liquid cooling, high-density power | Space/power (premium for AI), cross-connects, AI infrastructure services | 1-50+ facilities, GPU cloud tenants, $50M-$1B+ revenue | Aligned, Cologix, EdgeConneX, QTS, Vantage, Stack |
 | **Colocation (Standard)** | Buildings, meet-me rooms, metro fiber (NOT route miles) | Space/power (60-80%), cross-connects (10-20%), cloud on-ramps (0-5%) | 1-50+ facilities, $10M-$500M revenue | RevNet, Centra, ARK, DataBank, Flexential |
 | **Fiber Operator** | Physical fiber, optical transport (measured in route miles) | Dark fiber (IRUs), lit wavelengths, metro Ethernet, wholesale | 500-100,000 route miles, $25M-$500M revenue | Arvig, Ocean Networks, Crown Castle Fiber, Fatbeam |
@@ -318,13 +349,13 @@ END
 
 ### ⚠️ SEGMENT VERIFICATION BEFORE MESSAGING (MANDATORY WORKFLOW)
 
-**Problem:** Value prop mismatching — pitching the wrong segment's pain points or messaging to a company. This is a bad look and wastes the prospect's time.
+**Problem:** Value prop mismatching  -  pitching the wrong segment's pain points or messaging to a company. This is a bad look and wastes the prospect's time.
 
-**Rule:** NEVER compose outreach or craft messaging without first completing this verification workflow. Segment assignment drives everything — the wrong segment means the wrong message.
+**Rule:** NEVER compose outreach or craft messaging without first completing this verification workflow. Segment assignment drives everything  -  the wrong segment means the wrong message.
 
 **Workflow:**
 
-1. **Check HubSpot segment assignment.** Look up the company in HubSpot and identify the `customer_segment` property value. If no segment is assigned, proceed to step 2 anyway — research will determine the correct segment.
+1. **Check HubSpot segment assignment.** Look up the company in HubSpot and identify the `customer_segment` property value. If no segment is assigned, proceed to step 2 anyway  -  research will determine the correct segment.
 
 2. **Run account research to confirm segment.** Do NOT blindly trust HubSpot. Research the company to verify the segment is correct. Key signals to check:
    - What do they actually own vs. lease? (Separates colo from neocloud from fiber)
@@ -339,30 +370,34 @@ END
 
 4. **Map the best value proposition.** Using the confirmed segment + company context + contact persona, select the value proposition that will resonate most. Every segment has different pain language, different hooks, and different proof points. Use ONLY the value props, pain language, and proof points from the confirmed segment's section below.
 
-**Quick Reference — Segment-Specific Value Prop Anchors:**
+**Quick Reference  -  Segment-Specific Value Prop Anchors (Updated March 2026):**
 | Segment | Primary Value Prop Anchor | NEVER Use |
 |---------|--------------------------|-----------|
-| Neocloud | "See why you're slow" (observability-first) | "Keep your customer" (they ARE the customer) |
-| Colocation (Standard) | "Build your own fabric" / "Keep the customer" | Inference/GPU language (unless AI signals present) |
-| Colocation (AI Infra) | "Complete the AI story" / "Equinix-like fabric" | Generic colo messaging without AI angle |
-| Fiber Operator | "Monetize dark fiber" / "Win multi-state deals" | Colo tenant language, GPU/inference language |
-| Network Operator | "Prove you're not the bottleneck" / "Compete with Lumen" | "Keep your customer" (they're selling to enterprises) |
-| MSP/Aggregator | "Extend your reach without Tier 1 dependency" | Infrastructure ownership language |
+| Neocloud | "Connect distributed AI infrastructure simply" (multi-tenancy, deterministic, private, instant) | Operator sovereignty ("keep your customer"). Network jargon (VLAN, Q-in-Q, BGP). |
+| Colocation (Standard) | "Instant fabric, marketplace, reach" / "Keep the customer" | Inference/GPU language (unless AI signals present) |
+| Colocation (AI Infra) | "Deterministic paths + cloud on-ramps for AI" / "Complete the AI story" | Generic space-and-power colo messaging |
+| Fiber Operator | "Extend your reach, monetize fiber infrastructure" | Colo tenant language, GPU/inference language |
+| Network Operator | "Extend your reach, monetize existing infrastructure" | Claiming they're slow internally without research |
+| MSP/Aggregator | "Visibility, reach, services to sell" | Infrastructure ownership language (they're asset-light) |
 
 ---
 
 ### 3.1 COLOCATION OPERATORS (Standard)
 
+**Pillars: INSTANT | MONETIZE | REACH**
+
 **Use for:** Colos WITHOUT strong AI signals (no GPU cloud tenants, no liquid cooling investments)
 
 #### Primary Hook
-"Build your own fabric rather than joining someone else's. You keep the customer, the margin, the control."
+"Build your own fabric rather than joining someone else's. Give your tenants a marketplace of services, not just a building."
 
 #### Core Problems
 - 6+ week cross-connect provisioning
 - Losing tenants to third-party fabric providers
 - Can't match hyperscaler interconnection experience
 - Competing on space and power alone (low margin)
+- No connectivity beyond the physical facility (limited reach)
+- Tenants want a marketplace of services, not just space
 
 #### Proof Points (Anonymized for Cold Outreach)
 
@@ -422,13 +457,17 @@ END
 
 ### 3.2 COLOCATION - AI INFRASTRUCTURE
 
+**Pillars: DETERMINISTIC | INSTANT | MONETIZE**
+
+**IMPORTANT: AI Colo has its own messaging lead. Do NOT default to standard colo "space and power" messaging. These operators invested in AI-ready infrastructure. Lead with AI-forward angles: deterministic paths + cloud on-ramps for GPU workloads.**
+
 **Use for:** Colos with STRONG AI signals (GPU cloud tenants, liquid cooling, high-density power investments)
 
 #### Identifying This Segment
 
 | Signal Strength | Indicators | Classification |
 |-----------------|------------|----------------|
-| **STRONG â†’ This Segment** | GPU cloud tenants (CoreWeave, Lambda Labs, Crusoe, Voltage Park), liquid cooling (DeltaFlow), 30kW+ rack density | Colocation - AI Infrastructure |
+| **STRONG â†’ This Segment** | GPU cloud tenants (Lambda Labs, Crusoe, Voltage Park, Nebius), liquid cooling (DeltaFlow), 30kW+ rack density | Colocation - AI Infrastructure |
 | **MEDIUM â†’ Probe Further** | "AI-ready" marketing, AI corridor location, high-density power announcements | Research deeper, may be this segment |
 | **NONE â†’ Standard Colo** | Traditional enterprise tenants, standard density | Use Section 3.1 |
 
@@ -437,17 +476,17 @@ END
 | Company | GPU Cloud Tenant | Notes |
 |---------|------------------|-------|
 | Aligned Data Centers | Lambda Labs | DeltaFlow liquid cooling (300kW/rack) |
-| Cologix | Lambda Labs, CoreWeave | Columbus, Chicago, Dallas. 320MW+ committed |
+| Cologix | Lambda Labs | Columbus, Chicago, Dallas. 320MW+ committed |
 | EdgeConneX | Lambda Labs | Distributed edge portfolio |
 | QTS Data Centers | Hyperscaler AI workloads | Dallas-Fort Worth, Phoenix |
 | Vantage Data Centers | Multiple GPU cloud | Phoenix, Dallas, Atlanta campuses |
 | Stack Infrastructure | AI infrastructure buildouts | Hyperscale campus model |
 
 #### Primary Hook
-"Deterministic intelligence delivery. Make the network predictable so inference systems can do their job."
+"You solved power and cooling. Now make the connectivity layer match. Low latency deterministic paths for GPU workloads, cloud on-ramps in minutes."
 
 #### Core Problem
-Best-effort networking breaks inference performance. Token-by-token generation is latency-sensitive and intolerant of jitter. Traditional IP routing introduces variance that compounds per token. Your GPU cloud tenants need network determinism, not just fast cross-connects.
+You've invested in liquid cooling, high-density power, and GPU-ready infrastructure. The connectivity layer hasn't caught up. Best-effort networking breaks inference performance. GPU cloud tenants need deterministic paths and cloud on-ramps, not just faster cross-connects. This is NOT a space and power conversation.
 
 #### The Positioning Shift (vs. Standard Colo)
 
@@ -482,7 +521,7 @@ Best-effort networking breaks inference performance. Token-by-token generation i
 
 | Question | Good Answer (Buying Signal) | Red Flag |
 |----------|----------------------------|----------|
-| "Do you have GPU cloud tenants like Lambda Labs, CoreWeave, or Crusoe?" | "Yes, they're our fastest-growing segment" | "No GPU/AI tenants" (â†’ use Standard Colo) |
+| "Do you have GPU cloud tenants like Lambda Labs, Crusoe, or Nebius?" | "Yes, they're our fastest-growing segment" | "No GPU/AI tenants" (â†’ use Standard Colo) |
 | "Are you investing in liquid cooling or high-density power (30kW+ racks)?" | "Yes, we're building out AI-ready infrastructure" | "Standard density only" (â†’ use Standard Colo) |
 | "What are GPU cloud tenants asking for that you can't deliver today?" | "Latency guarantees, deterministic paths, visibility" | "Just faster cross-connects" |
 | "How do you differentiate from other AI-ready facilities?" | "Power and cooling, but connectivity is the same" | "We have differentiated connectivity" |
@@ -499,16 +538,23 @@ Best-effort networking breaks inference performance. Token-by-token generation i
 
 ### 3.3 NEOCLOUDS (GPU Cloud Providers)
 
-**Use for:** GPU cloud providers building distributed inference infrastructure (CoreWeave, Lambda Labs, Crusoe, Voltage Park, Together AI, Anyscale, RunPod, Nebius, Groq, Cirrascale, DeepInfra, Vultr, DigitalOcean, Fluidstack, Modal, Nscale, Firmus, E2E Networks, Yotta, etc.)
+**Use for:** GPU cloud providers building distributed inference infrastructure (Lambda Labs, Crusoe, Voltage Park, Together AI, Anyscale, RunPod, Nebius, Groq, Cirrascale, DeepInfra, Vultr, DigitalOcean, Fluidstack, Modal, Nscale, Firmus, E2E Networks, Yotta, etc.)
 
-> **⚠️ CoreWeave Targeting Note:** CoreWeave told Abilash at MetroConnect (Feb 2026) that they do not have the same challenges as other NeoClouds. **Not an active target right now.** Keep as reference company for market context and segment classification, but do not include in active outreach campaigns.
+**⚠️ CRITICAL: MESSAGING REFRAME (March 2026)**
 
-**⚠️ CRITICAL: INVERTED MESSAGING HIERARCHY**
+**Master pitch:** Connecting distributed AI infrastructure simply. Every value prop is a benefit of this master pitch.
 
-Our previous messaging led with deterministic paths between GPU clusters. Per Datum.net intelligence (Feb 2026), **that hierarchy is inverted.** Neoclouds are compute companies that accidentally became networking companies. They don't know they have a network problem. They know they're slow.
+**Pillars: DETERMINISTIC | PRIVATE | INSTANT**
 
-**WRONG order (old):** Deterministic paths → Observability → Cloud on-ramp
-**RIGHT order (new):** Observability ("see why you're slow") → Cloud on-ramp acceleration → Deterministic paths
+- **DETERMINISTIC:** Predictable performance between sites. See exactly where latency comes from. Extend reach across DCs and service providers.
+- **PRIVATE:** Private cloud connectivity (egress savings as competitive advantage for their customers: 2c/GB vs 9c/GB). Sovereign by design: data stays on paths they control.
+- **INSTANT:** Multi-tenancy: serve multiple customers from the same infrastructure. Instant customer on-ramp. New sites online in minutes.
+
+**Sovereignty distinction:** OPERATOR sovereignty still BANNED ("keep your customer," "your portal, your invoice"). DATA sovereignty now ALLOWED ("sovereign by design," "paths you control," "provably private").
+
+**Multi-tenancy language rule:** NEVER use VLAN, Q-in-Q, BGP, or network jargon. These are compute people. Say: "serve multiple customers from the same infrastructure," "each customer gets isolated, private paths."
+
+**Egress reframe:** Private cloud connectivity is a competitive advantage neoclouds offer THEIR customers (cheaper data transfer), not just a cost saving for the neocloud itself.
 
 #### Identifying This Segment
 
@@ -516,9 +562,9 @@ These are the GPU cloud providers themselves, not the colos hosting them. They'r
 
 | Company | Focus | Scale Indicators |
 |---------|-------|------------------|
-| CoreWeave | GPU cloud, enterprise AI | Multi-billion valuation, 14+ data centers |
 | Lambda Labs | GPU cloud, ML training/inference | Expanding across multiple colo partners |
 | Crusoe Energy | Sustainable AI compute | Stranded energy sites + colo facilities |
+| Nebius | GPU cloud, enterprise AI | Multi-billion valuation, multi-facility |
 | Voltage Park | GPU cloud infrastructure | Rapid buildout across facilities |
 | Together AI | Inference platform | Distributed inference architecture |
 | RunPod | GPU cloud, serverless inference | Multi-facility, developer-focused |
@@ -526,24 +572,27 @@ These are the GPU cloud providers themselves, not the colos hosting them. They'r
 
 **Key characteristic:** No WAN teams, no Kentik, no PRTG. Most have IT admins, not network architects. Together.ai's network person recently quit. These are compute companies, not networking companies.
 
-#### The Three-Layer Pain
+#### Value Prop Matrix (All Ladder Up to Master Pitch)
 
-| Layer | Pain | What They Say |
-|-------|------|---------------|
-| **Layer 1: Observability** (lead here) | Zero visibility into why things are slow. No WAN monitoring, no path visibility, no hop-by-hop telemetry. | "We don't know why training jobs take 3x longer on some paths." "We have no idea what happens between facilities." |
-| **Layer 2: Cloud On-Ramp** | Slow, expensive cloud connectivity. Each hyperscaler relationship is manual. Egress costs compound. | "Getting into AWS/Azure is slow and expensive." "Every cloud connection is a project." |
-| **Layer 3: Deterministic Paths** | Best-effort networking breaks inference. Jitter compounds per token. But they don't frame it this way. | "Performance varies by facility." "Some paths are just slower." |
+| # | Value Prop | Pillar |
+|---|-----------|--------|
+| 1 | **Serve multiple customers from the same infrastructure.** Onboard without dedicated hardware per site. Each customer gets isolated, private paths. | INSTANT |
+| 2 | **Predictable performance between your sites.** Deterministic paths so inference latency doesn't vary by facility. Consistent SLAs regardless of site. | DETERMINISTIC |
+| 3 | **See exactly where latency comes from.** Hop-by-hop visibility across every path between GPU clusters. | DETERMINISTIC |
+| 4 | **Private cloud connectivity so your customers pay less for data transfer.** 2c/GB vs 9c/GB. Competitive advantage you can sell. | PRIVATE |
+| 5 | **Your data stays on paths you control.** Sovereign by design. Provably private with every hop logged. | PRIVATE |
+| 6 | **Onboard customers to your AI infrastructure in seconds.** Instant on-ramp. Low friction. They buy a port, you take care of everything else. | INSTANT |
+| 7 | **New sites come online in minutes, not weeks.** Every new facility doesn't have to be a connectivity project. | INSTANT |
+| 8 | **Extend your reach across DCs and service providers.** Build presence in locations where you're not, without building infrastructure. | DETERMINISTIC |
 
 #### Primary Hook
-"See why you're slow. Then fix it."
+Master pitch: connecting distributed AI infrastructure simply. Proposed hooks: "One device. Instant private fabric between your AI sites." / "Every new AI site doesn't have to be a networking project."
 
-This is NOT: "Deterministic paths between your GPU clusters." That's the solution, not the entry point. Neoclouds respond to observability because they experience the symptom (slowness) without understanding the cause (network).
+#### Core Value Proposition (Updated March 2026)
 
-#### Core Value Proposition (Updated Hierarchy)
-
-1. **Observability first:** End-to-end visibility across paths you don't own. Hop-by-hop telemetry from your GPU cluster through the colo, across the carrier, into the cloud. See exactly where latency lives.
-2. **Cloud on-ramp acceleration:** Native API integration with Equinix Fabric and Megaport means cloud connectivity provisions in minutes, not weeks. Shared port model means each new cloud connection is incremental, not a project.
-3. **Deterministic paths (the deeper sell):** Once they see the path data, the conversation naturally moves to "can we control this?" Explicit private Ethernet paths with known hop count and controlled latency. No best-effort variance compounding per token.
+1. **Multi-tenancy + instant on-ramp:** Serve multiple customers, onboard in seconds, no dedicated hardware per site. This is the operational unlock that lets them scale.
+2. **Deterministic performance + observability:** Predictable paths between sites so inference is consistent. When it's slow, see exactly where. Observability is a key benefit, not the lead.
+3. **Private cloud connectivity + data sovereignty:** Egress savings for their customers (competitive advantage), sovereign by design, provably private paths.
 
 #### Neocloud Sub-Segments
 
@@ -551,15 +600,15 @@ The core message applies to all neoclouds. Sub-segment determines which priority
 
 > **For detailed sub-segment profiles (architecture, pain points, walk-away statements, opening conversations), see the Neocloud Cheatsheet.**
 
-> **Note:** AI Data Centers (e.g., IREN, Core Scientific, Northern Data Group, TeraWulf) are covered under Section 3.2 Colocation Operators — AI Infrastructure. Cross-reference when a prospect straddles both segments.
+> **Note:** AI Data Centers (e.g., IREN, Core Scientific, Northern Data Group, TeraWulf) are covered under Section 3.2 Colocation Operators  -  AI Infrastructure. Cross-reference when a prospect straddles both segments.
 
 | Sub-Segment | Examples | Lead With | Networking Sophistication |
 |-------------|----------|-----------|--------------------------|
-| **Large-Scale GPU NeoClouds** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers — highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable — some have networking staff |
-| **Tier 1 Inference Providers** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate — may have some network awareness |
-| **AI Infrastructure Providers** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud) — note Megaport/Latitude.sh competitive threat | Minimal — developer-first |
-| **Sovereign AI Clouds** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (GDPR, EU AI Act, DPDP, CLOUD Act) | Variable — compliance-driven |
-| **Crypto-to-AI Pivots** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (learning networking as they go — legacy crypto infra wasn't built for AI traffic) | Minimal — learning curve |
+| **Large-Scale GPU NeoClouds** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers  -  highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable  -  some have networking staff |
+| **Tier 1 Inference Providers** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate  -  may have some network awareness |
+| **AI Infrastructure Providers** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud)  -  note Megaport/Latitude.sh competitive threat | Minimal  -  developer-first |
+| **Sovereign AI Clouds** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (GDPR, EU AI Act, DPDP, CLOUD Act) | Variable  -  compliance-driven |
+| **Crypto-to-AI Pivots** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (learning networking as they go  -  legacy crypto infra wasn't built for AI traffic) | Minimal  -  learning curve |
 
 #### Pain Points by Persona
 
@@ -608,23 +657,25 @@ Datum.net is both a customer and a channel partner for the neocloud segment. The
 
 - CEO Zac Smith (former CEO of Packet, acquired by Equinix) has direct relationships with decision-makers at every Tier 1 neocloud
 - Datum is actively selling into Together.ai, Inference.net, RunPod, and Modal
-- Their intelligence informs our messaging hierarchy (observability first, not deterministic paths first)
+- Their intelligence informed the V4 messaging hierarchy. V4.1 (March 2026) reframes the lead to "connecting distributed AI infrastructure simply" with observability as a key benefit rather than the lead.
 
 ---
 
 ### 3.4 FIBER OPERATORS
 
+**Pillars: MONETIZE | AUTOMATE | EXTEND REACH**
+
 #### Primary Hook
-"Every multi-state deal you lose to provisioning delays is margin walking out the door."
+"Extend your reach without building there. Turn your fiber infrastructure into instantly sellable services."
 
 #### Airbnb Analogy
-"Your fiber is like spare bedrooms before Airbnb. Sitting empty until someone figured out how to monetize them."
+"Your fiber infrastructure is like spare bedrooms before Airbnb. Revenue waiting to happen, once you have the platform to sell it."
 
 #### Core Problems
+- Footprint limited to owned infrastructure, losing multi-state deals beyond reach
+- Fiber infrastructure sitting idle, not generating revenue
 - NNI provisioning takes weeks (LOAs, VLAN coordination, BGP config)
-- Losing multi-state deals to whoever's faster
-- 30-70% stranded dark fiber
-- Type 2 circuits = visibility black hole (middle-mile blind spot)
+- Type 2 circuits = visibility black hole, no SLA enforcement
 - Internal fragmentation across fiber islands with different systems
 
 #### Proof Points (Anonymized for Cold Outreach)
@@ -635,7 +686,7 @@ Datum.net is both a customer and a channel partner for the neocloud segment. The
 |-------------|-----------------------------------|
 | Speed transformation | "A regional fiber operator we work with went from 60-day NNIs to same-day activation" |
 | Fiber monetization | "One operator told us they're finally monetizing fiber that was sitting dark for years" |
-| Federation reach | "We're enabling inter-regional federationâ€”operators connecting to partners they couldn't reach before" |
+| Reach extension | “We're enabling inter-regional reach extension - operators connecting to partners they couldn't reach before” |
 | International validation | "European operators are using this to solve fragmented fiber market challenges" |
 
 *Save named references (Arvig, Ocean Networks, Ecotel) for discovery calls and demos.*
@@ -684,7 +735,7 @@ Datum.net is both a customer and a channel partner for the neocloud segment. The
 | "What about visibility into Type 2 circuits?" | Type 2 is a visibility black hole. You're responsible for the SLA but can't see the path. PBCs at each boundary give you hop-by-hop telemetry across circuits you don't own. |
 | "This sounds complex" | The opposite. No routing protocols, no BGP sessions, no MPLS label distribution. That complexity is exactly what we eliminate. |
 | "We want to build our own" | Most teams estimate 18-24 months and several million dollars. We've already done that work. Same team that built Acme Packet and 128 Technology. Why rebuild what exists? |
-| "We've automated our internal network" | Have you? Or do you have fiber islands with separate systems at each location? Most operators we talk to have internal fragmentation before they even get to cross-carrier complexity. MaiaEdge unifies both. |
+| "We've automated our internal network" | Have you? Or do you have fiber islands with separate systems at each location? The pattern I'm watching with operators in growth mode is internal fragmentation before they even get to cross-carrier complexity. MaiaEdge unifies both. |
 
 ---
 
@@ -717,7 +768,7 @@ Network Operators require research to determine which messaging track to use. Th
 
 **Core Problem:** Internal automation stops at domain boundaries. Cross-carrier paths still take weeks. Customer expectations set by AWS/Azure instant provisioning.
 
-**Positioning:** MaiaEdge is the missing federation layer that extends their existing automation beyond their footprint. PBCs sit at the boundaries where their automation currently stops.
+**Positioning:** MaiaEdge is the missing cross-carrier extension layer that extends their existing automation beyond their footprint. PBCs sit at the boundaries where their automation currently stops.
 
 **Pain Points (Track A):**
 
@@ -732,8 +783,8 @@ Network Operators require research to determine which messaging track to use. Th
 
 | Persona | Value Proposition | Impact Line for Email |
 |---------|-------------------|----------------------|
-| **CEO/Strategy** | At your scale, this transforms your addressable market. National reach without proportional investment. Match hyperscaler speed. | "At [Company]'s scale, this transforms your addressable market." |
-| **VP Network Strategy/Architecture** | Not replacing internal orchestrationâ€”it's the missing federation layer that extends it. PBCs sit at the boundaries where your automation currently stops. | "Extend your automation beyond [Company]'s borders." |
+| **CEO/Strategy** | National reach without proportional investment. Match hyperscaler speed. Transform your addressable market. | "National reach without proportional investment. Match hyperscaler speed." |
+| **VP Network Strategy/Architecture** | Not replacing internal orchestrationâ€”it's the missing extension layer that extends it. PBCs sit at the boundaries where your automation currently stops. | "Extend your automation beyond [Company]'s borders." |
 | **VP Sales/Enterprise** | Your enterprise team can sell connectivity anywhere, not just on-net. Same-day provisioning for cross-carrier paths. | "Your enterprise team can sell connectivity anywhere, not just on-net." |
 | **VP Product** | Productize instant cross-carrier paths without a multi-year dev cycle. Launch new connectivity products in weeks. | "Productize instant cross-carrier paths without a multi-year dev cycle." |
 
@@ -747,7 +798,7 @@ Network Operators require research to determine which messaging track to use. Th
 
 **Core Problem:** Multi-domain orchestration complexity even within their own network. Different systems across domains mean manual handoffs. Internal fragmentation before they even get to cross-carrier complexity.
 
-**Positioning:** MaiaEdge provides a single fabric layer across ALL boundaries, internal and external. Streamline internally first, then federate everywhere with the same infrastructure.
+**Positioning:** MaiaEdge provides a single fabric layer across ALL boundaries, internal and external. Streamline internally first, then extend reach everywhere with the same infrastructure.
 
 **Pain Points (Track B):**
 
@@ -755,15 +806,15 @@ Network Operators require research to determine which messaging track to use. Th
 |---------|------------------------------|
 | **CEO/Strategy** | "We have pockets of automation, but it's not unified across domains." "Enterprise customers expect AWS-like provisioning. We're still quoting weeks." |
 | **VP Network Strategy/Architecture** | "Multi-domain orchestration is complex even within our own network." "Different systems across domains mean manual handoffs." |
-| **Principal Network Architect** | "We need to unify before we can federate." "Integration complexity across acquired networks." |
+| **Principal Network Architect** | "We need to unify before we can extend reach." "Integration complexity across acquired networks." |
 | **VP Sales/Enterprise** | "Provisioning timeline varies by which domains are involved." "Can't give customers a consistent experience." |
 
 **Value Props (Track B):**
 
 | Persona | Value Proposition | Impact Line for Email |
 |---------|-------------------|----------------------|
-| **CEO/Strategy** | One infrastructure that unifies your internal domains AND extends to partners. Streamline internally, then federate externally. | "Unify your network, then extend your reach. Same infrastructure for both." |
-| **VP Network Strategy/Architecture** | Single fabric layer across all internal domain boundaries. Then the same infrastructure extends to partners. No separate systems. | "Unify your domains first, then federate everywhere." |
+| **CEO/Strategy** | One infrastructure that unifies your internal domains AND extends to partners. Streamline internally, then extend externally. | "Unify your network, then extend your reach. Same infrastructure for both." |
+| **VP Network Strategy/Architecture** | Single fabric layer across all internal domain boundaries. Then the same infrastructure extends to partners. No separate systems. | "Unify your domains first, then extend reach everywhere." |
 | **Principal Network Architect** | PBCs at internal boundaries and external handoffs. Centralized path computation across all domains. One control plane. | "One control plane across all your domains, internal and external." |
 | **VP Sales/Enterprise** | Consistent provisioning experience regardless of which domains are involved. Then extend that speed to cross-carrier. | "Same speed everywhere, on-net and off-net." |
 
@@ -798,20 +849,24 @@ Network Operators require research to determine which messaging track to use. Th
 |-----------|----------|
 | "We have Cisco/Juniper investments" | PBCs complement, not replace, your core routers. They sit at domain boundaries, internal and external, where your existing automation stops. We're the unification layer, not a rip-and-replace. |
 | "Cross-carrier coordination is painful but manageable" | Is your internal automation truly unified across all domains? Most carriers have fragmentation internally too. MaiaEdge unifies your internal boundaries first, then extends to partners. Same infrastructure, same speed everywhere. |
-| "We're building our own orchestration" | For internal domains? Great. But what about paths that cross carrier boundaries? MaiaEdge handles the federation layer that internal orchestration can't solve. We plug into your OSS/BSS. |
+| "We're building our own orchestration" | For internal domains? Great. But what about paths that cross carrier boundaries? MaiaEdge handles the cross-carrier layer that internal orchestration can't solve. We plug into your OSS/BSS. |
 | "This sounds expensive" | Compare to what you're losing: enterprise deals that go to faster competitors, SLA penalties on paths you can't see, engineering hours on manual provisioning. OpEx subscription, starts at 1G, scales to 100G. |
 
 ---
 
 ### 3.6 MSP/AGGREGATORS
 
+**Pillars: AUTOMATE | EXTEND REACH | MONETIZE**
+
 #### Primary Hook
-"You own the customer relationship. We give you visibility into everything behind it."
+"You own the customer relationship. We give you visibility into everything behind it, reach into new markets, and services to sell."
 
 #### Core Problems
 - Blind to what happens inside carrier networks
 - Responsible for SLA but can't see the path
 - Tier 1s going direct to customers
+- Limited to markets where your carriers operate
+- No way to monetize spare capacity
 - CapEx burden doesn't match asset-light model
 - "Depends on the carrier" kills deals
 
@@ -821,8 +876,8 @@ Network Operators require research to determine which messaging track to use. Th
 
 | Proof Point | How to Reference in Cold Outreach |
 |-------------|-----------------------------------|
-| Federation at scale | "We're enabling MSPs to federate across multiple regional carriers in minutes" |
-| Geographic expansion | "Operators are using federation to extend reach without building new infrastructure" |
+| Reach extension at scale | "We're enabling MSPs to extend reach across multiple regional carriers in minutes" |
+| Geographic expansion | "Operators are extending reach without building new infrastructure" |
 | NaaS-like capability | "One aggregator described it as having fabric provider capability without the dependency" |
 
 *Save named references (INDATEL, Ocean Networks, RevNet) for discovery calls and demos.*
@@ -847,7 +902,7 @@ Network Operators require research to determine which messaging track to use. Th
 | **CEO/President** | Tier 1 capabilities on an asset-light model. Match their speed. Keep your relationships. That's how you win. | "Tier 1 capabilities on an asset-light model." |
 | **CFO** | Shift from CapEx depreciation to predictable OpEx. Eliminate 40-60% CapEx burden. Better cash flow, improved unit economics. | "Shift from CapEx depreciation to predictable OpEx." |
 | **VP Operations/Service Delivery** | End-to-end visibility across all carrier relationships. Hop-by-hop telemetry, prove SLAs to customers. Stop the finger-pointing. | "Hop-by-hop visibility across all carriersâ€”prove SLA compliance." |
-| **VP Business Development** | Federation in minutes. Instant partner activation. Extend reach without building fiber. | "Federation in minutes, instant partner activation." |
+| **VP Business Development** | Partner activation in minutes. Extend reach without building fiber. | "Partner activation in minutes. Extend reach without building fiber." |
 | **VP Engineering** | Unified visibility across all carrier relationships. MaiaEdge treats owned fiber, leased capacity, and DIA as a single cohesive fabric. No routing overhead. | "Unified visibility across your carrier partners." |
 | **Director Carrier Relations** | See the path yourself. Provision without waiting on carriers. End-to-end visibility across networks you don't own. | "See the path yourself. Provision without waiting on carriers." |
 | **Solutions Architect** | MaiaEdge treats owned fiber, leased capacity, and DIA as a single cohesive fabric under one control plane. Hop-by-hop visibility across networks you don't own. | "Single control plane across all your carrier relationships." |
@@ -899,9 +954,11 @@ Network Operators require research to determine which messaging track to use. Th
 | "IENTC runs 800+ towers" | "We're deployed at scale - hundreds of cell towers, 20+ data centers" |
 | "NTT validated our approach" | "Tier 1 carriers are using this for network simplification" |
 
-**No credibility anchors in cold outreach.** Team credibility (Acme Packet, 128 Technology) is reserved for live conversations, discovery calls, and proposals only.
+**No credibility anchors in cold outreach.** Team credibility (Acme Packet, 128 Technology, Andy Ory, Abilash Menon's heritage) is reserved for live conversations, demos, proposals, and objection handling only. The April 2026 deck uses these on slides 3 and 16  -  that is live-presentation context, not cold outreach.
 
-âœ… OK: "Same team that built Acme Packet and 128 Technology"
+âœ… OK (LIVE ONLY — presentations, demos, proposals, objection handling): "Same team that built Acme Packet and 128 Technology"
+
+NOT OK IN COLD EMAIL / LINKEDIN: "Same team that built Acme Packet and 128 Technology" — team anchors are banned in cold outreach under the April 2026 rule.
 âŒ NOT OK: "Arvig is seeing great results with MaiaEdge"
 
 ---
@@ -918,24 +975,24 @@ Network Operators require research to determine which messaging track to use. Th
 
 **No signature** - Auto-appended by email platform.
 
-### 4.2 Length Guidelines
+### 4.2 Length Guidelines (HARD CAPS)
 
-| Segment/Persona | Word Count | Rationale |
-|-----------------|------------|-----------|
-| Tier 1 Carriers | 125-175 words | Acknowledge sophistication, explain cross-carrier gap |
-| Regional Fiber | 75-125 words | Standard pain/solution |
-| Colocation (Standard) | 100-150 words | Explain fabric-in-a-box, sovereignty |
-| Colocation (AI-Focused) | 100-150 words | Explain deterministic paths, inference requirements |
-| MSP/Aggregators | 75-125 words | Focus on visibility, asset-light |
-| Technical Buyers | 100-150 words | Include technical differentiation |
-| C-Suite | 75-125 words | Strategic focus, less technical |
-| LinkedIn | â‰¤300 characters | Introduction + hook + credibility |
+Sequence length is set centrally and applies across every segment. Canonical source: `context/outreach/email-writing-rules.md` ("Sequence Length & Structure (HARD CAPS)").
+
+| Email | Limit | Structure |
+|-------|-------|-----------|
+| Email 1 | 70-85 words | 1-3 paragraphs, proper spacing, first name on its own line. Value bridge 1 sentence MAX, embed-by-contrast preferred. |
+| Email 2 | Under 55 words | First name on its own line, no re-intro, no meta-references. Posture differs from E1 (per posture rotation rule). |
+| Email 3 | 2-3 sentences max | First name on its own line, exactly one CTA, "show is coming up" energy OR detached close. NO deal-cycle phrases ("Have you shelved this?" — banned in cold). |
+| LinkedIn | Target 35-50 words / max 280 chars (under LinkedIn's 300 hard limit) | NO sender intro in body (recipient sees sender from LinkedIn UI). Format: `[Recipient first name], [observation/question]. [Optional context]. [CTA or no CTA].` Public Signal Cited block above. |
+
+Per-segment targets are NOT set in this file. Segment references provide vocabulary, angles, and tone calibration only. A tight email under the cap beats a padded one that hits any number.
 
 ### 4.3 Email Patterns by Segment (Angle-Driven, Problem-First Structure)
 
 All patterns follow the Relevance Principle: lead with a problem statement driven by the company-specific angle, not an observation. Research is fuel for problem framing, not content to showcase. These patterns show the structural arc -- your company-specific angle provides the actual content. If you find yourself filling in the bracketed sections with generic segment pain instead of company-specific details, the angle is missing.
 
-#### Tier 1 Carrier Pattern (100-160 words, soft target)
+#### Tier 1 Carrier Pattern (structural template; length governed by Email 1 cap, 70-85 words)
 ```
 [Problem statement: Cross-carrier paths beyond footprint still take weeks of manual coordination]
 [Context bridge: Acknowledge what they've built, baked into the problem framing]
@@ -944,7 +1001,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### Regional Fiber Operator Pattern (60-120 words, soft target)
+#### Regional Fiber Operator Pattern (structural template; length governed by Email 1 cap, 70-85 words)
 ```
 [Problem statement: NNI delays losing deals, revenue from fiber sitting dark]
 [Context bridge: Problem made specific with their footprint details]
@@ -953,7 +1010,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### Standard Colocation Pattern (80-140 words, soft target)
+#### Standard Colocation Pattern (structural template; length governed by Email 1 cap, 70-85 words)
 ```
 [Problem statement: Tenant expectations vs 6+ week provisioning, third-party fabric pressure]
 [Context bridge: Problem made specific with their facility/tenant details]
@@ -962,7 +1019,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### AI-Focused Colocation Pattern (80-140 words, soft target)
+#### AI-Focused Colocation Pattern (structural template; length governed by Email 1 cap, 70-85 words)
 ```
 [Problem statement: Best-effort networking breaks inference. GPU tenants need determinism.]
 [Context bridge: Problem made specific with their AI infrastructure context]
@@ -971,7 +1028,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### MSP/VNO Pattern (75-125 words)
+#### MSP/VNO Pattern (structural template; length governed by Email 1 cap, 70-85 words)
 ```
 [Opening: Their services/market position]
 [Financial Pain: CapEx burden, cash flow, can't compete on speed]
@@ -980,19 +1037,25 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-### 4.4 LinkedIn Connection Request (300 chars max)
+### 4.4 LinkedIn Connection Request (Target 35-50 words / max 280 chars; under LinkedIn's 300 hard limit)
 
-**Structure:** Introduction, Problem statement or relevant hook, Credibility, CTA. Lead with segment problems, not company flattery.
+NO sender intro in body — recipient sees sender from LinkedIn UI; "Tim from MaiaEdge." / "Ken from MaiaEdge." in the message body is BANNED. Public Signal Cited block above the message (catalog code from `context/signals/[segment]-signals.md`, "NON-CATALOG", or "NONE — inferred angle"). Embed-by-contrast preferred for the value bridge.
+
+**Structure:** Problem statement or public-signal observation, embedded value bridge as a contrast clause, optional low-friction CTA. Lead with segment problems or specific public signals, not company flattery.
 
 **Pattern (adapt to company-specific angle):**
 ```
-[Sender] from MaiaEdge. [Problem statement driven by company-specific angle]. We [value statement]. Worth connecting?
+[Recipient first name], [observation/question with company-specific signal — embed value bridge as contrast clause when applicable]. [Optional CTA].
 ```
 
 **AI-Focused Colo LinkedIn Example:**
 ```
-Tim from MaiaEdge. Best-effort networking breaks inference. GPU tenants need 35+ cross-connects with sub-10ms latency, provisioned in minutes. We fix that gap. Worth connecting?
+Public Signal Cited: NONE — using inferred segment angle
+
+Paul, GPU tenants deploy dense interconnection fast, and the connectivity layer either keeps up or becomes the gap in the facility. The version that keeps up is the one your team controls end-to-end. Worth connecting?
 ```
+
+(40 words, ~242 chars. Embed-by-contrast value bridge. No sender intro. "I" voice implied. Cataloged signal would replace NONE if found.)
 
 ### 4.5 CTA Hierarchy
 
@@ -1142,7 +1205,7 @@ Tim from MaiaEdge. Best-effort networking breaks inference. GPU tenants need 35+
 2. `[Company] API portal self-service instant provisioning`
 3. `[Company] cross-carrier paths multi-carrier connectivity`
 4. `[Company] expansion announcement 2024 2025 2026`
-5. **(If Colo or Fiber in AI Corridor):** `[Company] CoreWeave Lambda Labs Crusoe` / `[Company] liquid cooling high-density`
+5. **(If Colo or Fiber in AI Corridor):** `[Company] Lambda Labs Crusoe Nebius` / `[Company] liquid cooling high-density`
 
 ### 7.2 Research Output Format
 
@@ -1194,22 +1257,24 @@ Research signals tell you WHICH PROBLEM to lead with, not which OBSERVATION to m
 | Competing in hyperscaler-dominated market | "Enterprise customers expect AWS-like speed..." |
 | Dark fiber / underutilized assets | "Fiber sitting dark is margin waiting to happen..." |
 | Multi-state footprint | "Every multi-state deal lost to provisioning delays is margin walking out..." |
-| **GPU cloud tenants confirmed** | Lead with the infrastructure gap: "GPU cloud tenants need 35+ cross-connects per deployment with sub-10ms latency. Most colos can’t deliver that in minutes." |
+| **GPU cloud tenants confirmed** | Lead with the connectivity-layer gap: "GPU tenants deploy dense interconnection fast. The connectivity layer either keeps up or it becomes the gap in the facility." |
 | **Liquid cooling / AI infrastructure investment** | Lead with the connectivity gap: "AI inference density is going up. The question is whether the connectivity layer matches the compute investment." |
 | **AI-ready marketing, no confirmed tenant** | "AI tenants are evaluating facilities now. When they ask about latency guarantees for distributed inference, what’s the answer?" |
 
 ---
 
-## SECTION 8: n8n BOT DECISION LOGIC
+## SECTION 8: CLASSIFICATION & ENRICHMENT DECISION LOGIC
 
-### 8.1 Classification Flow (Bot 1)
+Executed by Claude via the `segment-classification` and `company-enrichment` skills.
+
+### 8.1 Classification Flow
 
 ```
 INPUT: Company name, website, description
 
 STEP 1: SEGMENT CLASSIFICATION
 â”œâ”€â”€ Check for Neocloud indicators FIRST (GPU cloud provider, not colo)
-â”‚   â””â”€â”€ If CoreWeave, Lambda Labs, Crusoe, Voltage Park, Together AI, etc. â†’ NEOCLOUD
+â”‚   â””â”€â”€ If Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius, etc. â†’ NEOCLOUD
 â”œâ”€â”€ Check for instant classification keywords
 â”œâ”€â”€ Apply decision tree logic
 â””â”€â”€ OUTPUT: Segment [Neocloud | Colo - AI Infrastructure | Colo (Standard) | Fiber | Network Operator | MSP | Enterprise | Exclude]
@@ -1284,7 +1349,7 @@ STEP 3: SELECT VALUE PROP
 â”œâ”€â”€ Match persona + segment to value prop from matrix
 â”œâ”€â”€ Select impact line
 â”œâ”€â”€ **VERIFY:** Value prop reinforces infrastructure positioning (not NaaS)
-â”œâ”€â”€ **FOR NEOCLOUDS:** Shift from "keep your customer" to "see your paths." Lead with observability, not deterministic paths. They know they're slow. They don't know why.
+â”œâ”€â”€ **FOR NEOCLOUDS:** Lead with "connecting distributed AI infrastructure simply." Multi-tenancy, deterministic performance, private cloud connectivity, instant on-ramp. NO operator sovereignty. DATA sovereignty allowed.
 â””â”€â”€ OUTPUT: value_statement
 
 STEP 4: SELECT CTA
@@ -1328,7 +1393,7 @@ When research is incomplete, use segment + track + persona defaults:
 | Fiber | - | Decision-Maker | "Multi-state deals walking out the door" | "NNI provisioning takes weeks" | "Is this relevant?" |
 | Fiber | - | Technical | "Unify your fiber islands" | "Type 2 visibility black hole" | "Dealing with something similar?" |
 | Network Op | Track A (Has automation) | Decision-Maker | "Extend automation everywhere else" | "Cross-carrier still takes weeks" | "Worth a conversation?" |
-| Network Op | Track A (Has automation) | Technical | "Missing federation layer" | "Automation stops at your border" | "Can walk you through the architecture" |
+| Network Op | Track A (Has automation) | Technical | "Missing cross-carrier extension layer" | "Automation stops at your border" | "Can walk you through the architecture" |
 | Network Op | Track B (No automation) | Decision-Maker | "Unify internally, then extend externally" | "Multi-domain orchestration complexity" | "Worth a conversation?" |
 | Network Op | Track B (No automation) | Technical | "Single fabric across all boundaries" | "Internal fragmentation" | "Can walk you through the architecture" |
 | MSP | - | Decision-Maker | "Tier 1 capabilities, asset-light" | "Tier 1s going direct to customers" | "On your radar?" |
@@ -1352,10 +1417,10 @@ IF segment = "Fiber"
     â†’ Fiber Track (NNI speed, dark fiber monetization, Type 2 visibility, sovereignty)
     
 IF segment = "Network Operator" AND has_internal_automation = TRUE
-    â†’ Track A: External Extension (extend automation beyond borders, federation layer)
+    â†’ Track A: External Extension (extend automation beyond borders, cross-carrier extension layer)
     
 IF segment = "Network Operator" AND has_internal_automation = FALSE
-    â†’ Track B: Internal + External Unification (unify first, then federate)
+    â†’ Track B: Internal + External Unification (unify first, then extend reach)
     
 IF segment = "MSP"
     â†’ MSP Track (visibility, asset-light, Tier 1 competition, customer ownership)
@@ -1381,7 +1446,7 @@ IF segment = "MSP"
 |-----|--------------|
 | Colocation (Standard) | "Build your own fabric rather than joining someone else's. You keep the customer, the margin, the control." |
 | Colocation - AI Infrastructure | "Deterministic intelligence delivery. Make the network predictable so inference systems can do their job." |
-| Neoclouds | "See why you're slow. Then fix it." (Lead with observability, not deterministic paths. They're compute companies, not networking companies.) |
+| Neoclouds | "Connect distributed AI infrastructure simply." Multi-tenancy, deterministic, private, instant. NO operator sovereignty. DATA sovereignty allowed. |
 | Fiber Operator | "Every multi-state deal you lose to provisioning delays is margin walking out the door." |
 | Network Operator (Track A) | "You've automated internally. MaiaEdge extends that everywhere else." |
 | Network Operator (Track B) | "Unify internally first, then extend externally. One infrastructure for both." |

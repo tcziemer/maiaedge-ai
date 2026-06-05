@@ -112,119 +112,7 @@ All numeric values use `font-variant-numeric: tabular-nums` for column alignment
 
 ### CSS Stylesheet
 
-```html
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #F8FAFC; color: #475569; line-height: 1.5; padding: 32px; }
-  .container { max-width: 1100px; margin: 0 auto; }
-
-  /* Header */
-  .header { padding: 32px 0 24px 0; border-bottom: 1px solid #E2E8F0; margin-bottom: 32px; }
-  .header h1 { font-size: 24px; font-weight: 700; color: #0F172A; letter-spacing: -0.3px; }
-  .header .subtitle { font-size: 13px; color: #94A3B8; margin-top: 4px; }
-  .header .prepared-for { font-size: 14px; color: #64748B; margin-top: 8px; }
-
-  /* KPI cards row */
-  .kpi-row { display: flex; gap: 16px; margin-bottom: 32px; }
-  .kpi { flex: 1; background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px 24px; }
-  .kpi .value { font-size: 36px; font-weight: 700; color: #0F172A; font-variant-numeric: tabular-nums; line-height: 1.1; }
-  .kpi .label { font-size: 12px; font-weight: 500; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 4px; }
-  .kpi .change { font-size: 13px; font-weight: 500; margin-top: 6px; }
-  .kpi .change-up { color: #059669; }
-  .kpi .change-down { color: #DC2626; }
-  .kpi .change-flat { color: #94A3B8; }
-
-  /* Section headings */
-  .section { margin-bottom: 32px; }
-  .section-title { font-size: 18px; font-weight: 600; color: #1E293B; margin-bottom: 16px; }
-
-  /* Cards */
-  .card { background: white; border: 1px solid #E2E8F0; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
-  .card-title { padding: 16px 24px; font-size: 14px; font-weight: 600; color: #1E293B; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: space-between; align-items: center; }
-  .card-title .note { font-weight: 400; font-size: 12px; color: #94A3B8; }
-  .card-body { padding: 24px; }
-
-  /* Tables */
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { padding: 8px 16px; text-align: left; font-weight: 600; font-size: 11px; color: #64748B; text-transform: uppercase; letter-spacing: 0.4px; border-bottom: 2px solid #E2E8F0; background: #F8FAFC; }
-  td { padding: 8px 16px; border-bottom: 1px solid #F1F5F9; vertical-align: middle; color: #334155; }
-  tr:hover { background: #F8FAFC; }
-  td:first-child { font-weight: 500; color: #1E293B; }
-  .num { text-align: right; font-variant-numeric: tabular-nums; }
-
-  /* Badges */
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
-  .badge-healthy { background: #ECFDF5; color: #059669; }
-  .badge-watch { background: #FFFBEB; color: #D97706; }
-  .badge-risk { background: #FFF7ED; color: #EA580C; }
-  .badge-critical { background: #FEF2F2; color: #DC2626; }
-  .badge-unknown { background: #F1F5F9; color: #94A3B8; }
-
-  /* Trend indicators */
-  .trend-up { color: #059669; font-weight: 500; }
-  .trend-down { color: #DC2626; font-weight: 500; }
-  .trend-flat { color: #94A3B8; }
-
-  /* Horizontal bar chart */
-  .bar-chart { padding: 8px 0; }
-  .bar-row { display: flex; align-items: center; margin-bottom: 8px; }
-  .bar-label { width: 180px; font-size: 13px; font-weight: 500; color: #475569; flex-shrink: 0; }
-  .bar-track { flex: 1; height: 22px; background: #F1F5F9; border-radius: 4px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 4px; background: #6366F1; }
-  .bar-count { width: 50px; text-align: right; font-size: 13px; font-weight: 600; color: #1E293B; margin-left: 12px; font-variant-numeric: tabular-nums; flex-shrink: 0; }
-
-  /* Stacked bar */
-  .stacked-bar { display: flex; height: 24px; border-radius: 4px; overflow: hidden; }
-  .stacked-segment { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: white; min-width: 24px; }
-
-  /* Health distribution bar (single horizontal stacked bar) */
-  .health-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 8px; }
-  .health-bar div { height: 100%; }
-
-  /* Data completeness bar (inline in table cells) */
-  .data-bar { display: inline-flex; align-items: center; gap: 6px; }
-  .data-track { width: 48px; height: 4px; background: #E2E8F0; border-radius: 2px; overflow: hidden; }
-  .data-fill { height: 100%; border-radius: 2px; }
-  .data-fill-good { background: #059669; }
-  .data-fill-partial { background: #D97706; }
-  .data-fill-poor { background: #DC2626; }
-  .data-pct { font-size: 12px; color: #64748B; font-variant-numeric: tabular-nums; }
-
-  /* Alerts */
-  .alert { padding: 10px 16px; margin-bottom: 8px; border-radius: 6px; font-size: 13px; border-left: 3px solid; color: #475569; }
-  .alert-critical { background: #FEF2F2; border-color: #DC2626; }
-  .alert-risk { background: #FFF7ED; border-color: #EA580C; }
-  .alert-watch { background: #FFFBEB; border-color: #D97706; }
-  .alert-info { background: #EFF6FF; border-color: #6366F1; }
-  .alert-neutral { background: #F8FAFC; border-color: #E2E8F0; }
-  .alert strong { color: #1E293B; }
-
-  /* Layout helpers */
-  .row { display: flex; gap: 16px; }
-  .col { flex: 1; }
-  .col .card { height: 100%; margin-bottom: 0; }
-
-  /* Tabs */
-  .tabs { display: flex; gap: 0; border-bottom: 1px solid #E2E8F0; margin-bottom: 32px; }
-  .tab { background: none; border: none; padding: 12px 20px; font-size: 14px; font-weight: 500; color: #94A3B8; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
-  .tab:hover { color: #475569; }
-  .tab.active { color: #6366F1; border-bottom-color: #6366F1; }
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-
-  /* Footer */
-  .footer { text-align: center; padding: 32px 0 16px 0; font-size: 11px; color: #94A3B8; border-top: 1px solid #E2E8F0; margin-top: 32px; }
-
-  /* Print */
-  @media print {
-    body { background: white; padding: 16px; }
-    .card { border: 1px solid #E2E8F0; }
-    .tabs { display: none; }
-    .tab-content { display: block !important; page-break-inside: avoid; }
-    .bar-fill, .stacked-segment, .health-bar div, .data-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  }
-</style>
-```
+The full CSS stylesheet is in `context/sales/call-report-styles.css`. Include it as a `<style>` block in every HTML report. The stylesheet provides: KPI cards, section headings, data tables, badges (healthy/watch/risk/critical), trend indicators, horizontal bar charts, stacked bars, health distribution bars, data completeness bars, alerts, layout helpers, tabs, and print styles.
 
 ### When to Use Each Format
 
@@ -240,7 +128,7 @@ All numeric values use `font-variant-numeric: tabular-nums` for column alignment
 
 **Rule: charts summarize, tables provide precision.** Show both when a chart is used. Never show a chart without the exact numbers accessible.
 
-**Rule: one insight per section.** Each card/section answers one question. Title the section with the insight, not the chart type. "Cloud On-Ramp leads use case mentions" not "Use Case Frequency Chart."
+**Rule: one insight per section.** Each card/section answers one question. Title the section with the insight, not the chart type. "DC Interconnection leads use case mentions" not "Use Case Frequency Chart."
 
 ### Chart Examples
 
@@ -248,17 +136,17 @@ All numeric values use `font-variant-numeric: tabular-nums` for column alignment
 ```html
 <div class="bar-chart">
   <div class="bar-row">
-    <span class="bar-label">Cloud On-Ramp</span>
+    <span class="bar-label">DC Interconnection</span>
     <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
     <span class="bar-count">34</span>
   </div>
   <div class="bar-row">
-    <span class="bar-label">Federation</span>
+    <span class="bar-label">Cross-Carrier Reach</span>
     <div class="bar-track"><div class="bar-fill" style="width:79%"></div></div>
     <span class="bar-count">27</span>
   </div>
   <div class="bar-row">
-    <span class="bar-label">DC Interconnection</span>
+    <span class="bar-label">Cloud On-Ramp</span>
     <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
     <span class="bar-count">22</span>
   </div>

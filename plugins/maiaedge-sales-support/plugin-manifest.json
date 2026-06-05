@@ -1,0 +1,24 @@
+{
+  "name": "maiaedge-sales-support",
+  "version": "1.0.0",
+  "skills": ["call-prep", "competitive-intel", "sales-enablement", "account-brief"],
+  "context": [
+    "core/maiaedge-101.md",
+    "core/messaging-framework.md",
+    "core/competitive-positioning.md",
+    "core/icp-playbook.md",
+    "core/terminology-glossary.md",
+    "segments/Colocation.md",
+    "segments/Fiber-Operator.md",
+    "segments/Neocloud.md",
+    "segments/Network-Operator.md",
+    "segments/MSP-Aggregator.md",
+    "sales/account-brief-template.md",
+    "sales/pricing-reference.md",
+    "sales/neocloud-strategy-brief.md",
+    "sales/edge-ai-thesis-montauk.md",
+    "product/proof-points.md",
+    "product/ai-market-positioning.md"
+  ],
+  "static": []
+}

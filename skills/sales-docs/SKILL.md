@@ -5,15 +5,15 @@ description: "MaiaEdge sales document generator for Order Forms, MSAs, POC Agree
 
 # MaiaEdge Sales Document Generator
 
-Generate standardized sales documents from templates. **Documents must match exact formatting — only variable fields change.**
+Generate standardized sales documents from templates. **Documents must match exact formatting  -  only variable fields change.**
 
 ## Template Replication Rules
 
-1. **NEVER modify boilerplate language** — Only populate variable fields
-2. **Match exact structure** — Same rows, columns, sections as templates
-3. **Preserve all formatting** — Fonts, colors, borders, merges, wrap text
-4. **Copy templates directly** — Load the actual template files and only change variables
-5. **Validate before generating** — Confirm all required fields are provided first
+1. **NEVER modify boilerplate language**  -  Only populate variable fields
+2. **Match exact structure**  -  Same rows, columns, sections as templates
+3. **Preserve all formatting**  -  Fonts, colors, borders, merges, wrap text
+4. **Copy templates directly**  -  Load the actual template files and only change variables
+5. **Validate before generating**  -  Confirm all required fields are provided first
 
 ## Document Types & Templates
 
@@ -37,7 +37,7 @@ Generate standardized sales documents from templates. **Documents must match exa
 
 ## Helper Scripts
 
-POC Agreements and NDAs have bundled builder scripts that handle all variable replacement deterministically. Use these when available — they're faster and more reliable than writing python-docx code from scratch.
+POC Agreements and NDAs have bundled builder scripts that handle all variable replacement deterministically. Use these when available  -  they're faster and more reliable than writing python-docx code from scratch.
 
 | Script | Purpose | Input |
 |--------|---------|-------|
@@ -52,9 +52,9 @@ See the reference files (`poc_specs.md`, `nda_specs.md`) for the JSON input sche
 
 ## REQUIRED INFORMATION VALIDATION
 
-**Before generating ANY document, verify ALL required fields are provided. If anything is missing, ASK the user — NEVER generate with blank or placeholder fields.**
+**Before generating ANY document, verify ALL required fields are provided. If anything is missing, ASK the user  -  NEVER generate with blank or placeholder fields.**
 
-### Order Form — Required Fields
+### Order Form  -  Required Fields
 
 | Field | Example |
 |-------|---------|
@@ -71,7 +71,7 @@ See the reference files (`poc_specs.md`, `nda_specs.md`) for the JSON input sche
 | MSA reference date | "12/15/2025" |
 | Discount % | **ONLY if explicitly requested by user** |
 
-### MSA — Required Fields
+### MSA  -  Required Fields
 
 | Field | Example |
 |-------|---------|
@@ -79,7 +79,7 @@ See the reference files (`poc_specs.md`, `nda_specs.md`) for the JSON input sche
 | Customer address | "Av. Insurgentes Sur 1602, Mexico City" |
 | Effective date | "February 15, 2026" |
 
-### POC Agreement — Required Fields
+### POC Agreement  -  Required Fields
 
 | Field | Example |
 |-------|---------|
@@ -93,7 +93,7 @@ See the reference files (`poc_specs.md`, `nda_specs.md`) for the JSON input sche
 | MaiaEdge signer name + title | "Tim Ziemer, CRO & Co-Founder" |
 | Customer signer name + title | "Manish Singh, CTO" |
 
-### NDA — Required Fields
+### NDA  -  Required Fields
 
 | Field | Example |
 |-------|---------|
@@ -116,16 +116,16 @@ For detailed formatting specs, row heights, column widths, and implementation co
 3. **CLEAR old template data** from buyer cells (D6:D11), signature cells (B53:B57), B27, and A50
 4. **Populate** all variable fields (header, buyer, products, totals, MSA ref, signatures)
 5. **Format** (borders, merges, column widths, row heights, page setup)
-6. **Run recalc.py** to calculate formulas — path: `.skills/skills/xlsx/scripts/recalc.py`
+6. **Run recalc.py** to calculate formulas  -  path: `.skills/skills/xlsx/scripts/recalc.py`
 7. **AFTER recalc**: Apply rich text formatting (bold section headings in merged cells)
 8. **Save** `.xlsx` → **Convert to PDF** with LibreOffice (do NOT recalc again)
 
 ### Key Rules
 
 - **Annual Price** goes on the Order Form, NOT TCV. `Annual Price = TCV ÷ Term Years`
-- **Quote # in F2, Date in F3** (labels in E2/E3) — NOT columns F/G
-- **Buyer info in column D (rows 6-11)**, seller in column A — NO merged cells in header
-- **Signature block: seller in column A, customer in column B** — NOT A:C / D:G
+- **Quote # in F2, Date in F3** (labels in E2/E3)  -  NOT columns F/G
+- **Buyer info in column D (rows 6-11)**, seller in column A  -  NO merged cells in header
+- **Signature block: seller in column A, customer in column B**  -  NOT A:C / D:G
 - **ALWAYS clear old template data** from buyer cells (D6:D11), signature cells (B53:B57), B27, and A50 before populating
 - Subscription start date: label stays in A27, date goes in B27 (two cells, not one)
 - Sections 1-5 have heading rows (A29, A33...) and body rows (A31, A35...) as separate cells
@@ -157,7 +157,7 @@ Do NOT modify any numbered sections, Exhibits, or legal definitions.
 
 For the complete template structure, variable field mapping, formatting reference, and python-docx implementation → read `poc_specs.md`.
 
-### Process (Preferred — use script)
+### Process (Preferred  -  use script)
 
 1. **Validate required fields** (see table above)
 2. **Prepare JSON input** with all required fields
@@ -165,14 +165,14 @@ For the complete template structure, variable field mapping, formatting referenc
 4. **Verify output** against the checklist in `poc_specs.md`
 5. **Convert to PDF**: `libreoffice --headless --convert-to pdf [filename].docx`
 
-### Process (Manual — if script unavailable)
+### Process (Manual  -  if script unavailable)
 
 1. **Validate required fields**
 2. **Load template**: `poc_agreement_template.docx`
 3. **Replace header fields** (Date, Customer, Contact, Duration) using content-based paragraph search
 4. **Replace logo** in Table 0 with white logo file (`MaiaEdge_Logo_Horizontal_RevWhite.png`)
-5. **Populate equipment table** (Table 1) — clear data rows, add new rows
-6. **Populate delivery table** (Table 2) — clear data rows, add new rows
+5. **Populate equipment table** (Table 1)  -  clear data rows, add new rows
+6. **Populate delivery table** (Table 2)  -  clear data rows, add new rows
 7. **Update Section 1** body with customer name (replace "Datum, Inc.")
 8. **Update Section 6** fees description if not complimentary
 9. **Update signature table** (Table 3) with both signers
@@ -185,7 +185,7 @@ For the complete template structure, variable field mapping, formatting referenc
 
 For the complete template structure, content-based search patterns, and formatting reference → read `nda_specs.md`.
 
-### Process (Preferred — use script)
+### Process (Preferred  -  use script)
 
 1. **Validate required fields** (see table above)
 2. **Prepare JSON input** with all required fields
@@ -193,15 +193,15 @@ For the complete template structure, content-based search patterns, and formatti
 4. **Verify output** against the checklist in `nda_specs.md`
 5. **Convert to PDF**: `libreoffice --headless --convert-to pdf [filename].docx`
 
-### Process (Manual — if script unavailable)
+### Process (Manual  -  if script unavailable)
 
 1. **Validate required fields**
 2. **Load template**: `nda_template.docx`
-3. **Replace effective date** — find paragraph containing `"________, 202_"`, replace with date
-4. **Replace participant name** — find paragraph containing "Participant:" tab, replace blanks
-5. **Replace participant address** — find paragraph containing "Address:" tab, replace blanks (2 lines)
-6. **Replace signer name** — find "Printed Name:" paragraph, replace SECOND set of blanks
-7. **Replace signer title** — find "Title:" paragraph, replace SECOND set of blanks
+3. **Replace effective date**  -  find paragraph containing `"________, 202_"`, replace with date
+4. **Replace participant name**  -  find paragraph containing "Participant:" tab, replace blanks
+5. **Replace participant address**  -  find paragraph containing "Address:" tab, replace blanks (2 lines)
+6. **Replace signer name**  -  find "Printed Name:" paragraph, replace SECOND set of blanks
+7. **Replace signer title**  -  find "Title:" paragraph, replace SECOND set of blanks
 8. **Save** as `[CustomerShortName]_NDA_[EffectiveDate].docx`
 9. **Convert to PDF**: `libreoffice --headless --convert-to pdf [filename].docx`
 
@@ -232,7 +232,7 @@ Annual Price = TCV ÷ Term Years
 - Default pricing = List Price (no discount)
 - Only apply a discount if the user specifically states a discount percentage
 - If the user mentions a discount, confirm the percentage and which products it applies to
-- HA/Standby units are always 30% off the corresponding primary unit — this is standard pricing, not a discount
+- HA/Standby units are always 30% off the corresponding primary unit  -  this is standard pricing, not a discount
 
 ---
 

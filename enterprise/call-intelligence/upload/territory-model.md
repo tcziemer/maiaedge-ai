@@ -11,13 +11,13 @@
 |-------|---------|----------|----------|
 | **Tim Lieto** | `161889085` | Boston, MA | **30 US States** (East) |
 | **Ken Cunningham** | `162339176` | Nashville, TN | **20 US States + DC** (West) |
-| **Tim Ziemer** | `159350430` | — | **International** (all non-US) |
+| **Tim Ziemer** | `159350430` |  -  | **International** (all non-US) |
 
 ---
 
 ## State-to-Owner Mapping
 
-### Tim Lieto — East (30 States)
+### Tim Lieto  -  East (30 States)
 
 ```
 AL, AR, CT, DE, FL, GA, IA, IL, IN, KY,
@@ -25,14 +25,14 @@ LA, MA, MD, ME, MI, MN, MO, MS, NC, NH,
 NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV
 ```
 
-### Ken Cunningham — West (20 States + DC)
+### Ken Cunningham  -  West (20 States + DC)
 
 ```
 AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND,
 NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY
 ```
 
-### Tim Ziemer — International
+### Tim Ziemer  -  International
 
 All non-US countries.
 
@@ -58,7 +58,7 @@ Brightspeed operates in 20 states across both territories. HQ is Charlotte, NC �
 ### HubSpot Implementation
 
 - A HubSpot workflow normalizes state value variations on ingest (handles abbreviations, full names, etc.)
-- The `state` property reflects **HQ location** — not operational footprint
+- The `state` property reflects **HQ location**  -  not operational footprint
 - `hubspot_owner_id` is set based on the state-to-owner mapping
 
 ---
@@ -102,7 +102,7 @@ State count ≠ opportunity count. The TAM is split approximately 50/50.
 
 ```python
 TERRITORY_MAP = {
-    # Tim Lieto (East) — Owner ID: 161889085
+    # Tim Lieto (East)  -  Owner ID: 161889085
     'AL': '161889085', 'AR': '161889085', 'CT': '161889085', 'DE': '161889085',
     'FL': '161889085', 'GA': '161889085', 'IA': '161889085', 'IL': '161889085',
     'IN': '161889085', 'KY': '161889085', 'LA': '161889085', 'MA': '161889085',
@@ -112,7 +112,7 @@ TERRITORY_MAP = {
     'RI': '161889085', 'SC': '161889085', 'VA': '161889085', 'VT': '161889085',
     'WI': '161889085', 'WV': '161889085',
 
-    # Ken Cunningham (West) — Owner ID: 162339176
+    # Ken Cunningham (West)  -  Owner ID: 162339176
     'AK': '162339176', 'AZ': '162339176', 'CA': '162339176', 'CO': '162339176',
     'DC': '162339176', 'HI': '162339176', 'ID': '162339176', 'KS': '162339176',
     'MT': '162339176', 'ND': '162339176', 'NE': '162339176', 'NM': '162339176',
@@ -138,10 +138,10 @@ def get_owner(state_code: str) -> str:
 
 | Objection | Response |
 |-----------|----------|
-| "30 vs 20 seems uneven" | Ken has Texas and California — those two alone are larger than Tim's bottom 15 states combined |
+| "30 vs 20 seems uneven" | Ken has Texas and California  -  those two alone are larger than Tim's bottom 15 states combined |
 | "Why not split by state count?" | Optimized for balanced pipeline, not balanced maps. Ken's 20 states have the same TAM as Tim's 30 |
 | "Is this fair to Ken?" | Ken gets the fastest-growing data center markets in the country. Tim gets more dots on a map, Ken gets more growth potential |
-| "What about Nashville?" | Ken is based in Nashville — we gave him his home state so he can work local relationships |
+| "What about Nashville?" | Ken is based in Nashville  -  we gave him his home state so he can work local relationships |
 
 ---
 
@@ -152,6 +152,6 @@ def get_owner(state_code: str) -> str:
 | Kyle Blackwell | `159701452` | Sales Engineering | Provides technical pre-sales support, POC setup, technical validation for AEs |
 | Woody Acosta | `162281129` | Sales Support | Handles sales operations, pipeline management, deal administration |
 
-**Kyle Blackwell — Sales Engineering:** Works across both US territories and international. Tim Lieto and Ken Cunningham coordinate SE support requests through Kyle. Participates in technical discovery, RFPs, and proof-of-concept validation.
+**Kyle Blackwell  -  Sales Engineering:** Works across both US territories and international. Tim Lieto and Ken Cunningham coordinate SE support requests through Kyle. Participates in technical discovery, RFPs, and proof-of-concept validation.
 
-**Woody Acosta — Sales Support:** Provides deal administration, contract support, and sales operations. Works with all AEs on pipeline management, pricing coordination, and order processing.
+**Woody Acosta  -  Sales Support:** Provides deal administration, contract support, and sales operations. Works with all AEs on pipeline management, pricing coordination, and order processing.

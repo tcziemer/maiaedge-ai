@@ -7,14 +7,14 @@ description: "MaiaEdge contact discovery strategist. Finds the right people at t
 
 ## Purpose
 
-Find the right people at target accounts and identify gaps in contact coverage. This skill combines two capabilities: searching Apollo for new contacts to prospect, and auditing existing HubSpot contacts to assess coverage quality. The goal is to make sure every target account has the right mix of personas engaged — not just one name in the CRM.
+Find the right people at target accounts and identify gaps in contact coverage. This skill combines two capabilities: searching Apollo for new contacts to prospect, and auditing existing HubSpot contacts to assess coverage quality. The goal is to make sure every target account has the right mix of personas engaged  -  not just one name in the CRM.
 
 MaiaEdge sells infrastructure technology, so the buying committee typically involves network engineering, infrastructure/IT leadership, product/strategy, and procurement. Missing any of these personas means deals can stall without warning.
 
 ## Reference Files
 
-- **contact-schema.md** — Contact properties, lifecycle stages, enrichment sync mappings
-- **territory-model.md** — State-to-owner mapping for routing new contacts
+- **contact-schema.md**  -  Contact properties, lifecycle stages, enrichment sync mappings
+- **territory-model.md**  -  State-to-owner mapping for routing new contacts
 
 ---
 
@@ -84,9 +84,9 @@ COVERAGE ASSESSMENT
 | Persona | Status | Contact | Title | Last Contacted |
 |---------|--------|---------|-------|----------------|
 | Technical Champion | ✅ Found | [name] | [title] | [date] |
-| Business Sponsor | ❌ Gap | — | — | — |
-| Economic Buyer | ❌ Gap | — | — | — |
-| Procurement | ⚠️ Optional | — | — | — |
+| Business Sponsor | ❌ Gap |  -  |  -  |  -  |
+| Economic Buyer | ❌ Gap |  -  |  -  |  -  |
+| Procurement | ⚠️ Optional |  -  |  -  |  -  |
 
 COVERAGE SCORE: [N]/4 personas ([%])
 
@@ -135,6 +135,184 @@ ACTION:
 
 ---
 
+---
+
+### MODE 3: APOLLO + LINKEDIN HYBRID FILL (Guardian Mode)
+**Trigger:** "Fill persona gaps" or when CRM Guardian Job 5 runs
+
+**Approach:** Hybrid  -  Apollo for programmatic search, LinkedIn for validation. Apollo's direct search can return stale/wrong contacts. LinkedIn profiles are self-maintained and more accurate. Use Apollo to find candidates, then validate against LinkedIn before creating.
+
+**Tools required:** Apollo MCP + HubSpot MCP
+
+**Steps:**
+
+1. Pull target companies (Tier 1/2 from HubSpot where `account_tier` = `tier_1` or `tier_2`)
+2. For each company, run Mode 1 (HubSpot contact audit) to identify persona gaps
+3. For each persona gap:
+
+   a. **Apollo search:** Search by company domain + segment-specific titles (from persona table above) + VP/Director/C-Suite seniority. Filter: current employees only, verified email only. Skip unverified, unknown, or invalid email statuses.
+
+   b. **LinkedIn validation (if Apollo returns `linkedin_url`):**
+      - `web_fetch` the LinkedIn public profile URL
+      - **Company match check:** Verify the person's current company on LinkedIn matches the target account. If mismatch → skip this candidate (likely stale Apollo data), try next Apollo result.
+      - **Title correction:** Use LinkedIn's current title as source of truth over Apollo's title. If LinkedIn says "SVP, Network Engineering" but Apollo says "VP Engineering", use LinkedIn's version for `jobtitle`.
+
+   c. **Create or flag:**
+      - **LinkedIn validated** (company matches + verified email): Auto-create contact in HubSpot:
+        - `firstname`, `lastname`, `email`, `phone` from Apollo
+        - `jobtitle` from LinkedIn (source of truth, corrected)
+        - `linkedin_url` from Apollo
+        - `lifecyclestage` = `lead`
+        - `hubspot_owner_id` = company owner (inherited)
+        - `customer_segment` = company segment (inherited)
+        - `company` = company name
+        - `hs_marketable_status` = `"false"` (non-marketing — MANDATORY default for every auto-created contact; prevents silent inflation of the paid marketing contact tier)
+      - **Apollo data only** (no LinkedIn URL from Apollo): Auto-create with Apollo data + `hs_marketable_status = "false"`. Flag in the daily email report as `LinkedIn unverified — Apollo data only` so Cooper can spot-check. No HubSpot note is created.
+      - **LinkedIn shows different company:** Skip this candidate. Try next Apollo result.
+      - **When running under CRM Guardian:** The Guardian's safety tier system and deal protection rule apply. See crm-guardian skill for the authoritative tier definitions.
+
+   d. **Flag remaining gaps for reps:** If Apollo couldn't find a verified match for a persona gap (no results, all failed LinkedIn validation, or no verified email):
+      ```
+      ACTION NEEDED: [Company Name]  -  missing [Persona]
+      Suggested LinkedIn search: Go to [company] LinkedIn page → People → filter by [title keywords from persona table]
+      Then: Apollo extension → verify email → add to HubSpot
+      Owner: [rep name]
+      ```
+
+4. Deduplicate all Apollo results against existing HubSpot contacts by email before creating
+
+5. **Opt-out / suppression check (MANDATORY before creating any contact):**
+
+   Before any Apollo contact is created in HubSpot, check the proposed email against suppression signals. Use HubSpot MCP `search_crm_objects` on CONTACT filtered by the proposed email. If a match exists with any of the following, DO NOT create and DO NOT re-prospect:
+   - `hs_email_optout = true` (global opt-out)
+   - `hs_email_hard_bounced = true` (hard-bounced; emailing again damages sender reputation)
+   - `flagged_for_deletion = true` (explicitly flagged by an earlier Guardian run  -  recreating defeats the purpose)
+   - `hs_lifecyclestage_other_date` indicates previously unsubscribed lifecycle
+   - Contact exists with a HubSpot note containing `suppressed`, `unsubscribe`, or `do not contact`
+
+   If a suppression match is found, log as a skipped candidate in the run report: `SUPPRESSED: [email] at [company]  -  reason: [signal]`. Surface to Cooper so he can verify the suppression is intentional (occasionally the signal is stale).
+
+   This check also applies to Apollo-returned emails that do NOT yet exist in HubSpot: if Apollo's record shows `status = opted_out` or `email_status = unsubscribed`, skip that candidate.
+
+**Output:**
+```
+PERSONA GAP FILL REPORT  -  [Date]
+===================================
+
+CONTACTS AUTO-CREATED (LinkedIn validated)
+| Company | Contact | Title (from LinkedIn) | Email | Persona |
+|---------|---------|----------------------|-------|---------|
+
+CONTACTS AUTO-CREATED (Apollo only  -  LinkedIn unverified)
+| Company | Contact | Title | Email | Persona |
+|---------|---------|-------|-------|---------|
+
+DEAL-PROTECTED (flagged, not created  -  account has open deal)
+| Company | Contact | Title | Email | Deal Name |
+|---------|---------|-------|-------|-----------|
+
+GAPS FLAGGED FOR REPS (Apollo couldn't fill)
+| Company | Missing Persona | Suggested Titles | Owner |
+|---------|-----------------|------------------|-------|
+
+SUMMARY: [N] companies audited, [N] gaps found, [N] auto-created (LinkedIn), [N] auto-created (Apollo only), [N] flagged for reps
+```
+
+---
+
+### MODE 4: JOB CHANGE DETECTION
+**Trigger:** "Check for job changes" or "Contact audit" or when CRM Guardian Job 6 runs
+
+**Tools required:** Apollo MCP + HubSpot MCP
+
+**Steps:**
+
+1. Pull contacts at Tier 1/2 accounts AND contacts at accounts with open deals
+2. For each contact with an email address:
+
+   a. **Apollo check:** Search Apollo by email to check current employment status
+
+   b. **LinkedIn cross-check:** If Apollo returns a LinkedIn URL and the contact's employment status is uncertain, `web_fetch` the LinkedIn profile to verify current company
+
+   c. If contact is confirmed no longer at the associated company (Apollo shows different company OR LinkedIn shows different company):
+      - Surface the departure in the daily email report with: contact name, former company, detected departure date, Apollo's reported current role, LinkedIn's reported current company/title. The old contact record remains in HubSpot unchanged (the rep may still want to reach out via a different channel); the report is the audit trail. No HubSpot note is written on the contact record.
+      - **Find replacement:** Search Apollo for same persona (based on original contact's title mapping to persona table), same company, current employee, verified email
+      - **LinkedIn validate replacement:** If Apollo returns a LinkedIn URL for the replacement, `web_fetch` to confirm company match + get accurate title
+      - **Opt-out / suppression check (MANDATORY):** Before creating the replacement, apply the same suppression check as Mode 3 step 5. Check the proposed email against HubSpot for any existing record with `hs_email_optout = true`, `hs_email_hard_bounced = true`, `flagged_for_deletion = true`, or suppression notes. Also check Apollo's own opt-out status on the returned email. If suppressed: do not create, log as skipped candidate, flag the persona gap for the rep instead.
+      - If validated replacement found AND no suppression hits → auto-create in HubSpot with LinkedIn-corrected title. Set `hs_marketable_status = "false"` (non-marketing default for every auto-created contact).
+      - If replacement found but no LinkedIn URL → auto-create with Apollo data + `hs_marketable_status = "false"`. Flag in the run report as `LinkedIn unverified — Apollo data only`.
+      - If no replacement found → flag for rep:
+        ```
+        ACTION NEEDED: [Company]  -  [contact name] departed, [Persona] gap
+        Suggested LinkedIn search: Go to [company] LinkedIn page → People → filter by [title keywords]
+        Then: Apollo extension → verify email → add to HubSpot
+        Owner: [rep name]
+        ```
+      - **When running under CRM Guardian:** The Guardian's safety tier system and deal protection rule apply. See crm-guardian skill for the authoritative tier definitions.
+
+**Output:**
+```
+JOB CHANGE DETECTION REPORT  -  [Date]
+=======================================
+
+DEPARTURES DETECTED
+| Contact | Former Company | Persona | Now At | Source |
+|---------|---------------|---------|--------|--------|
+
+REPLACEMENTS AUTO-CREATED
+| Company | New Contact | Title | Email | Replaced | Validated |
+|---------|-------------|-------|-------|----------|-----------|
+
+GAPS FLAGGED FOR REPS (no replacement found)
+| Company | Departed Contact | Persona | Owner |
+|---------|-----------------|---------|-------|
+
+DEAL-PROTECTED (replacement flagged, not created)
+| Company | New Contact | Deal Name |
+|---------|-------------|-----------|
+
+SUMMARY: [N] contacts checked, [N] departures, [N] replacements created, [N] gaps flagged
+```
+
+---
+
+### MODE 5: BULK PERSONA COVERAGE REPORT
+**Trigger:** "Persona coverage report" or "How are our accounts covered?" or "Contact coverage"
+
+**Steps:**
+
+1. Pull all Tier 1/2 companies from HubSpot
+2. For each company, run Mode 1 (HubSpot contact audit)
+3. Produce aggregate report
+
+**Output:**
+```
+PERSONA COVERAGE REPORT  -  [Date]
+===================================
+
+COVERAGE BY TIER
+| Tier | Accounts | Avg Personas | 3+ Personas | Gaps |
+|------|----------|-------------|-------------|------|
+
+COVERAGE BY SEGMENT
+| Segment | Accounts | Avg Personas | Most Common Gap |
+|---------|----------|-------------|-----------------|
+
+PERSONA GAP HEAT MAP
+| Persona | Missing At | % of Accounts |
+|---------|-----------|---------------|
+| Technical Champion | [N] | [X]% |
+| Business Sponsor | [N] | [X]% |
+| Economic Buyer | [N] | [X]% |
+| Procurement | [N] | [X]% |
+
+PRIORITY: Tier 1 accounts with open deals and <2 contacts
+| Company | Contacts | Missing Personas | Deal | Owner |
+|---------|----------|------------------|------|-------|
+```
+
+---
+
 ## When to Use This Skill
 
 Trigger on any of these patterns:
@@ -144,5 +322,16 @@ Trigger on any of these patterns:
 - "Do we have coverage at [company]?" or "Contact gaps at [company]"
 - "Is [company] ready for multi-threaded outreach?" or "Who's the economic buyer?"
 - "Check contact coverage" or "Audit our contacts"
-- Any mention of: contact map, buying committee, persona coverage, contact gaps, multi-threading
+- "Fill persona gaps" or "Find missing contacts" or "Apollo search"
+- "Check for job changes" or "Has anyone left?"
+- "Persona coverage report" or "How are our accounts covered?"
+- Any mention of: contact map, buying committee, persona coverage, contact gaps, multi-threading, job changes, Apollo, LinkedIn validation
+
+---
+
+## Skill Chain
+
+- **Reads from:** HubSpot (existing contacts + company associations), Apollo (prospecting)
+- **Outputs to:** HubSpot (new contacts created with persona mapping)
+- **Feeds into:** sdr-pipeline, cold-email (newly discovered contacts become outreach targets)
 

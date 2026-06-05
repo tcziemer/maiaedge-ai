@@ -1,3 +1,8 @@
+---
+name: call-prep
+description: "MaiaEdge call and meeting preparation skill. Use when preparing for meetings or calls with prospects. Produces discovery questions, pain validation, talk tracks by persona, objection handling, and proof points. Trigger on upcoming meeting, call prep, meeting prep, discovery questions, talk tracks, or preparing for a conversation with a prospect."
+---
+
 # Call Prep Skill
 
 Triggers automatically when preparing for meetings or calls with MaiaEdge prospects.
@@ -13,10 +18,10 @@ Triggers automatically when preparing for meetings or calls with MaiaEdge prospe
 
 For deeper context during call preparation, consult:
 - **Segment cheatsheets:** `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
-- **competitive-positioning.md** — Battle cards, objection handling by competitor
-- **proof-points.md** — Customer stories and public quotes (Arvig, RevNet, NTT, IENTC, Ocean Networks)
-- **pricing-reference.md** — PBC/PCE SKUs, term pricing, discount policy
-- **call-intelligence.md** — Patterns from past calls organized by segment
+- **competitive-positioning.md**  -  Battle cards, objection handling by competitor
+- **proof-points.md**  -  Customer stories and public quotes (Arvig, RevNet, NTT, IENTC, Ocean Networks)
+- **pricing-reference.md**  -  PBC/PCE SKUs, term pricing, discount policy
+- **call-intelligence.md**  -  Patterns from past calls organized by segment
 
 ## Meeting Prep Framework
 
@@ -76,7 +81,7 @@ Always start by understanding and respecting what the prospect has accomplished.
 - "Your power and space are the asset. What does the connectivity look like?" (Signal: enterprise switches, single uplinks = buying signal)
 - "Bitcoin doesn't care about latency, but AI does. How are you handling that transition?"
 
-*Large-Scale GPU (CoreWeave, Lambda, Crusoe):*
+*Large-Scale GPU (Lambda, Crusoe, Nebius):*
 - "Your network team is building. What tooling do they have for cross-carrier orchestration?"
 - "At 30+ facilities, are you automating connectivity or managing each site individually?"
 
@@ -90,26 +95,38 @@ After initial discovery, validate with specific operational questions:
 - "How many people touch a new circuit activation?"
 - "What's the cost of a provisioning delay in terms of deals or SLA penalties?"
 
+<!-- Canonical source: context/copy-strategy/segment-messaging.md -->
 ### 4. Value Prop Mapping
 
-Map MaiaEdge value to THEIR specific situation:
+Map MaiaEdge value to THEIR specific situation. Pillars are segment-specific:
 
-**Three pillars:** Automate, Federate, Monetize.
+**For full value prop matrices per segment, see context/copy-strategy/segment-messaging.md**
+
+| Segment | Pillars |
+|---------|---------|
+| Fiber | EXTEND REACH \| MONETIZE \| AUTOMATE |
+| Network Op / MSP | AUTOMATE \| EXTEND REACH \| MONETIZE |
+| Colo | INSTANT \| MONETIZE \| REACH |
+| AI Colo | DETERMINISTIC \| INSTANT \| MONETIZE |
+| Neocloud | DETERMINISTIC \| PRIVATE \| INSTANT |
 
 - **Automate:** "Activate deterministic private paths over fiber or DIA instantly. No BGP, no MPLS, no routing complexity."
-- **Federate:** "Extend reach through seamless carrier-to-carrier partnerships while maintaining visibility and customer sovereignty."
+- **Extend Reach:** "Extend reach through seamless carrier-to-carrier partnerships while maintaining visibility and customer sovereignty."
 - **Monetize:** "Turn infrastructure into revenue. Provide services beyond your footprint, monetize idle fiber, offer cloud connectivity under your brand."
+- **Deterministic:** "Deterministic paths that eliminate the network as a variable for AI workloads."
+- **Private:** "Private cloud connectivity that cuts egress costs 60-80% vs public internet."
+- **Instant:** "Instant customer on-ramp. New facilities go live in minutes, not weeks."
 
 ### 5. Proof Points (When to Use Each)
 
 | Proof Point | Best For | Trigger |
 |-------------|----------|---------|
-| Arvig — "almost instantaneous" provisioning | Speed objections, fiber operators | "How fast can you really provision?" |
-| RevNet — "Megaport capability between providers" | NaaS comparison, multi-carrier | "Why not just use Megaport?" |
-| NTT — Network simplification, PoP acceleration | Tier 1 credibility, scale | "Who else at our scale uses this?" |
-| IENTC — 800+ cell towers, 20+ data centers | Mobile backhaul, massive scale | "Can this handle our volume?" |
-| Equinix — "Revolutionary and creative" | Technical skeptics, credibility | "Is this proven technology?" |
-| Ocean Networks — Federation to INDATEL | Geographic isolation, partnership | "How does federation actually work?" |
+| Arvig  -  "almost instantaneous" provisioning | Speed objections, fiber operators | "How fast can you really provision?" |
+| RevNet  -  "Megaport capability between providers" | NaaS comparison, multi-carrier | "Why not just use Megaport?" |
+| NTT  -  Network simplification, PoP acceleration | Tier 1 credibility, scale | "Who else at our scale uses this?" |
+| IENTC  -  800+ cell towers, 20+ data centers | Mobile backhaul, massive scale | "Can this handle our volume?" |
+| Equinix  -  "Revolutionary and creative" | Technical skeptics, credibility | "Is this proven technology?" |
+| Ocean Networks  -  Cross-carrier connectivity to INDATEL | Geographic isolation, partnership | "How does cross-carrier connectivity actually work?" |
 
 ### 6. Talk Tracks by Persona
 
@@ -126,10 +143,10 @@ Map MaiaEdge value to THEIR specific situation:
 "You're sitting on infrastructure that should be generating more revenue. MaiaEdge lets you monetize what you already own and extend your reach without building new infrastructure."
 
 **Neocloud CEO / Founder:**
-"Groq built 35 Equinix POPs in 6 months. You need the same result without the budget or the network team. MaiaEdge gives you end-to-end visibility across every facility, private cloud on-ramps that cut egress 60-80%, and deterministic paths. No WAN team required."
+"**Master pitch:** Connecting distributed AI infrastructure simply. You need multi-tenancy, deterministic performance, private cloud connectivity that cuts your customers' egress 60-80%, and instant on-ramp for new facilities. No WAN team required. OPERATOR sovereignty banned. DATA sovereignty ('sovereign by design', 'paths you control') allowed. No network jargon (VLAN, Q-in-Q)."
 
 **Neocloud CTO / VP Eng:**
-"You're probably seeing 15-40ms of network variance that nobody's measuring. That compounds per token on inference. We give you hop-by-hop telemetry across paths you don't own, and deterministic paths that eliminate the network as a variable."
+"You're probably seeing 15-40ms of network variance that nobody's measuring. That compounds per token on inference. We give you hop-by-hop telemetry across paths you don't own, and deterministic paths that eliminate the network as a variable. No VLAN coordination, no Q-in-Q complexity."
 
 **Neocloud VP Infrastructure:**
 "Every new facility is a multi-week connectivity project right now. With MaiaEdge, your team provisions paths in minutes. Same connectivity at any colo, unified fabric across all your locations."
@@ -154,5 +171,5 @@ For colos and fiber operators interested in cloud connectivity:
 - 10G deployment: Breaks even at ~4 customers, ~47% gross margin at full utilization
 - 100G deployment: ~59% gross margin at 60% utilization, ~75% at full utilization
 - Single 100G port generates 46K+ USD/month contribution at full utilization
-- Multi-cloud without BGP complexity — no cloud routers needed
+- Multi-cloud without BGP complexity  -  no cloud routers needed
 - Provider keeps full sovereignty: their portal, pricing, SLAs, customer relationships

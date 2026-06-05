@@ -36,21 +36,21 @@ MaiaEdge sells carrier infrastructure to companies that own and operate physical
 
 | Source | Hit Rate | Best Segments | Why It Works |
 |--------|----------|---------------|--------------|
-| Conference attendees (PTC, NANOG, Capacity) | **85-92%** | All segments | Self-selecting audience — attendees ARE the industry |
+| Conference attendees (PTC, NANOG, Capacity) | **85-92%** | All segments | Self-selecting audience  -  attendees ARE the industry |
 | FCC Broadband Data Collection | **75-85%** | Fiber Operators | Legal requirement to file if you own fiber infrastructure |
 | PeeringDB Facilities | **70-80%** | Colo, Network | Requires actual facility or network to register |
-| State PUC CLEC/IXC Lists | **70-80%** | Fiber Operators | Licensed carriers only — regulatory barrier filters non-operators |
+| State PUC CLEC/IXC Lists | **70-80%** | Fiber Operators | Licensed carriers only  -  regulatory barrier filters non-operators |
 | DataCenterMap | **60-70%** | Colocation | Facility-focused with ownership tracking |
 | Cloudscene | **60-70%** | Colo, Network | Data center + network presence mapping |
 | Trade Association Directories | **55-75%** | Varies by assoc. | Membership indicates active industry participation |
-| ZoomInfo/Apollo (broad filters) | **27-51%** | Last resort only | Too broad — captures consumers + providers equally |
+| ZoomInfo/Apollo (broad filters) | **27-51%** | Last resort only | Too broad  -  captures consumers + providers equally |
 
-### Why Broad Filters Fail — Validated Data
+### Why Broad Filters Fail  -  Validated Data
 
 A January 2026 ZoomInfo search using Industry = "Telecommunications" + description keywords yielded:
 - 544 total records processed
 - Only **47 (8.6%)** classified as Colocation Operators
-- **232 (43%)** classified as Enterprise consumers — NOT infrastructure providers
+- **232 (43%)** classified as Enterprise consumers  -  NOT infrastructure providers
 - Misclassified companies included: AI compute buyers (Together AI, Vast AI), telecom software vendors, research firms, banks, law firms, and healthcare organizations
 
 **The takeaway:** "Telecommunications" as an industry filter captures everyone who *uses* telecom, not just who *provides* it. The broad search queries in each segment section below are designed to mitigate this by combining industry filters with infrastructure-ownership keywords.
@@ -118,15 +118,15 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 
 | Search Strategy | Filters |
 |-----------------|---------|
-| **Company search — direct** | Industry: Telecommunications + Keywords: "colocation" OR "data center operator" + Company size: 11-500 |
-| **People search — reverse engineer companies** | Title: "VP Data Center Operations" OR "Director of Colocation" OR "VP Interconnection" → export their companies |
+| **Company search  -  direct** | Industry: Telecommunications + Keywords: "colocation" OR "data center operator" + Company size: 11-500 |
+| **People search  -  reverse engineer companies** | Title: "VP Data Center Operations" OR "Director of Colocation" OR "VP Interconnection" → export their companies |
 | **Job posting search** | Search: "cross-connect technician" OR "data center technician" OR "colocation" → companies posting these roles are operators |
 
 ---
 
 ### 2.2 Primary Sourcing Websites (Ranked by Hit Rate)
 
-#### PeeringDB Facilities (peeringdb.com) — GOLD STANDARD
+#### PeeringDB Facilities (peeringdb.com)  -  GOLD STANDARD
 
 | Attribute | Detail |
 |-----------|--------|
@@ -134,11 +134,11 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Estimated Volume** | ~1,200 US facility listings |
 | **Cost** | Free (API or web export) |
 | **Access** | peeringdb.com/advanced_search → Filter: info_type = Facility, Country = US |
-| **API Access** | peeringdb.com/api — Programmatic export for bulk pulls |
+| **API Access** | peeringdb.com/api  -  Programmatic export for bulk pulls |
 | **Why It Works** | You cannot list a facility on PeeringDB without it existing. Registration requires technical details (IX presence, carrier count). This is infrastructure-verified data. |
 | **What You Get** | Facility name, operating company, address, city/state, carrier count, IX presence, website |
 | **Navigation Tips** | Use Advanced Search to filter by country and facility type. Export results as CSV. Cross-reference company names against existing CRM before enrichment. |
-| **Overlap Risk** | Medium-High — Many already in CRM from previous pulls. Always dedupe first. |
+| **Overlap Risk** | Medium-High  -  Many already in CRM from previous pulls. Always dedupe first. |
 
 #### DataCenterMap (datacentermap.com)
 
@@ -150,8 +150,8 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Access** | datacentermap.com → Browse by country → United States → Browse by state |
 | **Why It Works** | Facility-focused listings that track ownership. Less rigorous than PeeringDB but broader coverage of smaller operators. |
 | **What You Get** | Facility name, operator, location, facility type indicators |
-| **Navigation Tips** | Browse state-by-state for systematic coverage. Useful for finding small/independent colos not on PeeringDB. Cross-reference ownership carefully — some listings show the facility name, not the operating company. |
-| **Overlap Risk** | Medium — Significant overlap with PeeringDB. Run dedup before enrichment. |
+| **Navigation Tips** | Browse state-by-state for systematic coverage. Useful for finding small/independent colos not on PeeringDB. Cross-reference ownership carefully  -  some listings show the facility name, not the operating company. |
+| **Overlap Risk** | Medium  -  Significant overlap with PeeringDB. Run dedup before enrichment. |
 
 #### Cloudscene (cloudscene.com)
 
@@ -164,7 +164,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Why It Works** | Maps both data center presence AND network provider presence at each facility. Useful for understanding interconnection density. |
 | **What You Get** | Data center name, operator, location, network providers present, carrier density score |
 | **Navigation Tips** | The network provider overlay is the unique value here. Filter for facilities with 5+ network providers for highest-priority prospects. |
-| **Unique Signal** | Carrier density score — Higher density = more interconnection potential = stronger MaiaEdge fit |
+| **Unique Signal** | Carrier density score  -  Higher density = more interconnection potential = stronger MaiaEdge fit |
 
 #### SubmarineCable (submarinecable.com)
 
@@ -178,7 +178,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **What You Get** | Landing station name, operator, cables served, location |
 | **Unique Signal** | Submarine cable presence = international traffic hub = high interconnection value |
 
-#### Data Center Hawk (datacenterhawk.com) — PAID
+#### Data Center Hawk (datacenterhawk.com)  -  PAID
 
 | Attribute | Detail |
 |-----------|--------|
@@ -187,7 +187,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Cost** | Subscription required |
 | **Why It Works** | Tracks facility-level data including power capacity (MW), square footage, and ownership. Best source for understanding facility scale. |
 | **What You Get** | Facility details, owner/operator, power capacity, square footage, market analysis |
-| **Unique Signal** | Power capacity (MW) is a strong scale indicator — >2MW suggests mid-size+ operator worth pursuing |
+| **Unique Signal** | Power capacity (MW) is a strong scale indicator  -  >2MW suggests mid-size+ operator worth pursuing |
 
 #### Baxtel (baxtel.com)
 
@@ -198,7 +198,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Cost** | Free |
 | **Why It Works** | Curated list of data center facilities. Smaller than PeeringDB but may catch operators others miss, particularly edge/smaller facilities. |
 
-#### Data Center World Attendees (datacenterworld.com) — PAID
+#### Data Center World Attendees (datacenterworld.com)  -  PAID
 
 | Attribute | Detail |
 |-----------|--------|
@@ -213,7 +213,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 
 ### 2.3 Qualification & Infrastructure Signals
 
-#### ✅ Definitive Indicators (95%+ confidence — this IS a colo operator)
+#### ✅ Definitive Indicators (95%+ confidence  -  this IS a colo operator)
 - Listed on PeeringDB as a Facility (not just Network)
 - Listed on DataCenterMap or Cloudscene as colocation provider
 - Website has a "Facilities" or "Locations" page with physical data center addresses
@@ -225,7 +225,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 - Carrier-neutral positioning (multiple carrier options for tenants)
 - Job postings for: Data Center Technician, Cross-Connect Technician, Facility Engineer
 
-#### ❌ Disqualifying Signals (Not a colo — reclassify or exclude)
+#### ❌ Disqualifying Signals (Not a colo  -  reclassify or exclude)
 - Measures network by route miles → **Fiber Operator**
 - Primary business is managed services/reselling → **MSP**
 - Builds software/platforms, not infrastructure → **Software Vendor (Exclude)**
@@ -256,7 +256,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 
 | Signal | Where to Monitor | Why It Matters |
 |--------|-----------------|----------------|
-| New CTO/VP Engineering hired (last 90 days) | LinkedIn Sales Navigator, ZoomInfo Alerts | 90-day evaluation window — new leaders greenlight new initiatives |
+| New CTO/VP Engineering hired (last 90 days) | LinkedIn Sales Navigator, ZoomInfo Alerts | 90-day evaluation window  -  new leaders greenlight new initiatives |
 | Hyperscaler region announced within 50 miles | AWS/Azure/GCP region announcements, press releases | Immediate cloud on-ramp revenue opportunity for nearby colos |
 | Facility expansion announcement | Company press releases, Data Center Hawk, industry press | Investment in growth = budget for new capabilities |
 | M&A activity (acquisition or being acquired) | Crunchbase, SEC filings, press releases | Integration needs + network consolidation = automation demand |
@@ -268,7 +268,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 |--------|-----------------|---------------|
 | New service launch (cloud connectivity, SD-WAN) | Company press releases, LinkedIn | Expanding beyond space/power = MaiaEdge fit |
 | Conference speaking engagement | Event agendas, LinkedIn | Thought leadership budget indicates investment appetite |
-| Mentions Megaport/Equinix challenges on social | LinkedIn, industry forums | Pain point validation — margin leakage to NaaS |
+| Mentions Megaport/Equinix challenges on social | LinkedIn, industry forums | Pain point validation  -  margin leakage to NaaS |
 | Tenant growth announcements | Press releases, facility reports | More tenants = more cross-connect demand |
 | Currently using Megaport or Equinix Fabric | Website, press releases, PeeringDB | Margin recapture + sovereignty opportunity |
 
@@ -307,7 +307,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | `"regional fiber" "dark fiber" OR "DWDM" OR "wavelength"` | Medium precision | Technology terms specific to fiber operators |
 | `site:ntca.org "[COMPANY]"` OR `site:fiberbroadband.org "[COMPANY]"` | Very high precision | Trade association member verification |
 | `"[STATE] broadband" "fiber" "provider" -residential -FTTH` | Medium precision | State-level fiber provider discovery, excludes pure residential |
-| `"fiber IRU" OR "indefeasible right of use" "[STATE]"` | High precision | IRU is a dark fiber lease term — only fiber operators use it |
+| `"fiber IRU" OR "indefeasible right of use" "[STATE]"` | High precision | IRU is a dark fiber lease term  -  only fiber operators use it |
 | `"DWDM" OR "dense wavelength" "provider" "[STATE]"` | High precision | DWDM technology = optical fiber network operator |
 
 #### Apollo / ZoomInfo Optimized Filters
@@ -338,8 +338,8 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 
 | Search Strategy | Filters |
 |-----------------|---------|
-| **Company search — direct** | Industry: Telecommunications + Keywords: "fiber" AND ("route miles" OR "dark fiber" OR "wholesale") + Company size: 51-5,000 |
-| **People search — reverse engineer companies** | Title: "VP Network" OR "VP Transport" OR "Director of OSP" OR "VP Fiber" OR "Optical Network Engineer" → export their companies |
+| **Company search  -  direct** | Industry: Telecommunications + Keywords: "fiber" AND ("route miles" OR "dark fiber" OR "wholesale") + Company size: 51-5,000 |
+| **People search  -  reverse engineer companies** | Title: "VP Network" OR "VP Transport" OR "Director of OSP" OR "VP Fiber" OR "Optical Network Engineer" → export their companies |
 | **Job posting search** | Search: "OSP technician" OR "fiber splicer" OR "DWDM engineer" OR "optical engineer" → companies posting these are fiber operators |
 | **Trade association members** | Search companies that follow NTCA, Fiber Broadband Association, or ACA Connects pages |
 
@@ -347,7 +347,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 
 ### 3.2 Primary Sourcing Websites (Ranked by Hit Rate)
 
-#### FCC Broadband Data Collection (broadbandmap.fcc.gov) — GOLD STANDARD
+#### FCC Broadband Data Collection (broadbandmap.fcc.gov)  -  GOLD STANDARD
 
 | Attribute | Detail |
 |-----------|--------|
@@ -357,7 +357,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Access** | broadbandmap.fcc.gov → Download bulk data files. Replaced Form 477 in 2023. |
 | **Why It Works** | Legal requirement: you cannot file with the FCC unless you own broadband infrastructure. This is the most authoritative fiber operator registry in the US. |
 | **What You Get** | Provider name, technology type (fiber/cable/fixed wireless), geographic coverage areas, brand names used |
-| **Navigation Tips** | Filter for technology_code = Fiber (50/60 series). Focus on providers with "fiber" as primary technology. Cross-reference brand names — some file under parent company while operating under a DBA. |
+| **Navigation Tips** | Filter for technology_code = Fiber (50/60 series). Focus on providers with "fiber" as primary technology. Cross-reference brand names  -  some file under parent company while operating under a DBA. |
 | **Key Caveat** | Includes ISPs that deliver fiber to homes (FTTH). Filter for wholesale/commercial providers vs. purely residential ISPs. Look for providers serving business/enterprise, not just residential. |
 
 #### State PUC CLEC/IXC Lists (varies by state)
@@ -370,10 +370,10 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Access** | Search: "[State] Public Utility Commission CLEC list" or "[State] PUC IXC carriers". Varies significantly by state. |
 | **Why It Works** | CLEC (Competitive Local Exchange Carrier) and IXC (Interexchange Carrier) licensing requires actual carrier operations. These are verified, licensed carriers. |
 | **What You Get** | Carrier name, license type (CLEC/IXC), service territory, sometimes contact information |
-| **Navigation Tips** | Labor-intensive but high-quality. Prioritize top-10 states by fiber density: Texas, California, Florida, New York, Ohio, Pennsylvania, Illinois, Georgia, Virginia, North Carolina. Many states publish PDFs — extract to spreadsheet for processing. |
-| **Overlap Risk** | Low — Many small/regional carriers on PUC lists are NOT in PeeringDB or major databases. High net-new potential. |
+| **Navigation Tips** | Labor-intensive but high-quality. Prioritize top-10 states by fiber density: Texas, California, Florida, New York, Ohio, Pennsylvania, Illinois, Georgia, Virginia, North Carolina. Many states publish PDFs  -  extract to spreadsheet for processing. |
+| **Overlap Risk** | Low  -  Many small/regional carriers on PUC lists are NOT in PeeringDB or major databases. High net-new potential. |
 
-#### Fiber Locator (fiberlocator.com) — PAID
+#### Fiber Locator (fiberlocator.com)  -  PAID
 
 | Attribute | Detail |
 |-----------|--------|
@@ -382,7 +382,7 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | **Cost** | Subscription required |
 | **Why It Works** | Interactive fiber route maps that show actual fiber routes on a map. You can see WHO has fiber WHERE. Essential for geographic coverage analysis. |
 | **What You Get** | Fiber provider name, route maps, building connectivity, lit building locations |
-| **Unique Signal** | Route density analysis — shows where fiber operators have concentrated infrastructure. Useful for territory planning. |
+| **Unique Signal** | Route density analysis  -  shows where fiber operators have concentrated infrastructure. Useful for territory planning. |
 
 #### Trade Association Directories
 
@@ -392,9 +392,9 @@ Use these queries when niche sources are exhausted or when you need to supplemen
 | Fiber Broadband Assoc (fiberbroadband.org) | 60-70% | ~400 members | Fiber-first companies | Directory on website |
 | ACA Connects (acaconnects.org) | 60-70% | ~600 members | Independent carriers/cable operators | Member directory |
 
-Trade association membership indicates active participation in the fiber industry. NTCA members are particularly valuable — these are rural fiber operators often missed by larger databases. Many are family-owned or cooperative-model companies with 500-10,000 route miles.
+Trade association membership indicates active participation in the fiber industry. NTCA members are particularly valuable  -  these are rural fiber operators often missed by larger databases. Many are family-owned or cooperative-model companies with 500-10,000 route miles.
 
-#### PeeringDB Networks — Filtered for Fiber (peeringdb.com)
+#### PeeringDB Networks  -  Filtered for Fiber (peeringdb.com)
 
 | Attribute | Detail |
 |-----------|--------|
@@ -405,7 +405,7 @@ Trade association membership indicates active participation in the fiber industr
 | **Why It Works** | NSP and Cable registrations capture many fiber operators with network presence. Lower hit rate than FCC because it also captures transit/CDN companies. |
 | **Filter Strategy** | Cross-reference with FCC BDC data. Companies appearing in BOTH are very high confidence fiber operators. |
 
-#### Capacity Conference Attendees (capacitymedia.com) — PAID
+#### Capacity Conference Attendees (capacitymedia.com)  -  PAID
 
 | Attribute | Detail |
 |-----------|--------|
@@ -454,7 +454,7 @@ Trade association membership indicates active participation in the fiber industr
 | Revenue | <$25M | $25M-$200M | $200M-$500M | $500M+ |
 | State Coverage | 1-2 | 2-5 | 5-10 | 10+ |
 
-**Sweet spot for MaiaEdge:** 500-50,000 route miles (regional operators). Fiber utilization of 30-70% represents significant stranded capacity — monetization is a key value proposition.
+**Sweet spot for MaiaEdge:** 500-50,000 route miles (regional operators). Fiber utilization of 30-70% represents significant stranded capacity  -  monetization is a key value proposition.
 
 ---
 
@@ -463,7 +463,7 @@ Trade association membership indicates active participation in the fiber industr
 | Signal | Where to Monitor | Why It Matters |
 |--------|-----------------|----------------|
 | NNI/partnership announcement | Press releases, LinkedIn, industry news | Active federation = direct MaiaEdge use case |
-| Lost multi-state deal (mentioned in earnings/calls) | SEC filings, earnings calls, industry reports | Footprint limitation pain — federation solves this |
+| Lost multi-state deal (mentioned in earnings/calls) | SEC filings, earnings calls, industry reports | Footprint limitation pain  -  federation solves this |
 | Type 2 circuit procurement increase | Industry reports, job postings for circuit provisioning | Leased capacity growing = visibility black hole growing |
 | 30-70% fiber utilization mentioned | Earnings calls, investor presentations, press | Stranded capacity = monetization opportunity |
 | New CTO/VP Network hire | LinkedIn Sales Navigator | 90-day window for new technology decisions |
@@ -471,7 +471,7 @@ Trade association membership indicates active participation in the fiber industr
 | Fiber build/expansion announcement | Press releases, state broadband offices, NTCA news | Growth investment = budget for new platform capabilities |
 
 #### What to Look for on Their Website
-- **Network map:** Shows owned fiber routes. Look at geographic density vs. gaps — gaps indicate where they need partners (federation opportunity).
+- **Network map:** Shows owned fiber routes. Look at geographic density vs. gaps  -  gaps indicate where they need partners (federation opportunity).
 - **"Partners" or "Wholesale" page:** Do they have carrier-to-carrier relationships? Existing NNIs = federation pain point validation.
 - **Services:** Dark fiber + lit services + wavelengths = full-service fiber operator. Dark fiber only = simpler operator, still good fit.
 - **Route mile count:** 500-50,000 is the sweet spot. <500 may be too small. >100K = Network Operator.
@@ -524,7 +524,7 @@ Trade association membership indicates active participation in the fiber industr
 
 | Search Strategy | Filters |
 |-----------------|---------|
-| **People search — reverse engineer** | Title: "VP Network Engineering" OR "Chief Network Officer" OR "VP Transport" OR "Director Network Architecture" at companies with 500+ employees in Telecommunications |
+| **People search  -  reverse engineer** | Title: "VP Network Engineering" OR "Chief Network Officer" OR "VP Transport" OR "Director Network Architecture" at companies with 500+ employees in Telecommunications |
 | **Job posting search** | Search: "BGP engineer" OR "MPLS engineer" OR "network architect" + company size 500+ → companies posting these are carriers |
 | **Group membership** | Members of NANOG, MEF, or PTC groups on LinkedIn |
 
@@ -532,7 +532,7 @@ Trade association membership indicates active participation in the fiber industr
 
 ### 4.2 Primary Sourcing Websites (Ranked by Hit Rate)
 
-#### PTC Conference Attendees (ptc.org) — HIGHEST PROVEN HIT RATE
+#### PTC Conference Attendees (ptc.org)  -  HIGHEST PROVEN HIT RATE
 
 | Attribute | Detail |
 |-----------|--------|
@@ -542,7 +542,7 @@ Trade association membership indicates active participation in the fiber industr
 | **Why It Works** | Pacific Telecommunications Council attracts carrier executives, network operators, and infrastructure providers. The audience IS MaiaEdge's ICP. Proven with PTC26 data. |
 | **Filter Strategy** | Filter by job title and company type. Even unfiltered, 92% hit rate makes this the single best source ever tested. |
 
-#### PeeringDB Networks — Filtered for Carriers (peeringdb.com)
+#### PeeringDB Networks  -  Filtered for Carriers (peeringdb.com)
 
 | Attribute | Detail |
 |-----------|--------|
@@ -576,14 +576,14 @@ Trade association membership indicates active participation in the fiber industr
 | **What You Get** | ASN details, peering relationships, prefixes announced, IX memberships, upstream/downstream |
 | **Unique Signal** | Peering count and IX membership count indicate sophistication. 20+ peers = significant network operator. |
 
-#### NANOG Attendees (nanog.org) — PAID/MEMBERSHIP
+#### NANOG Attendees (nanog.org)  -  PAID/MEMBERSHIP
 
 | Attribute | Detail |
 |-----------|--------|
 | **Hit Rate** | 65-75% |
 | **Estimated Volume** | ~300/event |
 | **Cost** | Membership; attendee lists may be available |
-| **Why It Works** | North American Network Operators Group — attendees are network engineers and operators at carriers. |
+| **Why It Works** | North American Network Operators Group  -  attendees are network engineers and operators at carriers. |
 
 #### MEF Member Directory (mef.net)
 
@@ -627,10 +627,10 @@ Trade association membership indicates active participation in the fiber industr
 
 | Signal | Where to Monitor | Why It Matters |
 |--------|-----------------|----------------|
-| New PoP activation project | Press releases, job postings, industry news | PoP activation pain is direct MaiaEdge use case — months to days |
+| New PoP activation project | Press releases, job postings, industry news | PoP activation pain is direct MaiaEdge use case  -  months to days |
 | M&A / acquired network integration | SEC filings, Crunchbase, press | Acquired networks need integration = multi-domain orchestration |
 | Enterprise customers demanding cloud-like speed | Earnings calls, press releases | Competitive pressure from hyperscalers validates urgency |
-| Lumen PCF or AWS Interconnect mentioned as threat | Earnings calls, industry analysis | Direct competitive pressure — MaiaEdge enables them to compete |
+| Lumen PCF or AWS Interconnect mentioned as threat | Earnings calls, industry analysis | Direct competitive pressure  -  MaiaEdge enables them to compete |
 | Mobile backhaul expansion | Press releases, 5G deployment news | Cell tower connectivity at scale = MaiaEdge IENTC use case |
 | Job postings for SDN/automation engineers | LinkedIn, Indeed | Active investment in network modernization |
 
@@ -648,7 +648,7 @@ Trade association membership indicates active participation in the fiber industr
 
 ### 5.1 Broad Search Queries (Google, Apollo, ZoomInfo, LinkedIn)
 
-> **Use sparingly** — active sourcing for MSPs is deprioritized. These queries are for supplemental discovery only.
+> **Use sparingly**  -  active sourcing for MSPs is deprioritized. These queries are for supplemental discovery only.
 
 #### Google Search Queries
 
@@ -661,7 +661,7 @@ Trade association membership indicates active participation in the fiber industr
 | `"single point of contact" "carrier" OR "carriers" "enterprise"` | Medium precision | "Single point of contact" is classic MSP positioning |
 | `"network aggregator" "enterprise" -news -jobs` | Medium precision | Direct term for the segment |
 
-#### Apollo / ZoomInfo — Use Only for Contact Enrichment
+#### Apollo / ZoomInfo  -  Use Only for Contact Enrichment
 
 **If you must search (est. 25-35% hit rate):**
 | Filter | Value |
@@ -680,7 +680,7 @@ Trade association membership indicates active participation in the fiber industr
 
 ### 5.2 Sourcing Websites
 
-#### Channel Partners Conference (channelpartnersconference.com) — PAID
+#### Channel Partners Conference (channelpartnersconference.com)  -  PAID
 | Attribute | Detail |
 |-----------|--------|
 | **Hit Rate** | 50-60% |
@@ -729,7 +729,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 
 | Signal | Where to Monitor | Why It Matters |
 |--------|-----------------|----------------|
-| Tier 1 carrier going direct to their enterprise customers | Industry news, earnings calls | Existential threat — MSPs must differentiate on speed/visibility |
+| Tier 1 carrier going direct to their enterprise customers | Industry news, earnings calls | Existential threat  -  MSPs must differentiate on speed/visibility |
 | Carrier SLA violations/disputes | Industry forums, social media | Visibility pain across leased infrastructure |
 | New carrier relationship onboarded | Press releases, LinkedIn | More carrier complexity = more MaiaEdge value |
 | Enterprise customer churn due to slow provisioning | Conference talks, social | Speed-to-service is key differentiator MaiaEdge enables |
@@ -742,7 +742,15 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 
 **TAM Estimate:** 250-350 companies globally (142 currently identified) | **Priority:** EMERGING (high strategic value, indirect deployment model)
 
-> **KEY INSIGHT FROM DATUM.NET:** Neoclouds are compute companies that accidentally became networking companies. They have no WAN teams, no Kentik, no PRTG. They don't know they have a network problem — they know they're slow. Lead with observability and cloud on-ramp acceleration, not deterministic paths. Neoclouds create demand for MaiaEdge at the colocation operators hosting their GPU clusters.
+> **KEY INSIGHT:** Neoclouds are compute companies that accidentally became networking companies. They have no WAN teams, no Kentik, no PRTG. Master pitch is "connecting distributed AI infrastructure simply"  -  NOT observability-first as the universal lead. Observability is a supporting benefit under the DETERMINISTIC pillar.
+>
+> **Angle selection by maturity (research-driven):**
+> - **Pre-revenue / single site** → watch list.
+> - **Early growth (2-5 sites, crypto-to-AI)** → "Bitcoin doesn't care about latency. Enterprise AI tenants do."
+> - **Mid-growth (5-15 sites, mixed customers, network person lost or never had one)** → **in-pain-now angle.** "Inference latency varies by facility and your team is guessing whether it's the carrier, the colo, or something in between." Observability lands here.
+> - **Scale (15+ sites, hyperscaler-heavy 80%+, enterprise ramp plan)** → **scaling-wall angle.** "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." Lead with INSTANT (customer-onboarding velocity), not observability.
+>
+> Neoclouds also create demand for MaiaEdge at the colocation operators hosting their GPU clusters. See [context/segments/neocloud.md](context/segments/neocloud.md) "Neocloud Angle by Maturity" section for the full framework.
 
 ---
 
@@ -783,7 +791,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 | Search Strategy | Filters |
 |-----------------|---------|
 | **Company search** | Keywords: "GPU cloud" OR "AI infrastructure" OR "GPU compute" + Industry: Information Technology & Services; Computer Hardware |
-| **People search — reverse engineer** | Title: "VP Infrastructure" OR "Head of Cloud" OR "CTO" at companies with keywords "GPU" AND ("cloud" OR "compute") |
+| **People search  -  reverse engineer** | Title: "VP Infrastructure" OR "Head of Cloud" OR "CTO" at companies with keywords "GPU" AND ("cloud" OR "compute") |
 | **Funding signals** | Use Crunchbase integration to filter for recently funded AI infrastructure companies |
 
 ---
@@ -796,7 +804,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 | **Volume** | 187 companies listed (broadest open directory) |
 | **Cost** | Free |
 | **Why It Works** | Open directory specifically cataloging GPU cloud and AI infrastructure companies. Broadest coverage for discovering smaller/newer players. |
-| **Navigation Tips** | Browse by category. Cross-reference against CRM — current coverage is ~40-55% of estimated TAM. |
+| **Navigation Tips** | Browse by category. Cross-reference against CRM  -  current coverage is ~40-55% of estimated TAM. |
 
 #### SemiAnalysis ClusterMAX
 | Attribute | Detail |
@@ -805,7 +813,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 | **Cost** | Paid subscription |
 | **Why It Works** | Most rigorous GPU cloud rating system. Benchmarks actual performance. If rated here, they have real deployed infrastructure. |
 
-#### Crunchbase / PitchBook — Filtered for AI Infra
+#### Crunchbase / PitchBook  -  Filtered for AI Infra
 | Attribute | Detail |
 |-----------|--------|
 | **Filters** | Tags: "GPU cloud," "AI infrastructure," "inference platform," "AI compute." Series A+ rounds. |
@@ -832,7 +840,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 |--------|---------------|
 | DataCentre Magazine / InterGlobix | Industry press covering neocloud launches and facility announcements |
 | Data Centre World Conference | Exhibitor/speaker lists for AI-focused colos |
-| Datacloud Global Congress | European AI infrastructure focus — sovereign cloud opportunities |
+| Datacloud Global Congress | European AI infrastructure focus  -  sovereign cloud opportunities |
 
 ---
 
@@ -840,7 +848,7 @@ Key master agents in telecom: Telarus, Avant, Intelisys, Sandler Partners, AppSm
 
 | Sub-Segment | Current Coverage | Est. TAM | Gap | Key Source |
 |-------------|-----------------|----------|-----|-----------|
-| GPU Cloud Majors (CoreWeave, Lambda, etc.) | Good (~65%) | 25-35 | Low | SemiAnalysis, Crunchbase |
+| GPU Cloud Majors (Lambda, Crusoe, etc.) | Good (~65%) | 25-35 | Low | SemiAnalysis, Crunchbase |
 | Hyperscaler GPU Services | Good (~75%) | 5-7 | Low | Direct monitoring |
 | AI Chip + Cloud (Cerebras, Groq, etc.) | Good (~65%) | 10-15 | Low | Crunchbase |
 | Crypto-to-AI Pivots (IREN, Hut 8, etc.) | Moderate (~50%) | 20-25 | Medium | CoinShares, WGMI ETF |
@@ -916,8 +924,8 @@ Monitor AWS, Azure, and GCP new region/availability zone announcements. Every ne
 
 | Source | Access | Coverage |
 |--------|--------|----------|
-| RIPE NCC (stat.ripe.net) | Free | EMEA network operator data — ASN, routing, peering |
-| Euro-IX (euro-ix.net) | Free | European Internet Exchange data — IX members are network operators |
+| RIPE NCC (stat.ripe.net) | Free | EMEA network operator data  -  ASN, routing, peering |
+| Euro-IX (euro-ix.net) | Free | European Internet Exchange data  -  IX members are network operators |
 | Sovereign AI Programs | Government websites, NVIDIA AI Nations | Canada ($2B), India ($1.25B), EU AI Factories, Saudi (HUMAIN), UAE (Core42) |
 | APNIC (apnic.net) | Free | Asia-Pacific network operator registry |
 
@@ -949,12 +957,12 @@ Monitor AWS, Azure, and GCP new region/availability zone announcements. Every ne
 
 ### Universal Disqualification Criteria
 
-**IMMEDIATE DISQUALIFICATION — If ANY of these are true, exclude:**
+**IMMEDIATE DISQUALIFICATION  -  If ANY of these are true, exclude:**
 - No owned or operated infrastructure (pure software company or enterprise consumer)
 - Already deployed Lumen Private Connectivity Fabric (competitor lock-in)
 - Budget holder says "we're not looking at this for 18+ months"
 - Company in bankruptcy or acquisition limbo
-- Pure cloud provider (AWS, Azure, GCP) — route to partnerships
+- Pure cloud provider (AWS, Azure, GCP)  -  route to partnerships
 - Pure reseller/VAR with no recurring services
 
 ---

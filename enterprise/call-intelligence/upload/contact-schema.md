@@ -27,6 +27,13 @@
 | Contact Owner | `hubspot_owner_id` | Owner | Inherits from associated company owner |
 | Lifecycle Stage | `lifecyclestage` | Enum | See hubspot-values.md for internal values |
 
+### Hygiene & Data Quality
+
+| Property | Internal Name | Type | Notes |
+|----------|--------------|------|-------|
+| Flagged for Deletion | `flagged_for_deletion` | Boolean (`"true"` / `"false"`) | Single checkbox. Set by CRM Guardian pre-deletion audit (see `skills/pre-deletion-audit`). Only `true` after all gates pass: associated company is non-ICP AND contact has no activity within 90 days AND contact is not associated to any open deal. Never set by enrichment. Never auto-archived — humans finalize deletion in Tier 3 review. |
+| Marketing Contact Status | `hs_marketable_status` | Enum (`"true"` = Marketing contact / `"false"` = Non-marketing contact) | **Every contact auto-created by CRM Guardian (contact-discovery Modes 3 and 4) must be created with `hs_marketable_status = "false"` (non-marketing).** This keeps MaiaEdge's paid marketing contact tier from silently inflating as the routine fills persona gaps and job-change replacements. A rep can flip a contact to marketing (`"true"`) manually when they decide to run marketing touch. The default is sales-only. |
+
 ### Segmentation
 
 | Property | Internal Name | Type | Notes |
@@ -54,11 +61,24 @@ These are **email BODY TEXT** fields, not email addresses. They contain pre-writ
 | Non-Technical Email | `nontechnical_email` | String | Email body for business personas (VP Ops, COO, VP Product) |
 | DM Email | `dm_email` | String | Email body for decision-maker personas (CEO, CFO) |
 
-### MEDDPICC (Contact-Level)
+### MEDDPICC (Contact-Level) — AUTHORITATIVE LOCATION
 
-| Property | Internal Name | Type | Description |
-|----------|--------------|------|-------------|
-| Buying Process | `buying_process___meddpicc` | String | Buying process notes specific to this contact's perspective |
+**Contact-level MEDDPICC is the source of truth for all MEDDPICC data in this CRM.** Per Cooper's design (see `call-schema.md` → MEDDPICC and Call Transcripts -- Critical Rule), HubSpot's smart-property auto-fill from call transcripts only targets contacts. A property-sync workflow then propagates these contact-level values up to the corresponding deal-level MEDDPICC fields. **All routine writes target contacts; deal-level fills automatically.**
+
+| MEDDPICC Concept | Internal Name | Type | Description |
+|------------------|---------------|------|-------------|
+| Identified Pain | `meddpicc_pain_contact` | String | Pain points named or implied by this contact in discovery |
+| Decision Criteria | `meddpicc_criteria_contact` | String | What this contact says will drive vendor selection |
+| Metrics | `meddpicc_metrics_contact` | String | Success metrics this contact uses to evaluate the buy |
+| Use Case | `meddpicc_use_case` | String | Primary use case as articulated by this contact |
+| Competition | `meddpicc_competition_contact` | String | Competitive alternatives this contact mentions |
+| Infrastructure | `meddpicc_infrastructure_contact` | String | Infrastructure context this contact provides |
+| Buying Process | `buying_process___meddpicc` | String | Buying process notes (3 underscores between `process` and `meddpicc`) |
+| Key Stakeholders | `key_stakeholders___meddpicc` | String | Stakeholder map per this contact (3 underscores between `stakeholders` and `meddpicc`) |
+
+**Per-contact attribution:** when 3 prospects are on the same call, each contact's MEDDPICC is updated independently against its own lifetime call count. The transcript evidence is shared across the call but the populated/empty state is per-contact.
+
+**Don't confuse with deal-level mirror fields:** the deal object has fields with similar names (e.g. `identified_pain_meddpicc`, `decision_criteria___meddpicc`) — those are the auto-synced mirrors and should never be written directly. See `deals-schema.md` → "MEDDPICC Fields" for the full mirror list.
 
 ### Standard HubSpot Properties (Key Ones)
 

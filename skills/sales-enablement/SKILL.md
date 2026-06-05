@@ -1,11 +1,19 @@
 ---
 name: sales-enablement
-description: "MaiaEdge sales enablement content generator. Creates consistent, on-brand sales collateral and messaging frameworks. Use when creating battle cards, discovery guides, one-pagers, email sequences, objection responses, competitive positioning, sales playbooks, talking points, proof points, or any customer-facing sales content. Ensures all content aligns with core positioning (Private paths. Any network. Instantly.) and three business pillars (Automate, Federate, Monetize). Segments content by persona and customer segment. Includes technical messaging specs, proof points, team credibility anchors, and differentiation narratives vs competitors like Lumen PCF and NaaS providers."
+description: "MaiaEdge sales enablement content generator. Creates consistent, on-brand sales collateral and messaging frameworks. Use when creating battle cards, discovery guides, one-pagers, email sequences, objection responses, competitive positioning, sales playbooks, talking points, proof points, or any customer-facing sales content. Ensures all content aligns with core positioning (Private paths. Any network. Instantly.) and segment-specific value pillars. Segments content by persona and customer segment. Includes technical messaging specs, proof points, team credibility anchors, and differentiation narratives vs competitors like Lumen PCF and NaaS providers."
 ---
 
 # MaiaEdge Sales Enablement Skill
 
 This skill ensures consistent, on-brand sales enablement content for MaiaEdge.
+
+## Reference Files
+
+- **segment-language.md**  -  Insider vocabulary and conversational patterns per segment. Read before creating any segment-specific collateral to use their language, not ours.
+- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
+- **competitive-positioning.md**  -  Battle cards and positioning vs competitors
+- **messaging-framework.md**  -  Core messaging pillars and segment positioning
+- **proof-points.md**  -  Named customer references (for internal enablement only, anonymize for cold outreach)
 
 ## Core Positioning
 
@@ -17,13 +25,28 @@ This skill ensures consistent, on-brand sales enablement content for MaiaEdge.
 
 **Only Statement:** Only MaiaEdge provides the infrastructure that enables network operators to extend services across domains instantly, over any transport, while maintaining complete visibility and sovereignty.
 
+<!-- Canonical source: context/copy-strategy/segment-messaging.md -->
 ## Three Core Business Outcomes
 
-Always frame value around these three pillars:
+**For full value prop matrices per segment, see context/copy-strategy/segment-messaging.md**
 
+Pillars are segment-specific. Always frame value around the correct set for the target segment:
+
+| Segment | Pillars |
+|---------|---------|
+| Fiber | MONETIZE \| AUTOMATE \| EXTEND REACH |
+| Network Op / MSP | AUTOMATE \| EXTEND REACH \| MONETIZE |
+| Colo | INSTANT \| MONETIZE \| REACH |
+| AI Colo | DETERMINISTIC \| INSTANT \| MONETIZE |
+| Neocloud | DETERMINISTIC \| PRIVATE \| INSTANT |
+
+**Pillar definitions:**
 1. **Automate** – Activate deterministic private paths over fiber or DIA instantly. No BGP, no MPLS, no routing complexity.
-2. **Federate** – Extend reach through seamless carrier-to-carrier partnerships while maintaining visibility and customer sovereignty.
+2. **Extend Reach** – Extend reach through seamless carrier-to-carrier partnerships while maintaining visibility and customer sovereignty.
 3. **Monetize** – Turn infrastructure into revenue. Provide services beyond your footprint, monetize idle fiber, offer cloud connectivity under your brand.
+4. **Deterministic** – Deterministic paths that eliminate the network as a variable for AI workloads.
+5. **Private** – Private cloud connectivity that cuts egress costs 60-80% vs public internet.
+6. **Instant** – Instant customer on-ramp. New facilities go live in minutes, not weeks.
 
 ## Product Components
 
@@ -36,11 +59,11 @@ For segment-specific messaging, personas, and pain points, see the project knowl
 
 | Segment | Profile | Primary Value Prop |
 |---------|---------|-------------------|
-| Neocloud | GPU cloud providers across multiple colo facilities | Observability + cloud on-ramp + deterministic paths |
+| Neocloud | GPU cloud providers across multiple colo facilities | Deterministic performance + private connectivity + instant on-ramp |
 | Colocation | Data centers, meet-me rooms | Fabric-in-a-box without multi-year development |
-| Service Provider | Tier 1/2 carriers | On-demand connectivity, federate without sacrifice |
+| Service Provider | Tier 1/2 carriers | Extend reach, monetize existing assets, automate beyond network boundary |
 | MSP/Aggregator | Asset-light, multi-carrier | Unified visibility across fragmented carriers |
-| Fiber Operator | Regional fiber owners | Instant NNI activation, monetize dark fiber |
+| Fiber Operator | Regional fiber owners | Extend reach, monetize existing fiber infrastructure |
 
 ## Competitive Positioning
 
@@ -58,7 +81,7 @@ For detailed objection handling and competitor responses, see the project knowle
 
 ### Battle Cards
 1. Lead with segment-specific pain points (see icp-playbook.md)
-2. Frame MaiaEdge value using the three pillars (Automate, Federate, Monetize)
+2. Frame MaiaEdge value using the segment-specific pillars (see segment pillar table above)
 3. Include persona-specific talk tracks
 4. Add competitive objection responses
 5. End with proof points and customer quotes
@@ -105,8 +128,8 @@ Reference these validated customer experiences:
 ## Team Credibility
 
 - **Founded by leaders behind Acme Packet** ($2.1B exit to Oracle) and 128 Technology (Juniper). $2.55B combined exits.
-- **Series A funded** — $20M from tier 1 investors who back infrastructure at scale.
-- **Team that understands carrier ops** — not software engineers building routers, but people who've built at scale.
+- **Series A funded**  -  $20M from tier 1 investors who back infrastructure at scale.
+- **Team that understands carrier ops**  -  not software engineers building routers, but people who've built at scale.
 
 ## When to Use This Skill
 

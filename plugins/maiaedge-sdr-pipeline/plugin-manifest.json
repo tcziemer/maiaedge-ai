@@ -5,9 +5,12 @@
   "context": [
     "core/messaging-framework.md",
     "core/segment-qualification.md",
-    "outreach/email-writing-rules.md",
+    "outreach/Email-Writing-Rules.md",
+    "outreach/fallback-messaging.md",
     "hubspot/hubspot-values.md",
-    "enrichment/research-routes.md"
+    "enrichment/research-routes.md",
+    "copy-strategy/segment-messaging.md",
+    "copy-strategy/segment-language.md"
   ],
   "static": ["evals/"]
 }

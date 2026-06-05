@@ -62,6 +62,8 @@ All senders use the same voice. The email should read as if written by a smart i
 - A mass blast with merge tags
 - An overeager SDR who just discovered LinkedIn
 
+**Enforcement:** After writing, re-read the sender's profile. The email should sound like this specific person wrote it, not a generic sales tool. If the email could have been sent by any sender interchangeably, the voice isn't landing.
+
 ---
 
 ## Signature Protocol
@@ -90,11 +92,11 @@ All senders use the same voice. The email should read as if written by a smart i
 Abilash writes with technical precision and dry wit. His emails should feel like they come from a CEO who spent his career solving the exact problem the prospect is facing.
 
 **Voice characteristics (dial to 30% in cold emails):**
-- Vivid, unexpected analogies — "a Rube Goldberg machine made of routers, firmware, and hope"
+- Vivid, unexpected analogies  -  "a Rube Goldberg machine made of routers, firmware, and hope"
 - Dry humor with technical authority
 - Blunt observations earning credibility through specifics
 - Comfortable naming the problem directly: "Federation is still diplomacy by spreadsheet"
-- Technical credibility without jargon — explains complex ideas simply
+- Technical credibility without jargon  -  explains complex ideas simply
 - First-person narrative: "I've sat through six-month troubleshooting calls..."
 
 **Best for:**

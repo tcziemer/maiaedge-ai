@@ -1,4 +1,4 @@
-# Modern Outbound Playbook — 2024-2026 Best Practices
+# Modern Outbound Playbook  -  2024-2026 Best Practices
 
 What's actually working in B2B enterprise outbound right now, based on benchmarks and data. Reference this when critiquing sequences or recommending strategy.
 
@@ -12,9 +12,9 @@ Know what "good" looks like so you can calibrate advice:
 |---|---|---|---|---|
 | Cold email reply rate | 3-5% | 5-8% | 8-12% | 12%+ |
 | Open rate | 25-35% | 35-50% | 50-65% | 65%+ |
-| Meeting booked rate (from replies) | 25-35% | 35-50% | 50%+ | — |
-| LinkedIn connection accept rate | 20-30% | 30-45% | 45%+ | — |
-| LinkedIn InMail response rate | 10-15% | 15-25% | 25%+ | — |
+| Meeting booked rate (from replies) | 25-35% | 35-50% | 50%+ |  -  |
+| LinkedIn connection accept rate | 20-30% | 30-45% | 45%+ |  -  |
+| LinkedIn InMail response rate | 10-15% | 15-25% | 25%+ |  -  |
 
 **For MaiaEdge specifically** (enterprise infrastructure, C-level targets):
 - Expect lower volume but higher quality. A 5-8% reply rate to C-suite at fiber operators is strong.
@@ -23,7 +23,7 @@ Know what "good" looks like so you can calibrate advice:
 
 ---
 
-## Sequence Architecture — What's Working Now
+## Sequence Architecture  -  What's Working Now
 
 ### Optimal Sequence Length
 The data is clear: **3-5 emails over 10-17 days** is the sweet spot for enterprise B2B.
@@ -36,8 +36,10 @@ The data is clear: **3-5 emails over 10-17 days** is the sweet spot for enterpri
 
 **For MaiaEdge's 3-email Smartlead sequences, this is well-calibrated.** The architecture is:
 - Email 1: Full research-driven opening (Day 1)
-- Email 2: Follow-up with new angle (Day 4-5)
+- Email 2: Follow-up with new angle (Day 4-5) -- must come from a DIFFERENT angle category than Email 1
 - Email 3: Breakup with final value hook (Day 10-12)
+
+**Email 2 Angle Diversity (Mandatory):** Email 2 must come from a different angle CATEGORY than Email 1. Six categories: Revenue, Competitive, Operational, Market Timing, Cost-of-Inaction, Peer Social Proof. Standalone test: if you removed Email 1 from the sequence, would Email 2 still make sense as a standalone thought? If it depends on Email 1 for context, it's not differentiated enough. Cap "one operator told us..." at 1 per 3-email sequence.
 
 ### The 3-7-7 Cadence
 Recent data shows the **3-7-7 follow-up cadence** captures 93% of total replies by Day 10:
@@ -55,7 +57,7 @@ The best campaigns in 2025-2026 layer multiple channels:
 Day 1:  Email 1 (cold, research-driven)
 Day 2:  LinkedIn connection request (300-char, company-specific)
 Day 5:  Email 2 (new angle, follow-up)
-Day 7:  LinkedIn engage with their content (like/comment — NOT a pitch)
+Day 7:  LinkedIn engage with their content (like/comment  -  NOT a pitch)
 Day 12: Email 3 (breakup, final value hook)
 Day 14: Phone call (if no response to any channel)
 ```
@@ -68,18 +70,17 @@ Day 14: Phone call (if no response to any channel)
 
 ---
 
-## Email Copy — What's Driving Replies in 2026
+## Email Copy  -  What's Driving Replies in 2026
 
 ### Length: Shorter is Winning
 
 The data is dramatic:
 - Companies that trimmed emails by 40% saw: open rates +86%, reply rates +181%, meetings +78%
-- Target: **50-125 words** for first touch (MaiaEdge segments range 75-175, which is appropriate for enterprise)
 - One point. One CTA. One reason to reply.
 
-**For MaiaEdge:** Our word count targets (75-175 depending on segment) are slightly above the general market but appropriate for enterprise infrastructure buyers who expect more substance. Don't go lower than the segment minimums — you need enough room for research depth. But never exceed the maximums.
+**For MaiaEdge:** Sequence length is governed by hard caps in `context/outreach/email-writing-rules.md` — Email 1 at 70-85 words, Email 2 under 55 words, Email 3 at 2-3 sentences max. These caps apply across every segment. A tight email under the cap beats a padded one that hits any number.
 
-### Hook Types — What's Working
+### Hook Types  -  What's Working
 
 Recent data on hook effectiveness:
 
@@ -105,9 +106,9 @@ The science is settled: deep personalization crushes generic:
 - NOT: "I saw your LinkedIn post about..." (surveillance)
 - NOT: Merge tags alone ({first_name}, {company})
 - YES: Company-specific problem hypothesis based on research
-- YES: Reference to recent expansion, funding, or strategic move
-- YES: Understanding of their specific infrastructure challenges
-- YES: Role-appropriate framing of the problem
+- YES: Research that SHAPES which problem you name (the expansion informs the angle -- it doesn't appear in the email as "your recent expansion into...")
+- YES: Understanding of their specific infrastructure challenges, expressed as problems they live with
+- YES: Role-appropriate framing of the problem (but never "At the [role] level" or "From a [function] standpoint" -- just state the problem directly)
 
 **The research investment:** 10-15 minutes per enterprise prospect. This is what separates 3% reply rates from 10%+ reply rates.
 
@@ -124,7 +125,7 @@ The science is settled: deep personalization crushes generic:
 
 ---
 
-## Deliverability — The Foundation
+## Deliverability  -  The Foundation
 
 None of this matters if emails don't reach the inbox.
 
@@ -174,11 +175,11 @@ Enterprise deals take 9-18 months. The cold sequence is just the opening move. B
 When recommending or designing A/B tests:
 
 ### Variables Worth Testing (High Impact)
-1. **Subject line** — Easiest to test, significant impact on open rates
-2. **Opening hook type** — Timeline vs. peer proof vs. market shift
-3. **CTA phrasing** — "Open to a conversation?" vs. "Dealing with something similar?"
-4. **Email length** — Full version vs. stripped-down version
-5. **Angle** — Competitive threat vs. operational efficiency vs. revenue opportunity
+1. **Subject line**  -  Easiest to test, significant impact on open rates
+2. **Opening hook type**  -  Timeline vs. peer proof vs. market shift
+3. **CTA phrasing**  -  "Open to a conversation?" vs. "Dealing with something similar?"
+4. **Email length**  -  Full version vs. stripped-down version
+5. **Angle**  -  Competitive threat vs. operational efficiency vs. revenue opportunity
 
 ### Variables Not Worth Testing (Low Impact)
 - Sender name formatting (first name vs full name)
@@ -203,7 +204,7 @@ When scoring MaiaEdge copy, use these benchmarks:
 - Get a 5-8% reply rate on a well-targeted list
 - Make the recipient think "this person actually knows my industry"
 - Have a clear, specific problem hypothesis
-- Be within word count with no filler
+- Be within the sequence caps with no filler
 
 **A 9/10 email should:**
 - Get a 10%+ reply rate

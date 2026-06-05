@@ -1,6 +1,6 @@
 # MaiaEdge Call Intelligence — Enterprise Project Manifest
 
-> Workflow: HubSpot call data → use case extraction → pipeline discipline → trend reports → audience briefings
+> Workflow: Deep analysis of HubSpot call summaries → use-case extraction → segment classification → PMF signals → messaging alignment audits → contact-level intel
 
 ## System Prompt
 Paste Project Instructions directly in Claude.ai (maintained in-app, not in this repo)
@@ -12,31 +12,55 @@ Paste Project Instructions directly in Claude.ai (maintained in-app, not in this
 - skills/pipeline-analytics/SKILL.md → upload as `maiaedge-pipeline-analytics.md`
 
 ## Knowledge Files — Context (upload as .md)
-### Core
-- context/core/maiaedge-101.md
-- context/core/icp-playbook.md
-- context/core/segment-qualification.md
+### Core (all)
+- context/core/* (maiaedge-101, icp-playbook, segment-qualification, competitive-positioning, messaging-framework, terminology-glossary, revops-copilot)
 
-### HubSpot
-- context/hubspot/call-schema.md *(NEW — call engagement properties)*
-- context/hubspot/deals-schema.md
-- context/hubspot/poc-schema.md
-- context/hubspot/property-schema.md
-- context/hubspot/hubspot-values.md
-- context/hubspot/territory-model.md
+### Segments (all)
+- context/segments/* (colocation, fiber-operator, neocloud, network-operator, msp-aggregator)
 
-### Segments
-- context/segments/* (all 5 — colocation, fiber-operator, neocloud, network-operator, msp-aggregator)
+### HubSpot (all — calls associate with every object)
+- context/hubspot/* (property-schema, territory-model, hubspot-values, contact-schema, deals-schema, poc-schema, call-schema)
 
 ### Sales
-- context/sales/use-case-taxonomy.md *(NEW — standardized use case classification)*
+- context/sales/use-case-taxonomy.md
 - context/sales/call-intelligence.md
+- context/sales/pricing-reference.md
+- context/sales/neocloud-strategy-brief.md
+- context/sales/edge-ai-thesis-montauk.md
+
+### Product
+- context/product/proof-points.md
+- context/product/ai-market-positioning.md
+
+### Copy Strategy (for messaging alignment modes)
+- context/copy-strategy/segment-language.md
+- context/copy-strategy/segment-messaging.md
+
+### Assets
+- context/sales/call-report-styles.css (report styling)
+
+## What This Project Does
+
+**Contact-level call analysis:** Extracts structured intel from HubSpot call summaries — use cases mentioned, segments discussed, objections, competitive mentions, pain validation, buying signals.
+
+**PMF and messaging alignment:** Compares what prospects say on calls vs. our current messaging. Flags drift, surfaces validated patterns, identifies language we should adopt or retire.
+
+**Pipeline discipline:** 3-column pipeline board (accounts → POC, POC → PO, PO → expansion) built from call evidence, not stage hygiene.
+
+**Dashboards and briefings:** Monthly call dashboards, multi-month trend analysis, audience-specific briefings for CEO, CRO, and reps.
+
+## Relationship to Revenue Reporting
+
+This project and **Revenue Reporting** share all four skills. The split:
+- **Call Intelligence** = transcript-heavy work: contact-level analysis, use-case extraction, PMF signals, messaging audits. The "listening" project.
+- **Revenue Reporting** = forecast-heavy work: pipeline snapshots, POC-adjusted forecasts, deal narratives, leadership reporting. The "numbers" project.
+
+Both are live. Use Call Intelligence when the question is about what prospects are saying. Use Revenue Reporting when the question is about pipeline health or forecast.
 
 ## NOT included (not needed for this workflow)
-- ~~context/outreach/*~~ (this project analyzes calls, not writing emails)
-- ~~context/copy-strategy/*~~ (scoring/critique not relevant here)
+- ~~context/outreach/*~~ (this project analyzes calls, does not write outreach)
 - ~~context/enrichment/*~~ (not enriching companies)
 - ~~context/marketing/*~~ (not creating marketing content)
-- ~~context/product/*~~ (product details not needed for call analysis)
+- ~~copy-strategy/outbound-playbook, scoring-rubric~~ (cold email critique lives in Sales Outreach)
 
-## Last Synced: 2026-03-21
+## Last Synced: 2026-04-17

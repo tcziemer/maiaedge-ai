@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" font-family="Tomorrow, -apple-system, Segoe UI, sans-serif">
+  <!-- ==============================================================
+       Operator Use-Case Diagram
+       Shows the federal SI/operator motion: federal DCs + cloud on-ramps
+       + edge sites unified by a MaiaEdge fabric, with PCE orchestrating
+       above and a diverse underlay band beneath.
+       Brand: Gold #FFC200, Orange #FF9400, Black, Heather Tint #F4F2EE
+       ============================================================== -->
+  <defs>
+    <marker id="ah2" viewBox="0 0 12 12" refX="11" refY="6"
+            markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#1A1A1A"/>
+    </marker>
+    <marker id="ahg2" viewBox="0 0 12 12" refX="11" refY="6"
+            markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#FFC200"/>
+    </marker>
+  </defs>
+
+  <!-- ============== Operator portal eyebrow (top) ============== -->
+  <g>
+    <text x="800" y="68" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="3" text-anchor="middle">OPERATOR'S WHITE-LABEL PORTAL · API · TELEMETRY</text>
+  </g>
+
+  <!-- ============== PCE control plane ============== -->
+  <g>
+    <rect x="280" y="100" width="1040" height="120" rx="6" fill="#000000"/>
+    <rect x="280" y="100" width="6" height="120" fill="#FFC200"/>
+    <text x="310" y="136" font-size="18" font-weight="700" fill="#FFC200" letter-spacing="3">CONTROL PLANE</text>
+    <text x="310" y="172" font-size="34" font-weight="800" fill="#FFFFFF">Path Computation Engine</text>
+    <text x="310" y="200" font-size="18" fill="#D4D0C9">Operator-managed cloud · Path policy · Multi-tenant isolation · Hop-by-hop telemetry</text>
+  </g>
+
+  <!-- arrows from PCE down to fabric -->
+  <g stroke="#FFC200" stroke-width="2.5" stroke-dasharray="6,5" fill="none">
+    <line x1="500" y1="220" x2="500" y2="285" marker-end="url(#ahg2)"/>
+    <line x1="800" y1="220" x2="800" y2="285" marker-end="url(#ahg2)"/>
+    <line x1="1100" y1="220" x2="1100" y2="285" marker-end="url(#ahg2)"/>
+  </g>
+
+  <!-- ============== MaiaEdge Fabric band ============== -->
+  <g>
+    <rect x="80" y="295" width="1440" height="120" rx="6" fill="#FFC200"/>
+    <rect x="80" y="295" width="6" height="120" fill="#000000"/>
+    <text x="800" y="328" font-size="14" font-weight="700" fill="#000000" letter-spacing="3" text-anchor="middle">MAIAEDGE FABRIC</text>
+    <text x="800" y="362" font-size="28" font-weight="800" fill="#000000" text-anchor="middle">Programmable private paths · Layer 2 transparent</text>
+    <text x="800" y="392" font-size="16" fill="#1A1A1A" text-anchor="middle">PBC at every site · AES-256-GCM line-rate · CNSA 2.0 software-upgradeable</text>
+  </g>
+
+  <!-- arrows from fabric down to each site card -->
+  <g stroke="#1A1A1A" stroke-width="1.6" fill="none">
+    <line x1="245" y1="415" x2="245" y2="475"/>
+    <line x1="615" y1="415" x2="615" y2="475"/>
+    <line x1="985" y1="415" x2="985" y2="475"/>
+    <line x1="1355" y1="415" x2="1355" y2="475"/>
+  </g>
+
+  <!-- ============== Four site cards ============== -->
+  <!-- Card 1: Federal Data Center A -->
+  <g>
+    <rect x="80" y="475" width="330" height="220" rx="4" fill="#F4F2EE" stroke="#E5E1DA"/>
+    <rect x="80" y="475" width="5" height="220" fill="#FFC200"/>
+    <text x="245" y="508" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="2.5" text-anchor="middle">FEDERAL DATA CENTER</text>
+    <text x="245" y="552" font-size="26" font-weight="800" fill="#000000" text-anchor="middle">Site A</text>
+    <text x="245" y="595" font-size="14" fill="#1A1A1A" text-anchor="middle">PBC at meet-me room.</text>
+    <text x="245" y="615" font-size="14" fill="#1A1A1A" text-anchor="middle">Virtual cross-connects in</text>
+    <text x="245" y="635" font-size="14" fill="#1A1A1A" text-anchor="middle">minutes. Tenant fan-out via</text>
+    <text x="245" y="655" font-size="14" fill="#1A1A1A" text-anchor="middle">integrated Port Extender.</text>
+    <text x="245" y="681" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="1.8" text-anchor="middle">DCI · TENANT TURN-UP</text>
+  </g>
+  <!-- Card 2: Federal Data Center B -->
+  <g>
+    <rect x="450" y="475" width="330" height="220" rx="4" fill="#F4F2EE" stroke="#E5E1DA"/>
+    <rect x="450" y="475" width="5" height="220" fill="#FFC200"/>
+    <text x="615" y="508" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="2.5" text-anchor="middle">FEDERAL DATA CENTER</text>
+    <text x="615" y="552" font-size="26" font-weight="800" fill="#000000" text-anchor="middle">Site B</text>
+    <text x="615" y="595" font-size="14" fill="#1A1A1A" text-anchor="middle">PBC at network boundary.</text>
+    <text x="615" y="615" font-size="14" fill="#1A1A1A" text-anchor="middle">Hop-by-hop telemetry across</text>
+    <text x="615" y="635" font-size="14" fill="#1A1A1A" text-anchor="middle">owned and partner networks.</text>
+    <text x="615" y="655" font-size="14" fill="#1A1A1A" text-anchor="middle">No BGP / OSPF / MPLS field work.</text>
+    <text x="615" y="681" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="1.8" text-anchor="middle">UNIFIED VISIBILITY</text>
+  </g>
+  <!-- Card 3: Cloud On-Ramp -->
+  <g>
+    <rect x="820" y="475" width="330" height="220" rx="4" fill="#F4F2EE" stroke="#E5E1DA"/>
+    <rect x="820" y="475" width="5" height="220" fill="#FFC200"/>
+    <text x="985" y="508" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="2.5" text-anchor="middle">CLOUD ON-RAMP</text>
+    <text x="985" y="552" font-size="22" font-weight="800" fill="#000000" text-anchor="middle">GovCloud · Azure Gov</text>
+    <text x="985" y="578" font-size="22" font-weight="800" fill="#000000" text-anchor="middle">GCP Gov</text>
+    <text x="985" y="612" font-size="14" fill="#1A1A1A" text-anchor="middle">PBC + cloud-fabric APIs.</text>
+    <text x="985" y="632" font-size="14" fill="#1A1A1A" text-anchor="middle">Managed paths to hyperscaler</text>
+    <text x="985" y="652" font-size="14" fill="#1A1A1A" text-anchor="middle">on-ramps. No per-program BGP.</text>
+    <text x="985" y="681" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="1.8" text-anchor="middle">CONNECTIVITY AS A PRODUCT</text>
+  </g>
+  <!-- Card 4: Edge / Field Site -->
+  <g>
+    <rect x="1190" y="475" width="330" height="220" rx="4" fill="#F4F2EE" stroke="#E5E1DA"/>
+    <rect x="1190" y="475" width="5" height="220" fill="#FFC200"/>
+    <text x="1355" y="508" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="2.5" text-anchor="middle">EDGE / FIELD SITE</text>
+    <text x="1355" y="552" font-size="26" font-weight="800" fill="#000000" text-anchor="middle">Deployable Kit</text>
+    <text x="1355" y="595" font-size="14" fill="#1A1A1A" text-anchor="middle">Rack the gear, ship it,</text>
+    <text x="1355" y="615" font-size="14" fill="#1A1A1A" text-anchor="middle">light on commercial internet</text>
+    <text x="1355" y="635" font-size="14" fill="#1A1A1A" text-anchor="middle">on day one. Transition to</text>
+    <text x="1355" y="655" font-size="14" fill="#1A1A1A" text-anchor="middle">fiber when fiber arrives.</text>
+    <text x="1355" y="681" font-size="13" font-weight="700" fill="#FF9400" letter-spacing="1.8" text-anchor="middle">FAST-LIGHT, GLOBAL</text>
+  </g>
+
+  <!-- vertical connectors from each card down to underlay -->
+  <g stroke="#1A1A1A" stroke-width="1.6" fill="none">
+    <line x1="245" y1="695" x2="245" y2="780"/>
+    <line x1="615" y1="695" x2="615" y2="780"/>
+    <line x1="985" y1="695" x2="985" y2="780"/>
+    <line x1="1355" y1="695" x2="1355" y2="780"/>
+  </g>
+
+  <!-- ============== Diverse Underlay band ============== -->
+  <g>
+    <rect x="80" y="780" width="1440" height="120" rx="6" fill="#000000"/>
+    <rect x="80" y="780" width="6" height="120" fill="#FFC200"/>
+    <text x="800" y="813" font-size="14" font-weight="700" fill="#FFC200" letter-spacing="3" text-anchor="middle">DIVERSE UNDERLAY</text>
+    <text x="800" y="852" font-size="22" font-weight="800" fill="#FFFFFF" text-anchor="middle">Fiber  ·  LEO Satellite  ·  Commercial Internet</text>
+    <text x="800" y="884" font-size="15" fill="#D4D0C9" text-anchor="middle">Blended by the control plane against policy, latency, jitter, SRLG diversity</text>
+  </g>
+
+  <!-- ============== Footer caption ============== -->
+  <g>
+    <text x="800" y="970" font-size="14" font-weight="600" fill="#FF9400" letter-spacing="2.5" text-anchor="middle">ONE FABRIC · MANY PROGRAMS</text>
+    <text x="800" y="1004" font-size="18" fill="#1A1A1A" text-anchor="middle">A single programmable fabric unifies federal data centers, cloud on-ramps,</text>
+    <text x="800" y="1028" font-size="18" fill="#1A1A1A" text-anchor="middle">and edge deployments under the operator's brand.</text>
+    <text x="800" y="1062" font-size="13" font-weight="700" fill="#1A1A1A" letter-spacing="2" text-anchor="middle">MaiaEdge · Intel IPU</text>
+  </g>
+</svg>

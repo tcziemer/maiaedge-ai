@@ -44,18 +44,18 @@ Many companies use "colocation," "data center," or "hosting" language without ac
 
 ### Qualification Gate (must pass ALL three)
 
-**Gate 1 — Facility Ownership/Operation:**
+**Gate 1  -  Facility Ownership/Operation:**
 Does the company own or operate at least one physical data center facility where external tenants can colocate equipment?
 - "Managed hosting" or "cloud hosting" without physical colo = FAIL
 - Office space with a server room they call a "data center" = FAIL
 - Reselling rack space from another colo provider = FAIL (they're a tenant, not an operator)
 
-**Gate 2 — Multi-Tenant Model:**
+**Gate 2  -  Multi-Tenant Model:**
 Does the company serve multiple external tenants (not just internal IT)?
 - Internal-only data center = Enterprise, not Colo
 - Single dedicated customer = Hosting, not Colo
 
-**Gate 3 — Interconnection Capability:**
+**Gate 3  -  Interconnection Capability:**
 Does the company provide carrier interconnection, meet-me room access, or cross-connect services?
 - No interconnection capability = Hosting provider, not Colo operator
 - Only internet connectivity (no carrier-neutral interconnection) = Hosting
@@ -88,7 +88,7 @@ Does the company provide carrier interconnection, meet-me room access, or cross-
 ### AI Infrastructure Sub-Segment Upgrade
 
 Standard colo qualifies first, then check for AI signals:
-- **STRONG AI** (upgrade to AI Infrastructure sub-segment): Named GPU cloud tenants confirmed (CoreWeave, Lambda Labs, Crusoe, Voltage Park) WITH specific source, OR confirmed liquid cooling deployment, OR 30kW+ per rack density confirmed
+- **STRONG AI** (upgrade to AI Infrastructure sub-segment): Named GPU cloud tenants confirmed (Lambda Labs, Crusoe, Voltage Park, Nebius) WITH specific source, OR confirmed liquid cooling deployment, OR 30kW+ per rack density confirmed
 - **MEDIUM AI** (note but keep Standard): High-density power marketing without confirmed GPU tenants
 - **WEAK/NONE**: Standard sub-segment
 
@@ -104,19 +104,19 @@ Standard colo qualifies first, then check for AI signals:
 
 ### Qualification Gate (must pass ALL three)
 
-**Gate 1 — Fiber Ownership:**
+**Gate 1  -  Fiber Ownership:**
 Does the company own or operate physical fiber infrastructure (measured in route miles or strand-miles)?
 - Leasing circuits from carriers without owning fiber = FAIL (they're an MSP)
 - "Fiber to the home" marketing for residential broadband = check for wholesale division
 - Construction firm that installs fiber for others = FAIL (contractor, not operator)
 
-**Gate 2 — Commercial Services:**
+**Gate 2  -  Commercial Services:**
 Does the company sell connectivity services commercially to enterprise, wholesale, or carrier customers?
 - Residential-only ISP with no wholesale arm = FAIL (Retail ISP exclude)
 - Municipal network serving only government buildings = FAIL (Enterprise internal)
 - Dark fiber leased exclusively to one customer = borderline (check for broader services)
 
-**Gate 3 — Infrastructure Scale:**
+**Gate 3  -  Infrastructure Scale:**
 Does the company have sufficient scale to be a viable MaiaEdge customer?
 - Under 100 route miles with no growth trajectory = too small
 - Single-market, single-service with no expansion = low priority
@@ -166,19 +166,19 @@ After qualifying, assign sub-segment:
 
 ### Qualification Gate (must pass ALL three)
 
-**Gate 1 — Network Scale:**
+**Gate 1  -  Network Scale:**
 Does the company operate network infrastructure at national or multi-regional scale?
 - Regional WISP with 3 towers = FAIL (too small, wrong type)
 - SD-WAN vendor with software overlay = FAIL (software, not infrastructure)
 - VoIP provider with SIP trunks = FAIL (application, not transport)
 
-**Gate 2 — Enterprise/Wholesale Connectivity:**
+**Gate 2  -  Enterprise/Wholesale Connectivity:**
 Does the company sell transport, wavelength, MPLS, or enterprise connectivity services?
 - Consumer broadband only = Retail ISP
 - VoIP/UCaaS only = Exclude (application provider)
 - IT managed services = Exclude (wrong MSP type)
 
-**Gate 3 — Multi-Domain Architecture:**
+**Gate 3  -  Multi-Domain Architecture:**
 Does the company have evidence of multi-domain, multi-PoP network complexity?
 - Single market, single domain = probably Fiber Operator instead
 - Cloud-only infrastructure = probably not a network operator
@@ -228,20 +228,20 @@ After qualifying, determine Track A or Track B:
 
 ### Qualification Gate (must pass ALL three)
 
-**Gate 1 — GPU Infrastructure Ownership or Committed Buildout:**
+**Gate 1  -  GPU Infrastructure Ownership or Committed Buildout:**
 Does the company own, operate, or have committed capital to build physical GPU compute infrastructure?
 - AI/ML software platform without owned GPUs and no buildout plans = FAIL (Software vendor)
 - Cloud GPU reseller (resells AWS/Azure/GCP instances) = FAIL (Reseller)
 - AI consulting firm = FAIL (Services)
 - Pre-revenue company with confirmed funding for GPU buildout = PASS (early-stage neocloud)
 
-**Gate 2 — External Compute Sales (or Clear Intent):**
+**Gate 2  -  External Compute Sales (or Clear Intent):**
 Does the company sell (or plan to sell) GPU compute capacity to external customers?
 - GPUs used only for internal R&D = FAIL (Enterprise internal)
 - Selling AI models/APIs, not compute = FAIL (Software vendor)
 - Pricing page live or infrastructure under construction with announced GA date = PASS
 
-**Gate 3 — Physical Facility Presence (or Confirmed Path):**
+**Gate 3  -  Physical Facility Presence (or Confirmed Path):**
 Does the company have GPU hardware deployed in at least one physical facility, OR confirmed lease/build agreements for deployment?
 - Cloud-only API with no infrastructure and no buildout evidence = FAIL (could be reselling hyperscaler GPUs)
 - "AI cloud" marketing with no evidence of physical deployment or committed build = FAIL
@@ -277,7 +277,7 @@ Does the company have GPU hardware deployed in at least one physical facility, O
 ### Sub-Segment Classification
 
 After qualifying, assign sub-segment based on primary business model:
-- **Large-Scale GPU NeoClouds**: Multi-facility (5+), 100MW+ capacity, $1B+ valuation, building or has network teams. Examples: CoreWeave, Nebius, Lambda Labs, Crusoe.
+- **Large-Scale GPU NeoClouds**: Multi-facility (5+), 100MW+ capacity, $1B+ valuation, building or has network teams. Examples: Nebius, Lambda Labs, Crusoe, Voltage Park.
 - **Tier 1 Inference Providers**: Inference-as-a-service is primary product, real-time API SLAs, optimized for latency. Examples: Together AI, Groq, DeepInfra, Anyscale.
 - **AI Infrastructure Providers**: Multi-cloud GPU platform, API-driven, developer-first, marketplace model. Examples: Cirrascale, Vultr, Fluidstack, DigitalOcean GPU.
 - **Sovereign AI Clouds**: Regulatory compliance as primary driver, national AI initiatives, data sovereignty. Examples: Firmus, E2E Networks, Yotta, Nscale EU.
@@ -295,19 +295,19 @@ After qualifying, assign sub-segment based on primary business model:
 
 ### Qualification Gate (must pass ALL three)
 
-**Gate 1 — Telecom Carrier Aggregation:**
+**Gate 1  -  Telecom Carrier Aggregation:**
 Does the company aggregate connectivity from multiple upstream TELECOM carriers?
 - IT managed services (helpdesk, endpoint, cybersecurity) = FAIL (IT MSP, wrong type)
 - Software/SaaS reseller = FAIL
 - Hardware VAR = FAIL
 
-**Gate 2 — Connectivity Services:**
+**Gate 2  -  Connectivity Services:**
 Does the company sell connectivity services (WAN, MPLS, SD-WAN, DIA, wavelength) to enterprise customers?
 - VoIP/UCaaS only = FAIL (application provider, not connectivity aggregator)
 - IT consulting only = FAIL
 - Cloud services reseller only = FAIL
 
-**Gate 3 — Multi-Carrier Model:**
+**Gate 3  -  Multi-Carrier Model:**
 Does the company have relationships with 3+ upstream telecom carriers?
 - Single carrier reseller = FAIL (too dependent, no aggregation value)
 - Owns extensive infrastructure = probably Fiber Operator or Network Operator instead
@@ -364,14 +364,14 @@ Website analysis routes to a likely segment. This is still keyword-based but now
 ### Step 2: Phase 2 Research (enhanced)
 Research searches now include BOTH qualifying and disqualifying signal detection. Each route includes a disqualification check.
 
-### Step 3: Qualification Gate (NEW — mandatory before classifying)
+### Step 3: Qualification Gate (NEW  -  mandatory before classifying)
 After Phase 2 research, run the company through the Qualification Gate for its hypothesized segment:
 - **All three gates pass + 2+ proof signals** → Classify with HIGH confidence
 - **All three gates pass + 1 proof signal** → Classify with MEDIUM confidence (qualified, but note limited proof in output)
 - **All three gates pass + 0 proof signals** → Classify with LOW confidence, flag for review. Gates passing without proof signals means the company likely fits but web research couldn't confirm specifics. Don't exclude, but flag.
 - **One or more gates fail** → Do NOT classify. Either reclassify to correct segment and re-run gates, or exclude, or flag `needs_manual_review = TRUE`
 
-### Step 4: Disqualification Check (NEW — mandatory)
+### Step 4: Disqualification Check (NEW  -  mandatory)
 Scan for segment-specific disqualification signals. If ANY disqualification signal is present:
 - Research whether the signal is the company's PRIMARY business or a secondary mention
 - If primary → Exclude or reclassify

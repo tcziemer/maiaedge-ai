@@ -1,0 +1,27 @@
+{
+  "name": "maiaedge-call-intelligence",
+  "version": "1.0.0",
+  "skills": ["call-analysis", "call-reporting", "pipeline-discipline"],
+  "context": [
+    "core/messaging-framework.md",
+    "core/competitive-positioning.md",
+    "core/terminology-glossary.md",
+    "core/segment-qualification.md",
+    "hubspot/call-schema.md",
+    "hubspot/hubspot-values.md",
+    "hubspot/territory-model.md",
+    "hubspot/deals-schema.md",
+    "hubspot/poc-schema.md",
+    "hubspot/contact-schema.md",
+    "segments/Colocation.md",
+    "segments/Fiber-Operator.md",
+    "segments/Neocloud.md",
+    "segments/Network-Operator.md",
+    "segments/MSP-Aggregator.md",
+    "sales/use-case-taxonomy.md",
+    "sales/call-intelligence.md",
+    "copy-strategy/segment-language.md",
+    "copy-strategy/segment-messaging.md"
+  ],
+  "static": []
+}

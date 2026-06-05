@@ -1,8 +1,8 @@
-# MaiaEdge ICP Sales Playbook — Complete Reference
+# MaiaEdge ICP Sales Playbook  -  Complete Reference
 
 **Private paths. Any network. Instantly.**
 
-February 2026 | MaiaEdge Internal — Confidential
+February 2026 | MaiaEdge Internal  -  Confidential
 
 ---
 
@@ -24,13 +24,13 @@ This is the comprehensive ICP reference for MaiaEdge. It covers every customer s
 
 | Segment | What They Own | Revenue Model | Scale | Priority | Example Companies |
 |---------|---------------|---------------|-------|----------|-------------------|
-| **Neocloud** | GPU clusters across multiple colo facilities, AI/ML software stack | GPU compute rental, inference-as-a-service | Rapidly scaling, $50M–$5B+ revenue, multi-facility | HIGH | CoreWeave, Lambda Labs, Crusoe, Voltage Park, Together AI |
-| **Colo — AI Infrastructure** | Buildings, meet-me rooms, metro fiber + liquid cooling, high-density power | Space/power (premium for AI), cross-connects, AI infrastructure services | 1–50+ facilities, GPU cloud tenants, $50M–$1B+ | HIGH | Aligned, Cologix, EdgeConneX, QTS, Vantage, Stack |
+| **Neocloud** | GPU clusters across multiple colo facilities, AI/ML software stack | GPU compute rental, inference-as-a-service | Rapidly scaling, $50M–$5B+ revenue, multi-facility | HIGH | Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius |
+| **Colo  -  AI Infrastructure** | Buildings, meet-me rooms, metro fiber + liquid cooling, high-density power | Space/power (premium for AI), cross-connects, AI infrastructure services | 1–50+ facilities, GPU cloud tenants, $50M–$1B+ | HIGH | Aligned, Cologix, EdgeConneX, QTS, Vantage, Stack |
 | **Colo (Standard)** | Buildings, meet-me rooms, metro fiber (NOT route miles) | Space/power (60–80%), cross-connects (10–20%), cloud on-ramps (0–5%) | 1–50+ facilities, $10M–$500M revenue | HIGH | RevNet, Centra, ARK, DataBank, Flexential |
 | **Fiber Operator** | Physical fiber, optical transport (measured in route miles) | Dark fiber (IRUs), lit wavelengths, metro Ethernet, wholesale | 500–100,000 route miles, $25M–$500M revenue | HIGH | Arvig, Ocean Networks, Crown Castle Fiber, Fatbeam |
 | **Network Operator** | National/global network, mix of owned fiber and leased capacity | Enterprise connectivity, MPLS, wavelengths, IP transit | 50+ PoPs, 500+ employees, national/global | MEDIUM | NTT, IENTC, AT&T, Verizon, Lumen |
 | **MSP/Aggregator** | Contracts (not infrastructure), aggregate 3+ carriers | Margin on resold connectivity, managed services fees | 50–500 employees, $20M–$500M revenue | MEDIUM | INDATEL, 11:11 Systems, Granite |
-| **Enterprise (Dark Fiber)** | Own or lease private fiber/WAN for internal use | Internal cost center, not selling services | Varies — universities, healthcare, HFT, utilities | LOW | Research universities, hospital networks, financial firms |
+| **Enterprise (Dark Fiber)** | Own or lease private fiber/WAN for internal use | Internal cost center, not selling services | Varies  -  universities, healthcare, HFT, utilities | LOW | Research universities, hospital networks, financial firms |
 
 ---
 
@@ -39,12 +39,12 @@ This is the comprehensive ICP reference for MaiaEdge. It covers every customer s
 ```
 START
  ↓
-GPU cloud provider (CoreWeave, Lambda Labs, Crusoe, Voltage Park, etc.)?
+GPU cloud provider (Lambda Labs, Crusoe, Voltage Park, Nebius, etc.)?
  → YES → NEOCLOUD
  ↓ NO
 Owns DC facilities + offers colocation services?
  → YES → Check AI signals
- │           ├── AI signals STRONG → COLOCATION — AI INFRASTRUCTURE
+ │           ├── AI signals STRONG → COLOCATION  -  AI INFRASTRUCTURE
  │           └── AI signals NONE/WEAK → COLOCATION (Standard)
  ↓ NO
 Owns >500mi fiber + sells commercially?
@@ -61,7 +61,7 @@ Uses internally + doesn't sell services?
  ↓ NO
 Matches any EXCLUDE criteria? → YES → EXCLUDE
  ↓ NO
-Pure reseller/VAR/consultancy? → YES → EXCLUDE — LOW VALUE
+Pure reseller/VAR/consultancy? → YES → EXCLUDE  -  LOW VALUE
 END
 ```
 
@@ -69,8 +69,8 @@ END
 
 | Segment | Instant Classification Keywords |
 |---------|--------------------------------|
-| **Neocloud** | "GPU cloud," "GPU-as-a-service," "AI cloud provider," "inference cloud," "ML infrastructure provider." Company names: CoreWeave, Lambda Labs, Crusoe Energy, Voltage Park, Together AI, Anyscale, RunPod, Paperspace |
-| **Colo — AI Infrastructure** | Colo keywords + "liquid cooling," "DeltaFlow," "GPU-ready," "AI-ready data center," "high-density colocation," "30kW racks," confirmed GPU cloud tenants |
+| **Neocloud** | "GPU cloud," "GPU-as-a-service," "AI cloud provider," "inference cloud," "ML infrastructure provider." Company names: Lambda Labs, Crusoe Energy, Voltage Park, Together AI, Anyscale, RunPod, Paperspace, Nebius |
+| **Colo  -  AI Infrastructure** | Colo keywords + "liquid cooling," "DeltaFlow," "GPU-ready," "AI-ready data center," "high-density colocation," "30kW racks," confirmed GPU cloud tenants |
 | **Colo (Standard)** | "colocation provider," "carrier hotel," "interconnection facility," "data center operator," "meet-me room," "carrier neutral," "interconnection fabric" |
 | **Fiber Operator** | "lit fiber services," "fiber to the premise," "facilities-based broadband," "fiber network operator," "dark fiber provider," "wholesale fiber," "regional fiber operator," "route miles" |
 | **Network Operator** | "Tier 1 carrier," "Tier 2 carrier," "national backbone," "global carrier," "incumbent carrier," "managed connectivity services," "multi-domain orchestration" |
@@ -80,18 +80,18 @@ END
 
 ## Exclusion Criteria
 
-**EXCLUDE if any of the following apply.** These are definitive disqualifications — do not tier, do not enrich, do not outreach.
+**EXCLUDE if any of the following apply.** These are definitive disqualifications  -  do not tier, do not enrich, do not outreach.
 
 | Exclusion Category | Description | How to Identify |
 |-------------------|-------------|-----------------|
 | **IXP (Internet Exchange Point)** | Operate peering exchanges, not connectivity services. They facilitate peering, not private path provisioning. | Website says "internet exchange," "peering exchange," PeeringDB lists them as IXP. Examples: DE-CIX, AMS-IX, LINX |
 | **Tower REIT** | Own/operate cell towers and passive infrastructure. Don't provision connectivity services. | "Tower company," "wireless infrastructure," SBA Communications, American Tower, Uniti Group |
-| **IT MSP (Managed IT Services)** | Manage IT help desk, endpoints, cybersecurity — NOT network infrastructure. Distinct from Network MSP/Aggregator. | "Managed IT," "IT support," "cybersecurity MSP," "endpoint management." No carrier relationships or wholesale connectivity |
-| **Retail ISP (verified no wholesale)** | Consumer broadband providers without wholesale/enterprise connectivity offerings. | Residential-only pricing pages, "home internet," no enterprise/wholesale services page. Must verify — some retail ISPs also sell wholesale |
+| **IT MSP (Managed IT Services)** | Manage IT help desk, endpoints, cybersecurity  -  NOT network infrastructure. Distinct from Network MSP/Aggregator. | "Managed IT," "IT support," "cybersecurity MSP," "endpoint management." No carrier relationships or wholesale connectivity |
+| **Retail ISP (verified no wholesale)** | Consumer broadband providers without wholesale/enterprise connectivity offerings. | Residential-only pricing pages, "home internet," no enterprise/wholesale services page. Must verify  -  some retail ISPs also sell wholesale |
 | **Software/Platform Vendor** | Build orchestration, SDN, or connectivity software. Potential PARTNER, not customer. | "Network orchestration software," "SDN platform," "network automation tool." Examples: Itential, Netcracker, Blue Planet |
 | **Hyperscaler** | AWS, Azure, Google Cloud, Oracle Cloud. They build their own infrastructure at planetary scale. | Self-evident. Also includes hyperscaler subsidiaries focused on cloud services |
 | **Enterprise (internal network only)** | Large enterprises with private networks used exclusively internally. No commercial connectivity sales. | No "Services" page selling connectivity. Network exists to serve their own business (banks, retailers, manufacturers with no wholesale arm) |
-| **<10 employees (verified)** | Too small to be a viable customer. Must be verified — some holding companies appear small but operate significant infrastructure. | LinkedIn employee count <10, confirmed via website/LinkedIn. Flag for manual review if infrastructure signals are strong despite small headcount |
+| **<10 employees (verified)** | Too small to be a viable customer. Must be verified  -  some holding companies appear small but operate significant infrastructure. | LinkedIn employee count <10, confirmed via website/LinkedIn. Flag for manual review if infrastructure signals are strong despite small headcount |
 | **Vendor/Contractor/Manufacturer** | Makes networking equipment, provides installation services, or manufactures hardware. No operator business. | "Network equipment manufacturer," "fiber installation contractor," "cable manufacturer." Examples: Corning, CommScope (unless they have operator divisions) |
 | **Consulting Firm** | Telecom consultants, network design firms, advisory practices. | "Telecom consulting," "network design services," "advisory firm." No owned infrastructure or commercial connectivity |
 | **Trade Organization** | Industry associations, standards bodies, advocacy groups. | "Association," "consortium," "alliance," "standards body." Examples: NTCA, Fiber Broadband Association, MEF |
@@ -106,7 +106,7 @@ Some companies straddle categories. Flag for human review when:
 - Small headcount (<10) but significant infrastructure signals
 - Software vendor with network operations division
 - "Consulting" firm that also operates infrastructure
-- Company recently acquired — parent company might be a target
+- Company recently acquired  -  parent company might be a target
 
 ---
 
@@ -114,43 +114,43 @@ Some companies straddle categories. Flag for human review when:
 
 ### How This Business Works
 
-Neoclouds are GPU cloud providers — they own massive clusters of GPUs distributed across multiple colocation facilities and sell compute capacity (training and inference) to enterprises and AI companies. They don't own data center buildings; they lease space from colocation operators. Their value is in the GPU fleet, AI/ML software stack, and the ability to deliver compute at scale.
+Neoclouds are GPU cloud providers  -  they own massive clusters of GPUs distributed across multiple colocation facilities and sell compute capacity (training and inference) to enterprises and AI companies. They don't own data center buildings; they lease space from colocation operators. Their value is in the GPU fleet, AI/ML software stack, and the ability to deliver compute at scale.
 
 Neoclouds are the backbone of Sovereign AI. They create unified compute fabrics across distributed locations, even when multiple different regional carriers sit between their facilities.
 
-**What They Own:** GPU clusters, AI/ML software stacks, orchestration platforms. They do NOT own buildings — they lease from colos.
+**What They Own:** GPU clusters, AI/ML software stacks, orchestration platforms. They do NOT own buildings  -  they lease from colos.
 
 **Revenue Model:** GPU compute rental (hourly/reserved), inference-as-a-service, training cluster access, managed AI infrastructure.
 
 **Scale:** Rapidly scaling. $50M–$5B+ revenue. Multi-facility (3–30+ locations). Expanding from 3 to 30+ facilities in 1–2 years is common.
 
-**Key Distinction:** Neoclouds ARE the end customer — they deploy their own infrastructure. Messaging focuses on path control and performance predictability, NOT "keep your customer" (they are the customer).
-
-> **⚠️ CoreWeave Targeting Note:** CoreWeave told Abilash at MetroConnect (Feb 2026) that they do not have the same challenges as other NeoClouds. **Not an active target right now.** Keep as reference company for market context and segment classification, but do not include in active outreach campaigns.
+**Key Distinction:** Neoclouds ARE the end customer  -  they deploy their own infrastructure. Messaging focuses on path control and performance predictability, NOT "keep your customer" (they are the customer).
 
 ### Neocloud Sub-Segments
 
 > **For detailed sub-segment profiles (architecture, pain points, walk-away statements, opening conversations), see the Neocloud Cheatsheet.** The table below provides routing guidance for messaging priority.
 
-> **Note:** AI Data Centers (e.g., IREN, Core Scientific, Northern Data Group, TeraWulf) are covered under Colocation Operators — AI Infrastructure (Segment 2). Cross-reference when a prospect straddles both segments.
+> **Note:** AI Data Centers (e.g., IREN, Core Scientific, Northern Data Group, TeraWulf) are covered under Colocation Operators  -  AI Infrastructure (Segment 2). Cross-reference when a prospect straddles both segments.
 
 | Sub-Segment | Examples | Lead With | Networking Sophistication |
 |-------------|----------|-----------|--------------------------|
-| **Large-Scale GPU NeoClouds** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers (scale creates all three pains) — highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable — some have networking staff |
-| **Tier 1 Inference Providers** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate — may have some network awareness |
-| **AI Infrastructure Providers** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud) — note Megaport/Latitude.sh competitive threat | Minimal — developer-first |
-| **Sovereign AI Clouds** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (regulatory compliance is a driver — GDPR, EU AI Act, DPDP, CLOUD Act) | Variable — compliance-driven |
-| **Crypto-to-AI Pivots** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (they're learning networking as they go — legacy crypto infrastructure wasn't built for AI traffic patterns) | Minimal — learning curve |
+| **Large-Scale GPU NeoClouds** | Crusoe, Voltage Park, Nebius, Lambda Labs | All three layers (scale creates all three pains)  -  highlight Recompute Tax ($4,800/GPU/month at 30% interruption rate) | Variable  -  some have networking staff |
+| **Tier 1 Inference Providers** | Together AI, Groq, DeepInfra, Anyscale | Observability + deterministic paths (inference is their product, tail latency kills SLAs) | Moderate  -  may have some network awareness |
+| **AI Infrastructure Providers** | Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale | Cloud on-ramp + observability (API-driven, multi-cloud)  -  note Megaport/Latitude.sh competitive threat | Minimal  -  developer-first |
+| **Sovereign AI Clouds** | Firmus, E2E Networks, Yotta, Nscale (EU) | Sovereign routing + observability (regulatory compliance is a driver  -  GDPR, EU AI Act, DPDP, CLOUD Act) | Variable  -  compliance-driven |
+| **Crypto-to-AI Pivots** | IREN (Iris Energy), Core Scientific, Northern Data Group, TeraWulf | Observability (they're learning networking as they go  -  legacy crypto infrastructure wasn't built for AI traffic patterns) | Minimal  -  learning curve |
 
-### ⚠️ INVERTED MESSAGING HIERARCHY
+### MASTER PITCH & MESSAGING PILLARS (V4.1)
 
-**Unlike other segments, neocloud messaging follows an inverted hierarchy:**
+**Master Pitch:** Connecting distributed AI infrastructure simply. Every value prop below is a benefit of this master pitch.
 
-1. **LEAD: Observability** — "See why you're slow. Then fix it."
-2. **SECOND: Cloud On-Ramp** — Accelerate cloud and hyperscaler connectivity
-3. **THIRD: Deterministic Paths** — Known hop count, controlled latency
+**Pillars: DETERMINISTIC | PRIVATE | INSTANT**
 
-Neoclouds are compute companies that accidentally became networking companies. They have NO WAN teams, NO Kentik, NO PRTG. Lead with the symptom (you can't see why inference is slow), not the solution (deterministic paths).
+1. **DETERMINISTIC** - Predictable performance between sites. See exactly where latency comes from. Extend reach across DCs and service providers.
+2. **PRIVATE** - Private cloud connectivity (egress savings as competitive advantage for their customers: 2c/GB vs 9c/GB). Sovereign by design: data stays on paths you control.
+3. **INSTANT** - Multi-tenancy: serve multiple customers from the same infrastructure. Instant customer on-ramp. New sites online in minutes.
+
+**Why this structure?** Neoclouds are compute companies that accidentally became networking companies. They have NO WAN teams, NO Kentik, NO PRTG. They don't frame their pain as a networking problem. They experience it as distributed AI infrastructure that's hard to connect, slow to onboard customers onto, and expensive on egress. Lead with the master pitch, then support with the pillar that matches their specific pain.
 
 ### Key Personas
 
@@ -168,7 +168,7 @@ Neoclouds are compute companies that accidentally became networking companies. T
 | Persona | Pain Points |
 |---------|-------------|
 | **CEO/Founder** | "We're scaling to 30+ facilities and connectivity is our biggest operational bottleneck." "Each new facility is a 6-week connectivity project." |
-| **CTO/VP Engineering** | "Inference latency varies by facility because every path is different." "We can't see what happens between our facilities — it's a black box." |
+| **CTO/VP Engineering** | "Inference latency varies by facility because every path is different." "We can't see what happens between our facilities  -  it's a black box." |
 | **VP Infrastructure** | "Provisioning connectivity to a new facility takes weeks. We need it in days." "Coordinating multiple carriers for each site is painful." |
 | **Network Architect** | "No visibility once traffic leaves our infrastructure." "We're debugging inference latency issues blind across the middle mile." |
 | **Head of Platform** | "We can't guarantee consistent inference SLAs across facilities because the network is unpredictable." |
@@ -190,7 +190,7 @@ Neoclouds are compute companies that accidentally became networking companies. T
 | Question | Good Answer (Buying Signal) | Red Flag |
 |----------|---------------------------|----------|
 | "How many facilities are you deployed across?" | "Multiple, and scaling rapidly" | "Single facility" |
-| "How do you handle connectivity between GPU clusters in different facilities?" | "It's painful — each facility is different, takes weeks" | "We have a dedicated network team handling it well" |
+| "How do you handle connectivity between GPU clusters in different facilities?" | "It's painful  -  each facility is different, takes weeks" | "We have a dedicated network team handling it well" |
 | "What visibility do you have into paths between facilities?" | "None once traffic leaves our infrastructure" | "Full visibility end-to-end" |
 | "Are you experiencing inference latency variance across different paths?" | "Yes, and it's hard to debug" | "Performance is consistent" |
 | "How many different carriers are involved in connecting your facilities?" | "Multiple, and coordinating them is painful" | "Single carrier, simple topology" |
@@ -203,20 +203,20 @@ Neoclouds are compute companies that accidentally became networking companies. T
 | "We're focused on GPU infrastructure, not networking" | That's exactly why. You shouldn't have to become network experts. MaiaEdge gives your team the ability to provision deterministic paths in minutes without routing complexity. Focus on inference, not interconnects. | HIGH | They see networking as distraction from core competency |
 | "Our colo partners handle connectivity" | Do they deliver deterministic paths with end-to-end visibility? Or best-effort cross-connects? Inference performance depends on network predictability. If you're debugging latency issues, the network is probably the variable you can't see. | HIGH | They assume colo responsibility ends at facility boundary |
 | "We're building our own network team" | Building a network team to manage multi-carrier complexity is expensive and slow. MaiaEdge gives you the capability without the headcount. Your team provisions paths; we handle the protocol complexity. | MEDIUM | They're in network hiring mode, may think build is cheaper |
-| "Each facility is different — how does this work?" | That's the point of federation. MaiaEdge PBCs at each location, unified under one control plane. Doesn't matter if it's Aligned in Dallas or Cologix in Columbus — same deterministic paths, same visibility, same provisioning speed. | MEDIUM | Worried about operational fragmentation |
+| "Each facility is different  -  how does this work?" | That's the point of federation. MaiaEdge PBCs at each location, unified under one control plane. Doesn't matter if it's Aligned in Dallas or Cologix in Columbus  -  same deterministic paths, same visibility, same provisioning speed. | MEDIUM | Worried about operational fragmentation |
 
 ### Use Cases
 
 - **Distributed Inference Fabric:** Deterministic paths between GPU clusters across multiple colo facilities for consistent inference performance
 - **Rapid Facility Onboarding:** New facility connectivity in minutes instead of weeks as neocloud scales
-- **Sovereign AI Delivery:** Unified fabric across all locations with sovereign routing — customer workloads get provably private paths regardless of underlying carriers
+- **Sovereign AI Delivery:** Unified fabric across all locations with sovereign routing  -  customer workloads get provably private paths regardless of underlying carriers
 - **Multi-Cloud Data Access:** Private paths to AWS/Azure/GCP for RAG architectures requiring multi-cloud data retrieval
 - **Cloud On-Ramp:** Native connectivity to hyperscaler regions for seamless data pipeline integration
 
 ### What Change We're Asking
 
 **Infrastructure Changes**
-Connectivity between facilities becomes automatically provisioned rather than manually coordinated with carriers. PBCs at each colo location unify the multi-carrier reality into a single control plane. No new carrier agreements needed — you're just adding a path provisioning layer on top of existing facility agreements.
+Connectivity between facilities becomes automatically provisioned rather than manually coordinated with carriers. PBCs at each colo location unify the multi-carrier reality into a single control plane. No new carrier agreements needed  -  you're just adding a path provisioning layer on top of existing facility agreements.
 
 **Operational Changes**
 Move from "coordination projects" to "provisioning in minutes." When spinning up a new facility, networking stops being a 6-week dependency. Your infrastructure team goes from reactive (waiting on carriers) to proactive (facilities go live on schedule).
@@ -232,16 +232,16 @@ Your IT/Network Admin doesn't need to become a BGP expert. They provision paths 
 
 ### Why Change Statement
 
-"Every day you spend coordinating carriers for new facilities is a day you're not scaling compute. And every facility where network is unpredictable is a facility where you can't guarantee inference latency to customers. That's not just a networking problem — it's a business problem."
+"Every day you spend coordinating carriers for new facilities is a day you're not scaling compute. And every facility where network is unpredictable is a facility where you can't guarantee inference latency to customers. That's not just a networking problem  -  it's a business problem."
 
 ### Proof Points
 
-- CoreWeave, Lambda Labs, and other major GPU cloud providers are all multi-facility and need deterministic connectivity
-- AI workloads are latency-sensitive at the token level — jitter from best-effort paths directly impacts inference performance
-- Customers are asking for sovereign routing guarantees — you need to prove data stays within geographic boundaries
+- Lambda Labs, Crusoe, and other major GPU cloud providers are all multi-facility and need deterministic connectivity
+- AI workloads are latency-sensitive at the token level  -  jitter from best-effort paths directly impacts inference performance
+- Customers are asking for sovereign routing guarantees  -  you need to prove data stays within geographic boundaries
 - **Recompute Tax:** A single network interruption during distributed training forces checkpoint rollback. At $4,800/GPU/month with a 30% interruption rate on 128K context Llama-3 70B, the recompute cost dwarfs the MaiaEdge subscription
 - **Egress economics:** Neoclouds moving 50–200TB/month between facilities and cloud regions. Egress at $0.08–$0.12/GB = $4K–$24K/month per facility. Shared port model via MaiaEdge reduces per-connection cost dramatically
-- **Competitive threat:** Megaport acquired Latitude.sh (2024), now offering GPU-as-a-Service + networking bundle. Positions against neoclouds building their own connectivity. MaiaEdge counter: sovereignty — own your paths, don't rent Megaport's
+- **Competitive threat:** Megaport acquired Latitude.sh (2024), now offering GPU-as-a-Service + networking bundle. Positions against neoclouds building their own connectivity. MaiaEdge counter: sovereignty  -  own your paths, don't rent Megaport's
 
 ### Account Tiering
 
@@ -260,13 +260,13 @@ Your IT/Network Admin doesn't need to become a BGP expert. They provision paths 
 
 ---
 
-## Segment 2: Colocation Operators — AI Infrastructure
+## Segment 2: Colocation Operators  -  AI Infrastructure
 
 ### How This Business Works
 
-Same as standard colocation operators (own/operate facilities, rent space/power/cooling) BUT with significant investment in AI-ready infrastructure: liquid cooling, high-density racks (30kW+), GPU cloud tenants (CoreWeave, Lambda Labs, etc.), and AI-focused marketing.
+Same as standard colocation operators (own/operate facilities, rent space/power/cooling) BUT with significant investment in AI-ready infrastructure: liquid cooling, high-density racks (30kW+), GPU cloud tenants (Lambda Labs, Crusoe, etc.), and AI-focused marketing.
 
-The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering fast, deterministic, secure private interconnection as premium services without the development work or capital investment.
+The real value MaiaEdge delivers: becoming an Equinix-like fabric  -  offering fast, deterministic, secure private interconnection as premium services without the development work or capital investment.
 
 **What They Own:** Same as standard colo PLUS liquid cooling systems, high-density power infrastructure, GPU-ready facilities.
 
@@ -278,7 +278,7 @@ The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering f
 
 | Signal | Strong AI (Use AI Track) | Weak/No AI (Use Standard Track) |
 |--------|--------------------------|--------------------------------|
-| GPU cloud tenants | CoreWeave, Lambda Labs, Crusoe, Voltage Park confirmed | No GPU/AI tenants |
+| GPU cloud tenants | Lambda Labs, Crusoe, Voltage Park, Nebius confirmed | No GPU/AI tenants |
 | Infrastructure | Liquid cooling, 30kW+ racks, GPU cluster support | Standard 5–15kW per rack |
 | Marketing | "AI-ready," "GPU cloud," "inference hosting" | General colocation services |
 | Geography | DFW, Columbus, Atlanta, Chicago, Phoenix | Traditional markets without AI buildout |
@@ -293,13 +293,13 @@ The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering f
 | **CFO** | CFO, VP Finance | ROI on AI infrastructure investment, premium pricing justification |
 | **VP Sales/CRO** | CRO, VP Sales, VP Commercial | Winning GPU cloud tenants, selling inference-grade connectivity |
 | **Sr. Network Engineer** | Sr. Network Engineer, Lead Network Engineer, Network Architect | Best-effort jitter breaking inference, no visibility across paths |
-| **Director DC Operations** | Director Data Center Operations, VP Operations | Completing the AI infrastructure stack — power, cooling, AND network |
+| **Director DC Operations** | Director Data Center Operations, VP Operations | Completing the AI infrastructure stack  -  power, cooling, AND network |
 
 ### Pain Points (Their Language)
 
 | Persona | Pain Points |
 |---------|-------------|
-| **CEO/President** | "We've invested in AI infrastructure but can't differentiate on connectivity." "GPU cloud providers are evaluating facilities — connectivity is part of that decision." |
+| **CEO/President** | "We've invested in AI infrastructure but can't differentiate on connectivity." "GPU cloud providers are evaluating facilities  -  connectivity is part of that decision." |
 | **CTO/VP Engineering** | "We've built the power and cooling for AI. But our network is still best-effort." "Inference is latency-sensitive at the token level. Traditional IP routing introduces jitter." |
 | **VP Sales/CRO** | "GPU cloud providers are asking for latency guarantees we can't make." "We're winning on power density but losing when tenants ask about inference-grade connectivity." |
 | **Sr. Network Engineer** | "Best-effort routing introduces micro-jitter that breaks inference performance." "Tenants complain about inference latency spikes, but I have no visibility across the path." |
@@ -313,13 +313,13 @@ The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering f
 | **CTO/VP Engineering** | Deterministic private Ethernet paths engineered for AI inference. Known hop count, known latency characteristics, controlled failure domains. | "Your GPU cloud tenants need network determinism, not best-effort. MaiaEdge makes the path predictable." |
 | **VP Sales/CRO** | Sell inference-grade connectivity alongside your AI infrastructure. Deterministic private paths with guaranteed latency characteristics. | "GPU cloud tenants aren't asking for faster cross-connects. They're asking for deterministic paths. Different conversation, different sale." |
 | **Sr. Network Engineer** | Explicit private Ethernet paths with known hop count and controlled latency. No dynamic rerouting, no queueing variance. | "Inference latency issues are impossible to troubleshoot on best-effort paths. MaiaEdge gives you deterministic transport and the visibility to prove it." |
-| **Director DC Operations** | Complete your AI infrastructure investment. Engineered the facility for high-density compute — now engineer the network for inference-grade determinism. | "You've built AI-ready facilities. MaiaEdge makes your connectivity AI-ready too." |
+| **Director DC Operations** | Complete your AI infrastructure investment. Engineered the facility for high-density compute  -  now engineer the network for inference-grade determinism. | "You've built AI-ready facilities. MaiaEdge makes your connectivity AI-ready too." |
 
 ### Discovery Questions
 
 | Question | Good Answer (Buying Signal) | Red Flag |
 |----------|---------------------------|----------|
-| "Do you have GPU cloud tenants like Lambda Labs, CoreWeave, or Crusoe?" | "Yes, they're our fastest-growing segment" | "No GPU/AI tenants" (→ use Standard Colo) |
+| "Do you have GPU cloud tenants like Lambda Labs, Crusoe, or Nebius?" | "Yes, they're our fastest-growing segment" | "No GPU/AI tenants" (→ use Standard Colo) |
 | "Are you investing in liquid cooling or high-density power (30kW+ racks)?" | "Yes, we're building out AI-ready infrastructure" | "Standard density only" (→ use Standard Colo) |
 | "What are GPU cloud tenants asking for that you can't deliver today?" | "Latency guarantees, deterministic paths, visibility" | "Just faster cross-connects" |
 | "How do you differentiate from other AI-ready facilities?" | "Power and cooling, but connectivity is the same" | "We have differentiated connectivity" |
@@ -330,7 +330,7 @@ The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering f
 | Objection | Rebuttal | Frequency | Why They Ask |
 |-----------|----------|-----------|-------------|
 | "Our GPU cloud tenants haven't asked for this" | They will. Inference performance depends on network predictability. Best-effort introduces jitter that impacts token-by-token latency. When they start debugging inference performance issues, the network is the first place they'll look. | HIGH | They think current relationships are stable |
-| "We just provide the facility — networking is their problem" | GPU cloud tenants need network determinism as much as they need power and cooling. If you're investing in liquid cooling and high-density racks, network predictability is the missing piece. MaiaEdge lets you be the full-stack AI infrastructure partner. | HIGH | They see themselves as real estate, not service provider |
+| "We just provide the facility  -  networking is their problem" | GPU cloud tenants need network determinism as much as they need power and cooling. If you're investing in liquid cooling and high-density racks, network predictability is the missing piece. MaiaEdge lets you be the full-stack AI infrastructure partner. | HIGH | They see themselves as real estate, not service provider |
 | "Equinix already offers this" | Equinix offers it on THEIR infrastructure, for THEIR customers. Your tenants use Equinix Fabric and build loyalty to Equinix. MaiaEdge lets you offer Equinix-like fabric capabilities under your brand. Premium services without the development burden. | MEDIUM | They acknowledge need but see competitor as blocking |
 
 ### Priority Accounts
@@ -338,7 +338,7 @@ The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering f
 | Company | GPU Cloud Tenant(s) | Details |
 |---------|---------------------|---------|
 | Aligned Data Centers | Lambda Labs | Multi-facility partnership, DeltaFlow liquid cooling (300kW/rack) |
-| Cologix | Lambda Labs, CoreWeave | Columbus, Chicago, Dallas; Lambda 320MW+ committed |
+| Cologix | Lambda Labs | Columbus, Chicago, Dallas; Lambda 320MW+ committed |
 | EdgeConneX | Lambda Labs | Distributed edge portfolio, multiple markets |
 | QTS Data Centers | Hyperscaler AI workloads | DFW, Phoenix; high-density rack support |
 | Vantage Data Centers | Multiple GPU cloud | Phoenix, Dallas, Atlanta campuses |
@@ -347,7 +347,7 @@ The real value MaiaEdge delivers: becoming an Equinix-like fabric — offering f
 ### What Change We're Asking
 
 **Infrastructure Changes**
-Deploy Path Border Controllers in your meet-me rooms — typically one PBC per facility to start, potentially more as you scale. The PBC is a 1RU device with dual 100G interfaces. It connects to your existing switching infrastructure at the meet-me room level. The PBC doesn't replace your existing switches or routers — it sits alongside them as the automation and visibility layer.
+Deploy Path Border Controllers in your meet-me rooms  -  typically one PBC per facility to start, potentially more as you scale. The PBC is a 1RU device with dual 100G interfaces. It connects to your existing switching infrastructure at the meet-me room level. The PBC doesn't replace your existing switches or routers  -  it sits alongside them as the automation and visibility layer.
 
 **Operational Process Changes**
 Your operations team moves from executing individual cross-connects to managing the fabric itself. Instead of touching the network for every tenant request, they're monitoring the platform, handling exceptions, and focusing on higher-value work. The volume of routine tickets drops dramatically, but the nature of the work changes.
@@ -363,12 +363,12 @@ You don't need BGP experts or MPLS engineers. The platform abstracts that comple
 
 ### Why Change Statement
 
-"Every day you're telling tenants 'call Megaport' is a day you're training them to build a relationship with someone else. That's not just lost margin on this transaction — it's lost control of your customer for every future connectivity need they have."
+"Every day you're telling tenants 'call Megaport' is a day you're training them to build a relationship with someone else. That's not just lost margin on this transaction  -  it's lost control of your customer for every future connectivity need they have."
 
 ### Proof Points
 
 - RevNet (DFW): "Imagine having Megaport capability between providers"
-- Equinix Endorsement: "Revolutionary and creative" — Josh Sordelet, Principal PM
+- Equinix Endorsement: "Revolutionary and creative"  -  Josh Sordelet, Principal PM
 - Centra: "Fabric-in-a-box, drop it in and add water and it works... we get control over our destiny"
 
 ### Expansion Path
@@ -380,47 +380,47 @@ You don't need BGP experts or MPLS engineers. The platform abstracts that comple
 
 ---
 
-## Segment 3: Colocation Operators — Standard
+## Segment 3: Colocation Operators  -  Standard
 
 ### How This Business Works
 
-Colocation operators own and operate physical data center facilities. They rent space, power, and cooling to tenants — enterprises, cloud providers, and carriers. Facilities are typically "carrier-neutral," meaning multiple carriers can connect, making them natural interconnection hubs.
+Colocation operators own and operate physical data center facilities. They rent space, power, and cooling to tenants  -  enterprises, cloud providers, and carriers. Facilities are typically "carrier-neutral," meaning multiple carriers can connect, making them natural interconnection hubs.
 
-**What They Own:** Buildings (data centers, carrier hotels), meet-me rooms, cross-connect infrastructure, metro fiber connecting their facilities. They do NOT typically own long-haul fiber or measure their network in "route miles" — that's a fiber operator signal.
+**What They Own:** Buildings (data centers, carrier hotels), meet-me rooms, cross-connect infrastructure, metro fiber connecting their facilities. They do NOT typically own long-haul fiber or measure their network in "route miles"  -  that's a fiber operator signal.
 
-**Revenue Model:** Space and power is the commodity (60–80% of revenue) — low margin, highly competitive. Cross-connects between tenants (10–20%) — higher margin but manual. Cloud on-ramps (0–5% today) — this is where they're losing to Megaport/Equinix.
+**Revenue Model:** Space and power is the commodity (60–80% of revenue)  -  low margin, highly competitive. Cross-connects between tenants (10–20%)  -  higher margin but manual. Cloud on-ramps (0–5% today)  -  this is where they're losing to Megaport/Equinix.
 
 **Scale:** 1–50+ facilities, 20–500 employees, $10M–$500M revenue, 10–100+ tenants per facility.
 
-**Competitive Reality:** Hyperscalers and national players (Equinix, Digital Realty) have changed tenant expectations. Customers expect instant cross-connects, direct cloud access, and self-service control. When tenants need AWS Direct Connect or Azure ExpressRoute, they call Megaport — and the colo loses that revenue and customer relationship.
+**Competitive Reality:** Hyperscalers and national players (Equinix, Digital Realty) have changed tenant expectations. Customers expect instant cross-connects, direct cloud access, and self-service control. When tenants need AWS Direct Connect or Azure ExpressRoute, they call Megaport  -  and the colo loses that revenue and customer relationship.
 
 ### Key Personas at Colocation Operators
 
-1. **CTO / VP Engineering** — Signs contracts, owns technical vision (Priority #1)
+1. **CTO / VP Engineering**  -  Signs contracts, owns technical vision (Priority #1)
    - Title Variations: CTO, Chief Technology Officer, Chief Technical Officer, VP Engineering, VP of Engineering, Vice President Engineering, VP Technology, VP Technical Operations, VP Infrastructure, VP Platform
    - Their Job: Responsible for all technical infrastructure, network architecture decisions, and platform strategy. Reports to CEO. Manages a small team (2-10 network engineers). Constantly balancing build vs. buy decisions with limited resources.
    - What They Care About: Investment protection (no rip-and-replace), scalability path, operational simplicity (team is already stretched thin), lifecycle control (upgrades, redundancy, visibility).
    - What Moves the Needle: "We're essentially in the network service provider business now - this gives us a way to act like one without adding headcount."
 
-2. **VP Sales / CRO** — Revenue sponsor, feels competitive pain daily (Priority #2)
+2. **VP Sales / CRO**  -  Revenue sponsor, feels competitive pain daily (Priority #2)
    - Title Variations: VP Sales, Vice President Sales, CRO, Chief Revenue Officer, VP Business Development, VP Commercial, VP Partnerships, SVP Sales, VP Strategic Accounts
    - Their Job: Owns tenant acquisition and retention. Competes daily against Equinix and Digital Realty. Hears "but can you offer what Equinix offers?" constantly. Responsible for revenue growth targets.
    - What They Care About: New revenue streams, competitive differentiation, closing deals faster, reducing tenant churn. They want something to sell beyond "space and power."
    - What Moves the Needle: "Right now, I've got a piece of real estate. I don't have a product. This gives me something to sell."
 
-3. **Sr. Network Engineer** — Technical champion, lives the daily pain (Priority #3)
+3. **Sr. Network Engineer**  -  Technical champion, lives the daily pain (Priority #3)
    - Title Variations: Senior Network Engineer, Sr Network Engineer, Sr. Network Engineer, Staff Network Engineer, Lead Network Engineer, Principal Network Engineer, Network Engineer III, Network Architect, Infrastructure Architect
    - Their Job: Handles day-to-day cross-connect provisioning, VLAN configuration, troubleshooting. Manages the meet-me room. Processes LOAs. The person who actually does the work that takes 60-90 days.
    - What They Care About: Reducing manual work, eliminating repetitive configuration, having visibility when things break, not getting blamed for provisioning delays.
    - What Moves the Needle: "Our ops team doesn't want anything else to manage - this actually reduces our workload instead of adding to it."
 
-4. **Director of Data Center Operations** — Operational validator (Priority #4)
+4. **Director of Data Center Operations**  -  Operational validator (Priority #4)
    - Title Variations: Director DC Operations, Director of Data Center Operations, Director Data Center, Data Center Director, Director of Colocation, Director of Facilities, Director of Infrastructure, Director of Operations
    - Their Job: Oversees all data center operations including power, cooling, physical security, and network infrastructure. Ensures compliance with SLAs and uptime guarantees. Manages operational staff and coordinates with engineering.
    - What They Care About: Lean execution, minimal management overhead, operational efficiency, maintaining SLAs without adding complexity to the stack.
    - What Moves the Needle: "If it doesn't simplify operations, I don't want it. Show me how this reduces tickets and truck rolls."
 
-5. **CEO / President** (Companies <100 employees) — Ultimate decision-maker at smaller colos (Escalation)
+5. **CEO / President** (Companies <100 employees)  -  Ultimate decision-maker at smaller colos (Escalation)
    - Title Variations: CEO, Chief Executive Officer, President, Owner, Founder, Managing Director, General Manager
    - Their Job: At smaller colos, the CEO is often directly involved in major technology decisions. They're looking for strategic differentiation and revenue growth opportunities.
    - What They Care About: Strategic growth, competitive positioning against Equinix/Digital Realty, new revenue streams, protecting and growing tenant base.
@@ -434,10 +434,10 @@ Colocation operators own and operate physical data center facilities. They rent 
 |---------|-------------|
 | **CEO/President** | "We're stuck competing on price for space and power." "Lower attach rates, M&A positioning concerns." |
 | **CFO** | "CapEx for connectivity infrastructure doesn't match our model." "ROI justification for multi-year development projects." |
-| **CTO/VP Engineering** | "Investment protection — no rip-and-replace." "We're essentially in the network service provider business now but don't have the tools." |
+| **CTO/VP Engineering** | "Investment protection  -  no rip-and-replace." "We're essentially in the network service provider business now but don't have the tools." |
 | **VP Sales/CRO** | "Right now, I've got a piece of real estate. I don't have a product." "Third-party fabric reps are calling on my tenants." |
-| **Sr. Network Engineer** | "Every cross-connect is a project — LOAs, truck rolls, VLAN config." "Once traffic leaves our facility, visibility dies." |
-| **Director DC Operations** | "Power, cooling, physical security — and now network complexity." "We've built infrastructure but can't match hyperscale service expectations." |
+| **Sr. Network Engineer** | "Every cross-connect is a project  -  LOAs, truck rolls, VLAN config." "Once traffic leaves our facility, visibility dies." |
+| **Director DC Operations** | "Power, cooling, physical security  -  and now network complexity." "We've built infrastructure but can't match hyperscale service expectations." |
 
 ### Value Propositions by Persona
 
@@ -456,7 +456,7 @@ Colocation operators own and operate physical data center facilities. They rent 
 |----------|---------------------------|----------|
 | "How do you handle tenant requests for cloud connectivity?" | "We tell them to call a third-party fabric" | "We have our own cloud on-ramps" |
 | "What's your revenue split: space/power vs. connectivity?" | "90% space/power, 10% cross-connects" | "Connectivity is 30%+ of revenue" |
-| "When a tenant needs a cross-connect, what's the timeline?" | "Days to weeks — LOAs, truck rolls" | "Minutes, fully automated" |
+| "When a tenant needs a cross-connect, what's the timeline?" | "Days to weeks  -  LOAs, truck rolls" | "Minutes, fully automated" |
 | "How do you compete with Equinix for tenant retention?" | "We can't match their services" or "We lose tenants" | "We have equivalent services" |
 | "What happens when tenants use Megaport for cloud connectivity?" | "We lose the revenue and relationship" | "We offer our own fabric" |
 
@@ -516,14 +516,14 @@ After Universal questions, go deeper on colo-specific pain points.
 
 | Objection | Rebuttal | Frequency | Why They Ask |
 |-----------|----------|-----------|-------------|
-| "We're too small for this" | Regional operators are actually the sweet spot. You have the facilities and the tenants — you just need the fabric layer. One PBC per facility, cloud-managed. No team of 50 required. | HIGH | They see Equinix as only customer for enterprise solutions |
+| "We're too small for this" | Regional operators are actually the sweet spot. You have the facilities and the tenants  -  you just need the fabric layer. One PBC per facility, cloud-managed. No team of 50 required. | HIGH | They see Equinix as only customer for enterprise solutions |
 | "We just built a Megaport connection" | Now your tenants see Megaport's portal and build loyalty to Megaport. MaiaEdge lets you offer the same instant connectivity under YOUR brand. You keep the customer and the margin. And we integrate with Megaport via API for cloud reach. | MEDIUM | They've already made connectivity infrastructure decision |
 | "Sounds expensive" | The opposite. No routing stacks, no truck rolls after PBC deployment. Subscription pricing, start at 1G, scale to 100G. One colo operator described it as building their own fabric without the development project. | MEDIUM | They're concerned about OpEx burden |
 
 ### What Change We're Asking
 
 **Infrastructure Changes**
-Deploying Path Border Controllers in your meet-me rooms — typically one PBC per facility to start, potentially more as you scale. The PBC is a 1RU device with dual 100G interfaces. It connects to your existing switching infrastructure at the meet-me room level.
+Deploying Path Border Controllers in your meet-me rooms  -  typically one PBC per facility to start, potentially more as you scale. The PBC is a 1RU device with dual 100G interfaces. It connects to your existing switching infrastructure at the meet-me room level.
 
 **Operational Process Changes**
 A cross-connect request triggers automated provisioning instead of manual work. Today: receive ticket, generate LOA, coordinate with carrier/tenant, configure VLANs, update routing, test, close. That process takes hours or days. With MaiaEdge, it takes minutes.
@@ -539,7 +539,7 @@ You don't need BGP experts or MPLS engineers. Plan for 1-2 days of training for 
 
 ### Why Change Statement
 
-"Every day you're telling tenants 'call Megaport' is a day you're training them to build a relationship with someone else. That's not just lost margin on this transaction — it's lost control of your customer for every future connectivity need they have."
+"Every day you're telling tenants 'call Megaport' is a day you're training them to build a relationship with someone else. That's not just lost margin on this transaction  -  it's lost control of your customer for every future connectivity need they have."
 
 ### Proof Points
 
@@ -568,7 +568,7 @@ Fiber operators own regional fiber networks and sell connectivity services - bot
 
 **Scale:** Typically 50-500 employees, $25M-$500M revenue, regional focus (2-10 state footprint), 500-100,000+ route miles.
 
-**The Sovereign Middle-Mile Opportunity:** Regional fiber operators are the key to the "Sovereign Middle-Mile." Their customers aren't just enterprises — they're healthcare providers needing HIPAA-compliant paths, carriers needing partners outside their footprint for 5G slicing, and neoclouds connecting GPU clusters across regions. With MaiaEdge, regional operators can both provide sovereign routing for their customers AND maintain their own operational sovereignty.
+**The Sovereign Middle-Mile Opportunity:** Regional fiber operators are the key to the "Sovereign Middle-Mile." Their customers aren't just enterprises  -  they're healthcare providers needing HIPAA-compliant paths, carriers needing partners outside their footprint for 5G slicing, and neoclouds connecting GPU clusters across regions. With MaiaEdge, regional operators can both provide sovereign routing for their customers AND maintain their own operational sovereignty.
 
 ### The Operational Reality
 
@@ -580,31 +580,31 @@ Every scenario requires establishing NNIs (Network-to-Network Interconnects) wit
 
 ### Key Personas at Fiber Operators
 
-1. **VP Network / VP Operations** — Economic buyer, owns provisioning bottleneck (Priority #1)
+1. **VP Network / VP Operations**  -  Economic buyer, owns provisioning bottleneck (Priority #1)
    - Title Variations: VP Network, VP Network Operations, VP of Network, VP Network Services, VP Transport, VP Operations, Vice President Operations, VP Ops, VP Service Delivery, VP Network Engineering
    - Their Job: Responsible for network operations, provisioning, capacity planning, and partner carrier relationships. Manages the team that handles NNI establishment and Type 2 circuit procurement. Accountable for SLA compliance.
    - What They Care About: Reducing provisioning time (they know 60-90 days is killing deals), getting visibility into Type 2 circuits, simplifying NNI establishment, proving SLA compliance to customers.
    - What Moves the Needle: "We've turned down deals because we couldn't provision fast enough. If we could do NNIs in minutes instead of months, we'd win those deals."
 
-2. **VP Sales / VP Business Development** — Revenue unlock, feels footprint limitation (Priority #2)
+2. **VP Sales / VP Business Development**  -  Revenue unlock, feels footprint limitation (Priority #2)
    - Title Variations: VP Sales, Vice President Sales, VP Business Development, VP BD, VP Commercial, VP Strategic Sales, SVP Sales, VP Wholesale, VP Enterprise Sales, VP Carrier Sales
    - Their Job: Sells fiber services to enterprises and carriers. Negotiates wholesale agreements. Builds partner relationships for extended reach. Their win rate drops dramatically the moment a deal requires crossing their footprint boundary.
    - What They Care About: Extending reach without building fiber, winning multi-state deals, monetizing underutilized capacity, competing with carriers who can provision faster.
    - What Moves the Needle: "We win deals inside our footprint, lose deals that require partners. Our close rate drops the moment a path crosses carrier boundaries."
 
-3. **Director of Engineering** — Owns provisioning, technical authority (Priority #3)
+3. **Director of Engineering**  -  Owns provisioning, technical authority (Priority #3)
    - Title Variations: Director of Engineering, Director Engineering, Dir Engineering, Director of Network, Director Network, Network Director, Director Network Engineering, Director of Transport
    - Their Job: Manages the engineering team responsible for network design, NNI establishment, and service delivery. Often the technical decision-maker for new infrastructure investments.
    - What They Care About: Simplifying network architecture, reducing manual configuration, improving provisioning velocity, maintaining visibility across owned and leased infrastructure.
    - What Moves the Needle: "I need to see end-to-end, even on paths I don't own. And I need to provision without waiting 60 days for a partner."
 
-4. **Sr. Network Engineer / Transport Engineer** — Technical champion, hands-on pain (Priority #4)
+4. **Sr. Network Engineer / Transport Engineer**  -  Technical champion, hands-on pain (Priority #4)
    - Title Variations: Senior Network Engineer, Sr Network Engineer, Transport Engineer, Transmission Engineer, Optical Engineer, DWDM Engineer, Fiber Engineer, WDM Engineer, Lead Network Engineer, Staff Network Engineer
    - Their Job: Hands-on with optical transport, DWDM systems, wavelength provisioning. Configures NNIs, manages BGP peering, handles Type 2 circuit turn-up. The person who experiences the 60-90 day provisioning pain.
    - What They Care About: Eliminating manual BGP configuration, getting visibility into paths they don't control, reducing time spent on LOAs and VLAN coordination, troubleshooting faster.
-   - What Moves the Needle: "Almost instantaneous" provisioning. "It simplifies processes so you can focus on making a path rather than doing all the complex networking traditionally required." — Arvig
+   - What Moves the Needle: "Almost instantaneous" provisioning. "It simplifies processes so you can focus on making a path rather than doing all the complex networking traditionally required."  -  Arvig
 
-5. **CTO** — Strategic approval, long-term vision (Escalation)
+5. **CTO**  -  Strategic approval, long-term vision (Escalation)
    - Title Variations: CTO, Chief Technology Officer, Chief Technical Officer, VP Technology, SVP Engineering, Chief Network Officer
    - Their Job: Sets the technology roadmap and makes strategic infrastructure decisions. At fiber operators, often involved in partnerships and platform decisions that affect competitive positioning.
    - What They Care About: Strategic differentiation, platform investments that scale, partnerships that extend reach without building fiber, positioning for M&A or growth.
@@ -619,10 +619,10 @@ Every scenario requires establishing NNIs (Network-to-Network Interconnects) wit
 | **CEO/President** | "We own thousands of route miles but can't monetize 40% of it." "National players are winning deals in our markets." |
 | **CFO** | "CapEx for expansion doesn't pencil without guaranteed utilization." |
 | **COO** | "Can't scale service delivery without scaling headcount proportionally." "Every NNI is a project that consumes engineering resources." |
-| **CTO** | "Protocol complexity (BGP/MPLS) requires specialized talent we can't find." "Type 2 circuits are a visibility black hole — responsible for customer but can't see the path." |
+| **CTO** | "Protocol complexity (BGP/MPLS) requires specialized talent we can't find." "Type 2 circuits are a visibility black hole  -  responsible for customer but can't see the path." |
 | **VP Sales/Commercial** | "6-week provisioning kills deals." "I can't sell what I can't deliver fast." "Every enterprise deal outside our region requires a partner we can't control." |
 | **VP Network/Operations** | "Different systems at each location." "Manual provisioning across our own network before we even get to partners." |
-| **Director Engineering** | "I need to see end-to-end, even on paths I don't own." "Every NNI is a 60–90 day project — LOAs, VLAN coordination, BGP config." |
+| **Director Engineering** | "I need to see end-to-end, even on paths I don't own." "Every NNI is a 60–90 day project  -  LOAs, VLAN coordination, BGP config." |
 | **Sr. Network Engineer** | "Hours per cross-connect, LOAs, VLAN coordination." "Once traffic leaves our network, we lose all visibility." |
 
 ### Value Propositions by Persona
@@ -704,9 +704,9 @@ After Universal questions, go deeper on fiber-specific pain points.
 You're deploying PBCs at strategic points in your network: your major PoPs, carrier hotels where you peer, and critically, at the boundaries where your network meets partner networks or Type 2 circuits. For a regional fiber operator with 10-20 key sites, that's typically 10-20 PBCs to start.
 
 **Operational Process Changes**
-Your NNI establishment process changes fundamentally. Today it's: negotiate agreement, exchange LOAs, coordinate VLAN assignments, configure BGP peering, test, document, go live — 60-90 days of back-and-forth. With MaiaEdge, both you and your partner deploy PBCs at the interconnection point. Federation happens through the PCE — path establishment is minutes, not months.
+Your NNI establishment process changes fundamentally. Today it's: negotiate agreement, exchange LOAs, coordinate VLAN assignments, configure BGP peering, test, document, go live  -  60-90 days of back-and-forth. With MaiaEdge, both you and your partner deploy PBCs at the interconnection point. The PCE handles path establishment across both networks  -  partner interconnection is minutes, not months.
 
-For Type 2 circuits, the change is about visibility. Today, once traffic leaves your network, you're blind. With PBCs at each boundary, you get hop-by-hop telemetry across the entire path — including portions you don't own.
+For Type 2 circuits, the change is about visibility. Today, once traffic leaves your network, you're blind. With PBCs at each boundary, you get hop-by-hop telemetry across the entire path  -  including portions you don't own.
 
 **Commercial Model Changes**
 This enables new services: guaranteed fast provisioning, multi-state coverage through federation, SLA-backed services across Type 2 circuits, premium tiers with real-time visibility dashboards for customers.
@@ -715,7 +715,7 @@ This enables new services: guaranteed fast provisioning, multi-state coverage th
 The PCE integrates with your existing OSS/BSS via APIs. Service orders trigger path provisioning automatically; lifecycle events flow back to your billing system. For carriers standardized on MEF LSO Sonata, we're working directly with Mplify on that integration.
 
 **Team & Skills**
-Your network engineers don't need to learn new routing protocols — the platform eliminates that complexity. They need to understand path management through the PCE, how federation works, and how to interpret the new telemetry data.
+Your network engineers don't need to learn new routing protocols  -  the platform eliminates that complexity. They need to understand path management through the PCE, how federation works, and how to interpret the new telemetry data.
 
 ### Why Change Statement
 
@@ -787,7 +787,7 @@ Network Operators require research to determine which messaging track to use. Th
 | **CEO/Strategy** | Extend your competitive moat beyond your network boundary. Same automation you've built internally, extended to partners instantly. | "Your automation stops at your border. MaiaEdge extends it everywhere." |
 | **VP Network Strategy** | Federation layer that extends automation across partner boundaries. PBCs at the edges where your automation currently stops. | "Your automation stops at your border. Extend it across every partner." |
 | **VP Sales** | Sell off-net paths at on-net speed. Enterprise team stops saying no to deals outside your footprint. | "Sell off-net at on-net speed." |
-| **VP Product** | Ship cross-carrier products without a multi-year dev cycle. MaiaEdge is the federation layer — your existing systems stay in place. | "Ship cross-carrier products without the dev cycle." |
+| **VP Product** | Ship cross-carrier products without a multi-year dev cycle. Your existing systems stay in place. | "Ship cross-carrier products without the dev cycle." |
 
 ### Track B: Internal + External Unification (No Internal Automation)
 
@@ -820,9 +820,9 @@ Network Operators require research to determine which messaging track to use. Th
 | "Is your internal automation unified across all network domains?" | "We have pockets of automation, but it's not unified." | → Track B |
 | "Is your internal automation unified across all network domains?" | "Yes, internally we're automated. The gap is cross-carrier." | → Track A |
 | "What's your provisioning timeline for enterprise requests?" | "Still quoting weeks... customers compare us to cloud" | Either track |
-| "How do you handle multi-carrier paths today?" | "Painful — LOAs, manual coordination, weeks" | Either track |
+| "How do you handle multi-carrier paths today?" | "Painful  -  LOAs, manual coordination, weeks" | Either track |
 | "Do you have a self-service portal or API for provisioning?" | "Yes, for on-net." | Track A (gap is off-net) |
-| "When you need to activate a new PoP, what does that process look like?" | "Months — BGP configuration, MPLS setup, testing" | Track B |
+| "When you need to activate a new PoP, what does that process look like?" | "Months  -  BGP configuration, MPLS setup, testing" | Track B |
 
 #### Deeper Network Operator Discovery
 
@@ -878,9 +878,9 @@ Network Operators require research to determine which messaging track to use. Th
 
 | Objection | Rebuttal | Frequency | Why They Ask |
 |-----------|----------|-----------|-------------|
-| "We've already invested heavily in automation" | And it works — internally. But what about cross-carrier? Enterprise customers don't see your network boundary; they see provisioning timelines. MaiaEdge extends what you've built to everywhere else. | HIGH | Sunk cost protection |
-| "This sounds like it overlaps with our SDN strategy" | MaiaEdge complements SDN. Your SDN handles internal path optimization. MaiaEdge handles cross-network federation — the boundary where your SDN stops and partner complexity begins. | MEDIUM | Jurisdictional concern about strategic initiatives |
-| "We're a Tier 1 — we don't need edge devices" | MaiaEdge PBCs sit at the boundaries between YOUR network domains and partner networks. Same team that built Acme Packet and 128 Technology. Why rebuild what exists? | MEDIUM | Scale/status concern |
+| "We've already invested heavily in automation" | And it works  -  internally. But what about cross-carrier? Enterprise customers don't see your network boundary; they see provisioning timelines. MaiaEdge extends what you've built to everywhere else. | HIGH | Sunk cost protection |
+| "This sounds like it overlaps with our SDN strategy" | MaiaEdge complements SDN. Your SDN handles internal path optimization. MaiaEdge handles cross-carrier partnership and off-net reach  -  the boundary where your SDN stops and partner complexity begins. | MEDIUM | Jurisdictional concern about strategic initiatives |
+| "We're a Tier 1  -  we don't need edge devices" | MaiaEdge PBCs sit at the boundaries between YOUR network domains and partner networks. Same team that built Acme Packet and 128 Technology. Why rebuild what exists? | MEDIUM | Scale/status concern |
 | "Just invested in Cisco/Juniper infrastructure" | We're not asking you to replace that investment. MaiaEdge sits at the edge, alongside your Cisco and Juniper equipment. Your core routers keep doing what they do. What we add is capabilities your existing infrastructure can't provide. NTT deployed MaiaEdge for network simplification without replacing their core. | HIGH | Sunk cost fallacy |
 | "Can you handle our scale? We have 100+ PoPs." | Absolutely. IENTC in Mexico is using MaiaEdge to connect over 800 cell towers to more than 20 data centers. NTT is deploying across their global network. The architecture is designed for scale. | MEDIUM | Legitimate scale concern |
 | "How does this integrate with our existing OSS/BSS?" | MaiaEdge is designed to fit into your existing operational stack, not replace it. The PCE exposes APIs that integrate with your BSS, OSS, and service orchestration systems. Your existing ordering systems trigger path provisioning, and service lifecycle events flow to your billing system. | HIGH | Integration complexity concern |
@@ -890,7 +890,7 @@ Network Operators require research to determine which messaging track to use. Th
 ### What Change We're Asking
 
 **Infrastructure Changes**
-At your scale, deployment is measured in dozens to hundreds of PBCs across your network. Typical placement: every major PoP, every domain boundary, every location where you hand off to partners or take handoffs from underlying carriers. For mobile backhaul use cases, PBCs deploy at aggregation points connecting to cell tower infrastructure.
+For operators at this tier, deployment is measured in dozens to hundreds of PBCs across the network. Typical placement: every major PoP, every domain boundary, every location where you hand off to partners or take handoffs from underlying carriers. For mobile backhaul use cases, PBCs deploy at aggregation points connecting to cell tower infrastructure.
 
 **Operational Process Changes**
 Activating a new PoP changes from "months of work involving network architecture, engineering, and operations" to "rack the PBC, connect it to your infrastructure, register it with the PCE."
@@ -908,11 +908,11 @@ Your network engineers don't need to unlearn BGP and MPLS - those skills still m
 
 ### Why Change Statement
 
-"Your enterprise customers are comparing you to AWS and Azure — they expect provisioning in minutes, not weeks. Every day the gap between their expectations and your delivery time widens, you're training them to look elsewhere for connectivity."
+"Your enterprise customers are comparing you to AWS and Azure  -  they expect provisioning in minutes, not weeks. Every day the gap between their expectations and your delivery time widens, you're training them to look elsewhere for connectivity."
 
 ### Proof Points
 
-- NTT: Network simplification, PoP acceleration — Tier 1 carrier validation
+- NTT: Network simplification, PoP acceleration  -  Tier 1 carrier validation
 - IENTC (Mexico): Mobile backhaul connecting cell towers to data centers at scale
 - Tier 1 carriers validating the technology at scale
 
@@ -929,7 +929,7 @@ Your network engineers don't need to unlearn BGP and MPLS - those skills still m
 
 ### How This Business Works
 
-MSPs aggregate and resell connectivity from multiple carriers. They don't own significant infrastructure — their value is in the carrier relationships, multi-source pricing, and managed service wrapper. Their model is asset-light: contracts, not fiber.
+MSPs aggregate and resell connectivity from multiple carriers. They don't own significant infrastructure  -  their value is in the carrier relationships, multi-source pricing, and managed service wrapper. Their model is asset-light: contracts, not fiber.
 
 **What They Own:** Contracts with carriers, customer relationships, service management platforms. Minimal or no physical infrastructure.
 
@@ -941,31 +941,31 @@ MSPs aggregate and resell connectivity from multiple carriers. They don't own si
 
 ### Key Personas at MSP/Aggregators
 
-1. **VP Operations / COO** — Service delivery owner, feels carrier dependency (Priority #1)
+1. **VP Operations / COO**  -  Service delivery owner, feels carrier dependency (Priority #1)
    - Title Variations: VP Operations, Vice President Operations, COO, Chief Operating Officer, VP Service Delivery, VP Ops, SVP Operations, VP Client Operations, VP Managed Services Operations
    - Their Job: Owns service delivery, carrier relationships, and operational efficiency. Manages the team that coordinates across multiple underlying carriers. Accountable for SLA compliance but lacks the tools to enforce it.
    - What They Care About: Reducing carrier dependencies, getting visibility into networks they don't own, speeding up provisioning timelines, reducing finger-pointing when things break.
    - What Moves the Needle: "You own the customer relationship but wait weeks for circuits. MaiaEdge treats all your carriers as one fabric - instant provisioning, end-to-end visibility, OpEx model."
 
-2. **VP Product / CTO** — Platform strategy, differentiation (Priority #2)
+2. **VP Product / CTO**  -  Platform strategy, differentiation (Priority #2)
    - Title Variations: VP Product, VP of Product, CTO, Chief Technology Officer, VP Platform Strategy, VP Technology, Chief Product Officer, VP Product Management, VP Solutions
    - Their Job: Defines the service portfolio and platform roadmap. Looks for ways to differentiate from other MSPs and compete with Tier 1s. Evaluates technology that could change the competitive equation.
    - What They Care About: Competitive differentiation, new service capabilities, reducing time-to-market for new offerings, matching Tier 1 provisioning speed.
    - What Moves the Needle: "Tier 1 carriers are going direct to your enterprise customers with instant connectivity. MaiaEdge is how you match that - without owning fiber."
 
-3. **Director of Carrier Relations** — Manages carrier partnerships (Priority #3)
+3. **Director of Carrier Relations**  -  Manages carrier partnerships (Priority #3)
    - Title Variations: Director of Carrier Relations, Director Carrier Relations, Carrier Relations Manager, Director of Vendor Management, Director of Partner Operations, Director of Supplier Management, VP Carrier Relations
    - Their Job: Manages relationships with underlying carriers, negotiates contracts, coordinates service delivery across multiple providers. Often the person who feels provisioning pain most acutely.
    - What They Care About: Simplifying carrier coordination, reducing provisioning dependencies, getting better visibility into carrier performance, streamlining multi-carrier service delivery.
    - What Moves the Needle: "I spend half my time chasing carriers for updates. If I could see the path myself and provision without waiting, that changes everything."
 
-4. **Solutions Architect** — Multi-vendor integration, technical evaluation (Priority #4)
+4. **Solutions Architect**  -  Multi-vendor integration, technical evaluation (Priority #4)
    - Title Variations: Solutions Architect, Solution Architect, Pre-Sales Architect, Technical Solutions Architect, Integration Architect, Platform Architect, Customer Solutions Architect, Enterprise Architect, Network Solutions Architect
    - Their Job: Designs solutions that span multiple carriers, integrates various vendor systems, handles the technical complexity of multi-carrier service delivery. The person who lives the "stitching together" reality daily.
    - What They Care About: Simplifying multi-carrier integration, unified management plane, reducing manual coordination, having data to troubleshoot when things break.
    - What Moves the Needle: "MaiaEdge treats owned fiber, leased capacity, and DIA as a single cohesive fabric under one control plane. You get hop-by-hop visibility across networks you don't own."
 
-5. **Director of Engineering** — Integration owner, technical authority (Priority #5)
+5. **Director of Engineering**  -  Integration owner, technical authority (Priority #5)
    - Title Variations: Director of Engineering, Director Engineering, Director of Integration, Director of Network Engineering, Director IT Engineering, VP Engineering, Director Platform Engineering
    - Their Job: Manages engineering team responsible for platform integration, service automation, and technical operations. Key decision-maker for infrastructure investments.
    - What They Care About: End-to-end visibility, troubleshooting across carriers, platform integration capabilities, reducing technical debt from manual processes.
@@ -977,7 +977,7 @@ MSPs aggregate and resell connectivity from multiple carriers. They don't own si
 
 | Persona | Pain Points |
 |---------|-------------|
-| **CEO/President** | "Tier 1s are cutting us out. They're going direct to our customers with instant provisioning." "Our model depends on being faster and easier than going direct — but we're not." |
+| **CEO/President** | "Tier 1s are cutting us out. They're going direct to our customers with instant provisioning." "Our model depends on being faster and easier than going direct  -  but we're not." |
 | **VP Operations** | "When something breaks, it's 3 carrier tickets and a week of finger-pointing." "We can't independently verify SLA compliance." |
 | **VP Business Development** | "Onboarding a new carrier partner takes months." "We can't extend reach fast enough to win multi-region deals." |
 | **VP Sales** | "Our provisioning is slower than going direct to the carrier. That's a problem." |
@@ -988,8 +988,8 @@ MSPs aggregate and resell connectivity from multiple carriers. They don't own si
 |---------|-------------------|-------------|
 | **CEO/President** | Tier 1 capabilities without Tier 1 infrastructure. Compete on speed and visibility while staying asset-light. | "Tier 1 capabilities, asset-light model." |
 | **CFO** | Eliminate 40–60% CapEx burden. Better cash flow, improved unit economics. | "Shift from CapEx depreciation to predictable OpEx." |
-| **VP Operations** | End-to-end visibility across all carrier relationships. Hop-by-hop telemetry, prove SLAs to customers. Stop the finger-pointing. | "Hop-by-hop visibility across all carriers — prove SLA compliance." |
-| **VP Business Development** | Federation in minutes. Instant partner activation. Extend reach without building fiber. | "Federation in minutes, instant partner activation." |
+| **VP Operations** | End-to-end visibility across all carrier relationships. Hop-by-hop telemetry, prove SLAs to customers. Stop the finger-pointing. | "Hop-by-hop visibility across all carriers  -  prove SLA compliance." |
+| **VP Business Development** | Partner interconnection in minutes. Instant cross-carrier activation. Extend reach without building fiber. | "Partner activation in minutes. Extend reach without building there." |
 | **VP Sales** | Instant activation instead of "depends on the carrier." Faster closes, same-day provisioning. Competitive with Tier 1s on speed. | "Instant activation instead of 'depends on the carrier.'" |
 
 ### MSP/Aggregator Discovery Deep Dive
@@ -1048,7 +1048,7 @@ After Universal questions, go deeper on MSP-specific pain points.
 
 | Objection | Rebuttal | Frequency | Why They Ask |
 |-----------|----------|-----------|-------------|
-| "We're asset-light — we don't want infrastructure" | MaiaEdge is OpEx, not CapEx. You're not building infrastructure — you're adding a visibility and control layer over your existing carrier relationships. Same asset-light model, better capabilities. | HIGH | Fundamental model question |
+| "We're asset-light  -  we don't want infrastructure" | MaiaEdge is OpEx, not CapEx. You're not building infrastructure  -  you're adding a visibility and control layer over your existing carrier relationships. Same asset-light model, better capabilities. | HIGH | Fundamental model question |
 | "Our carrier relationships work fine" | But can you see inside their networks? Can you prove SLA compliance independently? Can you provision as fast as if the customer went direct? MaiaEdge gives you visibility and speed without replacing your carrier relationships. | HIGH | Defending status quo |
 | "This is expensive for our margins" | What's the cost of losing deals to Tier 1s who can provision faster? What's the cost of finger-pointing during outages? MaiaEdge protects your customer relationships by making you faster and more transparent than the alternative. | MEDIUM | Cost-conscious about margin impact |
 
@@ -1062,7 +1062,7 @@ For an MSP working with 5-10 carriers, that might mean 10-30 PBCs at key handoff
 **Operational Process Changes**
 This is transformational for the MSP model. Today, when a customer reports an issue on a circuit that crosses three carriers, you're blind and opening tickets. With PBCs at each carrier boundary, you get hop-by-hop telemetry across the entire path.
 
-Your provisioning process changes too. Today it's coordinating across fragmented carrier systems. With MaiaEdge, you have unified orchestration across your carrier relationships — a single control plane instead of bouncing between carrier portals.
+Your provisioning process changes too. Today it's coordinating across fragmented carrier systems. With MaiaEdge, you have unified orchestration across your carrier relationships  -  a single control plane instead of bouncing between carrier portals.
 
 **Commercial Model Changes**
 The visibility changes what you can sell: tighter SLA commitments, premium tiers with customer-facing dashboards, faster provisioning, value-add services built on visibility.
@@ -1098,7 +1098,7 @@ When you have visibility into carrier performance, your conversations with carri
 
 ### How This Business Works
 
-Large enterprises that own or lease dark fiber or private WAN infrastructure for internal use. They are NOT selling connectivity services — the network exists to serve their own operations. This is a LOW PRIORITY segment because deal sizes are smaller and sales cycles are longer.
+Large enterprises that own or lease dark fiber or private WAN infrastructure for internal use. They are NOT selling connectivity services  -  the network exists to serve their own operations. This is a LOW PRIORITY segment because deal sizes are smaller and sales cycles are longer.
 
 **Who Qualifies:** Universities with campus fiber networks, healthcare systems with inter-facility fiber, financial services firms with private trading networks (HFT), utilities with SCADA/grid networks, government/military with private networks.
 
@@ -1121,7 +1121,7 @@ Large enterprises that own or lease dark fiber or private WAN infrastructure for
 | **Tier 1 (High Priority)** | Colo + Mid-Size + Hyperscaler <50mi OR Leadership Change; Neocloud with 5+ facilities; Fiber Operator in AI Corridor with stranded capacity | Active outreach, multi-touch sequence, executive engagement |
 | **Tier 2 (Standard)** | Fiber/Colo + Mid-Size OR Network Operator + Large scale; Neocloud 2–4 facilities; MSP/Aggregator with significant scale | Standard outreach sequence, monitor for trigger events |
 | **Tier 3 (Low Priority)** | Small scale OR MSP/Enterprise segments; Early-stage neocloud; Fiber operator outside AI corridors | Nurture, trigger-based outreach only |
-| **Tier 4 (Disqualify)** | Software/Platform Vendors, Other/Unknown, outside North America (for now), matches any Exclusion criteria | No outreach — mark as excluded in HubSpot |
+| **Tier 4 (Disqualify)** | Software/Platform Vendors, Other/Unknown, outside North America (for now), matches any Exclusion criteria | No outreach  -  mark as excluded in HubSpot |
 
 ---
 
@@ -1131,14 +1131,14 @@ Large enterprises that own or lease dark fiber or private WAN infrastructure for
 |-----------------|----------|-------|
 | **High (90%+)** | Colocation Operator (very distinct keywords); Service Provider vs. Enterprise (clear business model difference); Fiber Operator with published route miles <10K | Classification reliable for automation |
 | **Medium-High (80–89%)** | MSP/Aggregator (language patterns strong); Carrier/VNO with 10+ state coverage; Fiber Operator vs. Carrier (when route miles published) | Reliable but verify edge cases |
-| **Medium (70–79%)** | Dark Fiber Enterprise (relies on news/press releases); Carrier/VNO vs. Fiber Operator (when route miles NOT published — use employee count as proxy) | Flag for manual review |
+| **Medium (70–79%)** | Dark Fiber Enterprise (relies on news/press releases); Carrier/VNO vs. Fiber Operator (when route miles NOT published  -  use employee count as proxy) | Flag for manual review |
 | **Low (<70%)** | Missing critical data (no services page, minimal web presence); Conflicting signals (MSP language + owned fiber); Company doesn't fit any pattern | Requires human classification |
 
 ### Flag for Manual Review When:
 
 - No clear services page or website under construction
 - Conflicting indicators (says "MSP" but mentions owned fiber)
-- Company recently acquired — check parent company
+- Company recently acquired  -  check parent company
 - Very small headcount but significant infrastructure signals
 - Software vendor with possible operator division
 - "Consulting" firm that may also operate infrastructure
@@ -1179,7 +1179,7 @@ Large enterprises that own or lease dark fiber or private WAN infrastructure for
 
 ## Messaging Guardrails
 
-### Infrastructure vs. NaaS — Quick Check
+### Infrastructure vs. NaaS  -  Quick Check
 
 Before sending any message, verify:
 
@@ -1191,7 +1191,7 @@ Before sending any message, verify:
 | "Keep the customer and margin" | "Access our platform" |
 | "Maintain sovereignty" | "Our network provides..." |
 
-### Speed Claims — Quick Check
+### Speed Claims  -  Quick Check
 
 Speed claims must be paired with ownership language:
 
@@ -1202,7 +1202,7 @@ Speed claims must be paired with ownership language:
 | "On-demand connectivity" | "Offer on-demand through your portal" |
 | "We reduce weeks to minutes" | "What takes weeks, your team does in minutes" |
 
-### Customer References — Usage Rules
+### Customer References  -  Usage Rules
 
 | Context | Named References OK? |
 |---------|---------------------|
@@ -1212,7 +1212,7 @@ Speed claims must be paired with ownership language:
 | "Who else is using this?" objection | YES |
 | Trade show conversations | YES |
 
-**Credibility without name-dropping:** The founding team credibility IS appropriate in cold outreach: "Same team that built Acme Packet and 128 Technology" — this is company credibility, not customer name-dropping.
+**Credibility anchors — cold-banned, live-allowed (April 2026 rule update):** Founding team credibility ("Same team that built Acme Packet and 128 Technology" / Andy Ory / etc.) is NOT appropriate in cold outreach. It IS allowed in live presentations, demos, proposals, and objection handling. The message earns the reply in outreach; the track record does the talking in rooms.
 
 ### Proof Points (Anonymized for Cold Outreach)
 
@@ -1220,8 +1220,8 @@ Speed claims must be paired with ownership language:
 |---------|----------------------|
 | Colo (Standard) | "One colo operator described it as building their own fabric without the development project" |
 | Colo (Standard) | "An operator we work with called it 'drop it in and it works'" |
-| Colo — AI Infrastructure | "Even major fabric providers have validated the architecture" |
-| Neoclouds | (Emerging segment — use general deterministic path messaging) |
+| Colo  -  AI Infrastructure | "Even major fabric providers have validated the architecture" |
+| Neoclouds | (Emerging segment  -  use general deterministic path messaging) |
 | Fiber Operator | "A regional fiber operator went from 60-day NNIs to same-day activation" |
 | Network Operator | "Tier 1 carriers are using this for network simplification" |
 | MSP/Aggregator | "We're enabling multi-carrier orchestration at scale" |
@@ -1230,7 +1230,7 @@ Speed claims must be paired with ownership language:
 
 ## Sales Execution Reference
 
-### Part 2: Sales Execution — Discovery & Objection Handling
+### Part 2: Sales Execution  -  Discovery & Objection Handling
 
 This section is your in-call reference material. Use these discovery questions, objection handlers, and playbooks during live conversations.
 
@@ -1330,7 +1330,7 @@ Use these during or after the demo to gauge interest and surface automation oppo
 
 ## Good Fit vs. Bad Fit Signals
 
-**Good Fit Signals** — Immediate Priority Signals
+**Good Fit Signals**  -  Immediate Priority Signals
 
 - "Our provisioning takes 60+ days"
 - Multiple mentions of "visibility" or "blind spots"
@@ -1341,7 +1341,7 @@ Use these during or after the demo to gauge interest and surface automation oppo
 - Type 2 circuits or multi-carrier complexity mentioned
 - Within 200 miles of hyperscaler announcement
 
-**Bad Fit Signals** — Immediate Disqualification Criteria
+**Bad Fit Signals**  -  Immediate Disqualification Criteria
 
 If ANY of these are true, disqualify immediately:
 
@@ -1358,9 +1358,9 @@ Real email examples for each segment. Three personas per segment: Decision Maker
 
 **Email Structure Framework**
 
-Every email follows: Observation → Warmth → Problem → Solution Hint → Credibility → Soft CTA
+Every email follows: Problem → Peer insight → Value hint → Soft CTA. Research is absorbed into the problem framing, not showcased.
 
-Rules: 60-90 words max. No flattery. No em dashes. Always include "Same team that built Acme Packet." Soft CTA only.
+Rules: 60-90 words max. No flattery. No em dashes. No credibility anchors (Acme Packet, 128 Technology, Andy Ory) — those are reserved for live presentations, demos, proposals, and objection handling. No competitor names in cold outreach (use "third-party fabric providers"). No sign-offs (signatures auto-append). Soft CTA only.
 
 ### Colocation Operator Emails
 
@@ -1372,7 +1372,7 @@ Subject: RevNet's interconnection revenue
 
 Two data centers plus Azure Stack HCI for Midwest clients, that's a combination that should command premium interconnection revenue. But if cross-connects still take weeks to provision, you're stuck competing on space and power. Deals go to whoever can deliver fastest.
 
-We built carrier infrastructure specifically for regional colos. Fabric-like capabilities, instant activation, no development project required. Same team that built Acme Packet.
+We built carrier infrastructure that lets regional colos stand up their own fabric without a multi-year development project. Automated virtual cross-connects, cloud on-ramp under your brand, all self-service from your portal.
 
 Is this relevant for RevNet right now?
 
@@ -1382,7 +1382,7 @@ Subject: Cross-connects at RevNet
 
 Managing cross-connects manually between Braham and Cambridge, plus out to partners, that's a lot of LOAs, router configs, and zero visibility once traffic leaves your infrastructure. Every new interconnect adds headcount pressure on a team that's probably already stretched thin.
 
-We built carrier infrastructure that automates path activation without routing protocols. API-driven, protocol-free, deterministic paths. Same team that built Acme Packet.
+We built carrier infrastructure that automates path activation without routing protocols. API-driven, protocol-free, deterministic paths across any transport.
 
 Dealing with something similar?
 
@@ -1390,11 +1390,7 @@ Dealing with something similar?
 
 Subject: Selling connectivity at RevNet
 
-When a RevNet customer needs cloud connectivity or a cross-connect to another tenant, what's the timeline? If it's weeks, they're also talking to whoever can deliver faster.
-
-We built infrastructure that lets regional colos offer instant activation under their own brand. One operator told us: "Imagine having Megaport capability between providers."
-
-Same team that built Acme Packet.
+When a RevNet customer needs cloud connectivity or a cross-connect to another tenant, what's the timeline? If it's weeks, they're also talking to whoever can deliver faster, and the fix is the connectivity layer that lets regional colos offer cloud on-ramp and automated cross-connects under their own brand. Build your own fabric, productize the services, keep the relationship.
 
 Worth a conversation?
 
@@ -1408,7 +1404,7 @@ Subject: Beyond Pilot's 900 buildings
 
 900 buildings across Manhattan and the Bronx, that's real momentum. But it also means more RFPs hitting your desk for enterprise locations just off your fiber path. Traditional partner provisioning takes 60-90 days. That's a long time to wait on revenue you've already invested to capture.
 
-We built carrier infrastructure that extends your reach programmatically. Federate with partners instantly, not in months. Same team that built Acme Packet.
+We built carrier infrastructure that monetizes underutilized fiber and extends your reach to partner networks programmatically. Instant private fabric across any transport, no routing complexity, partner interconnection in minutes.
 
 Is this relevant for Pilot right now?
 
@@ -1418,7 +1414,7 @@ Subject: Extending Pilot's Control Panel
 
 Your Control Panel and API handle on-net provisioning well. The challenge is extending that automation off-net without manual BGP peering for every partner connection. Each new carrier interconnect adds complexity, breaks visibility, and takes weeks. That doesn't scale with 900 buildings generating off-net demand.
 
-We built carrier infrastructure that lets you activate partner connections via API in minutes. Protocol-free, deterministic paths. Same team that built Acme Packet.
+We built carrier infrastructure that lets you activate partner connections via API in minutes over any transport. No VLAN stitching, no BGP, no MPLS, no SRv6 — just deterministic paths.
 
 Dealing with something similar?
 
@@ -1426,9 +1422,7 @@ Dealing with something similar?
 
 Subject: Deals beyond Pilot's footprint
 
-You're about to have 900 on-net buildings in NYC. That means more enterprise RFPs for locations just off your fiber path. Good problem to have, until quoting off-net circuits takes weeks. Prospects want the Pilot experience everywhere. When you can't deliver fast, they find someone who can.
-
-We built infrastructure that gives you a pre-integrated ecosystem of partners and cloud on-ramps. Extend your reach without extending your timeline. Same team that built Acme Packet.
+You're about to have 900 on-net buildings in NYC. That means more enterprise RFPs for locations just off your fiber path. Good problem to have, until quoting off-net circuits takes weeks. Prospects want the Pilot experience everywhere, and when you can't deliver fast they find someone who can. The fix is a pre-integrated ecosystem of partners and cloud on-ramp as a native product, so reach extends at the same pace as your sales pitch.
 
 Worth a conversation?
 
@@ -1442,7 +1436,7 @@ Subject: Monetizing Logix's 7,000 miles
 
 The 400G wavelengths you deployed last week on the 800G backbone, lighting that capacity fast is the difference between revenue and dark fiber sitting idle. 7,000 route miles is a lot of fiber to keep lit. Standard provisioning leaves too much capacity sitting dark for too long while competitors close deals faster.
 
-We built carrier infrastructure that turns fiber into a programmable platform. Service activation in minutes, not weeks. Same team that built Acme Packet.
+We built carrier infrastructure that turns underutilized fiber into a programmable, monetizable platform. Service activation in minutes, across any transport, no routing complexity.
 
 Is this relevant for Logix right now?
 
@@ -1452,7 +1446,7 @@ Subject: Provisioning across 300 POPs
 
 You're running 7,000 route miles and 300 POPs with Equinox handling billing and orders. That's solid for back-office, but the gap is service activation, which still involves weeks of routing configuration per customer. That bottleneck doesn't scale with an 800G backbone and new 400G services waiting to be sold.
 
-We built carrier infrastructure that adds what your OSS can't provide. API-driven path activation without protocol complexity. Deterministic paths, line-rate encryption. Same team that built Acme Packet.
+We built carrier infrastructure that adds what your OSS can't provide. API-driven path activation without routing protocol complexity. Deterministic paths over any transport, line-rate encryption.
 
 Dealing with something similar?
 
@@ -1460,9 +1454,7 @@ Dealing with something similar?
 
 Subject: Selling Logix capacity faster
 
-You have 7,000 miles of Texas fiber and new 400G services. When a carrier customer needs capacity lit, waiting weeks means they're also talking to competitors who can move faster. Provisioning timelines are where deals stall. The investment is already made, it's just a question of how fast you can turn it into revenue.
-
-We built infrastructure that lets you provision in minutes. Turn backbone investment into deals closed, not deals pending. Same team that built Acme Packet.
+You have 7,000 miles of Texas fiber and new 400G services. When a carrier customer needs capacity lit, waiting weeks means they're also talking to competitors who can move faster. The investment is already made; the gap is how fast you turn it into revenue, and the fix is provisioning that activates in minutes over fiber or DIA, no routing complexity. Turn backbone investment into deals closed, not deals pending.
 
 Worth a conversation?
 
@@ -1476,7 +1468,7 @@ Subject: BCM One's carrier dependencies
 
 7,000 channel partners selling managed connectivity, that's a big machine to keep running. But 40-60% of your costs are locked into AT&T and Verizon, and your provisioning timeline is dictated by theirs. You own the customer relationship but wait weeks for circuits. New leadership often looks at these dependencies differently.
 
-We built carrier infrastructure that breaks that dependency. Instant provisioning, end-to-end visibility, OpEx model. Same team that built Acme Packet.
+We built carrier infrastructure that breaks that dependency. Instant provisioning across your upstreams, end-to-end visibility, OpEx model.
 
 Is this relevant for BCM One right now?
 
@@ -1484,9 +1476,7 @@ Is this relevant for BCM One right now?
 
 Subject: Visibility across BCM One's carriers
 
-You're stitching together circuits from AT&T, Verizon, and others to serve multi-site enterprises. That's not easy, and there's no visibility once traffic leaves your 14 POPs. Customer complains. You open tickets. Carriers point fingers. Nobody has data. Meanwhile, you own the SLA.
-
-We built carrier infrastructure that treats all underlying networks as one fabric you control. Hop-by-hop visibility, automated provisioning. Same team that built Acme Packet.
+You're stitching together circuits from AT&T, Verizon, and others to serve multi-site enterprises. That's not easy, and there's no visibility once traffic leaves your 14 POPs. Customer complains. You open tickets. Carriers point fingers. Nobody has data. Meanwhile, you own the SLA. The fix is carrier infrastructure that treats all underlying networks as one fabric you control: hop-by-hop visibility across every upstream, automated provisioning.
 
 Dealing with something similar?
 
@@ -1494,9 +1484,7 @@ Dealing with something similar?
 
 Subject: Closing faster at BCM One
 
-Your channel partners close a multi-site deal. Then what? Weeks waiting on AT&T or Verizon to provision. Every delay is a delay in revenue recognition and a risk the customer second-guesses the decision. That's frustrating when you've done the hard work of winning the business.
-
-We built infrastructure that lets you activate services the day you close. Tier 1 delivery speed on your asset-light model. Same team that built Acme Packet.
+Your channel partners close a multi-site deal. Then what? Weeks waiting on AT&T or Verizon to provision. Every delay is a delay in revenue recognition and a risk the customer second-guesses the decision. That's frustrating when you've done the hard work of winning the business — the fix is infrastructure that lets you activate services the day you close, Tier 1 delivery speed on your asset-light model.
 
 Worth a conversation?
 

@@ -1,13 +1,13 @@
 ---
 name: pipeline-analytics
-description: "MaiaEdge pipeline analytics and forecasting engine. Produces HTML dashboards for pipeline health, deal velocity, revenue forecasting, deal-by-deal review with call intelligence, and rep performance. Use when asked about pipeline health, deal velocity, forecast, what's likely to close, what's stuck, deal review, rep performance, or where reps should focus. Source of truth: HubSpot Deals pipeline with native time-in-stage tracking."
+description: "MaiaEdge pipeline analytics and forecasting engine. Produces a single comprehensive HTML report covering pipeline health, revenue forecast with POC-adjusted probabilities, deal-by-deal narratives, and stale deal flags. Use when asked about pipeline, forecast, what's likely to close, deal review, what's stuck, or anything pipeline-related. Source of truth: HubSpot Deals pipeline with native time-in-stage tracking."
 ---
 
 # MaiaEdge Pipeline Analytics & Forecasting
 
 ## Purpose
 
-Analyze the MaiaEdge deal pipeline in HubSpot and produce actionable, visually rich reports. Five modes: pipeline snapshot, deal velocity, revenue forecasting, deal-by-deal review (with call intelligence per deal), and rep performance.
+When anyone asks for a pipeline report, forecast, or deal review  -  produce one comprehensive report that covers everything leadership needs to see. No follow-up questions. No options to choose from. One report, every time.
 
 The MaiaEdge Deals pipeline is the source of truth. All analysis uses HubSpot's native time-in-stage tracking for accurate velocity calculations.
 
@@ -37,16 +37,18 @@ Key points:
 
 See `deals-schema.md` for full stage reference. Quick mapping:
 
-| Stage | Internal Name | Probability |
-|-------|---------------|-------------|
-| Appointment Scheduled | `appointmentscheduled` | 20% |
-| Discovery & Scoping | `qualifiedtobuy` | 40% |
-| POC & Technical Validation | `presentationscheduled` | 60% |
-| Quote Provided | `1996673735` | 80% |
-| Price Agreement & Final Config | `decisionmakerboughtin` | 90% |
-| Contract Review | `contractsent` | 90% |
-| Closed Won | `closedwon` | 100% |
-| Closed Lost | `closedlost` | 0% |
+| Stage | Internal Name | Base Probability | Forecast Category |
+|-------|---------------|-----------------|-------------------|
+| Appointment Scheduled | `appointmentscheduled` | 5% | Pipeline |
+| Discovery & Scoping | `qualifiedtobuy` | 15% | Pipeline |
+| Quote Provided | `1996673735` | 35% | Pipeline |
+| POC & Technical Validation | `presentationscheduled` | 50% | Pipeline |
+| Price Agreement & Final Config | `decisionmakerboughtin` | 75% | Best Case |
+| Contract Review | `contractsent` | 90% | Commit |
+| Closed Won | `closedwon` | 100% | Closed Won |
+| Closed Lost | `closedlost` | 0% | Not Forecasted |
+
+> **Note:** Quote Provided (35%) comes before POC (50%) in the pipeline because some deals receive a quote before entering a POC, while others go straight to POC. The probability reflects conviction level, not strict ordering.
 
 ### Key Deal Properties
 
@@ -76,255 +78,188 @@ From `deals-schema.md`:
 | Activity frequency | Touch within 14 days | 0 touches in 30+ days |
 | Deal amount | $2K-$400K (consistent with SKU) | Outside range |
 
+### Forecast Categories
+
+HubSpot groups deals into five forecast categories. Stage changes auto-assign the mapped category; reps can override manually (override sticks until next stage change).
+
+| Category | HubSpot API Value | Auto-Assigned Stages | Notes |
+|----------|-------------------|---------------------|-------|
+| Not Forecasted | OMIT | Closed Lost + stale (30+ days no activity on deal or POC) | Excluded from all forecast math |
+| Pipeline | PIPELINE | Appointment Scheduled, Discovery, Quote Provided, POC | Conviction still building |
+| Best Case | BEST_CASE | Price Agreement & Final Config | Manual override available |
+| Commit | COMMIT | Contract Review | Rep-confirmed close |
+| Closed Won | CLOSED | Closed Won | Auto-set by HubSpot |
+
+When `hs_manual_forecast_category` is set on a deal, use it. Otherwise derive from stage. Label stage-derived assignments clearly so they are distinguishable from manual overrides.
+
+### POC Signal Matrix
+
+For any deal with an associated POC ticket, apply a probability modifier on top of the base stage probability. Cross-reference `hs_pipeline_stage` (POC stage) with `poc_trend` to determine the modifier:
+
+| POC Stage | On Track | Needs Attention | Blocked / At Risk |
+|-----------|----------|-----------------|-------------------|
+| POC Requested | 0% | 0% | -5% |
+| Scoping | 0% | -5% | -10% |
+| Criteria Approved | +5% | 0% | -5% |
+| Configuration Locked | +5% | -5% | -10% |
+| Building & Preparing | +10% | -5% | -10% |
+| Shipped | +10% | 0% | -10% |
+| Customer Testing | +10% | -10% | -15% |
+| POC Successful | +20% | +20% | +20% |
+| POC Unsuccessful | 5% cap | 5% cap | 5% cap |
+| On Hold | -10% | -10% | -15% |
+
+**Formula:** Adjusted Probability = Stage Base Probability + POC Modifier
+- Cap: 95% maximum, 5% minimum
+- **POC Successful:** Always adds +20% regardless of trend -- strongest buying signal
+- **POC Unsuccessful:** Overrides everything -- deal probability capped at 5%
+- **No POC ticket:** Use base stage probability unchanged (no adjustment, no label)
+- **Blank `poc_trend`:** Treat as "On Track" for modifier lookup; flag in data quality output
+
+Use the adjusted probability everywhere in forecast output (weighted values, scenario totals). Show both base and adjusted probabilities on deal cards so the delta is visible.
+
 ### Blank Field Handling
 
 Same principle as pipeline-discipline: report what we know, never guess.
 
 - `amount` blank: show "--" for value columns, exclude from weighted calculations and averages
-- `hs_manual_forecast_category` blank: fall back to stage probability, label as "Stage-based" not "Commit"
+- `hs_manual_forecast_category` blank: derive from stage per the Forecast Categories table above, label as "Stage-based"
 - `closedate` blank: show "Not set" -- flag as action item
 - `customer_segment` blank: show "Unclassified"
 - MEDDPICC fields: calculate fill % from filled fields only, show "0%" if all blank
 - Win rate: show "--" if fewer than 3 closed deals for that segment/rep
 - Velocity: show "--" for stages with fewer than 3 data points
+- `poc_trend` blank: treat as "On Track" for probability math, note "(trend not set)" in POC status display
 
 ---
 
 ## Task Routing
 
-### MODE 1: PIPELINE SNAPSHOT
-**Trigger:** "How's our pipeline?" or "Pipeline overview" or "What do we have in the funnel?" or "Pipeline snapshot"
+### DEFAULT: FULL PIPELINE & FORECAST REPORT
+**Trigger:** Any pipeline or forecast request. This is the default output. Examples: "Give me a forecast", "How's the pipeline?", "Pipeline report", "Weekly forecast", "What's likely to close?", "Deal review", "What's happening on our deals?", "What's stuck?", "What do we have in the funnel?", "Run the pipeline", "Pipeline health", "What should we be focused on?"  -  and any similar phrasing. Do not ask which mode or format the user wants. Just run this report.
 
 **Steps:**
-1. Pull all open deals (not closed won or lost) from the MaiaEdge Deals pipeline via `search_crm_objects`. Request properties: `dealname, dealstage, amount, hubspot_owner_id, customer_segment, closedate, createdate, hs_deal_stage_probability, hs_v2_time_in_current_stage, num_associated_contacts, notes_last_contacted`. Include `associations: ["COMPANY"]`. Paginate if >100 deals.
-2. Group by stage. For each stage: deal count, total value (sum of `amount` where not null), weighted value (sum of `amount x hs_deal_stage_probability`), avg days in stage (from `hs_v2_time_in_current_stage`, convert seconds to days).
-3. Group by owner (`hubspot_owner_id`). For each: deal count, total pipeline value, weighted value, avg deal size.
-4. Group by segment (`customer_segment`). For each: deal count, total value, avg deal size.
-5. Calculate deal health distribution using the health assessment framework (see Reference section). Categorize each deal as GREEN/YELLOW/ORANGE/RED based on MEDDPICC %, time in stage, contact depth, and activity recency. Show health distribution as a stacked bar.
-6. Render as HTML.
 
-**Output:** HTML dashboard:
-- **Header:** "Pipeline Snapshot" with date
-- **KPI row (4 cards):** Total Pipeline ($, deal count), Weighted Pipeline ($), Avg Deal Size ($), Deals with Amount Set (N/total)
-- **Section: "Pipeline by stage"** -- Horizontal bar chart (value per stage) + table: Stage, Deals, Total Value, Weighted Value, Avg Days in Stage
-- **Section: "Pipeline by rep"** -- Horizontal bar chart (value per rep) + table: Owner, Deals, Pipeline Value, Weighted, Avg Deal Size
-- **Section: "Pipeline by segment"** -- Stacked distribution bar (segment colors from design system) + table: Segment, Deals, Value, Avg Deal Size
-- **Section: "Deal health distribution"** -- Stacked bar (GREEN/YELLOW/ORANGE/RED) + summary: "[N] healthy, [N] watch, [N] risk, [N] critical"
-- **Footer**
+**Step 1  -  Pull all open deals:**
+Pull all open deals (not closed won or lost) from the MaiaEdge Deals pipeline via `search_crm_objects`. Request properties: `dealname, dealstage, amount, hubspot_owner_id, customer_segment, closedate, createdate, hs_deal_stage_probability, hs_manual_forecast_category, hs_v2_time_in_current_stage, num_associated_contacts, notes_last_contacted, notes_last_updated`. Include `associations: ["COMPANY", "TICKET"]`. Paginate if >100 deals.
+
+**Step 2  -  Stale deal detection:**
+For each deal, determine the most recent activity date by checking:
+- `notes_last_contacted` (deal-level activity)
+- `notes_last_updated` (deal-level notes)
+- If the deal has an associated POC ticket: also check `hs_pipeline_stage_timestamp` (most recent stage change) and any POC-level notes or updates on the ticket record
+
+Take the most recent date across ALL of these sources. If that date is 30+ days ago, mark the deal as **Stale**. Stale deals are auto-assigned Not Forecasted (OMIT) in this report regardless of their HubSpot category. List them in the Stale Deals section at the end.
+
+**Step 3  -  Assign forecast categories (non-stale deals):**
+- If `hs_manual_forecast_category` is set, use it
+- If blank, derive from stage per the Forecast Categories table in Reference
+- Label stage-derived assignments "(stage-based)"
+
+**Step 4  -  Calculate adjusted probability per deal:**
+- Start with base stage probability (from Pipeline Stages table)
+- If the deal has an associated POC ticket, pull `hs_pipeline_stage` (POC stage) and `poc_trend`
+- Apply the POC Signal Matrix modifier; cap 95%, floor 5%
+- No POC ticket: adjusted probability = base probability
+
+**Step 5  -  Compute weighted values:**
+Weighted value per deal = `amount × adjusted probability`. Use this everywhere.
+
+**Step 6  -  Pull deal narratives:**
+For each non-OMIT deal, pull the most recent available data (in order of recency): POC ticket status/notes → deal notes → `hs_call_summary` from associated calls → email activity timestamps. Synthesize into a 2-3 sentence plain-English summary of current state, next step, and any blocker or momentum signal.
+
+**Step 7  -  Pull velocity data:**
+Pull closed-won deals from the last 12 months with time-in-stage properties: `hs_v2_cumulative_time_in_appointmentscheduled, hs_v2_cumulative_time_in_qualifiedtobuy, hs_v2_cumulative_time_in_presentationscheduled, hs_v2_cumulative_time_in_1996673735, hs_v2_cumulative_time_in_decisionmakerboughtin, hs_v2_cumulative_time_in_contractsent, createdate, closedate, amount, customer_segment, hubspot_owner_id`. Calculate avg days per stage (cumulative time / 86400), median, fastest, slowest. Show "--" for stages with <3 data points. Identify bottleneck stage (longest avg dwell).
+
+**Step 8  -  Pull rep performance data:**
+Pull all deals (open + closed in last 6 months) with `dealname, dealstage, amount, hubspot_owner_id, customer_segment, closedate, createdate, hs_is_closed_won, hs_is_closed_lost`. Group by owner: open deal count, pipeline value, weighted value, avg deal size, avg days in pipeline, win rate (show "--" if <3 closed), deals closed this quarter. Also compute segment coverage per rep.
+
+**Step 9  -  Render as single HTML report.**
 
 ---
 
-### MODE 2: DEAL VELOCITY
-**Trigger:** "How fast are deals moving?" or "Deal velocity" or "Stage conversion times" or "How long do deals take to close?"
+**Output:** Single self-contained HTML report titled "MaiaEdge Pipeline & Forecast" with today's date.
 
-**Steps:**
-1. Pull closed-won deals from the last 12 months (or user-specified range) with time-in-stage properties: `hs_v2_cumulative_time_in_appointmentscheduled, hs_v2_cumulative_time_in_qualifiedtobuy, hs_v2_cumulative_time_in_presentationscheduled, hs_v2_cumulative_time_in_1996673735, hs_v2_cumulative_time_in_decisionmakerboughtin, hs_v2_cumulative_time_in_contractsent`. Also request: `dealname, amount, customer_segment, hubspot_owner_id, createdate, closedate`.
-2. For each stage, calculate: avg days (mean of cumulative time / 86400), median days, fastest deal, slowest deal. Show "--" for stages with <3 data points.
-3. Calculate total average days to close (createdate to closedate).
-4. Break down by segment where sample size permits (3+ deals per segment).
-5. Identify bottleneck stage (longest avg dwell time).
-6. Render as HTML.
+**Section 1  -  Pipeline at a Glance (KPI cards):**
+Four hero cards: Total Open Pipeline ($ ACV, deal count) | Weighted Pipeline ($ using adjusted probabilities) | Commit ($ weighted, deals in Contract Review) | Deals Flagged (stale + at-risk count)
 
-**Output:** HTML report:
-- **Header:** "Deal Velocity Analysis" with date range
-- **KPI row (3 cards):** Avg Days to Close, Deals Analyzed (N), Bottleneck Stage (name + avg days)
-- **Section: "Time in each stage"** -- Horizontal bar chart (avg days per stage) + table: Stage, Avg Days, Median Days, Fastest (company, N days), Slowest (company, N days)
-- **Section: "Velocity by segment"** -- Table: Segment, Avg Days to Close, Deal Count. Only segments with 3+ deals.
-- **Section: "Bottleneck analysis"** -- Alert card highlighting the slowest stage with context
-- **Footer**
+**Section 2  -  Pipeline by Stage:**
+Horizontal bar chart (total ACV per stage) + table:
 
----
+| Stage | Deals | Total ACV | Weighted (Adj.) | Avg Days in Stage |
+|-------|-------|-----------|-----------------|-------------------|
 
-### MODE 3: FORECAST
-**Trigger:** "Forecast" or "What's likely to close?" or "Revenue projection" or "Quarterly forecast" or "What will we close this quarter?"
+**Section 3  -  Forecast by Category:**
+| Category | Deals | Total ACV | Weighted (Adj.) | Source |
+|----------|-------|-----------|-----------------|--------|
+| Commit | | | | Manual / Stage-based |
+| Best Case | | | | Manual / Stage-based |
+| Pipeline | | | | Manual / Stage-based |
+| Not Forecasted | | $[X] | -- | Manual / Stale |
 
-**Steps:**
-1. Pull all open deals with: `dealname, dealstage, amount, hubspot_owner_id, customer_segment, closedate, hs_deal_stage_probability, hs_manual_forecast_category`. Include `associations: ["COMPANY"]`.
-2. Build forecast categories:
-   - If `hs_manual_forecast_category` is set, use it (Commit, Most Likely, Pipeline, Omit)
-   - If blank, assign based on stage probability: >80% = "Most Likely (stage-based)", 40-80% = "Pipeline (stage-based)", <40% = "Pipeline (stage-based)"
-   - Label stage-based assignments clearly so they are distinguishable from manual categorization
-3. Compute weighted pipeline by category and by close date month.
-4. If user provides a quarterly/monthly target, compute gap analysis.
-5. Build scenario table.
-6. Render as HTML.
+**Section 4  -  Scenario Overlays:**
+| Scenario | What's Included | Deals | Weighted Revenue |
+|----------|----------------|-------|-----------------|
+| Conservative | Commit only | | |
+| Likely | Commit + Best Case | | |
+| Optimistic | Commit + Best Case + Pipeline | | |
 
-**Output:** HTML report:
-- **Header:** "Revenue Forecast" with date and target quarter/month if specified
-- **KPI row (4 cards):** Commit Total ($), Best Case (Commit + Most Likely, $), Full Pipeline ($), Deals with Close Date Set (N/total)
+**Section 5  -  Close Date Timeline:**
+| Month | Deals | Total ACV | Weighted (Adj.) | Overdue? |
+|-------|-------|-----------|-----------------|----------|
+| [This month] | | | | [N] deals past close date |
+| [Next month] | | | | |
+| [Month+2] | | | | |
+| Beyond / Not set | | | | |
 
-- **Section: "Forecast by category"** -- Table:
+Alert card for any deals with `closedate` in the past and still open.
 
-| Category | Deals | Total Value | Weighted Value | Source |
-|----------|-------|-------------|----------------|--------|
-| Commit | [N] | $[X] | $[X] | Manual |
-| Most Likely | [N] | $[X] | $[X] | Manual / Stage-based |
-| Pipeline | [N] | $[X] | $[X] | Manual / Stage-based |
-| Omit | [N] | $[X] | -- | Manual |
+**Section 6  -  Deal-by-Deal Summary:**
+One row per non-OMIT deal, sorted by adjusted probability descending. Every deal with its full context at a glance.
 
-- **Section: "Close date forecast"** -- Table:
+| Deal | Rep | ACV | Stage | Base % | Adj. % | POC Signal | Category | Latest Summary |
+|------|-----|-----|-------|--------|--------|------------|----------|----------------|
+| [dealname] | [rep] | $[X] | [stage] | [base]% | [adj]% | [POC stage + trend, or "--"] | [category] | [2-3 sentence narrative] |
 
-| Month | Deals | Total Value | Weighted Value | Overdue? |
-|-------|-------|-------------|----------------|----------|
-| [This month] | [N] | $[X] | $[X] | [N] deals past close date |
-| [Next month] | [N] | $[X] | $[X] | -- |
-| [Month+2] | [N] | $[X] | $[X] | -- |
-| Beyond / Not set | [N] | $[X] | $[X] | -- |
+- If POC modifier applied, show the delta clearly: "50% → 60% (Customer Testing / On Track)"
+- If no recent data for narrative: "No activity in [N] days."
 
-Alert card below for deals with `closedate` in the past but still open.
+**Section 7  -  Rep Performance:**
+Horizontal bar chart (pipeline value per rep) + table:
 
-- **Section: "Scenario table"**
+| Rep | Open Deals | Total ACV | Weighted | Avg Deal Size | Avg Days in Pipeline | Win Rate | Closed This Quarter |
+|-----|-----------|-----------|----------|---------------|---------------------|----------|-------------------|
 
-| Scenario | Assumption | Deals | Revenue |
-|----------|-----------|-------|---------|
-| Conservative | Commit only | [N] | $[X] |
-| Likely | Commit + 50% of Most Likely | [N] | $[X] |
-| Best Case | Commit + Most Likely | [N] | $[X] |
+Segment coverage below: Rep | Colo | Fiber | Neocloud | Network Op | MSP (deal counts per cell)
 
-- **Section: "Gap analysis"** (only if user provided a target)
+**Section 8  -  Deal Velocity (closed-won, last 12 months):**
+How long deals actually take to close and where they get stuck.
 
-| | Amount |
-|---|--------|
-| Target | $[X] |
-| Commit | $[X] |
-| Gap | $[X] |
+KPI row: Avg Days to Close | Deals Analyzed | Bottleneck Stage (name + avg days)
 
-Gap-filler table: deals from Most Likely and Pipeline ranked by weighted probability, close date proximity, and deal size. Show enough deals to cover the gap amount.
+Time-in-stage table:
 
-- **Footer**
+| Stage | Avg Days | Median Days | Fastest Deal | Slowest Deal |
+|-------|----------|-------------|--------------|--------------|
 
----
+Velocity by segment (3+ deals only):
 
-### MODE 4: DEAL-BY-DEAL REVIEW
-**Trigger:** "Deal review" or "Which deals need attention?" or "Deal-by-deal" or "Go through each deal" or "What's happening on our deals?"
+| Segment | Avg Days to Close | Deal Count |
+|---------|-------------------|------------|
 
-**Steps:**
+Bottleneck alert card: calls out the single slowest stage with context.
 
-**Part 1 -- Summary Table:**
-1. Pull all open deals with full property set (pipeline, value, velocity, MEDDPICC, contacts, activity). Include `associations: ["COMPANY", "CONTACT", "TICKET"]`.
-2. For each deal, compute health using the health assessment framework.
-3. Sort by health severity (RED first), then by value descending.
-4. Render summary table.
+**Section 9  -  Stale Deals (if any):**
+Deals excluded from forecast totals due to 30+ days no activity on deal or associated POC record.
 
-**Part 2 -- Deal Intelligence Cards (one per deal):**
-
-For each open deal:
-
-5. **Activity Pulse:** Query calls and emails associated with the deal's contacts (HubSpot engagement objects). Get the last 3 outbound and last 3 inbound with dates. Determine engagement trend:
-   - ACCELERATING: increasing touch frequency over last 30 days
-   - STEADY: consistent cadence
-   - COOLING: decreasing frequency, gaps widening
-   - DARK: no inbound response in 30+ days
-   All from HubSpot engagement associations -- not inference.
-
-6. **Latest Conversation:**
-   - Pull the most recent call associated with any contact on this deal
-   - If the deal has an associated POC ticket (from step 1 associations), ALSO pull the most recent call associated with that ticket's company
-   - Compare timestamps. Show the MORE RECENT one as the primary conversation:
-     - If POC-level call is more recent: "Latest call (via POC ticket -- [POC stage])"
-     - If deal-level call is more recent: "Latest call (on deal contacts)"
-   - Show: date, title, call owner, 2-3 sentence summary excerpt from `hs_call_summary`
-   - Extract from the summary: key topics discussed, any objections raised, stated next steps
-   - If a second call exists from the other source (deal vs POC), show below as: "Previous: [date] -- [title] -- [1 sentence]"
-   - If no calls exist on either deal contacts or POC ticket, show "No calls logged"
-
-7. **POC Status (if applicable):**
-   - From the deal's associated tickets, identify any in the POC pipeline
-   - Show: POC stage, `poc_trend`, days in stage, `poc_end_date`, POC owner
-   - POC call context is already surfaced in Latest Conversation if it was most recent
-   - If no POC ticket, show "No POC"
-
-8. **Deal Momentum Summary:**
-   - 2-3 sentence paragraph synthesizing: where the deal is, what the last interaction revealed, what needs to happen next
-   - Derived ONLY from call summary text and activity timestamps
-   - If no calls or recent activity: "No calls or emails in [N] days. Deal may be stalled."
-
-9. **Flags:** Only show flags that are true. Each backed by a specific HubSpot property value.
-   - Stalled: >60 days no activity (`notes_last_contacted` or `notes_last_updated`)
-   - Close date overdue: `closedate` is in the past
-   - Close date approaching: `closedate` within 7 days
-   - Single-threaded: `num_associated_contacts` = 1
-   - No calls logged: zero calls on deal contacts and associated POC
-   - POC at risk: associated POC ticket `poc_trend` = "At Risk" or "Blocked"
-   - No amount set: `amount` is null
-   - MEDDPICC low: <40% fields filled on deals past Discovery stage
-
-**Output:** HTML report:
-
-- **Header:** "Deal Review" with date
-- **KPI row (4 cards):** Open Deals, Total Pipeline, Deals with Flags (count), Avg MEDDPICC Completion
-
-- **Summary table:**
-
-| Company | Segment | Stage | Value | Days in Stage | Close Date | MEDDPICC | Contacts | Last Activity | Health | Owner |
-|---------|---------|-------|-------|---------------|-----------|----------|----------|---------------|--------|-------|
-
-- **Deal intelligence cards** (one card per deal, inside a card element with card-title showing company name, segment, stage, value, owner):
-
-```
-[Company Name] | [Segment] | [Stage] | $[Value] | Owner: [Rep]
-Health: [badge] | MEDDPICC: [N]% | Contacts: [N] | Days in Stage: [N]
-
-ACTIVITY PULSE
-  Outbound: [date] call, [date] email, [date] email
-  Inbound:  [date] email reply, [date] call
-  Trend: [COOLING] -- last inbound was [N] days ago
-
-LATEST CONVERSATION ([date] -- [owner], via POC ticket -- Customer Testing)
-  "[2-3 sentence excerpt from hs_call_summary]"
-  Previous: [date] -- [title] -- [1 sentence]
-
-POC STATUS
-  Stage: [stage] | Trend: [trend] | Day [N] | End: [date]
-  Owner: [Kyle/Woody]
-
-MOMENTUM: [2-3 sentence synthesis from call content and activity data]
-
-FLAGS: [only flags that are true, comma-separated]
-```
-
-- **Footer**
-
----
-
-### MODE 5: OWNER PERFORMANCE
-**Trigger:** "Rep performance" or "Owner comparison" or "How are reps doing?" or "Who's moving deals?"
-
-**Steps:**
-1. Pull all deals (open + closed in last 6 months) with: `dealname, dealstage, amount, hubspot_owner_id, customer_segment, closedate, createdate, hs_is_closed_won, hs_is_closed_lost`.
-2. Group by owner. For each rep calculate:
-   - Open deals: count and total pipeline value
-   - Weighted pipeline value
-   - Avg deal size (open deals with amount set)
-   - Avg days in pipeline (open deals, from `createdate` to today)
-   - Win rate: closed-won / (closed-won + closed-lost). Show "--" if <3 total closed.
-   - Deals closed this quarter (count and value)
-3. Segment coverage per rep: which segments they are working.
-4. Render as HTML.
-
-**Output:** HTML report:
-- **Header:** "Rep Performance" with date range
-- **KPI row (3 cards):** Total Open Pipeline ($), Deals Closed This Quarter (count, value), Team Win Rate (%, if 3+ total closed)
-
-- **Section: "Pipeline by rep"** -- Horizontal bar chart (pipeline value per rep) + table:
-
-| Rep | Open Deals | Pipeline Value | Weighted | Avg Deal Size | Avg Days in Pipeline | Win Rate | Closed This Quarter |
-|-----|-----------|---------------|----------|---------------|---------------------|----------|-------------------|
-
-- **Section: "Segment coverage"** -- Table: Rep | Colo | Fiber | Neocloud | Network Op | MSP (deal counts per cell)
-
-- **Footer**
+| Deal | Rep | Stage | Last Activity | Days Since Activity | Action |
+|------|-----|-------|---------------|---------------------|--------|
+| [dealname] | [rep] | [stage] | [date] | [N] days | Consider marking Closed Lost |
 
 ---
 
 ## When to Use This Skill
 
-Trigger on any of these patterns:
-- "How's our pipeline?" or "Pipeline health" or "Pipeline overview" or "Pipeline snapshot"
-- "Deal velocity" or "How fast do deals close?" or "Stage timing" or "Bottleneck"
-- "Forecast" or "What's likely to close?" or "Revenue projection" or "Quarterly forecast"
-- "Deal review" or "Which deals need attention?" or "Go through each deal" or "What's happening on our deals?"
-- "Rep performance" or "Owner comparison" or "Who's moving deals?" or "How are reps doing?"
-- "What's stuck?" or "Stalled deals"
-- "Pipeline by segment" or "Segment trends"
-- Any mention of: pipeline, forecast, close rate, stage, velocity, bottleneck, stuck deals, deal review, rep performance
+Trigger on any mention of: pipeline, forecast, deal review, what's likely to close, what's stuck, stalled deals, pipeline health, pipeline report, weekly/monthly/quarterly forecast, where should we focus, deal velocity, rep performance, how are reps doing, close rate, stage timing, bottleneck.
+
+Always produce the Full Pipeline & Forecast Report. No modes, no follow-up questions.

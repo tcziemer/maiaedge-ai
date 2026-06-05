@@ -10,10 +10,10 @@ This file teaches you to sound like someone who has lived inside each segment. N
 
 For each segment, you'll find:
 
-1. **Their vocabulary** — The actual words and phrases these people use. Not our words translated into theirs. Their words.
-2. **Their daily reality** — What their day actually looks like. What frustrates them at 3pm on a Wednesday. What keeps coming up in their staff meetings.
-3. **How they talk about problems** — The conversational patterns. How they'd describe their pain to a peer at a bar after a trade show. Not how a sales deck frames it.
-4. **How an insider writes vs. how an outsider writes** — Side-by-side examples showing the difference between sounding like you've been there and sounding like you googled them.
+1. **Their vocabulary**  -  The actual words and phrases these people use. Not our words translated into theirs. Their words.
+2. **Their daily reality**  -  What their day actually looks like. What frustrates them at 3pm on a Wednesday. What keeps coming up in their staff meetings.
+3. **How they talk about problems**  -  The conversational patterns. How they'd describe their pain to a peer at a bar after a trade show. Not how a sales deck frames it.
+4. **How an insider writes vs. how an outsider writes**  -  Side-by-side examples showing the difference between sounding like you've been there and sounding like you googled them.
 
 When you write or critique copy, the test is simple: **Would someone who's spent 15 years in this segment read this email and think "this person gets it"?**
 
@@ -26,21 +26,21 @@ When you write or critique copy, the test is simple: **Would someone who's spent
 These words should feel natural in your emails. If you use them correctly, the recipient stops reading a sales email and starts reading a note from someone in their world.
 
 **Infrastructure terms they use every day:**
-- **Route miles** — How they measure their network. "We have 12,000 route miles across four states." Not "fiber kilometers" or "network footprint."
-- **Lit vs. dark** — Lit fiber has active electronics pushing traffic. Dark fiber is installed but unused. "40% of our plant is sitting dark" is how they say "stranded assets."
-- **Plant** — Their fiber infrastructure. "We've invested heavily in plant." Not "network assets" or "infrastructure."
-- **NNI** — Network-to-Network Interconnect. The connection between two carrier networks. "Every NNI is a 60-90 day project" is a sentence that gets a head nod from every fiber operator CEO in America.
-- **Type 2 circuit** — Leased capacity from another carrier. The moment traffic hits a Type 2, visibility dies. They call it "a black hole." Use that phrase.
-- **IRU** — Indefeasible Right of Use. How dark fiber is typically leased. Long-term (15-25 year) agreements.
-- **Fiber islands** — Disconnected segments of their own network that don't talk to each other well. Different systems at each location. Manual provisioning between them. This is an internal pain most outsiders don't know about.
-- **LOA** — Letter of Authorization. The paperwork that starts the 60-90 day clock on a new NNI. Everyone in the industry groans at this acronym.
+- **Route miles**  -  How they measure their network. "We have 12,000 route miles across four states." Not "fiber kilometers" or "network footprint."
+- **Lit vs. dark**  -  Lit fiber has active electronics pushing traffic. Dark fiber is installed but unused. "40% of our plant is sitting dark" is how they say "stranded assets."
+- **Plant**  -  Their fiber infrastructure. "We've invested heavily in plant." Not "network assets" or "infrastructure."
+- **NNI**  -  Network-to-Network Interconnect. The connection between two carrier networks. "Every NNI is a 60-90 day project" is a sentence that gets a head nod from every fiber operator CEO in America.
+- **Type 2 circuit**  -  Leased capacity from another carrier. The moment traffic hits a Type 2, visibility dies. They call it "a black hole." Use that phrase.
+- **IRU**  -  Indefeasible Right of Use. How dark fiber is typically leased. Long-term (15-25 year) agreements.
+- **Fiber islands**  -  Disconnected segments of their own network that don't talk to each other well. Different systems at each location. Manual provisioning between them. This is an internal pain most outsiders don't know about.
+- **LOA**  -  Letter of Authorization. The paperwork that starts the 60-90 day clock on a new NNI. Everyone in the industry groans at this acronym.
 
 **How they describe what they sell:**
 - Wavelengths, metro Ethernet, wholesale, dark fiber, lit services
 - NOT "connectivity solutions" or "network services" (that's vendor talk)
 
 **How they talk about competitors and the market:**
-- "Hyperscalers" (AWS, Azure, GCP) — not "cloud providers"
+- "Hyperscalers" (AWS, Azure, GCP)  -  not "cloud providers"
 - "Tier 1s" or "the big guys" (AT&T, Verizon, Lumen)
 - They respect Lumen's fiber reach but resent their market power
 - They talk about "winning" and "losing" deals, not "market share"
@@ -87,7 +87,7 @@ A VP of Sales is frustrated about:
 **Insider (sounds like someone who's been in the room):**
 > "Fatbeam's expansion into Montana means more cross-carrier circuits. I'd guess every new NNI is still a 60-90 day project, and every one of those delays is a multi-state deal at risk."
 
-The difference: the insider uses "NNI," "cross-carrier circuits," and "multi-state deal at risk" — the actual words they use. The outsider uses "provisioning timelines" and "underutilized assets" — sanitized versions that signal "I don't actually work in this world."
+The difference: the insider uses "NNI," "cross-carrier circuits," and "multi-state deal at risk"  -  the actual words they use. The outsider uses "provisioning timelines" and "underutilized assets"  -  sanitized versions that signal "I don't actually work in this world."
 
 ---
 
@@ -96,13 +96,13 @@ The difference: the insider uses "NNI," "cross-carrier circuits," and "multi-sta
 ### Their Vocabulary
 
 **Infrastructure terms they use every day:**
-- **Meet-me room** — The secure area inside their data center where carriers interconnect. PBCs deploy here. This is sacred space.
-- **Cross-connect** — Physical cable linking two networks within the facility. "Every cross-connect is a project. LOAs, truck rolls, VLAN config." That's how they say "provisioning is manual."
-- **Attach rate** — How many services a tenant consumes. Higher attach = stickier tenant. Colos obsess over this metric.
-- **Tenant** — Their customer. Not "client" or "user." Tenants lease space, power, and connectivity.
-- **Space and power** — The commodity they're stuck selling. "We're just selling space and power" is the frustrated admission that they know they should be selling more.
-- **Carrier hotel** — A data center with high carrier density (60 Hudson, One Wilshire). These are the crown jewels of interconnection.
-- **LOA** — Same as fiber operators but even more painful here. Every cross-connect starts with an LOA.
+- **Meet-me room**  -  The secure area inside their data center where carriers interconnect. PBCs deploy here. This is sacred space.
+- **Cross-connect**  -  Physical cable linking two networks within the facility. "Every cross-connect is a project. LOAs, truck rolls, VLAN config." That's how they say "provisioning is manual."
+- **Attach rate**  -  How many services a tenant consumes. Higher attach = stickier tenant. Colos obsess over this metric.
+- **Tenant**  -  Their customer. Not "client" or "user." Tenants lease space, power, and connectivity.
+- **Space and power**  -  The commodity they're stuck selling. "We're just selling space and power" is the frustrated admission that they know they should be selling more.
+- **Carrier hotel**  -  A data center with high carrier density (60 Hudson, One Wilshire). These are the crown jewels of interconnection.
+- **LOA**  -  Same as fiber operators but even more painful here. Every cross-connect starts with an LOA.
 
 **How they talk about the competitive landscape:**
 - "Equinix" is spoken with a mix of respect and frustration. Equinix sets the bar for what tenants expect.
@@ -159,29 +159,30 @@ The insider knows: "cloud on-ramps" (their term), "call Megaport" (their painful
 
 Everything from standard Colo, PLUS:
 
-- **Liquid cooling** — CDU (Coolant Distribution Unit), direct-to-chip, rear-door heat exchangers. If they've invested here, they're serious about AI.
-- **Rack density** — Measured in kW per rack. Standard racks: 5-8kW. AI racks: 30-100kW+. "30kW+ racks" is the signal.
-- **GPU cloud tenants** — CoreWeave, Lambda Labs, Crusoe, Voltage Park. These are their fastest-growing (and most demanding) tenants.
-- **Inference latency** — How long it takes for an AI model to generate a response. Network jitter kills inference. They're starting to learn this.
-- **Deterministic paths** — Paths with predictable, consistent performance. The opposite of "best-effort" routing. GPU workloads need this.
+- **Liquid cooling**  -  CDU (Coolant Distribution Unit), direct-to-chip, rear-door heat exchangers. If they've invested here, they're serious about AI.
+- **Rack density**  -  Measured in kW per rack. Standard racks: 5-8kW. AI racks: 30-100kW+. "30kW+ racks" is the signal.
+- **GPU cloud tenants**  -  CoreWeave, Lambda Labs, Crusoe, Voltage Park. These are their fastest-growing (and most demanding) tenants.
+- **Inference latency**  -  How long it takes for an AI model to generate a response. Network jitter kills inference. They're starting to learn this.
+- **Deterministic paths**  -  Paths with predictable, consistent performance. The opposite of "best-effort" routing. GPU workloads need this.
 
 ### Their Daily Reality
 
 These operators made a bet on AI infrastructure. They built (or are building) liquid cooling, high-density power, and the physical facilities that GPU cloud providers need. But the connectivity layer hasn't kept up.
 
 Their GPU cloud tenants are asking for things the colo hasn't thought about:
-- 35+ cross-connects per deployment with sub-10ms latency
-- Deterministic paths between GPU clusters (not just fast cross-connects)
-- Network performance guarantees that match the compute investment
+- Fast, self-service interconnection at the pace AI deployments demand
+- Deterministic paths between GPU clusters, not just fast cross-connects
+- A fabric that behaves consistently across every site the operator runs
+- Cloud on-ramps for GPU workloads, under the operator's brand
 
-The painful realization: they've spent millions on cooling and power but the network connecting it all is still best-effort.
+The painful realization: they've spent heavily on cooling and power, but the network connecting it all is still best-effort and project-based.
 
 ### How They Talk About It
 
 - "We've built the compute and cooling infrastructure. The network is the missing piece."
-- "Our GPU tenants need dozens of cross-connects per deployment. We can't provision them fast enough."
-- "Best-effort networking breaks inference. 33% of AI/ML latency is attributable to network slowness."
-- "We invested in liquid cooling and 50kW racks. If we can't deliver deterministic connectivity, we're still just selling power."
+- "Our GPU tenants bring interconnection demand we can't keep up with at today's provisioning pace."
+- "Best-effort networking is the uncontrolled variable in inference performance. Our tenants feel it."
+- "We invested in the compute side. If we can't deliver deterministic connectivity, we're still just selling power."
 
 ### Insider vs. Outsider
 
@@ -207,20 +208,21 @@ They don't have downstream customers buying connectivity from them. They're buyi
 ### Their Vocabulary
 
 **What they talk about every day:**
-- **Inference latency** — Token-by-token generation speed. Measured in milliseconds. This is their product quality metric.
-- **Jitter** — Variation in latency. Kills inference performance unpredictably. "Best-effort paths introduce jitter" is how they'd describe the network problem.
-- **Middle mile** — The network between their facilities. They don't own it. They can't see it. They can't control it. This is where performance dies.
-- **Facility** — Where their GPU clusters live. Not "data center" from their perspective (they lease from colos). "We're scaling to 30+ facilities."
-- **Deterministic paths** — What they need but probably don't have yet. Predictable, consistent network performance between GPU clusters.
-- **Observability** — Can they see what's happening on the network between their facilities? Almost always the answer is no.
-- **Training run** / **training job** — Multi-day GPU compute tasks. If the network hiccups, the entire job can crash. At thousands of dollars per GPU per month, that's expensive.
-- **Recompute tax** — The cost of restarting a training job after a network interruption. This is money burning.
-- **Egress** — Data transfer costs from cloud providers. They're paying $0.05-0.09/GB on public internet when Direct Connect is $0.02/GB.
+- **Inference latency**  -  Token-by-token generation speed. Measured in milliseconds. This is their product quality metric.
+- **Jitter**  -  Variation in latency. Kills inference performance unpredictably. "Best-effort paths introduce jitter" is how they'd describe the network problem.
+- **Middle mile**  -  The network between their facilities. They don't own it. They can't see it. They can't control it. This is where performance dies.
+- **Facility**  -  Where their GPU clusters live. Not "data center" from their perspective (they lease from colos). "We're scaling to 30+ facilities."
+- **Deterministic paths**  -  What they need but probably don't have yet. Predictable, consistent network performance between GPU clusters.
+- **Observability**  -  Can they see what's happening on the network between their facilities? Almost always the answer is no.
+- **Training run** / **training job**  -  Multi-day GPU compute tasks. If the network hiccups, the entire job can crash. At thousands of dollars per GPU per month, that's expensive.
+- **Recompute tax**  -  The cost of restarting a training job after a network interruption. This is money burning.
+- **Egress**  -  Data transfer costs from cloud providers. They're paying $0.05-0.09/GB on public internet when Direct Connect is $0.02/GB.
 
 **How they think about themselves:**
 - They're compute companies that accidentally became networking companies
 - Most don't have a network team. They have IT admins, maybe 1-2 people who "also handle networking"
 - They don't think of themselves as having a networking problem. They experience it as "inference is slow and we can't figure out why."
+- The self-framing that lands: "The compute is multi-tenant but the connectivity isn't." Their platform scales. Each new customer or site is a manual provisioning project. That contrast is the hook.
 
 ### Their Daily Reality
 
@@ -259,12 +261,26 @@ A VP Infrastructure's frustrations:
 
 The insider knows: they're scaling fast, they don't have a network team, and the pain shows up as "inference is slow" not "we need better networking." Lead with the symptom, not the diagnosis.
 
-### Inverted Messaging Hierarchy
+### Insider vs. Outsider (Sovereign-Angle Variant)
 
-Unlike every other segment, neoclouds respond to:
-1. **Observability first** — "See why you're slow." They need to see the problem before they'll buy the fix.
-2. **Cloud on-ramp second** — Cost savings on data movement between hyperscalers and their clusters.
-3. **Deterministic paths third** — Once they can see the variance, they want to fix it.
+Use when research shows a European GPU cloud serving regulated industries (GAIA-X, EU data residency positioning, defense/healthcare/financial services customer base). Do NOT use for US neoclouds or Tier 1 carriers running their own sovereign AI factory on their own backbone.
+
+**Outsider:**
+> "As a sovereign cloud provider, data sovereignty is important for your European enterprise customers."
+
+**Insider:**
+> "Every enterprise customer you serve needs deterministic paths with provable data sovereignty, and each one is a different carrier, a different provisioning project. The compute is multi-tenant but the connectivity isn't. Every hop logged, every path controlled is how the sovereignty claim gets made real at the network layer, not just the compute layer."
+
+The insider knows: sovereign AI's hard part is compute, but the piece that lags is connectivity between customer sites and GPU clusters. Uses "multi-tenant but the connectivity isn't," "every hop logged, every path controlled," and names the structural problem (custom provisioning per customer) instead of abstract "sovereignty is important."
+
+### Messaging Framework (Updated March 2026)
+
+**Master pitch:** Connecting distributed AI infrastructure simply. All value props are benefits of this.
+
+**Three pillars:**
+1. **DETERMINISTIC**  -  Predictable performance between sites. See exactly where latency comes from. Extend reach across DCs.
+2. **PRIVATE**  -  Private cloud connectivity (egress savings as competitive advantage for their customers: 2c/GB vs 9c/GB). Sovereign by design.
+3. **INSTANT**  -  Multi-tenancy: serve multiple customers from the same infrastructure. Instant customer on-ramp. New sites in minutes.
 
 ### Credibility Anchors for Neoclouds
 
@@ -280,12 +296,12 @@ Unlike every other segment, neoclouds respond to:
 
 **CRITICAL: These are sophisticated buyers. They know networking better than we do. Respect that.**
 
-- **Multi-domain orchestration** — Managing paths across different internal network segments. Each domain may have its own systems, its own team, its own processes.
-- **Configuration drift** — When network configs across domains get out of sync. A nightmare for large carriers.
-- **Self-service portal** — Many already have one. AT&T, Verizon, Lumen all have customer-facing portals. Acknowledging this is essential.
-- **On-net vs. off-net** — On-net: within their network (fast, controlled). Off-net: beyond their footprint (slow, manual, painful).
-- **LOA, BGP, VLAN** — Same vocabulary as fiber operators but they manage these at massive scale. Hundreds or thousands of BGP sessions.
-- **PoPs** — Points of Presence. They have 50 to 500+. The automation varies by PoP.
+- **Multi-domain orchestration**  -  Managing paths across different internal network segments. Each domain may have its own systems, its own team, its own processes.
+- **Configuration drift**  -  When network configs across domains get out of sync. A nightmare for large carriers.
+- **Self-service portal**  -  Many already have one. AT&T, Verizon, Lumen all have customer-facing portals. Acknowledging this is essential.
+- **On-net vs. off-net**  -  On-net: within their network (fast, controlled). Off-net: beyond their footprint (slow, manual, painful).
+- **LOA, BGP, VLAN**  -  Same vocabulary as fiber operators but they manage these at massive scale. Hundreds or thousands of BGP sessions.
+- **PoPs**  -  Points of Presence. They have 50 to 500+. The automation varies by PoP.
 
 ### Their Daily Reality
 
@@ -310,18 +326,18 @@ A Principal Network Architect:
 
 ### Two Tracks (Research-Dependent)
 
-**Track A — Has internal automation (most common for large carriers):**
+**Track A  -  Has internal automation (most common for large carriers):**
 The approach: "You've automated internally. MaiaEdge extends that everywhere else."
 - Acknowledge what they've built. Reference their portal, their API, their branded products.
-- Position MaiaEdge as the federation layer that extends their sophistication beyond their borders.
+- Position MaiaEdge as the cross-carrier extension layer that extends their sophistication beyond their borders.
 - The gap: cross-carrier, not internal.
 
-**Track B — Fragmented internally:**
+**Track B  -  Fragmented internally:**
 The approach: "MaiaEdge unifies your internal boundaries first, then extends to partners."
 - Use when research shows no evidence of portal/API automation.
 - The gap: both internal domain boundaries AND external carrier boundaries.
 
-**NEVER default to Track A without research. Getting this wrong — claiming a large carrier is slow at something they're fast at — destroys credibility instantly.**
+**NEVER default to Track A without research. Getting this wrong  -  claiming a large carrier is slow at something they're fast at  -  destroys credibility instantly.**
 
 ### Insider vs. Outsider
 
@@ -333,6 +349,18 @@ The approach: "MaiaEdge unifies your internal boundaries first, then extends to 
 
 The insider: acknowledges what they've built (critical), names the specific gap (cross-carrier, not internal), uses their vocabulary (LOAs, BGP sessions), and frames the business impact the way they'd frame it (enterprise deals, speed as differentiator).
 
+### Insider vs. Outsider (Geographic / Transport-Gap Variant)
+
+Use when research shows a carrier whose geography forces them past fiber: Caribbean, LATAM, archipelago regions, mobile backhaul at scale, or a visible multi-transport mix (fiber + microwave + satellite + subsea + fixed wireless). This variant applies to network operators AND fiber operators; segment vocabulary locks still apply, but the angle reframes. Do NOT use for single-country mainland operators with dense fiber, or Tier 1 carriers that own their own subsea backbone.
+
+**Outsider** (default provisioning angle misapplied):
+> "Cross-carrier provisioning is slow, which means your expansion into new markets takes months of carrier coordination and NNI build-outs."
+
+**Insider** (any-transport angle):
+> "Fiber isn't everywhere you serve. The real question isn't how fast you provision the next NNI, it's how you extend deterministic Layer 2 to the islands and markets where fiber isn't lit yet. Microwave today, satellite for the next archipelago, fiber when it's ready, same paths either way."
+
+The insider knows: for carriers in this geography, the bottleneck isn't cross-carrier provisioning speed, it's reach. Uses "fiber isn't everywhere you serve," "microwave / satellite / subsea," and "same paths either way." Names transport mix as the lived reality, not an abstraction. See segment-messaging.md "Geographic / Transport-Gap Angle Variant" for the full rule.
+
 ---
 
 ## 6. MSPs / Aggregators
@@ -341,12 +369,12 @@ The insider: acknowledges what they've built (critical), names the specific gap 
 
 **NOT IT MSPs (helpdesk, break-fix). These are network aggregators who resell upstream carrier connectivity.**
 
-- **Upstream carriers** / **upstream providers** — The carriers whose capacity they aggregate. They might have 3-5 carrier relationships.
-- **Single pane of glass** — What they sell to their customers. One portal, one invoice, one support team. Behind the scenes, it's a different story.
-- **Finger-pointing** — The nightmare. Customer has an issue. The MSP opens a ticket with the carrier. The carrier says it's not their problem. Everyone points at everyone else. This is the MSP's daily life.
-- **Asset-light** — Their business model. They don't own fiber or data centers. They aggregate capacity from carriers. This is a point of pride AND a vulnerability.
-- **SLA compliance** — They guarantee SLAs to their customers but can't independently verify what's happening inside carrier networks. They're "responsible for the SLA but blind to the path."
-- **Tier 1 disintermediation** — Tier 1 carriers going direct to the MSP's customers, cutting them out. The existential threat.
+- **Upstream carriers** / **upstream providers**  -  The carriers whose capacity they aggregate. They might have 3-5 carrier relationships.
+- **Single pane of glass**  -  What they sell to their customers. One portal, one invoice, one support team. Behind the scenes, it's a different story.
+- **Finger-pointing**  -  The nightmare. Customer has an issue. The MSP opens a ticket with the carrier. The carrier says it's not their problem. Everyone points at everyone else. This is the MSP's daily life.
+- **Asset-light**  -  Their business model. They don't own fiber or data centers. They aggregate capacity from carriers. This is a point of pride AND a vulnerability.
+- **SLA compliance**  -  They guarantee SLAs to their customers but can't independently verify what's happening inside carrier networks. They're "responsible for the SLA but blind to the path."
+- **Tier 1 disintermediation**  -  Tier 1 carriers going direct to the MSP's customers, cutting them out. The existential threat.
 
 ### Their Daily Reality
 
@@ -383,43 +411,69 @@ A VP Sales at an MSP:
 **Insider:**
 > "You own the customer relationship but you're blind to everything behind it. When a customer calls with a latency issue, you're stuck between them and three carriers pointing fingers. And when Tier 1s can provision in days, 'depends on the carrier' is losing you deals."
 
-The insider uses: "pointing fingers" (their exact phrase), "depends on the carrier" (what their sales team actually says to customers), and "blind to everything behind it" (how they describe the visibility gap). The outsider uses "operational complexity" and "unified visibility" — words from our world, not theirs.
+The insider uses: "pointing fingers" (their exact phrase), "depends on the carrier" (what their sales team actually says to customers), and "blind to everything behind it" (how they describe the visibility gap). The outsider uses "operational complexity" and "unified visibility"  -  words from our world, not theirs.
 
 ---
 
 ## Cross-Segment Language Rules
 
 ### Words That Signal "Insider"
-- NNI, LOA, Type 2 (fiber operators)
-- Meet-me room, attach rate, cross-connect (colo)
-- Inference latency, jitter, middle mile (neocloud)
+- NNI, LOA, Type 2, fiber infrastructure (fiber operators)
+- Meet-me room, attach rate, cross-connect, virtual MMR, service fabric (colo)
+- Inference latency, jitter, middle mile, multi-tenancy, private paths (neocloud)
 - Multi-domain, on-net/off-net, configuration drift (network operator)
 - Upstream carriers, finger-pointing, SLA compliance (MSP)
-- "Dark fiber sitting idle" instead of "underutilized assets"
+- "Fiber sitting idle" instead of "underutilized assets"
 - "Margin walking out" instead of "revenue leakage"
 - "Deal at risk" instead of "business impact"
+- "Extend your reach" instead of "federation" (all segments)
 
 ### Words That Signal "Outsider" (Avoid in Cold Email)
 - "Connectivity solutions" (nobody calls it that)
 - "Network optimization" (vague vendor speak)
 - "Digital transformation" (executive buzzword bingo)
-- "Underutilized assets" (say "dark fiber sitting idle")
+- "Underutilized assets" (say "fiber sitting idle")
 - "Revenue leakage" (say "margin walking out the door")
 - "Enhanced capabilities" (say what you actually mean)
 - "Streamline operations" (say "do in minutes what takes weeks")
 - "Leverage" as a verb (just... no)
+- "Federation" (internal MaiaEdge term, never customer-facing)
+- "Plant" (say "fiber infrastructure")
+
+### BANNED Internal Terms (Never in Customer-Facing Copy)
+- **"Federation"**  -  Always translate to segment-native language: "extend your reach," "sell into new markets," "connect to partners instantly," "reach beyond your footprint"
+- **VLAN / Q-in-Q**  -  Banned specifically for neocloud copy. These are compute people, not networking people. Say: "serve multiple customers from the same infrastructure," "each customer gets isolated, private paths"
+- **"Plant"**  -  Use "fiber infrastructure" instead
 
 ### The Sovereignty Pairing Rule
 
 For every segment EXCEPT neoclouds, speed must be paired with ownership:
-- "Your team provisions in minutes" — not just "provision in minutes"
-- "Your portal, your invoice, your customer" — always anchor back to them
-- "Build your own fabric" — not "connect to a fabric"
+- "Your team provisions in minutes"  -  not just "provision in minutes"
+- "Your portal, your invoice, your customer"  -  always anchor back to them
+- "Build your own fabric"  -  not "connect to a fabric"
 
-For neoclouds: DROP sovereignty entirely. Lead with observability and path control.
+For neoclouds, there are TWO kinds of sovereignty:
+- **OPERATOR sovereignty (BANNED):** "keep your customer," "your portal, your invoice," "build your own fabric." They ARE the customer. This language makes no sense for them.
+- **DATA sovereignty (ALLOWED):** "sovereign by design," "your data stays on paths you control," "provably private paths with every hop logged." This is about their data privacy and path control, which they DO care about.
 
-### Credibility Anchors
+### New Vocabulary by Segment (Added March 2026)
 
-"Same team that built Acme Packet" works everywhere. Keep it short. Drop it in and move on. Don't explain what Acme Packet was. If they know, it builds instant credibility. If they don't, it still signals "these people have done this before."
+**Fiber Operators:** extend your reach, sell into new markets, DIA (Dedicated Internet Access), deterministic paths over fiber or DIA, SLA enforcement across Type 2, fiber infrastructure (not "plant"), fiber-spotty geography, any-transport reach
 
-For technical buyers, you can add "128 Technology" (Juniper acquisition). For business buyers, the $2.55B in combined exits is the number that matters. But never lead with it. It's a supporting fact, not the hook.
+**Colocation:** virtual meet-me room (virtual MMR), service fabric, connectivity marketplace, reach beyond your facility, multi-tenancy, services exchange
+
+**AI Colocation:** deterministic paths for AI workloads, cloud on-ramps for GPU clusters, full-stack AI infrastructure partner, complete the AI story
+
+**Neocloud:** multi-tenancy (in compute language: "serve multiple customers from the same infrastructure"), instant customer on-ramp, sovereign by design, provably private, private cloud connectivity, egress savings as competitive advantage, extend your reach across DCs, every hop logged, every path controlled, sovereign by design at the network layer, compute is multi-tenant but connectivity isn't
+
+**Network Operator:** extend your reach beyond your footprint, monetize existing infrastructure, sell connectivity into new markets, multi-transport mix, island-hopping reach, Layer 2 over any available transport
+
+**Geographic / Transport-Gap Variant (cross-segment, applies to Network Operators + Fiber Operators):** island-hopping, fiber-spotty geography, any-transport, mixed transport, reach beyond fiber, Layer 2 over microwave / satellite / subsea / fixed wireless, carrier that connects where fiber isn't, subsea cable consortiums, mobile backhaul at scale. Trigger signals: LATAM or Caribbean HQ, archipelago geography, cell-tower-heavy operator, public partnerships with subsea or satellite providers, customer base spread across geography that fiber can't reach densely.
+
+**MSP / Aggregator:** reach beyond your carriers, turn spare capacity into sellable services, connectivity marketplace
+
+### Credibility Anchors (Live Conversations Only)
+
+Do NOT use credibility anchors in cold emails or LinkedIn messages. The message does the talking, not our history. Reserve these for discovery calls, follow-ups, and live conversations where they build trust after the prospect is already engaged.
+
+In live conversations: "Same team that built Acme Packet" works across all segments. For technical buyers, add "128 Technology" (Juniper acquisition). For business buyers, the $2.55B in combined exits is the number that matters. Keep it short, don't explain, and never lead with it.

@@ -222,7 +222,7 @@ See `call-schema.md` "Activity Gate (Engagement Health)" for full rules, thresho
 
 **Output:**
 ```
-PIPELINE DISCIPLINE BOARD — [Date]
+PIPELINE DISCIPLINE BOARD  -  [Date]
 ======================================
 Rep: [All / specific rep] | Period: [date range for call data]
 
@@ -231,7 +231,7 @@ COLUMN 1: ACCOUNTS -> POC ([N] accounts)
 | # | Company | Segment | Deal Stage | Value | Last Outbound | Last Inbound | Use Cases | Next Step | Engagement |
 |---|---------|---------|-----------|-------|---------------|--------------|-----------|-----------|-----------|
 | 1 | [name] | [seg] | [stage] | $[X] | [date] | [date] | [use cases] | [from call] | [HEALTHY] |
-| 2 | [name] | [seg] | No Deal | — | [date] | [date] | [use cases] | [from call] | [AT RISK] |
+| 2 | [name] | [seg] | No Deal |  -  | [date] | [date] | [use cases] | [from call] | [AT RISK] |
 ...
 
 COLUMN 2: POCs -> PURCHASE ORDER ([N] POCs)
@@ -293,7 +293,7 @@ ACTION ITEMS
 
 **Output:**
 ```
-CONVERSION VELOCITY — [Date Range]
+CONVERSION VELOCITY  -  [Date Range]
 =====================================
 
 | Transition | Avg Days | Fastest | Slowest | By Segment |
@@ -348,9 +348,9 @@ POC DATA GAPS
 [POCs below 50% completeness with specific missing fields -- action item, not health penalty]
 
 THIS WEEK'S PRIORITIES
-1. [Action] — [Company] — [Why]
-2. [Action] — [Company] — [Why]
-3. [Action] — [Company] — [Why]
+1. [Action]  -  [Company]  -  [Why]
+2. [Action]  -  [Company]  -  [Why]
+3. [Action]  -  [Company]  -  [Why]
 ```
 
 ---
@@ -388,7 +388,7 @@ THIS WEEK'S PRIORITIES
 
 **Output:**
 ```
-POC OPERATIONS REPORT — [Date]
+POC OPERATIONS REPORT  -  [Date]
 ================================
 
 OPEN POCs: [N] | Data Completeness: [N]% avg
@@ -440,9 +440,9 @@ DATA COMPLETENESS
 [POCs below 50% completeness with specific missing fields listed]
 
 RECOMMENDATIONS
-1. [Action] — [Company] — [Why]
-2. [Action] — [Company] — [Why]
-3. [Action] — [Company] — [Why]
+1. [Action]  -  [Company]  -  [Why]
+2. [Action]  -  [Company]  -  [Why]
+3. [Action]  -  [Company]  -  [Why]
 ```
 
 ---

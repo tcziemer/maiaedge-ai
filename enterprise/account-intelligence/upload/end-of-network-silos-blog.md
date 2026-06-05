@@ -1,4 +1,4 @@
-# The End of Network Silos — Blog Post by Abilash Menon
+# The End of Network Silos  -  Blog Post by Abilash Menon
 
 > Converted from: The End of Network Silos Blog.docx (OneDrive)
 

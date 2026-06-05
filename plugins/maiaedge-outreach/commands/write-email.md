@@ -66,7 +66,7 @@ Before writing, identify the ONE thing happening at this company right now that 
 The angle from Step 9 drives the email. The segment messaging framework provides vocabulary and proof points to support the angle, not a template to fill in. Follow all writing rules, word count limits, and tone guidelines. No credibility anchors. Include subject line.
 
 ### 11. Write LinkedIn Connection Request
-Under 300 characters. Include company-specific detail driven by the angle. No credibility anchors (no Acme Packet).
+Target 35-50 words, max 280 characters (under LinkedIn's 300 hard limit). Include company-specific detail driven by the angle. NO sender intro in body ("Tim from MaiaEdge." / "Ken from MaiaEdge." in the message body is BANNED — recipient sees sender from LinkedIn UI). NO credibility anchors (no Acme Packet). NO brand-voice constructions ("We help operators…" / "We built infrastructure that…" — use "I" voice or embed-by-contrast). Output a Public Signal Cited block above the message (catalog code from `context/signals/[segment]-signals.md`, "NON-CATALOG", or "NONE — inferred angle"). See `skills/linkedin-outreach/SKILL.md`.
 
 ### 12. Run Quality Checklist
 Verify all items pass before delivering.

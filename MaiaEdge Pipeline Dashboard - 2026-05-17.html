@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaiaEdge Pipeline Dashboard — May 17, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a2332; font-size: 13px; }
+
+  /* Header */
+  .header { background: #0d1b2e; color: white; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #F5A623; }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left h1 span { color: #F5A623; }
+  .header-left p { font-size: 12px; color: #8899aa; margin-top: 3px; }
+  .header-right { text-align: right; font-size: 12px; color: #8899aa; }
+  .header-right .gen-date { font-size: 14px; color: #F5A623; font-weight: 600; }
+
+  /* KPI row */
+  .kpi-row { display: flex; gap: 14px; padding: 20px 32px 0; flex-wrap: wrap; }
+  .kpi-card { background: white; border-radius: 8px; padding: 16px 22px; flex: 1; min-width: 150px; border-top: 3px solid #F5A623; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .kpi-card.blue { border-top-color: #2563eb; }
+  .kpi-card.green { border-top-color: #16a34a; }
+  .kpi-card.orange { border-top-color: #ea580c; }
+  .kpi-card.purple { border-top-color: #7c3aed; }
+  .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #6b7280; font-weight: 600; margin-bottom: 6px; }
+  .kpi-value { font-size: 26px; font-weight: 700; color: #0d1b2e; line-height: 1; }
+  .kpi-sub { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+
+  /* Alerts */
+  .alerts-section { margin: 20px 32px 0; }
+  .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; color: #6b7280; margin-bottom: 10px; }
+  .alerts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 8px; }
+  .alert-card { background: white; border-radius: 7px; padding: 11px 14px; border-left: 4px solid; display: flex; align-items: flex-start; gap: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .alert-card.dead { border-left-color: #dc2626; }
+  .alert-card.at-risk { border-left-color: #ea580c; }
+  .alert-card.overdue { border-left-color: #d97706; }
+  .alert-card.watch { border-left-color: #ca8a04; }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .alert-title { font-weight: 700; font-size: 12px; color: #0d1b2e; }
+  .alert-body { font-size: 11px; color: #6b7280; margin-top: 2px; line-height: 1.4; }
+  .alert-tag { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; margin-right: 5px; }
+  .tag-dead { background: #fee2e2; color: #dc2626; }
+  .tag-risk { background: #ffedd5; color: #ea580c; }
+  .tag-overdue { background: #fef3c7; color: #d97706; }
+  .tag-watch { background: #fefce8; color: #ca8a04; }
+  .tag-poc { background: #ede9fe; color: #7c3aed; }
+
+  /* Pipeline columns */
+  .columns-wrapper { padding: 20px 32px; display: flex; gap: 0; }
+
+  /* Table section */
+  .table-section { margin: 0 32px 20px; }
+  .table-card { background: white; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; }
+  .table-header { background: #0d1b2e; color: white; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .table-header h2 { font-size: 13px; font-weight: 700; }
+  .table-header .count-badge { background: #F5A623; color: #0d1b2e; border-radius: 12px; padding: 2px 10px; font-size: 11px; font-weight: 700; }
+  .table-header.pre-poc { background: #1e3a5f; }
+  .table-header.active-poc { background: #1e3a5f; }
+  .table-header.expansion { background: #1e3a5f; }
+  .table-header.owner-summary { background: #0d1b2e; }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th { padding: 8px 10px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; font-weight: 700; background: #f9fafb; border-bottom: 1px solid #e5e7eb; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid #f3f4f6; transition: background 0.1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #fafbfc; }
+  tbody td { padding: 9px 10px; vertical-align: middle; line-height: 1.3; }
+  .deal-name { font-weight: 600; color: #0d1b2e; font-size: 12px; }
+  .segment-tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; }
+  .seg-colo { background: #dbeafe; color: #1d4ed8; }
+  .seg-fiber { background: #dcfce7; color: #15803d; }
+  .seg-msp { background: #ede9fe; color: #6d28d9; }
+  .seg-other { background: #f3f4f6; color: #6b7280; }
+  .seg-partner { background: #fef3c7; color: #b45309; }
+
+  /* Health badges */
+  .health { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 4px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .h-healthy { background: #dcfce7; color: #15803d; }
+  .h-watch { background: #fefce8; color: #854d0e; }
+  .h-atrisk { background: #ffedd5; color: #c2410c; }
+  .h-dead { background: #fee2e2; color: #dc2626; }
+  .h-nodata { background: #f3f4f6; color: #9ca3af; }
+
+  /* Stage pill */
+  .stage-pill { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; background: #f3f4f6; color: #374151; }
+  .stage-poc-req { background: #e0f2fe; color: #0369a1; }
+  .stage-config { background: #dbeafe; color: #1d4ed8; }
+  .stage-crit { background: #ede9fe; color: #6d28d9; }
+  .stage-shipped { background: #d1fae5; color: #065f46; }
+  .stage-testing { background: #fef3c7; color: #92400e; }
+  .stage-success { background: #dcfce7; color: #15803d; }
+
+  /* Amount */
+  .amount { font-weight: 600; color: #0d1b2e; font-variant-numeric: tabular-nums; }
+  .amount-empty { color: #9ca3af; }
+  .overdue-date { color: #dc2626; font-weight: 700; }
+  .owner-name { color: #374151; }
+  .owner-name.ziemer { color: #7c3aed; font-weight: 600; }
+  .owner-name.lieto { color: #2563eb; font-weight: 600; }
+  .owner-name.ken { color: #059669; font-weight: 600; }
+  .owner-name.kyle { color: #0891b2; font-weight: 600; }
+  .owner-name.woody { color: #d97706; font-weight: 600; }
+
+  /* Owner summary */
+  .owner-summary-table tfoot { border-top: 2px solid #e5e7eb; }
+  .owner-summary-table tfoot td { font-weight: 700; background: #f9fafb; }
+  .bar-container { display: flex; align-items: center; gap: 8px; }
+  .bar { height: 8px; background: #F5A623; border-radius: 4px; }
+  .bar-pre { background: #3b82f6; }
+  .bar-poc { background: #8b5cf6; }
+  .bar-exp { background: #10b981; }
+
+  /* Footer */
+  .footer { background: #0d1b2e; color: #8899aa; text-align: center; padding: 14px 32px; font-size: 11px; margin-top: 10px; }
+  .footer strong { color: #F5A623; }
+
+  /* Trend indicator */
+  .trend-on { color: #16a34a; font-weight: 600; }
+
+  /* Signals cell */
+  .signal { font-size: 11px; color: #6b7280; }
+  .signal-tag { display: inline-block; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; border-radius: 3px; padding: 1px 6px; font-size: 10px; font-weight: 600; margin: 1px; }
+
+  .divider { height: 1px; background: #e5e7eb; margin: 0 32px; }
+  .spacer { height: 20px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1><span>MaiaEdge</span> Pipeline Dashboard</h1>
+    <p>Carrier Infrastructure for Federated Private Networking &nbsp;|&nbsp; Live HubSpot Data</p>
+  </div>
+  <div class="header-right">
+    <div class="gen-date">May 17, 2026</div>
+    <div style="margin-top:4px;">Generated automatically &nbsp;|&nbsp; Confidential</div>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="kpi-label">Total Pipeline Value</div>
+    <div class="kpi-value">$2.99M</div>
+    <div class="kpi-sub">$2,994,153 across 27 open deals</div>
+  </div>
+  <div class="kpi-card blue">
+    <div class="kpi-label">Open Deals</div>
+    <div class="kpi-value">27</div>
+    <div class="kpi-sub">Across all stages & reps</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Pre-POC</div>
+    <div class="kpi-value">13</div>
+    <div class="kpi-sub">Appt Scheduled / Discovery / Quote</div>
+  </div>
+  <div class="kpi-card purple" style="border-top-color:#7c3aed;">
+    <div class="kpi-label">Active POC</div>
+    <div class="kpi-value">13</div>
+    <div class="kpi-sub">POC tickets in active stage</div>
+  </div>
+  <div class="kpi-card green">
+    <div class="kpi-label">Expansion</div>
+    <div class="kpi-value">2</div>
+    <div class="kpi-sub">Closed-won + POC Successful accounts</div>
+  </div>
+  <div class="kpi-card orange">
+    <div class="kpi-label">Closed Won (All Time)</div>
+    <div class="kpi-value">$326K</div>
+    <div class="kpi-sub">2 deals &nbsp;|&nbsp; HDCO $265.8K + IENTC $60K</div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ALERTS -->
+<div class="alerts-section">
+  <div class="section-title">&#9888; Risk Alerts &amp; Action Items</div>
+  <div class="alerts-grid">
+
+    <div class="alert-card dead">
+      <div class="alert-icon">🔴</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-dead">DEAD</span> Verizon</div>
+        <div class="alert-body">No contact in <strong>177 days</strong> (last: Nov 21, 2025). Deal is in Appointment Scheduled — stale since late 2025. Requires owner decision: pursue or close lost.</div>
+      </div>
+    </div>
+
+    <div class="alert-card dead">
+      <div class="alert-icon">🔴</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-dead">DEAD</span> <span class="alert-tag tag-poc">ACTIVE POC</span> Ocean Networks 1st Order</div>
+        <div class="alert-body">No contact in <strong>83 days</strong> (last: Feb 23, 2026). Has an active POC ticket (POC Requested). $50K deal — urgent re-engagement needed or POC should be closed.</div>
+      </div>
+    </div>
+
+    <div class="alert-card at-risk">
+      <div class="alert-icon">🟠</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-risk">AT RISK</span> <span class="alert-tag tag-poc">ACTIVE POC</span> Centra - Pilot</div>
+        <div class="alert-body">No contact in <strong>40 days</strong> (last: Apr 7, 2026). POC in Configuration Locked — deal due May 29. Risk of POC stalling before completion.</div>
+      </div>
+    </div>
+
+    <div class="alert-card at-risk">
+      <div class="alert-icon">🟠</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-risk">AT RISK</span> <span class="alert-tag tag-poc">ACTIVE POC</span> NextHop - 5 POP PBC Deployment</div>
+        <div class="alert-body">No contact in <strong>37 days</strong> (last: Apr 10, 2026). $105K deal with POC Requested. APAC + LA multi-site deployment — needs reactivation.</div>
+      </div>
+    </div>
+
+    <div class="alert-card at-risk">
+      <div class="alert-icon">🟠</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-risk">AT RISK</span> <span class="alert-tag tag-poc">CUSTOMER TESTING</span> Ecotel Communication</div>
+        <div class="alert-body">No contact in <strong>31 days</strong> (last: Apr 16, 2026). POC is in Customer Testing — highest-risk stage for disengagement. Close date was Jun 15.</div>
+      </div>
+    </div>
+
+    <div class="alert-card overdue">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-overdue">OVERDUE</span> <span class="alert-tag tag-poc">ACTIVE POC</span> Acuutech</div>
+        <div class="alert-body">Close date was <strong>Apr 30, 2026</strong> (17 days past). POC shipped — deal is unlocked but no close date update. Needs stage refresh.</div>
+      </div>
+    </div>
+
+    <div class="alert-card overdue">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-overdue">OVERDUE</span> IENTC Telecom - Expansion</div>
+        <div class="alert-body">Close date was <strong>Apr 30, 2026</strong> (17 days past). $19K expansion deal — active contact ongoing but CRM close date needs updating.</div>
+      </div>
+    </div>
+
+    <div class="alert-card overdue">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-overdue">OVERDUE</span> RocNet - Lab Unit &amp; Arvig - First Deal</div>
+        <div class="alert-body">Both had close date of <strong>May 15, 2026</strong> (2 days past). RocNet in Quote Provided ($10.2K). Arvig in Active POC ($15K). Update close dates or advance stages.</div>
+      </div>
+    </div>
+
+    <div class="alert-card watch">
+      <div class="alert-icon">🟡</div>
+      <div>
+        <div class="alert-title"><span class="alert-tag tag-watch">WATCH</span> Venunet first purchase</div>
+        <div class="alert-body">No contact in <strong>46 days</strong> (last: Apr 1, 2026). Appointment Scheduled since Mar 11. $30K deal — needs re-engagement before going cold.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- COLUMN 1: PRE-POC -->
+<div class="table-section">
+  <div class="table-card">
+    <div class="table-header pre-poc">
+      <h2>&#128197; Column 1 — Pre-POC Pipeline</h2>
+      <span class="count-badge">13 deals</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Account</th>
+          <th>Owner</th>
+          <th>Deal Value</th>
+          <th>Stage</th>
+          <th>Segment</th>
+          <th>Close Date</th>
+          <th>Last Contact</th>
+          <th>Engagement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="deal-name">Nexus Data Centers</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td class="amount">$1,000,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-colo">Colo Provider</span></td>
+          <td>Sep 25, 2026</td>
+          <td>May 8, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (9d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Movi - CPE expansion</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$600,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-colo">Colo Provider</span></td>
+          <td>Jul 30, 2026</td>
+          <td>May 15, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (2d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Movi - 22 x 100G expansion</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$400,000</td>
+          <td><span class="stage-pill">Quote Provided</span></td>
+          <td><span class="segment-tag seg-colo">Colo Provider</span></td>
+          <td>Sep 17, 2026</td>
+          <td>May 11, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (6d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Ark Datacenter Backbone</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td class="amount">$200,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-other">—</span></td>
+          <td>Sep 15, 2026</td>
+          <td>May 4, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (13d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Swiss Vault — University Genomics Research</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$100,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-other">Other</span></td>
+          <td>Dec 31, 2026</td>
+          <td>—</td>
+          <td><span class="health h-nodata">&#9650; NO DATA</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Swiss Vault — Indonesia Islands</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$100,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-other">Other</span></td>
+          <td>Dec 31, 2026</td>
+          <td>—</td>
+          <td><span class="health h-nodata">&#9650; NO DATA</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Colony Compute - Pilot</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-colo">Colo Provider</span></td>
+          <td>Jul 30, 2026</td>
+          <td>May 15, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (2d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Provocative Science - Pilot</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-other">Other</span></td>
+          <td>Jun 26, 2026</td>
+          <td>May 6, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (11d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Momentum - Pilot</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-msp">MSP/Aggregator</span></td>
+          <td>Aug 28, 2026</td>
+          <td>Apr 30, 2026</td>
+          <td><span class="health h-watch">&#9679; WATCH (17d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Flō Networks</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill">Discovery &amp; Scoping</span></td>
+          <td><span class="segment-tag seg-fiber">Fiber Operator</span></td>
+          <td>Aug 5, 2026</td>
+          <td>May 1, 2026</td>
+          <td><span class="health h-watch">&#9679; WATCH (16d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Venunet first purchase</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td class="amount">$30,000</td>
+          <td><span class="stage-pill">Appt Scheduled</span></td>
+          <td><span class="segment-tag seg-fiber">Fiber Operator</span></td>
+          <td>Dec 31, 2026</td>
+          <td>Apr 1, 2026</td>
+          <td><span class="health h-atrisk">&#9679; AT RISK (46d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">RocNet - Lab Unit</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td class="amount">$10,153</td>
+          <td><span class="stage-pill">Quote Provided</span></td>
+          <td><span class="segment-tag seg-other">Other</span></td>
+          <td><span class="overdue-date">May 15, 2026 &#9888; OVERDUE</span></td>
+          <td>May 13, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (4d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Verizon</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill">Appt Scheduled</span></td>
+          <td><span class="segment-tag seg-other">—</span></td>
+          <td>Dec 2, 2026</td>
+          <td>Nov 21, 2025</td>
+          <td><span class="health h-dead">&#9679; DEAD (177d)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- COLUMN 2: ACTIVE POC -->
+<div class="table-section">
+  <div class="table-card">
+    <div class="table-header active-poc" style="background:#1a2d4f;">
+      <h2>&#128296; Column 2 — Active POC</h2>
+      <span class="count-badge">13 deals</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Account</th>
+          <th>Sales Owner</th>
+          <th>POC Owner</th>
+          <th>Deal Value</th>
+          <th>POC Stage</th>
+          <th>Trend</th>
+          <th>Sites</th>
+          <th>Close Date</th>
+          <th>Last Contact</th>
+          <th>Engagement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="deal-name">CyrusOne — DFW1 POC</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td><span class="owner-name woody">Woody Acosta</span></td>
+          <td class="amount">$60,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>Sep 15, 2026</td>
+          <td>May 15, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (2d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Datum</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td><span class="owner-name woody">Woody Acosta</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>3</td>
+          <td>Jul 15, 2026</td>
+          <td>May 12, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (5d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">ambiFOX GmbH</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td><span class="owner-name woody">Woody Acosta</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>Sep 1, 2026</td>
+          <td>May 9, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (8d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Centra - Pilot</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill stage-config">Configuration Locked</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>May 29, 2026</td>
+          <td>Apr 7, 2026</td>
+          <td><span class="health h-atrisk">&#9679; AT RISK (40d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Ocean Networks 1st Order</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount">$50,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>Sep 20, 2026</td>
+          <td>Feb 23, 2026</td>
+          <td><span class="health h-dead">&#9679; DEAD (83d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">NextHop - 5 POP PBC Deployment (APAC + LA)</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td><span class="owner-name woody">Woody Acosta</span></td>
+          <td class="amount">$105,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>Sep 30, 2026</td>
+          <td>Apr 10, 2026</td>
+          <td><span class="health h-atrisk">&#9679; AT RISK (37d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Atlantech Online</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill stage-config">Configuration Locked</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>1</td>
+          <td>Jun 30, 2026</td>
+          <td>May 15, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (2d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Acuutech</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill stage-shipped">Shipped</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td><span class="overdue-date">Apr 30 &#9888; OVERDUE</span></td>
+          <td>May 15, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (2d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Ecotel Communication</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill stage-testing">Customer Testing</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>Jun 15, 2026</td>
+          <td>Apr 16, 2026</td>
+          <td><span class="health h-atrisk">&#9679; AT RISK (31d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">RevNet Alasconnect</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill stage-crit">Criteria Approved</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>Jul 1, 2026</td>
+          <td>Apr 28, 2026</td>
+          <td><span class="health h-watch">&#9679; WATCH (19d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Fusion Broadband South Africa</td>
+          <td><span class="owner-name ken">Ken Cunningham</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount-empty">—</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td>May 31, 2026</td>
+          <td>May 13, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (4d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Technium - Lab</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td><span class="owner-name woody">Woody Acosta</span></td>
+          <td class="amount">$5,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>1</td>
+          <td>May 29, 2026</td>
+          <td>May 15, 2026</td>
+          <td><span class="health h-healthy">&#9679; HEALTHY (2d)</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">Arvig - First Deal</td>
+          <td><span class="owner-name" style="color:#9ca3af;">Unassigned</span></td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td class="amount">$15,000</td>
+          <td><span class="stage-pill stage-poc-req">POC Requested</span></td>
+          <td><span class="trend-on">On Track</span></td>
+          <td>2</td>
+          <td><span class="overdue-date">May 15 &#9888; OVERDUE</span></td>
+          <td>Apr 21, 2026</td>
+          <td><span class="health h-watch">&#9679; WATCH (26d)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- COLUMN 3: EXPANSION -->
+<div class="table-section">
+  <div class="table-card">
+    <div class="table-header expansion" style="background:#1a3a2a;">
+      <h2>&#128200; Column 3 — Expansion Accounts</h2>
+      <span class="count-badge">2 accounts</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Account</th>
+          <th>Owner</th>
+          <th>Initial Deal</th>
+          <th>Won Date</th>
+          <th>POC Status</th>
+          <th>Expansion Deal</th>
+          <th>Signals</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="deal-name">IENTC Telecom</td>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td>Ientc 1st Order &mdash; $60,000</td>
+          <td>Dec 22, 2025</td>
+          <td><span class="stage-pill stage-success">POC Successful</span></td>
+          <td>IENTC Telecom - Expansion - tbd<br><span style="color:#ea580c;font-size:11px;font-weight:600;">$19,000 &nbsp;&#9888; OVERDUE (close Apr 30)</span></td>
+          <td><span class="signal-tag">Open expansion deal</span> <span class="signal-tag">Quote provided</span> <span class="signal-tag">Active contact May 15</span></td>
+        </tr>
+        <tr>
+          <td class="deal-name">HDCO Group</td>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td>HDCO Group &mdash; $265,828</td>
+          <td>Apr 25, 2026</td>
+          <td><span class="stage-pill stage-success">POC Successful</span></td>
+          <td><span class="amount-empty">No open expansion deal</span></td>
+          <td><span class="signal-tag">New customer Apr 2026</span> <span class="signal-tag">POC Successful</span> <span class="signal-tag">Upsell opportunity</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- PIPELINE BY OWNER -->
+<div class="table-section">
+  <div class="table-card">
+    <div class="table-header owner-summary">
+      <h2>&#128101; Pipeline by Owner</h2>
+      <span class="count-badge">27 total deals</span>
+    </div>
+    <table class="owner-summary-table">
+      <thead>
+        <tr>
+          <th>Owner</th>
+          <th>Role</th>
+          <th>Total Deals</th>
+          <th>Pipeline Value</th>
+          <th>Pre-POC</th>
+          <th>Active POC</th>
+          <th>Expansion</th>
+          <th>Overdue</th>
+          <th>AT RISK / DEAD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="owner-name lieto">Tim Lieto</span></td>
+          <td style="color:#6b7280;">AVP Sales, East</td>
+          <td style="font-weight:700;">13</td>
+          <td class="amount">$1,525,153</td>
+          <td>8</td>
+          <td>5</td>
+          <td>0</td>
+          <td><span style="color:#d97706;font-weight:700;">2</span></td>
+          <td><span style="color:#ea580c;font-weight:700;">0</span></td>
+        </tr>
+        <tr>
+          <td><span class="owner-name ziemer">Tim Ziemer</span></td>
+          <td style="color:#6b7280;">CRO, International</td>
+          <td style="font-weight:700;">12</td>
+          <td class="amount">$1,454,000</td>
+          <td>5</td>
+          <td>6</td>
+          <td>1</td>
+          <td><span style="color:#d97706;font-weight:700;">2</span></td>
+          <td><span style="color:#dc2626;font-weight:700;">4</span></td>
+        </tr>
+        <tr>
+          <td><span class="owner-name ken">Ken Cunningham</span></td>
+          <td style="color:#6b7280;">Sales, West</td>
+          <td style="font-weight:700;">1</td>
+          <td class="amount-empty">—</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><span class="owner-name" style="color:#9ca3af;">Unassigned</span></td>
+          <td style="color:#6b7280;">Former rep</td>
+          <td style="font-weight:700;">1</td>
+          <td class="amount">$15,000</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td><span style="color:#d97706;font-weight:700;">1</span></td>
+          <td>0</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td style="font-weight:700;">27</td>
+          <td class="amount">$2,994,153</td>
+          <td><strong>13</strong></td>
+          <td><strong>13</strong></td>
+          <td><strong>1</strong></td>
+          <td><span style="color:#d97706;font-weight:700;">5</span></td>
+          <td><span style="color:#dc2626;font-weight:700;">4</span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<!-- ADDITIONAL CONTEXT: OTHER ACTIVE POC TICKETS WITHOUT OPEN DEALS -->
+<div class="table-section">
+  <div class="table-card">
+    <div class="table-header" style="background:#2d1b4e;">
+      <h2>&#128203; Additional POC Activity — No Matching Open Deal</h2>
+      <span class="count-badge">3 tickets</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket Subject</th>
+          <th>POC Owner</th>
+          <th>POC Stage</th>
+          <th>Sites</th>
+          <th>Last Modified</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="deal-name">POC - CMC Networks</td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td><span class="stage-pill" style="background:#fee2e2;color:#dc2626;">POC Unsuccessful</span></td>
+          <td>2</td>
+          <td>Apr 30, 2026</td>
+          <td style="color:#9ca3af;font-size:11px;">No associated open deal. POC closed out. Consider updating CRM records.</td>
+        </tr>
+        <tr>
+          <td class="deal-name">POC - Ientc 1st Order</td>
+          <td><span class="owner-name kyle">Kyle Blackwell</span></td>
+          <td><span class="stage-pill stage-success">POC Successful</span></td>
+          <td>2</td>
+          <td>Apr 1, 2026</td>
+          <td style="color:#9ca3af;font-size:11px;">Closed-won deal. IENTC expansion deal now in pipeline.</td>
+        </tr>
+        <tr>
+          <td class="deal-name">Merope - Woody Home Lab</td>
+          <td><span class="owner-name woody">Woody Acosta</span></td>
+          <td><span class="stage-pill stage-config">Configuration Locked</span></td>
+          <td>1</td>
+          <td>May 9, 2026</td>
+          <td style="color:#9ca3af;font-size:11px;">Internal / lab unit. No deal association. Not part of revenue pipeline.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>MaiaEdge</strong> &nbsp;|&nbsp; Carrier Infrastructure for Federated Private Networking &nbsp;|&nbsp; Generated May 17, 2026 &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; Data sourced from HubSpot CRM
+</div>
+
+</body>
+</html>

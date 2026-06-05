@@ -36,6 +36,7 @@ Each value includes the parent segment suffix. Use these exact strings for impor
 |---|---|---|
 | `Data Center Colo Provider` | Standard Colocation | `Standard - colo` |
 | `Data Center Colo Provider` | AI Infrastructure | `AI Signals - colo` |
+| `Data Center Colo Provider` | Modular / Edge-Pod | `Modular - colo` |
 | `NeoCloud` | Large-Scale GPU NeoClouds | `Large Scale GPU - Neocloud` |
 | `NeoCloud` | Tier 1 Inference Providers | `Tier 1 Inference - Neocloud` |
 | `NeoCloud` | AI Infrastructure Providers | `AI Infrastructure providers - Neocloud` |
@@ -44,6 +45,8 @@ Each value includes the parent segment suffix. Use these exact strings for impor
 | `Fiber Operator` | Regional CLEC | `Regional CLEC - Fiber operator` |
 | `Fiber Operator` | Long-Haul / Backbone | `Long Haul / Backbone - Fiber operator` |
 | `Fiber Operator` | Dark Fiber Specialist | `Dark Fiber Specialist - Fiber Operator` |
+| `Fiber Operator` | Municipal / Co-op / Consortium | `Co-op/consortium` |
+| Cross-segment | Greenfield (pre-operational) | `Greenfield` |
 | `Network Operator(Tier 1 / VNO)` | External Extension | `External Extension - Network operator` |
 | `Network Operator(Tier 1 / VNO)` | Internal + External Unification | `Internal + external unification - Network Operator` |
 | `Enterprise` (MSP) | Telecom Aggregator | `Telecom Aggregator - MSP` |
@@ -51,11 +54,19 @@ Each value includes the parent segment suffix. Use these exact strings for impor
 
 #### Sub-Segment Assignment Rules
 
-- **Colocation:** `AI Signals - colo` if STRONG AI signals (confirmed GPU tenants OR liquid cooling). Otherwise `Standard - colo`.
+- **Colocation:**
+  - `AI Signals - colo` if STRONG AI signals (confirmed GPU tenants OR liquid cooling OR 30kW+ racks).
+  - `Modular - colo` if distributed / prefab / edge-pod deployment model (Nodiac, EdgePresence/Ubiquity, Armada, Compass archetypes). Typically 1-100 MW per site, pod-based or containerized. Edge/far-edge locations.
+  - `Standard - colo` otherwise (traditional interconnection colo).
 - **Neocloud:** Classify based on primary business model. See neocloud-cheatsheet.md for detailed profiles.
-- **Fiber:** `Regional CLEC - Fiber operator` if <5 states and CLEC-licensed. `Long Haul / Backbone - Fiber operator` if 10K+ route miles or multi-state backbone. `Dark Fiber Specialist - Fiber Operator` if primarily dark fiber/wavelength sales.
+- **Fiber:**
+  - `Regional CLEC - Fiber operator` if <5 states and CLEC-licensed.
+  - `Long Haul / Backbone - Fiber operator` if 10K+ route miles or multi-state backbone.
+  - `Dark Fiber Specialist - Fiber Operator` if primarily dark fiber/wavelength sales.
+  - `Co-op/consortium` if municipal utility fiber, rural co-op, or multi-operator consortium (EPB Chattanooga, UTOPIA Fiber, Diamond State Networks archetypes). Often open-access or federation-organized. Use for consortium-tier muni/co-op operators; excludes middle-mile-only grant-funded operators (those are out of ICP for MaiaEdge SaaS consumption model).
 - **Network Operator:** `External Extension - Network operator` if evidence of portal/API/self-service. `Internal + external unification - Network Operator` if no evidence of internal automation. Default External Extension if unclear.
 - **MSP:** `Telecom Aggregator - MSP` if aggregates carrier circuits for wholesale. `Managed Network Services - Network Operator` if primarily managed WAN/MPLS services.
+- **Greenfield (cross-segment):** Use `Greenfield` when the account is a new build / pre-operational site whose operational sub-segment is not yet determinable. Reassign to the specific sub-segment once the operational model is clear (e.g., an AI-focused greenfield colo becomes `AI Signals - colo` once tenants are announced).
 
 ### infrastructure_profile (Multi-select)
 

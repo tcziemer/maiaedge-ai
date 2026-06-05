@@ -1,6 +1,6 @@
 ---
 name: prospect-research
-description: Research companies and contacts before writing MaiaEdge outreach. Use when asked to research a prospect, company, or contact for MaiaEdge outreach. Includes mandatory web searches, AI signal checks for colos, and contact research. Always run before writing any email or LinkedIn message.
+description: "Quick pre-outreach research on a specific company and contact for MaiaEdge outreach. Use when preparing to write an email or LinkedIn message for a single prospect. Pulls HubSpot data, runs web research, checks AI signals for colos, researches the contact, and produces a research summary with angle recommendation. NOT for batch enrichment (use company-enrichment) or deep strategy briefs (use account-brief). This is the 5-10 minute research pass that fuels a single email."
 ---
 
 # MaiaEdge Prospect Research Process
@@ -9,22 +9,28 @@ Research every company before writing. No exceptions. Not even for "small" ones.
 
 The entire point of the research is to identify which problem to lead with and confirm you're talking to the right person. The research itself should be invisible in the final email. The prospect should think "yep, that's my life" not "this person Googled me." If you skip research, the email will be generic, and generic emails don't get replies. But the research is fuel, not content.
 
+## Reference Files
+
+- **segment-language.md**  -  Insider vocabulary, daily reality, and conversational patterns per segment. Read this to understand how they talk about their own problems so your research captures the right signals.
+- **segment-qualification.md**  -  Proof-based qualification gates per segment
+- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
+
 ## Step 0: HubSpot Deep Pull
 
 **Always start here.** Before running any web searches, check HubSpot for an existing company record using MCP tools (`search_crm_objects`):
 - Search by company name or domain
 - Pull ALL available fields: `account_brief`, `recent_news_or_trigger_event`, `customer_segment`, `customer_sub_segment`, `segmentation_confidence`, `account_tier`, `state`, `city`, `country`, `hubspot_owner_id`, `notes_last_contacted`, `num_contacted_notes`
 - For contacts: pull `email`, `jobtitle`, `hs_linkedin_url`, `notes_last_contacted`, `num_contacted_notes`, `hs_sequences_is_enrolled`, `hs_latest_sequence_enrolled`, `hs_lead_status`, `linked_in_message`
-- If `account_brief` exists, read it — this is your primary research foundation. But do NOT trust blindly. Verify in Step 1.
+- If `account_brief` exists, read it  -  this is your primary research foundation. But do NOT trust blindly. Verify in Step 1.
 - If complete classification exists and data is recent → skip to Step 3 (Contact Research)
 - If new account or incomplete data → proceed to Step 1
 
 **Tag every data point with its source:**
-- `[HS]` — From HubSpot
-- `[Apollo]` — From Apollo enrichment (note verified/unverified)
-- `[Web]` — From web search
-- `[User]` — Provided by user
-- `[Missing]` — Not found anywhere. Flag for user.
+- `[HS]`  -  From HubSpot
+- `[Apollo]`  -  From Apollo enrichment (note verified/unverified)
+- `[Web]`  -  From web search
+- `[User]`  -  Provided by user
+- `[Missing]`  -  Not found anywhere. Flag for user.
 
 This avoids duplicate research and ensures you're building on what's already in the CRM.
 
@@ -63,11 +69,11 @@ Run these searches:
 - Any company marketing "AI-ready" infrastructure
 
 **AI searches:**
-1. `[Company] CoreWeave Lambda Labs Crusoe`
+1. `[Company] Lambda Labs Crusoe Nebius`
 2. `[Company] liquid cooling high-density GPU`
 3. `[Company] AI infrastructure 2025 2026`
 
-**Strong AI signals:** GPU cloud tenants confirmed (CoreWeave, Lambda Labs, Crusoe, Voltage Park, Together AI), liquid cooling / 30kW+ racks, announced GPU cloud partnerships.
+**Strong AI signals:** GPU cloud tenants confirmed (Lambda Labs, Crusoe, Voltage Park, Together AI, Nebius), liquid cooling / 30kW+ racks, announced GPU cloud partnerships.
 
 **Medium AI signals:** "AI-ready" marketing language, facilities in AI corridors, hiring for GPU cluster roles.
 
@@ -108,6 +114,10 @@ Background: [Notable career details]
 ANGLE
 What this person probably cares about: [Based on role + company gap]
 One-sentence positioning: [How MaiaEdge fits their specific situation]
+Angle quality check: Does this angle enable research-as-fuel or research display?
+  If the angle IS a company fact ("they expanded into 3 states"), it will produce research display.
+  Reframe as a problem: "new markets create provisioning bottlenecks" enables fuel.
+  "Expansion into 3 states" enables display. Always frame the angle as a PROBLEM, not a fact.
 
 SEGMENT VERIFICATION
 HubSpot says: [segment / sub-segment]
@@ -141,5 +151,5 @@ Research drives WHICH problem you lead with. It does not appear as "I noticed" o
 | Long tenure at company | They know the provisioning pain intimately. Be direct about the problem, skip the preamble. |
 | Came from a carrier or competitor | Cut to the chase. Assume they know the provisioning challenge. Skip education. |
 | Recent M&A | Network complexity compounds with every acquisition. Lead with the integration bottleneck. |
-| Dark fiber / underutilized assets | "Fiber sitting dark is margin waiting to happen." |
-| Multi-state footprint | "Every multi-state deal lost to provisioning delays is margin walking out." |
+| Underutilized fiber (lit, dark, stranded laterals) | "Monetize what you already have in the ground. Instant private fabric across any transport, no routing complexity." |
+| Multi-state footprint | "Sell into markets beyond your footprint without building there. Partner interconnection in minutes, not 60-90 days." |

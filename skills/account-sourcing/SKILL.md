@@ -29,20 +29,20 @@ Trigger on any of these patterns:
 
 **Use these project knowledge base documents for segment context, definitions, and sourcing strategy:**
 
-**ALWAYS read `sourcing-reference-guide.md` first** — This comprehensive guide contains hit rate benchmarks by source (validated from 2,769+ records), every sourcing website with navigation instructions, broad search queries per segment, qualification signals at three confidence tiers, and source access quick reference tables.
+**ALWAYS read `sourcing-reference-guide.md` first**  -  This comprehensive guide contains hit rate benchmarks by source (validated from 2,769+ records), every sourcing website with navigation instructions, broad search queries per segment, qualification signals at three confidence tiers, and source access quick reference tables.
 
 **For each segment, also read the relevant cheatsheet:**
-- **icp-playbook.md** — Full ICP definitions, buyer personas, qualification criteria for all five segments
-- **neocloud.md** — Neocloud TAM sizing (250-350 companies), 7-signal discovery framework, sub-segment coverage, 90-day sourcing targets
-- **colocation.md** — Colocation operator deep-dive, asset types, scale indicators, network topology
-- **fiber-operator.md** — Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
-- **network-operator.md** — Network operator deep-dive, Track A/B framework, peering strategies
-- **msp-aggregator.md** — MSP and aggregator deep-dive, service models, customer bases
+- **icp-playbook.md**  -  Full ICP definitions, buyer personas, qualification criteria for all five segments
+- **neocloud.md**  -  Neocloud TAM sizing (250-350 companies), 7-signal discovery framework, sub-segment coverage, 90-day sourcing targets
+- **colocation.md**  -  Colocation operator deep-dive, asset types, scale indicators, network topology
+- **fiber-operator.md**  -  Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
+- **network-operator.md**  -  Network operator deep-dive, Track A/B framework, peering strategies
+- **msp-aggregator.md**  -  MSP and aggregator deep-dive, service models, customer bases
 
 **For market and product context:**
-- **maiaedge-101.md** — Product overview, marketplace seeding strategy, Ashburn-first priority
-- **competitive-positioning.md** — Market pain quantification, NaaS landscape, competitive context
-- **neocloud.md** — Also includes Neocloud TAM estimates and discovery signals
+- **maiaedge-101.md**  -  Product overview, marketplace seeding strategy, Ashburn-first priority
+- **competitive-positioning.md**  -  Market pain quantification, NaaS landscape, competitive context
+- **neocloud.md**  -  Also includes Neocloud TAM estimates and discovery signals
 
 Before generating any recommendation, read the relevant segment cheatsheet from the project knowledge base to ensure segment-specific context is accurate.
 
@@ -107,8 +107,8 @@ Output format:
 SEARCH QUERIES: [Segment] on [Platform]
 
 HIGH PRECISION (use first):
-1. [query] — Expected yield: [high/medium/low]
-2. [query] — Expected yield: [high/medium/low]
+1. [query]  -  Expected yield: [high/medium/low]
+2. [query]  -  Expected yield: [high/medium/low]
 
 MEDIUM PRECISION (use to supplement):
 3. [query]
@@ -172,9 +172,9 @@ CRM SNAPSHOT: [Date]
 | Neocloud| X     | X%       | 250-350  | X%         |
 
 TOP GAPS:
-1. [Segment] — Only X% coverage → Recommend [source] (Y% hit rate)
-2. [Geography] — Underrepresented → Recommend [action]
-3. [Data quality] — X records missing [field] → Recommend [fix]
+1. [Segment]  -  Only X% coverage → Recommend [source] (Y% hit rate)
+2. [Geography]  -  Underrepresented → Recommend [action]
+3. [Data quality]  -  X records missing [field] → Recommend [fix]
 ```
 
 ### MODE 5: BATCH PLANNING
@@ -241,8 +241,8 @@ Always recommend sourcing in this priority unless the user specifies otherwise:
 | 1 | Colocation Operators | Highest product fit, fastest sales cycle |
 | 2 | Fiber Operators | Largest whitespace opportunity, biggest TAM gap |
 | 3 | Network Operators | Good fit but longer sales cycles |
-| 4 | Neoclouds | Emerging — high strategic value, indirect deployment |
-| 5 | MSP/Aggregators | Deprioritized — depends on carrier infra |
+| 4 | Neoclouds | Emerging  -  high strategic value, indirect deployment |
+| 5 | MSP/Aggregators | Deprioritized  -  depends on carrier infra |
 
 ## Decision Rules
 
@@ -251,8 +251,8 @@ Always recommend sourcing in this priority unless the user specifies otherwise:
 | Multiple sources for same segment | Recommend highest hit rate first |
 | Source has mixed segments | Filter before enrichment OR flag for bot classification |
 | Low hit rate source (<50%) | Only use AFTER exhausting niche sources. Always warn. |
-| Overlap with CRM likely | Dedupe before enrichment — don't waste bot credits |
-| Segment unclear from source | Don't guess — flag for enrichment bot classification |
+| Overlap with CRM likely | Dedupe before enrichment  -  don't waste bot credits |
+| Segment unclear from source | Don't guess  -  flag for enrichment bot classification |
 | US vs International | Default US first unless told otherwise |
 | Speed vs accuracy tradeoff | For bot input, speed wins (bot verifies). For analysis, accuracy wins. |
 | Conflicting data between sources | Trust hierarchy: FCC > PeeringDB > ZoomInfo > other |
@@ -275,7 +275,7 @@ Keep these benchmarks top-of-mind for every recommendation:
 
 ## Enrichment Pipeline Economics
 
-**Current pipeline (Claude-based enrichment skill):** ~$0.35-0.40/company including web research, classification, scoring, and synthesis. Significantly more accurate than the legacy n8n pipeline ($0.08/company) due to website-first adaptive research.
+**Pipeline cost:** ~$0.35-0.40/company including web research, classification, scoring, and synthesis. Website-first adaptive research keeps call volume focused and accuracy high.
 
 | Batch Size | Time | Est. Cost |
 |------------|------|-----------|
@@ -297,7 +297,7 @@ The difference over 500 companies = ~$250 in wasted processing. Source quality p
 - Always recommend ONE best option, not equal-weight lists
 - Never recommend ZoomInfo/Apollo broad search without the hit rate warning
 - Always reference specific hit rate benchmarks from the Hit Rate Quick Reference table
-- Keep recommendations actionable — include URLs, filter criteria, and next steps
+- Keep recommendations actionable  -  include URLs, filter criteria, and next steps
 - If HubSpot is available, always check CRM overlap before recommending a batch
 
 ---

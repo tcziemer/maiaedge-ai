@@ -12,9 +12,11 @@
     "segments/neocloud.md",
     "segments/network-operator.md",
     "segments/msp-aggregator.md",
-    "outreach/email-writing-rules.md",
+    "outreach/Email-Writing-Rules.md",
     "outreach/fallback-messaging.md",
-    "outreach/sender-profiles.md"
+    "outreach/sender-profiles.md",
+    "copy-strategy/segment-messaging.md",
+    "copy-strategy/segment-language.md"
   ],
   "static": []
 }

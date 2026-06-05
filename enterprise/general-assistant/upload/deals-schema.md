@@ -13,18 +13,37 @@
 
 | Stage | Internal Name | HubSpot ID | Description | Typical Activities |
 |-------|---------------|-----------|-------------|-------------------|
-| Appointment Scheduled | `appointmentscheduled` | — | Initial meeting booked | Calendar confirmation, pre-call research, context gathering |
-| Discovery & Scoping | `qualifiedtobuy` | — | Qualification and needs assessment | Probe ICP fit, identify pain, assess budget/timeline |
-| POC & Technical Validation | `presentationscheduled` | — | Proof of concept underway | Deploy POC, validate technical fit, gather performance data |
+| Appointment Scheduled | `appointmentscheduled` |  -  | Initial meeting booked | Calendar confirmation, pre-call research, context gathering |
+| Discovery & Scoping | `qualifiedtobuy` |  -  | Qualification and needs assessment | Probe ICP fit, identify pain, assess budget/timeline |
+| POC & Technical Validation | `presentationscheduled` |  -  | Proof of concept underway | Deploy POC, validate technical fit, gather performance data |
 | Quote Provided | `1996673735` | `1996673735` | Formal pricing delivered | Pricing review, discount negotiation, commercial terms |
-| Price Agreement & Final Config | `decisionmakerboughtin` | — | Commercial negotiation | Close on price, finalize term/quantity, get MSA signed |
-| Contract Review | `contractsent` | — | Legal review in progress | Monitor signature progress, handle legal objections |
-| Closed Won | `closedwon` | — | Deal signed | Onboarding kickoff, deployment scheduling |
-| Closed Lost | `closedlost` | — | Deal lost | Capture lost reason, document competitive intelligence |
+| Price Agreement & Final Config | `decisionmakerboughtin` |  -  | Commercial negotiation | Close on price, finalize term/quantity, get MSA signed |
+| Contract Review | `contractsent` |  -  | Legal review in progress | Monitor signature progress, handle legal objections |
+| Closed Won | `closedwon` |  -  | Deal signed | Onboarding kickoff, deployment scheduling |
+| Closed Lost | `closedlost` |  -  | Deal lost | Capture lost reason, document competitive intelligence |
 
 ---
 
-## Deal Properties — Complete Reference
+## Deal Creation Defaults (Claude → HubSpot MCP)
+
+When the user asks to "create a deal", "open a deal", "book this as a deal", or otherwise initiate a new deal record — create it directly in HubSpot via the HubSpot MCP (`create_object` on the `deal` object) and apply these defaults unless the user specifies otherwise:
+
+| Field | Default on creation | Rationale |
+|-------|--------------------|-----------|
+| `dealstage` | **`appointmentscheduled`** (label: "Appointment Scheduled") | Every deal starts here by definition — MaiaEdge's pipeline entry point is the booked initial meeting. Downstream automation, reporting, and rep ownership all assume stage 1. Never create a deal directly into a later stage without an explicit user instruction. |
+| `pipeline` | "MaiaEdge Deals pipeline" | Only active pipeline. |
+| `hubspot_owner_id` | Derived from company `hubspot_owner_id` if associated, otherwise asked | Keep rep ownership consistent with territory. |
+| `dealname` | Derived from `<Company name> — <short opportunity descriptor>` if not provided | Keep naming searchable and consistent. |
+| `dealtype` | `newbusiness` unless clearly expansion | Expansion deals on existing customers should be flagged explicitly. |
+| `customer_segment` | Copy from associated company's `customer_segment` | Keep company and deal segment in sync. |
+
+**Never** default a new deal to `qualifiedtobuy`, `presentationscheduled`, `decisionmakerboughtin`, `contractsent`, `closedwon`, or `closedlost` — those stages represent progress and must be entered by a human decision.
+
+If the user says "create a deal at <stage>" explicitly (e.g. "create this as a POC deal"), honor the stated stage but flag the override in your response so the rep can confirm.
+
+---
+
+## Deal Properties  -  Complete Reference
 
 ### Actively Used Properties
 
@@ -42,22 +61,24 @@
 | POC Status | `poc_status` | Text | 30% | Status of proof of concept phase |
 | Closed Lost Reason | `closed_lost_reason` | Enum | 25% (lost deals only) | Only populate on closed-lost deals |
 
-### MEDDPICC Fields — Adoption Status
+### MEDDPICC Fields  -  SYNCED FROM CONTACTS, NOT WRITTEN DIRECTLY
 
-**Current adoption: ~45% fill rate across ~20 deals.** Roughly 8-9 deals have MEDDPICC fields populated. All fields show consistent ~40-45% completion, indicating selective adoption by engaged AEs.
+**These deal-level fields are read-only mirrors of contact-level MEDDPICC.** Per Cooper's design (see `contact-schema.md` → "MEDDPICC (Contact-Level) — AUTHORITATIVE LOCATION" and `call-schema.md` → "MEDDPICC and Call Transcripts -- Critical Rule"), HubSpot smart-property auto-fill from call transcripts only targets contacts. A property-sync workflow then propagates contact-level MEDDPICC up to these deal-level fields automatically. **NEVER write to these deal-level properties directly — that bypasses the sync and creates drift between contact (source of truth) and deal (mirror).**
 
-| Property | Internal Name | Type | Fill Rate | When to Use |
-|----------|--------------|------|-----------|------------|
-| Buying Process | `buying_process_meddpicc` | Text | 45% | Capture formal process: RFP, internal committee, vendor eval timeline |
-| Identified Pain | `identified_pain_meddpicc` | Text | 45% | Specific pain points from discovery: provisioning delays, visibility gaps, federation challenges |
-| Decision Criteria | `decision_criteria___meddpicc` | Text | 45% | What buyer will use to evaluate vendors: speed, sovereignty, federation, cost |
-| Key Stakeholders | `key_stakeholders_meddpicc` | Text | 45% | Names/titles of decision-makers: CTO, VP Network, VP Sales, CEO |
-| Competition | `competition_meddpicc` | Text | 45% | Competitive alternatives: status quo, Lumen, orchestration platforms, internal build |
-| Infrastructure | `infrastructure_meddpicc` | Text | 45% | Current infrastructure details: fiber miles, facility count, routing approach |
-| Metrics | `metrics_meddpicc` | Text | 40% | Success metrics: provisioning time reduction, revenue upside, cost savings |
-| Use Case | `use_case_meddpicc` | Text | 40% | Primary use case: fiber monetization, colo automation, federation, cloud on-ramp |
+| Property | Internal Name | Type | Source | Notes |
+|----------|--------------|------|--------|-------|
+| Buying Process | `buying_process_meddpicc` | Text | Synced from contact `buying_process___meddpicc` | Single underscore here; 3 on the contact field |
+| Identified Pain | `identified_pain_meddpicc` | Text | Synced from contact `meddpicc_pain_contact` | Pain from discovery |
+| Decision Criteria | `decision_criteria___meddpicc` | Text | Synced from contact `meddpicc_criteria_contact` | Vendor-eval criteria |
+| Key Stakeholders | `key_stakeholders_meddpicc` | Text | Synced from contact `key_stakeholders___meddpicc` | Single underscore here; 3 on the contact field |
+| Competition | `competition_meddpicc` | Text | Synced from contact `meddpicc_competition_contact` | Competitive alternatives |
+| Infrastructure | `infrastructure_meddpicc` | Text | Synced from contact `meddpicc_infrastructure_contact` | Current infra context |
+| Metrics | `metrics_meddpicc` | Text | Synced from contact `meddpicc_metrics_contact` | Success metrics |
+| Use Case | `use_case_meddpicc` | Text | Synced from contact `meddpicc_use_case` | Primary use case |
 
-**Adoption recommendation:** Prioritize Identified Pain, Key Stakeholders, and Competition as minimum viable MEDDPICC. Add Metrics and Use Case for deals >$50K.
+**Reading guidance:** when reasoning about current MEDDPICC state, prefer reading the contact-level fields directly — the deal-level mirrors may lag the sync interval. The weekly-call-recap routine reads contact-level only and never reads or writes these mirror fields.
+
+**Adoption tracking:** fill rate on these mirrors is a downstream signal of contact-level MEDDPICC maturity. Roughly 8-9 deals have MEDDPICC populated as of March 2026, ~40-45% completion across the 8 fields, indicating selective adoption by engaged AEs at the contact level.
 
 ### Deal Info Properties
 
@@ -66,9 +87,9 @@
 | Deal Source | `deal_source` | Enum | `trade_show`, `founder_network`, `inbound`, `outbound` (Email), `Outbound - Call`, `partner_referral`, `other` | Origin channel |
 | Bandwidth Tier | `bandwidth_tier` | Enum | `p_10_gbps` (10 Gbps), `p_100_gbps` (100 Gbps), `tbd` (TBD) | Network capacity |
 | Deployment Timeline | `deployment_timeline` | Enum | `all_at_once_30_days`, `phased_13_months`, `phased_36_months`, `phased_612_months`, `ongoing_as_sites_added` | Rollout schedule |
-| Target Locations | `target_facilities_for_deployment` | Text | — | Multi-line: facility names and locations |
+| Target Locations | `target_facilities_for_deployment` | Text |  -  | Multi-line: facility names and locations |
 | Infrastructure in Scope | `infrastructure_in_scope` | Multi-select | 19 options (see hubspot-values.md) | All infrastructure types in the deal |
-| Expected PBC Count | `expected_pbc_count` | Number | — | Number of PBC devices expected |
+| Expected PBC Count | `expected_pbc_count` | Number |  -  | Number of PBC devices expected |
 | Wholesale vs Retail Mix | `wholesale_vs_retail_mix__cloned___cloned_` | Enum | `mostly_wholesale_70`, `balanced`, `mostly_retail_70`, `unknown` | Business mix |
 | POC Objective | `poc_objective` | Enum | `Fiber Monetization`, `Speed to Revenue`, `Network Extension`, `Private Connectivity Validation`, `Competitive Displacement` | Type of POC |
 
@@ -87,7 +108,7 @@ File upload fields tracking signed legal documents. All are string type (file at
 
 | Property | Internal Name | Type | Options / Notes |
 |----------|--------------|------|-----------------|
-| Quote Number | `quote_number` | Text | — |
+| Quote Number | `quote_number` | Text |  -  |
 | Quote Status | `quote_status` | Enum | `request_approval` (Approval request), `approved`, `changes_requested`, `sent` |
 | Amount | `amount` | Currency | Total Contract Value in USD |
 | Discount Percentage | `discount_percentage` | Number | Percentage discount applied |
@@ -106,7 +127,7 @@ These deal-level POC fields exist but are **no longer used**. POC tracking has m
 
 ---
 
-## Activity Gate — Deal-Specific Rules
+## Activity Gate  -  Deal-Specific Rules
 
 When assessing deal health and activity readiness:
 
@@ -158,7 +179,7 @@ When creating order forms and quotes within a deal context:
 - **TCV (Total Contract Value)** is the deal amount in HubSpot
 - **HA/Standby units** are 30% off primary units
 - **POC pricing:** ME-PBC-PCE-POC60 ($2,490), ME-MPP-48-POC60 ($749) for 60-day proof of concepts
-- **Term commitment is the primary discount lever** — 36/60 month terms unlock better per-unit pricing
+- **Term commitment is the primary discount lever**  -  36/60 month terms unlock better per-unit pricing
 
 ---
 

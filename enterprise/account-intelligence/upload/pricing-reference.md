@@ -93,7 +93,7 @@ When quoting: Always show Annual Price on Order Forms. Show TCV in deal summary 
 
 1. **All prices above are list prices.** Discounts are NOT automatic.
 2. **Discounts are only applied when a specific percentage or amount is stated** by leadership or explicitly negotiated.
-3. **Term commitment is the PRIMARY discount lever** — customers get better per-unit pricing by committing to 36/60-month terms vs. 12-month.
+3. **Term commitment is the PRIMARY discount lever**  -  customers get better per-unit pricing by committing to 36/60-month terms vs. 12-month.
 4. **Secondary levers:** Volume (multiple units in initial order), strategic value (reference customers, market expansion).
 
 **Discount approval:** Sales reps do NOT have discount authority. All discounts >5% require approval from CRO (Timothy Ziemer) or CEO (Abilash Menon).
@@ -113,9 +113,9 @@ Based on actual deals:
 
 When a customer adds PBCs during an active contract term:
 
-1. **Honor existing pricing** — Expansions use the pricing from the original Purchase Agreement (no renegotiation).
-2. **Co-termination** — New PBCs align to the original contract end date, not a new 12/36/60-month term.
-3. **Pro-rated billing** — Customer pays for remaining months in the contract term only.
+1. **Honor existing pricing**  -  Expansions use the pricing from the original Purchase Agreement (no renegotiation).
+2. **Co-termination**  -  New PBCs align to the original contract end date, not a new 12/36/60-month term.
+3. **Pro-rated billing**  -  Customer pays for remaining months in the contract term only.
 
 ### Example
 
@@ -182,7 +182,7 @@ Customer signed a 36-month deal in January 2025 for 3 PBCs at $25,000/unit. In J
 
 ---
 
-## IENTC Quote Example (Actual Customer — Nov 2025)
+## IENTC Quote Example (Actual Customer  -  Nov 2025)
 
 **Context:** First international customer in Mexico. Mobile backhaul provider. 800+ cell towers, 20+ data centers.
 
@@ -195,7 +195,7 @@ Customer signed a 36-month deal in January 2025 for 3 PBCs at $25,000/unit. In J
 
 **Additional Terms:**
 - **Payment:** Quarterly in advance, Net 30
-- **Delivery:** FCA Burlington, MA (Incoterms 2020) — risk transfers to customer at carrier pickup
+- **Delivery:** FCA Burlington, MA (Incoterms 2020)  -  risk transfers to customer at carrier pickup
 - **Importer of Record:** Customer handles all customs documentation
 - **Taxes/Duties/Tariffs:** Customer responsible (not included in quote)
 - **Support:** 99.9% Service Availability, 24/7 support, included in subscription
@@ -208,7 +208,7 @@ Customer signed a 36-month deal in January 2025 for 3 PBCs at $25,000/unit. In J
 
 **Use this language to open price conversations without over-discounting:**
 
-"Term commitment is the primary lever. A 36 or 60-month commitment unlocks better per-unit pricing. Volume also matters — the more PBCs in the initial order, the better the discount. What's your planning horizon, and how many units are we talking about in Year 1?"
+"Term commitment is the primary lever. A 36 or 60-month commitment unlocks better per-unit pricing. Volume also matters  -  the more PBCs in the initial order, the better the discount. What's your planning horizon, and how many units are we talking about in Year 1?"
 
 **If customer asks for discount unprompted:**
 

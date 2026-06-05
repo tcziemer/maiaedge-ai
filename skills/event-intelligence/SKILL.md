@@ -9,10 +9,12 @@ Maximize ROI from every conference by systematically converting attendee lists i
 
 ## Reference Files
 
-- **icp-playbook.md** — ICP definitions and qualification criteria
-- **segment-qualification.md** — Proof-based qualification gates per segment
+- **segment-language.md**  -  Insider vocabulary and conversational patterns per segment. Read before writing follow-up emails to sound like a peer from their world.
+- **email-writing-rules.md**  -  For follow-up email drafts (angle-first, segment lock, no credibility anchors, research as fuel)
+- **icp-playbook.md**  -  ICP definitions and qualification criteria
+- **segment-qualification.md**  -  Proof-based qualification gates per segment
 - **Segment cheatsheets:** `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
-- **territory-model.md** — State-to-owner mapping for routing event contacts
+- **territory-model.md**  -  State-to-owner mapping for routing event contacts
 
 ## Conference Tiers
 
@@ -189,13 +191,13 @@ NEXT STEPS
 
 - **Relevance principle:** Even in follow-ups, lead with problems, not observations or flattery. No "I noticed your company..." or "Impressive growth..." Research informs which problem to reference, but the research is fuel, not content.
 - **Event reference:** Always include specific event name and dates
-- **Conversation reference (if notes exist):** "You mentioned you're scaling GPU capacity..." or "Great discussion about multi-facility federation"
+- **Conversation reference (if notes exist):** "You mentioned you're scaling GPU capacity..." or "Great discussion about multi-facility connectivity"
 - **Writing standards:** Same as cold outreach: no em dashes, no vendor language, peer tone, no "solution" speak, no "I noticed" / "I saw" / "Congratulations on"
-- **Subject line:** "[Event Name] follow-up" or "[Event] — [specific topic]"
+- **Subject line:** "[Event Name] follow-up" or "[Event]  -  [specific topic]"
 - **CTA intensity:** Scaled to interaction warmth
   - Hot: "Let's set up a 30-min call to walk through the architecture"
   - Warm: "Curious if this resource might be relevant to your team: [link]"
-  - Cool: "If you're thinking about infrastructure federation, happy to connect offline"
+  - Cool: "If you're thinking about infrastructure connectivity, happy to connect offline"
 - **Sender:** Tim Lieto (East territory) or Ken Cunningham (West territory), based on HQ state mapping
 - **Customer name anonymization:** Use "a major fiber operator" not "Lumen" in any proof points
 - **Length:** 3–5 sentences max
@@ -204,10 +206,10 @@ NEXT STEPS
 
 Use HubSpot account HQ state to assign follow-up sender. See **territory-model.md** for the canonical mapping.
 
-**Tim Lieto (North America Sales, East — 30 states):**
+**Tim Lieto (North America Sales, East  -  30 states):**
 - AL, AR, CT, DE, FL, GA, IA, IL, IN, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NH, NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV
 
-**Ken Cunningham (West — 20 states + DC):**
+**Ken Cunningham (West  -  20 states + DC):**
 - AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND, NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY
 
 **International:**
@@ -319,7 +321,7 @@ Subject: [Event Name] follow-up
 
 Hi [Name],
 
-Nice meeting you at [Event]. [One relevant insight about their industry/role: "Lot of talk about federation at this event" or "Sounds like infrastructure automation is top of mind for your peers"]
+Nice meeting you at [Event]. [One relevant insight about their industry/role: "Lot of talk about cross-carrier automation at this event" or "Sounds like infrastructure automation is top of mind for your peers"]
 
 If you want to chat through anything infrastructure-related, happy to help.
 
@@ -381,7 +383,7 @@ FOLLOW-UP COMPLETION CHECKLIST
 - Multi-facility networking needs
 
 **Talking points:**
-- "Inference latency across facilities is a major bottleneck right now—federation solves it"
+- "Inference latency across facilities is a major bottleneck right now - cross-carrier connectivity solves it"
 - "We're seeing GPU cloud operators scale from single-DC to multi-DC overnight"
 - "Instant inter-facility networking let you monetize idle capacity across your footprint"
 
@@ -397,7 +399,7 @@ FOLLOW-UP COMPLETION CHECKLIST
 - Sustainability/power efficiency focus
 
 **Talking points:**
-- "Federation + open infrastructure alignment—you can stitch together disaggregated resources across facilities"
+- "Cross-carrier automation + open infrastructure alignment - you can stitch together disaggregated resources across facilities"
 - "Instant provisioning with open hardware means competitive advantage"
 - "Network-on-demand is a natural fit for OCP operators"
 
@@ -413,9 +415,9 @@ FOLLOW-UP COMPLETION CHECKLIST
 - New market entries
 
 **Talking points:**
-- "Provisioning speed is your competitive edge—federation lets you activate NNI in hours, not weeks"
-- "Cross-carrier federation means you can offer statewide/regional services without owning all the fiber"
-- "Enterprise customers want instant multi-location connectivity—that's your play"
+- "Provisioning speed is your competitive edge - cross-carrier automation lets you activate NNI in hours, not weeks"
+- "Cross-carrier connectivity means you can offer statewide/regional services without owning all the fiber"
+- "Enterprise customers want instant multi-location connectivity - that's your play"
 
 **Target segments:** Fiber Operators, Competitive Carriers, MSP/Aggregators
 
@@ -430,8 +432,8 @@ FOLLOW-UP COMPLETION CHECKLIST
 
 **Talking points:**
 - "LSO Sonata + instant NNI activation = you can automate enterprise multi-site delivery"
-- "Federation-as-a-service is the next evolution of Mplify compatibility"
-- "Operators automating service provisioning need a federation backbone"
+- "Automated partner activation is the next evolution of Mplify compatibility"
+- "Operators automating service provisioning need a cross-carrier automation layer"
 
 **Target segments:** Network Operators, MSP/Aggregators, Carriers
 
@@ -460,7 +462,7 @@ FOLLOW-UP COMPLETION CHECKLIST
 - GPU-accelerated research announcements
 
 **Talking points:**
-- "Research federations need instant inter-facility networking for data-intensive science"
+- "Research networks need instant inter-facility networking for data-intensive science"
 - "HPC centers scaling across locations can now synchronize with zero provisioning delay"
 
 **Target segments:** Academic institutions, Research networks, Neoclouds (research-focused)
@@ -489,9 +491,9 @@ FOLLOW-UP COMPLETION CHECKLIST
 - Vendors / Ecosystem (complementary tech, integration partners)
 
 **Key value drivers by segment:**
-- **Fiber:** Provisioning speed, cross-carrier federation, enterprise service enablement
+- **Fiber:** Provisioning speed, cross-carrier automation, enterprise service enablement
 - **Colo:** Multi-site elasticity, interconnection automation, customer service velocity
-- **Neocloud:** Inference federation, multi-DC GPU resource access, latency optimization
+- **Neocloud:** Inference connectivity, multi-DC GPU resource access, latency optimization
 - **NetOp:** Automation (LSO Sonata), service velocity, cost per bit
 - **MSP:** White-label offerings, instant service activation, customer stickiness
 

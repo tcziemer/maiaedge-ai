@@ -12,7 +12,7 @@ The federation value proposition only compounds when multiple operators have dep
 
 1. They automate their own network (Enhance)
 2. They federate with partners who also have PBCs (Multiply)
-3. Their partners access other partners' networks (Compound) — network effects kick in
+3. Their partners access other partners' networks (Compound)  -  network effects kick in
 
 **iPhone analogy:** The iPhone shipped with Mail and Safari, not an App Store. But those two apps were critical for viability. Similarly, MaiaEdge marketplace seeding requires deploying PBCs at strategic hub locations with strong operator relationships, removing friction, and demonstrating federation value.
 
@@ -58,7 +58,7 @@ Seeding follows a geographic expansion pattern, beginning with the highest-traff
 
 ---
 
-### Tier 3: Secondary Hubs — Seattle, Dallas, Chicago
+### Tier 3: Secondary Hubs  -  Seattle, Dallas, Chicago
 
 **Partners:**
 - **Chicago:** Arvig (fiber operator, Minnesota-based, but key Midwest hub)
@@ -95,19 +95,19 @@ Seeding follows a geographic expansion pattern, beginning with the highest-traff
 
 ### Free/Heavily Subsidized PBC Deployment Model
 
-**Phase 1 (Seed Partners — Tier 1/2):** Atlantec, Arvig
+**Phase 1 (Seed Partners  -  Tier 1/2):** Atlantec, Arvig
 
 - Deploy 1-2 PBCs at no cost (100% subsidy) or at significant discount (60-70% off)
 - **Condition:** Must achieve federation breakeven within 12 months (minimum 3-4 federated partners)
 - **Outcome:** Atlantec/Arvig prove federation model works. Other operators see "it's possible."
 
-**Phase 2 (Secondary Hubs — Tier 3):** Dallas, Seattle, Ecotel
+**Phase 2 (Secondary Hubs  -  Tier 3):** Dallas, Seattle, Ecotel
 
 - Deploy at 30-50% discount (not free)
 - **Condition:** Commit to federation with Tier 1 hubs
 - **Outcome:** Network effects begin. More hubs = more reach
 
-**Phase 3 (Margin Hubs — Tier 4+):** Later-stage operators
+**Phase 3 (Margin Hubs  -  Tier 4+):** Later-stage operators
 
 - Standard pricing
 - Demand for MaiaEdge is now proven by existing hubs
@@ -146,7 +146,7 @@ Seeding follows a geographic expansion pattern, beginning with the highest-traff
 
 ## ConnectBase Integration Strategy
 
-**What is ConnectBase?** The "phone book" of fiber ownership — a database showing which operators serve specific buildings and geographies.
+**What is ConnectBase?** The "phone book" of fiber ownership  -  a database showing which operators serve specific buildings and geographies.
 
 **Strategic importance:** When a customer uses ConnectBase to find which operator serves their location, ConnectBase can show:
 1. Who serves this address
@@ -203,7 +203,7 @@ Seeding follows a geographic expansion pattern, beginning with the highest-traff
 - Fiber operator with established presence in multiple key markets
 - Existing relationships with major colos (Equinix, CoreWeave, Meta presence)
 - Has ports/capacity in Ashburn, Silicon Valley, LA
-- International presence (Mexico) — can extend into LatAm
+- International presence (Mexico)  -  can extend into LatAm
 - Not a competitor to most operators (complementary positioning)
 
 **Seeding deal structure:**
@@ -240,7 +240,7 @@ Seeding follows a geographic expansion pattern, beginning with the highest-traff
 **Why Europe:**
 - German fiber market is highly fragmented (many small regional operators)
 - Federation solves the exact problem: small operators need reach they can't build alone
-- IENTC (Mexico) already deployed — creates LatAm hub
+- IENTC (Mexico) already deployed  -  creates LatAm hub
 - EU AI Act enforcement (Aug 2026) drives demand for sovereign connectivity
 
 **Expected Outcome:** European operators federating through Ecotel/CMC. IENTC bridging to LatAm. MaiaEdge becomes the backbone of a truly global federated network.
@@ -284,14 +284,16 @@ This seeding strategy creates a defensible moat that NaaS platforms (Megaport, E
 
 ## Messaging for Seeding Prospects
 
-**To Atlantec/early hub partners:**
+> **Language note:** This is an internal GTM strategy document. "Federation" is used here as internal product/capability language. When translating these pitches to operator-facing materials (decks, emails, proposals), substitute customer-facing terms: "cross-operator reach," "partner interconnection," "extend your footprint through shared fabric," "unified programmable fabric with partner operators." The deck uses "Federated" as a live-presentation pillar header; cold outreach and written derivatives should translate. See context/copy-strategy/segment-messaging.md (rule 7) for the canonical rule.
 
-"You deploy MaiaEdge first in Ashburn. Within 6 months, you're the federation hub that every operator in North America is connecting to. Your reach extends 10x without building any infrastructure. We subsidize your hardware to remove risk because when you win, the entire ecosystem accelerates."
+**To Atlantec/early hub partners (live partnership conversation):**
 
-**To later-stage operators (Tier 3+):**
+"You deploy MaiaEdge first in Ashburn. Within 6 months, you're the interconnection hub that every operator in North America connects through. Your reach extends 10x without building any infrastructure. We subsidize your hardware to remove risk because when you win, the entire ecosystem accelerates."
 
-"Ashburn is already federated. SV is already federated. Dallas and Chicago are next. If you deploy now, you join the fastest-growing operator network ecosystem. If you wait, you're playing catch-up to operators who already have continental reach."
+**To later-stage operators (Tier 3+, live partnership conversation):**
 
-**To investors/board:**
+"Ashburn is already live with partner interconnection. SV is live. Dallas and Chicago are next. If you deploy now, you join the fastest-growing operator network ecosystem. If you wait, you're playing catch-up to operators who already have continental reach."
+
+**To investors/board (internal):**
 
 "We're not just selling hardware. We're seeding the network that makes every future deal inevitable. The first operator in each region gets network effects. By Quarters 3-4, adoption is self-reinforcing because federation value is undeniable."

@@ -7,6 +7,13 @@ description: MaiaEdge account strategy brief generator for high-value prospect r
 
 Generate comprehensive account strategy briefs for high-value MaiaEdge prospects.
 
+## Reference Files
+
+- **segment-language.md**  -  Insider vocabulary, daily reality, conversational patterns per segment. Read before writing angles, outreach drafts, or discovery questions to sound like a peer, not a salesperson.
+- **segment-qualification.md**  -  Proof-based qualification gates
+- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
+- **email-writing-rules.md**  -  For the ready-to-send email draft (angle-first, segment lock, no credibility anchors)
+
 ## Output Format
 
 Deliver as:
@@ -109,7 +116,7 @@ Deliver as:
 
 ### Section 6: Timing Fit
 
-**Purpose:** Why is right now a good time for this company to be looking at MaiaEdge? This section must be research-driven — not generic urgency language. If you can't find real signals, say so and flag low timing confidence.
+**Purpose:** Why is right now a good time for this company to be looking at MaiaEdge? This section must be research-driven  -  not generic urgency language. If you can't find real signals, say so and flag low timing confidence.
 
 **Company-Level Timing Signals (research required):**
 - Recent expansion, new markets, or footprint announcements
@@ -118,7 +125,7 @@ Deliver as:
 - Recent acquisition or merger (network complexity just compounded)
 - Competitive pressure signals (losing deals to faster operators, Tier 1s going direct)
 - Hiring patterns that suggest scaling pains (ops headcount growing without automation)
-- Partnership announcements that imply federation need
+- Partnership announcements that imply cross-carrier connectivity need
 - Public statements from leadership about where the company is heading
 
 **Contact-Level Timing Signals (research required, per contact):**
@@ -129,23 +136,23 @@ Deliver as:
 
 **Output format:**
 
-> **Company timing:** [2-3 sentences. Specific signals from research. What's happening at this company right now that makes this a timely conversation? If nothing strong found, say: "No strong timing signals found — approach is based on ICP fit, not urgency."]
+> **Company timing:** [2-3 sentences. Specific signals from research. What's happening at this company right now that makes this a timely conversation? If nothing strong found, say: "No strong timing signals found  -  approach is based on ICP fit, not urgency."]
 
 > **Contact timing:** [Per contact if multiple. What's happening with this specific person right now that creates an opening? If nothing found, flag it.]
 
-> **Timing confidence:** Strong / Moderate / Weak — with one-line rationale
+> **Timing confidence:** Strong / Moderate / Weak  -  with one-line rationale
 
 ---
 
 ### Section 7: Contact Matrix
 
-**Purpose:** For every named contact at this account, map what they actually care about to the best MaiaEdge angle for them — grounded in both the account segment and what's actually happening at this company right now. Not generic role descriptions. If the angle could apply to anyone with this title anywhere, rewrite it.
+**Purpose:** For every named contact at this account, map what they actually care about to the best MaiaEdge angle for them  -  grounded in both the account segment and what's actually happening at this company right now. Not generic role descriptions. If the angle could apply to anyone with this title anywhere, rewrite it.
 
 **Instructions:**
 - Pull from company research AND contact research (background, tenure, career path, public statements)
-- Map angle to the account segment (Fiber Operator, Colo, MSP, etc.) — messaging should reflect segment-specific pain
+- Map angle to the account segment (Fiber Operator, Colo, MSP, etc.)  -  messaging should reflect segment-specific pain
 - If multiple contacts, include all of them in the matrix
-- Flag if any contact is a poor fit for direct outreach (e.g., capital markets / finance role — suggest intro path instead)
+- Flag if any contact is a poor fit for direct outreach (e.g., capital markets / finance role  -  suggest intro path instead)
 
 | Contact | Title | What They Care About | Best MaiaEdge Angle (account + segment specific) | Fit | Outreach Priority |
 |---------|-------|---------------------|--------------------------------------------------|-----|-------------------|
@@ -249,7 +256,7 @@ Validate contact-to-use-case fit before proceeding.
 
 For AI infrastructure targets, add:
 ```
-[Company] CoreWeave Lambda Labs GPU cloud
+[Company] Lambda Labs Crusoe GPU cloud
 [Company] liquid cooling high-density
 ```
 
@@ -293,11 +300,14 @@ Before finalizing brief:
 
 | Segment | Primary Hook | Key Use Case |
 |---------|--------------|--------------|
-| Fiber Operators | "Every multi-state deal lost to provisioning delays" | NNI automation, dark fiber monetization |
-| Colos | "Build your own fabric vs. joining someone else's" | Tenant connectivity, compete with Equinix |
-| Tier 1 Carriers | "You've automated internally. MaiaEdge extends that everywhere else" | Cross-carrier beyond footprint |
-| MSPs/VNOs | "You own the customer relationship. We give you visibility" | Upstream carrier visibility |
-| Neoclouds | "Customer connectivity at your speed, under your control" | Enterprise on-ramps, multi-site federation |
+| Fiber Operators | "Monetize underutilized fiber. Instant private fabric any transport, no routing complexity. Sell new services (cloud on-ramp)." | Monetize idle/stranded fiber, productize private paths, enable cloud on-ramp |
+| Colos | "Build your own fabric. Automated virtual cross-connects + cloud on-ramp under your brand, no multi-year development project." | Automated cross-connects, services layer, multi-site fabric, cloud on-ramp as native product |
+| AI Colos | "GPU tenants deploy dense interconnection fast. The connectivity layer either keeps up or becomes the gap in the facility." | Deterministic paths between AI sites, automated cross-connects for GPU tenants, cloud on-ramps for GPU workloads. Modular DC + greenfield variants apply. |
+| Tier 1 Carriers | "Sell beyond your footprint. Monetize existing infrastructure." | Extend reach, cross-carrier paths |
+| MSPs/VNOs | "Visibility, reach into new markets, services to sell" | Upstream carrier visibility, monetize capacity |
+| Neoclouds (in-pain-now, 5-15 sites) | "Inference latency varies by facility and your team is guessing whether it's the carrier, the colo, or something in between." | Multi-tenancy, deterministic paths, observability as supporting benefit |
+| Neoclouds (scaling-wall, 15+ sites hyperscaler-heavy) | "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." | Instant customer on-ramp, enterprise-ramp velocity, private cloud connectivity |
+| Neoclouds (early-growth, crypto-to-AI) | "Bitcoin doesn't care about latency. Enterprise AI tenants do." | Tenant-readiness + basic connectivity + observability |
 
 ---
 

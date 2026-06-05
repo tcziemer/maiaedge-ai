@@ -1,3 +1,8 @@
+---
+name: competitive-intel
+description: "MaiaEdge competitive intelligence and positioning skill. Use when positioning against competitors (Megaport, Equinix, Lumen, SD-WAN, orchestration platforms), handling objections, building a battle card, or preparing for a competitive deal. Produces competitive briefs, positioning statements, objection responses, and proof points by segment."
+---
+
 # Competitive Intelligence Skill
 
 Triggers automatically when competitive positioning or objection handling is needed.
@@ -11,10 +16,10 @@ Triggers automatically when competitive positioning or objection handling is nee
 
 ## Reference Files
 
-- **competitive-positioning.md** — Detailed battle cards, objection handling frameworks, market context
-- **proof-points.md** — Customer stories and outcomes for competitive situations
-- **pbc-pce-datasheet.md** — Hardware specs for technical comparisons
-- **integrated-switch-datasheet.md** — MPP-48 switch specifications
+- **competitive-positioning.md**  -  Detailed battle cards, objection handling frameworks, market context
+- **proof-points.md**  -  Customer stories and outcomes for competitive situations
+- **pbc-pce-datasheet.md**  -  Hardware specs for technical comparisons
+- **integrated-switch-datasheet.md**  -  MPP-48 switch specifications
 
 ## Core Positioning
 
@@ -37,7 +42,7 @@ Triggers automatically when competitive positioning or objection handling is nee
 **Their model:** Building a national private connectivity empire. AWS partnership (Interconnect Last Mile). ~340K route miles, 163K+ buildings, 400G backbone.
 **The threat:** Going direct to enterprises, cutting regional operators out entirely.
 **Our positioning:** "Lumen builds their empire; MaiaEdge empowers you to build yours."
-**Why it matters:** Regional operators need to federate to match Lumen's reach. MaiaEdge enables that federation.
+**Why it matters:** Regional operators need to extend their reach to match Lumen's. MaiaEdge enables that cross-carrier reach extension.
 **HubSpot tag:** #COMPETITION_PRIVATE_FABRIC
 
 ### SD-WAN (Cisco Viptela, VMware VeloCloud, Fortinet)
@@ -52,7 +57,7 @@ Triggers automatically when competitive positioning or objection handling is nee
 
 ### Hyperscalers Going Direct (AWS, Azure, Google Cloud)
 **The threat:** Building direct enterprise connectivity (AWS Interconnect, Azure ExpressRoute). Cutting regional operators out.
-**The opportunity:** Enterprises near new hyperscaler facilities need connectivity fast. Federation lets operators compete by combining reach.
+**The opportunity:** Enterprises near new hyperscaler facilities need connectivity fast. Cross-carrier connectivity lets operators compete by combining reach.
 
 ## Universal Objection Handling
 
@@ -77,7 +82,7 @@ Triggers automatically when competitive positioning or objection handling is nee
 - Megaport: "Every tenant connectivity request that goes through Megaport is revenue and control walking out your door."
 
 ### For Network Operators
-- Internal orchestration: "Great for internal domains. What about paths crossing carrier boundaries? That's the federation layer we solve."
+- Internal orchestration: "Great for internal domains. What about paths crossing carrier boundaries? That's the cross-carrier layer we solve."
 - Cisco/Juniper: "Complements, not competes. We sit at domain boundaries where your core automation stops."
 
 ### For MSP/Aggregators
@@ -99,7 +104,7 @@ Triggers automatically when competitive positioning or objection handling is nee
 | RevNet | "Imagine having Megaport capability between providers" | NaaS comparison, multi-carrier |
 | IENTC | 800+ cell towers to 20+ data centers | Mobile backhaul, scale |
 | Equinix | "Revolutionary and creative... abstracting complexity with PBC approach" | Technical skeptics |
-| Ocean Networks | Federation to INDATEL for mainland reach | Geographic isolation, partner reach |
+| Ocean Networks | Cross-carrier connectivity to INDATEL for mainland reach | Geographic isolation, partner reach |
 | Ecotel (Germany) | "Great for the fragmented fibre market" | International, fragmented markets |
 
 **Rule:** Never name customers in cold outreach. Anonymize: "One fiber operator saw instantaneous provisioning." Use names only in meetings/follow-ups when prospect asks "who else uses this?"

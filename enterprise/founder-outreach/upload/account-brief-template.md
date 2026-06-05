@@ -201,7 +201,7 @@ Validate contact-to-use-case fit before proceeding.
 
 For AI infrastructure targets, add:
 ```
-[Company] CoreWeave Lambda Labs GPU cloud
+[Company] Lambda Labs Crusoe GPU cloud
 [Company] liquid cooling high-density
 ```
 
@@ -226,7 +226,7 @@ Before finalizing brief:
 - [ ] No em dashes
 - [ ] Credibility anchor included
 - [ ] CTA is low-friction
-- [ ] Within word count for segment
+- [ ] Within sequence caps (Email 1: 70-85w, Email 2: <55w, Email 3: 2-3 sentences; canonical in context/outreach/email-writing-rules.md)
 
 **Value Prop:**
 - [ ] Lead use case identified (not a list of 4 equal options)
@@ -247,7 +247,7 @@ Before finalizing brief:
 | Fiber Operators | "Every multi-state deal lost to provisioning delays" | NNI automation, dark fiber monetization |
 | Colos | "Build your own fabric vs. joining someone else's" | Tenant connectivity, compete with Equinix |
 | Tier 1 Carriers | "You've automated internally. MaiaEdge extends that everywhere else" | Cross-carrier beyond footprint |
-| MSPs/VNOs | "You own the customer relationship. We give you visibility" | Upstream carrier visibility |
+| MSPs/VNOs | "You own the customer relationship. The fix for the visibility gap behind it is hop-by-hop telemetry across every upstream carrier" | Upstream carrier visibility |
 | Neoclouds | "Customer connectivity at your speed, under your control" | Enterprise on-ramps, multi-site federation |
 
 ---

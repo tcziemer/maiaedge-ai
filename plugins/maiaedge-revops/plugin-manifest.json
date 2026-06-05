@@ -1,7 +1,7 @@
 {
   "name": "maiaedge-revops",
   "version": "1.2.0",
-  "skills": ["contact-discovery", "crm-hygiene", "pipeline-analytics", "territory-manager"],
+  "skills": ["contact-discovery", "crm-hygiene", "pipeline-analytics", "territory-manager", "pre-deletion-audit", "crm-guardian"],
   "context": [
     "core/segment-qualification.md",
     "core/icp-playbook.md",
