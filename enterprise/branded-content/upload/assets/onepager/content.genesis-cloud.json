@@ -1,0 +1,71 @@
+{
+  "_comment": "Outbound one-pager content (Genesis Cloud, Dr. Stefan Schiefer, CEO). NeoCloud / Sovereign AI Cloud. Owner Tim Ziemer (International). Rides the LinkedIn thank-you/reply DM, never cold. Sovereignty-led: continues Tim's LinkedIn thread (owned green infra, the network path as part of the moat). Data-sovereignty framing only, no operator resale.",
+  "account_eyebrow": "FOR GENESIS CLOUD",
+  "title_line1": "Owning the",
+  "title_accent": "Path.",
+  "masthead_sub": "The connectivity layer between your European regions, and why it becomes part of the moat as inference distributes across them.",
+  "hook": {
+    "headline": "The one layer still left to the carrier",
+    "body": "You have pulled the AI stack under one roof, the green power, the Nordic sites, the GPUs, the platform. One layer still sits outside it. Owned paths behave like part of the system, rented paths behave like weather, and the difference shows up where it costs the most, in customer experience and the deals that hinge on sovereignty."
+  },
+  "whynow": {
+    "headline": "The path becomes part of the moat",
+    "body": "As inference distributes across your European regions, the path between them turns into part of the product. As the sovereign claim is audited under EU rules, the story holds only as well as the path beneath it. And the enterprise buyers that matter most ask for a private, in-region way into your compute."
+  },
+  "stats": [
+    {
+      "num": "Minutes",
+      "label": "new European regions and customers on private paths, not a multi-week project"
+    },
+    {
+      "num": "Hop by hop",
+      "label": "provable path end to end, including the segments you do not own"
+    },
+    {
+      "num": "2c vs 9c",
+      "label": "private egress economics your customers feel, versus public cloud"
+    }
+  ],
+  "plays_headline": "What owning the path unlocks",
+  "plays": [
+    {
+      "play": "Sovereignty that extends to the path",
+      "looks": "The path between your regions and out to the customer stays owned and provable hop by hop, so in-region delivery holds up when an EU AI Act review digs in.",
+      "pays": "A premium, audit-ready sovereignty tier you can price into the package, recurring margin that a compute price war cannot erase."
+    },
+    {
+      "play": "A private way into your compute",
+      "looks": "A private, in-region on-ramp your customers switch on like any other Genesis feature, the same in every European market you open.",
+      "pays": "You already sell the compute, the path ships in the same package, so owning it keeps the connectivity economics instead of handing them to a carrier."
+    },
+    {
+      "play": "One operating model across Europe",
+      "looks": "Each new region comes online with the path built in, the same config across the Nordics and the rest of Europe, not a fresh carrier project per country.",
+      "pays": "Distributed inference stays consistent region to region, and each market you add compounds against a fabric you own instead of a carrier you rent."
+    }
+  ],
+  "product": {
+    "headline": "What MaiaEdge is",
+    "body": "One device at each site or point of presence, plus cloud orchestration that brings private, deterministic paths up in minutes across any network, with hop-by-hop visibility end to end."
+  },
+  "pillars": [
+    {
+      "name": "DETERMINISTIC",
+      "desc": "Predictable latency between regions, with hop-by-hop visibility into every path."
+    },
+    {
+      "name": "PRIVATE",
+      "desc": "Data stays on paths you control, every path encrypted end to end, provably private."
+    },
+    {
+      "name": "INSTANT",
+      "desc": "New regions and customers on private paths in minutes, not a multi-week project."
+    }
+  ],
+  "cta": {
+    "lead": "Worth a closer look?",
+    "body": "Fifteen minutes walks the whole thing end to end, where it sits against the estate you have already built and which motion it unlocks first."
+  },
+  "footer_left": "MAIAEDGE  ·  PREPARED FOR GENESIS CLOUD",
+  "out_pdf": "Genesis-Cloud-One-Pager.pdf"
+}

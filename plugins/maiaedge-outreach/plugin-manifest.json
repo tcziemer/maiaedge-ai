@@ -1,12 +1,19 @@
 {
   "name": "maiaedge-outreach",
-  "version": "1.4.0",
-  "skills": ["cold-email", "linkedin-outreach", "prospect-research", "segment-classification"],
+  "version": "1.6.1",
+  "skills": [
+    "cold-email",
+    "linkedin-outreach",
+    "warm-follow-up",
+    "prospect-research",
+    "segment-classification"
+  ],
   "context": [
     "core/segment-qualification.md",
     "core/icp-playbook.md",
     "core/messaging-framework.md",
     "core/competitive-positioning.md",
+    "core/differentiation-naas-aggregator.md",
     "account-tiering/tier-compute-spec.md",
     "account-tiering/sub-segment-qualification.md",
     "account-tiering/enrichment-protocols.md",
@@ -21,10 +28,13 @@
     "outreach/fallback-messaging.md",
     "outreach/sender-profiles.md",
     "outreach/persona-targeting-blocklist.md",
+    "outreach/pre-cadence-hygiene.md",
+    "outreach/voice-gold-standard.md",
     "hubspot/property-schema.md",
     "hubspot/hubspot-values.md",
     "hubspot/territory-model.md",
     "signals/signal-framework.md",
+    "signals/outreach-signal-pushback.md",
     "signals/fiber-signals.md",
     "signals/network-operator-signals.md",
     "signals/colocation-signals.md",
@@ -32,8 +42,12 @@
     "signals/msp-aggregator-signals.md",
     "signals/enterprise-signals.md",
     "product/proof-points.md",
+    "product/ai-market-positioning.md",
+    "sales/email-bot-supplemental.md",
+    "sales/marketplace-seeding-strategy.md",
     "copy-strategy/segment-messaging.md",
-    "copy-strategy/segment-language.md"
+    "copy-strategy/segment-language.md",
+    "copy-strategy/outbound-playbook.md"
   ],
   "static": []
 }

@@ -721,6 +721,15 @@ Strongest pattern for consortia: Consortium CEO + 2-3 Member CEOs as a governanc
 7. **INDATEL** — Municipal/Cooperative + Dark Fiber Specialist overlap (consortium with dark fiber wholesale role). Manual review.
 8. **Consolidated Communications** — Regional CLEC at $3.1B / 23 states / 58,000 route miles is upper edge of Regional CLEC band. Could push to Tier 2 National Wholesale if wholesale book grows. Manual review.
 
+### PE-sponsor dual-lens angle (internal - applies to PE-backed Regional CLEC / Tier 2 National Wholesale / Dark Fiber Specialist records)
+For PE-backed operators, MaiaEdge speaks to two buyers with two different lenses, and the pitch should carry both:
+- **Sponsor's unit-economics lens:** revenue per existing strand goes up, provisioning OpEx goes down. The sponsor cares that monetization velocity on already-owned fiber improves the asset's return without new capital - directly relevant in a 2026 environment where boards have slowed new builds to protect unit economics.
+- **Operator's growth lens:** new sellable services (cloud on-ramp, productized wavelength-on-demand, partner interconnects) plus multi-state reach without a build. The operating team cares about saying yes to multi-state RFPs and winning deals currently lost to slow provisioning.
+When the PE sponsor's infrastructure investment director is in the buying committee (the persona stack flags this for $500M+ / PE-backed records), lead the sponsor conversation on the unit-economics lens and the operator conversation on the growth lens. The two are not in tension - both are funded by activating fiber already in the ground.
+
+### Consolidation-rumor caution (internal - mid-2026)
+Two consolidation moves are REPORTED / RUMORED as of mid-2026, NOT closed: **Zayo -> Uniti/Windstream** and **T-Mobile -> Kinetic**. Do not treat either as fact in conversation, classification reasoning, or anchor-list edits. If a record references one of these, classify per the current legal state and flag for re-validation, exactly as the pending-M&A policy already requires.
+
 ### Anchor changes from file 05 + existing cheatsheet
 - **Removed:** Crown Castle Fiber as standalone anchor (acquired by Zayo April 29, 2026, closed May 4, 2026). Confirmed via Zayo press + Crown Castle 8-K + Fierce Network coverage.
 - **Removed:** Everstream as standalone Regional CLEC anchor (acquired by Bluebird Fiber March 6, 2026, $384M auction). Reclassified Bluebird Fiber as boundary Regional CLEC / Tier 2 National Wholesale.

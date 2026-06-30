@@ -1,11 +1,11 @@
 ---
 name: weekly-signal-scan
-description: "MaiaEdge Weekly Signal Scan  -  runs Mondays to scrape fresh market signals across all 6 ICP segments (Colo / Fiber / NeoCloud / Network Op / MSP-Aggregator / Enterprise - Enterprise added 2026-05-11) using per-segment Tier A + Tier B catalogs. Detects buildouts, M&A, exec hires, anchor leases, BEAD awards, GPU debt, NaaS launches, Enterprise DC builds + regulatory enforcement events + Enterprise GenAI/GPU partnerships. Updates recent_news_or_trigger_event on matched HubSpot accounts, enriches net-new accounts, and delivers one Slack DM per rep territory (Tim Lieto East, Ken Cunningham West, Tim Ziemer International) with a score-cascaded prospecting list and Excel attachment. Use when asked to run weekly signals, generate the Monday brief, refresh news fields, scan for trigger events, build the weekly prospecting list, or produce rep territory reports. Orchestrated by crm-guardian (weekly Mondays) or invoked directly."
+description: "MaiaEdge Weekly Signal Scan  -  runs Mondays to scrape fresh market signals across all 6 ICP segments (Colo / Fiber / NeoCloud / Network Op / MSP-Aggregator / Enterprise) using per-segment Tier A + Tier B catalogs. Detects buildouts, M&A, exec hires, anchor leases, BEAD awards, GPU debt, NaaS launches, Enterprise DC builds + regulatory enforcement events + Enterprise GenAI/GPU partnerships. Updates recent_news_or_trigger_event on matched HubSpot accounts, enriches net-new accounts, and delivers Slack DMs per rep territory (see context/hubspot/territory-model.md for the 5-region owner map) with score-cascaded prospecting lists. Use when asked to run weekly signals, generate the Monday brief, refresh news fields, scan for trigger events, build the weekly prospecting list, or produce rep territory reports. Orchestrated by crm-guardian (weekly Mondays) or invoked directly."
 ---
 
 # MaiaEdge Weekly Signal Scan
 
-## 2026-05-28 split — monolithic prompt retired, replaced by 7 Cowork scheduled tasks
+## 2026-05-28 split - monolithic prompt retired, replaced by 7 Cowork scheduled tasks
 
 The single `cowork-scheduled-tasks/weekly-signal-scan/` prompt was hitting context-budget walls mid-run (the 2026-05-25 fire degraded to focused-WebSearch reduced-scope and produced a blank per-source ✓/✗ audit). The fix is structural: one Cowork scheduled task per ICP segment, plus an aggregator that builds the rep-facing output from HubSpot.
 
@@ -21,7 +21,7 @@ The single `cowork-scheduled-tasks/weekly-signal-scan/` prompt was hitting conte
 | `signal-scan-enterprise` | Mon 1:00pm | 55 | Same for Enterprise |
 | `signal-scan-aggregator` | Mon 2:30pm | 0 | Reads HubSpot for `last_signal_date = today`; builds 3 rep DMs + canvas Run log + Cooper run report |
 
-Each per-segment scan reads from `context/signals/[segment]-signals.md` for the source registry + signal codes, writes to HubSpot via Stage 5 (pure-prose narrative) + Stage 5b (structured signal fields + tier/heat). The aggregator reads from HubSpot (source of truth) so a single per-segment scan failure doesn't block rep delivery — only Cooper's cross-ICP run report shows the gap.
+Each per-segment scan reads from `context/signals/[segment]-signals.md` for the source registry + signal codes, writes to HubSpot via Stage 5 (pure-prose narrative) + Stage 5b (structured signal fields + tier/heat). The aggregator reads from HubSpot (source of truth) so a single per-segment scan failure doesn't block rep delivery - only Cooper's cross-ICP run report shows the gap.
 
 **This SKILL.md remains the conceptual reference** documenting what to scrape, how to score, and the heat/tier compute rules. The 7 per-segment + aggregator prompts inline the operational rules per the Cowork runtime requirement. Cooper edits prompts in `cowork-scheduled-tasks/signal-scan-*` and re-pastes into Cowork UI; updates to this SKILL.md describe the conceptual pattern.
 
@@ -45,10 +45,10 @@ This is an orchestration skill. It defines WHAT to scrape, WHEN, and HOW to scor
 **Phase 2 produced a 5-account week on 2026-05-04 (1 NEW, 4 carried) due to two compounding failures.** First, Stage 1 was implemented as 5 parallel sub-agents - those sub-agents on the Claude Code runtime hit the egress proxy block on news sites, returned empty, or hallucinated structured-but-fabricated signals (caught at QA-1 and dropped, but volume floor collapsed). Second, the 7-day strict detection window plus score floor 12 was filtering out genuinely relevant signals that a rep would happily work. Phase 3 fixes both:
 
 - **Detection window 14 days rolling** (was 7-day strict). Tier A scoring brackets unchanged (≤60d full freshness), so widening detection ≠ lowering quality - only surfaces more candidates the strict cutoff was filtering artificially.
-- **Stage 1 runs as PARALLEL sub-agents on Cowork** (restored 2026-05-05; **expanded to 6 segments 2026-05-11 with Enterprise**). The 2026-05-04 retirement of parallel sub-agents was specific to Claude Code's egress-proxy block; Cowork has no equivalent block. **Six sub-agents** fan out (one per segment - Colo, Fiber, NeoCloud, Network Op, MSP-Aggregator, Enterprise) per `cowork-scheduled-tasks/weekly-signal-scan/helpers/stage1-subagent-prompt-template.md`. Eliminates the inline-token problem on 100K-500K char news index pages.
+- **Stage 1 runs as 6 independent Cowork scheduled tasks** (one per segment - Colo, Fiber, NeoCloud, Network Op, MSP-Aggregator, Enterprise; each at `cowork-scheduled-tasks/signal-scan-{segment}/prompt.md`). The 2026-05-28 split replaced the parent-runtime / sub-agent template architecture with standalone per-segment Cowork tasks. Eliminates the inline-token problem on 100K-500K char news index pages.
 - **Search-anchor pattern is the canonical access method** (updated 2026-05-11). Direct `web_fetch` is gated by URL-provenance on Cowork's runtime - every URL fails first-attempt fetch regardless of source. The 2026-05-11 reachability audit (68 URLs tested across all 5 catalogs) confirmed this is a runtime-wide constraint, not a per-source issue. The working pattern is: for each documented source in `context/signals/[segment]-signals.md` "Sources for This Segment", run `web_search "{domain} {topic} {year}"` and read snippets + article URLs from the search results. Article URLs returned in search results can then be fetched directly. Sub-agents MUST attempt every documented source via search anchor - skipping a source because it's "paywalled" or "URL-gated" without trying the search anchor first fails the source-coverage gate by definition. The per-source loop is still mandatory; the *method* changed from "web_fetch each URL" to "search-anchor each domain."
-- **Source-coverage gate (NEW 2026-05-05).** After Stage 1, parent runtime calls `cowork-scheduled-tasks/weekly-signal-scan/helpers/check_source_coverage_gate.py` against `weekly-reports/<run_date>/sources_attempted.json`. Any segment below 80% triggers a retry sub-agent for the missing URLs. Two-retry max; persistent gaps surface loudly in the Cooper run report.
-- **Volume-per-rep gate (NEW 2026-05-05).** After Stage 6 fill-down, parent runtime calls `cowork-scheduled-tasks/weekly-signal-scan/helpers/check_volume_gate.py`. Reps with pool < 25 AND non-exhausted carryover have their DMs HELD pending Cooper review (RED tag). Reps with pool < 25 AND exhausted carryover post with YELLOW tag (genuine signal scarcity, not detection failure).
+- **Source-coverage gate (inlined in each per-segment prompt post-2026-05-28 split).** Gate logic and retry behavior are now inlined directly in each `cowork-scheduled-tasks/signal-scan-{colo,fiber,neocloud,networkop,msp,enterprise}/prompt.md`. The old `check_source_coverage_gate.py` helper is archived at `routines/archive/cowork-disabled/weekly-signal-scan-monolithic/helpers/`. Any segment below 80% coverage triggers a retry; persistent gaps surface in the Cooper run report.
+- **Volume-per-rep gate (inlined in the aggregator task post-2026-05-28 split).** Gate logic is now inlined in `cowork-scheduled-tasks/signal-scan-aggregator/prompt.md`. The old `check_volume_gate.py` helper is archived at `routines/archive/cowork-disabled/weekly-signal-scan-monolithic/helpers/`. Reps with pool < 25 AND non-exhausted carryover have their DMs HELD pending Cooper review (RED tag). Reps with pool < 25 AND exhausted carryover post with YELLOW tag (genuine signal scarcity, not detection failure).
 - **Score floor 8** (was 12). 8+ surfaces in rep DM. Below 8 = silent drop. Score 8-11 renders as `LIGHT` cascade tier (green emoji), separate from Strong / Worth Reviewing / Highest Priority. Watch List concept retired.
 - **Cap target 25-50 per rep, hard cap 50.** Three-tier fill-down: Primary (≥12) → LIGHT (8-11) → Carryover News. Carryover fires only when combined Primary + LIGHT < 25.
 - **Carryover News pool (new):** accounts where last week's `recent_news_or_trigger_event` is still chronologically valid (within last 30 days) AND no rep activity recorded ≤14 days. Pulls in only as fill-down to keep light weeks from going too thin.
@@ -76,7 +76,7 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 | I1 | International state-aid / sovereign funding award | +3 bonus; greenfield-equivalent internationally |
 | I2 | Sovereign AI grant / compute allocation | +3 bonus; core NeoCloud international signal |
 
-**Colocation Tier A (7 signals - full list from `colocation-signals.md`):**
+**Colocation Tier A (7 signals - full list from `context/signals/colocation-signals.md`):**
 | Code | Signal | Explicit Cooper priority |
 |------|--------|--------------------------|
 | C-A0 | Greenfield Build Stage S2/S3 (permit + utility interconnection) | **GREENFIELD** - +3 bonus at S2/S3, 9-15 months of influence before fit-out |
@@ -88,7 +88,7 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 | C-A6 | Anchor Tenant Signing (hyperscaler OR enterprise OR neocloud) | **BIG SIGNING** - broader than C-A2; build-to-suit or multi-year MSA |
 | C-A7 | Merger / Acquisition / PE Recap | **BIG ACQUISITION** - explicitly promoted from Tier B per user feedback; Day 60-90 post-close sweet spot |
 
-**Fiber Tier A (9 signals - full list from `fiber-signals.md`):**
+**Fiber Tier A (9 signals - full list from `context/signals/fiber-signals.md`):**
 | Code | Signal | Explicit Cooper priority |
 |------|--------|--------------------------|
 | F-A1 | BEAD Subgrant Award | **GREENFIELD** - 4-year build obligations, 18-24 month provisioning ramps |
@@ -101,9 +101,9 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 | F-A8 | ABS / Refinancing / Secured Debt Issuance | CFO-level urgency for revenue-growth platform spend |
 | F-A9 | Consortium / Federation / Co-op Announcement | Federation-readiness; direct thesis fit |
 
-**⚠️ Code collision warning:** Both `neocloud-signals.md` and `network-operator-signals.md` use the `N-A*` prefix in their catalog files. When referencing signals in this skill's code / prompts / reports, always qualify with the segment: `NeoCloud N-A2` vs `NetworkOp N-A2`. Never use bare `N-A2` - it's ambiguous. Below, each table row's code prepends the segment abbreviation (`NC-` for NeoCloud, `NO-` for Network Operator) to the catalog code.
+**⚠️ Code collision warning:** Both `context/signals/neocloud-signals.md` and `context/signals/network-operator-signals.md` use the `N-A*` prefix in their catalog files. When referencing signals in this skill's code / prompts / reports, always qualify with the segment: `NeoCloud N-A2` vs `NetworkOp N-A2`. Never use bare `N-A2` - it's ambiguous. Below, each table row's code prepends the segment abbreviation (`NC-` for NeoCloud, `NO-` for Network Operator) to the catalog code.
 
-**NeoCloud Tier A (11 signals - full list from `neocloud-signals.md`, highest-velocity segment):**
+**NeoCloud Tier A (11 signals - full list from `context/signals/neocloud-signals.md`, highest-velocity segment):**
 | Runtime code | Catalog code | Signal | Explicit Cooper priority |
 |------|------|--------|--------------------------|
 | NC-A0 | N-A0 | Greenfield Build Stage S2/S3 (permit + utility + GPU-backed debt) | **GREENFIELD** - +3 bonus; NeoClouds lease colo so debt is earliest signal |
@@ -119,7 +119,7 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 | NC-A10 | N-A10 | IX Member Addition (100G/400G port) | Open for peering flag; port-live date |
 | NC-A11 | N-A11 | MLPerf Inference / Training Submission | Production-stable fabric; promoted from Tier C April 2026 |
 
-**Network Operator Tier A (10 signals - full list from `network-operator-signals.md`):**
+**Network Operator Tier A (10 signals - full list from `context/signals/network-operator-signals.md`):**
 | Runtime code | Catalog code | Signal | Explicit Cooper priority |
 |------|------|--------|--------------------------|
 | NO-A1 | N-A1 | Private Connectivity Fabric Copycat / Multi-Billion AI Deal | **BIG SIGNING** - Lumen $13B PCF precedent; boards asking for responses |
@@ -133,7 +133,7 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 | NO-A9 | N-A9 | PCEP / SR-TE / BGP-LS / YANG-NETCONF Job Requisitions | Standing up a TE team; 1-2 quarter lead over procurement |
 | NO-A10 | N-A10 | CTrO / CDO Appointment (distinct from CTO/CNO) | 12-18 month platformization mandate with consolidated budget |
 
-**MSP / Aggregator Tier A (7 signals - full list from `msp-aggregator-signals.md`):**
+**MSP / Aggregator Tier A (7 signals - full list from `context/signals/msp-aggregator-signals.md`):**
 | Code | Signal | Explicit Cooper priority |
 |------|--------|--------------------------|
 | M-A1 | PE Acquisition / TSD Roll-up | **BIG ACQUISITION** - 60-120 day post-close sweet spot |
@@ -144,7 +144,7 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 | M-A6 | TSD Platform / Quoting-Engine Replatforming (job-post signal) | Connector-building window opens |
 | M-A7 | ScanSource / TD SYNNEX Recurring-Revenue-Mix Disclosure | Public leading indicator of channel compression |
 
-**Enterprise Tier A (7 signals - full list from `enterprise-signals.md`, added 2026-05-11 with ICP promotion):**
+**Enterprise Tier A (7 signals - full list from `context/signals/enterprise-signals.md`, added 2026-05-11 with ICP promotion):**
 | Code | Signal | Explicit Cooper priority |
 |------|--------|--------------------------|
 | E-A1 | New DC Build / DC Expansion / Major Capacity Add | **GREENFIELD-equivalent** - every new corporate IT DC = fresh fabric decision; capacity uprate = inter-DC connectivity envelope being redesigned |
@@ -163,7 +163,7 @@ The Tier A catalog below is preserved (Phase 3 still scrapes ALL of Tier A); the
 
 ### Disabled in Phase 2 (do NOT scrape or surface)
 
-AP-5 (technographic change alone), AP-6 (Apollo Intent alone), and the entire Noise List (see `signal-framework.md` Noise List section) remain **disabled**. Tier B is now ACTIVE in Phase 2 (was disabled in Phase 1). Tier C is paired-only - scraped, but only fires in the rep DM when stacked with a Tier A or Tier B on the same account in the same 30-day window.
+AP-5 (technographic change alone), AP-6 (Apollo Intent alone), and the entire Noise List (see `context/signals/signal-framework.md` Noise List section) remain **disabled**. Tier B is now ACTIVE in Phase 2 (was disabled in Phase 1). Tier C is paired-only - scraped, but only fires in the rep DM when stacked with a Tier A or Tier B on the same account in the same 30-day window.
 
 ### Priority hierarchy within Tier A (for the cascade ordering)
 
@@ -221,7 +221,24 @@ Within Tier A, some signals score materially higher due to bonuses and stacking.
 - `skills/territory-manager` - state → owner mapping, Apollo state verification, Contact Owner Cascade
 - `skills/account-brief` - stale brief regeneration (>30d + research-divergence triggers)
 - `skills/account-sourcing` - fallback for unknown-segment signals
-- `skills/cold-email` - rep-specific voice (Tim Lieto vs. Ken Cunningham) for Suggested Angle column
+- `skills/cold-email` - rep-specific voice for Suggested Angle column; sender pool defined in `context/hubspot/territory-model.md`
+
+**Additional context (HIGH - read alongside signal catalogs):**
+- `context/signals/outreach-signal-pushback.md`  -  Stage 5b write semantics and increment rule for the 5 structured signal fields; canonical source for signal field write behavior
+- `context/outreach/email-writing-rules.md`  -  Suggested Angle craft rules (Load-Bearing Assumption Gate, banned phrases, no em dashes, no competitor naming in copy)
+- `context/europe/europe-signal-sources.md`  -  international source stack for Tim Ziemer / Markus Hendrich territory scraping; undefined without this file
+
+**Additional context (MEDIUM - load when the corresponding path arises):**
+- `context/account-tiering/d3-disambiguation-flowcharts.md`  -  segment-routing tiebreakers when a detected signal company spans multiple sub-segments
+- `context/account-tiering/sub-segment-qualification-full.md`  -  full 30-sub-segment evidence tables for Stage 3 new-account classification
+- `context/outreach/voice-gold-standard.md`  -  Suggested Angle tone calibration
+- `context/outreach/sender-profiles.md`  -  per-sender craft register for Suggested Angle column; sender pool is the 5-region set from `context/hubspot/territory-model.md`
+- `context/core/differentiation-naas-aggregator.md`  -  cold-safe competitive language for Suggested Angle bullets
+- `context/europe/europe-market-map.md`  -  European account geography for Markus Hendrich territory signals
+- `context/europe/sovereignty-positioning.md`  -  DORA/NIS2 framing for Enterprise + Network Op Suggested Angles in European territory
+- `context/copy-strategy/segment-language.md`  -  approved segment vocabulary for narrative field writes
+- `context/product/proof-points.md`  -  factual anchors for Suggested Angle and account-brief regeneration
+- `context/outreach/fallback-messaging.md`  -  fallback angle language when no fresh signal anchor is available
 
 ---
 
@@ -234,13 +251,13 @@ All date math uses **America/New_York** (US Eastern). "This week" = Sunday 00:00
 **Weekly, Mondays 7:00 AM ET delivery only.** Execution starts Sunday 23:00 ET. Does NOT support same-week reruns that would re-email reps - reps get exactly one report per week. Manual invocation is allowed but only for testing / Cooper's ad-hoc review (does not re-send rep emails; returns report content for preview instead).
 
 ### Territory purity
-Each rep sees ONLY accounts in their territory. Never cross-share. Tim Ziemer gets International only (country != US).
+Each rep sees ONLY accounts in their territory. Never cross-share. Territory assignment follows `context/hubspot/territory-model.md` (5-region model: Northeast / Southeast / Central / Europe / International). Tim Ziemer gets International (country outside US and non-Europe); Markus Hendrich gets Europe; US accounts route by state per `context/hubspot/territory-model.md`.
 
 ### Field write rules
 - `recent_news_or_trigger_event` has a 250-char HubSpot hard cap. Never exceed. Use the defined format.
 - No em dashes in any HubSpot field write (repo convention).
 - **Competitor naming rule (nuanced for signal writes):** Factual company names in signal context are OK (tenant names like Lambda/Crusoe, former-employer names for exec hires like "ex-Equinix," deal-partner names). What's NOT OK is naming competitor products in a comparison frame (e.g., "Megaport's Fabric product," "Equinix Fabric," "Zayo DynamicLink") - those get genericized to "third-party interconnection fabric" or "competing on-demand network product." This preserves actionability for reps while keeping `recent_news_or_trigger_event` field writes clean if any of them get surfaced downstream. The strict "no competitor names" rule still applies to any customer-facing MaiaEdge copy (cold emails, LinkedIn, segment cheatsheets).
-- Always set `last_enriched_date` to run date on any touched account  -  keeps CRM Guardian's 120-day re-enrichment cycle aligned.
+- `last_enriched_date` is NOT bumped by Stage 5 partial writes (per CLAUDE.md Unified Stamping Policy). Only Stage 3 NEW-account creates bump it (the full enrichment pipeline ran).
 
 ### Idempotency
 Running twice on the same day should be safe. Second run should find most signals already applied and produce minimal updates. Scrape dedup by source-URL hash to prevent double-counting.
@@ -253,7 +270,7 @@ The runtime constraint that drives this rule is URL-provenance gating on Cowork'
 
 The anti-shortcut rule that remains in force: **every documented source in the segment catalog must be attempted via search anchor.** Skipping a source because the domain "feels paywalled" or "looked URL-gated" without running the search anchor first is the shortcut. A `web_search "{generic phrase} 2026"` query that doesn't anchor on documented source domains fails the source-coverage gate by definition - the gate counts attempted sources by `source_url` in `sources_attempted.json`, not raw search count.
 
-When `web_fetch` does work on an article URL returned by search, use it (and on oversized HTML, save to disk and run `cowork-scheduled-tasks/weekly-signal-scan/helpers/headline_extract.py`). When it doesn't, the search snippet itself is the input - read date, company name, signal type from the snippet and follow the article URL only if the snippet is ambiguous.
+When `web_fetch` does work on an article URL returned by search, use it (and on oversized HTML, save to disk and run `headline_extract.py` - archived at `routines/archive/cowork-disabled/weekly-signal-scan-monolithic/helpers/headline_extract.py`; gate logic is now inlined in each per-segment prompt). When it doesn't, the search snippet itself is the input - read date, company name, signal type from the snippet and follow the article URL only if the snippet is ambiguous.
 
 Under-target output reaches reps ONLY when the volume-per-rep gate confirms the carryover pool is genuinely exhausted - the runtime cannot label thin output a "test run" and ship it.
 
@@ -291,15 +308,15 @@ Seven sequential stages. Each stage has a clear input, operation, output.
 
 **Per-source accountability:** Cooper's run report MUST include a "Source Coverage" table with one row per documented source across all 6 sub-stages (Colo / Fiber / NeoCloud / Network Op / MSP-Aggregator / Enterprise), columns `Sub-stage | Source | Attempted (✓/✗) | Hits | Status`. Failures get expanded in a sub-section with error type + suggested action. Repeated failures (same source ✗ for 3+ weeks) auto-flag as "needs development."
 
-Full mandate text in `cowork-scheduled-tasks/weekly-signal-scan/prompt.md` → "Source Coverage Mandate" section.
+Full mandate text lives in each per-segment prompt at `cowork-scheduled-tasks/signal-scan-{colo,fiber,neocloud,networkop,msp,enterprise}/prompt.md` → "Source Coverage Mandate" section.
 
 ### STAGE 1 - Per-Segment Signal Scrape (Phase 2)
 
-**Input:** Source stack from `signal-framework.md` PLUS segment-specific source lists in `context/signals/[segment]-signals.md` PLUS the dedicated Stage 1 sub-stage source lists in `cowork-scheduled-tasks/weekly-signal-scan/prompt.md`.
+**Input:** Source stack from `context/signals/signal-framework.md` PLUS segment-specific source lists in `context/signals/[segment]-signals.md`. Each per-segment prompt at `cowork-scheduled-tasks/signal-scan-{colo,fiber,neocloud,networkop,msp,enterprise}/prompt.md` is the canonical per-segment source ledger and the operational source of truth for that segment's Stage 1 sub-stage.
 
 **Operation - runs as 6 parallel sub-agents, ONE PER ICP SEGMENT (Cowork pattern, restored 2026-05-05; expanded from 5 to 6 with Enterprise sub-agent added 2026-05-11):**
 
-Each sub-agent uses the prompt template in `cowork-scheduled-tasks/weekly-signal-scan/helpers/stage1-subagent-prompt-template.md`. Receives: segment name, full source URL list (from `context/signals/[segment]-signals.md` "Sources for This Segment" sub-section), 14-day window, signal codes, target ICP companies. The Enterprise sub-agent reads `context/signals/enterprise-signals.md` 33 documented sources (pruned 2026-05-11, audit-verified reachable via search-anchor) across StockTitan (SEC mirror) + SEC EDGAR + American Banker / Modern Healthcare / Becker's / Retail Dive / RIS News / NRF Blog / HIMSS / CHIME / CIO.com / InformationWeek / Risk & Insurance / GovInfoSecurity / WSJ CIO Journal + Nelson Hall / Everest Group (awareness-tier) + HHS OCR portal + HIPAA Journal mirror + NY DFS / PCI Council / EBA DORA portals + Equinix / Megaport / PacketFabric / Console Connect customer-win pages + NVIDIA partner press + earnings transcript outlets (Seeking Alpha / Motley Fool / MarketBeat). Per the search-anchor pattern (Phase 3 banner above + signal-framework.md), each sub-agent uses `web_search "{domain} {topic} {year}"` against documented sources, then follows article URLs from search results. Returns compact JSON of detected signals + per-source coverage log. Soft cap 25 sources per sub-agent; partial returns supported. Parent runtime aggregates returns, writes `weekly-reports/<run_date>/sources_attempted.json`, then runs `cowork-scheduled-tasks/weekly-signal-scan/helpers/check_source_coverage_gate.py` before advancing to Stage 2.
+Each per-segment task IS the sub-agent (the 2026-05-28 split eliminated the parent-runtime / sub-agent template architecture). The gate logic and source ledger are inlined directly in each `cowork-scheduled-tasks/signal-scan-{colo,fiber,neocloud,networkop,msp,enterprise}/prompt.md`. The old `helpers/stage1-subagent-prompt-template.md` is archived at `routines/archive/cowork-disabled/weekly-signal-scan-monolithic/helpers/`. Each task receives segment name, full source URL list (from `context/signals/[segment]-signals.md` "Sources for This Segment" sub-section), 14-day window, signal codes, target ICP companies. The Enterprise sub-agent reads `context/signals/enterprise-signals.md` 33 documented sources (pruned 2026-05-11, audit-verified reachable via search-anchor) across StockTitan (SEC mirror) + SEC EDGAR + American Banker / Modern Healthcare / Becker's / Retail Dive / RIS News / NRF Blog / HIMSS / CHIME / CIO.com / InformationWeek / Risk & Insurance / GovInfoSecurity / WSJ CIO Journal + Nelson Hall / Everest Group (awareness-tier) + HHS OCR portal + HIPAA Journal mirror + NY DFS / PCI Council / EBA DORA portals + Equinix / Megaport / PacketFabric / Console Connect customer-win pages + NVIDIA partner press + earnings transcript outlets (Seeking Alpha / Motley Fool / MarketBeat). Per the search-anchor pattern (Phase 3 banner above + signal-framework.md), each sub-agent uses `web_search "{domain} {topic} {year}"` against documented sources, then follows article URLs from search results. Returns compact JSON of detected signals + per-source coverage log. Soft cap 25 sources per task; partial returns supported. Each per-segment task writes `weekly-reports/<run_date>/sources_attempted.json` and evaluates the source-coverage gate (inlined in the task prompt) before advancing. The aggregator task at `cowork-scheduled-tasks/signal-scan-aggregator/prompt.md` reads HubSpot for `last_signal_date = today` records and builds the rep DMs.
 
 0. **Build expanded target-company list:** Query HubSpot at run start for all companies where `account_tier IN ('tier_1', 'tier_2', 'tier_3')` AND `customer_segment` is in the **6 ICP buckets** (`Data Center Colo Provider`, `Fiber Operator`, `NeoCloud`, `Network Operator(Tier 1 / VNO)`, `MSP/Aggregator`, **`Enterprise-CustomerSegment`** - added 2026-05-11) AND `customer_segment != "Flagged for deletion"`. This is the ~700-1,000-account list (was ~400 in Phase 1) used to cross-reference exec-hire + hiring-spike detections. Slice into **6 segment buckets** (Colo / Fiber / NeoCloud / Network Op / MSP-Aggregator / Enterprise) for the sub-agent fanout.
 
@@ -325,7 +342,7 @@ Each sub-agent uses the prompt template in `cowork-scheduled-tasks/weekly-signal
 - Universal signals (U1-U6, AP-1/2/7, FR-1, I1/I2) are scraped within EACH sub-stage, then deduped at Stage 1.G. A single exec hire that matches a multi-segment company gets one entry tagged with the company's current segment.
 - Greenfield signals (Colo + NeoCloud) detect across all 5 stages (S1-S5) but score bonuses apply only at S2-S3.
 - **International signals (I1, I2) fire for Tim Ziemer's territory.** Scrape the international source stack within the Colo / Fiber / Network Op / NeoCloud sub-stages - territory assignment happens at match time based on HubSpot `country`.
-- Reference the segment-specific Stage 1 sub-stage source lists in `cowork-scheduled-tasks/weekly-signal-scan/prompt.md` for the canonical per-segment source ledger. The routine prompt is the operational source of truth; the SKILL is the architecture spec.
+- The canonical per-segment source ledger lives in each `cowork-scheduled-tasks/signal-scan-{colo,fiber,neocloud,networkop,msp,enterprise}/prompt.md`. Those prompts are the operational source of truth; this SKILL is the architecture spec.
 
 ### STAGE 2 - Match to HubSpot
 
@@ -372,7 +389,7 @@ Each sub-agent uses the prompt template in `cowork-scheduled-tasks/weekly-signal
 
 **Input:** `matched_accounts[]` + `enriched_new_accounts[]`, each joined to its triggering signal(s).
 
-**Operation:** For each account-signal pair, compute Meeting Probability Score per `signal-framework.md`:
+**Operation:** For each account-signal pair, compute Meeting Probability Score per `context/signals/signal-framework.md`:
 
 ```
 score = tier_weight × freshness_weight × confidence_weight
@@ -387,7 +404,7 @@ Confidence weights: High=3, Med=2, Low=1
 
 **Tier A freshness window updated 2026-04-27 per Cooper:** announcements within the past 60 days score at full freshness for Tier A. The catalogs already document 60-90+ day action windows on Tier A signals (90-day exec mandate, 60-120d M&A integration, 18-24 month BEAD ramps, 12-18 month CTrO platformization) - the old steep decay floored these out. Tier B keeps the steeper decay since Tier B is by-definition "30-90d window" signals.
 
-If same account hit by 2+ signals in the week where at least one individual signal scores ≥ 8, elevate score to 18+ (stacking rule - see `signal-framework.md` for the ≥8 floor rationale). Apply bonus rules:
+If same account hit by 2+ signals in the week where at least one individual signal scores ≥ 8, elevate score to 18+ (stacking rule - see `context/signals/signal-framework.md` for the ≥8 floor rationale). Apply bonus rules:
 - **Greenfield S2-S3 bonus:** +3 (Colo + NeoCloud only)
 - **Site count 1→2 transition bonus:** +6 (Colo + NeoCloud only - parse current count from free-text `infrastructure_profile` field; if parse is low-confidence, skip the bonus and rely on base greenfield scoring)
 
@@ -403,7 +420,7 @@ When a facility transition is detected and confirmed, **rewrite `infrastructure_
 
 | Field | Write / overwrite rule |
 |-------|------------------------|
-| `recent_news_or_trigger_event` | Overwrite with highest-scored signal this week. **Pure narrative, no date prefix** (post-2026-05-28; the legacy `[YYYY-MM-DD]` prefix convention was retired — date now lives structurally in `last_signal_date`). Format: `[Signal Type] - [one-line summary]`. Hard cap 250 chars. |
+| `recent_news_or_trigger_event` | Overwrite with highest-scored signal this week. **Pure narrative, no date prefix** (post-2026-05-28; the legacy `[YYYY-MM-DD]` prefix convention was retired - date now lives structurally in `last_signal_date`). Format: `[Signal Type] - [one-line summary]`. Hard cap 250 chars. |
 | `account_brief` | Regenerate via `account-brief` skill if (a) existing brief >30 days old OR (b) fresh signal research materially diverges from existing brief (facility count changed, sub-segment shifted, anchor tenant announced). If 2+ signals hit, append "Also this week:" line (stay under 400 char total). If research matches current brief, leave it. |
 | `infrastructure_profile` | Rewrite with updated facility count + context when a 1→2 or N→N+1 transition is confirmed at HIGH confidence. Preserves next-run parse state. |
 | `state` | **Overwrite from Apollo** when Apollo returns a non-empty value different from HubSpot AND `last_enriched_date` is blank or 120+ days stale. HQ relocations are real. |
@@ -422,7 +439,7 @@ After the Stage 5 field writes complete, every account that scored ≥8 this run
 | Field | Write rule |
 |-------|------------|
 | `last_signal_score` | Numeric. Write the highest Meeting Probability Score this account received this run. Used downstream by the tier-compute spec as a signal modifier input. |
-| `last_signal_date` | Date. **Event date** of the highest-scored signal hit this run — when the news/funding/hire actually happened (extract from the source article; if the body doesn't explicitly state the event date, use article publication date as a ±few-day approximation). Semantics narrowed 2026-05-28 — was previously written as today's run date (detection); now stores event date. Pairs with `last_signal_score` so the tier function can apply freshness decay against the actual event. |
+| `last_signal_date` | Date. **Event date** of the highest-scored signal hit this run - when the news/funding/hire actually happened (extract from the source article; if the body doesn't explicitly state the event date, use article publication date as a ±few-day approximation). Semantics narrowed 2026-05-28 - was previously written as today's run date (detection); now stores event date. Pairs with `last_signal_score` so the tier function can apply freshness decay against the actual event. |
 | `signal_count_last_30d` | Integer. Count of distinct events on this account whose event date falls within the trailing 30 days. Used as a stacking-density modifier in the tier function. Sub-8 matches also count (Cooper 2026-05-22). |
 
 **Tier recomputation (mandatory after the three signal writes):**
@@ -524,15 +541,16 @@ Because the cap is 50, we invest in depth per account. For each row:
 
 2. **Post via `slack_send_message`** as a self-DM to the routing target. Cooper receives Tim Ziemer's international report in Phase 1 (to start) for signal-quality validation before handing off to Tim Z directly.
 
-3. **Routing table (Phase 1):**
+3. **Routing:** Territory-to-owner mapping is the 5-region model in `context/hubspot/territory-model.md`. The aggregator task at `cowork-scheduled-tasks/signal-scan-aggregator/prompt.md` owns the live routing table with current Slack channel IDs. Derive `hubspot_owner_id` from `state`/`country` using `context/hubspot/territory-model.md` at runtime; do not hardcode a 2-region map here.
 
-   | Territory pool (`hubspot_owner_id`) | Rep label in message | Slack channel_id (DM recipient) |
-   |---|---|---|
-   | Tim Lieto - East, `161889085` | "Tim" | `U0A973L1HFF` (Tim Lieto) |
-   | Ken Cunningham - West, `162339176` | "Ken" | `U0AE1PGCB6C` (Ken Cunningham) |
-   | Tim Ziemer - International, `159350430` | "Tim Z" | `U0A24D9RJLS` (**Cooper** - Phase 1 override) |
+   Current rep DM recipients (cross-check against `context/hubspot/territory-model.md` before any sender-routing change):
+   - Tim Lieto (`161889085`) - Northeast + West interim: `U0A973L1HFF`
+   - Ken Cunningham (`162339176`) - Southeast: `U0AE1PGCB6C`
+   - Tory Teague (`165480917`) - Central: `U07C3MNBQK2` (confirm Slack ID in aggregator prompt)
+   - Markus Hendrich (`164949459`) - Europe: (confirm Slack ID in aggregator prompt)
+   - Tim Ziemer (`159350430`) - International + Tier 1 SP: `U0A24D9RJLS` (**Cooper** override during Phase 1 validation)
 
-   The rep's first-name label in the message body follows the TERRITORY POOL, not the recipient. Cooper's Slack DM for Tim Z's territory still opens "Hey Tim Z" so when Cooper hands off to Tim Z directly the content is already addressed correctly.
+   The rep's first-name label in the message body follows the TERRITORY POOL, not the recipient.
 
 4. **Excel attachment delivery:** Slack MCP `slack_send_message` does NOT support binary attachments. The Excel file is referenced via a download link in the message body. Options:
    - If the routine writes the Excel to a publicly-accessible location (S3 / GDrive / SharePoint public link), include the download URL in the message body.
@@ -633,10 +651,13 @@ The signal scores on the PRIMARY company (Lepton partner = Neocloud). The Colo o
 
 This is a reversal of the 2026-05-05 guidance, which placed `web_fetch` primary. The 2026-05-11 reachability audit (68 URLs tested) confirmed direct fetch is universally blocked on this runtime, while search-anchor produces fresh dated content for ~95% of documented sources.
 
-### Helper Scripts (added 2026-05-05)
-- `cowork-scheduled-tasks/weekly-signal-scan/helpers/headline_extract.py`  -  Bash-callable Python parser. Reads a saved `web_fetch` HTML file, returns JSON of headlines matching segment keywords + 14-day date window. Used inside Stage 1 sub-agents whenever `web_fetch` returns oversized HTML.
-- `cowork-scheduled-tasks/weekly-signal-scan/helpers/check_source_coverage_gate.py`  -  Reads `sources_attempted.json` after Stage 1, returns pass/fail per segment (≥80% coverage required). Drives the retry-sub-agent loop.
-- `cowork-scheduled-tasks/weekly-signal-scan/helpers/check_volume_gate.py`  -  Reads `scored.json` after Stage 6 fill-down, returns pass/fail per rep (≥25 floor OR carryover exhausted). Drives the rep-DM hold logic on under-coverage runs.
+### Helper Scripts (archived post-2026-05-28 split)
+
+These helpers supported the monolithic parent-runtime architecture. After the 2026-05-28 split into 7 per-segment + aggregator Cowork tasks, their gate logic was inlined directly in the per-segment prompts. The files are archived at `routines/archive/cowork-disabled/weekly-signal-scan-monolithic/helpers/` for reference only.
+
+- `headline_extract.py`  -  Bash-callable Python parser. Reads a saved `web_fetch` HTML file, returns JSON of headlines matching segment keywords + 14-day date window.
+- `check_source_coverage_gate.py`  -  Reads `sources_attempted.json` after Stage 1, returns pass/fail per segment (≥80% coverage required).
+- `check_volume_gate.py`  -  Reads `scored.json` after Stage 6 fill-down, returns pass/fail per rep (≥25 floor OR carryover exhausted).
 
 ### Exec Hire Detection (no Sales Navigator required)
 - SEC EDGAR 8-K Item 5.02 for public companies (officer changes, daily feed)
@@ -648,7 +669,7 @@ This is a reversal of the 2026-05-05 guidance, which placed `web_fetch` primary.
 - Apollo job-change detection (existing CRM Guardian Job 6, quarterly default) - tighten to monthly for Tier 1 accounts if needed
 - Public job post sources for hiring-spike detection: LinkedIn public Jobs, Indeed, Greenhouse, Lever, company careers pages
 
-Full substitute mapping documented in `signal-framework.md` under "Exec Hire Detection Without Sales Navigator."
+Full substitute mapping documented in `context/signals/signal-framework.md` under "Exec Hire Detection Without Sales Navigator."
 
 ### Slack MCP (rep report + run report delivery)
 - `slack_send_message`  -  post each rep's cascade report as a self-DM. Channel IDs in Stage 7 routing table. Use Slack mrkdwn for formatting; fenced code blocks for the "New to Territory" bullet list if it gets long. Excel attachment referenced via download URL (GitHub raw or equivalent), NOT uploaded directly.
@@ -672,7 +693,7 @@ Full substitute mapping documented in `signal-framework.md` under "Exec Hire Det
 
 - **Orchestrated by:** `crm-guardian` Job 8 - weekly, Mondays (see `crm-guardian/SKILL.md` Master Cadence)
 - **Triggers:** `company-enrichment` (Stage 3 new-account enrichment), `territory-manager` (Stage 3 owner assignment), `account-brief` (stale brief regeneration + research-divergence regeneration), `account-sourcing` (unclear-segment fallback)
-- **References:** `property-schema.md`, `territory-model.md`, segment cheatsheets, signal framework + catalogs
+- **References:** `context/hubspot/property-schema.md`, `context/hubspot/territory-model.md`, segment cheatsheets, signal framework + catalogs
 
 ---
 

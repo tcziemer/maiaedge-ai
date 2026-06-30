@@ -106,7 +106,7 @@ Before investing research time, run the activity gate per contact to prevent ton
 | HubSpot field | Threshold | Action |
 |---|---|---|
 | `notes_last_contacted` within 14 days | **STOP** | `SKIPPED: Active conversation (last contacted YYYY-MM-DD)` |
-| `notes_last_contacted` 15–30 days | **WARNING** | Flag for rep review before sending |
+| `notes_last_contacted` 15–45 days | **WARNING** | Flag for rep review before sending |
 | `hs_sequences_is_enrolled` = true | **STOP** | `SKIPPED: Currently in HubSpot sequence [name]` |
 | `hs_lead_status` = "Connected" or "Open Deal" | **STOP** | `SKIPPED: Lead status [status]` |
 | `hs_lead_status` = "Attempted to Contact" | **CAUTION** | Don't repeat the prior angle |
@@ -189,6 +189,7 @@ Searches run (literal query strings — not paraphrased):
 
 Company-level finding: [signal + source quote + date. Event registration/exhibitor list counts as NON-CATALOG signal — cite it. If a deeper Tier A/B signal was found, cite that too.]
 Contact-level finding: [what THIS contact owns / recent role activity / why they care about THIS facet. REQUIRED on every Receipt.]
+Load-bearing assumption: [the ONE thing the angle assumes is true about how their business works today] → [VERIFIED via source | UNVERIFIED → reframe forward-state / hedge / cut before writing]
 Brief validation: [VERIFIED against current research | CORRECTED: (what changed) | NO BRIEF]
 Signal recency: [event date YYYY-MM-DD — FRESH ≤60d | AGING 60–90d | STALE >90d → re-verified or dropped. The deeper signal, not the event itself.]
 
@@ -202,13 +203,13 @@ Subject: [SUBJECT_LINE per Smartlead config]
 [email body]
 ```
 
-**Refuse-to-write rule:** if you cannot honestly fill all four sections (≥3 literal queries with results, Company-level finding, Contact-level finding, Posture with reason), output `RESEARCH INCOMPLETE: [reason]` in place of the email body, mark the contact `SKIPPED: Research incomplete`, and move on. Do NOT fabricate a Receipt. The Receipt is review metadata above the body — it does not get sent.
+**Refuse-to-write rule:** if you cannot honestly fill all five sections (≥3 literal queries with results, Company-level finding, Contact-level finding, Load-bearing assumption, Posture with reason), output `RESEARCH INCOMPLETE: [reason]` in place of the email body, mark the contact `SKIPPED: Research incomplete`, and move on. Do NOT fabricate a Receipt. The Receipt is review metadata above the body — it does not get sent. If the load-bearing assumption is UNVERIFIED and asserts how their business works today, the angle is not ready — reframe forward-state or cut before writing.
 
 ### Step 4: Copy Strategist QA Pass
 
 Before appending, review every email in the account batch:
 
-- **Research Receipt present** above every email and LinkedIn body — ≥3 literal queries with results (≥5 if NON-CATALOG), Company-level finding, Contact-level finding, Posture with reason.
+- **Research Receipt present** above every email and LinkedIn body — ≥3 literal queries with results (≥5 if NON-CATALOG), Company-level finding, Contact-level finding, Load-bearing assumption, Posture with reason.
 - **Recipient's-eye read:** would they read past the first sentence? Does it sound like someone who knows their world? Is the angle specific to THIS company, not a generic segment pain?
 - **Research invisibility (most important rule):** no displayed company facts, facility counts, route miles, revenue, funding, project names, or "I noticed" observations. If a sentence reads like "I googled you," cut it.
 - **Signal recency:** the angle leans only on a FRESH signal (event date ≤90 days, ideally ≤60). No stale signals referenced as current. Where a fresh signal exists, it is used as the time-bound reason to meet.
@@ -216,8 +217,8 @@ Before appending, review every email in the account batch:
 - **Pressure-off:** peer suggesting a conversation, not a salesperson pushing a meeting. No urgency tactics, no manufactured scarcity. CTAs optional and easy to decline.
 - **Warm angle authenticity (ACTIVE contacts only):** any referenced past interaction must be HubSpot-backed. If warmth would be a stretch, soften or remove.
 - **Value bridge** is 1 sentence max, embedded by contrast or standalone-but-punchy, in "I" voice. No brand-voice constructions ("We help operators…" / "We built infrastructure that…"). Multi-sentence value bridges are BANNED.
-- **Mechanical:** no em dashes, no banned phrases, no competitor names, no customer names, no credibility anchors. Correct sender per Account Owner. Location is `EVENT_CITY` / `EVENT_VENUE`.
-- **Word count:** Email 1 ~70–85 words; Email 2 under 55; Email 3 2–3 sentences. (Tighter than legacy per-segment targets — keep it under the ceiling, not at it.)
+- **Mechanical:** no em dashes/colons/dash-as-punctuation, no move-announcing transitions, no banned phrases, no competitor names, no customer names, no credibility anchors. Correct sender per Account Owner. Location is `EVENT_CITY` / `EVENT_VENUE`.
+- **Word count:** Email 1 ~85–110 words; Email 2 under 55; Email 3 2–3 sentences. (Tighter than legacy per-segment targets — keep it under the ceiling, not at it.)
 - **First name** before the email body.
 - **Posture rotates** across E1/E2/E3 — not all the same.
 - **Hedge variety:** "I'd guess" / "I'd imagine" in ≤30% of E1s per batch of 10+. Mix in direct assertions, illumination questions, premise hedges, peer observations.
@@ -236,7 +237,7 @@ Briefly: account name, contact count, any skips, whether warm angles were availa
 
 ## The Pre-Event Email Framework
 
-### Email 1 (~70–85 words): Event Opener + Problem + CTA
+### Email 1 (~85–110 words): Event Opener + Problem + CTA
 
 1. **Event hook (1 sentence):** natural reference. For confirmed attendees: "saw you in the app." For lists: "saw `[company]` on the exhibitor list." For ACTIVE contacts with HubSpot event history: "I think our teams were both at `[past event]` and didn't get a chance to connect." The event hook IS the public-signal observation — cite it in the Receipt's Company-level finding.
 2. **Problem/angle pivot (1–2 sentences):** the company-specific angle from research. The recipient should think "this person understands what we're dealing with" without seeing a single fact about their company stated back.
@@ -322,7 +323,8 @@ URL on its own top line, blank line, then the message. No labels ("URL:", "Messa
 
 ## Hard Bans (Non-Negotiable)
 
-- **No em dashes.** Use periods or commas.
+- **No em dashes, no colons, no dashes-as-punctuation** (spaced hyphen, double hyphen, en dash) in subject or body. Use periods or commas; hyphenated compounds (cross-connect, on-net) are fine.
+- **No move-announcing transitions** ("another angle on this," "one more thought," "quick thought," "worth a thought"). Don't narrate the move. Just say the thing.
 - No "Hope this finds you well" / "Just wanted to reach out" / "I noticed" / "Revolutionary" / "Game-changing" / "Reason I'm reaching out."
 - **No customer names.** Anonymize: "one fiber operator," not the actual name.
 - **No competitor names.** "Third-party fabric" only where the segment fits — works for fiber operators and aggregators, NOT for Tier 1 network operators or carrier relations/roaming roles.
@@ -410,8 +412,8 @@ The Account Owner column already has the correct sender. Use that value. If the 
 **Email Quality**
 - [ ] Research is INVISIBLE
 - [ ] Diplomatic, pressure-off tone
-- [ ] Within word count (E1 70–85 / E2 <55 / E3 2–3 sentences)
-- [ ] No em dashes, banned phrases, competitor/customer names, credibility anchors
+- [ ] Within word count (E1 85–110 / E2 <55 / E3 2–3 sentences)
+- [ ] No em dashes/colons/dash-as-punctuation, move-announcing transitions, banned phrases, competitor/customer names, credibility anchors
 - [ ] Value bridge 1 sentence, "I" voice, no brand-voice constructions
 - [ ] CTA event-anchored and low-pressure; rotated across all 3 emails
 - [ ] Each email a genuinely different angle; E2 doesn't reference E1; E3 has "show is coming up" energy

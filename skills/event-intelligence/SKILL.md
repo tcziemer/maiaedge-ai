@@ -7,14 +7,57 @@ description: "MaiaEdge conference and event intelligence skill. Use when prepari
 
 Maximize ROI from every conference by systematically converting attendee lists into pipeline. Three phases: Pre-Event (research + target prioritization), At-Event (real-time notes), Post-Event (follow-up sequencing).
 
+## Before Starting - Clarify
+
+Two things that determine which mode and how deep to go:
+
+1. **What do you have?** A list (attendee/exhibitor CSV, badge scans, business cards) or a named event you're preparing for before it happens?
+2. **What's the goal?** Pre-event target briefing (who to meet), list processing and classification (segment + CRM cross-ref), or post-event follow-up drafts (personalized emails by warmth)?
+
+If you have a list and an event name, share both and I'll start immediately. If you only have an event name with no list yet, I'll pull the exhibitor/speaker roster and build the target briefing.
+
 ## Reference Files
 
-- **segment-language.md**  -  Insider vocabulary and conversational patterns per segment. Read before writing follow-up emails to sound like a peer from their world.
-- **email-writing-rules.md**  -  For follow-up email drafts (angle-first, segment lock, no credibility anchors, research as fuel)
-- **icp-playbook.md**  -  ICP definitions and qualification criteria
-- **segment-qualification.md**  -  Proof-based qualification gates per segment
-- **Segment cheatsheets:** `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
-- **territory-model.md**  -  State-to-owner mapping for routing event contacts
+**Outreach and voice:**
+- `context/copy-strategy/segment-language.md` - Insider vocabulary and conversational patterns per segment. Read before writing follow-up emails to sound like a peer from their world.
+- `context/outreach/email-writing-rules.md` - For follow-up email drafts (angle-first, segment lock, no credibility anchors, research as fuel)
+- `context/outreach/sender-profiles.md` - Per-sender voice, craft register, and signature protocol for follow-up email attribution (HIGH)
+- `context/outreach/voice-gold-standard.md` - Tone and calibration exemplars; governs all written output (HIGH)
+- `context/outreach/fallback-messaging.md` - Fallback angles when segment signal is thin (HIGH)
+- `context/outreach/persona-targeting-blocklist.md` - Titles and roles to exclude from contact discovery and outreach targeting (HIGH)
+- `context/outreach/pre-cadence-hygiene.md` - Pre-send hygiene checks before enrolling contacts in sequences (MEDIUM)
+
+**Qualification and segmentation:**
+- `context/core/icp-playbook.md` - ICP definitions and qualification criteria
+- `context/core/segment-qualification.md` - Proof-based qualification gates per segment
+- `context/account-tiering/d1-global-disqualifiers.md` - Global disqualifiers that block classification before segment routing (MEDIUM)
+- `context/copy-strategy/segment-messaging.md` - Angle-selection logic and approved messaging per segment (MEDIUM)
+- `context/copy-strategy/scoring-rubric.md` - Email quality scoring dimensions; apply when reviewing follow-up drafts (MEDIUM)
+
+**Segment cheatsheets:**
+- `context/segments/colocation.md`
+- `context/segments/fiber-operator.md`
+- `context/segments/neocloud.md`
+- `context/segments/network-operator.md`
+- `context/segments/msp-aggregator.md`
+- `context/segments/enterprise.md` - Enterprise Multi-DC ICP; 4 sub-segments + hard scale gate (HIGH - required for Enterprise conference processing)
+- `context/segments/enterprise-use-cases.md` - Enterprise use-case details and objection handling (MEDIUM)
+
+**Territory and CRM:**
+- `context/hubspot/territory-model.md` - Canonical 5-region sender routing map. Read at runtime to assign follow-up sender by HQ state/country.
+- `context/hubspot/contact-schema.md` - Contact field set; governs HubSpot contact creation and update from event contacts (HIGH)
+- `context/hubspot/deals-schema.md` - Deal fields and stage values for cross-referencing pipeline status (MEDIUM)
+- `context/hubspot/property-schema.md` - Company property schema including signal_heat enum and target-account freeze rule (MEDIUM)
+
+**Product and signal:**
+- `context/product/proof-points.md` - Verified customer proof points for follow-up personalization (MEDIUM)
+- `context/signals/outreach-signal-pushback.md` - Signal push-back write semantics; run as final step when writing follow-up outreach (MEDIUM)
+
+**Enrichment:**
+- `context/enrichment/output-schemas.md` - Output schema for enrichment-ready batches produced in Mode 2 (MEDIUM)
+
+**Compliance:**
+- `context/europe/europe-email-compliance.md` - Hard legal gate for DE/AT/IT and other EU markets; LinkedIn-first required in those countries (MEDIUM)
 
 ## Conference Tiers
 
@@ -112,7 +155,7 @@ PER-COMPANY BRIEFING NOTES
 - Key insight: [Recent news, footprint expansion, etc.]
 - Talking point: [Peer-to-peer value statement]
 - Approach: [Ask for 15-min meeting to discuss infrastructure automation]
-- Owner: [Tim Lieto / Ken Cunningham / Other]
+- Owner: [Assigned sender per territory-model.md]
 
 ---
 
@@ -220,22 +263,13 @@ NEXT STEPS
   - Hot: "Let's set up a 30-min call to walk through the architecture"
   - Warm: "Curious if this resource might be relevant to your team: [link]"
   - Cool: "If you're thinking about infrastructure connectivity, happy to connect offline"
-- **Sender:** Tim Lieto (East territory) or Ken Cunningham (West territory), based on HQ state mapping
+- **Sender:** Determined by HQ state/country - load `context/hubspot/territory-model.md` at runtime to assign the correct sender
 - **Customer name anonymization:** Use "a major fiber operator" not "Lumen" in any proof points
 - **Length:** 3–5 sentences max
 
 ### Territory Assignment Model
 
-Use HubSpot account HQ state to assign follow-up sender. See **territory-model.md** for the canonical mapping.
-
-**Tim Lieto (North America Sales, East  -  30 states):**
-- AL, AR, CT, DE, FL, GA, IA, IL, IN, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NH, NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV
-
-**Ken Cunningham (West  -  20 states + DC):**
-- AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND, NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY
-
-**International:**
-- Tim Ziemer (all non-US)
+Load `context/hubspot/territory-model.md` at runtime to assign follow-up sender by HQ state or country. Do not rely on hardcoded state lists - the territory model is the canonical 5-region map.
 
 ### Output Format: Post-Event Follow-Up Package
 
@@ -267,7 +301,7 @@ FOLLOW-UP EMAILS (BY WARMTH)
 - Company: [Company]
 - Email: [Email]
 - HubSpot status: [Existing contact / New / Account only]
-- Territory: [Tim Lieto / Ken Cunningham / Other]
+- Territory: [Sender per territory-model.md]
 - Conversation summary: [Key topics discussed]
 - Next step: [What was agreed to]
 
@@ -301,7 +335,7 @@ Talk soon,
 - Company: [Company]
 - Email: [Email]
 - HubSpot status: [Existing contact / New / Account only]
-- Territory: [Tim Lieto / Ken Cunningham / Other]
+- Territory: [Sender per territory-model.md]
 - Conversation summary: [Interest area, materials discussed]
 
 **Email:**
@@ -335,7 +369,7 @@ Happy to connect if it's useful.
 - Company: [Company]
 - Email: [Email]
 - HubSpot status: [Existing contact / New / Account only]
-- Territory: [Tim Lieto / Ken Cunningham / Other]
+- Territory: [Sender per territory-model.md]
 
 **Email:**
 ```
@@ -494,7 +528,7 @@ FOLLOW-UP COMPLETION CHECKLIST
 - [ ] Every company cross-referenced against HubSpot before classification
 - [ ] Segment and sub-segment assigned per standard taxonomy (Fiber, Colo, Neocloud, NetOp, MSP, Vendor)
 - [ ] Exclusion list checked (no competitors, no do-not-contact accounts)
-- [ ] Territory assignment validated (HQ state → Tim Lieto East or Ken Cunningham West)
+- [ ] Territory assignment validated (HQ state/country → correct sender per `context/hubspot/territory-model.md`)
 - [ ] Follow-up emails pass the same quality standards as cold outreach (peer tone, no vendor speak, no em dashes)
 - [ ] No customer names in follow-up emails (anonymized proof points: "a major fiber operator")
 - [ ] Conference-specific intelligence applied (relevant talking points, key signals)

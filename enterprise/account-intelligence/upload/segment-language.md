@@ -28,12 +28,17 @@ These words should feel natural in your emails. If you use them correctly, the r
 **Infrastructure terms they use every day:**
 - **Route miles**  -  How they measure their network. "We have 12,000 route miles across four states." Not "fiber kilometers" or "network footprint."
 - **Lit vs. dark**  -  Lit fiber has active electronics pushing traffic. Dark fiber is installed but unused. "40% of our plant is sitting dark" is how they say "stranded assets."
-- **Plant**  -  Their fiber infrastructure. "We've invested heavily in plant." Not "network assets" or "infrastructure."
-- **NNI**  -  Network-to-Network Interconnect. The connection between two carrier networks. "Every NNI is a 60-90 day project" is a sentence that gets a head nod from every fiber operator CEO in America.
-- **Type 2 circuit**  -  Leased capacity from another carrier. The moment traffic hits a Type 2, visibility dies. They call it "a black hole." Use that phrase.
+- **Plant**  -  Their word for their fiber infrastructure ("we've invested heavily in plant"). RECOGNIZE it when they say it; do NOT use it in our copy - the segment vocabulary lock says "fiber infrastructure" (see Cross-Segment Language Rules below). Listening vocabulary, not writing vocabulary.
+- **NNI**  -  Network-to-Network Interconnect. The connection between two carrier networks. "Every NNI is a 60-90 day project" is a sentence that gets a head nod from every fiber operator CEO in America. At a wholesale Ethernet desk the precise term is **ENNI** (the external NNI in MEF 33 E-Access: ENNI-to-UNI). Never say "peer handoff" - that conflates settlement-free IP peering with access interconnect.
+- **Type 2 circuit**  -  Leased capacity from another carrier (also written "Type II"). The moment traffic hits a Type 2, visibility dies. They call it "a black hole." Use that phrase.
+- **Off-net / on-net / near-net**  -  The serviceability triage every quote starts with. "Off-net" is universal operator vocabulary (validated 2026); the off-net leg is where the interval, the margin, and the visibility all go sideways.
+- **Serviceability**  -  Can we reach that address, and on whose network? The first question on every deal. Increasingly checked through Connectbase; "quote-ready" is the 2026 term of art for footprint that can be priced programmatically. (Do NOT say "quotable reach" - that's our coinage, not theirs.)
+- **Rate card / ICB**  -  How off-net gets priced: rate card for standard routes, ICB (individual case basis) for everything else. Off-net ICBs carry construction risk and re-quotes.
+- **FOC date / install interval**  -  The vendor's Firm Order Confirmation sets the install interval; "waiting on the vendor's FOC" is how the off-net wait is actually described. (Do NOT say "turn-up clock" - "turn-up" is real, the compound isn't. The measured thing is the install interval.)
+- **Turn-up and test**  -  The last step before a circuit goes live. "Order fallout" is the order that dies in post-order validation before it ever gets there.
 - **IRU**  -  Indefeasible Right of Use. How dark fiber is typically leased. Long-term (15-25 year) agreements.
 - **Fiber islands**  -  Disconnected segments of their own network that don't talk to each other well. Different systems at each location. Manual provisioning between them. This is an internal pain most outsiders don't know about.
-- **LOA**  -  Letter of Authorization. The paperwork that starts the 60-90 day clock on a new NNI. Everyone in the industry groans at this acronym.
+- **LOA**  -  Letter of Authorization (with the CFA, the paperwork that starts the clock on a new NNI or cross-connect; LOAs can expire if the work doesn't complete in the window). Everyone in the industry groans at this acronym.
 
 **How they describe what they sell:**
 - Wavelengths, metro Ethernet, wholesale, dark fiber, lit services
@@ -415,6 +420,45 @@ The insider uses: "pointing fingers" (their exact phrase), "depends on the carri
 
 ---
 
+## 7. Enterprise (Multi-DC ICP)
+
+### Their Vocabulary
+
+**These are practitioners (network architects, VP I&O, compliance owners), not operators. No commercial-layer vocabulary, ever (see the Enterprise vocabulary lock in segment-messaging.md).**
+
+- **Diverse paths / diverse entry**  -  How they talk about redundancy that's actually redundant. The painful confession: "the dark fiber between Primary and DR is one pair."
+- **Change window / maintenance window**  -  When anything on the WAN is allowed to move. A vendor pitch that ignores change control reads amateur.
+- **Brownout**  -  Performance degradation that isn't an outage. Harder to diagnose, harder to prove, the thing monitoring misses.
+- **Replication lag / RPO / RTO**  -  The numbers DR design answers to. Inter-DC latency variance shows up here first.
+- **Path-level proof / audit evidence**  -  What compliance actually asks for in 2026: not "is it encrypted" but "show me where the data went." Certifications now get filed under penalty of law with dated deadlines; examiners cross-check registers.
+- **Egress**  -  The cloud bill line that drives rebalancing conversations. Say "rebalancing" or name the workload (inference, analytics); "cloud repatriation" as an exodus story reads vendor-ish.
+- **Blast radius**  -  How architects describe failure containment across clouds and DCs ("three on-ramp models, three monitoring stacks, three blast radii").
+
+### Their Daily Reality
+
+- Network teams are visibly underwater: hiring is the top constraint (over half report difficulty, double the 2022 rate), AI traffic already rides networks designed before it existed, and the verbatim mood from a Fortune 500 architect: "What used to be done by a 25-person team, management now wants us to do with a ten-person team."
+- Every vendor deck now says "agentic." They are drowning in AI-washing; what lands is fewer 2am pages with the headcount they already have.
+- The budget went to AI infrastructure; the run budget gets TCO scrutiny. "Another platform subscription" is dead on arrival; cost-takeout and AI-enablement are the two live framings.
+- NaaS fatigue is real and evidence-backed: TCO skepticism and bill volatility keep enterprise NaaS adoption "nascent." Don't pitch in NaaS vocabulary.
+
+### Words That Kill Credibility With This Buyer
+
+- **"Single pane of glass"**  -  openly mocked by practitioners now ("your single pane of glass is a match in a forest"). Never in Enterprise copy. (Note: in MSP/Aggregator copy it survives ONLY as the aggregator's own product language about what THEY sell - never as our promise.)
+- **"Digital transformation," "AI-powered" as an adjective, "future-proof"**  -  wallpaper.
+- Any operator-segment vocabulary (tenant, meet-me room, attach rate, monetize, wholesale) - signals the wrong business model instantly.
+
+### Insider vs. Outsider
+
+**Outsider:**
+> "As enterprises embrace AI and hybrid cloud, network modernization is critical for digital transformation."
+
+**Insider:**
+> "Hard to tell from outside, but if the inference workloads coming back from cloud land in the colo next quarter, the inter-DC paths inherit latency budgets nobody wrote down, and the team absorbing that is smaller than it was two years ago. Audit season makes it sharper: the examiner doesn't want the BGP table, they want to see where the data went."
+
+The insider knows: the rebalancing is selective and workload-named, the headcount squeeze is quantified, and the 2026 audit cycle has dates. Speed pairs with control ("your team provisions in minutes, on paths you can prove"), never with operator-sovereignty language.
+
+---
+
 ## Cross-Segment Language Rules
 
 ### Words That Signal "Insider"
@@ -473,6 +517,7 @@ For every segment EXCEPT neoclouds, speed must be paired with ownership:
 For neoclouds, there are TWO kinds of sovereignty:
 - **OPERATOR sovereignty (BANNED):** "keep your customer," "your portal, your invoice," "build your own fabric." They ARE the customer. This language makes no sense for them.
 - **DATA sovereignty (ALLOWED):** "sovereign by design," "your data stays on paths you control," "provably private paths with every hop logged." This is about their data privacy and path control, which they DO care about.
+- **BUILDER / RESELLER carve-out (ALLOWED for them only):** Build-operate integrators and dedicated-capacity providers who resell connectivity or cloud access to their own downstream customers DO have customers, so for them "make networking part of your offering," "own the customer experience," and "abstract connectivity away from your customers" are allowed. The operator-sovereignty ban still applies to pure GPU-hours operators who are themselves the end customer. Canonical reconciliation: `context/copy-strategy/segment-messaging.md` §4 Messaging Rules.
 
 ### New Vocabulary by Segment (Added March 2026)
 
@@ -489,6 +534,20 @@ For neoclouds, there are TWO kinds of sovereignty:
 **Geographic / Transport-Gap Variant (cross-segment, applies to Network Operators + Fiber Operators):** island-hopping, fiber-spotty geography, any-transport, mixed transport, reach beyond fiber, Layer 2 over microwave / satellite / subsea / fixed wireless, carrier that connects where fiber isn't, subsea cable consortiums, mobile backhaul at scale. Trigger signals: LATAM or Caribbean HQ, archipelago geography, cell-tower-heavy operator, public partnerships with subsea or satellite providers, customer base spread across geography that fiber can't reach densely.
 
 **MSP / Aggregator:** reach beyond your carriers, turn spare capacity into sellable services, connectivity marketplace
+
+### Vocabulary Currency Update (June 2026 - research-validated)
+
+**Fiber Operator - entered the room this year:** anchor tenant, FiberCo, open access platform (carrier-validated now, not just muni), non-deployment funds, "Benefit of the Bargain" round, strand miles (hyperscaler deals are quoted in strands, not routes), duct exhaust, AI corridor, private connectivity fabric / PCF (genericizing beyond Lumen), quote-ready, order fallout. **Dead/dated:** "BEAD fiber preference" (restructured tech-neutral), "MEF" as an org name (now Mplify; the standards keep MEF numbering), Crown Castle Fiber (absorbed), "Altice USA" (now Optimum Communications).
+
+**Colocation - entered:** AI factory, inference-ready, deployment gap, time-to-power / speed-to-power (the #1 site-selection criterion), virtual cross-connect (VXC) as the self-service unit, behind-the-meter / bring-your-own-power, GW-scale, MRR per cabinet. **Dated:** "edge computing" as micro-DC futurism (2026 meaning: inference density in Tier-2 colo), "AI-ready" with no kW or named tenant attached.
+
+**NeoCloud - entered:** token factory, token economics, tokens-per-watt, time-to-first-token (TTFT), "serving" (the economics shifted from training to serving), inference cloud, power wars, GPU-backed debt, region-pinned / sovereign inference. **Usage rule: "neocloud" is the analyst/market label.** Providers self-identify as "AI cloud" or "AI hyperscaler" - use "neocloud" about the market, never about the prospect; call them what they call themselves. **Dated:** "GPU rental" / bare-metal as an identity, crypto-pivot framing (the pivoted companies now self-describe as AI data center / power companies).
+
+**Network Operator - entered:** AI backbone / AI corridor (now literal product names), off-net automation, API ordering, programmatic partner approvals, autonomous networks, reliability mesh, control plane (as an asset you own or buy). What wholesale people call inter-carrier automation: "LSO Sonata," "partner APIs," "off-net automation" - never "federation" (ban confirmed by usage research). **Carve-out (2026):** carriers now sell "AI training and inference" interconnect themselves - AI-corridor vocabulary is ALLOWED for Network Operator wholesale-product personas; neocloud-internal terms (recompute tax, egress economics, tokens) stay banned in NetOp copy. **Fatigued:** bare "NaaS" as a differentiator (everyone has one; the conversation moved to attach rates and APIs).
+
+**MSP / Aggregator - entered:** technology advisor / TA (standard), supplier (the TSD-internal word for line-card members - "we're not asking to be supplier #401" speaks their frame), advisor-led, outcome-based pricing, "facility-based network assets" (the aggregator M&A language of 2026), everything store / marketplace, agentic AI. **Dead: "master agent" as a live category** - using it in copy dates the writer instantly; it survives only inside legacy program names. "Vendor" reads outsider in TSD contexts; "asset-light" as a pure brag is fading (the winners pair it with owned-platform language).
+
+**Enterprise - entered:** network-layer sovereignty, sovereignty tunnels (recognize; counter with ownership), AgenticOps / agentic operations (recognize, never claim), network as code / NetDevOps (architect-safe), deterministic networking (our word; the market moved toward it). **Dead:** single pane of glass (mocked), NaaS self-description, digital transformation.
 
 ### Credibility Anchors (Live Conversations Only)
 

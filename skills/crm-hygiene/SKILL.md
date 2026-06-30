@@ -13,17 +13,32 @@ Run comprehensive health checks on HubSpot company, contact, and deal records. I
 
 The goal is to catch problems before they compound  -  a missing state leads to wrong territory assignment, which leads to wrong rep, which leads to a cold email from the wrong person. Clean data is the foundation everything else runs on.
 
+## Clarification
+
+Before running, two questions that change the scope:
+1. Which mode (or "all")? Full health check (Mode 1 / all modes), a specific check (duplicates, missing fields, stale records, enrichment, contacts, classification drift, signal heat), or a targeted cleanup task?
+2. Segment filter? Run across the full CRM, or scope to a specific segment (Colo / Fiber / Network Op / NeoCloud / MSP / Enterprise) or a subset of owners?
+
+Coach: if you just say "clean up the CRM" or "check data quality," I'll default to a full Mode 1 health check across all segments and surface the top issues - you can narrow scope from there.
+
 ## Reference Files
 
 For canonical HubSpot schema definitions, read these context files:
-- **property-schema.md**  -  Company property definitions, valid values, territory model
-- **hubspot-values.md**  -  Exact HubSpot enum values (case-sensitive)
-- **contact-schema.md**  -  Contact-level properties, lifecycle, enrichment sync
-- **deals-schema.md**  -  Deal pipeline stages, MEDDPICC fields, quote workflows
-- **territory-model.md**  -  State-to-owner mapping, territory boundaries
+- **`context/hubspot/property-schema.md`**  -  Company property definitions, valid values, territory model
+- **`context/hubspot/hubspot-values.md`**  -  Exact HubSpot enum values (case-sensitive)
+- **`context/hubspot/contact-schema.md`**  -  Contact-level properties, lifecycle, enrichment sync
+- **`context/hubspot/deals-schema.md`**  -  Deal pipeline stages, MEDDPICC fields, quote workflows
+- **`context/hubspot/territory-model.md`**  -  Authoritative 5-region state-to-owner mapping and territory boundaries (Northeast/Southeast/Central/West/International + Europe). Load this at runtime for all owner-routing lookups; do NOT inline the map.
 - **`context/account-tiering/sub-segment-qualification.md`**  -  Canonical 30-value list of active `company_sub_segment` enums (case-sensitive). Source-of-truth for the Mode 7 deprecated enum scan and the new weekly audit below. Key 2026-05-14 entries: `Subsea cable operator` (30th value), `Greenfield` is a real sub-segment paired with Colo or NeoCloud parent, `Crypto to AI - Neoclouds` inclusive of operator AND landlord. Retired values (auto-flag if encountered): `Co-op/consortium`, `External Extension - Network operator`, `Internal + external unification - Network Operator`, `Managed Network Services - Network Operator`.
 - **`context/account-tiering/enrichment-protocols.md`**  -  Research-first workflow, D1 disqualifier check, D5 v2 per-sub-segment protocols. §8 (positive-evidence reasoning requirements) and §9 (verification queries) are the canonical source for the weekly audit below.
 - **`context/account-tiering/tier-compute-spec.md`**  -  Canonical `account_tier` function. Read when validating tier-vs-segment coherence in audit reports; the spec also governs the `hs_is_target_account = true` override behavior.
+- **`context/account-tiering/d1-global-disqualifiers.md`**  -  D1 disqualifier rules. Read before Mode 2 duplicate detection to avoid false-positive merge recommendations on D1-disqualified records.
+- **`context/account-tiering/d2-wholesale-arm-policy.md`**  -  Wholesale-arm policy. Read before Mode 2 to avoid flagging legitimate parent/wholesale-arm pairs as duplicates.
+- **`context/account-tiering/d3-disambiguation-flowcharts.md`**  -  MEDIUM. Disambiguation flowcharts for borderline segment assignments; aids Mode 12 classification-drift routing decisions.
+- **`context/account-tiering/sub-segment-qualification-full.md`**  -  MEDIUM. Full 30-sub-segment reference with qualifying evidence requirements; used in Mode 12 positive-evidence checks.
+- **`context/hubspot/call-schema.md`**  -  MEDIUM. Call-level properties; relevant when Mode 4/9 stale-record checks cross-reference call activity.
+- **`context/hubspot/poc-schema.md`**  -  MEDIUM. POC schema; relevant when Mode 3 completeness or Mode 11 deletion-safety checks involve POC-stage records.
+- **`context/segments/enterprise.md`**  -  MEDIUM. Enterprise ICP deep-dive; used in Mode 3-bis Enterprise completeness validation (referenced inline).
 
 ---
 
@@ -37,7 +52,8 @@ segmentation_confidence,
 phone, numberofemployees, annualrevenue, industry, founded_year,
 notes_last_contacted, notes_last_updated, createdate, hs_lead_status,
 last_enriched_date, infrastructure_profile, fabric_provisioning_approach,
-geographic_focus, account_brief, maiaedge_value_proposition,
+geographic_focus, account_brief,
+hyperscaler_proximity, provisioning_landscape, recent_news_or_trigger_event,
 last_signal_score, last_signal_date, signal_count_last_30d
 ```
 
@@ -223,7 +239,7 @@ SUMMARY: [N] stale records out of [N] total ([X]%)
 
 **Steps:**
 
-1. Pull all companies with enrichment fields: `customer_segment`, `company_sub_segment`, `account_tier`, `segmentation_confidence`, `infrastructure_profile`, `fabric_provisioning_approach`, `geographic_focus`, `account_brief`, `maiaedge_value_proposition`, `last_enriched_date`
+1. Pull all companies with enrichment fields: `customer_segment`, `company_sub_segment`, `account_tier`, `segmentation_confidence`, `infrastructure_profile`, `fabric_provisioning_approach`, `geographic_focus`, `account_brief`, `hyperscaler_proximity`, `provisioning_landscape`, `recent_news_or_trigger_event`, `last_enriched_date`
 2. For records WITH a `customer_segment` (already classified), check which enrichment fields are blank
 3. Flag records where `last_enriched_date` is blank (never enriched) or 120+ days old (stale enrichment)
 4. Score enrichment completeness: count of populated enrichment fields / total enrichment fields
@@ -289,7 +305,7 @@ AVERAGE COMPLETENESS: [X]%
 1. Search HubSpot for all companies where `customer_segment` = `AI - Colocation Operator`
    - This value was deprecated in March 2026
    - Correct mapping: `customer_segment` = `Data Center Colo Provider` + `company_sub_segment` = `AI Signals - colo`
-2. Search for any other non-standard `customer_segment` values that don't match the canonical list in hubspot-values.md:
+2. Search for any other non-standard `customer_segment` values that don't match the canonical list in `context/hubspot/hubspot-values.md`:
    - **ICP values (6 as of 2026-05-11):** `Data Center Colo Provider`, `Fiber Operator`, `Network Operator(Tier 1 / VNO)`, `MSP/Aggregator`, `NeoCloud`, `Enterprise-CustomerSegment` (Multi-DC ICP, promoted 2026-05-11; 4 sub-segments only - Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services)
    - Non-ICP values: `Partner Target`, `Other`, `Unknown`, `Flagged for deletion`
    - Stale values to remediate: any record still on the deleted `Enterprise` (rename to `MSP/Aggregator`) or `Dark Fiber - Commercial Enterprise` (deleted May 2026 - re-classify per Fiber Operator rules or flag).
@@ -395,10 +411,7 @@ Cooper Kennedy (Owner ID: `160267902`) is RevOps. Accounts assigned to Cooper ar
 
 1. Pull all companies where `hubspot_owner_id` = `160267902`
 2. For each, check if `state` or `hs_state_code` is populated
-3. If state is known → look up correct owner via territory model:
-   - East states → Tim Lieto (`161889085`)
-   - West states + DC → Ken Cunningham (`162339176`)
-   - Non-US → Tim Ziemer (`159350430`)
+3. If state/country is known → look up correct owner via `context/hubspot/territory-model.md` (5-region map: Northeast, Southeast, Central, West, Europe, International). Load the map at runtime; do NOT apply a hardcoded 2-region East/West table.
 4. If state is blank → flag as unrouteable (needs state first)
 
 **Output:**
@@ -485,7 +498,7 @@ This mode is the **defense-in-depth layer** that catches records which escaped S
 This mode complements:
 - **R2** - broad 120-day re-enrichment cadence; D5 v2 protocols at scale
 - **D7 Edge Case Resolution** - Cooper-paced, 30 records/run, hard cases requiring multi-source research
-- **R-Tier-Audit** - weekly drift sweep (every Sunday 11pm CT) recomputing `account_tier` against `context/account-tiering/tier-compute-spec.md`
+- **R-Tier-Audit** - daily M-F drift sweep (3pm CT) recomputing `account_tier` against `context/account-tiering/tier-compute-spec.md`
 
 crm-hygiene's role is to **surface and route**, not to resolve.
 
@@ -571,7 +584,7 @@ By drift type:
 - hot/warm -> colder: [Y] (signal aged without decay)
 - null -> [bucket]: [Z] (legacy records missing heat field)
 
-ROUTE TO R-TIER-AUDIT (next Sunday sweep)
+ROUTE TO R-TIER-AUDIT (next weekday run)
 | Record | Stored Heat | Expected Heat | Reason |
 |--------|-------------|---------------|--------|
 | ...    | warm        | cool          | last_signal_date 75d, no stack, no open deal |

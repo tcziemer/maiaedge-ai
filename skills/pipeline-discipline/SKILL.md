@@ -13,6 +13,35 @@ This skill combines deal pipeline data, POC ticket status, call intelligence, an
 
 ---
 
+## Before You Start
+
+Two things that focus the output:
+
+1. **Scope** - all reps or a specific rep? Naming a rep filters Column 1/2/3 to their deals and POCs. Territory routing is in `context/hubspot/territory-model.md`.
+2. **Mode** - pipeline board (Column 1/2/3), conversion velocity report, weekly CRO briefing, or POC operations report? If not specified, default to the full three-column board.
+
+If you only have a date range, that's enough to start.
+
+---
+
+## Reference Files
+
+Read these before executing:
+
+| File | Purpose |
+|------|---------|
+| `context/hubspot/deals-schema.md` | Deal stages, pipeline names, stage internal IDs, deal creation defaults |
+| `context/hubspot/poc-schema.md` | POC ticket properties, stage mapping, 98-property set, health signal fields |
+| `context/hubspot/call-schema.md` | Activity Gate rules, engagement-health thresholds, call property set |
+| `context/hubspot/contact-schema.md` | MEDDPICC lives on contacts - used in Column 1/2 rep action framing |
+| `context/hubspot/property-schema.md` | `signal_heat` enum (Hot/Warm/Cool/Cold Title Case), `hs_is_target_account` freeze rule |
+| `context/hubspot/territory-model.md` | Rep-to-region map - use to filter by rep or attribute deals to correct owner |
+| `context/hubspot/hubspot-values.md` | `poc_trend` / `poc_approval_status` enum strings (note: NOT `signal_heat` - that's in property-schema.md) |
+| `context/sales/use-case-taxonomy.md` | Use-case labels for call-intel extraction in Column 1/2 |
+| `context/core/icp-playbook.md` | Per-segment conversion patterns and expected POC objections |
+
+---
+
 ## The Three Columns
 
 ```
@@ -30,7 +59,7 @@ momentum accounts           converting to PO            closed-won history
 
 ### Deal Stages -> Column Mapping
 
-See `deals-schema.md` for full stage reference. Column assignment for pipeline discipline:
+See `context/hubspot/deals-schema.md` for full stage reference. Column assignment for pipeline discipline:
 
 | Stage | Internal Name | Column | Notes |
 |-------|---------------|--------|-------|
@@ -44,7 +73,7 @@ See `deals-schema.md` for full stage reference. Column assignment for pipeline d
 
 ### POC Ticket Stages (Column 2)
 
-See `poc-schema.md` for full stage mapping. Key stages:
+See `context/hubspot/poc-schema.md` for full stage mapping. Key stages:
 - Requested, Scoping, Criteria Approved, Configuration Locked = early POC
 - Building & Preparing, Shipped, Customer Testing = active POC
 - Successful = ready for PO conversion
@@ -59,7 +88,7 @@ When surfacing Column 2 data, always show the POC owner alongside the sales rep 
 
 ### POC Health Scoring (Column 2)
 
-Every POC in Column 2 gets a health assessment based on multiple signals from `poc-schema.md` properties:
+Every POC in Column 2 gets a health assessment based on multiple signals from `context/hubspot/poc-schema.md` properties:
 
 **Timeline Signals:**
 | Signal | Property | Condition | Severity |
@@ -173,7 +202,7 @@ In weekly briefings, add a one-line summary: "POC data completeness: [N]% averag
 
 ### Activity Gate (Two-Way Engagement)
 
-See `call-schema.md` "Activity Gate (Engagement Health)" for full rules, thresholds, and query instructions.
+See `context/hubspot/call-schema.md` "Activity Gate (Engagement Health)" for full rules, thresholds, and query instructions.
 
 **Quick reference -- Combined Assessment:**
 
@@ -194,7 +223,7 @@ See `call-schema.md` "Activity Gate (Engagement Health)" for full rules, thresho
 **Steps:**
 
 **Column 1 -- Accounts Converting to POC:**
-1. Query open deals in pre-POC stages (`appointmentscheduled`, `qualifiedtobuy`, `1996673735`) via `search_crm_objects` with `associations: ["COMPANY", "CONTACT"]`. See `deals-schema.md` for stage reference. Pull `signal_heat` and `account_tier` from each associated company.
+1. Query open deals in pre-POC stages (`appointmentscheduled`, `qualifiedtobuy`, `1996673735`) via `search_crm_objects` with `associations: ["COMPANY", "CONTACT"]`. See `context/hubspot/deals-schema.md` for stage reference. Pull `signal_heat` and `account_tier` from each associated company.
 2. For each deal's associated company, query recent calls with `associations: ["COMPANY"]` to get latest call context
 3. ALSO query companies with multiple recent calls (2+ in last 30 days) but NO deal yet -- these are momentum accounts gaining traction from conversations
 4. For each account, extract from most recent call: use cases discussed, next step, engagement signal

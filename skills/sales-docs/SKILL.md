@@ -7,6 +7,33 @@ description: "MaiaEdge sales document generator for Order Forms, MSAs, POC Agree
 
 Generate standardized sales documents from templates. **Documents must match exact formatting  -  only variable fields change.**
 
+## Reference Files
+
+Read these before generating any document:
+
+| File | Purpose |
+|------|---------|
+| `context/product/pbc-pce-datasheet.md` | PBC/PCE product specs, SKU list, technical details for accurate descriptions |
+| `context/hubspot/deals-schema.md` | Deal stages, required fields, defaults - for deal creation and stage alignment |
+| `context/hubspot/poc-schema.md` | POC property set (98 fields, 10 stages) - for POC Agreement field mapping |
+| `context/hubspot/territory-model.md` | Signer territory attribution - load when determining rep ownership or signer |
+| `context/core/maiaedge-101.md` | Company description and positioning for document cover and recitals |
+| `context/product/integrated-switch-datasheet.md` | MPP-48 and integrated switch specs for Order Form product descriptions |
+| `context/sales/pricing-reference.md` | Fallback pricing (use `price_list.md` if uploaded; flag when falling back) |
+
+---
+
+## Before You Start
+
+Two questions that determine the output:
+
+1. **Which document do you need?** Order Form/Quote, MSA, POC Agreement, or NDA?
+2. **Do you have the customer details ready?** (Company name, address, contact, signer - the required fields vary by doc type.) If not, I'll show you the checklist for the doc type you need.
+
+> If you give a company name and doc type, I'll identify what's missing and ask only for that.
+
+---
+
 ## Template Replication Rules
 
 1. **NEVER modify boilerplate language**  -  Only populate variable fields
@@ -116,9 +143,8 @@ For detailed formatting specs, row heights, column widths, and implementation co
 3. **CLEAR old template data** from buyer cells (D6:D11), signature cells (B53:B57), B27, and A50
 4. **Populate** all variable fields (header, buyer, products, totals, MSA ref, signatures)
 5. **Format** (borders, merges, column widths, row heights, page setup)
-6. **Run recalc.py** to calculate formulas  -  path: `.skills/skills/xlsx/scripts/recalc.py`
-7. **AFTER recalc**: Apply rich text formatting (bold section headings in merged cells)
-8. **Save** `.xlsx` → **Convert to PDF** with LibreOffice (do NOT recalc again)
+6. **Apply rich text formatting** (bold section headings in merged cells)
+7. **Save** `.xlsx` → **Convert to PDF** with LibreOffice: `libreoffice --headless --convert-to pdf [filename].xlsx` (LibreOffice recalculates formulas on open - no separate recalc script needed)
 
 ### Key Rules
 
@@ -211,7 +237,7 @@ Use content-based searching, NOT hardcoded paragraph indices. The NDA has no tab
 
 ## PRICING REFERENCE
 
-Always verify prices against `price_list.md` before generating any document. That file is the authoritative source.
+Always verify prices against `price_list.md` before generating any document. That file is the authoritative source. If `price_list.md` is not uploaded to the project, fall back to `pricing-reference.md` (context/sales/) and flag in the output that prices were taken from the fallback reference and need verification.
 
 ### Pricing Display Rule
 

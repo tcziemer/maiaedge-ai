@@ -106,7 +106,7 @@ The classification test that disambiguates the messy middle:
 
 **North America:**
 1. CoreWeave (US public — NASDAQ:CRWV) — Platinum ClusterMAX, 43 DCs, 850MW
-2. Lambda Labs (US private — $1.5B+ funded) — Silver ClusterMAX
+2. Lambda Labs (US private — $1.5B+ funded; IPO-speculated, no firm date — soften any prior "H2 2026 IPO" framing) — Silver ClusterMAX
 3. Crusoe Energy (US private — flared-gas + stranded-energy thesis) — Gold ClusterMAX
 4. Voltage Park (US private) — Silver ClusterMAX
 5. Applied Digital (US public — APLD — partial crypto heritage but now operates branded AI Cloud)
@@ -204,7 +204,7 @@ Large Scale GPU has the most mature buying committee of any NeoCloud sub-segment
 - **GPU count:** 5,000-50,000+ deployed (smaller than Large Scale GPU)
 - **Revenue band:** $50M-$500M annualized
 - **Customer base:** Developer/long-tail (10,000-100,000+ accounts on free + paid tiers) plus enterprise API contracts
-- **Funding stage:** Series B-D growth equity; DeepInfra's $107M Series B (May 2026 — co-led by 500 Global + Georges Harik, NVIDIA participation) is the canonical 2026 round
+- **Funding stage:** Series B-D growth equity; DeepInfra's $107M Series B (May 2026 — co-led by 500 Global + Georges Harik, NVIDIA participation) is the canonical 2026 round. The serving layer re-rated hard in 2026: Fireworks AI ~$15B valuation (in talks), Baseten ~$11B valuation, Together AI raised a $305M round. Internal anchors, not cold-copy talking points.
 - **Performance benchmark:** Sub-100ms TTFT (time-to-first-token) on Llama 70B-class models as published latency SLA
 
 ### Required signals
@@ -224,13 +224,14 @@ Large Scale GPU has the most mature buying committee of any NeoCloud sub-segment
 ### Anchor companies (15 — geographic spread)
 
 **North America:**
-1. Together AI (US — Gold ClusterMAX, ~25 cities, 200MW)
+1. Together AI (US — Gold ClusterMAX, ~25 cities, 200MW; $305M round)
 2. Groq (US — Gold-equivalent before NVIDIA $20B acqui-hire Dec 2025; now part of NVIDIA — retains operations as Lepton stack; for HubSpot, classify Groq legacy customer base as Tier 1 Inference)
 3. DeepInfra (US — $107M Series B May 2026)
 4. Cirrascale (US — Silver ClusterMAX)
 5. Cerebras Cloud (US — IPO-pending 2026; wafer-scale, not GPU but functionally inference-primary)
 6. SambaNova Suite (US — SN50 chip Feb 2026, 405B world record)
-7. Fireworks.ai (US — privately held; Lambda-tier inference)
+7. Fireworks.ai (US — privately held; ~$15B valuation in talks)
+7a. Baseten (US — ~$11B valuation; also listed under serverless/boundary below)
 
 **EMEA:**
 8. Gcore (Luxembourg — Silver ClusterMAX, edge-heavy)
@@ -342,10 +343,10 @@ Per `neocloud-signals.md` — Tier A high-yield: N-A4 (enterprise customer win, 
 **North America:**
 1. Vultr (US — Silver ClusterMAX, 32+ locations, virtualized GPU)
 2. DigitalOcean (US public — NYSE:DOCN — Paperspace acquisition is the GPU arm)
-3. Fluidstack (US — Bronze ClusterMAX; AI Infrastructure-primary white-label)
+3. Fluidstack (US — Bronze ClusterMAX; AI Infrastructure-primary white-label; $50B Anthropic capacity program, IPO ~2027)
 4. Modal Labs (US — serverless inference + GPU functions; boundary case with Tier 1 Inference)
 5. RunPod (US — 200k+ users, 15+ GPU suppliers; serverless secondary brand)
-6. Baseten (US — Truss-based serverless inference + Pro/Enterprise tiers)
+6. Baseten (US — Truss-based serverless inference + Pro/Enterprise tiers; ~$11B valuation — primary classification Tier 1 Inference if serverless inference revenue dominates)
 7. Anyscale (US — Ray-based distributed compute on GPUs)
 8. Replicate (US — model-API platform; boundary with Tier 1 Inference)
 
@@ -450,7 +451,7 @@ Per `neocloud-signals.md` — high-yield: N-A2 (region expansion — these compa
 ### Anchor companies (15 — geographic spread, EMEA + APAC + MENA heavy)
 
 **EMEA:**
-1. Nscale (UK/EU — Aker-led $1.1B at $14.6B valuation; NVIDIA 300k chip supply + $500M investment; Armada partnership Feb 2026; LARGEST sovereign AI by funding)
+1. Nscale (UK/EU — Aker-led $1.1B at $14.6B valuation; NVIDIA 300k chip supply + $500M investment; Armada partnership Feb 2026; deploying 66,000 NVIDIA Rubin GPUs in Portugal for Microsoft; LARGEST sovereign AI by funding)
 2. BSC Barcelona AI Factory (Spain — EuroHPC, €200M, multi-country consortium Spain/Portugal/Türkiye/Romania)
 3. Isambard-AI / NCC UK (UK AIRR core compute — Bristol; 21 exaflops Grace Hopper; £500M UK Sovereign AI Fund)
 4. Scaleway (France — though dropped GAIA-X 2021, retains sovereign positioning; OVHcloud-sibling)
@@ -591,7 +592,7 @@ Per `neocloud-signals.md` — Tier B: N-B3 (Sovereign AI / Government Contract W
 
 **Hybrid / boundary (review quarterly — primary classification may flip):**
 9. **IREN / Iris Energy (US public — IREN)** — $9.7B Microsoft contract makes hosting/landlord book dominant as of mid-2026 → primary classification today = `AI Signals - colo`; AI Cloud operator arm secondary. Re-evaluate end-2026 when 3.4B annualized AI cloud target hits.
-10. **Core Scientific (US public — CORZ)** — primarily hosts CoreWeave + others → `AI Signals - colo` today; rejected $9B buyout offer to stay independent
+10. **Core Scientific (US public — CORZ)** — primarily hosts CoreWeave + others → `AI Signals - colo` today; remained independent after CoreWeave's ~$9B all-stock acquisition was voted down by Core Scientific shareholders (merger terminated Oct 30, 2025)
 11. **Galaxy Digital (US public — GLXY)** — hybrid asset manager / hosting; Helios West campus hosting; classify per dominant disclosed revenue
 12. **Marathon Digital (MARA)** — primarily still mining; watch list for pivot
 13. **CleanSpark (CLSK)** — primarily still mining; watch list
@@ -692,7 +693,7 @@ This sub-segment has THE most distinctive persona profile of any NeoCloud sub-se
 ### 3. Crypto-to-AI classification policy — pressure-tested against IREN, Core Scientific, Galaxy
 
 - **IREN** (current state, May 2026): Microsoft $9.7B contract = Microsoft brings GPUs = IREN is landlord → primary `AI Signals - colo`. Re-evaluate end-2026 when IREN's own "AI Cloud" brand may dominate revenue.
-- **Core Scientific:** hosts CoreWeave's clusters = landlord → `AI Signals - colo`. Rejected $9B buyout offer March 2026 to stay independent.
+- **Core Scientific:** hosts CoreWeave's clusters = landlord → `AI Signals - colo`. Remained independent after Core Scientific shareholders voted down CoreWeave's ~$9B all-stock offer (merger terminated Oct 30, 2025).
 - **Galaxy Digital:** Helios + other hosting campuses host third-party tenants → primary `AI Signals - colo` per current disclosed revenue. Classify operator arm separately if their own GPU cloud brand becomes material.
 
 **Disambiguation flowchart for `edge-case-researcher`:**

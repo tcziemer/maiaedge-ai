@@ -160,11 +160,14 @@ The integrated switch designed exclusively for the PBC. Delivers high-density te
 
 | Spec | Detail |
 |---|---|
-| Form factor | 1RU |
+| Form factor | 1RU (44 x 438 x 520 mm, H x W x D) |
 | Tenant ports | 48 x SFP28 (10/25 GbE) |
 | Uplinks | 8 x QSFP28 (100 GbE) |
+| Switching capacity | 2.0 Tbps I/O, 32 MB buffer |
 | Latency | Less than 500ns port to port |
-| Management | Rear CPU/BMC shared Ethernet (RJ45), Serial Console (RJ45) |
+| Power | Less than 500W max (typical <350W at 25°C); 1+1 hot-swap PSUs (100-240VAC / 180-300VDC) |
+| Operating environment | 0°C to 45°C, 5-90% non-condensing |
+| Management | Rear CPU/BMC shared Ethernet (RJ45), Serial Console (RJ45), IPMI 2.0 |
 | Reliability | Hot-swappable redundant power supplies and fans, 150,000+ hour MTBF |
 | Airflow | Front-to-back or back-to-front |
 

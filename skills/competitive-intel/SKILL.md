@@ -14,12 +14,40 @@ Triggers automatically when competitive positioning or objection handling is nee
 - User needs objection handling for a deal
 - User asks "how do we compare to [competitor]?"
 
+## Clarification
+
+Two questions that materially change the output:
+1. Segment - which ICP are you selling into? (Fiber / Colo / Network Op / NeoCloud / MSP / Enterprise, or a mix?)
+2. Stage - cold outreach draft, pre-call prep, live discovery, or proposal/follow-up?
+
+Stage governs language register - "fabric-in-a-box" and credibility anchors are live-call/proposal only. If the user already gave a competitor name AND segment, skip straight to stage.
+
 ## Reference Files
 
-- **competitive-positioning.md**  -  Detailed battle cards, objection handling frameworks, market context
-- **proof-points.md**  -  Customer stories and outcomes for competitive situations
-- **pbc-pce-datasheet.md**  -  Hardware specs for technical comparisons
-- **integrated-switch-datasheet.md**  -  MPP-48 switch specifications
+### Core positioning
+- `context/core/differentiation-naas-aggregator.md` - SINGLE SOURCE OF TRUTH for the NaaS/fabric and aggregator lines: the mechanical truth table (DIY NNI vs join-a-fabric vs aggregator vs MaiaEdge), objection responses in three registers (cold-safe / live-call / one-liner) for "How is this not Megaport?", "We already have NNI partners", "So you're an aggregator?", "Whose network does the extension ride?", "Why not just join a fabric?", cost-vs-port, "exchanges failed before", and the internal-build $475M reframe; the sanctioned June 2026 market catalyst (Megaport ~US$594M / A$827M compute raise) with its usage rules; and the claims-to-avoid list (unverified federation mechanics). Read it FIRST for any NaaS, fabric, aggregator, or extension-positioning question.
+- `context/core/competitive-positioning.md` - Detailed battle cards, objection handling frameworks, market context
+- `context/product/proof-points.md` - Customer stories and outcomes for competitive situations
+- `context/product/pbc-pce-datasheet.md` - Hardware specs for technical comparisons
+- `context/product/integrated-switch-datasheet.md` - MPP-48 switch specifications
+
+### ICP + messaging context (HIGH)
+- `context/core/icp-playbook.md` - Per-segment worked examples, persona pain, objection handling by ICP
+- `context/core/messaging-framework.md` - USE/AVOID vocabulary by segment; Cross-Segment Pillar Framework; register rules
+- `context/core/maiaedge-101.md` - Canonical company narrative and 30-second pitch by segment
+- `context/product/ai-market-positioning.md` - AI-era positioning; GPU cluster connectivity; NeoCloud-to-enterprise demand drivers
+- `context/product/cloud-onramp-business-case.md` - ROI model for cloud on-ramp positioning; cost-vs-Megaport/Direct Connect comparisons
+- `context/product/economic-impact-acg-whitepaper.md` - Third-party economic validation; use in competitive proposals and discovery
+- `context/segments/neocloud.md` - NeoCloud segment deep-dive; GPU pricing reversal; NC1-NC5 sub-segment positioning nuances
+
+### Supplementary context (MEDIUM)
+- `context/core/terminology-glossary.md` - Canonical product and category terms; avoid wrong category labels
+- `context/segments/enterprise.md` - Enterprise ICP scope, hard gate criteria, and competitive framing rules
+- `context/partner-assets/cheatsheet-neocloud.md` - NeoCloud objection handling and persona matrix
+- `context/partner-assets/cheatsheet-enterprise.md` - Enterprise objection handling and persona matrix
+- `context/sales/neocloud-strategy-brief.md` - NeoCloud go-to-market strategy and competitive angles
+- `context/marketing/sovereign-routing-explainer.md` - Sovereignty and data-residency positioning for international deals
+- `context/europe/sovereignty-positioning.md` - European DORA/NIS2 framing and sovereignty angles for Markus-territory deals
 
 ## Core Positioning
 
@@ -37,6 +65,13 @@ Triggers automatically when competitive positioning or objection handling is nee
 **Key line:** "They own the fabric AND your customer. MaiaEdge = you own both. We integrate with them via API for cloud reach."
 **In cold emails:** Say "third-party fabric providers," never name them directly.
 **Partnership angle:** MaiaEdge integrates with Equinix Fabric and Megaport APIs for cloud on-ramps. They can be infrastructure partners AND competitive alternatives.
+**2026 state (details + usage rules in differentiation-naas-aggregator.md §4):** Megaport raised ~US$594M (A$827M, June 3, 2026) to build a distributed GPU inference cloud - the fabric now sells compute against the customers its operator partners serve. Equinix sells sovereignty as a premium Fabric tier (Geo Zones, May 2026). Console Connect's 80% sale to Infratil was cancelled on regulatory grounds (Oct 2024) - platform-dependence risk in one anecdote. PacketFabric is alive (merged with Unitas Global 2023) but its 2023-24 distress arc is the cautionary tale: "what was your contingency if your fabric vendor had been PacketFabric?"
+
+### Aggregators / TSDs (the box we must NOT be filed in)
+**Their model:** An aggregator resells many carriers' connectivity on its own paper - it owns the end customer, the quote engine, the invoice; the underlying operator gets the thin wholesale rate and the buyer pays a 25-30% aggregation premium. TSDs/technology advisors are a DISTINCT model (agents selling on the carrier's paper for commission). "Master agent" is a dead category word in 2026.
+**The positional line:** an aggregator and a NaaS both sit BETWEEN the operator and the customer; MaiaEdge deploys INSIDE the operator's network. "An aggregator sits between you and your customer. We sit inside your network. Opposite ends of the table."
+**The supplier-desk trap:** a Carrier Relations / Supplier Management seat will read any connectivity-sounding pitch as a line-card onboarding request and route it to procurement. Correct in one sentence: "this is infrastructure you deploy and bill on, not a circuit supplier to onboard - we're not asking to be supplier #401." Aim the conversation at CEO / VP Product as a margin-stack decision.
+**Full doctrine:** objection responses in three registers, the truth table, and the claims-to-avoid list live in `context/core/differentiation-naas-aggregator.md`.
 
 ### Lumen Private Connectivity Fabric (PCF)
 **Their model:** Building a national private connectivity empire. AWS partnership (Interconnect Last Mile). ~340K route miles, 163K+ buildings, 400G backbone.

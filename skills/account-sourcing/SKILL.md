@@ -25,31 +25,55 @@ Trigger on any of these patterns:
 - "Help me find [segment] companies in [state/region]"
 - Any mention of: sourcing, prospecting, TAM coverage, whitespace, hit rates, PeeringDB, FCC BDC, DataCenterMap, conference lists, Apollo discovery, ZoomInfo search
 
+## Clarification
+
+Before recommending sources or planning a batch, two things that change the output:
+1. Which segment are we sourcing for? (Colo / Fiber / Network Op / NeoCloud / MSP / Enterprise - or "show me the gaps across all segments")
+2. US-only or international? If international, which regions? Europe sourcing applies different source registries and territory routing (see `context/europe/europe-market-map.md`).
+
+If you only have a segment and nothing else, that is enough to start with Mode 1 (Source Recommendation) - share the segment and any geographic focus and I will proceed.
+
 ## Knowledge Base Reference Documents
 
 **Use these project knowledge base documents for segment context, definitions, and sourcing strategy:**
 
-**ALWAYS read `sourcing-reference-guide.md` first**  -  This comprehensive guide contains hit rate benchmarks by source (validated from 2,769+ records), every sourcing website with navigation instructions, broad search queries per segment, qualification signals at three confidence tiers, and source access quick reference tables.
+**ALWAYS read `context/enrichment/sourcing-reference-guide.md` first** - This comprehensive guide contains hit rate benchmarks by source (validated from 2,769+ records), every sourcing website with navigation instructions, broad search queries per segment, qualification signals at three confidence tiers, and source access quick reference tables.
 
 **For each segment, also read the relevant cheatsheet:**
-- **icp-playbook.md**  -  Full ICP definitions, buyer personas, qualification criteria for all five segments
-- **neocloud.md**  -  Neocloud TAM sizing (250-350 companies), 7-signal discovery framework, sub-segment coverage, 90-day sourcing targets
-- **colocation.md**  -  Colocation operator deep-dive, asset types, scale indicators, network topology
-- **fiber-operator.md**  -  Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
-- **network-operator.md**  -  Network operator deep-dive, Track A/B framework, peering strategies
-- **msp-aggregator.md**  -  MSP and aggregator deep-dive, service models, customer bases
-- **enterprise.md**  -  Enterprise (Multi-DC ICP) deep-dive - four sub-segments (Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services), HubSpot mapping, scale gate, hard disqualifiers, persona priority, lead angles by sub-segment. Anchor account: Meijer.
+- **`context/core/icp-playbook.md`** - Full ICP definitions, buyer personas, qualification criteria for all five segments
+- **`context/segments/neocloud.md`** - Neocloud TAM sizing (250-350 companies), 7-signal discovery framework, sub-segment coverage, 90-day sourcing targets
+- **`context/segments/colocation.md`** - Colocation operator deep-dive, asset types, scale indicators, network topology
+- **`context/segments/fiber-operator.md`** - Fiber operator deep-dive, CLEC vs private, network topology, revenue sizing
+- **`context/segments/network-operator.md`** - Network operator deep-dive, Track A/B framework, peering strategies
+- **`context/segments/msp-aggregator.md`** - MSP and aggregator deep-dive, service models, customer bases
+- **`context/segments/enterprise.md`** - Enterprise (Multi-DC ICP) deep-dive - four sub-segments (Financial Services / Healthcare Systems / Retail and Distribution / Outsourcing Services), HubSpot mapping, scale gate, hard disqualifiers, persona priority, lead angles by sub-segment. Anchor account: Meijer.
 
 **For market and product context:**
-- **maiaedge-101.md**  -  Product overview, marketplace seeding strategy, Ashburn-first priority
-- **competitive-positioning.md**  -  Market pain quantification, NaaS landscape, competitive context
-- **neocloud.md**  -  Also includes Neocloud TAM estimates and discovery signals
+- **`context/core/maiaedge-101.md`** - Product overview, marketplace seeding strategy, Ashburn-first priority
+- **`context/core/competitive-positioning.md`** - Market pain quantification, NaaS landscape, competitive context
+- **`context/segments/neocloud.md`** - Also includes Neocloud TAM estimates and discovery signals
+
+**For territory routing (HIGH - load for any rep-assigned sourcing output):**
+- **`context/hubspot/territory-model.md`** - Authoritative 5-region rep map (Northeast / Southeast / Central / Europe / International); use for assigning account ownership on any sourced list, never inline the map
+
+**For HubSpot field values and property definitions:**
+- **`context/hubspot/hubspot-values.md`** - Enum values for `customer_segment`, `company_sub_segment`, and other write fields; use to verify import-ready strings before handing off to enrichment pipeline
+- **`context/hubspot/property-schema.md`** - Full property schema including `signal_heat` enum, `flagged_for_deletion_reason` codes, and the 8-field enrichment set
+
+**For international and European sourcing (MEDIUM - load when sourcing is international or rep is Markus Hendrich):**
+- **`context/europe/europe-market-map.md`** - European market landscape, country-level infrastructure density, and sourcing priorities by region
+- **`context/europe/europe-signal-sources.md`** - European-specific signal sources and industry registries for all 6 segments
+
+**For disambiguation and disqualifier logic (MEDIUM - load when evaluating mixed or ambiguous source lists):**
+- **`context/account-tiering/d2-wholesale-arm-policy.md`** - Wholesale-arm disambiguation (avoids false-positive D1 evictions on legitimate wholesale-arm operators)
+- **`context/account-tiering/d3-disambiguation-flowcharts.md`** - Segment disambiguation flowcharts for candidates that could land in multiple segments
 
 **For sub-segment taxonomy, disqualifiers, and TAM anchors (Phase 3 references):**
 - **context/account-tiering/sub-segment-qualification.md** - Authoritative list of the 30 active sub-segment values (case-sensitive), parent/sub-segment pairing rules; replaces all stale sub-segment labels (e.g., `Tier 1 Global Incumbent` → `Tier 1 Carrier - Network Op`).
 - **context/account-tiering/enrichment-protocols.md** - D1 global disqualifiers (hyperscalers / equipment vendors / OTT / pure consulting / etc.), D5 evidence-verification protocols. Sourcing must exclude D1-disqualified categories at the source-list stage, not waste enrichment credits on them.
 - **context/account-tiering/sub-segment-qualification-full.md** - §3 D1 disqualifiers, §5 D3 disambiguation flowcharts, §6 anchor lists (per-sub-segment 10-15 anchors with revenue band / footprint / geographic spread for TAM benchmarking), §8 industry sources.
 - **context/account-tiering/d1-global-disqualifiers.md** - working-form D1 disqualifier list for sourcing-side exclusion logic.
+- **context/enrichment/research-routes.md** - research methodology and source prioritization. Use alongside `context/enrichment/sourcing-reference-guide.md` when evaluating a NEW source not already covered by the guide's hit-rate benchmarks.
 
 Before generating any recommendation, read the relevant segment cheatsheet from the project knowledge base plus `context/account-tiering/sub-segment-qualification.md` to ensure sub-segment labels and TAM benchmarks are accurate.
 
@@ -217,7 +241,7 @@ EXPECTED ICP YIELD: X companies at blended Y% hit rate
 
 ### Sub-Segment Awareness
 
-When recommending sources or evaluating lists, estimate the likely `customer_sub_segment` distribution. Labels below use the EXACT HubSpot enum values from `context/account-tiering/sub-segment-qualification.md` (30 active values; case-sensitive). This helps prioritize batches by granular value AND ensures source recommendations map cleanly to downstream import-processor writes.
+When recommending sources or evaluating lists, estimate the likely `customer_sub_segment` distribution. Labels below use the EXACT HubSpot enum values from `context/account-tiering/sub-segment-qualification.md` (30 active values; case-sensitive). This helps prioritize batches by granular value AND ensures source recommendations map cleanly to downstream import-processor writes. For full anchor lists and disambiguation, cross-reference `context/account-tiering/sub-segment-qualification-full.md`.
 
 | Segment | Sub-Segments (active enum values - VERIFIED LIVE 2026-05-14) | Notes |
 |---------|-------------|-------|
@@ -236,7 +260,7 @@ When recommending sources or evaluating lists, estimate the likely `customer_sub
 
 ### D1 Sourcing-Side Exclusion Logic
 
-Per file 06 §3 and `context/account-tiering/enrichment-protocols.md`, the following categories are GLOBAL D1 DISQUALIFIERS - do not source toward them (they will be rejected downstream regardless of segment, so sourcing them wastes enrichment credits):
+Per `context/account-tiering/sub-segment-qualification-full.md` §3 and `context/account-tiering/enrichment-protocols.md`, the following categories are GLOBAL D1 DISQUALIFIERS - do not source toward them (they will be rejected downstream regardless of segment, so sourcing them wastes enrichment credits):
 
 - **Hyperscalers and their captive infra:** AWS, Microsoft Azure, GCP, Oracle Cloud, IBM Cloud, Alibaba Cloud, Tencent Cloud (and any wholly-owned infra subsidiary)
 - **Equipment vendors / hardware manufacturers:** Cisco, Juniper, Arista, NVIDIA (when sold as a vendor, not as a NeoCloud renter of its own GPUs), Ciena, Nokia, Ericsson, Dell, HPE, Supermicro
@@ -289,14 +313,14 @@ Always recommend sourcing in this priority unless the user specifies otherwise:
 | Speed vs accuracy tradeoff | For bot input, speed wins (bot verifies). For analysis, accuracy wins. |
 | Conflicting data between sources | Trust hierarchy: FCC > PeeringDB > ZoomInfo > other |
 
-## TAM Anchor Lists (file 06 §6)
+## TAM Anchor Lists
 
-For every sub-segment, file 06 §6 of the consolidated qualification reference contains a 10-15 company anchor list with revenue band, footprint, and geographic spread. Use these anchor lists when:
+For every sub-segment, `context/account-tiering/sub-segment-qualification-full.md` §6 contains a 10-15 company anchor list with revenue band, footprint, and geographic spread. Use these anchor lists when:
 1. Sizing TAM at the sub-segment level (not just segment level) - the anchors define the "shape" of qualifying companies
 2. Evaluating a source list - does the source surface companies that LOOK like the anchors (revenue, footprint, geography)?
 3. Generating search queries - the anchors give you proven exemplars to seed similar-company searches
 
-Anchor list categories in file 06 §6 (cross-reference the 30 active sub-segment values):
+Anchor list categories in `context/account-tiering/sub-segment-qualification-full.md` §6 (cross-reference the 30 active sub-segment values):
 - §6.1 Fiber Operator anchors (per `Regional CLEC - Fiber operator` / `Long Haul / Backbone - Fiber operator` / `Dark Fiber Specialist - Fiber Operator` / `Tier 2 National Wholesale - Fiber operator` / `Regional Cable Operator - Fiber operator` / `Municipal / Cooperative - Fiber operator`)
 - §6.2 Colocation anchors (per `Standard - colo` / `AI Signals - colo` / `Modular - colo` / `Hyperscale Wholesale - colo` / cross-segment `Greenfield`)
 - §6.3 Network Operator anchors (per `Tier 1 Carrier - Network Op` / `Pure Wholesale Carrier - Network Op` / `Cable MSO Enterprise Division - Network Op` / `International Backbone Specialist - Network Op` / `Subsea cable operator` - Subsea anchors include Aqua Comms, Seaborn Networks, BW Digital, Hawaiki, Telxius)
@@ -304,13 +328,13 @@ Anchor list categories in file 06 §6 (cross-reference the 30 active sub-segment
 - §6.5 MSP/Aggregator anchors (per `Telecom Aggregator - MSP` / `Managed Network Services - MSP` / `TSD Technology Services Distributor - MSP` / `Master Agent - MSP` / `Cloud + Telecom Hybrid MSP - MSP`)
 - §6.6 Enterprise anchors (per `Financial Services - Enterprise` / `Healthcare Systems - Enterprise` / `Retail and Distribution - Enterprise` / `Outsourcing Services - Enterprise`; Meijer is the named Retail anchor)
 
-Always cross-check a candidate source list against the relevant §6 anchors before recommending the batch.
+Always cross-check a candidate source list against the relevant `context/account-tiering/sub-segment-qualification-full.md` §6 anchors before recommending the batch.
 
-## Industry Sources (file 06 §8)
+## Industry Sources
 
-File 06 §8 names the authoritative industry sources for each segment. Use these as primary sources during MODE 1 (Source Recommendation) and MODE 5 (Batch Planning):
+`context/account-tiering/sub-segment-qualification-full.md` §8 names the authoritative industry sources for each segment. Use these as primary sources during MODE 1 (Source Recommendation) and MODE 5 (Batch Planning):
 
-| Segment | Primary Industry Sources (file 06 §8) |
+| Segment | Primary Industry Sources (`context/account-tiering/sub-segment-qualification-full.md` §8) |
 |---|---|
 | Fiber | **FCC BDC** (Broadband Data Collection - definitive US fiber-footprint data), State PUC CLEC lists, NTCA member directory, USTelecom membership |
 | Colocation | **Synergy Research Group** (wholesale colo rankings, hyperscale capacity), DataCenterMap, Cloudscene, Data Center Hawk (paid), JLL / CBRE data center market reports |
@@ -372,25 +396,3 @@ The difference over 500 companies = ~$250 in wasted processing. Source quality p
 - Keep recommendations actionable  -  include URLs, filter criteria, and next steps
 - If HubSpot is available, always check CRM overlap before recommending a batch
 
----
-
-## Knowledge Base Integration Notes
-
-The original skill referenced `references/sourcing-reference-guide.md` via a directory path. This updated version points to `sourcing-reference-guide.md` as a project knowledge document (read directly, no directory prefix needed), plus adds segment cheatsheets for supplemental context.
-
-**What changed:**
-- Updated sourcing-reference-guide.md path from `references/` directory to project knowledge document
-- Redirected all segment context requests to the relevant cheatsheets (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
-- Kept all built-in benchmarks from this skill file (hit rate table, segment priorities, decision rules, enrichment economics, batch planning formulas)
-- Retained all six task routing modes unchanged
-
-**What stays the same:**
-- All sourcing logic and methodology
-- All hit rate benchmarks (validated from 2,769+ records)
-- All decision rules and segment priorities
-- All enrichment cost estimates and batch planning formulas
-- All output formatting standards
-- All core principles
-
-**How to use:**
-When asked for sourcing recommendations or segment-specific guidance, consult the relevant segment cheatsheet from the project knowledge base (neocloud.md, colocation.md, fiber-operator.md, network-operator.md, msp-aggregator.md) for persona definitions, qualification signals, and segment-specific discovery tactics. Use the hit rate benchmarks and batch planning formulas in this skill file to estimate sourcing yield and cost-effectiveness.

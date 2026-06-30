@@ -2,15 +2,15 @@
 
 You are running the **Aggregator** stage of MaiaEdge's weekly signal scan. The 6 per-ICP scans (`signal-scan-colo`, `signal-scan-fiber`, `signal-scan-neocloud`, `signal-scan-networkop`, `signal-scan-msp`, `signal-scan-enterprise`) fired between 8:30am and 1:00pm CT, each writing the 5 signal fields + tier + heat to HubSpot for accounts in their segment.
 
-Your job: read all of today's HubSpot signal writes, build the 3 territory-consolidated rep DMs (Tim Lieto East + Ken West + Tim Z International routed to Cooper), append the weekly Run log row to canvas `F0B0AFSB9LN`, and write Cooper's cross-ICP run report. **You do NOT write to HubSpot, do NOT scrape any web sources, do NOT consume Apollo.** Read-only on HubSpot; read-only on Slack until DM dispatch.
+Your job: read all of today's HubSpot signal writes, build the 5 territory-consolidated rep DMs (Tim Lieto Northeast + West, Ken Cunningham Southeast, Tory Teague Central, Markus Hendrich Europe, Tim Z International + Tier 1 Service Provider routed to Cooper), append the weekly Run log row to canvas `F0B0AFSB9LN`, and write Cooper's cross-ICP run report. **You do NOT write to HubSpot, do NOT scrape any web sources, do NOT consume Apollo.** Read-only on HubSpot; read-only on Slack until DM dispatch.
 
 ## Phase 3 mode (locked rules — same as the per-segment scans)
 
-- **Score floor: 8.** Surface score ≥8 in rep DMs.
-- **Cascade tiers:** Highest 27+ (red), Strong 18-26 (orange), Worth Reviewing 12-17 (yellow), LIGHT 8-11 (green).
+- **Score floor: 8** for fresh signal writes (the per-segment scans). The aggregator surfaces the full Hot/Warm/Cool heat pool; open-deal Hot accounts with score <8 are still included (they sort to the bottom of the score-ranked list).
+- **Score bands** (for the xlsx legend + score reference, NOT the DM layout): Highest 27+ (red), Strong 18-26 (orange), Worth Reviewing 12-17 (yellow), LIGHT 8-11 (green). The rep DM body is a single flat numbered list ranked by score (Stage 4), not a per-band cascade.
 - **Hard cap: 50 accounts per rep DM.** Target range 25-50/rep.
 - **Heat enum is Title Case** (`Hot` / `Warm` / `Cool` / `Cold`).
-- **Rep DMs are built from the CURRENT heat pool, not just today's writes (2026-06-04).** With the 180-day detection window the signal pool is continuously rich; surface every account whose `signal_heat` is Hot/Warm/Cool in the rep's territory, ranked Hot -> Warm -> Cool then by `last_signal_score` desc, capped at 50. "Written today" is now only a NEW annotation within that pool, not the DM population.
+- **Rep DMs are built from the CURRENT heat pool, not just today's writes (2026-06-04).** With the 180-day detection window the signal pool is continuously rich; surface every account whose `signal_heat` is Hot/Warm/Cool in the rep's territory, **selected** Hot -> Warm -> Cool then by `last_signal_score` desc, capped at 50, then **displayed** as a flat numbered list ranked by `last_signal_score` desc (Stage 4). The DM population is the heat pool, not "today's writes". The ⭐ marker = accounts NEW vs last week (the Stage 2 `NEW` tag), NOT "written today".
 - **Carryover News fill-down is RETIRED (2026-06-04).** It was a workaround for the thin 14-day-window pool. The Hot/Warm/Cool pool over the 180-day window now fills the rep lists directly. If a territory's pool is still under 25, that is the true count - do not pad it.
 
 ## Apollo budget
@@ -37,7 +37,7 @@ Your job: read all of today's HubSpot signal writes, build the 3 territory-conso
    - **If 3+ are missing: ABORT the run, DM Cooper.** That's likely a Cowork platform issue and rep DMs would be substantially incomplete.
 
 3. **Read the prior Monday's aggregator artifacts** at `weekly-reports/[YYYY-MM-DD minus 7 days]/`:
-   - 3 rep xlsx files (Tim Lieto, Ken, Tim Z — naming `weekly-signal-scan-[rep-last-name]-[YYYY-MM-DD].xlsx` or equivalent)
+   - 5 rep xlsx files (Tim Lieto, Ken, Tory, Markus, Tim Z — naming `weekly-signal-scan-[rep-last-name]-[YYYY-MM-DD].xlsx` or equivalent)
    - Cooper run report at `signal-scan/cooper-run-report.md`
 
    If absent (first run after rollout, or prior-week files not generated): tag everything in this run as `NEW`. Log the absence in Cooper's run report.
@@ -78,7 +78,7 @@ Do NOT use `last_signal_date = today` — `last_signal_date` is the EVENT date (
 Mark these records `NEW` within the heat pool; everything else is `CARRIED`.
 
 Properties to fetch per record:
-- `name`, `domain`, `customer_segment`, `company_sub_segment`, `account_tier`, `hubspot_owner_id`, `state`, `country`
+- `name`, `domain`, `customer_segment`, `company_sub_segment`, `account_tier`, `hubspot_owner_id`, `territory_region`, `state`, `country`
 - `recent_news_or_trigger_event` (the narrative), `last_signal_date`, `last_signal_score`, `signal_count_last_30d`, `signal_heat`
 - `account_brief` (for the rep xlsx Account Brief column)
 - `infrastructure_profile`, `provisioning_landscape` (for context in rep DMs when needed)
@@ -89,102 +89,93 @@ This is the authoritative population for today's rep DMs. Any record that made i
 
 ---
 
-## Stage 2 — NEW / CARRIED / LIGHT / CARRYOVER tagging
+## Stage 2 — NEW / CARRIED / LIGHT tagging
 
-For each record in the Stage 1 population, assign one of these tags:
+For each record in the Stage 1 population, assign:
 
-- **NEW** — record was NOT in any of last Monday's 3 rep xlsx files. First time surfacing.
-- **CARRIED** — record WAS in last Monday's rep xlsx for the matching rep. Surfaces again this week with a fresh / updated signal.
-- **LIGHT** — record's `last_signal_score` is 8-11 (LIGHT cascade tier). Tagging is independent of NEW vs CARRIED.
-- **CARRYOVER** — special — used only at Stage 3 fill-down when natural Primary + LIGHT pool < 25/rep. Carryover candidates are accounts NOT in this run's Stage 1 population but with prior-week `recent_news_or_trigger_event` ≤30 days old AND no rep activity ≤14 days. Pulled in to fill the rep DM to the 25 floor.
+- **NEW** — record was NOT in any of last Monday's 5 rep xlsx files. First time surfacing this week. **This is what the ⭐ marks in the rep DM** — the week-over-week "new signal" marker.
+- **CARRIED** — record WAS in last Monday's rep xlsx for the matching rep. No star.
+- **LIGHT** — `last_signal_score` is 8-11. An xlsx-only sub-tag (independent of NEW vs CARRIED); the DM does not separately label LIGHT since the score is shown inline.
 
-If prior-week xlsx absent: tag everything `NEW (no prior file)`.
+If prior-week xlsx absent: tag everything `NEW (no prior file)` (every line gets a ⭐).
+
+(CARRYOVER is retired — see Stage 3.)
 
 ---
 
-## Stage 3 — Territory split + 40-cap per rep + fill-down
+## Stage 3 — Territory split + 50-cap per rep
 
-Bucket the Stage 1 population by `hubspot_owner_id`:
+Bucket the Stage 1 population by **`territory_region`** (the live HubSpot company property, populated on all active companies by the 5-region territory migration that went live 2026-06-17). Each region routes to its owner's DM. This replaces the old bucket-by-`hubspot_owner_id` / re-derive-from-state logic — `territory_region` is now the canonical routing key. (Owners are assigned go-forward to match region by the "Territory Assignment (Go-Forward)" keeper workflow, so owner and region agree; key off region.)
 
-| Owner ID | Rep | Territory | Slack DM target |
+| `territory_region` | Region owner | Owner ID | Slack DM target |
 |---|---|---|---|
-| `161889085` | Tim Lieto | East (30 states) | `U0A973L1HFF` (LIVE direct per Phase 0 partial lift 2026-05-04) |
-| `162339176` | Ken Cunningham | West (20 states + DC) | `U0AE1PGCB6C` (LIVE direct) |
-| `159350430` | Timothy Ziemer | International | `U0A24D9RJLS` (still routed to Cooper, validating) |
+| `Northeast` | Tim Lieto | `161889085` | `U0A973L1HFF` (direct) |
+| `West` | Tim Lieto (interim) | `161889085` | `U0A973L1HFF` (direct) |
+| `Southeast` | Ken Cunningham | `162339176` | `U0AE1PGCB6C` (direct) |
+| `Central` | Tory Teague | `165480917` | `U0B7MU3P3QD` (direct) |
+| `Europe` | Markus Hendrich | `164949459` | `U0B6B4U8QKD` (direct) |
+| `International` | Timothy Ziemer | `159350430` | `U0A24D9RJLS` (still routed to Cooper, validating) |
+| `Tier 1 Service Provider` | Timothy Ziemer (interim) | `159350430` | `U0A24D9RJLS` (Cooper) |
+| `Unassigned` | Cooper Kennedy | `160267902` | `U0A24D9RJLS` (Cooper) |
 
-Other owners → surface in Cooper's run report under "Unrouted accounts (non-rep-owned)". Don't include in rep DMs.
+This yields **5 rep DMs**: Tim Lieto (Northeast + West accounts consolidated into one DM), Ken Cunningham (Southeast), Tory Teague (Central), Markus Hendrich (Europe), and the Ziemer/Cooper DM (International + Tier 1 Service Provider + Unassigned). Tim Lieto's two regions collapse into his single DM; the Ziemer/Cooper DM still routes to Cooper under Phase 0 validation.
 
-### Per-rep ranking + capping (apply per bucket)
+Records with a blank or unrecognized `territory_region` → surface in Cooper's run report under "Unrouted accounts (no territory_region)". Don't include in rep DMs.
 
-1. **Rank by `last_signal_score` descending.**
-2. **Cap at 50 accounts.** Hard cap; overflow goes to silent nurture (mention in Cooper run report under "Below cap"; do NOT surface in rep DM).
-3. **Three-tier fill-down to ensure 25-50 range:**
-   - **Primary** (score ≥12): always include up to cap. If natural Primary ≥50, you're done — drop the rest.
-   - **LIGHT** (score 8-11): include if Primary pool <25. Fill from LIGHT until you hit 25 OR exhaust LIGHT pool.
-   - **Carryover News fill-down**: ONLY if Primary + LIGHT pool < 25 after both passes. Pull from prior-week's records (per-territory) where `recent_news_or_trigger_event` ≤30 days old AND no rep activity ≤14 days. Tag these `CARRYOVER`. Stop when total = 25 OR Carryover pool exhausted.
+### Per-rep selection + capping (apply per bucket)
 
-4. **Sort final list by score descending** for the cascade body.
+1. **Select the 50 by heat first:** rank `Hot` → `Warm` → `Cool`, then by `last_signal_score` desc within each heat band, then `last_signal_date` desc. This guarantees the rep's highest-intent accounts (incl. open-deal Hot accounts that may carry a low/zero score) are always included.
+2. **Cap at 50.** Hard cap; overflow goes to silent nurture (note in Cooper run report under "Below cap"; do NOT surface in the rep DM).
+3. **No 25-floor padding.** If a territory's pool is under 25, that is the true count — do not pad. (The old Primary / LIGHT / Carryover fill-down is RETIRED; the 180-day heat pool fills the lists directly.)
+4. **Then DISPLAY the capped set as a flat numbered list ranked by `last_signal_score` descending** (Stage 4). Selection is heat-first (keeps open-deal Hot accounts); display is score-first (highest-scoring news at the top), so score-0/null Hot accounts sit at the bottom of the displayed list.
 
 ---
 
-## Stage 4 — Rep DM cascade dispatch
+## Stage 4 — Rep DM dispatch (flat numbered list)
 
-For each of the 3 rep buckets, build one Slack DM with this structure:
+**Format (updated 2026-06-15 per Cooper).** The rep DM body is a SINGLE FLAT NUMBERED LIST ranked by `last_signal_score` descending — NOT a per-band cascade. The old band-grouped cascade, the "THIS WEEK'S TOP 5" block, the "NEW ACCOUNTS THIS WEEK" block, and the threaded full-list table are all **RETIRED**. The DM is just a short header + the list. The per-rep xlsx (Stage 4b) remains the full-detail artifact. Goal: one scannable list a rep can read top-to-bottom.
 
-### DM Body Template
+### DM body template
 
 ```
-Weekly Signal Scan - [Rep First Name] - Week of [YYYY-MM-DD]
+Weekly Signal Scan — [Rep First Name] — Week of [YYYY-MM-DD]
+Heat: 🔥 Hot N / 🌤️ Warm N / ❄️ Cool N  ·  N accounts (cap 50)  ·  ⭐ = new since last week
 
-Heat distribution: [H] Hot N / [W] Warm N / [C] Cool N / [K] Cold N
-Total: N accounts in this run (cap 50).
-
-CASCADE BY SCORE
-
-🔴 Highest Priority (score 27+)  -  N accounts
-  - [Account Name] ([Segment] / [Sub-segment]) - [Signal type one-liner] - score [N] - heat [emoji + Title Case]
-  - ... (top of cascade; expect 0-10 accounts at this tier)
-
-🟠 Strong Signals (score 18-26)  -  N accounts
-  - ...
-
-🟡 Worth Reviewing (score 12-17)  -  N accounts
-  - ...
-
-🟢 LIGHT Signals (score 8-11)  -  N accounts
-  - ...
-
-🔵 Carryover News (filled to floor of 25; fired only when natural pool was thin)  -  N accounts
-  - [Account Name] ([Segment]) - [stale signal narrative] - score [N] - [days since last rep activity]d quiet
-
-THIS WEEK'S TOP 5 (regardless of segment, ranked by score):
-1. [Account Name] - [signal one-liner] - score [N] - [Why this matters in one phrase]
-2. ...
-
-NEW ACCOUNTS THIS WEEK (signal-surfaced + auto-enriched):
-- [Account Name] ([Segment]) - [signal that triggered + who their target persona is]
-- ... (if any; many weeks will have zero)
-
-Full table threaded below ⤵
+1. [⭐ ][Account Name] · [score][heat emoji] · [recent news in one sentence]
+2. [⭐ ][Account Name] · [score][heat emoji] · [recent news in one sentence]
+3. ...
+N. ...
 ```
 
-### Threaded full-list markdown table (posted as a reply to the DM)
+**Line rules:**
+- **Rank by `last_signal_score` descending.** Ties broken by `last_signal_date` (more recent first). Records with no score (open-deal / sustained-intent Hot accounts) sort to the bottom and show `—` for score.
+- **⭐ prefix ONLY on accounts that are NEW vs last week** — i.e. NOT in last Monday's rep list (the Stage 2 `NEW` tag). No star on `CARRIED` accounts. This is the week-over-week "new signal" marker. (Do NOT base the star on "written today" — base it on week-over-week presence.)
+- **Score** = the integer `last_signal_score`. **Heat emoji** = 🔥 Hot / 🌤️ Warm / ❄️ Cool.
+- **Recent news = ONE sentence** distilled from `recent_news_or_trigger_event`. Strip any legacy `[CODE]` or `[YYYY-MM-DD]` prefix; clip to ~80 chars at a word boundary so each line stays to ~1 line. If a Hot account has no scoreable news this window, use its stored news if present, else `Open deal / sustained intent — no fresh news this window`.
+- **Body line carries ONLY:** number, ⭐ (if new), account name, score, heat emoji, one-sentence news. NO segment / sub-segment / tier / state / owner / links in the body — those live in the xlsx. Keep it clean.
 
-Columns: Rank | Account Name | Segment | Sub-Segment | Tier | Owner | Heat | Score | Signal Type | Signal Body (3-5 sentences) | Detection Date | Account Brief | State | LinkedIn | HubSpot URL | Suggested Angle | NEW/CARRIED/LIGHT/CARRYOVER tag.
-
-### Excel attachment
-
-Write `weekly-reports/[today CT YYYY-MM-DD]/weekly-signal-scan-[rep-last-name]-[YYYY-MM-DD].xlsx` per rep. One tab per segment (max 6 tabs: Colo / Fiber / NeoCloud / Network Op / MSP / Enterprise). Segments with zero hits get no tab.
-
-Columns per tab match the threaded markdown table above. Include a **Legend tab** with the 4-band score color coding (red ≥27 / orange 18-26 / yellow 12-17 / green 8-11) and Heat enum reference.
+### Slack length handling (pagination)
+A 50-line list exceeds Slack's ~5,000-char-per-message limit, so split the list across the fewest messages needed:
+- First message = header + as many numbered lines as fit under ~4,500 chars.
+- Remaining lines continue as threaded replies to that first message (`thread_ts`), each ≤4,500 chars, each headed `*… (cont.)*`. Split ONLY at line boundaries — never split a line. Continue the numbering (do not restart at 1).
+- This is still "just the list" — no separate cascade, Top 5, or detail table.
 
 ### Slack dispatch
+Send the DM (and any continuation replies) via `slack_send_message` to the rep's user ID:
 
-Send each rep DM via `slack_send_message` to the corresponding user ID above. Then post the threaded full-list table as a reply (via `slack_send_message` with thread_ts).
+| Region(s) | Rep | Slack target |
+|---|---|---|
+| Northeast + West | Tim Lieto | `U0A973L1HFF` (direct) |
+| Southeast | Ken Cunningham | `U0AE1PGCB6C` (direct) |
+| Central | Tory Teague | `U0B7MU3P3QD` (direct) |
+| Europe | Markus Hendrich | `U0B6B4U8QKD` (direct) |
+| International + Tier 1 Service Provider | Timothy Ziemer | `U0A24D9RJLS` (Cooper — Phase 0) |
 
-**Tim Z DM** still routes to Cooper (`U0A24D9RJLS`) per Phase 0 partial lift. Append a one-line annotation: `(Tim Z cascade - validate before forwarding to Tim Z.)`
+**Tim Z still routes to Cooper.** Prepend `_(Tim Z list — validate before forwarding to Tim Z.)_` to the Ziemer/Cooper first message. Tory and Markus are LIVE direct (same as Lieto and Ken).
 
-**Tim Z xlsx writes to disk as if it were Tim Z's own** — naming `weekly-signal-scan-ziemer-[YYYY-MM-DD].xlsx`. Cooper attaches manually after validation.
+### Stage 4b — Excel attachment (retained; the full-detail artifact)
+
+Write `weekly-reports/[today CT YYYY-MM-DD]/weekly-signal-scan-[rep-last-name]-[YYYY-MM-DD].xlsx` per rep. One tab per segment (max 6 tabs: Colo / Fiber / NeoCloud / Network Op / MSP / Enterprise). Segments with zero hits get no tab. Columns per tab: Rank | Account Name | Segment | Sub-Segment | Tier | Heat | Score | Signal Type | Signal Body (3-5 sentences) | Detection Date | Account Brief | State | LinkedIn | HubSpot URL | Suggested Angle | Tag (NEW / CARRIED / LIGHT). Include a **Legend tab** with the score-band color coding (red ≥27 / orange 18-26 / yellow 12-17 / green 8-11) + Heat enum reference. Tim Z's xlsx writes as `weekly-signal-scan-ziemer-[YYYY-MM-DD].xlsx`; Cooper attaches after validation.
 
 ---
 
@@ -199,7 +190,7 @@ Row format (canvas table convention):
 ```
 
 **Status emoji:**
-- ✅ `:white_check_mark:` — all 6 segments wrote successfully, all 3 rep DMs dispatched, ≥ canvas-defined coverage floor
+- ✅ `:white_check_mark:` — all 6 segments wrote successfully, all 5 rep DMs dispatched, ≥ canvas-defined coverage floor
 - ⚠️ `:warning:` — 1-2 per-segment scans missing audit / Slack DM degraded / coverage below floor
 - 🔴 `:red_circle:` — 3+ per-segment audits missing OR HubSpot population query returned 0 records (likely platform issue)
 
@@ -209,7 +200,7 @@ Row format (canvas table convention):
 ```
 
 **Artifact links:**
-- 3 rep xlsx paths (`weekly-reports/YYYY-MM-DD/weekly-signal-scan-lieto-YYYY-MM-DD.xlsx`, `-cunningham-`, `-ziemer-`)
+- 5 rep xlsx paths (`weekly-reports/YYYY-MM-DD/weekly-signal-scan-lieto-YYYY-MM-DD.xlsx`, `-cunningham-`, `-teague-`, `-hendrich-`, `-ziemer-`)
 - Cooper run report path (Stage 6)
 
 Use `slack_update_canvas` to append. Do NOT replace prior rows. Do NOT invent new status emojis (use only the ones defined in the canvas header).
@@ -241,7 +232,7 @@ Content:
 
 3. **Cross-ICP heat distribution rollup** — total Hot, Warm, Cool, Cold counts across all 6 segments today, plus delta vs. prior Monday.
 
-4. **Rep DM dispatch table** — one row per rep with: rep name, owner ID, Slack target, account count surfaced, NEW count, CARRIED count, LIGHT count, CARRYOVER count, top-account name + score.
+4. **Rep DM dispatch table** — one row per rep with: rep name, owner ID, Slack target, account count surfaced, NEW (⭐) count, CARRIED count, LIGHT count, top-account name + score.
 
 5. **Source Coverage delta vs. prior Monday** — sources that flipped ✓→✗ or ✗→✓ this week. Surface 3-week ✗ streaks under "Sources Needing Development" with the date the streak started.
 

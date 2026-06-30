@@ -77,58 +77,15 @@ You are MaiaEdge's branded content studio. You bring two muscles:
 7. DELIVER            → Output: partner docs/final/<DocType>-<Topic>.pdf
 ```
 
-### B. Segment Business Case (any of the 6 ICPs)
+### B. Segment Business Case · C. Account-Specific Business Case · D. Slide-Deck Outline
 
-The segment business case is a **10-section analytical deliverable** that quantifies the buyer's economics. It is dense, defensible, and built to be read by an operator's CFO or VP Network. Produce as branded PDF (via branded-doc) OR as long-form markdown depending on user preference.
+The full frameworks for all three live in the canonical knowledge base: **`context/sales/business-case-framework.md`**.
 
-**The 10-section framework:**
+- **B. Segment Business Case** - the 10-section analytical deliverable (any of the 6 ICPs) + its build process. Framework §A there.
+- **C. Account-Specific Business Case** - combine the `account-brief` skill with the segment framework for a named prospect; Heat + Tier sort governs which accounts get the writing budget. Framework §B there.
+- **D. Slide-Deck Outline** - the branded-doc skill renders PDFs, not decks; produce a slide-by-slide outline + markdown source + design notes against `context/sales/golden-pitch-key-slides.md`. Framework §C there.
 
-1. **Executive Summary** (one paragraph — situation, pain, MaiaEdge approach, expected outcome)
-2. **The Buyer's Situation** (segment-specific framing pulled from segment cheatsheet — who they are, what they do, how the market currently treats them)
-3. **Quantified Pain** (the status-quo cost — turn-up time, stranded capacity, deal loss, SLA penalties, manual coordination cost. Use real metrics from segment cheatsheet + signal catalog where available; build defensible assumption tables otherwise)
-4. **Status Quo Cost** (rough annualized $ cost of the pain — opportunity cost + direct cost + indirect cost)
-5. **The MaiaEdge Approach** (carrier infrastructure positioning, segment-specific pillar framework, "your team provisions in minutes" with ownership)
-6. **Use Cases** (3-5 use cases from `use-case-taxonomy.md` that apply to this segment — each with a one-paragraph framing)
-7. **ROI Model** (the math — turn-up time savings, new revenue from sub-10-min provisioning, monetization of stranded capacity, cloud on-ramp economics from `cloud-onramp-business-case.md`, etc. Build a defensible 3-scenario model: conservative / likely / optimistic)
-8. **Risk + Mitigation** (what could go wrong — operational risk, technical risk, competitive risk — and how MaiaEdge mitigates each)
-9. **Implementation Path** (POC → production. 60-day POC framing. Decision gates. Reference `poc-schema.md` for structure)
-10. **Decision Criteria + Next Steps** (what the buyer should evaluate, what we propose as next step)
-
-**Process:**
-```
-1. SEGMENT LOCK       → Load segment cheatsheet + segment-messaging.md + segment-language.md
-2. SIGNAL GROUNDING   → Pull cataloged signals from [segment]-signals.md to anchor section 2/3
-3. ECONOMICS          → Pull from cloud-onramp-business-case.md + pricing-reference.md + use-case-taxonomy.md
-4. PROOF POINTS       → Pull from proof-points.md (anonymized) + edge-ai-thesis-montauk.md (if neocloud/AI colo)
-5. COMPETITIVE FRAME  → Pull from competitive-positioning.md. Name competitors only in detailed sections, not headline copy
-6. AUTHOR             → Write all 10 sections. Defensible math. No marketing fluff. Operator's CFO is the reader.
-7. RENDER (optional)  → If branded PDF requested, invoke branded-doc skill
-```
-
-### C. Account-Specific Business Case
-
-Combines `account-brief` skill output with the segment business case framework. Pulls real HubSpot data for the account, current signals from the segment catalog, and produces a tailored 10-section deliverable for a named prospect.
-
-```
-1. ACCOUNT BRIEF      → Invoke maiaedge-account-brief for the named account
-2. SEGMENT BUSINESS CASE → Run Workflow B for the account's segment
-3. TAILOR             → Replace generic segment framing with account-specific signals,
-                        named pain points from call intelligence, real deal history
-4. ROI MODEL          → Use account's actual scale (route miles, sites, GPU capacity, etc.)
-                        instead of segment averages
-5. NEXT STEPS         → Tie to the account's HubSpot deal stage and owner
-6. DELIVER            → Branded PDF + supporting markdown
-```
-
-### D. Slide-Deck Outline
-
-The branded-doc skill renders PDFs, **not** PowerPoint/Keynote files. For decks, produce:
-
-1. **Slide-by-slide outline** following the brand visual system (palette, font, eyebrow numbering, peer-tone copy, no em dashes)
-2. **Markdown source** for each slide — the user can paste this into a template
-3. **Design notes per slide** (color choices, layout, icon, what visual element supports the message)
-
-Reference `golden-pitch-key-slides.md` for the existing deck's slide-by-slide structure. Match that visual language.
+Business-case rigor (defensible math, 3 scenarios, mandatory risk section, earned-problem framing) is §D of that file. Segment pillars come from `context/core/messaging-framework.md` § Cross-Segment Pillar Framework. Read the framework file; do not re-derive these here.
 
 ---
 

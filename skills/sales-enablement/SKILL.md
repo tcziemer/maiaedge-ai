@@ -9,11 +9,25 @@ This skill ensures consistent, on-brand sales enablement content for MaiaEdge.
 
 ## Reference Files
 
-- **segment-language.md**  -  Insider vocabulary and conversational patterns per segment. Read before creating any segment-specific collateral to use their language, not ours.
-- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md)
-- **competitive-positioning.md**  -  Battle cards and positioning vs competitors
-- **messaging-framework.md**  -  Core messaging pillars and segment positioning
-- **proof-points.md**  -  Named customer references (for internal enablement only, anonymize for cold outreach)
+- **`context/copy-strategy/segment-language.md`** - Insider vocabulary and conversational patterns per segment. Read before creating any segment-specific collateral to use their language, not ours.
+- **Segment cheatsheets** (`context/segments/colocation.md`, `context/segments/fiber-operator.md`, `context/segments/neocloud.md`, `context/segments/network-operator.md`, `context/segments/msp-aggregator.md`, `context/segments/enterprise.md`, `context/segments/enterprise-use-cases.md`)
+- **`context/core/competitive-positioning.md`** - Battle cards and positioning vs competitors
+- **`context/core/messaging-framework.md`** - Core messaging pillars and segment positioning
+- **`context/product/proof-points.md`** - Named customer references (for internal enablement only, anonymize for cold outreach)
+- **`context/core/icp-playbook.md`** - Full ICP definitions, buyer personas, and qualification criteria. Ground battle cards and discovery guides in these personas and gates rather than re-deriving them.
+- **`context/product/economic-impact-acg-whitepaper.md`** - ACG Research economic impact study; use for ROI and cost-justification sections in battle cards and business cases.
+- **`context/product/cloud-onramp-business-case.md`** - Cloud on-ramp cost and performance models; reference for cloud connectivity angles in discovery guides and one-pagers.
+- **`context/partner-assets/product-quick-reference.md`** - Concise product specs and capability summary; use for quick-reference sections and technical one-pagers.
+- **`context/partner-assets/maiaedge-101.md`** - Partner-facing 30-second pitch and full product narrative; use for positioning language in new collateral.
+- **`context/partner-assets/cheatsheet-colocation.md`** - Colocation segment objection handling and persona matrix.
+- **`context/partner-assets/cheatsheet-neocloud.md`** - NeoCloud segment objection handling and persona matrix.
+- **`context/partner-assets/cheatsheet-enterprise.md`** - Enterprise segment objection handling and persona matrix.
+- **`context/partner-assets/cheatsheet-fiber-operator.md`** - Fiber operator segment objection handling and persona matrix. (MEDIUM)
+- **`context/partner-assets/cheatsheet-network-operator.md`** - Network operator segment objection handling and persona matrix. (MEDIUM)
+- **`context/partner-assets/cheatsheet-msp-aggregator.md`** - MSP/Aggregator segment objection handling and persona matrix. (MEDIUM)
+- **`context/partner-assets/use-case-gpu-cluster-connectivity.md`** - GPU cluster connectivity use case; reference for NeoCloud and AI Colo collateral. (MEDIUM)
+- **`context/copy-strategy/outbound-playbook.md`** - Outbound sequence structure and angle-selection logic. (MEDIUM)
+- **`context/outreach/voice-gold-standard.md`** - Voice and tone standards; apply to any outreach-adjacent collateral. (MEDIUM)
 
 ## Core Positioning
 
@@ -56,7 +70,7 @@ Pillars are segment-specific. Always frame value around the correct set for the 
 
 ## Customer Segments
 
-For segment-specific messaging, personas, and pain points, see the project knowledge document **icp-playbook.md** available in Claude.
+For segment-specific messaging, personas, and pain points, see **`context/core/icp-playbook.md`**.
 
 | Segment | Profile | Primary Value Prop |
 |---------|---------|-------------------|
@@ -69,7 +83,7 @@ For segment-specific messaging, personas, and pain points, see the project knowl
 
 ## Competitive Positioning
 
-For detailed objection handling and competitor responses, see the project knowledge document **competitive-positioning.md** available in Claude.
+For detailed objection handling and competitor responses, see **`context/core/competitive-positioning.md`**.
 
 **What MaiaEdge is NOT:**
 - NOT NaaS (Megaport/Equinix) – They own customers; MaiaEdge enables YOU to own customers
@@ -82,7 +96,7 @@ For detailed objection handling and competitor responses, see the project knowle
 ## Document Creation Workflows
 
 ### Battle Cards
-1. Lead with segment-specific pain points (see icp-playbook.md)
+1. Lead with segment-specific pain points (see `context/core/icp-playbook.md`)
 2. Frame MaiaEdge value using the segment-specific pillars (see segment pillar table above)
 3. Include persona-specific talk tracks
 4. Add competitive objection responses

@@ -1,0 +1,71 @@
+{
+  "_comment": "Example outbound one-pager content (Nscale). Copy this file per account, fill every slot from research, run qa.py, then render.py. Keep within the word caps in content-schema.md. Section headers STATE the point; they never announce the move.",
+  "account_eyebrow": "FOR NSCALE",
+  "title_line1": "Owning the",
+  "title_accent": "Path.",
+  "masthead_sub": "The connectivity layer between your sites, and why it becomes part of the product as the platform goes global.",
+  "hook": {
+    "headline": "The one layer still rented",
+    "body": "You have pulled much of the AI stack under one roof, across power, sites, compute, and platform. One layer still sits outside it. Owned paths behave like part of the system while rented paths behave like weather, and the difference shows up where it costs the most, across customer experience and regulated deals."
+  },
+  "whynow": {
+    "headline": "Three motions converging on one layer",
+    "body": "As the platform widens past the anchor tenants, the customers that matter most ask for a private way in, and as the sovereign claim gets audited under EU rules, the story is only as strong as the path beneath it. As compute distributes into partner and telco sites, that path is the one part of the product still left to whoever's network it crosses."
+  },
+  "stats": [
+    {
+      "num": "Minutes",
+      "label": "new sites and customers on private paths, not a multi-week project"
+    },
+    {
+      "num": "60-90 days",
+      "label": "the old way to stand up cross-region connectivity"
+    },
+    {
+      "num": "Zero",
+      "label": "routing protocols for your team to run"
+    }
+  ],
+  "plays_headline": "What owning the path unlocks",
+  "plays": [
+    {
+      "play": "Sovereignty that survives the audit",
+      "looks": "The path between clusters and out to the customer stays owned and provable hop by hop, so in-country delivery holds up when a security review digs in.",
+      "pays": "A premium, audit-ready tier you can price into the package, recurring margin that a compute price war cannot erase."
+    },
+    {
+      "play": "A private on-ramp customers turn on",
+      "looks": "A private, branded on-ramp your customers switch on like any other Nscale feature, in-region and deterministic, the same in every market you open.",
+      "pays": "You already sell the compute; the path ships in the same package, so owning it captures the connectivity margin on every deal instead of handing it to a carrier."
+    },
+    {
+      "play": "One operating model across the grid",
+      "looks": "Partner and telco sites join one fabric once and keep their own network and brand, so each new region is a config push instead of a bespoke integration.",
+      "pays": "Each new region adds connectivity margin on compute you already sell there, against a fabric you own, so the footprint compounds revenue."
+    }
+  ],
+  "product": {
+    "headline": "What MaiaEdge is",
+    "body": "One device at each site or point of presence, plus cloud orchestration that brings private, deterministic paths up in minutes across any network, with hop-by-hop visibility end to end."
+  },
+  "pillars": [
+    {
+      "name": "DETERMINISTIC",
+      "desc": "Predictable latency between sites, with hop-by-hop visibility into every path."
+    },
+    {
+      "name": "PRIVATE",
+      "desc": "Data stays on paths you control, every path encrypted end to end, provably private."
+    },
+    {
+      "name": "INSTANT",
+      "desc": "New sites and new customers on private paths in minutes, not a multi-week project."
+    }
+  ],
+  "cta": {
+    "lead": "Worth a closer look?",
+    "body": "Fifteen minutes walks the whole thing end to end, where it sits against the estate you have already built and which motion it unlocks first."
+  },
+  "footer_left": "MAIAEDGE  ·  PREPARED FOR NSCALE",
+  "out_pdf": "example-Nscale.pdf"
+}

@@ -7,17 +7,62 @@ description: "End-to-end MaiaEdge SDR pipeline. Takes a list of companies + cont
 
 Turn a list of companies + contacts into verified, personalized, send-ready outreach with a Smartlead XLSX and review file.
 
-## Hard Gate Before Writing (Step 7d Below)
+## Hard Gate Before Writing
 
-Before writing any email body for a contact, emit a complete **Research Receipt** for that contact. The Receipt requires literal search query strings actually run, paired with results: minimum 3 if claiming a cataloged signal, minimum 5 if claiming NONE. Contact-level finding required on every Receipt.
-
-At batch scale, the Receipt populates Sheet 3 of the review XLSX. A row with `Signal Code = NONE`, fewer than 5 entries in Searches Run, and a thin Contact Finding is the audit signature of research-skipping. If you cannot fill the Sheet 3 Receipt columns truthfully, do not include the contact in the Smartlead output.
+Before writing any email body for a contact, emit a complete **Research Receipt** (full format and rules in Step 7d). No Receipt = do not write the email. At batch scale the Receipt populates Sheet 3 of the review XLSX; if you cannot fill the Sheet 3 Receipt columns truthfully, do not include the contact in the Smartlead output.
 
 ## What This Skill Does
 
-This is the complete pipeline. User gives you companies and contacts. You produce emails that sound like a smart industry peer wrote them after spending real time learning about the business. These go to C-level and VP-level executives at infrastructure companies. Every claim must be verifiable. Every email must be unique to that person.
+This is the complete pipeline. User gives you companies and contacts. You produce emails that sound like a smart industry peer wrote them after spending real time learning about the business. These go to C-level and VP-level executives at infrastructure companies. Every claim must be verifiable. Every email must be unique to that person. If the claim is not verifiable you must hedge or lead with curiousity - never confidently make a claim of something that is not verifiable.
 
 **Stack:** HubSpot (CRM) → Apollo (contact enrichment) → This pipeline (research + writing) → Smartlead (sending)
+
+## Before Starting: Two Quick Questions
+
+Ask these before running any pipeline steps. If the user already answered them in the prompt, skip ahead.
+
+1. Who is sending this batch? (Tim Lieto, Ken Cunningham, Tory Teague, Markus Hendrich, or a founder?) Drives voice, territory, and signature protocol.
+2. What companies and titles are in the batch? Share the list and the pipeline starts immediately - segment and European-compliance checks run from the list itself.
+
+## Reference Files
+
+Read before executing. The pipeline steps call out specific files inline; this list is the complete reading set.
+
+| File | Purpose |
+|---|---|
+| `context/outreach/voice-gold-standard.md` | Write-time exemplars and hard-ban shortlist |
+| `context/outreach/email-writing-rules.md` | Email structure, CTAs, banned phrases, Load-Bearing Assumption Gate |
+| `context/outreach/sender-profiles.md` | Full sender pool: voice, territory, signature protocol per sender |
+| `context/outreach/fallback-messaging.md` | Per-segment fallback E1/E2/E3 templates |
+| `context/outreach/persona-targeting-blocklist.md` | Step 0a pre-write gate |
+| `context/outreach/pre-cadence-hygiene.md` | Step 0b list-hygiene filters |
+| `context/copy-strategy/segment-language.md` | Insider vocabulary and conversational patterns per segment |
+| `context/copy-strategy/segment-messaging.md` | Per-segment value-prop matrices and role pain matrix |
+| `context/core/messaging-framework.md` | Segment-specific messaging, pillar framework, tone rules |
+| `context/core/icp-playbook.md` | Per-segment worked examples and persona pain |
+| `context/hubspot/hubspot-values.md` | Exact HubSpot property values for segment/sub-segment |
+| `context/hubspot/territory-model.md` | Authoritative 5-region territory map with owner IDs |
+| `context/hubspot/contact-schema.md` | Contact field set and buying-committee framework |
+| `context/hubspot/property-schema.md` | Company property definitions including signal_heat enum |
+| `context/hubspot/deals-schema.md` | Deal fields for Activity Gate open-deal check |
+| `context/signals/signal-framework.md` | Universal signal types, scoring model, noise list |
+| `context/signals/[segment]-signals.md` | Per-segment cataloged signals with Pattern: fields for Step 4 |
+| `context/signals/outreach-signal-pushback.md` | Final-step signal write procedure and sdr-pipeline batch specifics |
+| `context/product/proof-points.md` | Anonymized cold-outreach proof table (Speed / Sovereignty / Simplicity / Scale) |
+| `context/account-tiering/sub-segment-qualification.md` | 30 active company_sub_segment values |
+| `context/account-tiering/enrichment-protocols.md` | Definitions of account_brief and enriched fields |
+| `context/account-tiering/tier-compute-spec.md` | signal_heat enum and compute rules |
+| `context/sales/email-bot-supplemental.md` | AI Signal Strength table and neocloud/AI-colo angle decision matrix |
+| `context/segments/enterprise.md` | Full Enterprise ICP positioning, personas, lead angles |
+| `context/segments/enterprise-use-cases.md` | Enterprise use-case depth for email angle selection |
+| `context/segments/neocloud.md` | Neocloud ICP positioning and voice rules |
+| `context/segments/colocation.md` | Colo segment cheatsheet |
+| `context/segments/fiber-operator.md` | Fiber segment cheatsheet |
+| `context/segments/network-operator.md` | Network Op segment cheatsheet |
+| `context/segments/msp-aggregator.md` | MSP/Aggregator segment cheatsheet |
+| `context/europe/europe-email-compliance.md` | Step 0c European compliance gate - cold email lawfulness by country |
+
+**Step 0c - European Compliance Gate:** Before processing any contact with a European HQ or a sender routed through Markus Hendrich, check `context/europe/europe-email-compliance.md`. Cold unsolicited email is unlawful without opt-in in DE, AT, and IT. LinkedIn-first is legally required (not stylistic) for those countries. Flag non-compliant contacts to the Cooper-review queue.
 
 ## Input Format
 
@@ -27,30 +72,32 @@ The user will provide some combination of:
 - ICP segment (usually)
 - Contact emails (usually  -  they verify emails before sending)
 - Contact/company LinkedIn URLs (sometimes)
-- Sender preference: Tim Lieto or Ken Cunningham (ask if not specified)
+- Sender preference (ask if not specified - full sender pool in `context/outreach/sender-profiles.md`)
 
 The user will NOT always provide domains, emails, or LinkedIn URLs. Part of your job is to pull those from HubSpot and fill gaps.
 
 ## Before You Start
 
-1. **Confirm sender.** Tim Lieto (AVP, North America Sales, West/Central/National) or Ken Cunningham (Sales, East Region). Ask once for the whole batch unless specified per-contact.
+1. **Confirm sender.** See `context/outreach/sender-profiles.md` for the full sender pool and per-sender voice. Ask once for the whole batch unless specified per-contact.
 
 2. **Check Apollo credits.** Run `apollo_users_api_profile` with `include_credit_usage: true`. Report remaining credits. Each contact enrichment costs credits. Estimate consumption for the batch and confirm before proceeding.
 
 3. **Read messaging references.** Before writing any emails or LinkedIn messages, read these reference files:
-   - `references/segment-language.md`  -  **Read first.** Insider vocabulary, daily reality, conversational patterns per segment. This is how you sound like a peer, not a salesperson.
-   - `references/email-writing-rules.md`  -  Email structure, CTAs, quality checklist, banned phrases (fabric-in-a-box ban, "Federation"-verb ban, brand-voice "We built carrier infrastructure that…" ban), segment lock rule
-   - `references/segment-messaging.md`  -  Per-segment value-prop matrices and embed-by-contrast templates. **Network Operator §5 is split into Tier 1 (Global + National) vs Tier 2/3 Regional Wholesale lead motions.** **Colocation has Standard + AI Signals sub-segment routing.**
-   - `references/fallback-messaging.md`  -  Per-segment fallback E1/E2/E3 templates. Colo Standard / Colo AI Infrastructure / Network Op Tier 1 / Network Op Tier 2/3 / Track B / Fiber blocks all live here.
-   - `references/persona-targeting-blocklist.md`  -  **Pre-write gate (Step 0a below).** Title-by-title block list for the standard SDR cadence.
-   - `references/pre-cadence-hygiene.md`  -  **Pre-write gate (Step 0b below).** Three list-hygiene filters (auto-bounce, OOO, LinkedIn-status).
-   - `references/messaging-framework.md`  -  Segment-specific messaging, tone, writing rules
-   - `references/hubspot-values.md`  -  Exact HubSpot property values for segment/sub-segment
-   - Segment cheatsheets for the relevant segment (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md, enterprise.md)
-   - `references/signal-framework.md`  -  Universal signal types, scoring model, noise list. Required for the new Public Signal Cited rule.
-   - `references/[segment]-signals.md`  -  Per-segment cataloged signals with `Pattern:` fields used as web search queries in the new catalog-grounded research step (Step 4).
-   - `references/sub-segment-qualification.md` (context/core/)  -  Authoritative list of the 30 active `company_sub_segment` values. Use exact case-sensitive HubSpot strings for any sub-segment reference in research notes, voice guides, or written copy.
-   - `references/enrichment-protocols.md` (context/core/)  -  Canonical definitions of `account_brief`, `recent_news_or_trigger_event`, `fabric_provisioning_approach`, and `geographic_focus` - the four enriched fields that ground the per-contact angle in real prospect substance.
+   - `context/outreach/voice-gold-standard.md`  -  **THE write-time page. Hold it open while writing.** Gold exemplars (the Cooper-flagged LinkedIn bar, reply-validated emails, craft-structure E1s) + the 8-item hard-ban shortlist. At write time you work from THIS file + segment-language for the active segment; every other reference below is pipeline (pre-write) or QA (post-write) material. Imitate the register; never reuse exemplar phrasing verbatim.
+   - `context/copy-strategy/segment-language.md`  -  **Read first.** Insider vocabulary, daily reality, conversational patterns per segment. This is how you sound like a peer, not a salesperson.
+   - `context/outreach/email-writing-rules.md`  -  Email structure, CTAs, quality checklist, banned phrases (fabric-in-a-box ban, "Federation"-verb ban, brand-voice "We built carrier infrastructure that…" ban), segment lock rule
+   - `context/copy-strategy/segment-messaging.md`  -  Per-segment value-prop matrices and embed-by-contrast templates. **Network Operator §5 is split into Tier 1 (Global + National) vs Tier 2/3 Regional Wholesale lead motions.** **Colocation has Standard + AI Signals sub-segment routing.**
+   - `context/outreach/fallback-messaging.md`  -  Per-segment fallback E1/E2/E3 templates. Colo Standard / Colo AI Infrastructure / Network Op Tier 1 / Network Op Tier 2/3 / Track B / Fiber blocks all live here.
+   - `context/outreach/persona-targeting-blocklist.md`  -  **Pre-write gate (Step 0a below).** Title-by-title block list for the standard SDR cadence.
+   - `context/outreach/pre-cadence-hygiene.md`  -  **Pre-write gate (Step 0b below).** Three list-hygiene filters (auto-bounce, OOO, LinkedIn-status).
+   - `context/core/messaging-framework.md`  -  Segment-specific messaging, tone, writing rules
+   - `context/hubspot/hubspot-values.md`  -  Exact HubSpot property values for segment/sub-segment
+   - Segment cheatsheets for the relevant segment (`context/segments/colocation.md`, `context/segments/fiber-operator.md`, `context/segments/neocloud.md`, `context/segments/network-operator.md`, `context/segments/msp-aggregator.md`, `context/segments/enterprise.md`)
+   - `context/signals/signal-framework.md`  -  Universal signal types, scoring model, noise list. Required for the new Public Signal Cited rule.
+   - `context/signals/[segment]-signals.md`  -  Per-segment cataloged signals with `Pattern:` fields used as web search queries in the new catalog-grounded research step (Step 4).
+   - `context/sales/email-bot-supplemental.md`  -  AI Signal Strength table + decision matrix for when to branch a contact into AI messaging, plus market-size proof points. Consult for neocloud / AI-signals-colo contacts before choosing the angle.
+   - `context/account-tiering/sub-segment-qualification.md`  -  Authoritative list of the 30 active `company_sub_segment` values. Use exact case-sensitive HubSpot strings for any sub-segment reference in research notes, voice guides, or written copy.
+   - `context/account-tiering/enrichment-protocols.md`  -  Canonical definitions of `account_brief`, `recent_news_or_trigger_event`, `fabric_provisioning_approach`, and `geographic_focus` - the four enriched fields that ground the per-contact angle in real prospect substance.
 
 ## Pre-Pipeline Gates (Mandatory Before Any Per-Contact Step)
 
@@ -58,11 +105,7 @@ The pipeline below assumes the contact list has cleared two pre-cadence gates. I
 
 ### Step 0a - Persona Pre-Check (per `context/outreach/persona-targeting-blocklist.md`)
 
-For every contact in the input list, verify the title is NOT on the blocklist:
-- **Universal blocks:** Account Executive, Account Manager, Customer Success Manager.
-- **Aggregator / NaaS / TSD blocks:** Director - Carrier Wholesale, Wholesale Manager, Director - Sales (Wholesale).
-- **Fiber / ISP blocks:** Director - Field Operations, GM / Regional Operations Manager.
-- **International carrier blocks:** Country Manager / GM - [Country] at carriers with HQ product orgs, Finance Director / Treasurer.
+For every contact, verify the title is NOT on the blocklist. It blocks four buckets: universal (Account Executive / Account Manager / CSM), aggregator-NaaS-TSD (Director-Carrier-Wholesale / Wholesale Manager / Director-Sales-Wholesale), fiber-ISP (Director-Field-Operations / Regional Ops Manager), and international-carrier (Country Manager at HQ-product orgs / Finance Director). Full list, rationale, and the title to email instead are in that file.
 
 Blocked contacts are surfaced in a Cooper-review queue (separate XLSX tab or markdown table), not silently dropped.
 
@@ -161,8 +204,8 @@ Check for active conversations before proceeding. This prevents tone-deaf outrea
 | Field | Threshold | Action |
 |---|---|---|
 | `notes_last_contacted` within 14 days | **STOP** | Flag: "ACTIVE CONVERSATION. Last contacted [date]. Skipping unless overridden." |
-| `notes_last_contacted` 15-30 days | **WARNING** | Flag: "Recent activity [date]. Check with rep before sending." |
-| `notes_last_contacted` 31-60 days | **CAUTION** | Note in summary. Consider referencing prior conversation. |
+| `notes_last_contacted` 15-45 days | **WARNING** | Flag: "Recent activity [date]. Active conversation - flag for rep review before sending." |
+| `notes_last_contacted` 46-60 days | **CAUTION** | Note in summary. Consider referencing prior conversation. |
 | `hs_sequences_is_enrolled` = true | **STOP** | Flag: "CURRENTLY IN HUBSPOT SEQUENCE [name]. Do not add to Smartlead." |
 | `hs_lead_status` = "Connected" or "Open Deal" | **STOP** | Flag: "Lead status is [status]. Active relationship. Skip cold outreach." |
 | `hs_lead_status` = "Attempted to Contact" | **CAUTION** | Prior outreach attempted. Don't repeat same angle. |
@@ -195,11 +238,11 @@ If `account_brief` is empty, that's fine. Step 4 will do full research.
 
 ### Step 4: Web Research  -  Catalog-Grounded Signal Lookup (REQUIRED for Public Signal Cited rule)
 
-**The web search must be grounded in the segment's signals catalog (`references/[segment]-signals.md`), not in generic "[company] news" queries. This enforces the signal taxonomy and prevents the writer from grabbing whatever press release looks shiny.**
+**The web search must be grounded in the segment's signals catalog (`context/signals/[segment]-signals.md`), not in generic "[company] news" queries. This enforces the signal taxonomy and prevents the writer from grabbing whatever press release looks shiny.**
 
 **Lookup sequence (mandatory, in order):**
 
-1. **Open the segment's signals catalog** for the contact's segment (e.g., `references/fiber-signals.md` for a fiber operator). Read the Tier A signals first, then Tier B if no Tier A hits.
+1. **Open the segment's signals catalog** for the contact's segment (e.g., `context/signals/fiber-signals.md` for a fiber operator). Read the Tier A signals first, then Tier B if no Tier A hits.
 
 2. **Run each Tier A signal's `Pattern:` field as a web search query.** Substitute `[company name]` for the company. Examples for fiber:
    - F-A1 pattern: `"BEAD subgrant awarded" + [company name] + route miles`
@@ -227,7 +270,7 @@ If `account_brief` is empty, that's fine. Step 4 will do full research.
 - Verification that the account brief is still accurate
 - Company-specific details that would already show up in the cataloged signal (don't re-research route miles, facility counts, etc. - those are research display, not research-as-fuel)
 - Contact background for role-appropriate framing
-- AI signals for colos (GPU tenants, liquid cooling, AI-ready marketing) - these are cataloged in `colocation-signals.md` Tier A
+- AI signals for colos (GPU tenants, liquid cooling, AI-ready marketing) - these are cataloged in `context/signals/colocation-signals.md` Tier A
 
 Use catalog-pattern searches, not generic "[Company] recent news 2025 2026" queries. Catalog patterns produce structured findings that are signals by construction.
 
@@ -288,6 +331,8 @@ Note: These angle statements are INTERNAL planning tools. The numbers and facts 
 
 **The key rule:** If you can't identify a company-specific angle from the research, the research is insufficient. Go back to Step 4 and dig deeper rather than defaulting to the segment template. Search for recent news, acquisitions, expansions, partnerships, funding rounds, competitive moves. Every company has something specific happening  -  find it.
 
+**Manufacture the why-now in the copy (no contact is routed away for lacking a signal).** When Step 4 returns NONE, the E1 manufactures its own anchor via the craft structure (email-writing-rules.md § Craft Voice): a STRUCTURAL TRUTH of their world (category physics the contact lives with, competence credited), the craft line, and the show-me give ("fifteen minutes and I can show you the whole thing end to end" - live demo is ready and sanctioned). Extend the angle format with the give: `"[Company] is [doing X], which means [problem]. Give: [demo / walkthrough]."` (The account one-pager is NOT a cold-E1 give - it is delivered only after a LinkedIn accept or a reply; once delivered, a later touch may name one claim from it.) Anchor-less, diagnosis-shaped copy does not convert; structural-truth and thesis openers are what produce pure-cold positives.
+
 **Step 7b: Contact-level tailoring (MANDATORY after company angle):**
 
 For EACH contact at this company, answer this question before writing their email: "What facet of this company angle does this specific person own?"
@@ -306,7 +351,7 @@ See email-writing-rules.md "Research Sequence" for the canonical rule. Lazy outr
 gates: (1) it is grounded in what the contact publicly cares about OR is a predictable challenge of
 their stated growth, not an assumed flaw; (2) it is framed forward-state ("as you scale into X…"), never
 as a verdict on how their business runs today; (3) there are no bold, unverifiable claims about their
-current network/provisioning/operations. If the angle fails any gate, return to research — do not write.
+current network/provisioning/operations. If the angle fails any gate, return to research - do not write.
 
 Record the selected angle AND contact-level tailoring in the Research Summaries output (Sheet 3, "Angle Used" column). This drives everything in Step 8.
 
@@ -351,13 +396,15 @@ Searches run (literal query strings - not paraphrased):
 
 Company-level finding: [signal description with source quote + date, OR "NONE - no Tier A or Tier B hits across [N] searches"]
 Contact-level finding: [what THIS specific contact owns / recent role activity / why they care about THIS facet of the problem. REQUIRED on every Receipt, including when company finding is NONE.]
+Load-bearing assumption: [the ONE thing the angle assumes is true about how their business works today] → [VERIFIED via source | UNVERIFIED → reframe forward-state / hedge / cut before writing]
+Anchor in the email: [the ONE company/contact-specific fact from the findings above that the email's problem statement is built on] → Swap test: [why this email would NOT make sense sent to a different company in the same segment]. If you cannot name a non-generic anchor, the email is a template - reframe or mark RESEARCH INCOMPLETE.
 
 Signal code: [F-A1 | NC-A2 | NO-B3 | NON-CATALOG | NONE]
 Posture: [DIRECT | ASKED] - [one-line reason tied to the finding above]
 ```
 
 
-**Refuse-to-write rule:** If you cannot honestly fill all four sections (Searches Run with at least 3 literal queries paired with results, Company-level finding, Contact-level finding, Posture with reason), output `RESEARCH INCOMPLETE: [specific reason]` in place of the email body, mark the contact as skipped with reason `SKIPPED: Research incomplete`, and move on. Do NOT fabricate a Receipt to look compliant.
+**Refuse-to-write rule:** If you cannot honestly fill all required sections (Searches Run with at least 3 literal queries paired with results, Company-level finding, Contact-level finding, Load-bearing assumption, Anchor-in-the-email with its swap test, Posture with reason), output `RESEARCH INCOMPLETE: [specific reason]` in place of the email body, mark the contact as skipped with reason `SKIPPED: Research incomplete`, and move on. Do NOT fabricate a Receipt to look compliant. The Anchor field is the output gate: if the email's problem statement is not built on a named company/contact-specific fact (if it would still read as sent-to-them with a different company name swapped in), it is a segment template and is invalid output even when the searches were run - re-research or reframe, do not ship it. If the load-bearing assumption is UNVERIFIED and asserts how their business works today (for example that they have not already solved the problem), the angle is not ready - reframe forward-state or cut before writing.
 
 **Receipt → XLSX mapping:** The Receipt fields populate Sheet 3 columns directly:
 - `Searches Run (E1)` ← the literal query list (newline-separated)
@@ -373,7 +420,7 @@ A row with `Signal Code = NONE` and a thin `Contact Finding` is the audit signat
 <!-- Canonical source: context/copy-strategy/segment-language.md -->
 **Segment Lock (mandatory before writing):**
 1. Confirm the segment from Step 6.
-2. Read `references/segment-language.md` for that segment's insider vocabulary, daily reality, and conversational patterns.
+2. Read `context/copy-strategy/segment-language.md` for that segment's insider vocabulary, daily reality, and conversational patterns.
 3. Use ONLY that segment's vocabulary. If a term belongs to another segment, it is banned. Using colo terms for a fiber operator, or fiber terms for a neocloud, breaks credibility instantly.
 4. Use their words, not ours: "dark fiber sitting idle" not "underutilized assets," "NNI" not "network interconnection," "pointing fingers" not "operational complexity."
 
@@ -398,18 +445,19 @@ The research disappears into the voice. The recipient reads it and thinks: "This
 **Voice and Tone:**
 
 - Write like a real person having a conversation with a peer.
-- **Connect your reasoning with so / since / but / even though; one bare fragment per body, max.** Don't stack clipped one-thought-per-sentence declaratives — let the clauses flow into one train of thought that arrives at a point. Keep the short, direct spirit; just connect it.
+- **Connect your reasoning with so / since / but / even though; one bare fragment per body, max.** Don't stack clipped one-thought-per-sentence declaratives - let the clauses flow into one train of thought that arrives at a point. Keep the short, direct spirit; just connect it.
 - Confident but not aggressive, direct but not polished. Speak at eye level.
-- Say the thing, don't announce it. Active voice, second person — "your team provisions," not "the team provisions."
+- Say the thing, don't announce it. Active voice, second person - "your team provisions," not "the team provisions."
 - Plain words, kept industry words. Swap the consultant words (productizing → sell / turn up; operating model → way of working; addressable / TAM → the sites you can reach; monetize → new revenue / get paid for, but keep operator-native "monetize idle fiber"; leverage / utilize / enablement / "solution" → plain words). Keep the insider terms they say: NNI, off-net, route miles, lit / dark, meet-me room, cross-connect, attach rate, GPU cluster, deterministic paths.
-- When uncertain, say so honestly. "I'd guess," "I'd imagine," "hard to tell from outside," "tends to," "usually" — used genuinely, capped at 30% of E1s in a batch.
+- When uncertain, say so honestly. "I'd guess," "I'd imagine," "hard to tell from outside," "tends to," "usually" - used genuinely, capped at 30% of E1s in a batch.
 - One core idea per message. Commit fully, no stacking backup points.
 - Research fades into voice. Reader should feel you understand their world, not that you processed them through a system.
 - Vary sentence length. A flowing connected sentence next to a short one lands; three stacked fragments read as ad copy. Some sentences should just sound like someone talking.
-- Never use em dashes. Periods or commas instead.
+- Never use em dashes, colons, or dashes-as-punctuation (spaced hyphen, double hyphen, en dash) in subject or body. Periods or commas instead; hyphenated compounds (cross-connect, on-net) are fine.
+- Never narrate the move ("another angle on this," "one more thought," "quick thought," "worth a thought"). Just say the thing.
 - The test: would a real person actually write this?
 
-Now write. **The angle selected in Step 7 is your primary reference  -  it drives the email.** Read `references/email-writing-rules.md` and `references/messaging-framework.md` for proof points and persona pain mapping that support the angle. Read `references/segment-language.md` for the exact words this person would use to describe their own problem. The segment language guide is how you sound like a peer. The messaging framework provides proof points to support your angle.
+Now write. **The angle selected in Step 7 is your primary reference  -  it drives the email.** Read `context/outreach/email-writing-rules.md` and `context/core/messaging-framework.md` for proof points and persona pain mapping that support the angle. Read `context/copy-strategy/segment-language.md` for the exact words this person would use to describe their own problem. The segment language guide is how you sound like a peer. The messaging framework provides proof points to support your angle.
 
 **Tone:** Defined in the Voice and Tone section above. Every email must pass that standard. If it reads like a sequence tool, a marketing email, or a salesperson who researched a company, rewrite it.
 
@@ -424,7 +472,8 @@ Across the 3-email sequence to one contact, rotate posture so the recipient does
 The same contact getting three declarative pain statements reads as one writer pushing one angle three times. The same contact getting declarative-asked-detached reads as one writer thinking out loud across a window of time.
 
 **Email 1 (Initial) -- HARD CAPS:**
-- **70-85 words.** Count before finalizing. Applies across every segment; overrides segment soft floors.
+- **85-110 words.** Count before finalizing. Applies across every segment; overrides segment soft floors. Shorter wins ties; never pad.
+- **Default shape: the craft structure** (canonical: email-writing-rules.md § Craft Voice; exemplars: voice-gold-standard.md): structural truth → craft line ("that handoff leg is the layer I work on" + ONE concrete mechanic) → ONE close (give-close with the demo offer fused into a single ask, OR soft call-ask statement, OR honest-reason close). The give IS the close - never stack it with a second ask.
 - **1-3 paragraphs** with proper blank-line spacing between them.
 - **First name on its own line**, then a blank line, then the body. Example:
   ```
@@ -443,8 +492,8 @@ The same contact getting three declarative pain statements reads as one writer p
 - **Value bridge (AT MOST 1 sentence, embed when possible):** Two valid placements:
   - EMBEDDED: woven into the problem paragraph as a contrast clause. Example: "The fix is infrastructure that lets your team stand up those paths in minutes, under your brand."
   - STANDALONE: a single sentence after the problem paragraph, in "I" voice. Example: "I've been working on infrastructure that lets fiber operators stand up cross-carrier paths in minutes, under your brand."
-  BANNED: multi-sentence value bridge paragraphs. BANNED generic-category openers: "MaiaEdge is..." / "We help operators…" / "We built infrastructure that…" / "We built carrier infrastructure that…" / "We built MaiaEdge for…" / "We work with…" / "Most operators we talk to…" — these are us-to-a-category sentences with no specific mechanic. Default to "I" voice. **Allowed exception (EMAIL only) — the specific-mechanic peer line:** a "we" attribution is fine when it names a SPECIFIC mechanic and a plain outcome, because that reads as spoken peer credibility, not a slogan: "We've been helping similar [cohort] [specific mechanic], so [plain outcome]." Test: a reader can tell exactly what we DO from the sentence. If the "we" line could describe any vendor ("we help operators grow"), it's the banned generic claim. One peer line per sequence, max; never in LinkedIn (no room under the char cap — see Step 8 LinkedIn rule). For Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale. Max 1 product-specific term per email. **Also BANNED in cold body:** "fabric-in-a-box" (cheatsheet / live-conversation only), "federate" as a verb. The noun phrase "Federated Private Networking" is allowed only in partner-facing collateral, never in cold body.
-- CTA: One question. "Open to a conversation?" / "Worth a conversation?" / "Dealing with something similar?" Optional when a strong illumination question carries the close.
+  BANNED: multi-sentence value bridge paragraphs. BANNED generic-category openers: "MaiaEdge is..." / "We help operators…" / "We built infrastructure that…" / "We built carrier infrastructure that…" / "We built MaiaEdge for…" / "We work with…" / "Most operators we talk to…" - these are us-to-a-category sentences with no specific mechanic. Default to the **craft line**: "That [handoff leg / last hop / boundary] is the layer I work on, [ONE concrete mechanic in their vocabulary]" (registers: "the layer I work on," "what I spend my days on" - see voice-gold-standard.md; the mechanic needs a concrete object: portal, NNI, turn-up, SKU, path). **The "We've been helping similar [cohort]…" peer line is DEMOTED:** ≤1 per ACCOUNT, ≤20% of E1s per batch, mechanic wording different at every appearance (repeated verbatim it becomes a recognizable stamp); never in LinkedIn. For Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale. Max 1 product-specific term per email. **Also BANNED in cold body:** "fabric-in-a-box" (cheatsheet / live-conversation only), "federate" as a verb. The noun phrase "Federated Private Networking" is allowed only in partner-facing collateral, never in cold body.
+- CTA: Soft call-ask STATEMENT by default ("Happy to set up time if it's worth a look." / the show-me give + ask). Interest questions allowed ("Wanted to see if it's on your radar, or still early"). **BANNED: yes/no thought-question closes** ("Is this something you've thought about?", which earns no replies). No closing string on >20% of the batch, never twice within an account. Optional when a strong illumination question carries the close.
 - **Peak-end observation (optional, 1 max, only when meaningful):** A non-business observation tied to something specific about the recipient's company or location, separated from the CTA. Must pass the "forwarded by colleague" test. NEVER in E2 or E3.
 - **Non-functional voice required when there's something to say.** At least one sentence in E1 should not "do work" structurally (an aside, an honest acknowledgment of uncertainty, a peak-end observation). Don't force it. A forced non-functional sentence reads as performance.
 
@@ -454,6 +503,9 @@ Scan every sentence. If any of these appear, rewrite before proceeding:
 - "Your [number] [thing]" patterns
 - Opening sentences that describe the company rather than name a problem
 - Dollar amounts, facility counts, route miles stated as facts
+
+**Carve-out:** the one fact that earns a place is a fresh why-now signal (raise, award, M&A, hire, build milestone) that ties to the value prop and creates urgency. Name it once as an observation ("Saw the X"), never as a possessive stat ("your X"). Static stats (route miles, facility counts, geography) don't pass, so absorb them. The bar: would removing the fact remove the urgency? If no, cut it.
+
 See email-writing-rules.md "Research Display Detection" for the full translation table.
 
 **Cited-Signal Cap (HARD CONSTRAINT - applies to every E1 in the batch):**
@@ -491,7 +543,8 @@ Same voice as Email 1. Same rules: research-as-fuel, peer tone, problem-first. T
 - Bring a genuinely different dimension from a DIFFERENT angle category than Email 1. Six categories: Revenue, Competitive, Operational, Market Timing, Cost-of-Inaction, Peer Social Proof. Standalone test: would Email 2 make sense if you removed Email 1? If not, it's not differentiated enough.
 - Cap "one operator told us..." at 1 per 3-email sequence. Good device but becomes templated when every Email 2 uses it.
 - The brevity comes from having ONE tight idea, not from compressing Email 1.
-- Same CTA style, but rotate the phrasing. If Email 1 used "Open to a conversation?" try "Dealing with something similar?" or "On your radar?"
+- Close wording fresh per contact, different from this contact's E1 close and from the rest of the batch (close classes per email-writing-rules § CTAs).
+- **The ask never grows across a sequence:** if E1 offered fifteen minutes, E2/E3 hold or shrink - never escalate to thirty (a stranger asking for more time after silence reads tone-deaf).
 - This should read like a real person had another thought and came back to share it. Not like step 2 of a sequence.
 
 **Email 3 (5-7 days later) -- HARD CAPS:**
@@ -499,11 +552,10 @@ Same voice as Email 1. Same rules: research-as-fuel, peer tone, problem-first. T
 E3 has TWO valid energy modes. Pick based on whether a real timing hook exists:
 
 - **Timing-anchored close (Event Mode + accounts with a real milestone):** "Show is coming up" energy. There's a window closing (event date, quarter end, buildout milestone, fiscal boundary) and that's the reason to engage now.
-- **Detached close (non-event sequences without a real timing hook):** Match the silence. The recipient never engaged, so there's no "project" to reference (Voss-style "Have you shelved this?" / "Have you given up on this project?" are DEAL-CYCLE phrases - they belong in active-deal nurture where the prospect agreed something existed, NOT in cold outreach where they never engaged). Cold-appropriate detached closes:
-  - "Sounds like the timing isn't right. Easy to reach me if it ever lands differently."
-  - "I'll stop here. Door's open if anything shifts."
-  - "Worth me staying in touch on this, or should I move on?"
-  - "Last note from me. If this becomes relevant later in the year, you know where to find me."
+- **Detached close (non-event sequences without a real timing hook):** Match the silence. The recipient never engaged, so there's no "project" to reference (Voss-style "Have you shelved this?" / "Have you given up on this project?" are DEAL-CYCLE phrases - they belong in active-deal nurture where the prospect agreed something existed, NOT in cold outreach where they never engaged). **Every detached close still carries ONE actionable ask - zero-ask passive closers are BANNED** ("Easy to reach me if that becomes a priority." gives the reader nothing to do). Cold-appropriate detached-close PATTERNS (paraphrase every time - if your E3 matches any example word-for-word, rewrite it):
+  - Honest-reason recap + ask: "Reached out because [the structural truth] felt close to what you're building. Worth a conversation, or wrong moment?"
+  - Take-away + ask: "Sounds like the timing isn't right, or the angle missed. Worth a look, or should I move on?"
+  - Stay-in-touch question: "Worth me staying in touch on this, or should I move on?"
 
 The detached close is preferred when E1 used a take-away or asked posture. The timing close fits when E1 was DIRECT and a real milestone exists.
 
@@ -526,7 +578,7 @@ LinkedIn format: NO sender intro in body. Recipient sees who sent the request fr
 - **Public-signal observation preferred opener:** "saw the Tennessee build wraps in Feb" / "caught your panel at MetroConnect" - same Public Signal Cited rule as cold email applies here.
 - **Posture rotation:** LinkedIn message should NOT use the same posture as E1 (per the per-sequence rotation rule). If E1 was DIRECT, the LinkedIn message can be ASKED (illumination question), and vice versa.
 - NO credibility anchors (no Acme Packet, no 128 Technology). The message does the talking.
-- NO em dashes in LinkedIn messages. Scan for  -  and replace with commas or periods before finalizing.
+- NO em dashes, colons, or dash-as-punctuation in LinkedIn messages. Scan for ":", " - ", and "--" and restructure with commas or periods before finalizing.
 - NO "we" constructions ("We help operators…" - banned in LinkedIn DMs too). The full we-ban holds for LinkedIn: the email-only specific-mechanic peer line does NOT apply here, since there's no room for it under the 280-char cap. Stay in "I" voice or second person.
 - Research is fuel: the research selects which problem to lead with. The message names the problem. The research itself stays invisible. Don't recite facts back to them.
 - **Sequential processing:** LinkedIn messages MUST be written one at a time, reading the contact's Email 1 before writing. Never batch-template LinkedIn messages.
@@ -561,17 +613,17 @@ Paul, saw the BEAD subgrant for Eastern Texas. Curious how you're handling the c
 
 | Email | Limit | Structure |
 |---|---|---|
-| Email 1 | 70-85 words | 1-3 paragraphs, proper spacing, first name on its own line |
+| Email 1 | 85-110 words | 1-3 paragraphs, proper spacing, first name on its own line |
 | Email 2 | Under 55 words | First name on its own line, no re-intro, no meta-references |
-| Email 3 | 2-3 sentences max | First name on its own line, exactly one CTA, "show is coming up" energy |
+| Email 3 | 2-3 sentences max | First name on its own line, exactly one ACTIONABLE ask |
 
 These caps override any segment-specific targets. A tight, relevant email under the cap is always better than padding. NEVER pad with observations, flattery, or restated value props. Count words (Email 1, 2) and sentences (Email 3) before finalizing every contact.
 
-Segment-specific word targets in `references/segment-messaging.md` remain as tone calibration - they inform density and technical depth, NOT length.
+Segment-specific word targets in `context/copy-strategy/segment-messaging.md` remain as tone calibration - they inform density and technical depth, NOT length.
 
 <!-- Canonical source: context/outreach/email-writing-rules.md -->
 **Writing rules (non-negotiable):**
-- No em dashes. Ever. Use periods or commas.
+- No em dashes, colons, or dash-as-punctuation. Ever, in subject or body. Use periods or commas (hyphenated compounds fine). No move-announcing transitions ("another angle," "one more thought"). Just say the thing.
 - No "Hope this finds you well" / "Just wanted to reach out" / "I noticed" / "Revolutionary" / "Game-changing"
 - No customer names in cold emails. Anonymize: "one fiber operator" not "Arvig"
 - Always pair speed with ownership: "your team provisions in minutes" not just "provision in minutes"
@@ -582,20 +634,9 @@ Segment-specific word targets in `references/segment-messaging.md` remain as ton
 - One idea per email. Not three.
 - **Hedge variety:** "I'd guess" and "I'd imagine" capped at 30% of Email 1s in a batch. Use alternative constructions: direct assertions, illumination questions, premise hedges ("Not sure if you're already solving this, but…" / "Probably already on your radar, but…"), peer observations, market observations, role-native voice, cost framing.
 - **Structural variety (batches of 10+):** Use at least 3 different Email 1 structures. Vary where the opener/context lands, vary paragraph count, vary where the value bridge appears. Self-check: after 5 emails, re-read in sequence. If you can predict the next paragraph's purpose, restructure.
-- **Sender voice check:** After writing, re-read sender-profiles.md. Does this email sound like it came from this specific person?
+- **Sender voice check:** After writing, re-read `context/outreach/sender-profiles.md`. Does this email sound like it came from this specific person?
 
-<!-- Canonical source: context/copy-strategy/segment-messaging.md -->
-**Role-based framing:**
-
-| Role | Lead With | Avoid |
-|---|---|---|
-| CEO/President | Revenue, competitive position, market timing | Technical details |
-| CFO | 80-90% cost reduction, OpEx model | Architecture, jargon |
-| COO | Scale without headcount, automation | Strategic vision |
-| CTO/VP Eng | Protocol-free, API-driven, no MPLS/BGP | Revenue metrics |
-| VP Product | Launch in weeks, build your own interconnection layer without years of development | Operational details |
-| VP Sales/Commercial | Deal velocity, instant provisioning | Technical architecture |
-| VP Network/Infra | End-to-end visibility, hop-by-hop telemetry | Revenue impact |
+**Role-based framing:** Generic role lead-with/avoid (CEO / CFO / COO / CTO / VP Product / VP Sales / VP Network) is canonical in `context/copy-strategy/segment-messaging.md` § Cross-Segment Role Pain Matrix (also see `context/core/icp-playbook.md` for per-segment persona pain); per-segment refinements live in that file's segment sections.
 
 ### Step 9: Quality Check
 
@@ -624,14 +665,16 @@ Run for every contact before including in output:
 - [ ] Would this specific person want to reply?
 
 **Email quality:**
-- [ ] Email 1: 70-85 words, 1-3 paragraphs with proper spacing, first name on its own line
+- [ ] Email 1: 85-110 words, 1-3 paragraphs with proper spacing, first name on its own line
 - [ ] Email 2: under 55 words, first name line, no re-intro, no meta-references to Email 1
-- [ ] Email 3: 2-3 sentences max, first name line, exactly one CTA, "show is coming up" energy
+- [ ] Email 3: 2-3 sentences max, first name line, exactly one ACTIONABLE ask (no zero-ask passive closers)
+- [ ] No yes/no thought-question close anywhere in the sequence
 - [ ] No flattery-as-problem-statement ("X is the right play" / "X is smart" / "X is the hard part")
 - [ ] No "For a [role] at [type of company]..." opener
 - [ ] Sovereignty/ownership language present
 - [ ] Doesn't sound like NaaS (we're infrastructure, not a service)
-- [ ] No em dashes (search for  -  character)
+- [ ] No em dashes, colons, or dash-as-punctuation (search for ":", " - ", "--" in subject and body; hyphenated compounds fine)
+- [ ] No move-announcing transitions ("another angle," "one more thought," "quick thought")
 - [ ] No banned phrases
 - [ ] No competitor names (Megaport, Equinix, Lumen, etc.)  -  use "third-party fabric" instead
 - [ ] NO credibility anchors (no Acme Packet, no 128 Technology)
@@ -644,8 +687,10 @@ Run for every contact before including in output:
 - [ ] Email 2 and 3 read like a real person coming back with a new thought, not like scheduled sequence steps. No "Quick follow-up" or "Last note on this" as default openers.
 - [ ] No role-addressing language ("at the [role] level", "from a [function] standpoint", etc.)
 - [ ] **Value bridge is 1 sentence max**, embedded by contrast OR standalone-but-punchy. Multi-sentence value bridge paragraph is BANNED.
-- [ ] **No generic-category we-claims** ("We help operators…" / "We work with…" / "Most operators we talk to…"). Default to "I" voice. The specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]") is the one allowed "we" sentence in EMAIL — one per sequence, never in LinkedIn.
-- [ ] **Research Receipt present above the email body** for every contact (Step 7d output) with all four sections complete: Searches Run (≥3 literal queries paired with results, ≥5 if claiming NONE), Company-level finding, Contact-level finding, Posture with reason. "NONE" without literal queries above it is research-skipping and fails this check.
+- [ ] **No generic-category we-claims** ("We help operators…" / "We work with…" / "Most operators we talk to…"). Default to the craft line ("that leg is the layer I work on" + concrete mechanic). The "We've been helping similar [cohort]…" peer line is demoted: ≤1 per ACCOUNT, ≤20% of E1s per batch, wording varies, never in LinkedIn.
+- [ ] **Step 9.5 Batch Fingerprint Scan run and PASSED** before the XLSX is built.
+- [ ] **Research Receipt present above the email body** for every contact (Step 7d output) with all required sections complete: Searches Run (≥3 literal queries paired with results, ≥5 if claiming NONE), Company-level finding, Contact-level finding, Load-bearing assumption, Posture with reason. "NONE" without literal queries above it is research-skipping and fails this check.
+- [ ] **Load-Bearing Assumption Gate (per contact):** the one assumption the angle depends on is named on the Receipt and verified against a source, or reframed forward-state. Never assert they have not already solved the problem without a source (assume competence). See `context/outreach/email-writing-rules.md` § The Load-Bearing Assumption Gate.
 - [ ] **Posture matches signal strength.** DIRECT when there's a real cataloged signal you can point at; ASKED when inferring. NOT randomized to a quota.
 - [ ] **Posture rotates across the 3-email sequence to the same contact.** E1/E2/E3 should NOT all be the same posture; if E1 was DIRECT, E2 should be ASKED, etc. LinkedIn posture should also differ from E1.
 - [ ] **Hedge cap: "I'd guess" / "I'd imagine" appear in ≤30% of E1s** in any batch of 10+ contacts.
@@ -682,12 +727,25 @@ Run for every contact before including in output:
 - [ ] Doesn't repeat Email 1 language or posture (same problem, different lens)
 - [ ] Research Receipt present above the LinkedIn message body (same four-section format as E1 Receipt - Searches Run, Company Finding, Contact Finding, Posture)
 
+### Step 9.5: Batch Fingerprint Scan (HARD GATE before export)
+
+Every Step 9 check audits ONE email; this step audits the BATCH, where same-account colleagues (who forward emails internally) actually experience the copy. Run it programmatically over all drafted bodies before building the XLSX:
+
+1. **Closing-string census:** extract the last sentence of every E1/E2/E3. FAIL if any exact string covers >20% of the batch, or appears twice within one account.
+2. **8-gram shingles:** tokenize each body; build 8-word shingles. FAIL if any shingle repeats across two contacts at the SAME account. FLAG if any shingle appears in >30% of the batch.
+3. **Opener patterns:** first 8 words of each E1. FAIL if fewer than 3 distinct patterns per 10 contacts, or if two same-account openers match.
+4. **Exemplar bleed:** FAIL if any 8-gram matches `context/outreach/voice-gold-standard.md` exemplars, `context/outreach/fallback-messaging.md` templates, or a pattern example from any rule file. Sanctioned strings become stamps when shipped verbatim - rule-file CTAs, the sanctioned peer line, and fallback skeletons all recur across a batch if not varied.
+5. **Mechanism concreteness:** every craft/value clause contains a concrete object (portal, NNI, turn-up, rate sheet, SKU, path). FLAG noun-stack abstractions ("deterministic Ethernet a layer above the transport").
+6. **Signature-phrase census:** track the give-close and craft-identity wordings like closers - FAIL if any single wording ("…show you the whole thing end to end" / "is the layer I work on") covers >20% of the batch or ships verbatim from a rule file. Vary the register and vary WHAT the demo shows in their world (path turn-up / site join / telemetry vs trace).
+
+Record PASS/FAIL + counts in the run summary. Any FAIL → rewrite the flagged emails and re-run before export. Reference implementation: closing-sentence Counter + 8-gram set intersection per account.
+
 ### Batch Quality Reset (Every 30 Contacts)
 
 Context drift degrades email quality in later batches. After every 30 contacts (3 batches of 10), MANDATORY quality reset:
 
-1. Re-read segment-language.md for the active segment
-2. Re-read email-writing-rules.md (especially the research display detection and role-addressing sections)
+1. Re-read `context/copy-strategy/segment-language.md` for the active segment
+2. Re-read `context/outreach/email-writing-rules.md` (especially the research display detection and role-addressing sections)
 3. Re-read the last 3 emails you wrote -- check for pattern repetition
 4. Reset hedge variety counter (are you overusing "I'd guess/imagine"?)
 5. Check structural variety (are all recent emails following the same arc?)
@@ -705,7 +763,7 @@ When the user indicates this is event-based outreach (conference, trade show), a
 - **Static subject line option:** User may specify (e.g., "connect at itw?") -- use it for all contacts.
 - **Email 3 gets exactly ONE close sentence.** Not a CTA plus "hope to cross paths." ONE close.
 - **Event-specific LinkedIn pattern:** `coming to [event]? [one lowercase sentence from E1 angle]` -- see linkedin-outreach skill for full pattern and approved examples.
-- **Event-specific CTA rotation banks:**
+- **Event-specific CTA rotation banks (PATTERNS - paraphrase per contact, never reuse a string across >20% of the batch):**
   - Email 1: "Open to connecting at [Event]?" / "Worth grabbing a few minutes at [Event]?"
   - Email 2: "Worth a conversation at the show?" / "On your radar for [Event]?"
   - Email 3: "Happy to find time at [Event]." / "Door is open at the show."
@@ -744,7 +802,7 @@ Use openpyxl. Professional formatting. Sheet name: "Smartlead Import"
 | linkedin_url | Contact LinkedIn URL |
 | phone | Phone number (if available) |
 | custom_field_1 | Segment (e.g., "Data Center Colocation") |
-| custom_field_2 | Sender name (Tim Lieto or Ken Cunningham) |
+| custom_field_2 | Sender name (from full sender pool - see `context/outreach/sender-profiles.md`) |
 | custom_field_3 | Territory owner (per territory model) |
 | custom_field_4 | Persona (Technical Champion / Business Sponsor / Economic Buyer) |
 | custom_field_5 | Company domain |
@@ -767,6 +825,11 @@ Use openpyxl. Professional formatting. Sheet name: "Smartlead Import"
 - Do NOT include contacts with STOP flags (active conversations, enrolled in sequences, Connected/Open Deal status)
 - Do NOT include contacts with unverified emails (Apollo-Unverified or Web-sourced)
 - Include a note at the bottom or separate "Excluded" sheet listing skipped contacts and reasons
+
+**Same-account send discipline (document on the file for the rep):**
+- Contacts at the same account must be loaded so their E1s land **≥48h apart** - never the same morning (same-morning E1s to one account risk a multi-contact unsubscribe). Stagger via Smartlead lead ordering or split waves.
+- **Account-stop rule:** any reply, unsubscribe, or hostile signal at an account pauses every other contact at that account (Smartlead's stop-on-reply is LEAD-level only - this is a manual sweep until automated).
+- Max 3 contacts per account per wave; overflow waits for wave 2 (per the concentration gate).
 
 ### File 2: Review XLSX
 
@@ -802,26 +865,15 @@ Save to the user's workspace folder.
 
 ## Territory Model Reference
 
-| Territory | Owner | States |
-|---|---|---|
-| East | Tim Lieto (Owner ID: 161889085) | CT, DE, FL, GA, IL, IN, KY, MA, MD, ME, MI, MN, NC, NH, NJ, NY, OH, PA, RI, SC, TN, VA, VT, WI, WV, AL, MS, PR, VI, DC... (30 states) |
-| West | Ken Cunningham (Owner ID: 162339176) | AK, AZ, CA, CO, HI, IA, ID, KS, MO, MT, ND, NE, NM, NV, OK, OR, SD, TX, UT, WA, WY (20 states + DC) |
-| International | Tim Ziemer (Owner ID: 159350430) | All non-US |
+Territory assignment is authoritative in `context/hubspot/territory-model.md`. Load that file at runtime to determine the correct owner for each HQ state or country. The model includes all 5 regions (Northeast, Southeast, Central, West, Europe) plus International and Unassigned, with owner IDs.
 
-Use HQ state from HubSpot or research to determine territory owner. If user specifies a sender that doesn't match territory, note it but use the user's choice (they may be running a test or cross-territory play).
+If user specifies a sender that does not match the territory owner for a given HQ state, note it but use the user's choice (they may be running a test or cross-territory play).
 
 ---
 
 ## Proof Points (Anonymized  -  Use in Emails)
 
-| Use Case | How to Reference |
-|---|---|
-| Speed | "One fiber operator went from 60-90 day provisioning to under 10 minutes." |
-| Sovereignty | "A colo operator told us with third-party fabrics, 'you turn the customer over to them.' With MaiaEdge, they control their destiny." |
-| Simplicity | "One operator called it 'fabric in a box. Drop it in, add water, it works.'" |
-| Scale | "Deployed across 800+ cell towers and 20+ data centers for a network operator." |
-| Industry validation | "Even Equinix called what we're building 'revolutionary and creative.'" |
-| Reach extension | "A fiber operator in the Pacific extends reach to the mainland without new infrastructure." |
+Never use customer names in cold emails. The anonymized cold-outreach proof table (Speed / Sovereignty / Simplicity / Scale / Industry validation / Reach / Multi-carrier) is canonical in `context/product/proof-points.md` § Anonymized Proof Points (for Cold Outreach).
 
 ## Exclusion List
 
@@ -838,49 +890,19 @@ IXP, Tower REIT, IT MSP (helpdesk/break-fix), Retail ISP (no wholesale), Softwar
 
 ## Neocloud Messaging (DIFFERENT from other segments)
 
-Neoclouds are NOT colos. They ARE the customer. OPERATOR sovereignty banned. DATA sovereignty ("sovereign by design", "paths you control") allowed. No network jargon (VLAN, Q-in-Q).
+Full neocloud positioning, pillars, personas, and vocabulary in `context/segments/neocloud.md` + `context/sales/email-bot-supplemental.md`.
 
-**Master pitch:** Connecting distributed AI infrastructure simply.
-
-**Pillars:** DETERMINISTIC | PRIVATE | INSTANT
-1. Deterministic performance (eliminate the network as a variable)
-2. Private cloud connectivity (egress savings for their customers)
-3. Instant customer on-ramp (new facilities live in minutes)
+**Non-negotiable constraint for ALL neocloud copy:** Neoclouds ARE the customer. OPERATOR sovereignty ("keep your customer," "your portal your invoice") is BANNED. DATA sovereignty ("sovereign by design," "paths you control") is ALLOWED. No wholesale / resale / monetization framing. No network jargon (VLAN, Q-in-Q).
 
 ## Enterprise (Multi-DC ICP) Messaging (DIFFERENT from operator segments)
 
-HubSpot `customer_segment = "Enterprise-CustomerSegment"`. Priority 5 (lowest ICP). Tier 2 ceiling. Anchor: Meijer.
-
-**Critical voice difference:** Enterprises ARE the customer, NOT an operator selling to one. Drop operator-monetization framing. OPERATOR sovereignty BANNED (same logic as neoclouds). DATA sovereignty + audit-trail framing ALLOWED. HIPAA/PCI-DSS/SOX/GDPR mentions are appropriate when the persona implies regulatory exposure.
-
-**Four sub-segments (assigned via HubSpot `company_sub_segment`):**
-- `Financial Services - Enterprise`
-- `Healthcare Systems - Enterprise`
-- `Retail and Distribution - Enterprise`
-- `Outsourcing Services - Enterprise`
+Full Enterprise positioning, sub-segment cheatsheets, persona pain language, lead angles, objection reframes, and HubSpot mapping in `context/segments/enterprise.md` and `context/segments/enterprise-use-cases.md`.
 
 **Hard gate (BOTH must pass before any Enterprise email is written):**
-- **Vertical gate:** one of the four sub-segments. Manufacturing / Energy-Utilities / Logistics-Supply-Chain / Government-Defense / SaaS-only are NOT Enterprise - Watch List or out of scope.
+- **Vertical gate:** one of the four sub-segments (`Financial Services - Enterprise` / `Healthcare Systems - Enterprise` / `Retail and Distribution - Enterprise` / `Outsourcing Services - Enterprise`). Manufacturing / Energy-Utilities / Logistics-Supply-Chain / Government-Defense / SaaS-only are NOT Enterprise.
 - **Scale gate:** $1B+ revenue AND (3+ DCs OR direct Equinix Fabric/Megaport port OR confirmed in-house network engineering team).
 
-**Pillars:** REDUNDANT | SOVEREIGN | AUTOMATED
-
-**Lead angles by sub-segment** (use as fallback if research doesn't surface a stronger company-specific angle):
-
-- **Retail and Distribution:** "Your dark fiber between corporate DCs is one cut from an outage." Dark fiber redundancy that is actually redundant + cloud on-ramp under enterprise control.
-- **Financial Services:** "Inter-DC paths are best-effort and compliance is asking you to prove the path." Deterministic inter-DC paths + audit-ready policy enforcement for SOX / PCI-DSS / GDPR + cloud on-ramps under enterprise control.
-- **Healthcare Systems:** "EHR DC redundancy depends on a single fiber pair. PHI rides that path." Diverse dark fiber redundancy + HIPAA-aligned policy control + cloud on-ramps for radiology/analytics.
-- **Outsourcing Services:** "Your clients' regulators are asking where their data went." Delivery-center reliability + client data sovereignty + dark fiber redundancy between primary delivery hubs.
-
-**Personas to target:**
-- **VP Network Infrastructure / Director Network Engineering** (primary technical champion)
-- **CIO** (economic buyer at most enterprises)
-- **CSO / CISO** (security stakeholder; regulatory framing lands here)
-- **Network Architect / Principal Network Engineer** (technical influencer; can take more technical specificity)
-
-**Banned for Enterprise emails (in addition to global ban list):** "keep your customer," "your portal your invoice," "build your own fabric to sell," "monetize stranded fiber," "wholesale activation," "extend reach to new markets," "tenant," "meet-me room," "interconnection revenue," "aggregator," "TSD." Federation framing has no place in Enterprise copy.
-
-**Reference:** Full Enterprise positioning, sub-segment cheatsheets, persona pain language, objection reframes, and HubSpot mapping live in `context/segments/enterprise.md`.
+**Non-negotiable constraint for ALL Enterprise copy:** Enterprises ARE the customer. OPERATOR sovereignty BANNED (same logic as neoclouds). DATA sovereignty + audit-trail framing ALLOWED. Banned phrases (in addition to global ban list): "keep your customer," "your portal your invoice," "build your own fabric to sell," "monetize stranded fiber," "wholesale activation," "extend reach to new markets," "tenant," "meet-me room," "interconnection revenue," "aggregator," "TSD." Federation framing has no place in Enterprise copy.
 
 ## Segment Fallback Messaging
 
@@ -904,81 +926,11 @@ When research doesn't reveal company-specific details, use these defaults. But a
 
 ---
 
-## Final Step: Signal Push-Back to HubSpot (per-company, at end of each per-company processing loop)
+## Final Step: Signal Push-Back to HubSpot (per-company)
 
-**Inviolable rule:** this step runs AFTER the per-company drafted sequence (Email 1 + Email 2 + Email 3 + optional LinkedIn DM) has been generated and added to the in-progress Smartlead XLSX. The push-back must never gate, delay, or alter the primary output. If anything in this step fails, the rep already has that company's drafts queued in the batch — signal-engine staleness is a routine-recovery problem, not a rep-blocker. Skip silently on any failure; the next R-Tier-Audit run reconciles the signal fields.
+**Runs AFTER each company's drafted sequence is added to the in-progress Smartlead XLSX - never before, never blocking.** Follow the canonical procedure in `context/signals/outreach-signal-pushback.md`, including its **sdr-pipeline batch specifics** section: run per-company (each company's research is freshest right after it completes), loop ≤10 writes per `manage_crm_objects` call, 250ms between batches, exponential backoff on HTTP 429. For each company, if research surfaced a signal-grade event scoring ≥8 whose event date is newer than HubSpot's `last_signal_date`, write the five signal fields plus `account_tier` (only when `hs_is_target_account != true`), recompute heat per `context/account-tiering/tier-compute-spec.md` §11.5, do NOT bump `last_enriched_date`, and log the audit note. Skip silently on any failure.
 
-**Why per-company, not at end-of-batch:** sdr-pipeline processes companies sequentially. Each company's research is freshest right after it completes. Running push-back per-company means a 100-company batch refreshes 100 companies' signals over the course of the run; an end-of-batch sweep would lose context for the earliest companies and double the MCP load (re-reading HubSpot for the comparison gate).
-
-### When to write back (per company in the batch)
-
-During the inline research that produced this company's drafts, you ran web search and (optionally) web fetch. If that research surfaced a **signal-grade event** — funding round, exec hire, M&A, facility/market launch, public outage / RCA, earnings-language shift, or any U1-U6 / AP / FR class in [`context/signals/signal-framework.md`](../../context/signals/signal-framework.md) — score it against the Signal Scan rubric (Tier × Freshness × Confidence). **Pick the single highest-scored event ≥8** for the push-back. Sub-8 events stay in the research notes but don't drive the push-back.
-
-### Comparison gate (write only if fresher)
-
-Read current `last_signal_date` for this company via `mcp__claude_ai_HubSpot__get_crm_objects`. If your discovered **event date** is strictly newer than HubSpot's value (or HubSpot's value is null), proceed. Otherwise no write. Idempotent no-op. **At batch scale this gate matters:** without it, every company in the batch would generate a HubSpot write even when Signal Scan already has fresher data.
-
-### The write block
-
-One `mcp__claude_ai_HubSpot__manage_crm_objects` call per company with `updateRequest.objects[]`, `objectType: "companies"`, `confirmationStatus: "CONFIRMATION_WAIVED_FOR_SESSION"`. Fields:
-
-- `recent_news_or_trigger_event` — pure narrative, no date prefix. Format: `"[Signal Type] - [one-line summary]"`. 2-4 sentences, ≤250 char hard cap.
-- `last_signal_date` — the **event date** (YYYY-MM-DD), extracted from the source article. Semantics narrowed 2026-05-28 — event date, NOT today's run date.
-- `last_signal_score` — your rubric score (number, typically 0-60).
-- `signal_count_last_30d` — read current value. If current `last_signal_date` is within 30d of your new event date, increment by 1. If current is null or >30d old, write 1.
-- `signal_heat` — recompute per the inlined spec below. **Title Case enum:** `Hot` / `Warm` / `Cool` / `Cold`. Lowercase is silently rejected.
-- `account_tier` — recompute per [`context/account-tiering/tier-compute-spec.md`](../../context/account-tiering/tier-compute-spec.md) §4. **Only write if `hs_is_target_account != true`** — flag freezes tier (heat continues regardless).
-
-**Batch rate-limiting:** Loop ≤10 writes per `manage_crm_objects` call (HubSpot MCP cap). 250ms minimum between batches. Exponential backoff (1s → 2s → 4s) on HTTP 429.
-
-### `compute_signal_heat` (inlined from `context/account-tiering/tier-compute-spec.md` §11.5)
-
-```
-signal_heat is computed top-down, first match wins:
-
-Hot   IF (last_signal_score >= 45 AND last_signal_date <= 60 days ago)
-       OR signal_count_last_30d >= 2
-       OR account has any associated open deal past `appointmentscheduled`
-
-Warm  IF last_signal_score 27-44 AND last_signal_date <= 60 days ago
-
-Cool  IF last_signal_date <= 180 days ago AND not already Hot/Warm
-
-Cold  IF last_signal_date > 180 days ago OR last_signal_date IS NULL
-
-Inputs: last_signal_score, last_signal_date (event date), signal_count_last_30d, open-deal state.
-Output: enum `Hot` | `Warm` | `Cool` | `Cold` (Title Case per HubSpot).
-
-Override behavior:
-- hs_is_target_account = true does NOT freeze signal_heat.
-  Tier is rep-locked; heat always reports the truth.
-```
-
-Heat writes are idempotent — skip if `computed_heat == current_heat`.
-
-### Stamping policy
-
-**Do NOT bump `last_enriched_date`.** Outreach-time signal push-backs are partial writes, not full enrichment passes. R2's 120-day rotation owns the freshness guarantee.
-
-### Audit log
-
-For each company push-back that fires, add a HubSpot company note:
-
-```
-Signal push-back from sdr-pipeline on YYYY-MM-DD: discovered <signal type> event YYYY-MM-DD, score <N>. Heat <prior> -> <new>. Tier <prior> -> <new>.
-```
-
-### Batch-level reporting
-
-At end of batch, surface in the sdr-pipeline run summary:
-
-- **Push-backs fired:** N companies received signal-engine writes
-- **Push-backs skipped (idempotent):** N companies where HubSpot already had equal-or-fresher data
-- **Push-backs deferred (failure):** N companies where MCP write failed — these get reconciled by R-Tier-Audit next run
-
-### Failure handling
-
-If any MCP call fails: log to the deferred list and continue to the next company. The rep's Smartlead XLSX still gets that company's drafts. **Never surface push-back failures as a batch blocker.**
+At end of batch, surface in the run summary: push-backs fired (N), skipped-idempotent (N), deferred-failure (N - reconciled by R-Tier-Audit next run).
 
 ---
 

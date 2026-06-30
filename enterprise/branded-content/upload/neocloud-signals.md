@@ -144,6 +144,16 @@ After successful detection, rewrite infrastructure_profile with updated count + 
 
 **Freshness:** Bi-annual (Sept + March windows). **Confidence:** HIGH during results window, drops after 30d. **Promoted from Tier C to Tier A** in April 2026 signal refresh.
 
+### N-A12. Private-AI / Model-Provider Partnership
+
+**Why:** A deal to deliver a named foundation model (Gemini, Anthropic, Llama) as private or dedicated AI into regulated verticals (healthcare, financial services, government) means the neocloud just took on hard data-residency and interconnect requirements. The customer wants the model without putting data into the public cloud, which is exactly the data-sovereignty + path-control angle MaiaEdge sells. High intent: the partnership is announced because customers are already asking.
+
+**Source:** Company press / blog, the model provider's partner page, regulated-vertical trade press, LinkedIn CEO/CRO posts.
+
+**Pattern:** `("private AI"|"dedicated AI"|"sovereign inference") + ("Gemini"|"Anthropic"|"Claude"|"Llama"|named model) + neocloud` OR a named partnership to serve a regulated vertical.
+
+**Freshness:** 30d. **Confidence:** HIGH. Pairs with the Sovereign-angle variant even for US neoclouds (lead DATA sovereignty, not jurisdiction).
+
 ---
 
 ## Tier B - Strong Signals (30-90d window)
@@ -180,6 +190,8 @@ Source: DCD, Lightwave, Capacity Media, Equinix / Digital Realty / Aligned / QTS
 
 Pattern: `"[neocloud] + partners with [colo/fiber]"` OR `"expands to [city]" + "[carrier]"` - flag any neocloud announcing 2+ colo partners in 90d. Confidence: MED-HIGH.
 
+**Reactive variant (stronger intent):** A neocloud that diversified carriers AFTER a single-vendor networking failure (and bolted on a failover line) is in more acute pain than one proactively assembling a multi-fabric story. Signs: an exec or status history mentioning a single-carrier outage, a "we had to add two more carriers" account, or a sudden second/third transit provider on PeeringDB (N-A9) right after an incident. Treat as MED-HIGH even at a single site. Use as the angle-selector (lead with multi-carrier orchestration + auto-failover), never cite the specific outage in customer-facing copy.
+
 ### N-B5. Blackwell / GB200 / GB300 Allocation Win
 
 Allocation = new deployment = new deterministic path requirement. They fought for the allocation; network is giving it back.
@@ -187,6 +199,16 @@ Allocation = new deployment = new deterministic path requirement. They fought fo
 Source: NVIDIA press, SemiAnalysis, The Information, company investor calls.
 
 Pattern: `"Blackwell allocation"|"GB200"|"GB300"|"first to deploy" + company`. Confidence: HIGH.
+
+### N-B6. Builder-for-PE + Third-Party Monetization Partner
+
+**Why:** A GPU-cluster builder that builds on behalf of private-equity asset owners and hands monetization to a separate partner (Hydra Host class) carries the per-customer networking-primitive burden (an ASN and IP block per customer) that the own-the-WAN consolidation pitch resolves directly. The PE owners and the monetization partner are each adjacent reachable entities, so one builder relationship opens a multi-thread.
+
+**Source:** Company site / "how we work" pages, monetization-partner customer lists (Hydra Host and similar), PE infrastructure-fund announcements, LinkedIn (Infrastructure Lead / Head of Infrastructure titles).
+
+**Pattern:** `("GPU as an asset class"|"build and operate"|"monetization partner"|"private equity" + "GPU"|"AI cluster") + builder`. Flag the monetization partner and the PE owner as separate accounts to associate.
+
+**Freshness:** 90d. **Confidence:** MED-HIGH. Weight multi-site expansion intent highly: these builders are pre-federation by choice, not incapacity.
 
 ---
 

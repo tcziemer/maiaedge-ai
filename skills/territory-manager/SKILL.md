@@ -1,69 +1,100 @@
 ---
 name: territory-manager
-description: "MaiaEdge territory assignment auditor and validator. Validates and enforces territory assignments in HubSpot based on HQ state mapping. Use when asked to check territories, audit territory assignments, find misassigned accounts, verify state assignment, determine account ownership by state, check territory distribution, reassign accounts, or audit territory hygiene. Territory model: HQ state determines account owner (Tim Lieto = East 30 states, Ken Cunningham = West 20 states + DC, Tim Ziemer = International). Produces territory audit reports, misassignment lists, territory balance analysis, and owner correction recommendations. Source of truth: HubSpot state property vs hubspot_owner_id."
+description: "MaiaEdge territory assignment auditor and validator. Validates and enforces territory assignments in HubSpot based on HQ geography. Use when asked to check territories, audit territory assignments, find misassigned accounts, verify state assignment, determine account ownership by state, check territory distribution, reassign accounts, or audit territory hygiene. Territory model (2026-06-17 5-region): HQ geography determines owner across 5 US regions + Europe + International (Tim Lieto = Northeast + West, Ken Cunningham = Southeast, Tory Teague = Central, Markus Hendrich = Europe, Tim Ziemer = International + Tier 1 SP, Cooper = Unassigned catch-all). Produces territory audit reports, misassignment lists, territory balance analysis, and owner correction recommendations. Source of truth: HubSpot state/country properties vs hubspot_owner_id, and the live keeper workflow flow 4405143279."
 ---
 
 # MaiaEdge Territory Manager
 
 ## Purpose
 
-Validate and enforce territory assignments in HubSpot. The territory model is simple: a company's **HQ state** determines its **account owner**. This skill audits CRM data against that mapping, identifies mismatches, and produces actionable correction lists.
+Validate and enforce territory assignments in HubSpot. The territory model: a company's **HQ geography** (country first, then US state) determines its **account owner** across 5 US regions plus Europe and International. This skill audits CRM data against that mapping, identifies mismatches, and produces actionable correction lists.
 
-**Source of truth:** The `state` property in HubSpot reflects HQ location. The `hubspot_owner_id` property determines account ownership. This skill checks that they align.
+**Source of truth:** `country` / `hs_country_code` and `state` / `hs_state_code` reflect HQ location. `hubspot_owner_id` determines ownership. The live keeper workflow "Territory Assignment (Go-Forward)" (flow `4405143279`) is the executable implementation; this skill audits against the same map. The canonical map doc is `context/hubspot/territory-model.md`.
 
 ## Reference Files
 
-For the canonical territory model, see **territory-model.md**. The mapping below is reproduced for quick reference.
+For the canonical territory model, see `context/hubspot/territory-model.md` (5-region, 2026-06-17). The mapping below is reproduced for quick reference and MUST stay in sync with it and with the keeper workflow's `REGION_OF` / `REGION_OWNER`.
 
 **Informational refs (territory logic does NOT depend on these - they're for context when audit reports surface segment / sub-segment / tier data alongside owner data):**
-- `context/account-tiering/tier-compute-spec.md`  -  Canonical `account_tier` function. **Territory changes do NOT affect tier.** Tier reads via this spec; territory-manager never writes tier. When the audit report cross-references owner and tier, this is where tier values come from.
-- `context/account-tiering/sub-segment-qualification.md`  -  Canonical 30-value list of active `company_sub_segment` enums (case-sensitive) - informational only when audit output displays sub-segments alongside owners. Territory-manager does not classify, gate, or modify sub-segments. Key 2026-05-14 entries: `Subsea cable operator` (30th active), `Greenfield` is a real sub-segment paired with Colo or NeoCloud parent, `Crypto to AI - Neoclouds` inclusive of operator AND landlord.
-- File 06 (`context/account-tiering/sub-segment-qualification-full.md`)  -  upstream consolidated source for sub-segment qualification. File 06 wins if it diverges from `sub-segment-qualification.md`.
+- `context/account-tiering/tier-compute-spec.md`  -  Canonical `account_tier` function. **Territory changes do NOT affect tier.** Tier reads via this spec; territory-manager never writes tier.
+- `context/account-tiering/sub-segment-qualification.md`  -  Canonical 30-value list of active `company_sub_segment` enums (case-sensitive) - informational only when audit output displays sub-segments alongside owners. Territory-manager does not classify, gate, or modify sub-segments.
+- `context/account-tiering/sub-segment-qualification-full.md`  -  upstream consolidated source for sub-segment qualification. This file wins if it diverges from the pointer file above.
+- `context/hubspot/hubspot-values.md`  -  Canonical HubSpot enum values, including `closedwon` / `closedlost` deal-stage strings used in deal-protection checks.
+- `context/hubspot/deals-schema.md`  -  Deal properties and stage model; required for correct deal-protection awareness when auditing accounts with open deals.
+- `context/hubspot/property-schema.md`  -  Company and contact property definitions. Use for property keys and field structures only; note that its §1 territory section is stale - the canonical territory map is `context/hubspot/territory-model.md`.
+- `context/hubspot/contact-schema.md`  -  Contact property definitions; used when cascading owner changes to associated contacts.
 
 ### Independence rule
 
-**Territory assignment is independent of `customer_segment` and `company_sub_segment`.** The territory function takes inputs (`state`, `hs_state_code`, `country`) and returns an owner - full stop. It does NOT branch on segment / sub-segment / tier. A Tier 1 NeoCloud in California routes to Ken Cunningham the same way a Tier 5 Other in California does. Strategic exceptions are the only override path (see Routing Rules below).
+**Territory assignment is independent of `customer_segment` and `company_sub_segment`.** The territory function takes inputs (`country`, `hs_country_code`, `state`, `hs_state_code`) and returns an owner - full stop. It does NOT branch on segment / sub-segment / tier. A Tier 1 NeoCloud in California routes to its region owner the same way a Tier 5 Other in California does. Strategic exceptions are the only override path (see Routing Rules below).
 
-**Territory changes do NOT cascade to tier.** A correction from Tim Lieto → Ken Cunningham (e.g., HQ relocation NJ → CA) writes `hubspot_owner_id` and cascades to associated contacts' `hubspot_owner_id`, but it never touches `account_tier`. The tier value lives at the company level and is owned by R1 / R2 / Signal Scan Stage 5b / R-Tier-Audit per `context/account-tiering/tier-compute-spec.md`. Territory-manager and tier-compute have non-overlapping write domains.
+**Territory changes do NOT cascade to tier.** A correction writes `hubspot_owner_id` and cascades to associated contacts' `hubspot_owner_id`, but never touches `account_tier`. The tier value is owned by R1 / R2 / Signal Scan Stage 5b / R-Tier-Audit per `context/account-tiering/tier-compute-spec.md`. Territory-manager and tier-compute have non-overlapping write domains.
 
 ---
 
-## Territory Model (Effective January 2026)
+## Territory Model (Effective 2026-06-17, 5-region)
+
+> Supersedes the Jan 2026 two-region (East/West) model.
 
 ### Owner Assignments
 
-| Owner | HubSpot Owner ID | Territory | State Count |
-|-------|-----------------|-----------|-------------|
-| **Tim Lieto** | `161889085` | East | 30 US states |
-| **Ken Cunningham** | `162339176` | West | 20 US states + DC |
-| **Tim Ziemer** | `159350430` | International | All non-US |
+| Region | Owner | HubSpot Owner ID | Coverage |
+|--------|-------|------------------|----------|
+| **Northeast** | Tim Lieto | `161889085` | 16 US states (incl. DC) |
+| **Southeast** | Ken Cunningham | `162339176` | 13 US states |
+| **Central** | Tory Teague | `165480917` | 11 US states |
+| **West** | Tim Lieto (interim) | `161889085` | 11 US states |
+| **Europe** | Markus Hendrich | `164949459` | Geographic Europe ex Russia/Turkey |
+| **International** | Tim Ziemer | `159350430` | All other non-US + US territories |
+| **Tier 1 Service Provider** | Tim Ziemer (interim) | `159350430` | Named strategic carriers (manual tag) |
+| **Unassigned** | Cooper Kennedy | `160267902` | Catch-all: no usable HQ geography |
 
-### State-to-Owner Mapping
+> Interim: West = Tim Lieto until the West hire; Tier 1 SP = Tim Ziemer (co-covered). When filled, update one line here, in territory-model.md, in the keeper's `REGION_OWNER`, and in R6's inlined map.
 
-**Tim Lieto (East)  -  Owner ID: 161889085**
-```
-AL, AR, CT, DE, FL, GA, IA, IL, IN, KY,
-LA, MA, MD, ME, MI, MN, MO, MS, NC, NH,
-NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV
-```
+### State-to-Region Mapping
 
-**Ken Cunningham (West)  -  Owner ID: 162339176**
+**Northeast -> Tim Lieto (`161889085`) - 16:**
 ```
-AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND,
-NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY
+NY, VA, MA, NJ, OH, PA, MI, MD, CT, DC, DE, VT, WV, NH, RI, ME
 ```
 
-**Tim Ziemer (International)  -  Owner ID: 159350430**
-All non-US countries.
+**Southeast -> Ken Cunningham (`162339176`) - 13:**
+```
+FL, IL, GA, NC, IN, MO, TN, KY, SC, AR, AL, MS, LA
+```
+
+**Central -> Tory Teague (`165480917`) - 11:**
+```
+TX, CO, IA, MN, OK, KS, WI, NE, NM, ND, SD
+```
+
+**West -> Tim Lieto interim (`161889085`) - 11:**
+```
+CA, WA, UT, OR, AZ, NV, MT, ID, WY, AK, HI
+```
+
+### Europe -> Markus Hendrich (`164949459`)
+
+Geographic Europe ex Russia/Turkey: EU27 + EFTA/EEA + UK + microstates + non-EU Balkans/Eastern Europe (incl. UA, BY, MD). **NOT Europe (-> International):** Russia, Turkey, Caucasus (Georgia/Armenia/Azerbaijan), Kazakhstan, Greenland.
+
+### International -> Tim Ziemer (`159350430`)
+
+All non-US countries outside Europe, PLUS US territories (PR, GU, VI, AS, MP).
 
 ### Routing Rules
 
+Resolve COUNTRY first, then US STATE (mirrors the keeper code so the audit and the automation never diverge).
+
 | Scenario | Resolution |
 |----------|------------|
-| HQ in known US state | Map state → owner per mapping above |
-| HQ state unknown / blank | Flag for manual review  -  do NOT auto-assign |
-| Non-US HQ (country ≠ United States) | Tim Ziemer (International) |
-| Strategic exception | Leadership can reassign  -  document reason in HubSpot notes |
+| HQ European country (ex RU/TR) | Markus Hendrich `164949459` |
+| HQ non-US outside Europe, or US territory | Tim Ziemer `159350430` |
+| HQ in known US state | State -> region -> region owner |
+| HQ in US, state blank/unusable | Unassigned (Cooper `160267902`) |
+| Neither country nor state usable | Unassigned (Cooper `160267902`) |
+| Strategic exception | Leadership reassigns; first-touch gate preserves any manual (non-Cooper) owner. Document reason in HubSpot notes. |
+
+> **First-touch policy (keeper workflow):** `hubspot_owner_id` is written only when the current owner is unknown OR Cooper (`160267902`). A human reassignment to a rep persists and is never auto-reverted. Free-text `state` beats `hs_state_code` (verified-wrong codes exist). Country-code/US-state collisions (AL, AZ, ME, MD, VA, GE) are harmless because country resolves first.
 
 ---
 
@@ -83,6 +114,16 @@ Trigger on any of these patterns:
 
 ---
 
+## Clarification
+
+Before running, two things that change the output:
+1. **Scope** - full CRM audit, a specific owner's accounts, a single company lookup, or a batch of new imports?
+2. **Write or report** - should corrections be written to HubSpot now, or produce a recommendation list for review first?
+
+Coach: if you only have a company name or "check territories," default to read-only report mode and ask for write permission before touching any records.
+
+---
+
 ## Task Routing
 
 ### MODE 1: FULL TERRITORY AUDIT
@@ -91,35 +132,38 @@ Trigger on any of these patterns:
 **Steps:**
 
 1. **Pull all companies with owner data** from HubSpot:
-   - Properties needed: `name`, `domain`, `state`, `hs_state_code`, `country`, `city`, `hubspot_owner_id`, `customer_segment`
+   - Properties needed: `name`, `domain`, `state`, `hs_state_code`, `country`, `hs_country_code`, `city`, `hubspot_owner_id`, `territory_region`, `customer_segment`
    - Page through all results (100 per page, track total)
 
-2. **Normalize state values** for each record:
-   - If `hs_state_code` is a valid 2-letter US state abbreviation, use it
-   - If `state` is a full state name (e.g., "California"), convert to 2-letter code
-   - If `state` is already a 2-letter code, use it directly
-   - If both are blank, flag as "Missing State"
-   - Handle common variations: "Washington, D.C." → DC, "District of Columbia" → DC
+2. **Normalize geography** for each record:
+   - Country first: recognized European country -> Europe; recognized non-US/non-Europe country or US territory -> International; United States -> continue to state.
+   - State: if `hs_state_code` is a valid 2-letter US state, use it; if `state` is a full name, convert to 2-letter; if `state` is already a 2-letter code, use it; prefer free-text `state` over `hs_state_code` on conflict.
+   - Handle variations: "Washington, D.C." / "District of Columbia" -> DC.
+   - US with no usable state -> Unassigned. Neither country nor state -> Unassigned.
 
-3. **Look up correct owner** using the state-to-owner mapping:
-   - US state found → map to correct owner ID
-   - Non-US country → Tim Ziemer (159350430)
-   - No state AND no country → flag as "Unroutable"
+3. **Look up correct owner** (country first, then US state):
+   - European country (ex Russia/Turkey) -> Markus Hendrich (`164949459`)
+   - Non-US, non-Europe country, or US territory (PR/GU/VI/AS/MP) -> Tim Ziemer (`159350430`)
+   - US state found -> map state -> region -> region owner: Northeast or West -> Tim Lieto (`161889085`); Southeast -> Ken Cunningham (`162339176`); Central -> Tory Teague (`165480917`)
+   - US but no usable state -> Unassigned (Cooper `160267902`)
+   - No state AND no country -> Unassigned (Cooper `160267902`)
 
 4. **Compare actual vs. expected owner** for each record:
-   - Match → Correctly assigned
-   - Mismatch → Flag with current owner, expected owner, and state
-   - No owner assigned → Flag as "Unassigned"
+   - Match -> Correctly assigned
+   - Mismatch -> Flag with current owner, expected owner, and region/state
+   - No owner assigned -> Flag as "Unassigned" (expected = Cooper catch-all unless geography routes it)
 
 5. **Special owner detection:**
-   - Cooper-owned (`160267902`) with known state → flag as misassignment with recommended owner per state mapping
-   - Owner is Abilash (`159974715`) or Ziemer (`159350430`) on a US account → flag as "Possible strategic exception  -  do not auto-correct without verification"
-   - Account has HubSpot note containing "strategic exception" or "leadership assigned" → skip entirely, note in report as "Skipped  -  strategic exception"
+   - Cooper-owned (`160267902`) WITH a known US state or routable country -> flag as misassignment with recommended region owner (Cooper should only retain genuinely no-geo records).
+   - Markus (`164949459`) on a record whose country is NOT European -> flag as "Possible misassignment - verify HQ" (Markus is Europe-only).
+   - Tim Ziemer (`159350430`) on a US-state record -> do NOT auto-correct; this may be a Tier 1 Service Provider strategic assignment. Flag as "Verify: International/Tier 1 SP owner on US account."
+   - Abilash (`159974715`) on any account -> "Possible strategic exception - do not auto-correct without verification."
+   - Account has a HubSpot note containing "strategic exception" or "leadership assigned" -> skip entirely, note in report as "Skipped - strategic exception."
 
-6. **Apollo state verification** (when running under CRM Guardian Job 3):
-   - For records flagged "Missing State" or "Unroutable" in step 4: call `apollo_organizations_enrich` with the company's `domain`. Extract HQ state from Apollo's `primary_location` (or equivalent). If Apollo returns a US state → write it to `state` as a 2-letter abbreviation (Tier 1 auto-fix), then re-run steps 3-5 to assign the correct owner. If Apollo returns a non-US country → set `country` and assign to Tim Ziemer (Tier 1). If Apollo returns nothing or low confidence → leave blank and hold for manual review (Tier 3).
-   - For records where HubSpot `state` disagrees with Apollo's HQ state AND `last_enriched_date` is either blank or 120+ days old: trust Apollo as the authoritative source (the HubSpot value is stale). Overwrite `state` with Apollo's value (Tier 1 if no open deals, Tier 2 if open deals  -  owner routing still takes priority per deal protection rules).
-   - Never overwrite `state` based on Apollo when the account has a manual note of "strategic exception" or "leadership assigned."
+6. **Apollo state verification** (when running under CRM Guardian):
+   - For records flagged "Unassigned" (no usable state) in step 4: call `apollo_organizations_enrich` with the company's `domain`. Extract HQ state/country. If Apollo returns a US state -> write it to `state` (Tier 1 auto-fix), then re-run steps 3-5. If Apollo returns a non-US country -> set `country` and route per step 3 (Tier 1). If Apollo returns nothing or low confidence -> leave blank, hold for manual review (Tier 3).
+   - For records where HubSpot `state` disagrees with Apollo's HQ state AND `last_enriched_date` is blank or 120+ days old: trust Apollo (HubSpot value is stale). Overwrite `state` (Tier 1 if no open deals, Tier 2 if open deals - owner routing still takes priority per deal protection rules).
+   - Never overwrite `state` based on Apollo when the account has a "strategic exception" / "leadership assigned" note.
 
 7. **Produce audit report** (see Output Formats below)
 
@@ -129,34 +173,26 @@ TERRITORY AUDIT REPORT  -  [Date]
 ==================================
 
 CORRECTLY ASSIGNED
-| Count | Owner | Territory |
-|-------|-------|-----------|
+| Count | Owner | Region |
+|-------|-------|--------|
 
-MISASSIGNED (current owner wrong for HQ state)
-| Company | State | Current Owner | Expected Owner |
-|---------|-------|---------------|----------------|
+MISASSIGNED (current owner wrong for HQ geography)
+| Company | Region/State | Current Owner | Expected Owner |
+|---------|--------------|---------------|----------------|
 
-COOPER-OWNED (placeholder  -  needs routing)
-| Company | State | Recommended Owner |
-|---------|-------|-------------------|
+COOPER-OWNED WITH KNOWN GEOGRAPHY (should route to a region)
+| Company | Region/State | Recommended Owner |
+|---------|--------------|-------------------|
 
-STRATEGIC EXCEPTIONS (skipped  -  leadership assigned)
+STRATEGIC EXCEPTIONS (skipped  -  leadership assigned / Tier 1 SP / Ziemer-on-US)
 | Company | Owner | Note |
 |---------|-------|------|
 
-UNASSIGNED (no owner)
-| Company | State | Recommended Owner |
-|---------|-------|-------------------|
+UNASSIGNED / CATCH-ALL (no usable geography  -  Cooper)
+| Company | Domain | Country | State |
+|---------|--------|---------|-------|
 
-MISSING STATE (cannot determine territory)
-| Company | Current Owner | Country |
-|---------|---------------|---------|
-
-UNROUTABLE (no state AND no country)
-| Company | Domain |
-|---------|--------|
-
-SUMMARY: [N] correct, [N] misassigned, [N] Cooper-owned, [N] strategic exceptions, [N] unassigned, [N] missing state, [N] unroutable
+SUMMARY: [N] correct, [N] misassigned, [N] Cooper-with-geo, [N] strategic exceptions, [N] unassigned catch-all
 ```
 
 ---
@@ -175,6 +211,8 @@ RECOMMENDED CONTACT OWNER CASCADES
 |---------|-----------|-------------------|---------------|
 ```
 
+> Note: in this HubSpot instance contact owner auto-assigns off the company owner, so the company `hubspot_owner_id` write is usually sufficient and the cascade is a backstop. Verify contacts re-own when a company owner changes.
+
 ---
 
 ## Deal Protection Awareness
@@ -192,7 +230,9 @@ When running under CRM Guardian, the Guardian's safety tier system and deal prot
 
 ## Common Patterns
 
-- **East Territory (Tim Lieto)**: Higher concentration of fiber operators and regional carriers
-- **West Territory (Ken Cunningham)**: Mix of neoclouds, colo operators, and west-coast carriers
-- **International (Tim Ziemer)**: Strategic accounts in EMEA, APAC, and other regions
-
+- **Northeast (Tim Lieto):** NoVA colo (#1 US market), NYC/NJ carriers, the Northeast fiber + cable corridor; plus OH/MI (moved in from the old East split).
+- **Southeast (Ken Cunningham):** Atlanta colo, Florida + Carolinas, plus IL/IN/MO (Chicago corridor moved in from the old East split) and TN.
+- **Central (Tory Teague):** Dallas (#2) + Austin colo, Texas CLECs, the Plains/Mountain-Central states (CO, NM, the Dakotas, NE, KS, MN, IA, WI, OK).
+- **West (Tim Lieto interim):** Silicon Valley + Phoenix colo, west-coast neoclouds and carriers; interim under Tim Lieto pending the West hire.
+- **Europe (Markus Hendrich):** EU/EEA/UK operators and DC builders; Europe-only - flag Markus-owned non-European records.
+- **International (Tim Ziemer):** EMEA (non-Europe), APAC, LATAM, Canada, ANZ, US territories; also the interim Tier 1 Service Provider book.

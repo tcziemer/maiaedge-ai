@@ -76,6 +76,9 @@
 | "We're building our own network team" | "Building one to manage multi-carrier complexity is expensive and slow. Networking talent is scarce. MaiaEdge gives you the capability without the headcount. Your team provisions paths, we handle the protocol complexity." |
 | "Each facility is different. How does this work?" | "That's exactly what MaiaEdge solves. PBCs at each location, unified under one control plane. Doesn't matter if it's Aligned in Dallas or Cologix in Columbus. Same deterministic paths, same visibility, same provisioning speed." |
 | "We don't have this problem yet" | "You do, you just can't see it. Inference latency variance is invisible without cross-facility observability. Once you can see the network between your GPU clusters, you'll find the variance that's been there all along." |
+| "I won't put a single box in front of my fully-redundant no-SPOF fabric" (technical champion) | "You don't. Bring each ISP into its own border controller and take each controller to both spines. Two parallel paths, no shared state, the way Equinix hands you two ports. You can lose an ISP, a spine, a leaf, or a NIC and stay online. We deliberately do not sync state between the devices, because state-sync caused as many problems as it solved in SD-WAN." |
+| "Can you run it as a VM in our cloud?" | "Today it runs on its own hardware. To bridge a colo GPU cluster back to an Azure or AWS VNet, use the Equinix integration. A border controller plus an Equinix port or a wave gives you a Direct Connect path into the VNet. Attach the VNet to the cluster and run BGP or a static route. In the AI era you don't need a router living on the VPC." |
+| "We already use Megaport" | "Megaport is a cheaper way to buy transit, not a fabric. It leaves the interconnect and multi-site problem wide open. MaiaEdge is the layer that turns your sites into one fabric you control, and it can buy Equinix Fabric ports wholesale (a 100G circuit is only 3-4x a 10G) so you resell cross-connects and on-ramps cheaper than buying direct." |
 | "Who are you?" | "Same team that built Acme Packet ($2.1B to Oracle) and 128 Technology ($450M to Juniper). Two exits, $2.55B+ combined. We built the carrier infrastructure your colo partners deploy." |
 
 ---
@@ -121,7 +124,7 @@
 
 **`Large Scale GPU - Neocloud` (Nebius, Lambda, Crusoe):** Lead with deterministic paths between facilities for distributed training. The "recompute tax" angle. Network jitter during a 40TB training run causes session failures (~$4,800/GPU/month rebuilding KV cache).
 
-**`Tier 1 Inference - Neocloud` (Together.ai, Groq, Cirrascale, DeepInfra):** Lead with real-time telemetry to diagnose latency. Sub-100ms token latency SLAs need observable paths. White-label customer portal for enterprise self-service.
+**`Tier 1 Inference - Neocloud` (Together.ai, Groq, DeepInfra):** Lead with real-time telemetry to diagnose latency. Sub-100ms token latency SLAs need observable paths. White-label customer portal for enterprise self-service. **Cirrascale is a boundary case, not a clean fit here:** it sells dedicated bare-metal on long-term contracts to regulated-vertical private-AI customers (no edge-POP distribution, no per-token pricing). Treat it as a dedicated / private-AI archetype and lead with cloud interconnect plus data-sovereignty framing, not token-latency. Classification flagged for review (see `context/account-tiering/sub-segment-qualification-full.md` §6.4).
 
 **`AI Infrastructure providers - Neocloud` (Vultr, DigitalOcean, Fluidstack, Modal, RunPod):** Lead with multi-cloud bridge. Deterministic L2 paths to AWS, Azure, GCP. White-label portal so they own the customer relationship. High-margin port arbitrage on shared 100G ports.
 

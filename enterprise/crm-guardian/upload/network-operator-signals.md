@@ -143,21 +143,29 @@ Source: TM Forum Inform, tmforum.org/news, DTW Ignite announcements, Fierce Netw
 
 Pattern: `("Autonomous Network Level 4"|"AN Level 4"|"AN L4"|"Level 3 autonomy") AND carrier`. Confidence: HIGH.
 
-### N-B4. Submarine Cable Landing / Consortium Joining
+### N-B4. Submarine Cable Landing / Consortium Joining + Atlantic Retirement Crunch
 
-New cable = new capacity to monetize = need for programmable activation.
+New cable = new capacity to monetize = need for programmable activation. The inverse fires too: transatlantic capacity is tightening as ~a third of the Atlantic cables age out by ~2027 (internal trigger: ~7 of 21), which hands transatlantic-anchored operators scarcity-driven pricing power - but ONLY if they can sell that capacity as instantly activatable product. A cable-retirement or Atlantic-crunch story on a transatlantic-anchored target is a monetize trigger, not a threat signal: the angle is "turn scarce capacity into instantly activatable private paths and capture the premium."
 
 Source: SubTel Forum, Submarine Networks, Telegeography, Capacity Media, Fierce Network subsea.
 
-Pattern: `("cable landing"|"RFS"|"ready for service"|"joined consortium"|"subsea cable") AND carrier`. Confidence: MED.
+Pattern: `("cable landing"|"RFS"|"ready for service"|"joined consortium"|"subsea cable"|"cable retirement"|"end of life"|"Atlantic capacity"|"capacity crunch") AND carrier`. Confidence: MED.
 
-### N-B5. MEF LSO Sonata / Open API Certification
+### N-B5. MEF LSO Sonata / Open API Certification + Mplify AI-Federation Direction
 
-Public commitment to inter-carrier automation standards. LSO Sonata alone doesn't solve same-day provisioning - we're complementary.
+Public commitment to inter-carrier automation standards. LSO Sonata alone doesn't solve same-day provisioning - we're complementary. The standards body itself is now naming the AI-federation endgame: Mplify (ex-MEF) openly describes an "AI federation / AI exchange" future, shipped a Carrier-Ethernet-for-AI certification (Q2 2026), and extended LSO APIs to internet exchanges (June 4, 2026). A carrier certifying against these = primed for the federation conversation. NOTE: the AI-federation framing is RFP / objection-handling proof ("aligned with where the certification bodies are heading"), NOT a cold-outreach claim - in cold, relevance comes from the operator's own problem.
 
 Source: Mplify (formerly MEF) press, MEF registry, GlobeNewswire, Fierce Network.
 
-Pattern: `("MEF 3.0"|"LSO Sonata"|"LSO Cantata") AND ("certification"|"certified"|"conformance")`. Confidence: MED.
+Pattern: `("MEF 3.0"|"LSO Sonata"|"LSO Cantata"|"Carrier Ethernet for AI"|"AI federation"|"AI exchange"|"LSO"+"internet exchange") AND ("certification"|"certified"|"conformance"|"launch")`. Confidence: MED.
+
+### N-B6. AI-Backbone Dataplane Disaggregation Deployment (DriveNets-class)
+
+A carrier rebuilding its AI backbone on a disaggregated dataplane (DriveNets-class; KDDI / AT&T / Comcast deployments) has the dataplane ready but still lacks a federation-capable control plane across operators it does not own - that cross-carrier layer is exactly where MaiaEdge sits. A disaggregation deployment is a strong "dataplane ready, control plane gap open" trigger, parallel to N-A7 (SRv6 production rollout).
+
+Source: DriveNets press + customer-win releases, carrier engineering blogs, Light Reading / Fierce Network optical + routing, NANOG / OCP coverage, supplier customer-win press.
+
+Pattern: `("DriveNets"|"disaggregated"|"DDC"|"distributed disaggregated chassis"|"network cloud"|"white box backbone") AND ("AI backbone"|"deployed"|"production"|"rolled out") + carrier`. Confidence: MED-HIGH.
 
 ---
 

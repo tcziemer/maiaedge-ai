@@ -37,7 +37,8 @@
 | Colocation | INSTANT | MONETIZE | REACH |
 | AI Colocation | DETERMINISTIC | INSTANT | MONETIZE |
 | Neocloud | DETERMINISTIC | PRIVATE | INSTANT |
-| Network Operator | AUTOMATE | EXTEND REACH | MONETIZE |
+| Network Operator (Tier 1) | AUTOMATE | EXTEND REACH | MONETIZE |
+| Network Operator (Tier 2/3) | EXTEND REACH | MONETIZE | AUTOMATE |
 | MSP / Aggregator | AUTOMATE | EXTEND REACH | MONETIZE |
 | Enterprise (Multi-DC ICP) | REDUNDANT | SOVEREIGN | AUTOMATED |
 
@@ -1071,7 +1072,7 @@ Sequence length is set centrally and applies across every segment. Canonical sou
 
 | Email | Limit | Structure |
 |-------|-------|-----------|
-| Email 1 | 70-85 words | 1-3 paragraphs, proper spacing, first name on its own line. Value bridge 1 sentence MAX, embed-by-contrast preferred. |
+| Email 1 | 85-110 words | 1-3 paragraphs, proper spacing, first name on its own line. Value bridge 1 sentence MAX, embed-by-contrast preferred. |
 | Email 2 | Under 55 words | First name on its own line, no re-intro, no meta-references. Posture differs from E1 (per posture rotation rule). |
 | Email 3 | 2-3 sentences max | First name on its own line, exactly one CTA, "show is coming up" energy OR detached close. NO deal-cycle phrases ("Have you shelved this?" - banned in cold). |
 | LinkedIn | Target 35-50 words / max 280 chars (under LinkedIn's 300 hard limit) | NO sender intro in body (recipient sees sender from LinkedIn UI). Format: `[Recipient first name], [observation/question]. [Optional context]. [CTA or no CTA].` Public Signal Cited block above. |
@@ -1082,7 +1083,7 @@ Per-segment targets are NOT set in this file. Segment references provide vocabul
 
 All patterns follow the Relevance Principle: lead with a problem statement driven by the company-specific angle, not an observation. Research is fuel for problem framing, not content to showcase. These patterns show the structural arc -- your company-specific angle provides the actual content. If you find yourself filling in the bracketed sections with generic segment pain instead of company-specific details, the angle is missing.
 
-#### Tier 1 Carrier Pattern (structural template; length governed by Email 1 cap, 70-85 words)
+#### Tier 1 Carrier Pattern (structural template; length governed by Email 1 cap, 85-110 words)
 ```
 [Problem statement: Cross-carrier paths beyond footprint still take weeks of manual coordination]
 [Context bridge: Acknowledge what they've built, baked into the problem framing]
@@ -1091,7 +1092,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### Regional Fiber Operator Pattern (structural template; length governed by Email 1 cap, 70-85 words)
+#### Regional Fiber Operator Pattern (structural template; length governed by Email 1 cap, 85-110 words)
 ```
 [Problem statement: NNI delays losing deals, revenue from fiber sitting dark]
 [Context bridge: Problem made specific with their footprint details]
@@ -1100,7 +1101,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### Standard Colocation Pattern (structural template; length governed by Email 1 cap, 70-85 words)
+#### Standard Colocation Pattern (structural template; length governed by Email 1 cap, 85-110 words)
 ```
 [Problem statement: Tenant expectations vs 6+ week provisioning, third-party fabric pressure]
 [Context bridge: Problem made specific with their facility/tenant details]
@@ -1109,7 +1110,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### AI-Focused Colocation Pattern (structural template; length governed by Email 1 cap, 70-85 words)
+#### AI-Focused Colocation Pattern (structural template; length governed by Email 1 cap, 85-110 words)
 ```
 [Problem statement: Best-effort networking breaks inference. GPU tenants need determinism.]
 [Context bridge: Problem made specific with their AI infrastructure context]
@@ -1118,7 +1119,7 @@ All patterns follow the Relevance Principle: lead with a problem statement drive
 [CTA]
 ```
 
-#### MSP/VNO Pattern (structural template; length governed by Email 1 cap, 70-85 words)
+#### MSP/VNO Pattern (structural template; length governed by Email 1 cap, 85-110 words)
 ```
 [Opening: Their services/market position]
 [Financial Pain: CapEx burden, cash flow, can't compete on speed]
@@ -1166,7 +1167,7 @@ Paul, GPU tenants deploy dense interconnection fast, and the connectivity layer 
 
 ### 4.7 CTA Rules
 
-1. **ONE question only** - Never stack CTAs
+1. **ONE ask only** - Never stack CTAs (close classes: give-close / call-ask statement / honest-reason / interest question; the give IS the ask when used)
 2. **No vendor language** - Avoid "I'd love to..." / "I'd be happy to..."
 3. **No passive asks** - Avoid "Let me know if..."
 4. **No calendar links** - Too aggressive for first cold email

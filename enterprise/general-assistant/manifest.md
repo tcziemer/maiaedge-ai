@@ -5,6 +5,8 @@
 ## System Prompt
 Paste Project Instructions directly in Claude.ai (maintained in-app, not in this repo)
 
+> **Source of truth:** run `bash build.sh`, then upload the full contents of `enterprise/general-assistant/upload/` (every context file + the branded-doc `assets/` tree). That built folder is the authoritative, complete file set; the lists below are a human reference and can lag the build. When in doubt, upload everything in `upload/`.
+
 ## Knowledge Files
 Upload ALL skills and ALL context files. This is the kitchen-sink project.
 

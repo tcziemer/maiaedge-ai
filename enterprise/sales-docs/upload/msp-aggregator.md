@@ -1,5 +1,7 @@
 # MSP Aggregator CheatSheet
 
+> **⚠️ Highest-leverage sourcing gap (RevOps follow-up).** The `TSD Technology Services Distributor - MSP` sub-segment is the highest-value sub-segment in this ICP and currently holds **0 CRM records**. The single highest-leverage action for this segment is a RevOps sourcing pass to seed the canonical TSDs into CRM: Telarus, AppDirect, AVANT, Bridgepointe, Sandler Partners, Upstack, ScanSource Intelisys. Until that runs, the most valuable buyers in the segment are not in the pipeline at all. `Master Agent - MSP` (~3 records) is effectively a dead live category in 2026 (advisor-tier consolidation absorbed it) - de-prioritize it; keep the enum as a classification bucket only.
+
 > Converted from: MSP_Aggregator_CheatSheet.pdf
 
 > **Classification authority:** Sub-segment classification rules, anchors, and confidence thresholds live in `context/account-tiering/sub-segment-qualification.md` (pointer) and file 06 (`context/account-tiering/sub-segment-qualification-full.md`). Tier computation lives in `context/account-tiering/tier-compute-spec.md`. This cheatsheet covers selling angles, personas, pain points, and discovery.
@@ -292,7 +294,7 @@ The MSP/Aggregator segment splits into **5 explicit sub-segments** matching HubS
 - **Tier:** default Tier 2 (ceiling 1, floor 4).
 - **Who they are:** Traditional channel aggregators / telecom brokers reselling carrier connectivity to enterprises. Direct sales, no sub-agent layer.
 - **Scale:** $20M-$2B revenue, 30-100 carrier vendors, US-focused.
-- **Anchors:** Granite Telecommunications ($1.85B 2024), Nitel (post-Hypercore 2022).
+- **Anchors:** Granite Telecommunications ($1.85B; Granite360 BSS/OSS platform launched 2025, award momentum), Spectrotel + AireSpring (merger announced Apr 23, 2026, Charlesbank-backed - marketed explicitly on "facility-based network assets" and "nationwide fiber capabilities"; the owned-network-layer archetype). **Removed as independent anchor:** Nitel - acquired by Comcast Business (from Cinven), closed Apr 1, 2025; reference value only (the carrier-buys-the-aggregator pattern).
 - **Exclude (D1.5 disqualifier):** IoT/eSIM platforms (Aeris, EMnify, Wireless Logic). They operate mobile packet cores and ride GSMA-layer interconnects, not fixed-line L2/L3 NNIs.
 - **Vocabulary:** carrier line-card, single invoice, multi-carrier procurement, enterprise direct sales, SLA aggregation.
 
@@ -302,7 +304,7 @@ The MSP/Aggregator segment splits into **5 explicit sub-segments** matching HubS
 - **Tier:** default Tier 2 (ceiling 1, floor 4).
 - **Who they are:** MSPs, integrators, and VARs whose primary offering is managed network services (NOT commission resell). 70%+ managed services contracts.
 - **Scale:** $50M-$10B revenue.
-- **Anchors:** Open Systems; Hughes Network Systems (EchoStar; pending DISH merger); Logicalis (Datatec); Presidio (BC Partners 2019, ~$5B+); GTT (post-2021 divestiture managed services); IT integrators CDW, Insight, ePlus, WWT are boundary cases.
+- **Anchors:** Open Systems; Hughes Network Systems (EchoStar - DISH merger COMPLETED Dec 31, 2023; 2026 Gartner MQ Managed Network Services Leader, 3rd consecutive year, Apr 2026); Logicalis (Datatec); Presidio (ownership needs primary-source verification - press indicated a CD&R majority deal in 2024); GTT (Apr 2026 strategy = networking + security-as-a-service for multinationals; MNS confirmed); IT integrators CDW, Insight, ePlus, WWT are boundary cases.
 - **Note:** Post-Phase 1.7c.1 the suffix is `- MSP` (legacy `- Network Operator` suffix archived 2026-05-13).
 - **Vocabulary:** managed SD-WAN, NOC operations, MTTR, ITIL change control, managed services contract, co-managed network, vCIO.
 
@@ -321,8 +323,9 @@ The MSP/Aggregator segment splits into **5 explicit sub-segments** matching HubS
 - **Tier:** default Tier 3 (ceiling 1, floor 5).
 - **Who they are:** Smaller, often regional or vertical-focused master agencies with sub-agent networks. Boutique cousins of TSDs.
 - **Scale:** Net commission $5M-$100M, 10-50 sub-agents.
-- **Anchors (post-consolidation, per Phase B):** X4 Solutions (confirmed independent 2025; 35+ carriers, founded 2004); CyberNet Communications (medium confidence; regional, scale unverified). Only 2 verified independents per Phase B.
-- **Default policy (Cooper feedback 2026-05-14):** Classify best-fit (no default `manual_review_required`). REVERSED from prior policy that defaulted to manual review. Use `low_5069` confidence for thin anchor verification; D7 weekly routine re-validates.
+- **Anchors: NONE verified (corrected 2026-06-12).** The two prior "verified independents" both failed re-verification: X4 Solutions was acquired by Sandler Partners on Jul 25, 2016 (brand page still live - the 2025 "confirmed independent" was a false positive); CyberNet Communications is a wholesale voice/data carrier SERVING master agents (own fiber/copper network, white-label VoIP - misclassified, likely voice-wholesaler exclusion). As a live commercial category, "master agent" is effectively gone in 2026 - advisor-tier consolidation (Upstack at 37 acquisitions; Bluewave/Amplix mega-agencies) mopped up what TSD consolidation didn't. Keep the enum as a classification bucket (regional/vertical boutiques with sub-agent books exist below press visibility; D7 surfaces them one at a time), but treat the anchor pool as empty.
+- **Default policy (Cooper feedback 2026-05-14):** Classify best-fit (no default `manual_review_required`). Use `low_5069` confidence for thin anchor verification; D7 weekly routine re-validates. With the anchor pool now empty, expect most candidates to resolve to TSD, Telecom Aggregator, or exclusion.
+- **Vocabulary note:** "master agent" is DEAD as a live category word - using it in copy dates the writer instantly. It survives only inside legacy program names. Say "TSD" or "technology advisor."
 - **Vocabulary:** sub-agent network, master agency, regional carrier panel, vertical specialization, residual book.
 
 ### Sub-segment 5: `Cloud + Telecom Hybrid MSP - MSP`
@@ -334,6 +337,19 @@ The MSP/Aggregator segment splits into **5 explicit sub-segments** matching HubS
 - **Anchors:** AHEAD ($3B 2024 est., reportedly exploring sale); CDW (post-Mission Cloud Dec 2024 - boundary case); Insight Enterprises (post-SADA Dec 2023 - boundary case); WWT; ePlus; Effectual Cloud; RapidScale (Cox/RapidScale; pending Charter merger).
 - **Exclude (D1.5 disqualifier):** Pure cloud MSPs without network services (post-acquisition Mission Cloud standalone, SADA standalone).
 - **Vocabulary:** cloud landing zone, hyperscaler partner tier, multi-cloud networking, managed cloud + connectivity, cloud-adjacent network managed services.
+
+## 2026 Market Reality (June refresh - what changed and how the pitch adapts)
+
+Six research-validated shifts (evidence: `outputs/segment-refresh/2026-06-12-gap-report.md` §4.5):
+
+1. **The TSD recap wave:** AVANT (Pamlico + Court Square, Dec 2025), Bridgepointe (Charlesbank + Carlyle, $1B+, Apr 2026), Telarus openly fielding suitors, Sandler the last independent top-6. TSD gross billings $16.6B (+14.5%), top-6 = 72.3% share. The buyer is increasingly a PE-governed platform thinking in EBITDA-multiple terms - "an owned, deliverable network layer" is literally a multiple-expansion story.
+2. **Carriers stopped just going direct:** Comcast Business BOUGHT Nitel (Apr 2025); AT&T grew its TSD-facing org 25% and cut quote response ~80% via APIs, targeting 65% of activity through partners; Verizon cut 13k+. The 2026 anxiety is being structurally absorbed or out-automated, not just bypassed.
+3. **The winners are shedding asset-light pride:** Spectrotel + AireSpring market their merger on "facility-based network assets... nationwide fiber capabilities"; BCM One renamed its core business Pure IP after nine acquisitions; Granite built Granite360. **The market itself validated "move from pure resale margin to owning a deliverable network layer" - cite the pattern, don't argue the thesis.** This softens the old "never use build-infrastructure language" rule for the ambitious half of the segment: keep the no-CapEx reassurance (OpEx subscription, no buildout), drop the assumption that infrastructure ownership is off-limits to this buyer.
+4. **AI is breaking per-seat economics:** agentic containment vs per-seat CCaaS pricing; durable margin must move to infrastructure-anchored recurring revenue - exactly what an owned network layer is.
+5. **Commission compression is the operating climate:** the only public TSD's agency segment is flat-to-down. ScanSource Q3 FY26 (reported May 7, 2026): recurring revenue = 34.7% of gross profit; Intelisys net sales -1.5% YoY; Intelisys annualized billings ~$2.88B. "Existing residuals stay flat; this adds an owned-margin tier on top" now has earnings-grade evidence.
+6. **Advisors already transact infrastructure-sized deals:** record seven-figure colo/data-center TCVs in the channel. A carrier-infrastructure product is not out of register for this buyer; position MaiaEdge as the network layer of the AI/colo deals they're already closing, never as another connectivity supplier.
+
+**The supplier-desk trap (the iTel lesson, June 2026):** the VP Carrier Relations / Supplier Management seat runs the SUPPLY side - a 100-400 logo line card, master agreements, commission schedules, MDF. A pitch that reads "connectivity vendor" IS a line-card onboarding request, and they have a machine for that (route to procurement). What lands instead: a margin-stack / business-model conversation aimed at CEO / VP Product - "a layer you own and bill, not a supplier you quote. We're not asking to be supplier #401." Full objection doctrine: `context/core/differentiation-naas-aggregator.md` §5.3.
 
 ### NaaS Platform Operator subtype - RETIRED (2026-05-14)
 
@@ -373,11 +389,11 @@ Highest-performing first-touch angle for NaaS platform operators with their own 
 
 Tier 1 TSDs (US channel):
 - **Telarus** (Sandy, UT)  -  #1 market share per Omdia/Canalys. GeoQuote + Telarus Hub platform.
-- **AppDirect** (CDPQ-backed)  -  10K advisors, 1,000+ providers. 2025-26 M&A: NXTSYS, vCom Solutions, Tackle.io, PartnerStack. ⚠️ Building in-house orchestration post-vCom  -  competitive risk.
-- **Upstack** (Berkshire Partners-backed)  -  36 acquisitions through 2025.
+- **AppDirect** (CDPQ-backed)  -  14,000 advisors, 1,000+ providers. PartnerStack acquisition (April 2026) brings 138K+ B2B partners onto the platform; prior M&A: vCom Solutions (Dec 10, 2025, >$100M, adds QuantumShift wholesale Buyers' Club), NXTSYS, Tackle.io. ⚠️ Expanding its owned platform/partner-graph footprint  -  competitive risk.
+- **Upstack** (Berkshire Partners-backed)  -  37 acquisitions (Breakwater Cloud Advisors, 2026, anchoring a CX + AI practice); +$100M private credit facility for more.
 - **AVANT** (Pamlico / Court Square recapitalization Dec 2025)  -  300+ providers. Pathfinder decision platform.
 - **Bridgepointe** (Charlesbank / Carlyle AlpInvest recap April 2026, >$1B valuation)  -  400+ IT Strategists. "The Signal" portal processes 100% of orders. Scott Kinka positioning: "competitor to the big five consulting firms, not to TSDs."
-- **ScanSource Intelisys** (NASDAQ SCSC)  -  FY25 $3.04B total. Recurring revenue mix 29.3% → 36.0% Q3 FY25 (public earnings-disclosed shift from bandwidth reselling to platform / recurring services).
+- **ScanSource Intelisys** (NASDAQ SCSC)  -  Q3 FY26 (reported May 7, 2026): recurring revenue = 34.7% of gross profit; Intelisys net sales -1.5% YoY; Intelisys annualized billings ~$2.88B. Earnings-disclosed evidence that the bandwidth-reselling agency model is flat-to-down while platform / recurring services carry the growth.
 
 Tier 2 TSDs:
 - **Sandler Partners** (independent)
@@ -444,7 +460,7 @@ The channel hit $16B in 2025 (Bain estimate), up from $12B in 2024, with industr
 ~90% of companies using or adopting SD-WAN. Market: $7.91B (2025) to $21.67B (2030). No longer a differentiator  -  not offering it is a competitive disadvantage. SASE cannibalizing MPLS: ~$4B (2024) to ~$17B (2030) at 25-30% CAGR.
 
 ### The AI Readiness Gap
-58% of buyers identified AI as their top priority (up from 13% in 2023), but only 13% of TAs feel "very prepared" to sell AI solutions. This is the single biggest opportunity-gap in the channel right now.
+Per the **Telarus 3rd Annual Tech Trends Report** (survey fielded May 2025): 58% of buyers prioritize AI, while only 13% of advisors feel "very prepared" to sell AI solutions. This is the single biggest opportunity-gap in the channel right now. (Always attribute the 58/13 figure to the Telarus Tech Trends Report - it is an internal angle-selection trigger, not a cold-copy talking point.)
 
 ### AI-Augmented Operations
 AI automating up to 70% of routine NOC tasks. "Dark NOC" concept = fully autonomous network operations powered by agentic AI. Major vendors pushing "NOCless" operations. Incident response times cut by 50%, 30% operational cost reduction. Leading MSPs already have AI-powered NOC dashboards in production.
@@ -498,7 +514,7 @@ Sovereign data requirements are no longer a "government and healthcare only" pro
 These are who MSPs/AGGREGATORS compete against  -  not MaiaEdge competitors.
 
 ### Carrier Direct Sales
-Tier 1s increasingly selling directly to enterprise, bypassing the channel for large/complex deals. Aggressive bundling and SaaS disintermediation.
+**Reframe (June 2026): the threat is out-automation and commoditization, not abandonment.** Carriers are doubling DOWN on the mid-market channel, not leaving it: Comcast Business bought Nitel (Apr 2025), AT&T targets ~65% of activity through partners and cut quote response ~80% via APIs, Verizon re-committed to the channel under a new channel chief. What they did was cut quote time to minutes and make the resold circuit look identical across every advisor, so price is the only differentiator left in the resale layer. The fear to sell against is "your quote is slower and looks identical to everyone else's," NOT "the carrier left you." Real disintermediation exists only at the top hyperscaler-fabric layer (see Hyperscaler Networking below). Tier 1s still sell direct to enterprise for the largest / most complex deals, but for the mid-market channel the operative pressure is commoditization, not bypass.
 
 ### Hyperscaler Networking
 AWS Direct Connect, Azure ExpressRoute (400G in 2026), Google Cloud Interconnect. Each lets enterprises bypass traditional carrier/MSP relationships entirely.
@@ -516,13 +532,16 @@ Both compete for the "single provider" relationship. Clients demanding all-in-on
 
 ## MaiaEdge Relevance Bridges
 
-> **⚠️ Internal angle-selection guide.** Specific figures (channel $16B, SD-WAN market sizing, 58/13 AI readiness gap, 70% NOC automation, $4.3B MSP M&A value, ScanSource 29.3% → 36.0% recurring-revenue mix) are **internal triggers for picking which angle to lead with**. They are NOT customer-facing talking points. Do not cite these figures in cold outreach or LinkedIn. Use them to determine which relevance bridge fits the account, then write in segment vocabulary with the subtype-appropriate register.
+> **⚠️ Internal angle-selection guide.** Specific figures (channel $16B, SD-WAN market sizing, 58/13 AI readiness gap, 70% NOC automation, $4.3B MSP M&A value, ScanSource Q3 FY26 recurring 34.7% of gross profit, the 50-60% private-label vs 10-20% commission margin spread that picks the white-label angle) are **internal triggers for picking which angle to lead with**. They are NOT customer-facing talking points. Do not cite these figures in cold outreach or LinkedIn. Use them to determine which relevance bridge fits the account, then write in segment vocabulary with the subtype-appropriate register. The white-label margin math (private-label gross 50-60% vs commission 10-20%) is the reason to lead with the MONETIZE / white-label angle; the copy itself stays vocabulary-clean.
 
 How current industry trends connect to problems MaiaEdge solves. Use across the full sales motion.
 
 | Their Trend | Their Pain | MaiaEdge Angle |
 |---|---|---|
-| Carrier direct sales bypassing channel | Losing enterprise deals to carriers who sell direct  -  need differentiation beyond resale | "Carriers are going direct. You need something they can't offer  -  real-time visibility into THEIR networks." |
+| Carriers out-automating quoting + commoditizing the resale layer (NOT abandoning the channel) | The carrier cut quote time to minutes and made every advisor's quote look identical  -  price is the only thing left to compete on. Carriers are doubling DOWN on the mid-market channel (Comcast bought Nitel, AT&T targets 65% through partners, Verizon re-committed under a new channel chief), not leaving it | "The carriers cut quote time to minutes and made the resale layer look identical across every advisor, so price is the only thing left to compete on. The way back to differentiation is a path your team activates fast and a visibility layer the customer can only get through you." |
+| AI practice sells the software but not the network path the workload rides | Every TSD / advisor launched an AI practice selling contact-center / agentic SOFTWARE, but none owns the deterministic path the AI workload rides on  -  that gap is where the deal stalls | "Your AI practice can sell the contact-center agent but not the deterministic path the workload rides on, and that gap is where the deal stalls. The version that compounds is the one where your team activates the connectivity layer in hours and keeps the customer relationship." |
+| AI collapsing per-seat CCaaS / UCaaS margin | Per-seat pricing is unwinding as AI absorbs the interactions the advisor used to bill per head  -  the margin has to move somewhere durable | "Per-seat pricing is unwinding as AI absorbs the interactions you used to bill per head, so the margin has to move somewhere durable. An on-net connectivity layer your team productizes and bills is recurring revenue you own instead of a commission that compresses every renewal." |
+| Reselling carrier circuits on commission (MONETIZE) | The margin and the brand stay with the carrier; commission compresses every renewal | "Reselling a carrier circuit on commission leaves the margin and the brand with someone else. The shift that holds is a connectivity layer your customers buy under your name, on a recurring tier your team owns and prices." |
 | Azure ExpressRoute going 400G | Another path for enterprises to bypass MSP/carrier relationships entirely | "Every new hyperscaler interconnect option is one more reason your customers might not need you. Visibility is your moat." |
 | Dark NOC / AI-augmented operations | Competitors automating 70% of NOC tasks  -  manual operations becoming a cost disadvantage | "Your competitors are automating their NOC. MaiaEdge gives you the visibility layer to do the same." |
 | Finger-pointing during outages | Responsible for SLA but blind to carrier networks  -  customer trust erodes with every "depends on the carrier" | "Stop saying 'depends on the carrier.' MaiaEdge shows you exactly where the problem is, in real time." |
@@ -555,6 +574,9 @@ Things MSP/aggregator executives say internally  -  use these to demonstrate you
 - "The 58/13 gap isn't just about readiness  -  our customers can't GET AI capacity from hyperscalers on demand"
 - "Compliance deadlines (TDM, STIR/SHAKEN, state privacy laws) are a pipeline, not paperwork"
 - "Our mid-market customers are inheriting sovereignty requirements from THEIR customers. We need an answer."
+- "Our AI practice sells the contact-center agent, but we don't own the network path the workload rides on  -  that's where deals stall." (AI-connectivity whitespace - the practice sells the software, never the deterministic path)
+- "Per-seat is unwinding. AI is absorbing the interactions we used to bill per head  -  the margin has to move to something durable we own, not a commission that compresses every renewal." (per-seat-economics-breaking board language)
+- "The carrier didn't leave us  -  they out-automated our quote and made the resale layer look identical. Price is all that's left unless we own a layer the customer can only get through us."
 
 ### KPIs They Report
 MRR, churn rate, TCV per deal, residual commission rates, MTTR, SLA compliance %, ticket resolution time, NOC utilization, customer acquisition cost, revenue per TA
@@ -569,6 +591,8 @@ TSD (replacing "master agent"), TA (replacing "agent"), Dark NOC, agentic AI ope
 ### MUST-Use Terms (MSP / Aggregator)
 
 **General (both subtypes):** finger-pointing, SLA compliance, asset-light, single pane of glass, carrier relationships, Tier 1, aggregation, multi-carrier, provisioning timeline, managed services, OpEx, reach beyond your carriers, turn spare capacity into sellable services, connectivity marketplace.
+
+**White-label / monetization (MONETIZE angle additions):** private-label, brandable, under your name, under your brand, a layer your team owns and bills, recurring tier you own and price, productize the connectivity layer, a tier you set the price on (not quote theirs). Use these for the "own a recurring tier under your brand" reframe instead of "resell another carrier circuit." Stay vocabulary-clean - never "infrastructure you build" or "hardware you deploy."
 
 **NaaS Platform Operator subtype (additions):** platform speed, click-to-order, customer portal, self-service ordering, on-demand connectivity, platform experience, underlying carrier, partner boundary, partner-NNI, activation queue, activation cycle.
 
@@ -589,9 +613,11 @@ TSD (replacing "master agent"), TA (replacing "agent"), Dark NOC, agentic AI ope
 ### Cold Outreach Rules
 - Credibility anchors ("Same team that built Acme Packet" / "128 Technology" / Andy Ory etc.) are BANNED in cold emails and LinkedIn. The message does the talking in outreach. Allowed in live presentations, demos, proposals, and objection handling  -  the track record does the talking in rooms.
 - NO sign-offs in emails. Signatures are auto-appended by the email platform.
-- Respect the asset-light model. Never use "build infrastructure" or "deploy hardware" language. MaiaEdge is a visibility and control layer, not an infrastructure buildout.
-- Pair speed with ownership where it fits, but the MSP's value is aggregation and simplification, not infrastructure ownership. Lead with visibility and speed.
-- New angles: reach (extend coverage to new markets through partners without new carrier contracts) and monetization (turn spare capacity into sellable services, not just resell carrier circuits).
+- **Ownership-language reconciliation (the asset-light copy rule, clarified June 2026).** The market itself validated owning a deliverable network LAYER (Spectrotel + AireSpring on "facility-based network assets," Granite360, BCM One → Pure IP). So the old blanket "never use build-infrastructure language" rule is too tight. Reconcile it as a split:
+  - **Still BANNED for the whole segment:** "build infrastructure," "deploy hardware," "infrastructure you build/own," CapEx / buildout framing. Keep the no-CapEx, no-hardware reassurance intact - MaiaEdge needs no buildout from the aggregator.
+  - **NOW PERMITTED for the ambitious half of the segment (TSDs, scaled aggregators, Cloud+Telecom Hybrids):** "a layer you own and bill," "a connectivity layer your team owns," "a recurring tier you own and price," "under your brand." Ownership here means a billable layer the team ACTIVATES, never hardware they build. Example: "You aggregate carriers but bill on someone else's margin, so the ceiling is always their pricing. A connectivity layer your team owns and bills, with no buildout, is the tier that lets you set the price instead of quoting theirs."
+- Pair speed with ownership where it fits  -  ownership = a layer your team activates and bills, not infrastructure you build. Lead with visibility and speed; for the ambitious half, lead with the owned-and-billed layer.
+- New angles: reach (extend coverage to new markets through partners without new carrier contracts) and monetization (turn spare capacity into sellable services, and own a recurring tier under your brand, not just resell carrier circuits).
 
 ---
 

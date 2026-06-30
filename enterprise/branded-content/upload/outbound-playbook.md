@@ -21,6 +21,8 @@ Know what "good" looks like so you can calibrate advice:
 - Anything above 10% reply on a well-targeted, well-researched sequence is exceptional.
 - Meeting-to-reply conversion should be 30-40% with proper follow-up.
 
+**House baseline (2026-06-11 retro, 4,614 sends / 1,934 contacts, Mar-Jun 2026):** 1.2% human-reply, 0.93% positive, 44% positive→held-meeting. Event-anchored waves ran 1.0-4.4% positive; anchor-less June waves ran 0.0%. **Targets:** event/anchored 4-6% human reply (2-3% positive); craft-structure cold 2-3% human reply (1-1.5% positive); hold reply→meeting ≥40%. Track HUMAN-reply rate, not raw replies (51% of raw replies in the corpus were OOO/auto).
+
 ---
 
 ## Sequence Architecture  -  What's Working Now
@@ -28,7 +30,7 @@ Know what "good" looks like so you can calibrate advice:
 ### Optimal Sequence Length
 The data is clear: **3-5 emails over 10-17 days** is the sweet spot for enterprise B2B.
 
-- 58% of replies come on Email 1
+- Industry data says 58% of replies come on Email 1 — **the house data disagrees: E2 is our workhorse** (8 of 18 all-time positives on E2, 6 on E1, 4 on E3; the short E3 nudge booked 2 meetings). Keep all three touches.
 - Email 2 can boost reply rates by up to 49% (this is the highest-leverage follow-up)
 - Email 3 still adds ~20% incremental replies
 - By Email 4-5, returns drop off sharply (55% decline from earlier emails)
@@ -52,15 +54,23 @@ After Day 10, additional follow-ups produce marginal or negative returns for col
 ### Multi-Channel Sequencing
 The best campaigns in 2025-2026 layer multiple channels:
 
-**Recommended MaiaEdge cadence:**
+**Recommended MaiaEdge cadence (updated 2026-06-12 — LinkedIn leads, email carries the ask):**
 ```
-Day 1:  Email 1 (cold, research-driven)
-Day 2:  LinkedIn connection request (300-char, company-specific)
-Day 5:  Email 2 (new angle, follow-up)
-Day 7:  LinkedIn engage with their content (like/comment  -  NOT a pitch)
-Day 12: Email 3 (breakup, final value hook)
-Day 14: Phone call (if no response to any channel)
+Day -3: LinkedIn connection request (craft voice, ≤280 chars, from the rep/founder)
+        → on ACCEPT (+24-48h): thank-you DM + account one-pager (branded-doc outbound
+          variant), pressure-off, no CTA push. LOG accept + delivery per linkedin-outreach.
+Day 0:  Email 1 (craft structure: structural truth → craft line → show-me give → call-ask)
+        Same-account contacts staggered ≥48h; never the same morning; ≤3/account per wave.
+Day 4:  Email 2 (new angle; for accepted contacts, name ONE claim from the one-pager and
+        carry the meeting ask here)
+Day 9:  Email 3 (one actionable ask; timing nudge if a real window exists, else take-away)
+Any reply → propose three specific times (never a bare calendar link).
+Any unsub/negative at an account → stop ALL contacts at that account.
 ```
+
+**Anchor inventory, ranked by observed yield (retro 2026-06-11):** live event presence (4.4% positive) > event 2-3 weeks out (1.0-1.8%) > market catalyst calibrated to seat (Campaign A pattern, unproven) > rep travel (weak) > anchor-less diagnosis copy (0.0% — banned shape; the craft structure manufactures the why-now instead).
+
+**The show-me give is a standing cold asset:** live demo is ready (confirmed 2026-06-12). "Fifteen minutes and I can show you the whole thing end to end" — demo pull was the strongest cold behavior in the corpus (a CEO replied asking for "a real demo"; another went to the website and asked to see it end to end).
 
 **Channel strengths:**
 - **Email**: Detail, research demonstration, specific value props
@@ -78,7 +88,7 @@ The data is dramatic:
 - Companies that trimmed emails by 40% saw: open rates +86%, reply rates +181%, meetings +78%
 - One point. One CTA. One reason to reply.
 
-**For MaiaEdge:** Sequence length is governed by hard caps in `context/outreach/email-writing-rules.md` - Email 1 at 70-85 words, Email 2 under 55 words, Email 3 at 2-3 sentences max. These caps apply across every segment. A tight email under the cap beats a padded one that hits any number.
+**For MaiaEdge:** Sequence length is governed by hard caps in `context/outreach/email-writing-rules.md` - Email 1 at 85-110 words, Email 2 under 55 words, Email 3 at 2-3 sentences max. These caps apply across every segment. A tight email under the cap beats a padded one that hits any number.
 
 ### Hook Types  -  What's Working
 
@@ -117,7 +127,7 @@ The science is settled: deep personalization crushes generic:
 **What's working:**
 - 4-7 words
 - Company name or specific topic
-- No clickbait, no questions, no hype
+- No clickbait, no hype. **Genuine, substantive questions are allowed for cold** ("how do you handle paths beyond Jamaica?" earned the only pure-cold E2 positive in the house corpus); empty "Quick question" stays banned.
 - Good: "[Company] provisioning" / "[Company] interconnection" / "Cross-carrier paths at [Company]"
 - Bad: "Quick question" / "Unlock new revenue" / "The future of connectivity"
 

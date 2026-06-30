@@ -15,14 +15,32 @@ Produce visually rich, audience-specific reports from HubSpot call data. This sk
 
 ---
 
+## Clarification
+
+Before building, one question that changes the output:
+
+**Which report do you need?**
+- **Monthly dashboard** (MODE 1) - total calls, use cases, rep activity, segment breakdown for a single month
+- **Trend analysis** (MODE 2) - multi-month use case momentum, rising/falling signals (default: last 6 months)
+- **Deals vs. POCs** (MODE 3) - how conversations shift from pre-POC through POC to post-sale
+- **Audience briefing** (MODE 4) - CEO (Abilash), CRO (Tim Z), or rep scorecard (name the rep)
+- **Full executive dashboard** (MODE 5) - all tabs in one HTML file (Pipeline, POC Status, Calls, Trends, Pipeline Phases)
+
+Share the report type and time period; if you have a specific audience in mind, name them. I'll pull HubSpot data and build immediately.
+
+---
+
 ## Reference
 
 ### Reference Files
 
-- **Owner IDs and territory mapping:** See `territory-model.md`
-- **Segment HubSpot values:** See `hubspot-values.md`
-- **Call properties, query patterns, pagination, property sets:** See `call-schema.md`
-- **Use case taxonomy:** See `use-case-taxonomy.md`
+- **Owner IDs and territory mapping:** See `context/hubspot/territory-model.md`
+- **Segment HubSpot values:** See `context/hubspot/hubspot-values.md`
+- **Call properties, query patterns, pagination, property sets:** See `context/hubspot/call-schema.md`
+- **Use case taxonomy:** See `context/sales/use-case-taxonomy.md`
+- **Deal stages, pipeline columns, stage IDs:** See `context/hubspot/deals-schema.md` (MODE 3 pre-POC/POC/closed-won stage queries; MODE 4 CRO pipeline board)
+- **POC properties, stages, health fields, 98-property set:** See `context/hubspot/poc-schema.md` (Tab 2 / MODE 5 POC Status tab renders the full 10-stage POC lifecycle)
+- **Pipeline board logic (3-column board):** See `skills/pipeline-discipline/SKILL.md` Mode 1 (MODE 4 CRO briefing builds the same board inline)
 
 ---
 
@@ -287,12 +305,12 @@ Width = (value / max value) * 100. Top bar is always 100%. Count always shown to
 5. Key wins and risks surfaced in recent calls
 
 **CRO (Tim Ziemer):**
-1. Build the 3-column pipeline board inline using the same logic as `pipeline-discipline/SKILL.md` Mode 1 (query pre-POC deals, open POC tickets, closed-won companies with expansion signals)
+1. Build the 3-column pipeline board inline using the same logic as `skills/pipeline-discipline/SKILL.md` Mode 1 (query pre-POC deals, open POC tickets, closed-won companies with expansion signals)
 2. Add: call coverage analysis -- which accounts with open deals/POCs have gone quiet?
 3. Add: rep comparison -- who's making more calls, who's covering more accounts
 4. Add: stalled account alerts -- accounts with zero calls in 30+ days despite active pipeline
 
-**Rep (Tim Lieto / Ken Cunningham):**
+**Rep (any rep - see `context/hubspot/territory-model.md` for the full rep roster and territory assignments):**
 1. Their calls this period: count, companies, segments
 2. Their top accounts by call frequency with deal/POC stage context
 3. Use case coverage: which use cases are they discussing most?
@@ -302,7 +320,7 @@ Width = (value / max value) * 100. Top bar is always 100%. Count always shown to
 **Output:** HTML briefing tailored to the audience. Use the header to indicate recipient:
 - "STRATEGIC BRIEFING -- Prepared for Abilash Menon, CEO"
 - "PIPELINE DISCIPLINE REPORT -- Prepared for Tim Ziemer, CRO"
-- "REP SCORECARD -- Tim Lieto, East Region"
+- "REP SCORECARD -- [Rep Name], [Territory]" (derive territory from `context/hubspot/territory-model.md`; do not hardcode region labels)
 
 ---
 

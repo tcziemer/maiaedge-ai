@@ -58,6 +58,7 @@ Group contacts by Account. All contacts at the same account share one round of a
 Before writing, read these from the maiaedge-ai repo (paths relative to repo root):
 
 **Voice + writing rules (mandatory every run):**
+0. `context/outreach/voice-gold-standard.md` — **THE write-time page; hold it open while writing.** Gold exemplars + the 8-item hard-ban shortlist. Imitate the register, never reuse exemplar phrasing verbatim.
 1. `context/copy-strategy/segment-language.md` — insider vocabulary, daily reality, conversational patterns per segment
 2. `context/outreach/email-writing-rules.md` — core philosophy, angle-first, Research Receipt format, banned phrases, posture rules, Email 3 rotation, subject-line guidance
 3. `context/outreach/fallback-messaging.md` — segment-specific fallback E1/E2/E3 templates when research is thin
@@ -89,7 +90,7 @@ Before investing research time, run the activity gate per contact to prevent ton
 | HubSpot field | Threshold | Action |
 |---|---|---|
 | `notes_last_contacted` within 14 days | **STOP** | `SKIPPED: Active conversation (last contacted YYYY-MM-DD)` |
-| `notes_last_contacted` 15–30 days | **WARNING** | Flag for rep review before sending |
+| `notes_last_contacted` 15–45 days | **WARNING** | Flag for rep review before sending |
 | `hs_sequences_is_enrolled` = true | **STOP** | `SKIPPED: Currently in HubSpot sequence [name]` |
 | `hs_lead_status` = "Connected" or "Open Deal" | **STOP** | `SKIPPED: Lead status [status]` |
 | `hs_lead_status` = "Attempted to Contact" | **CAUTION** | Don't repeat the prior angle |
@@ -99,6 +100,26 @@ Before investing research time, run the activity gate per contact to prevent ton
 **Active deal contacts:** review the deal carefully. May SKIP, or may need to complement (not conflict with) the existing sales conversation. Flag for rep review if unclear.
 
 **Territory check:** if the source's Account Owner doesn't match the territory model below for the company's HQ state, note it (informational, not a STOP — user may be running a cross-territory play).
+
+### Step 1.6: Concentration & Seniority Gate (Mandatory — Per Account)
+
+Run after the activity gate, before research. Defends against account-wide unsubscribe cascades: loading 5+ contacts at one small account into the same send window, exec-heavy, means one annoyed exec forwards the email internally and the whole buying committee opts out at once (observed June 2026: 24 unsubs in 14 days, 58% C-level, one account lost 7 contacts including CEO + CFO).
+
+**1. Burned-account check (HubSpot, first).** Pull `hs_email_optout` for all contacts at the account.
+
+| Condition | Action |
+|---|---|
+| ≥2 prior unsubscribes at the account | **STOP the whole account.** `SKIPPED: Account burned (N prior unsubscribes)` — rep-direct or LinkedIn only |
+| 1 prior unsubscribe | Cap the account at 2 contacts, neither C-level; angle must differ from the prior campaign's |
+| Contact individually opted out | Always skip that contact: `SKIPPED: Prior unsubscribe` (also covered by `context/outreach/pre-cadence-hygiene.md`) |
+
+**2. Concentration cap: max 3 contacts per account per send window.** If the source list has more, select the best 3 by the priority order below and mark the rest `HELD: Concentration cap (wave 2)` in the Email 1 column (same row mechanism as SKIPPED). Wave-2 contacts go in a later batch ≥2 weeks out, and ONLY if wave 1 produced zero unsubscribes at that account.
+
+**3. Department spread (applies to the selected ≤3).** Selected contacts must span at least 2 functions (technical/network, sales/BD/partnerships, ops, exec). An all-C-suite stack at one account fails this check — swap in operator-level personas. A spread across departments is fine; a stack of executives is not.
+
+**4. Seniority hold at lower-tier accounts.** CEO / President / Owner / CFO / COO at a Tier 3+ account (or any account under ~100 employees) does NOT enter a cold sequence. Mark `HELD: Senior exec at low-tier account — rep-direct or warm only`. These inboxes are triage zones: a relevant-but-unsolicited email gets unsubscribed as inbox defense, and that unsub poisons the whole account. Exceptions: (a) Tier 1–2 account where the exec is the economic buyer for the angle; (b) the account is small enough that the exec is the only operator — then 1 exec max, posture ASKED.
+
+**Selection priority under the cap:** technical buyer who owns the problem (VP Eng / VP Network / Network Ops) > wholesale/sales/BD leader > ops > senior business exec (Tier 1–2 accounts only).
 
 ### Step 2: Account-Level Research (One Time Per Account)
 
@@ -172,6 +193,7 @@ Searches run (literal query strings — not paraphrased):
 
 Company-level finding: [signal description with source quote + date, OR "NONE — no Tier A or Tier B hits across [N] searches"]
 Contact-level finding: [what THIS contact owns / recent role activity / why they care about THIS facet. REQUIRED on every Receipt, including when the company finding is NONE.]
+Load-bearing assumption: [the ONE thing the angle assumes is true about how their business works today] → [VERIFIED via source | UNVERIFIED → reframe forward-state / hedge / cut before writing]
 Brief validation: [VERIFIED against current research | CORRECTED: (what changed) | NO BRIEF]
 Signal recency: [event date YYYY-MM-DD — FRESH ≤60d | AGING 60–90d | STALE >90d → re-verified or dropped | NONE]
 
@@ -185,7 +207,7 @@ Subject: [subject line per Smartlead config]
 [email body]
 ```
 
-**Refuse-to-write rule:** if you cannot honestly fill all four sections (≥3 literal queries with results, Company-level finding, Contact-level finding, Posture with reason), output `RESEARCH INCOMPLETE: [reason]` in place of the email body, mark the contact `SKIPPED: Research incomplete`, and move on. Do NOT fabricate a Receipt. The Receipt is review metadata above the body — it does not get sent.
+**Refuse-to-write rule:** if you cannot honestly fill all five sections (≥3 literal queries with results, Company-level finding, Contact-level finding, Load-bearing assumption, Posture with reason), output `RESEARCH INCOMPLETE: [reason]` in place of the email body, mark the contact `SKIPPED: Research incomplete`, and move on. Do NOT fabricate a Receipt. The Receipt is review metadata above the body — it does not get sent. If the load-bearing assumption is UNVERIFIED and asserts how their business works today, the angle is not ready — reframe forward-state or cut before writing.
 
 **Why each section enforces what it does:**
 - Literal queries make faking research more expensive than running it.
@@ -197,20 +219,24 @@ Subject: [subject line per Smartlead config]
 
 Before appending:
 
-- **Research Receipt present** above every email body — Searches Run (≥3 literal queries with results, ≥5 if NONE), Company-level finding, Contact-level finding, Brief validation, Signal recency, Posture with reason. NONE without ≥5 queries above it is research-skipping and fails this check.
+- **Research Receipt present** above every email body — Searches Run (≥3 literal queries with results, ≥5 if NONE), Company-level finding, Contact-level finding, Load-bearing assumption, Brief validation, Signal recency, Posture with reason. NONE without ≥5 queries above it is research-skipping and fails this check.
 - **Signal recency:** the angle leans only on a FRESH signal (event date ≤90 days, ideally ≤60), used as the reason to reach out now. No stale signals referenced as current. If the only signal is stale, the email runs on inferred-pain (posture = ASKED), not a dressed-up old headline.
 - **Fact accuracy:** Account Brief validated against current research; angle-driving facts verified against dated sources; no wrong facts. `infrastructure_profile` beats `annualrevenue` on conflict.
+- **Load-bearing assumption checked:** the one thing the angle assumes about how their business works (e.g. they resell vs. already own a network) is named on the Receipt and verified against a source, or reframed forward-state. Never assert they have not already solved the problem without a source (assume competence). See `context/outreach/email-writing-rules.md` § The Load-Bearing Assumption Gate.
 - **Recipient's-eye read:** would they read past the first sentence? Does it sound like someone who knows their world?
 - **Research invisibility:** no displayed company facts, stats, route miles, revenue, funding, project names, "I noticed."
 - **Pressure-off:** peer suggesting a conversation, not a salesperson pushing a meeting.
-- **Mechanical:** no em dashes, no banned phrases, no competitor/customer names, no credibility anchors, correct sender per Account Owner.
+- **Mechanical:** no em dashes/colons/dash-as-punctuation, no move-announcing transitions, no banned phrases, no competitor/customer names, no credibility anchors, correct sender per Account Owner.
 - **Value bridge** is 1 sentence max, embedded by contrast or standalone-but-punchy, "I" voice. Multi-sentence value bridge paragraphs BANNED. No brand-voice constructions ("We help operators…" / "We work with…").
-- **Word count:** Email 1 70–85 words; Email 2 under 55; Email 3 2–3 sentences.
+- **Word count:** Email 1 85–110 words; Email 2 under 55; Email 3 2–3 sentences.
 - **First name** before the email body.
+- **Batch Fingerprint Gate (per email-writing-rules.md):** no closing string on >20% of the batch or twice within an account; no 8-gram repeated across same-account contacts; ≥3 opener patterns per 10 contacts; no phrase shipped verbatim from voice-gold-standard.md, fallback-messaging.md, or any rule file's examples.
+- **Send discipline noted on the output:** same-account E1s staggered ≥48h (never the same morning); any reply/unsub at an account pauses all other contacts there. Replies themselves are processed with the **warm-follow-up** skill (paste the thread), never by re-running cold copy.
 - **Posture rotates across the sequence.** If E1 was DIRECT, E2 should be ASKED. E3 takes a detached or take-away close.
 - **Hedge variety:** "I'd guess" / "I'd imagine" in ≤30% of E1s per batch of 10+. Mix in direct assertions, illumination questions, premise hedges, peer observations.
 - **LinkedIn (if applicable):** 35–50 words / ≤280 chars, no sender intro in body, company-specific problem, soft CTA optional, Research Receipt above (same four-section format). LinkedIn posture differs from E1.
 - **Sequence:** 3 distinct angle categories (revenue / competitive / operational / market timing / cost-of-inaction / peer social proof), CTAs rotated, reads like a real person coming back with new thoughts. Standalone test: would E2 still make sense with E1 removed?
+- **Concentration & seniority gate applied:** burned-account check run; ≤3 contacts written per account; selected contacts span ≥2 functions; no CEO/President/CFO/COO at a Tier 3+ account in the cold cadence; overflow marked `HELD: Concentration cap (wave 2)`.
 
 ### Step 5: Append Account to Output
 
@@ -224,17 +250,20 @@ Briefly: account name, contact count, skips, warm angles available, segment corr
 
 ## Email Framework
 
-### Email 1 (~70–85 words)
+### Email 1 (85–110 words — the Craft Structure)
 
-No event hook. The opener IS the relevance — lead with the angle that came from research. Done well, it should feel like a peer who knows their world reaching out, not a stranger.
+No event hook. The copy manufactures its own why-now (canonical: email-writing-rules.md § Craft Voice; exemplars: voice-gold-standard.md). Four moves:
 
-1. **Relevance opener (1–2 sentences):** the company-specific problem or observation, written naturally. NOT "I noticed [fact]" (that PHRASE is banned), but a public-signal observation IS allowed and encouraged ("Saw the Q3 release notes mentioned…" / "Caught your panel at MetroConnect" / "Noticed the BEAD subgrant award post"). The observation must be FRESH (≤90d) — an old signal is not an opener. Research stays INVISIBLE except for the cited public signal.
-2. **Value bridge (1 sentence MAX, embed-by-contrast preferred):** how MaiaEdge relates. Segment vocabulary only. "I" voice. No brand-voice constructions ("We help operators…" / "We built infrastructure that…" — BANNED). Multi-sentence value bridge paragraphs BANNED.
-3. **CTA (1 sentence):** low-pressure, timing-flexible. Optional when an illumination question carries the close.
+1. **Structural-truth opener (1–2 sentences):** a tension that belongs to the PHYSICS of their world, sharpened by research to the facet that bites THIS company hardest right now, with their competence credited when natural ("you know better than most that…"). A FRESH (≤90d) public-signal observation may carry this slot instead ("Saw the BEAD subgrant post") — max ONE cited signal, research otherwise INVISIBLE. Never a diagnosis of their company.
+2. **Craft line (1 sentence):** "That [handoff leg / last hop / boundary] is the layer I work on" + ONE concrete mechanic in their vocabulary (portal, NNI, turn-up, SKU, path). No brand-voice constructions ("We help operators…" — BANNED); the "We've been helping similar teams…" peer line is capped at 1 per ACCOUNT and ≤20% of the batch.
+3. **ONE close, three classes (the give IS the close — never stacked with a second ask):**
+   - **Give-close (default for technical buyers):** demo offer fused into a single ask — "Fifteen minutes and I can show you the whole thing end to end, whenever works on your side." Live demo is ready and sanctioned. A trailing clause may soften scheduling, never add another ask. **Never offer or send a one-pager in cold E1** — one-pagers are delivered ONLY after a LinkedIn accept (thank-you DM) or after a reply.
+   - **Soft call-ask STATEMENT:** "Happy to set up time if it's worth a look."
+   - **Honest-reason close (senior business buyers):** "felt close enough to what you're building to be worth a conversation."
+
+   **BANNED: yes/no thought-question closes** ("Is this something you've thought about?" went 0-for-28 in June 2026). No closing string on >20% of the batch; never twice within an account.
 
 **Posture (DIRECT or ASKED):** decided in Step 3.4. DIRECT for HIGH-confidence, FRESH Tier A cataloged signals + technical buyers. ASKED otherwise.
-
-**Default Email 1 CTA:** some version of "Hope to get a chance to connect when the timing works for you?"
 
 ### Email 2 (under 55 words)
 
@@ -243,7 +272,7 @@ No re-introduction. No "following up." No meta-references like "the other angle 
 1. **New thought (2–3 sentences):** a different angle on the same underlying problem.
 2. **CTA (1 sentence):** rotated, opens the door to a delegate.
 
-**Default Email 2 CTA:** "Open to setting some time up? Happy to connect with somebody on your team first if that's preferred."
+**Email 2 CTA:** call-ask with a delegate door, **paraphrased fresh per contact** (the delegate door is the pattern; the wording is per-contact). The old prescribed string ("Open to setting some time up? Happy to connect with somebody on your team first if that's preferred.") shipped verbatim 7+ times in June 2026 and is retired — any literal CTA string in a rule file becomes a batch stamp.
 
 ### Email 3 (2–3 sentences max)
 
@@ -252,18 +281,17 @@ No timing hook. No "show is coming up." Just a soft, pressure-off final touch �
 1. **Soft check-in (1–2 sentences):** is this relevant to what they have going on, or wrong moment.
 2. **Soft close.** ONE CTA only. Never a conditional close plus a second close.
 
-**CTA options (rotate for variance — pressure-off):**
+**CTA patterns (paraphrase per contact — every E3 carries ONE actionable ask; zero-ask passive closers like "Door's open if this becomes useful." are BANNED):**
+- Honest-reason recap + ask: "Reached out because [the structural truth] felt close to what you're building. Worth a conversation, or wrong moment?"
 - "Is this relevant to what you have going on?"
 - "Better time for me to reach out?"
 - "Worth a conversation, or wrong moment?"
-- "Happy to circle back if the timing's off."
-- "Door's open if this becomes useful."
 
 ### LinkedIn Message (Only If Confirmed at Run Start)
 
 **Length:** target 35–50 words, max 280 chars (under LinkedIn's 300 hard limit). NOT a miniature email.
 
-**Pattern:** `[First name], [observation/question with company-specific signal]. [Optional: one sentence of context]. [CTA or no CTA].` Embed-by-contrast preferred for the value bridge. NO standalone "We built carrier infrastructure that…" or "We help operators…" — brand-voice constructions BANNED. Use "I" voice or product-as-outcome framing if a value bridge is needed.
+**Pattern — craft voice is the default (see linkedin-outreach SKILL § Format + voice-gold-standard.md §A):** `[First name], [structural truth of their world, competence credited]. [Craft line: "the layer I work on" + one concrete mechanic]. [Honest-reason or micro-ask close].` NO standalone "We built carrier infrastructure that…" or "We help operators…" — brand-voice constructions BANNED. **Emit `char count: N/280` under every message** — over-cap messages are rewritten, never shipped.
 
 **No sender intro in the body.** The recipient already sees the sender from LinkedIn's UI. "Tim from MaiaEdge" in the body is redundant and triggers the sales-pitch reflex — banned.
 
@@ -312,7 +340,8 @@ URL on its own top line, blank line, then the message. No labels ("URL:", "Messa
 
 ## Hard Bans
 
-- **No em dashes.** Use periods or commas.
+- **No em dashes, no colons, no dashes-as-punctuation** (spaced hyphen, double hyphen, en dash) in subject or body. Use periods or commas; hyphenated compounds (cross-connect, on-net) are fine.
+- **No move-announcing transitions** ("another angle on this," "one more thought," "quick thought," "worth a thought"). Don't narrate the move. Just say the thing.
 - No "Hope this finds you well" / "Just wanted to reach out" / "I noticed" / "Revolutionary" / "Game-changing" / "Reason I'm reaching out."
 - **No customer names.** Anonymize: "one fiber operator," not the actual name.
 - **No competitor names.** "Third-party fabric" only where the segment fits — works for fiber operators and aggregators, NOT for Tier 1 network operators or carrier relations/roaming roles.
@@ -378,6 +407,12 @@ The Account Owner column already has the correct sender. Use that value.
 
 ## Quality Checklist (Every Account Batch)
 
+**List Safety (per account, before research)**
+- [ ] Burned-account check run (`hs_email_optout`) — no writing into accounts with ≥2 prior unsubscribes
+- [ ] ≤3 contacts per account per send window; overflow marked `HELD: Concentration cap (wave 2)`
+- [ ] Selected contacts span ≥2 departments — no all-exec stacks at one account
+- [ ] No CEO/President/Owner/CFO/COO at Tier 3+ accounts in the cold cadence (HELD for rep-direct/warm)
+
 **Research Quality**
 - [ ] Account Brief read, used as baseline (not displayed), AND validated against current research — corrections noted on the Receipt
 - [ ] Catalog-grounded web search (≥3 Tier A patterns; ≥5 queries if NONE)
@@ -392,8 +427,8 @@ The Account Owner column already has the correct sender. Use that value.
 **Email Quality**
 - [ ] Research is INVISIBLE
 - [ ] Diplomatic, pressure-off tone
-- [ ] Within word count (E1 70–85 / E2 <55 / E3 2–3 sentences)
-- [ ] No em dashes, banned phrases, competitor/customer names, credibility anchors
+- [ ] Within word count (E1 85–110 / E2 <55 / E3 2–3 sentences)
+- [ ] No em dashes/colons/dash-as-punctuation, move-announcing transitions, banned phrases, competitor/customer names, credibility anchors
 - [ ] Value bridge 1 sentence, "I" voice, no brand-voice constructions
 - [ ] CTA low-pressure; rotated across all 3 emails
 - [ ] Each email a genuinely different angle; E2 doesn't reference E1
@@ -421,5 +456,7 @@ After all accounts are processed, report:
 - Total segment corrections
 - LinkedIn messages written (if applicable)
 - Stale-signal fallbacks used (signal found but >90d, ran on inferred-pain)
+- Burned accounts skipped (≥2 prior unsubscribes)
+- Concentration holds (wave-2 contacts) and seniority holds (rep-direct routing) — count + names so the rep can work them warm
 - Active accounts handled (warm angles used, deals flagged)
 - Output file location

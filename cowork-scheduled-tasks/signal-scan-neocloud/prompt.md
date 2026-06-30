@@ -230,7 +230,7 @@ Highest-scored signal per account wins for the narrative + date write.
 2. **Freshness** — event date within 180 days rolling window. Drop only if older than 180 days (it would compute to `Cold`).
 3. **Segment classification** — `customer_segment = "NeoCloud"` post-Stage 3.
 4. **Field overflow** — narrative ≤250 chars.
-5. **Owner mapping** — `hubspot_owner_id` maps to East / West / International. Owner-less → audit for Cooper.
+5. **Owner mapping** — `hubspot_owner_id` maps to a current territory owner: Lieto NE+West `161889085` / Ken SE `162339176` / Tory Central `165480917` / Markus Europe `164949459` / Ziemer Intl+Tier 1 SP `159350430` / Cooper Unassigned `160267902`. Owner-less → audit for Cooper.
 6. **Rep-facing copy scan** — pure prose, no `[YYYY-MM-DD]` prefix, no `[Routine N]` tag, no em dashes, no competitor names.
 7. **Score arithmetic** — math correct, bonuses applied.
 8. **Dedup** — same signal not double-counted from 2 sources.

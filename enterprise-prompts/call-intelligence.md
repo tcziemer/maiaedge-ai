@@ -177,13 +177,17 @@ Full HTML report with weighted forecasts, deal narratives, velocity, stale flags
 
 | Person | Role | Territory | Owner ID |
 |--------|------|-----------|----------|
-| Tim Lieto | AVP, North America Sales | East (30 states) | `161889085` |
-| Ken Cunningham | Sales, West Region | West (20 states + DC) | `162339176` |
-| Timothy Ziemer | CRO / International | All non-US | `159350430` |
+| Tim Lieto | AVP, North America Sales | Northeast + West (interim) | `161889085` |
+| Ken Cunningham | Sales, Southeast Region | Southeast | `162339176` |
+| Tory Teague | Sales, Central Region | Central | `165480917` |
+| Markus Hendrich | GM Europe | Europe | `164949459` |
+| Timothy Ziemer | CRO / International | International + Tier 1 SP | `159350430` |
 | Cooper Kennedy | RevOps | — | `160267902` |
 | Abilash Menon | CEO | Strategic | `159974715` |
 | Kyle Blackwell | Sales Engineering | — | `159701452` |
 | Woody Acosta | Sales Support | — | `162281129` |
+
+> Territory is the 5-region model (effective 2026-06-17): owner is region-derived from HQ state/country per `territory-model.md`. For Mode 4 (Rep Activity) and any geography-filtered call view, resolve rep ↔ region from `territory-model.md` (the live state→region→owner map) rather than this embedded table alone — the table lags the canonical file.
 
 ## Messaging Baseline (for Modes 5 + 6)
 

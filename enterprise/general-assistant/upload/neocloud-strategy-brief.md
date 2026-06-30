@@ -59,6 +59,25 @@ The February 2026 Datum.net call gave us the first clear picture of what mid-gro
 
 ---
 
+## The Builder / Reseller Archetype
+
+Not every neocloud rents GPU-hours under its own brand. A large and growing slice are **builders and resellers**: they build and operate clusters on behalf of capital owners (often private equity treating GPU as an asset class), or they sell dedicated capacity plus cloud access to their own downstream customers. For these accounts the front door is NOT latency debugging. It is cloud interconnect and owning the WAN. Two live builder/reseller calls (a build-for-PE integrator and a dedicated-bare-metal private-AI provider) both converged on the same hooks.
+
+**What's actually different about them:**
+
+| Dimension | Builder / Reseller reality |
+|---|---|
+| Who buys | A hands-on Infrastructure Lead who owns cluster + network + customer access, or a commercial/BD exec who treats MaiaEdge as a co-sell wedge. Both are gated buyers (one said "we don't want to go direct," the other "I have to take it back to the team"). |
+| The scaling tax | Not "6 weeks of carrier coordination." It is per-customer networking primitives: every new customer needs its own ASN and IP block, and the end customers (PE owners, enterprises) do not know what an ASN is, so the builder sources them by hand every time. Handoff is per-node, not per-cluster, so they cannot point a whole cluster at one buyer in a single move. |
+| The wedge | Consolidate per-customer ASNs and IP blocks into one operator-owned layer fronted by one or two entry and exit points, so networking becomes part of their offering instead of a per-customer project. Make data movement across clouds something their customer does from one place, on paths they control. |
+| The channel rule | These accounts resell to their own customers, so respect the boundary. Position as the enablement layer behind their offer ("you become the value proposition"), never as a vendor going direct to their customers. The egress advantage (2c/GB vs 9c/GB) is ammunition they resell to justify the spend, not just a cost saving. |
+
+**Lead hook:** "Your customers move data across clouds from one place, on paths you control, and you stop sourcing an ASN and IP block for every customer by hand." Then expand to deterministic paths, observability, and instant onboarding.
+
+**Sequencing caution:** in one call the buyer put broad enterprise demand for remote/DIA access to bare metal at "mid to late next year." Treat that as one operator's read of their own customers, not a market date. The safe sequence is cloud interconnect now, remote/enterprise-access onboarding as the later expansion.
+
+---
+
 ## Updated Messaging Hierarchy
 
 **Master pitch: "Connecting distributed AI infrastructure simply." Three pillars underneath. Research selects the angle; pillars don't change.**

@@ -42,7 +42,7 @@ Path Border Controller Hardware Features
 
 
 Subscription Licenses 
-The Path Border Controller hardware and Orchestration Software are sold as a combined subscription. Available in 1, 3, or 5-year terms at 10G or 100G throughput tiers. Additional PBCs for high availability are sold at a discounted rate. Optional to add the Port Extender, integrated switch for additional port capacity.
+The Path Border Controller hardware and Orchestration Software are sold as a combined subscription. Available in 1, 3, or 5-year terms at 1G, 10G, or 100G throughput tiers. Additional PBCs for high availability are sold at a discounted rate. Optional to add the Port Extender, integrated switch for additional port capacity.
 About MaiaEdge 
 MaiaEdge delivers a new class of carrier infrastructure, enabling operators to instantly interconnect isolated networks into a unified fabric. Combining hardware and cloud-native software, MaiaEdge empowers providers to activate private paths automatically across network boundaries with complete visibility and sovereignty. Founded by the industry veterans behind Acme Packet and 128 Technology, MaiaEdge helps providers monetize their assets and expand global reach. 
 

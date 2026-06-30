@@ -2,6 +2,35 @@
 
 > Converted from: MaiaEdge_Proof_Points&Customer_Stories.docx (OneDrive)
 
+---
+
+## Anonymized Proof Points (for Cold Outreach)
+
+Single source for the anonymized proof table used by the cold-email and sdr-pipeline skills. **Never use customer names in cold email or LinkedIn** — anonymize everything. The named customer stories further down this file are for live conversations, proposals, and objection handling only.
+
+| Use Case | How to Reference | When |
+|----------|-----------------|------|
+| Speed | "One fiber operator went from 60-90 day provisioning to under 10 minutes." | Speed objections |
+| Sovereignty | "A colo operator told us that with third-party fabrics, 'you turn the customer over to them.' With MaiaEdge, they control their destiny." | Colo, NaaS comparison |
+| Simplicity | "One operator called it 'fabric in a box. Drop it in, add water, it works.'" | Complexity objections |
+| Scale | "Deployed across 800+ cell towers and 20+ data centers for a network operator." | Enterprise-scale proof |
+| Industry validation | "Even Equinix called what we're building 'revolutionary and creative.'" | Credibility, skeptics |
+| Reach extension | "A fiber operator in the Pacific extends reach to the mainland without new infrastructure." | Geographic expansion |
+| Multi-carrier orchestration | "We're working with an aggregator that uses MaiaEdge to unify visibility across all their upstream carrier partners." | MSPs, multi-carrier |
+| Economics - **SP / fiber / colo ONLY** | "An independent analysis by ACG Research found operators cut cloud on-ramp TCO by roughly 67%, run wholesale cloud-connectivity margins near 67% with payback in about six months, and deliver Ethernet over DIA around 53% cheaper than dedicated Layer 2." | Cloud on-ramp / wholesale economics for SP, fiber, colo. **NEVER neocloud (compute customer) or enterprise (cost center).** |
+
+## Third-Party Validation: ACG Research Economic Analysis
+
+**Segment scope: Fiber Operator, Network Operator, Colocation (SP/colo). Secondary: MSP/Aggregator (federation / marketplace). NOT Enterprise, NOT NeoCloud.** Full source: `context/product/economic-impact-acg-whitepaper.md`.
+
+ACG Research built three independent economic models on MaiaEdge. Use these in live conversations, proposals, and business cases for operators delivering or wholesaling cloud connectivity. Re-verify figures before external use.
+
+- **Cloud on-ramp TCO: ~67% lower** over five years (PMO ~$4.1M vs MaiaEdge FMO ~$1.37M, 1,000 sites). Driver is utilization: traffic engineering + 1.5x oversubscription cut expensive 100G cloud-exchange port and cross-connect spend, plus ~85% less provisioning/ops labor.
+- **Wholesale cloud connectivity: margins approaching 67%, payback ~6 months**, EBITDA growing to ~$1.8M by year 5 on a federated-marketplace model (sell capacity to partner carriers without building into every Equinix/Megaport location).
+- **Ethernet over DIA: ~53% lower TCO** than dedicated L2 Ethernet over five years (strongest on long-haul / subsea / international, and where Carrier Ethernet is not available).
+
+These pair with the in-house financial scenarios in `context/product/cloud-onramp-business-case.md` (10G / 100G port models).
+
 
 Proof Points & Customer Stories
 Sales Enablement Playbook

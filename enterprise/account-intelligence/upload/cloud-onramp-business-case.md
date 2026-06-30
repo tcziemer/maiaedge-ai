@@ -208,6 +208,25 @@ The 100G model is the primary economic engine. Even at partial utilization, marg
 
 The 100G model delivers roughly 13x more profit for ~4x the cost, validating the scale-up strategy once demand density exists.
 
+### Wholesale / Partner-Channel Economics
+
+*Segment scope: Fiber Operator, Network Operator, Colocation, and MSP/Aggregator (operators who wholesale cloud on-ramp to other carriers). NOT for Enterprise or NeoCloud direct messaging. Sales use only; benchmark figures re-verify before external use.*
+
+Cloud on-ramp can be sold through a partner-carrier channel, not just retail. The capacity sells three times: MaiaEdge to the operator, the operator wholesales to a partner carrier, the partner retails to the end customer. Each layer earns a defensible margin and owns a different piece of the relationship:
+
+| Layer | Owns | Typical margin |
+|---|---|---|
+| Operator (wholesaler) | The fabric ports + wholesale catalog + billing-of-record | ~25% wholesale margin on a fixed cost base that does not grow with customer count |
+| Partner carrier | The end-customer brand, sales, support | ~40% retail margin |
+
+The end customer sees only their own carrier; each tier is invisible to the one above it, which is what makes the channel defensible. For a partner carrier, buying wholesale moves first revenue to the first customer signed and removes the port commitment (a self-built Megaport port reaches breakeven at ~18-20 customers after 90-120 days of provisioning).
+
+**Megaport retail comparison (re-verify against live quotes before external use):** MaiaEdge-delivered retail typically lands ~15-20% below Megaport for equivalent multi-cloud profiles. A large part of the gap is architectural, not list price: Megaport multi-cloud usually requires a separate Megaport Cloud Router (MCR) at ~$700-1,200/month per customer; the MaiaEdge PBC handles multi-cloud routing in-platform with no MCR line item.
+
+### Third-Party Validation: ACG Research
+
+*Same segment scope as above (SP / fiber / colo / MSP).* Independent ACG Research models found ~67% cloud on-ramp TCO savings, wholesale margins approaching 67% with ~6-month payback, and ~53% savings on Ethernet over DIA vs dedicated L2. Full analysis: `context/product/economic-impact-acg-whitepaper.md`.
+
 ---
 
 *End of Document*

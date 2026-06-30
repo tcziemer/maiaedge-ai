@@ -21,9 +21,14 @@ Operational protocols and authoritative sub-segment taxonomy:
 - `context/account-tiering/sub-segment-qualification.md` - the 30 active sub-segment values (case-sensitive - see quirks in §"Sub-Segment Case-Sensitivity Quirks" below), parent/sub-segment pairing rules
 - `context/account-tiering/sub-segment-qualification-full.md` - canonical deep reference: §3 D1 disqualifiers, §4 D2 wholesale-arm policy, §5 all six D3 disambiguation flowcharts, §6 per-sub-segment anchors + confidence rules, §8 industry sources
 - `context/account-tiering/enrichment-protocols.md` - D5 evidence-verification protocols for second-pass research (self-contained §6 protocols + §6a NC threshold matrix + §7 Greenfield catalog)
-- `context/account-tiering/d1-global-disqualifiers.md`, `d2-wholesale-arm-policy.md`, `d3-disambiguation-flowcharts.md` - working-form companion docs (the six segment disambiguation flowcharts live in D3)
+- `context/account-tiering/d1-global-disqualifiers.md`, `context/account-tiering/d2-wholesale-arm-policy.md`, `context/account-tiering/d3-disambiguation-flowcharts.md` - working-form companion docs (the six segment disambiguation flowcharts live in D3)
 - `context/account-tiering/icp-deep-dives/` - per-ICP deep-dive references (`B-and-C-{network-op,fiber-operator,colocation,neocloud,msp-aggregator,enterprise}.md`)
-- `cowork-scheduled-tasks/d7-edge-case-resolution/prompt.md` - D7 weekly batch routine that drives this skill
+- `context/enrichment/research-routes.md` - research methodology and source prioritization for the deep-dive research passes (which sources to try, in what order, before declaring evidence insufficient)
+- `context/hubspot/property-schema.md` - canonical enriched-field set + `flagged_for_deletion_reason` companion-write rule + signal-engine field inventory (HIGH)
+- `context/hubspot/hubspot-values.md` - all HubSpot enum values for `customer_segment`, `company_sub_segment`, `segmentation_confidence`, `signal_heat`, and other structured fields written on reclassification (HIGH)
+- `context/account-tiering/tier-compute-spec.md` - tier-compute algorithm + signal-heat (`compute_signal_heat`) + `signal_heat` enum values; required when writing tier or heat on reclassification (HIGH)
+- `context/core/segment-qualification.md` - segment-level qualification criteria summary; cross-check before finalizing a reclassification decision (MEDIUM)
+- `context/enrichment/sourcing-reference-guide.md` - source priority and reliability tiers for deep-dive research; informs which evidence sources to weight (MEDIUM)
 
 ## Sub-Segment Case-Sensitivity Quirks (apply to every reclassification write)
 

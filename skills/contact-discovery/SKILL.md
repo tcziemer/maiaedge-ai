@@ -13,8 +13,28 @@ MaiaEdge sells infrastructure technology, so the buying committee typically invo
 
 ## Reference Files
 
-- **contact-schema.md**  -  Contact properties, lifecycle stages, enrichment sync mappings
-- **territory-model.md**  -  State-to-owner mapping for routing new contacts
+**Core (always read):**
+- `context/hubspot/contact-schema.md` - Contact properties, lifecycle stages, enrichment sync mappings
+- `context/hubspot/territory-model.md` - 5-region owner map for routing new contacts (Northeast/Southeast/Central/West/International + Europe); use this as the authoritative source - do not inline the map
+- `context/hubspot/hubspot-values.md` - Canonical HubSpot enum values for segment, lifecycle stage, and owner fields
+- `context/outreach/persona-targeting-blocklist.md` - Title exclusion list; apply at Apollo title-selection stage, not just downstream
+
+**Segment context (consult when a company doesn't fit the standard persona table):**
+- `context/segments/colocation.md` - Org shapes, who owns the network decision, buying-committee nuances for colo
+- `context/segments/fiber-operator.md` - Same for fiber operators
+- `context/segments/neocloud.md` - Same for neoclouds
+- `context/segments/network-operator.md` - Same for network operators / carriers
+- `context/segments/msp-aggregator.md` - Same for MSP/Aggregators
+- `context/segments/enterprise.md` - Same for Enterprise (multi-DC ICP)
+- `context/segments/enterprise-use-cases.md` - Enterprise use cases and pain patterns; read when mapping Enterprise persona gaps
+
+**Compliance and routing:**
+- `context/europe/europe-email-compliance.md` - Hard legal gate for DE/AT/IT; applies to Apollo title-selection and contact creation for European accounts
+
+**MEDIUM (pull when relevant):**
+- `context/account-tiering/sub-segment-qualification-full.md` §7 - Sub-segment anchor patterns for edge-case persona routing
+- `context/hubspot/deals-schema.md` - Open-deal state; used in deal-protection logic and priority ranking
+- `context/account-tiering/d2-wholesale-arm-policy.md` - Wholesale-arm disambiguation; relevant when assessing enterprise subsidiaries or carrier holding-company contacts
 
 ---
 
@@ -341,6 +361,15 @@ Trigger on any of these patterns:
 - "Check for job changes" or "Has anyone left?"
 - "Persona coverage report" or "How are our accounts covered?"
 - Any mention of: contact map, buying committee, persona coverage, contact gaps, multi-threading, job changes, Apollo, LinkedIn validation
+
+---
+
+## Before I Start - Two Things That Change the Output
+
+1. **Which company?** Name or domain, so I can pull their segment and existing HubSpot contacts.
+2. **What do you need?** A coverage audit of who we already have, Apollo prospecting to fill gaps, or both?
+
+*If you give a company name and nothing else, I'll default to a full audit + prospecting pass (Mode 1 then Mode 2). Flag if you only want one.*
 
 ---
 

@@ -82,7 +82,7 @@
 | **Megaport / Equinix Fabric / Lumen PCF** | Backend infrastructure leveraged via API. Without MaiaEdge, every tenant you send to their portal discovers their compute offering. With MaiaEdge, you offer the same reach under your brand. |
 | **Tier 1 Direct (AT&T, Verizon, Lumen)** | Match their speed and visibility. Add your value: single invoice, multi-carrier simplification, managed services. Compete on capability, not just relationship. |
 | **SD-WAN vendors going direct (Fortinet, Palo Alto, Cato)** | They sell point-product. You sell the integrated outcome. MaiaEdge gives you the underlying fabric. |
-| **Internal builds at the TSD** | AppDirect bought vCom and is building in-house orchestration. MaiaEdge is the white-label answer that doesn't take 2 years to build. |
+| **Internal builds at the TSD** | AppDirect is rolling up orchestration (vCom Dec 2025, PartnerStack April 2026) and building an in-house platform. MaiaEdge is the white-label answer that doesn't take 2 years to build. |
 
 ---
 

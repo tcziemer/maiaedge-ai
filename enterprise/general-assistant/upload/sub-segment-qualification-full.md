@@ -339,6 +339,12 @@ For each sub-segment below: 4-section headline (Definition, Quantitative markers
 - **Confidence:** high_90 — bitcoin mining history confirmed + AI pivot confirmed + pivot ≥6 months old; medium_7089 — pivot announcement recent (<6 months) or mining history partially confirmed.
 - **No `crypto_pivot_model` field needed** — Cooper feedback eliminated this distinction.
 
+#### Boundary case FLAG — dedicated / reserved bare-metal private-AI (e.g. Cirrascale)
+- **Pattern:** 100% dedicated, non-virtualized, long-term-contract (2-5yr) GPU infrastructure sold to regulated-vertical customers as private AI (e.g. a private-Gemini agreement for healthcare / financial services). Customer sometimes OWNS the hardware and the provider manages it in colo. Colo-anchored: owns no data centers, runs as primary tenant in third-party DCs.
+- **Why it's a problem:** This fails all three `Tier 1 Inference - Neocloud` tests (no 20-50 edge-city distribution, no sub-100ms token-latency SLA, no per-million-tokens pricing) and is not the 20-50-facility training-primary `Large Scale GPU - Neocloud` pattern either. Cirrascale is currently carried as a boundary anchor in BOTH (lines above) and as an NC2 anchor in `enrichment-protocols.md`.
+- **Interim rule:** Classify on `infrastructure_profile` (managed bare metal in leased colo), NOT disclosed GPU MW or revenue. The dual customer-owned-hardware model risks mis-tagging as MSP or Colo; the multi-marker rule (`infrastructure_profile` wins over revenue/MW) is the guard.
+- **NEEDS COOPER / HUBSPOT REVIEW** before any sub-segment move or new marker (no-new-enum policy). Open question: does a dedicated / private-AI pattern warrant a redesign turn, or does it stay a `Tier 1 Inference` boundary classified on infrastructure_profile.
+
 ### 6.5 MSP/Aggregator (5 sub-segments) — full file: `context/account-tiering/icp-deep-dives/B-and-C-msp-aggregator.md`
 
 #### `Telecom Aggregator - MSP`

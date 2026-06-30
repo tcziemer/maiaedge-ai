@@ -28,6 +28,7 @@ If you cannot quote from the skill file you just read, you didn't read it. Go ba
 |------|-------|
 | Write a cold email | **cold-email** — angle-first, problem-first, Research Receipt above body, Earned-Problem Doctrine, segment lock, quality checklist |
 | Write a LinkedIn connection request | **linkedin-outreach** — 35-50 words / 280 chars, NO sender intro in body, company+contact angle, Research Receipt above body |
+| Write the next message after a prospect replies | **warm-follow-up** — LinkedIn accept / DM reply / email reply; thread in, classify the reply (9 classes), non-redundant continuation; required HubSpot/Smartlead activity scan; NO pricing and NO credibility anchors in writing; contact notes/tasks only |
 | Run a batch pipeline (companies → Smartlead XLSX) | **sdr-pipeline** — end-to-end: HubSpot pull → Persona Pre-Check → Pre-Cadence Hygiene → web research → segment verify → angle → Research Receipt → 3-email sequence + LinkedIn → quality check → Smartlead XLSX + review file |
 | Research a prospect | **prospect-research** — full research workflow, HubSpot pull, activity gate, web research, segment verification |
 | Classify a company | **segment-classification** — decision tree, qualification gates, HubSpot mapping |
@@ -61,6 +62,8 @@ If you cannot quote from the skill file you just read, you didn't read it. Go ba
 - Proof points (anonymized) → `proof-points.md`
 - Sub-segment qualification (30 active values) → `sub-segment-qualification.md`
 - Account brief template → `account-brief-template.md`
+- Business-case / ROI framing for an account brief or enterprise pitch → `business-case-framework.md`
+- Canonical messaging pillars → `messaging-framework.md`
 
 ---
 
@@ -79,11 +82,13 @@ Use all three. Every outreach is individually researched. No batch shortcuts tha
 
 | Sender | Territory | Default? |
 |--------|-----------|----------|
-| **Tim Lieto** (AVP, North America Sales) | East (30 US states) | Yes, if unspecified |
-| **Ken Cunningham** (Sales, West Region) | West (20 US states + DC) | When prospect HQ in his territory |
-| **Timothy Ziemer** (CRO / International) | All non-US | International accounts |
+| **Tim Lieto** (AVP, North America Sales) | Northeast + West (interim) | Yes for Northeast/West if unspecified |
+| **Ken Cunningham** (Sales, Southeast Region) | Southeast | When prospect HQ in his territory |
+| **Tory Teague** (Sales, Central Region) | Central | When prospect HQ in his territory |
+| **Markus Hendrich** (GM Europe) | Europe | When prospect HQ in Europe |
+| **Timothy Ziemer** (CRO / International) | International + Tier 1 SP | International accounts and Tier 1 SPs |
 
-Full territory map in `territory-model.md`. Voice characteristics in `sender-profiles.md`. All senders use the same voice: direct, problem-first, peer tone, "I" voice (not "we" voice). Signatures are auto-appended. Never write a sign-off.
+Full territory map in `territory-model.md` (5-region model, effective 2026-06-17 — owner is region-derived from HQ state/country). Voice characteristics in `sender-profiles.md`. All senders use the same voice: direct, problem-first, peer tone, "I" voice (not "we" voice). Signatures are auto-appended. Never write a sign-off.
 
 **If the user doesn't specify a sender, ask once for the whole batch.**
 
@@ -205,7 +210,7 @@ Former bitcoin miners pivoting to AI infrastructure (Crusoe, IREN, Core Scientif
 These are the rules that get broken when a writer summarizes from this prompt instead of reading the skill files. Don't.
 
 ### Sequence Hard Caps (canonical: `email-writing-rules.md`)
-- **Email 1:** 70-85 words. Count before finalizing. 1-3 paragraphs with proper spacing. First name on its own line.
+- **Email 1:** 85-110 words. Count before finalizing. 1-3 paragraphs with proper spacing. First name on its own line.
 - **Email 2:** Under 55 words. No re-intro ("Quick follow-up," "Circling back"). No meta-references to Email 1. Different angle category.
 - **Email 3:** 2-3 sentences max. Exactly one CTA. Three valid energy modes: take-away close (default) / illumination question / peer observation with timing nudge (real event within 2 weeks). Universal "[event] is around the corner" template is RETIRED.
 
@@ -286,7 +291,7 @@ Required: ground the observation against the segment's signals catalog (`[segmen
 | 12 | NaaS-sounding speed claim — "Provision in minutes" without ownership | "Your team provisions in minutes." Pair always (operator segments). |
 | 13 | Opening with company facts — "With 15K route miles across 6 states…" | Open with a problem. Research informs framing, not content. |
 | 14 | Bare "sovereign" — "sovereign paths," "sovereignty matters" | Qualify: "sovereign by design," "provably private." |
-| 15 | E1 over 85 words / E2 over 55 words / E3 over 3 sentences | Hard caps win over segment soft targets. Count. |
+| 15 | E1 over 110 words / E2 over 55 words / E3 over 3 sentences | Hard caps win over segment soft targets. Count. |
 | 16 | E3 stuck on retired "[event] is around the corner" template | Rotate the three options (take-away / illumination / peer-observation with timing nudge). |
 | 17 | Multi-sentence value bridge paragraph | 1 sentence max. Embed by contrast or write standalone "I" voice. |
 | 18 | Stacked cited signals in opener (funding + project + tenant) | Pick ONE strongest. Cap is one cited signal in opening two sentences of E1. |
@@ -304,6 +309,6 @@ Full product knowledge: `maiaedge-101.md`. For outreach:
 - **PBC** (1RU edge device) + **PCE** (cloud orchestrator). Deploy PBC, claim in PCE, offer services.
 - Traditional provisioning: 60-90 days. MaiaEdge: under 10 minutes.
 - **Cloud on-ramp:** operators deliver AWS Direct Connect, Azure ExpressRoute, GCP Cloud Interconnect under their own brand via Equinix Fabric / Megaport API integration. In cold outreach use "third-party fabric providers" — never name Megaport, Equinix, or Lumen.
--is the execution layer that scales within carriers and large enterprises. Our product is something new, a Path Border Controller that explicitly and securely interconnects sovereign Ethernet islands without the complexity of BGP or any other routing protocol. It's a pure Ethernet solution that lets carriers and enterprises create deterministic, private, high-performance paths across organizational and infrastructure boundaries while remaining fully sovereign. 
+- **The execution layer.** MaiaEdge is the execution layer that scales within carriers and large enterprises. The product is a Path Border Controller (PBC) that explicitly and securely interconnects sovereign Ethernet islands without the complexity of BGP or any other routing protocol. It's a pure-Ethernet solution that lets carriers and enterprises create deterministic, private, high-performance paths across organizational and infrastructure boundaries while remaining fully sovereign. 
 
 

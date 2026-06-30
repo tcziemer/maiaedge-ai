@@ -17,13 +17,47 @@ The primary data source is `hs_call_summary` -- HubSpot's AI-generated call summ
 
 ### Reference Files
 
-- **Call properties, query patterns, pagination, property sets:** See `call-schema.md`
-- **Contact properties and persona framework:** See `contact-schema.md`
-- **Owner IDs and territory mapping:** See `territory-model.md`
-- **Segment HubSpot values:** See `hubspot-values.md`
-- **Use case taxonomy:** Classify calls against the canonical use cases in `use-case-taxonomy.md` (21 operator-segment use cases + Enterprise-specific use cases added 2026-05-11). A single call typically maps to 2-5 use cases. Use the trigger keywords as a guide but consider context -- a passing mention is not a substantive discussion. **Enterprise calls** (where the associated company has `customer_segment = "Enterprise-CustomerSegment"`) classify primarily against the Enterprise-specific use cases section in `use-case-taxonomy.md`, with secondary mapping to operator-shared use cases (Cloud On-Ramp, Data Center Interconnection, E2E Visibility, Security/Encryption) where relevant.
-- **Enterprise segment context (added 2026-05-11):** Read `context/segments/enterprise.md` and `context/segments/enterprise-use-cases.md` for Enterprise calls. Sub-segment-specific Insider Language Banks (FFIEC physical-path verification, Epic downtime procedure, peak readiness, seat ramp / paired site / client carve-out) drive accurate use-case extraction and PMF signal classification on Enterprise call transcripts.
-- **Messaging baseline (for Modes 5 & 6):** `messaging-framework.md`, `segment-language.md`, `segment-messaging.md`, `competitive-positioning.md` -- these define our CURRENT messaging. Call analysis compares what prospects actually say against these files to find alignment gaps and PMF signals.
+**Core call data:**
+- **Call properties, query patterns, pagination, property sets:** See `context/hubspot/call-schema.md`
+- **Contact properties and persona framework:** See `context/hubspot/contact-schema.md`
+- **Owner IDs and territory mapping:** See `context/hubspot/territory-model.md`
+- **Segment HubSpot values:** See `context/hubspot/hubspot-values.md`
+- **Deal stage schema and open-deal checks:** See `context/hubspot/deals-schema.md`
+- **POC ticket schema (Stage, status, 98-property set):** See `context/hubspot/poc-schema.md`
+
+**Use cases and segment context:**
+- **Use case taxonomy:** Classify calls against the canonical use cases in `context/sales/use-case-taxonomy.md` (21 operator-segment use cases + Enterprise-specific use cases added 2026-05-11). A single call typically maps to 2-5 use cases. Use the trigger keywords as a guide but consider context -- a passing mention is not a substantive discussion. **Enterprise calls** (where the associated company has `customer_segment = "Enterprise-CustomerSegment"`) classify primarily against the Enterprise-specific use cases section in `context/sales/use-case-taxonomy.md`, with secondary mapping to operator-shared use cases (Cloud On-Ramp, Data Center Interconnection, E2E Visibility, Security/Encryption) where relevant.
+- **Enterprise segment context:** Read `context/segments/enterprise.md` and `context/segments/enterprise-use-cases.md` for Enterprise calls. Sub-segment-specific Insider Language Banks (FFIEC physical-path verification, Epic downtime procedure, peak readiness, seat ramp / paired site / client carve-out) drive accurate use-case extraction and PMF signal classification on Enterprise call transcripts.
+- **Colocation segment:** `context/segments/colocation.md` - anchors, pain patterns, and sub-segment distinctions for colo calls
+- **NeoCloud segment:** `context/segments/neocloud.md` - GPU cluster, fabric lock-in, and sovereignty patterns for neocloud calls
+- **Fiber Operator segment:** `context/segments/fiber-operator.md` - EXTEND REACH / MONETIZE / AUTOMATE pillar patterns
+- **Network Operator segment:** `context/segments/network-operator.md` - pain patterns and sub-segment distinctions
+- **MSP/Aggregator segment:** `context/segments/msp-aggregator.md` - TSD, VAR, and aggregator patterns
+- **ICP playbook:** `context/core/icp-playbook.md` - worked per-segment examples and persona pain maps for use-case extraction
+
+**Messaging baseline (for Modes 5 & 6):**
+- **Messaging framework:** `context/core/messaging-framework.md` - segment value props, pillar frameworks, persona pain mapping
+- **Segment language:** `context/copy-strategy/segment-language.md` - insider vocabulary per segment, insider vs. outsider examples
+- **Segment messaging:** `context/copy-strategy/segment-messaging.md` - detailed messaging per segment with value props and fallbacks
+- **Competitive positioning:** `context/core/competitive-positioning.md` - how we position against competitors
+- **Call intelligence baseline:** `context/sales/call-intelligence.md` - ground-truth example set; Modes 3/5/6 compare against these benchmarks
+- **Proof points:** `context/product/proof-points.md` - Mode 5 effectiveness table; anonymized customer proof points used in the Proof Point Effectiveness output
+
+**MEDIUM - load when relevant:**
+- **NaaS differentiation:** `context/core/differentiation-naas-aggregator.md` - Megaport/Equinix competitive framing; cold-safe vs. live-call register
+- **NeoCloud strategy:** `context/sales/neocloud-strategy-brief.md` - GPU pricing, sovereignty, and utilization context for neocloud PMF analysis
+- **Terminology glossary:** `context/core/terminology-glossary.md` - canonical MaiaEdge terms; use when extracting language gap data
+
+---
+
+## Clarification
+
+Two things that focus the output before pulling data:
+
+1. **Which mode?** Single-call extraction (Mode 1), contact history (Mode 1B), use-case frequency (Mode 2), segment breakdown (Mode 3), rep activity (Mode 4), messaging alignment (Mode 5), or PMF scorecard (Mode 6)? If the request names a company or person, that's Mode 1/1B. If it names a segment or rep, that's Mode 3/4. If it asks about messaging or PMF, that's Mode 5/6.
+2. **Scope** - date range and segment filter (or rep). Default is last 90 days, all segments. Narrow it if you have something specific.
+
+Coach: if the request is vague ("analyze our calls"), start with Mode 2 (use-case frequency, last 90 days, all segments) - it's the most useful starting point and shows where to dig deeper.
 
 ---
 
@@ -33,7 +67,7 @@ The primary data source is `hs_call_summary` -- HubSpot's AI-generated call summ
 **Trigger:** "Analyze this call" or "Process recent calls" or "What did we discuss with [company]?" or "Pull calls from [date range]"
 
 **Steps:**
-1. Query HubSpot calls via `search_crm_objects` (objectType: `CALL`) with appropriate filters (date range, owner, or company association). Include `associations: ["COMPANY", "DEAL", "TICKET"]` to get linked objects inline (avoids N+1 lookups). Paginate if results exceed 100 (see `call-schema.md` pagination rules).
+1. Query HubSpot calls via `search_crm_objects` (objectType: `CALL`) with appropriate filters (date range, owner, or company association). Include `associations: ["COMPANY", "DEAL", "TICKET"]` to get linked objects inline (avoids N+1 lookups). Paginate if results exceed 100 (see `context/hubspot/call-schema.md` pagination rules).
 2. Use the **content analysis** property set: `hs_call_title, hs_call_summary, hs_call_body, hs_timestamp, hubspot_owner_id, hs_call_duration, hs_call_has_transcript`
 3. From inline associations, get company `customer_segment` and company name
 4. From inline associations, get deal stage and/or POC ticket status for pipeline context
@@ -147,8 +181,8 @@ RELATIONSHIP HEALTH
 **Trigger:** "What use cases are we discussing?" or "Use case breakdown" or "What topics come up most?" or "Use case frequency"
 
 **Steps:**
-1. Pull all calls in requested date range (default: last 90 days). Include `associations: ["COMPANY"]` for segment classification. Paginate through all pages (see `call-schema.md`).
-2. Parse each call summary and classify against the canonical use cases in `use-case-taxonomy.md` (21 operator-segment use cases #1-21 + 8 Enterprise-specific use cases #22-29 added 2026-05-11 with Multi-DC ICP promotion)
+1. Pull all calls in requested date range (default: last 90 days). Include `associations: ["COMPANY"]` for segment classification. Paginate through all pages (see `context/hubspot/call-schema.md`).
+2. Parse each call summary and classify against the canonical use cases in `context/sales/use-case-taxonomy.md` (21 operator-segment use cases #1-21 + 8 Enterprise-specific use cases #22-29 added 2026-05-11 with Multi-DC ICP promotion)
 3. Count frequency of each use case across all calls
 4. Calculate % of calls mentioning each use case
 5. Break down by segment (from associated company `customer_segment`) and by rep (`hubspot_owner_id`)
@@ -189,7 +223,7 @@ BY REP
 2. Parse each call summary for use cases, pain points, objections, and competitive mentions
 3. Aggregate patterns: most common pain points, recurring objections, strongest resonance signals
 4. Identify emerging themes vs. established patterns
-5. Cross-reference with segment cheatsheet (e.g., `colocation.md`, `fiber-operator.md`) for context
+5. Cross-reference with segment cheatsheet (e.g., `context/segments/colocation.md`, `context/segments/fiber-operator.md`) for context
 
 **Output:**
 ```
@@ -272,10 +306,10 @@ This mode compares what prospects ACTUALLY say on calls against our CURRENT mess
 **Steps:**
 1. Pull all calls for the requested segment (or all segments) in the date range. Default: last 90 days. Include `associations: ["COMPANY", "DEAL", "CONTACT"]`. Paginate through all pages.
 2. Read the messaging baseline files. These are the "current state" you're comparing against:
-   - `messaging-framework.md` -- segment value props, pillar frameworks, persona pain mapping
-   - `segment-language.md` -- insider vocabulary per segment, insider vs. outsider examples
-   - `segment-messaging.md` -- detailed messaging per segment with value props and fallbacks
-   - `competitive-positioning.md` -- how we position against competitors
+   - `context/core/messaging-framework.md` -- segment value props, pillar frameworks, persona pain mapping
+   - `context/copy-strategy/segment-language.md` -- insider vocabulary per segment, insider vs. outsider examples
+   - `context/copy-strategy/segment-messaging.md` -- detailed messaging per segment with value props and fallbacks
+   - `context/core/competitive-positioning.md` -- how we position against competitors
 3. For each call, parse the summary and extract:
    - **Pain points the prospect named** (in their words, not ours)
    - **Language the prospect used** (exact phrasing, not our framework terms)
@@ -360,7 +394,7 @@ This mode aggregates call signals to assess product-market fit by segment. It an
 
 **Steps:**
 1. Pull ALL calls in the date range (default: last 90 days, or all available calls for a longer view). Include `associations: ["COMPANY", "DEAL", "CONTACT", "TICKET"]`. Paginate through all pages.
-2. Read the messaging baseline: `messaging-framework.md`, `segment-language.md`, `segment-messaging.md`, `competitive-positioning.md`
+2. Read the messaging baseline: `context/core/messaging-framework.md`, `context/copy-strategy/segment-language.md`, `context/copy-strategy/segment-messaging.md`, `context/core/competitive-positioning.md`
 3. For each call, classify:
    - **Resonance signals** -- prospect expressed strong alignment, excitement, "that's what we need", asked about next steps, pricing, timeline, POC
    - **Neutral signals** -- informational conversation, prospect was engaged but non-committal
@@ -430,7 +464,7 @@ QUARTER-OVER-QUARTER TREND (if sufficient data)
 
 ## MEDDPICC Rule -- Critical
 
-See `call-schema.md` "MEDDPICC and Call Transcripts" section for the full rule. Key point: HubSpot only auto-fills MEDDPICC from the **first** call transcript. If a contact has multiple transcripts, **always extract MEDDPICC from the most recent call summary** rather than relying on stale deal-level properties.
+See `context/hubspot/call-schema.md` "MEDDPICC and Call Transcripts" section for the full rule. Key point: HubSpot only auto-fills MEDDPICC from the **first** call transcript. If a contact has multiple transcripts, **always extract MEDDPICC from the most recent call summary** rather than relying on stale deal-level properties.
 
 ---
 

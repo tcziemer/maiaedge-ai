@@ -7,12 +7,32 @@ description: MaiaEdge account strategy brief generator for high-value prospect r
 
 Generate comprehensive account strategy briefs for high-value MaiaEdge prospects.
 
+## Before Starting - Clarification
+
+Three inputs that change the brief materially:
+
+1. **Account and segment** - what company, which segment (Colo / Fiber / Network Op / NeoCloud / MSP / Enterprise)? Share the HubSpot name or ID to pull existing tier and signal data.
+2. **Cold or warm** - cold approach, follow-up after a first call, or prep for an upcoming meeting? Determines how the outreach draft is framed.
+3. **Known contacts** - specific names/titles to build the Contact Matrix around, or should contact discovery be part of the output?
+
+Coach: if you give too little, share company name, segment, and cold-vs-warm - that's enough to begin.
+
 ## Reference Files
 
-- **segment-language.md**  -  Insider vocabulary, daily reality, conversational patterns per segment. Read before writing angles, outreach drafts, or discovery questions to sound like a peer, not a salesperson.
-- **segment-qualification.md**  -  Proof-based qualification gates
-- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md, **enterprise.md**)
-- **email-writing-rules.md**  -  For the ready-to-send email draft (angle-first, segment lock, no credibility anchors)
+- `context/copy-strategy/segment-language.md` - Insider vocabulary, daily reality, conversational patterns per segment. Read before writing angles, outreach drafts, or discovery questions to sound like a peer, not a salesperson.
+- `context/core/segment-qualification.md` - Proof-based qualification gates
+- **Segment cheatsheets** (`context/segments/colocation.md`, `context/segments/fiber-operator.md`, `context/segments/neocloud.md`, `context/segments/network-operator.md`, `context/segments/msp-aggregator.md`, `context/segments/enterprise.md`)
+- `context/outreach/email-writing-rules.md` - For the ready-to-send email draft (angle-first, segment lock, no credibility anchors)
+- `context/core/competitive-positioning.md` + `context/core/differentiation-naas-aggregator.md` - The objection bank for the Discovery & Objection Prep section. NaaS / fabric / aggregator objections are answered from `context/core/differentiation-naas-aggregator.md`'s written register; never improvise federation mechanics.
+- `context/hubspot/territory-model.md` - State-to-owner mapping for the recommended owner in the brief.
+- `context/sales/marketplace-seeding-strategy.md` - Federation marketplace seeding playbook. Read for partnership-track prospects (MSP/Aggregator and Fiber segments pursuing federation) - it supplies the first-mover / geography angle.
+- `context/sales/edge-ai-thesis-montauk.md` + `context/product/ai-market-positioning.md` - Business-case validation and AI-inference positioning for AI-adjacent prospects (neocloud, AI-signals colo).
+- `context/account-tiering/icp-deep-dives/B-and-C-[segment].md` (if available) - Optional deep background: per-sub-segment quantitative markers, anchors, and disqualifiers. Pull in only when the brief needs sub-segment-level depth; not required reading.
+- `context/product/proof-points.md` - Customer proof points (NTT, RevNet, Arvig, etc.) cited in Section 4 Value Proposition. Load before writing proof-point bullets.
+- `context/outreach/sender-profiles.md` - Per-sender Craft Register and territory. Used when writing the outreach draft in Section 3.
+- `context/outreach/voice-gold-standard.md` - Tone and voice calibration for the email draft.
+- `context/core/icp-playbook.md` - Per-segment worked examples and persona pain points for the Contact Matrix and Discovery Prep sections.
+- `context/signals/outreach-signal-pushback.md` - Canonical signal push-back spec. The inline `compute_signal_heat` block and write logic in the "Final Step" section of this skill **must stay in sync with this file**. If the two diverge, `context/signals/outreach-signal-pushback.md` is authoritative.
 
 ## Output Format
 
@@ -53,9 +73,11 @@ Deliver as:
 **Purpose:** Who to engage and why. Validate before deep research.
 
 **Primary Contact:**
-- Name, title, LinkedIn URL
+- Name, title, email, LinkedIn URL
 - Why them (owns the problem, relationship exists, accessible)
 - Contact-to-use-case fit: ✅ Strong / ⚠️ Partial / ❌ Mismatch
+
+**Pulling contact details:** read `email` + `hs_linkedin_url` from HubSpot first. When they're missing - or the rep asks for the committee's emails / LinkedIn URLs - fetch from Apollo via the Apollo MCP: `apollo_people_match` by name + company domain reveals the verified email + `linkedin_url`. Use VERIFIED email only and tag the source (`[Apollo, verified]` / `[HubSpot]`). To map the full buying committee or fill persona gaps, compose on `contact-discovery` rather than re-implementing the search here.
 
 **Existing Relationship (if any):**
 - Who knows them (Tim L, Tim Z, Abilash, other)
@@ -196,7 +218,7 @@ When the account is `customer_segment = "Enterprise-CustomerSegment"`, replace t
 |---------|-------|---------------------|--------------------------------------------------|-----|-------------------|
 | [Name] | [Title] | [Role-specific + company-context specific] | [The single most relevant angle for this person at this company right now] | ✅/⚠️/❌ | Primary / Secondary / Intro Path |
 
-**Angle quality check:** Before finalizing each row, ask: "Could this angle have been written for a different person at a different company?" If yes, make it more specific.
+**Angle quality check:** Before finalizing each row, ask: "Could this angle have been written for a different person at a different company?" If yes, make it more specific. Then name the one assumption each angle depends on about how their business works (e.g. they resell vs. already own a network) and verify it against a source. If a capable team at their scale has plausibly already solved it, assume they did and angle on the surviving gap. See `context/outreach/email-writing-rules.md` § The Load-Bearing Assumption Gate.
 
 ---
 
@@ -308,6 +330,7 @@ Before finalizing brief:
 - [ ] Fit assessment justified with evidence
 - [ ] Red flags documented if present
 - [ ] Research depth matches deal tier
+- [ ] Each angle's load-bearing assumption verified against a source or reframed (assume competence; never assert they have not already solved the problem without a source)
 
 **Contact Strategy:**
 - [ ] Primary contact validated against use case
@@ -355,13 +378,15 @@ Before finalizing brief:
 
 ## Final Step: Signal Push-Back to HubSpot
 
-**Inviolable rule:** this step runs AFTER the 10-section strategy brief has been delivered to the rep. The push-back must never gate, delay, or alter the primary output. If anything in this step fails, the rep already has their brief in hand — signal-engine staleness is a routine-recovery problem, not a rep-blocker. Skip silently on any failure; the next R-Tier-Audit run reconciles the signal fields.
+> **Sync note:** the inline `compute_signal_heat` spec and write-field list in this section are a local copy of `context/signals/outreach-signal-pushback.md`. If the two diverge, `context/signals/outreach-signal-pushback.md` is authoritative.
 
-**Why account-brief is the highest-value push-back surface:** the 10-section brief is the deepest signal-rich research the toolkit produces. Trigger events, exec moves, M&A, funding, facility launches — all of these surface during account-brief research. Pushing them back into HubSpot at the end means every brief generation refreshes the engine.
+**Inviolable rule:** this step runs AFTER the 10-section strategy brief has been delivered to the rep. The push-back must never gate, delay, or alter the primary output. If anything in this step fails, the rep already has their brief in hand - signal-engine staleness is a routine-recovery problem, not a rep-blocker. Skip silently on any failure; the next R-Tier-Audit run reconciles the signal fields.
+
+**Why account-brief is the highest-value push-back surface:** the 10-section brief is the deepest signal-rich research the toolkit produces. Trigger events, exec moves, M&A, funding, facility launches - all of these surface during account-brief research. Pushing them back into HubSpot at the end means every brief generation refreshes the engine.
 
 ### When to write back
 
-During the deep research that produced sections like Trigger Events, Recent News, Funding & Capital, M&A, Strategic Moves, etc., you almost certainly surfaced **signal-grade events** — funding round, exec hire, M&A, facility/market launch, public outage / RCA, earnings-language shift, or any U1-U6 / AP / FR class in [`context/signals/signal-framework.md`](../../context/signals/signal-framework.md). Score each event against the Signal Scan rubric (Tier × Freshness × Confidence). **Pick the single highest-scored event ≥8** for the push-back. Sub-8 events stay in the brief but don't drive the push-back.
+During the deep research that produced sections like Trigger Events, Recent News, Funding & Capital, M&A, Strategic Moves, etc., you almost certainly surfaced **signal-grade events** - funding round, exec hire, M&A, facility/market launch, public outage / RCA, earnings-language shift, or any U1-U6 / AP / FR class in `context/signals/signal-framework.md`. Score each event against the Signal Scan rubric (Tier × Freshness × Confidence). **Pick the single highest-scored event ≥8** for the push-back. Sub-8 events stay in the brief but don't drive the push-back.
 
 ### Comparison gate (write only if fresher)
 
@@ -371,12 +396,12 @@ Read current `last_signal_date` for this company via `mcp__claude_ai_HubSpot__ge
 
 One `mcp__claude_ai_HubSpot__manage_crm_objects` call with `updateRequest.objects[]`, `objectType: "companies"`, `confirmationStatus: "CONFIRMATION_WAIVED_FOR_SESSION"`. Fields:
 
-- `recent_news_or_trigger_event` — pure narrative, no date prefix. Format: `"[Signal Type] - [one-line summary]"`. 2-4 sentences, ≤250 char hard cap.
-- `last_signal_date` — the **event date** (YYYY-MM-DD), extracted from the source article or research note. Semantics narrowed 2026-05-28 — event date, NOT today's run date.
-- `last_signal_score` — your rubric score (number, typically 0-60).
-- `signal_count_last_30d` — read current value. If current `last_signal_date` is within 30d of your new event date, increment by 1. If current is null or >30d old, write 1.
-- `signal_heat` — recompute per the inlined spec below. **Title Case enum:** `Hot` / `Warm` / `Cool` / `Cold`. Lowercase is silently rejected.
-- `account_tier` — recompute per [`context/account-tiering/tier-compute-spec.md`](../../context/account-tiering/tier-compute-spec.md) §4. **Only write if `hs_is_target_account != true`** — flag freezes tier (heat continues regardless).
+- `recent_news_or_trigger_event` - pure narrative, no date prefix. Format: `"[Signal Type] - [one-line summary]"`. 2-4 sentences, ≤250 char hard cap.
+- `last_signal_date` - the **event date** (YYYY-MM-DD), extracted from the source article or research note. Semantics narrowed 2026-05-28 - event date, NOT today's run date.
+- `last_signal_score` - your rubric score (number, typically 0-60).
+- `signal_count_last_30d` - read current value. If current `last_signal_date` is within 30d of your new event date, increment by 1. If current is null or >30d old, write 1.
+- `signal_heat` - recompute per the inlined spec below. **Title Case enum:** `Hot` / `Warm` / `Cool` / `Cold`. Lowercase is silently rejected.
+- `account_tier` - recompute per `context/account-tiering/tier-compute-spec.md` §4. **Only write if `hs_is_target_account != true`** - flag freezes tier (heat continues regardless).
 
 ### `compute_signal_heat` (inlined from `context/account-tiering/tier-compute-spec.md` §11.5)
 
@@ -401,7 +426,7 @@ Override behavior:
   Tier is rep-locked; heat always reports the truth.
 ```
 
-Heat writes are idempotent — skip if `computed_heat == current_heat`.
+Heat writes are idempotent - skip if `computed_heat == current_heat`.
 
 ### Stamping policy
 
@@ -423,5 +448,5 @@ If any MCP call fails: log to run report under "Signal push-back deferred" and c
 
 ## References
 
-- Consult the cold-email skill (`cold-email/SKILL.md`) for email copywriting guidelines
-- Consult segment cheatsheets for detailed pain points and personas: `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
+- Consult the cold-email skill (`skills/cold-email/SKILL.md`) for email copywriting guidelines
+- Consult segment cheatsheets for detailed pain points and personas: `context/segments/colocation.md`, `context/segments/fiber-operator.md`, `context/segments/neocloud.md`, `context/segments/network-operator.md`, `context/segments/msp-aggregator.md`, `context/segments/enterprise.md`

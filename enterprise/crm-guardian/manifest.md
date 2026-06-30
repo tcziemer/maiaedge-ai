@@ -5,6 +5,8 @@
 ## System Prompt
 Paste Project Instructions directly in Claude.ai (maintained in-app, not in this repo)
 
+> **Source of truth:** run `bash build.sh`, then upload the full contents of `enterprise/crm-guardian/upload/`. That built folder is the authoritative, complete file set; the per-file lists below are a human reference and can lag the build. When in doubt, upload everything in `upload/`.
+
 ## Knowledge Files — Skills (upload as .md)
 - skills/crm-guardian/SKILL.md → upload as `maiaedge-crm-guardian.md`
 - skills/crm-hygiene/SKILL.md → upload as `maiaedge-crm-hygiene.md`

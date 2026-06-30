@@ -23,6 +23,8 @@ Sub-segments (5 active, post-Phase 1.6 2026-05-13): **Telecom Aggregator - MSP**
 
 If both events fire on same TSD within 12 months → +6 stacking auto-elevation.
 
+**Carrier-buys-aggregator variant (reframe context):** When the acquirer is a carrier (Comcast Business bought Nitel, Apr 2025), read it as carriers doubling DOWN on the mid-market channel, NOT abandoning it (AT&T targets ~65% of activity through partners; Verizon re-committed under a new channel chief). The threat to sell against is out-automation + resale-layer commoditization ("your quote is slower and looks identical to everyone else's"), not "the carrier left you." Real disintermediation lives only at the top hyperscaler-fabric layer. The post-acquisition window is still prime - the absorbed aggregator's customers now face an even more commoditized resale layer.
+
 **Source:** Channel Futures M&A tag, ChannelE2E, Channel Playbook, PitchBook/Tracxn alerts on Upstack / Telarus / AppDirect / Bridgepointe / Sandler, **SEC 8-K Item 1.01 (announcement) + 2.01 (close)** for public-company TSDs.
 
 **Pattern (announcement):** `("announces" + "to acquire" | "agreement to acquire" | "definitive agreement" | "announces roll-up")` on channelfutures.com / channele2e.com filtered to TSD/brokerage/agency.
@@ -53,7 +55,7 @@ If both events fire on same TSD within 12 months → +6 stacking auto-elevation.
 
 ### M-A4. "AI Practice" / "AI Solutions" Launch
 
-**Why:** 58% of buyers want AI help; only 13% of Technology Advisors feel ready. AI-practice press releases almost always lack the network story (AI workloads need deterministic paths). Opener: "You launched an AI practice - how's the network layer?"
+**Why:** Per the Telarus 3rd Annual Tech Trends Report (survey May 2025), 58% of buyers prioritize AI while only 13% of advisors feel very prepared. AI-practice press releases almost always lack the network story: the practice sells contact-center / agentic SOFTWARE but never the deterministic PATH the workload rides on - and that gap is where the deal stalls. **AI-connectivity whitespace wedge (top angle):** "Your AI practice can sell the contact-center agent but not the deterministic path the workload rides on, and that gap is where the deal stalls. The version that compounds is the one where your team activates the connectivity layer in hours and keeps the customer relationship."
 
 **Source:** Channel Futures, ChannelE2E, Dialpad/UJET partner award releases, TSIA "State of Channel Partnerships 2026," Mindmatrix PartnerTechX.
 
@@ -83,7 +85,7 @@ If both events fire on same TSD within 12 months → +6 stacking auto-elevation.
 
 ### M-A7. ScanSource / TDSYN Earnings Recurring-Revenue-Mix Disclosure
 
-**Why:** ScanSource Intelisys disclosed recurring-revenue mix 29.3% → 36.0% Q3 FY25 (publicly verifiable). When ScanSource or TD SYNNEX call out a step-change in recurring-revenue mix (or specifically call out Intelisys / agent-business growth rate), it's a public leading indicator that the channel's bandwidth-reselling model is compressing and platforms are where growth lives. Use this to time outreach to TSD Platform / CRO personas.
+**Why:** ScanSource Q3 FY26 (reported May 7, 2026) disclosed recurring revenue = 34.7% of gross profit, Intelisys net sales -1.5% YoY, Intelisys annualized billings ~$2.88B (publicly verifiable). When ScanSource or TD SYNNEX call out a flat-to-down agency segment or a step-change in recurring-revenue mix (or specifically call out Intelisys / agent-business growth rate), it's a public leading indicator that the channel's bandwidth-reselling model is compressing and platforms are where growth lives. Use this to time outreach to TSD Platform / CRO personas - the per-seat-economics-breaking and white-label-monetization angles land hardest right after this print.
 
 **Source:** ScanSource (SCSC) + TD SYNNEX (SNX) investor pages, Motley Fool transcripts, SEC EDGAR 10-Q, Seeking Alpha.
 

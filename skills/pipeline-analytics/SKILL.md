@@ -15,7 +15,7 @@ The MaiaEdge Deals pipeline is the source of truth. All analysis uses HubSpot's 
 
 ## Design System
 
-Uses the shared MaiaEdge design system. See `call-reporting/SKILL.md` Design System section for the full CSS stylesheet and visual rules.
+Uses the shared MaiaEdge design system. The full CSS stylesheet is at `context/sales/call-report-styles.css` - load it for exact class names, color tokens, and visual rules.
 
 Key points:
 - All output is self-contained HTML (no CDN, no JS libraries)
@@ -33,9 +33,22 @@ Key points:
 
 ## Reference
 
+### Reference Files
+
+- **context/hubspot/deals-schema.md** - Full stage reference, deal properties, creation defaults
+- **context/hubspot/poc-schema.md** - POC ticket properties and stage model. The POC Signal Matrix below derives from this schema; read it when POC-adjusting forecast probabilities.
+- **context/hubspot/territory-model.md** - Owner IDs and territory mapping for rep-level rollups
+- **context/hubspot/call-schema.md** - Call record properties; used when pulling `hs_call_summary` narratives in Step 6
+- **context/hubspot/hubspot-values.md** - Canonical enum values for `customer_segment`, `signal_heat`, `hs_pipeline_stage`, and other HubSpot picklist fields used in grouping and display
+- **context/hubspot/property-schema.md** - `signal_heat` enum definition and target-account freeze rule; used in Section 6b and deal-context columns
+- **context/account-tiering/tier-compute-spec.md** - `compute_signal_heat` logic and tier computation; background for interpreting heat values in Section 6b
+- **context/hubspot/contact-schema.md** - Contact-level fields including MEDDPICC properties; useful context for the MEDDPICC fill-rate columns in Section 6
+- **context/sales/pricing-reference.md** - SKU pricing bands; used to validate deal amounts against expected ranges in the Deal Health Assessment
+- **context/sales/call-report-styles.css** - Full MaiaEdge design-system CSS (class names, color tokens, typography); load this when rendering the HTML report
+
 ### Pipeline Stages
 
-See `deals-schema.md` for full stage reference. Quick mapping:
+See `context/hubspot/deals-schema.md` for full stage reference. Quick mapping:
 
 | Stage | Internal Name | Base Probability | Forecast Category |
 |-------|---------------|-----------------|-------------------|
@@ -64,11 +77,11 @@ See `deals-schema.md` for full stage reference. Quick mapping:
 
 ### Owner IDs
 
-See `territory-model.md` for complete mapping.
+See `context/hubspot/territory-model.md` for complete mapping.
 
 ### Deal Health Assessment
 
-From `deals-schema.md`:
+From `context/hubspot/deals-schema.md`:
 
 | Metric | Healthy | Warning |
 |--------|---------|---------|

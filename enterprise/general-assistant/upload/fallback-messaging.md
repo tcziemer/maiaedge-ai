@@ -2,21 +2,31 @@
 
 Use when research doesn't provide company-specific details for synthesis fields.
 
+> ## ⚠ STRUCTURE EXEMPLARS, NOT SEND COPY (2026-06-12)
+>
+> Every template below defines the ARGUMENT (lead positioning, what to avoid claiming) — never the wording. **Paraphrase every sentence; no phrase longer than 6 words may ship verbatim.** The May 2026 "The version that works/compounds…" skeleton shipped word-for-word from this file 9+ times and became the campaign's template fingerprint; the Batch Fingerprint Gate (email-writing-rules.md) now fails any batch where two emails share a sentence from this file.
+>
+> When converting a block to send copy, apply the **craft structure** (email-writing-rules.md § Craft Voice): structural truth of their world → craft line ("that leg is the layer I work on" + one concrete mechanic) → show-me give → soft call-ask statement. The blocks below supply the segment's ARGUMENT for slot 1 and the mechanics for slot 2. Worked conversion: the Fiber E1 below.
+
 ## Fiber Operator (Sidecar §4.4)
 
 **Lead positioning:** Activation-velocity gap. Service Assurance is a secondary E2 angle, NOT the E1 lead.
 
 **Sub-segment routing:** Default for Regional CLEC, Long Haul / Backbone, and Dark Fiber Specialist sub-segments. For Municipal / Co-op / Consortium accounts, see `context/segments/fiber-operator.md` § Fiber Sub-Segments - the federation-ready angle leads instead.
 
-### E1 (80 words, Sidecar §4.4)
+### E1 — ARGUMENT (activation velocity) + worked craft conversion
+
+**The argument:** the revenue gap isn't route miles, it's activation — NNIs take weeks, dark strands depreciate unlit, multi-state deals walk to whoever provisions faster.
+
+**Worked craft conversion (imitate the moves, paraphrase the words):**
 
 > [First name],
 >
-> Saw [public signal - BEAD subgrant award, expansion announcement, new market lit, dark-fiber sale, multi-state RFP].
+> Nobody in your seat loses deals on route miles anymore, you lose them on the activation clock, since the cross-carrier leg still turns up at someone else's pace while the dark strands sit there depreciating. That leg is the layer I work on, the same services going sellable same-day on paths your team turns up itself.
 >
-> The revenue gap on most fiber networks isn't more route miles in the ground, it's the activation side, since NNIs take weeks to turn up and the dark strands keep depreciating every day they sit unlit, so the multi-state deals tend to walk to whoever can provision faster. The version that compounds is the one where your team turns that underutilized fiber into deterministic services you can sell same-day, under your own brand.
->
-> Worth a quick conversation?
+> Fifteen minutes and I can show you a path coming up end to end. Happy to set up time if it's worth seeing.
+
+*(Legacy template retired 2026-06-12: "The version that compounds is…" shipped verbatim 9+ times in May 2026 and is now a fingerprint-gate failure.)*
 
 ### E2 (53 words)
 
@@ -26,15 +36,15 @@ Use when research doesn't provide company-specific details for synthesis fields.
 >
 > On your radar?
 
-### E3 (2 sentences)
+### E3 (2 sentences — must carry ONE actionable ask; zero-ask closers banned)
 
 > [First name],
 >
-> Sounds like the timing might be off for this year. Happy to circle back next quarter if the calendar shifts.
+> Reached out because the activation-clock problem felt close to what you're building. Worth a conversation, or wrong moment?
 
 ### Supporting fields
 
-- primary_hook: "The revenue gap on most fiber networks isn't more route miles in the ground - it's on the activation side. NNIs that take weeks to turn up, dark strands depreciating every day they're unlit, multi-state deals walking to whoever can provision faster. The fix is infrastructure that turns underutilized fiber into instantly sellable, deterministic services under your brand."
+- primary_hook: "The revenue gap on most fiber networks isn't more route miles in the ground. It's on the activation side. NNIs that take weeks to turn up, dark strands depreciating every day they're unlit, multi-state deals walking to whoever can provision faster. The fix is infrastructure that turns underutilized fiber into instantly sellable, deterministic services under your brand."
 - core_problem: "Underutilized fiber sitting idle while the board wants revenue growth. Standing up cross-carrier paths still takes weeks of LOAs, BGP config, VLAN coordination. Multi-state deals walking to whoever can provision faster. Cloud on-ramp is a product they either can't offer or offer with thin margin."
 - avoid_claiming: "Don't claim internal provisioning is slow without evidence. Focus on activation velocity (NNIs in minutes, not weeks), monetization of dark / underutilized fiber, multi-state-deal speed, and new services (cloud on-ramp flagship). Service Assurance is a SECONDARY E2 angle - don't lead with it on E1."
 - transport_language: "Any transport: fiber (lit or dark), wave, DIA, 5G / fixed wireless, satellite. Same paths, same quality, same portal."
@@ -63,15 +73,15 @@ Use when research doesn't provide company-specific details for synthesis fields.
 >
 > Open to a quick conversation?
 
-### E3 (2 sentences, Sidecar §4.1)
+### E3 (2 sentences, Sidecar §4.1 — must carry ONE actionable ask; zero-ask closers banned)
 
 > [First name],
 >
-> Sounds like the timing might be off, or the angle missed the mark. Door's open if this becomes useful.
+> Sounds like the timing might be off, or the angle missed the mark. Worth a conversation, or wrong moment?
 
 ### Supporting fields
 
-- primary_hook: "Interconnection attach rate is what separates colos from being landlords. New services on top of space and power - cloud on-ramps, multi-site reach, self-service interconnection - under your brand, without a multi-year build."
+- primary_hook: "Interconnection attach rate is what separates colos from being landlords. Cloud on-ramps, multi-site reach, and self-service interconnection layered on top of space and power, under your brand, without a multi-year build."
 - core_problem: "Every cross-connect is still a project (LOAs, truck rolls, VLAN config) and tenants expect portal-driven self-service. Standing up a services layer in-house is multi-year development. Cloud on-ramp is either not offered or offered through an arrangement that requires a hyperscale facility build. Multi-site operators have no easy way to stitch sites together for a tenant who wants capacity in more than one."
 - avoid_claiming: "Don't claim internal cross-connects are slow without evidence. Don't lead with 'losing tenants to third-party fabric providers' as a pain  -  it's not the pain most operators articulate. Don't use 'fabric-in-a-box' in cold body (banned per email-writing-rules.md - cheatsheet/live-conversation language only). Focus on the interconnection-attach-rate-vs-landlord frame and the layered services on top of space and power."
 - multi_site_hook (add when operator has more than one site or is building a second): "When a tenant needs capacity in more than one of your sites, today that's a separate project per site. One fabric across your sites turns that into one order."
@@ -99,11 +109,11 @@ Use when research doesn't provide company-specific details for synthesis fields.
 >
 > Open to a quick conversation?
 
-### E3 (2 sentences)
+### E3 (2 sentences — must carry ONE actionable ask)
 
 > [First name],
 >
-> Sounds like the timing might be off, or the angle missed the mark. Door's open if this becomes useful.
+> Sounds like the timing might be off, or the angle missed the mark. Worth a look, or should I move on?
 
 ### Supporting fields
 
@@ -141,7 +151,7 @@ Two angles, selected by maturity + customer mix. Same product, different door:
 
 - **`Large Scale GPU - Neocloud` (default: scaling-wall):** Hook: "The first 5 hyperscaler contracts didn't need a network team. The next 40 enterprise customers will." Lead with instant customer on-ramp + deterministic paths. If latency variance is their stated problem, switch to in-pain-now: "Every network interruption forces a checkpoint rollback. At $4,800/GPU/month, the recompute tax dwarfs our subscription."
 - **`Tier 1 Inference - Neocloud` (default: in-pain-now, agentic angle strong):** Hook: "Your SLA guarantees depend on network determinism you can't see today. Ten inference hops across best-effort routing compounds into seconds of delay." Lead with predictable performance + agentic compounding latency.
-- **`AI Infrastructure providers - Neocloud` (default: in-pain-now, competitive angle strong):** Hook: "Private cloud connectivity so your customers pay less for data transfer. 2c/GB on private paths vs 9c/GB over public internet  -  that's a pricing advantage you sell to win." Lead with customer on-ramp + egress competitive advantage. Note: third-party fabric providers now sell GPU compute through their own platforms, so every customer sent to their portal discovers a competitor.
+- **`AI Infrastructure providers - Neocloud` (default: in-pain-now, competitive angle strong):** Hook: "Private cloud connectivity so your customers pay less for data transfer. 2c/GB on private paths vs 9c/GB over public internet, and that's a pricing advantage you sell to win." Lead with customer on-ramp + egress competitive advantage. Note: third-party fabric providers now sell GPU compute through their own platforms, so every customer sent to their portal discovers a competitor.
 - **`Sovereign AI Clouds - Neocloud` (default: in-pain-now with sovereignty framing):** Hook: "Prove data stays within geographic boundaries  -  in transit, not just at rest. Sovereign by design with every hop logged." Lead with data sovereignty + visibility. Always qualify "sovereign."
 - **`Crypto to AI - Neoclouds` (default: early-growth; inclusive of operator AND landlord per Cooper 2026-05-14):** Hook: "Bitcoin doesn't care about latency. Enterprise AI tenants do. The connectivity that worked for mining doesn't survive an inference SLA." Lead with tenant-readiness + observability.
 
@@ -177,7 +187,7 @@ For Tier 2/3 Regional Wholesale ($500M-$1B) and below, see the Tier 2/3 block be
 
 > [First name],
 >
-> Sounds like the timing might be off for this planning cycle. Door's open if this becomes relevant.
+> Sounds like the timing might be off for this planning cycle. Worth a conversation when it opens, or wrong problem?
 
 ### Supporting fields
 
@@ -209,7 +219,7 @@ For Tier 2/3 Regional Wholesale ($500M-$1B) and below, see the Tier 2/3 block be
 
 > [First name],
 >
-> Sounds like the timing might be off for this planning cycle. Happy to circle back if priorities shift.
+> Sounds like the timing might be off for this planning cycle. Worth me staying in touch on this, or should I move on?
 
 ### Supporting fields
 
@@ -265,7 +275,7 @@ For Tier 2/3 Regional Wholesale ($500M-$1B) and below, see the Tier 2/3 block be
 
 > [First name],
 >
-> Sounds like the timing might be off. Door's open if this becomes useful as you plan next year.
+> Sounds like the timing might be off. Worth a conversation as you plan next year, or wrong moment?
 
 ### Supporting fields
 

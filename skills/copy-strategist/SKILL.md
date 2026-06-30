@@ -19,6 +19,12 @@ The email that gets a reply takes that same research and uses it to speak the re
 
 That's the difference. The research disappears into the voice. The recipient reads it and thinks: "This person gets it."
 
+**But "absorbed" is not "generic" - and this is the failure to watch for most.**
+
+The example above only works if it required THIS company's research to write. The trap, and the single most common corner Claude cuts in batch output, is the opposite: a segment-generic problem statement that SOUNDS absorbed and reads perfectly in-voice but required zero research on this specific company. "Every multi-state deal that stalls on provisioning is margin walking out the door" is a flawless fiber-operator line, and it could go to all 300 fiber operators on the list identically. That is not absorbed research. It is a template with good voice, and good voice fools the reader of the critique into thinking research happened.
+
+Research has two opposite failure modes and they are equally disqualifying: **displaying** it (showing facts as observations) and **skipping** it (writing a swappable template). The job is to catch both. The test for the second is the swap test: replace the company name and the contact with a different one in the same segment. If the email still reads as fully sent-to-them, the research was skipped. Absorbed research disappears into the voice AND could not have been written for anyone else - it is anchored to something true of THEM (a route they just lit, the market they entered, the build they announced, the role this exact contact owns, a fresh signal) that a template cannot contain.
+
 **Speak their language, not ours.**
 
 Every segment has its own vocabulary. Fiber operators talk about "route miles" and "NNIs" and "lit vs dark." Colo operators talk about "cross-connects" and "meet-me rooms" and "attach rates." MSPs talk about "upstream carriers" and "finger-pointing" and "SLA compliance." Neoclouds talk about "inference latency" and "jitter" and "middle-mile variance."
@@ -38,15 +44,37 @@ This means:
 - Admitting what you don't know. "Not sure if this is on your radar" is more human than "I know this is a priority for you."
 - Letting the research shape the email's structure, not forcing it into a template.
 
+## Clarification Gate
+
+If the user pastes copy without identifying the target company and segment, ask: "What company and segment is this targeting? That's required to validate whether the angle and vocabulary are right for this specific recipient."
+
+Don't ask about sender or mode - mode is inferable from what's submitted (single / sequence / batch), and the skill handles missing sender inline.
+
 ## Before You Touch Any Copy
 
 Read these reference files:
 
-1. `references/segment-language.md`  -  **Read this first, every time.** This is the heart of the skill. It contains the actual vocabulary, daily reality, and conversational patterns of each segment. This is how you learn to sound like an insider, not an outsider.
+1. `context/copy-strategy/segment-language.md`  -  **Read this first, every time.** This is the heart of the skill. It contains the actual vocabulary, daily reality, and conversational patterns of each segment. This is how you learn to sound like an insider, not an outsider.
 
-2. `references/scoring-rubric.md`  -  The scoring framework. Weighted toward voice, language authenticity, and research-as-fuel. Mechanical checklist items matter but they're not what makes copy great.
+2. `context/copy-strategy/scoring-rubric.md`  -  The scoring framework. Weighted toward voice, language authenticity, and research-as-fuel. Mechanical checklist items matter but they're not what makes copy great.
 
-3. `references/outbound-playbook.md`  -  Modern benchmarks and what's working in 2024-2026 outbound. Sequence architecture, timing, reply rates.
+3. `context/copy-strategy/outbound-playbook.md`  -  Modern benchmarks and what's working in 2024-2026 outbound. Sequence architecture, timing, reply rates.
+
+4. `context/copy-strategy/ab-test-plan.md`  -  The A/B testing framework for outbound sequences. Read when the ask involves designing testable variants, subject-line tests, or interpreting reply-rate differences between versions - proposed rewrites at volume should slot into this framework, not ad-hoc experiments.
+
+5. `context/outreach/voice-gold-standard.md`  -  The craft-voice gold standard: the worked exemplars the outreach skills are built around (the "specific-mechanic peer line," the structural-truth opener, the thank-you-DM calibration in §E). This is the register you ADJUDICATE against when scoring or rewriting craft voice. A voice critique that doesn't measure against these exemplars is guessing. Pairs with the hard rules in `context/outreach/email-writing-rules.md`.
+
+6. `context/outreach/fallback-messaging.md`  -  The exemplar angles the Batch Fingerprint Gate protects against. Read to recognize when copy has collapsed into the fallback register.
+
+7. `context/core/messaging-framework.md`  -  USE/AVOID vocabulary per segment, Pillar Framework. Required for Segment Accuracy scoring (Dimension 5).
+
+8. `context/copy-strategy/segment-messaging.md`  -  Angle-selection logic per segment. Required for evaluating whether the chosen angle is differentiated or stock.
+
+9. `context/core/differentiation-naas-aggregator.md`  -  Cold-safe NaaS doctrine and competitive register. Governs what is safe in cold-email vs. live-call only.
+
+10. `context/outreach/sender-profiles.md`  -  Per-sender Craft Register and territory. Required when evaluating sender attribution or voice consistency. Authoritative on the founder credibility-anchor exception.
+
+11. `context/outreach/persona-targeting-blocklist.md`  -  Titles and personas to exclude from outreach targeting. Required when evaluating contact-level tailoring.
 
 ---
 
@@ -84,9 +112,17 @@ The user pastes copy and wants your honest assessment.
    - Named projects/campuses (Caprock, Comanche Circle, TCDC, Project Jupiter, Goodnight, Abilene, Matador, Frontier, Delta Forge, Corsicana, LBB-01, Barber Lake, Stingray, etc.)
    - Building/site/facility counts ("6 buildings", "540 MW with 6 facilities", "9 campuses")
 
-   If ≥2 of these markers appear in the opening 2 sentences, flag as a Cited-Signal Cap violation (see `skills/cold-email/SKILL.md` "Cited-Signal Cap"). Rewrite by keeping the single strongest signal and pushing the rest into framing.
+   If ≥2 of these markers appear in the opening 2 sentences, flag as a Cited-Signal Cap violation (see `context/outreach/email-writing-rules.md` "Cited-Signal Cap"). Rewrite by keeping the single strongest signal and pushing the rest into framing.
 
    This catches the failure mode that the simple "I noticed" regex misses. Run this check on EVERY email even when the obvious-form filter returns clean.
+
+   **4b. First-pass filter: Research SKIPPED (the templating tell - the inverse of 4, run BOTH).** Research display and research absence are opposite failures, and copy that dodges the first by committing the second is the most common corner-cut in batch output. Display is research shown clumsily; absence is no company-specific research done at all, so the email is a segment template with the name swapped in. An email must pass BOTH: research present, but invisible.
+
+   **The swap test (mandatory, every email):** mentally replace the company name and the contact with a different company/contact in the SAME segment. Does the email still read as fully sent-to-them? If YES, the research was skipped - the email is templated. This is a disqualifying flaw, not a deduction: it scores 0 on "Research as Fuel" the same way visible research does (scoring-rubric.md Dimension 2).
+
+   What it looks like: a segment-generic problem statement that SOUNDS absorbed but required zero research on THIS company. "Every multi-state deal that stalls on provisioning is margin walking out the door" is a perfectly-voiced fiber line that could go to all 300 fiber operators identically. Good voice is not proof of research - the line passes the voice test and FAILS the swap test. The fix is NOT a reword; it is re-research. Send it back: what does THIS company's situation make the problem specifically (a named route they just lit, the market they just entered, the build they announced, the role this exact contact owns)? The relevance has to come from something true of THEM a template could not contain. See email-writing-rules.md § The Relevance Principle and § The Load-Bearing Assumption Gate.
+
+   **Distinguish from the research-display carve-out:** naming ONE fresh why-now signal as an observation ("Saw the raise close") is the sanctioned way research shows up - it is not a display violation and it is the strongest swap-test PASS (a template cannot contain it). The failure 4b catches is the opposite: an email with no company-specific anchor at all.
 
 5. **Second-pass filter: Claim Diplomacy.** After research display, scan every sentence for overclaims. Flag any of these immediately as a primary fix:
    - Absolutes ("the only way," "the single biggest," "you MUST")
@@ -114,6 +150,7 @@ The user pastes copy and wants your honest assessment.
    - Wrong voice (sounds like marketing, not a peer)
    - Wrong language (our words instead of their words)
    - Research displayed instead of absorbed
+   - **Research skipped / templated** (passes the voice test, fails the swap test - segment-generic, could go to any company in the list - see 4b). This is the most common corner-cut; weight it accordingly.
    - **Standalone value bridge paragraph** (the structural tell - see 6a)
    - **Brand-voice constructions** ("We help…" - see 6b)
    - **Missing Public Signal Cited block** (process violation - see 6c)
@@ -156,6 +193,7 @@ When reviewing 5+ emails (batch from SDR pipeline, event outreach, etc.), run ba
 
 1. **Read all emails in sequence first.** Don't score individually until you've seen the batch.
 2. **Research display sweep:** Scan all emails for company facts stated as observations. This is the #1 issue in batch processing -- catch it before any other scoring.
+2a. **Research-skipped / templating sweep (the inverse of check 2 - run BOTH).** Apply the swap test to every email: could it move to a different company in the same segment and still read as fully sent-to-them? Every email that survives the swap was templated - the research was skipped on that contact. This is the other #1 issue, and the more common one at volume: a batch passes the research-display sweep (check 2) by saying nothing company-specific, and then every email is a segment template with only the name changed. The tell is a batch where the problem statements are the segment's stock pains worded slightly differently per email. Flag every swappable email for RE-RESEARCH, not reword - a sharper sentence does not fix a skipped one. Cross-reference the Public Signal Cited blocks (check 11): a batch that is >50% NONE and reads swappable is research-skipped at scale. Enforced by Dimension 12's company-specific-anchor gate; see also 4b.
 3. **Structural variety check:** Are they all following the same [opener] -> [problem] -> [value bridge] -> [CTA] arc? If yes, flag and require restructuring of at least 30%.
 4. **Opening variety check:** Do they all start with the same event/attendance reference? Vary the placement.
 5. **Hedge monotony check:** Count "I'd guess" and "I'd imagine" across all Email 1s. If over 30%, flag.
@@ -175,7 +213,7 @@ When reviewing 5+ emails (batch from SDR pipeline, event outreach, etc.), run ba
 13. **Posture rotation per sequence:** For each contact's full 3-email sequence, verify the postures rotate (E1, E2, E3 should not all be the same). Flag any sequence where all three touches use the same posture.
 14. **Sender intro check for LinkedIn:** Scan all LinkedIn messages for "Tim from MaiaEdge." or "Ken from MaiaEdge." in the body. These are BANNED - sender is identified by LinkedIn UI. Flag every instance for rewrite.
 15. **LinkedIn length check:** Verify all LinkedIn messages target 35-50 words and stay under 280 chars. Flag any over.
-16. **Multi-fact opening density sweep:** For every E1, count specific-fact markers in the opening 2 sentences (dollar amounts, MW/GW figures, named hyperscaler tenants, named projects/campuses, building/site counts). Flag any E1 with ≥2 markers as a Cited-Signal Cap violation. This catches the sophisticated form of research display that the regex-based "research display sweep" in check 2 misses ("Saw the $X.XB credit close on top of the [tenant] sale. With [Project Name] and [Partnership] anchored by [Tenant1] and [Tenant2]…"). Especially important when 3+ contacts at the same account are in the batch - when the same fact recap appears across 5 contacts at one company, recipients who compare notes read the campaign instantly. Cross-check against E2 and LinkedIn for the same contacts: if the recap bleeds into E2 and LI as well, all three touches are stamped. See `skills/cold-email/SKILL.md` "Cited-Signal Cap" for the full constraint.
+16. **Multi-fact opening density sweep:** For every E1, count specific-fact markers in the opening 2 sentences (dollar amounts, MW/GW figures, named hyperscaler tenants, named projects/campuses, building/site counts). Flag any E1 with ≥2 markers as a Cited-Signal Cap violation. This catches the sophisticated form of research display that the regex-based "research display sweep" in check 2 misses ("Saw the $X.XB credit close on top of the [tenant] sale. With [Project Name] and [Partnership] anchored by [Tenant1] and [Tenant2]…"). Especially important when 3+ contacts at the same account are in the batch - when the same fact recap appears across 5 contacts at one company, recipients who compare notes read the campaign instantly. Cross-check against E2 and LinkedIn for the same contacts: if the recap bleeds into E2 and LI as well, all three touches are stamped. See `context/outreach/email-writing-rules.md` "Cited-Signal Cap" for the full constraint.
 
 **Report batch-level findings FIRST**, then proceed to individual email review. Batch patterns are more important than individual email tweaks because they affect how the entire campaign reads to recipients who may compare notes.
 
@@ -183,13 +221,13 @@ When reviewing 5+ emails (batch from SDR pipeline, event outreach, etc.), run ba
 
 ## The Scoring Rubric (Summary)
 
-Full details in `references/scoring-rubric.md`. The rubric is intentionally weighted toward voice and authenticity over mechanical compliance:
+Full details in `context/copy-strategy/scoring-rubric.md`. The rubric is intentionally weighted toward voice and authenticity over mechanical compliance:
 
 | Dimension | What It Measures | Weight |
 |---|---|---|
 | **Speaks Their Language** | Uses the recipient's industry vocabulary, not ours. Frames problems the way they'd frame them. | 16% |
 | **Research as Fuel** | Research powers the voice and angle but never shows up as display. No "I noticed..." or dropped facts. | 15% |
-| **Problem Authenticity** | The problem named is something the recipient would recognize from their daily reality, in their words. | 14% |
+| **Problem Authenticity** | The problem named is something the recipient would recognize from their daily reality, in their words, AND it is not a problem a capable team at their scale has plausibly already solved. Flag any angle built on an unverified current-state assumption (e.g. "they resell and don't own a network") as a disqualifying research miss, not a minor deduction. See `context/outreach/email-writing-rules.md` § The Load-Bearing Assumption Gate. | 14% |
 | **Human Voice** | Reads like a person who's lived in their world, not a sequence tool. Has genuine personality. Reward connected reasoning (clauses joined with so / since / but / even though, arriving at one point); penalize stacked one-idea-per-sentence declaratives. One bare fragment per body, max. Reward active voice plus second person ("your team provisions"), penalize passive/third-person reporting. Do NOT penalize the specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]"): that reads as peer credibility, not brand voice; only generic-category we-claims ("We help operators…") lose points. | 14% |
 | **Segment Accuracy** | Correct ICP framing. Sovereignty for operators, observability for neoclouds, visibility for MSPs. | 10% |
 | **Role Alignment** | The angle matches what this specific persona cares about in their daily work. | 8% |
@@ -203,7 +241,7 @@ Full details in `references/scoring-rubric.md`. The rubric is intentionally weig
 - **9-10**: This email sounds like it was written by someone who spent 10 years in their industry. I'd reply.
 - **7-8**: Strong voice, authentic framing. Minor tweaks to sharpen the language.
 - **5-6**: Competent but sounds like a salesperson, not a peer. Missing the vocabulary or the lived-in quality.
-- **3-4**: Template voice. Could swap in any company name. The research is displayed, not absorbed.
+- **3-4**: Template voice. Could swap in any company name - the research was either skipped (segment-generic) or displayed, not absorbed.
 - **1-2**: Wrong segment, wrong language, or reads like automated outreach.
 
 ---
@@ -250,7 +288,8 @@ Never in cold email. "Third-party fabric providers" or "someone else's fabric." 
 No credibility line. No "Same team that built Acme Packet." Save credibility anchors for live conversations only.
 
 **Banned phrases (universal):**
-- Em dashes ( - ). Periods or commas instead.
+- Em dashes ( - ), colons, and any dash used as punctuation (spaced hyphen, double hyphen, en dash) in subject or body. Periods or commas instead; hyphenated compounds (cross-connect, on-net) are fine. Flag every instance when critiquing.
+- Move-announcing transitions ("another angle on this," "one more thought," "quick thought," "worth a thought"). The email narrates its own move instead of making it. Score this as a voice failure, not a style nit.
 - "Hope this finds you well" / "Just wanted to reach out" / "I noticed..."
 - "As a [role title]..." / "Revolutionary" / "Game-changing"
 - Customer names in cold email. Anonymize.
@@ -281,18 +320,18 @@ No credibility line. No "Same team that built Acme Packet." Save credibility anc
 
 <!-- Canonical source: context/outreach/email-writing-rules.md "Sequence Length & Structure (HARD CAPS)" -->
 **Sequence length (HARD CAPS, apply across all segments):**
-- Email 1: 70-85 words, 1-3 paragraphs, proper spacing, first name on its own line. Value bridge 1 sentence MAX, embed-by-contrast preferred.
+- Email 1: 85-110 words, 1-3 paragraphs, proper spacing, first name on its own line. Value bridge 1 sentence MAX, embed-by-contrast preferred.
 - Email 2: under 55 words, first name line, no re-intro, no meta-references to Email 1. Posture differs from E1.
 - Email 3: 2-3 sentences max, first name line, exactly one CTA, "show is coming up" energy OR detached close. NO deal-cycle phrases ("Have you shelved this?") in cold.
 
-**LinkedIn:** Target 35-50 words / max 280 chars (under LinkedIn's 300 hard limit). Company-specific detail (or public-signal observation) + embedded value bridge or "I" voice + optional low-friction ask. NO sender intro in body. NO credibility anchors in cold (founder-specific exception per founder-outreach.md). Public Signal Cited block above.
+**LinkedIn:** Target 35-50 words / max 280 chars (under LinkedIn's 300 hard limit). Company-specific detail (or public-signal observation) + embedded value bridge or "I" voice + optional low-friction ask. NO sender intro in body. NO credibility anchors in cold (founder-specific exception per `context/outreach/sender-profiles.md`). Public Signal Cited block above.
 
 ---
 
 <!-- Canonical source: context/copy-strategy/segment-language.md, context/copy-strategy/segment-messaging.md -->
 ## Segment Quick Reference
 
-Full vocabulary and daily reality in `references/segment-language.md`. Here's the orientation:
+Full vocabulary and daily reality in `context/copy-strategy/segment-language.md`. Here's the orientation:
 
 **Fiber Operators**  -  They built the plant. Revenue plateauing. Dark fiber sitting idle. Provisioning takes forever. They talk about route miles, NNIs, lit vs dark, Type 2 circuits, middle-mile blind spots.
 
@@ -354,12 +393,9 @@ If it's the latter, rewrite until it's the former.
 
 ## Senders
 
-| Sender | Title | Territory |
-|---|---|---|
-| Tim Lieto | AVP, North America Sales | West, Central, National accounts |
-| Ken Cunningham | Sales, East Region | Eastern US |
+See `context/hubspot/territory-model.md` for the authoritative 5-region sender map (Northeast, Southeast, Central, Europe, International). Load that file to resolve sender attribution - do not rely on inline tables here.
 
-Both sign as themselves. Signatures auto-appended. Never write a signature block. Ask if sender isn't specified.
+Both senders sign as themselves. Signatures auto-appended. Never write a signature block. Ask if sender isn't specified.
 
 ---
 

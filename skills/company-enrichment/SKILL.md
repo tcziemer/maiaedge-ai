@@ -28,7 +28,20 @@ The enrichment bot is a deterministic protocol executor. These files are the sou
 | `context/account-tiering/tier-compute-spec.md` | Stage 4 specification for `account_tier`. Inputs (customer_segment + company_sub_segment + signals + hs_is_target_account), canonical defaults table, signal modifiers (recent_news_or_trigger_event freshness + score), `hs_is_target_account = true` override behavior (compute logged, write skipped), audit format. | Always at Stage 4 |
 | `context/core/segment-qualification.md` | Top-level segment gates (the 6 customer_segment values). Use to verify segment routing at Stage 2. | Stage 2 routing |
 | `context/hubspot/property-schema.md` | HubSpot field internal names, enum values, territory map (state → owner_id). | Field write + owner derivation |
-| Working files referenced from file 06 | `D1-global-disqualifiers.md`, `D3-segment-flowchart.md`, `D5-sub-segment-protocols.md`, `D7-escalation-protocol.md`, `anchor-accounts.md`, `tiebreakers.md` (paths called out in file 06 §1). | When the protocol cites them |
+| `context/enrichment/research-routes.md` | Research methodology: source prioritization and route selection for the Stage 1b deep-research pass. | Stage 1b research |
+| `context/enrichment/output-schemas.md` | Output field format specs for the enriched fields. Validate field shape against this before the Stage 5 write. | Stage 5 write validation |
+| `context/account-tiering/` companion files | `context/account-tiering/d1-global-disqualifiers.md` (D1 global disqualifiers), `context/account-tiering/d2-wholesale-arm-policy.md` (D2 wholesale-arm policy), `context/account-tiering/d3-disambiguation-flowcharts.md` (D3 flowcharts). The D5 per-sub-segment protocols + D7 escalation/Greenfield catalog live in `context/account-tiering/enrichment-protocols.md` (§6/§6a/§7, above); anchor accounts + per-pair tiebreakers live in `context/account-tiering/sub-segment-qualification-full.md` (§6). | When the protocol cites a disqualifier, flowchart, anchor, or tiebreaker |
+| `context/hubspot/territory-model.md` | **Authoritative 5-region territory map** - read at Stage 1b Step 1 to derive `hubspot_owner_id` from HQ state/country. Do NOT inline the state-to-owner table; apply from this file at runtime. Live write-bug if stale: Central-region records get the wrong owner. | Stage 1b Step 1 + any owner derivation |
+| `context/hubspot/hubspot-values.md` | Canonical enum strings for all HubSpot picklist fields (segment values, status values, confidence strings). Use to validate field values before the Stage 5 write so no write lands a non-existent enum. | Stage 5 write validation |
+| `context/account-tiering/icp-deep-dives/B-and-C-colocation.md` | Per-ICP deep-dive: Colocation. Feeds Stage 3 D5 anchor matching and confidence thresholds for colo sub-segments. | Stage 3 colo protocol execution |
+| `context/account-tiering/icp-deep-dives/B-and-C-fiber-operator.md` | Per-ICP deep-dive: Fiber Operator. Anchor match patterns for F1-F6 protocols. | Stage 3 fiber protocol execution |
+| `context/account-tiering/icp-deep-dives/B-and-C-neocloud.md` | Per-ICP deep-dive: NeoCloud. Anchor match patterns for NC1-NC5 protocols. | Stage 3 neocloud protocol execution |
+| `context/account-tiering/icp-deep-dives/B-and-C-network-op.md` | Per-ICP deep-dive: Network Operator. Anchor match patterns for N1-N5 protocols. | Stage 3 network-op protocol execution |
+| `context/account-tiering/icp-deep-dives/B-and-C-enterprise.md` | Per-ICP deep-dive: Enterprise. Anchor match patterns for E1-E4 protocols; vertical gate examples. | Stage 3 enterprise protocol execution |
+| `context/account-tiering/icp-deep-dives/B-and-C-msp-aggregator.md` | Per-ICP deep-dive: MSP/Aggregator. Anchor match patterns for M1-M5 protocols. | Stage 3 MSP protocol execution |
+| `context/signals/signal-framework.md` | Signal scoring, field semantics, and the full 5-field signal engine spec. Extend signal write-block to all 5 fields per `context/account-tiering/tier-compute-spec.md` §11.5 when a trigger event is found at Stage 1b. | Stage 1b signal field population |
+| `context/core/icp-playbook.md` | Worked per-segment examples + persona pain points. Aids Stage 2 routing disambiguation when website signals are mixed. | Stage 2 segment routing (ambiguous cases) |
+| `context/core/terminology-glossary.md` | Canonical definitions for MaiaEdge-specific terms (NaaS, fabric, PBC, PCE, etc.). Use to normalize language in narrative enriched fields. | Stage 1b narrative field authoring |
 
 If any of these files are missing or unreadable, halt and report - do not freeform a classification.
 
@@ -60,7 +73,7 @@ The bot executes these stages in order for every company. No stage may be skippe
   - `Managed Network Services - MSP` (NOT `- Network Operator`, legacy)
   - `Subsea cable operator` (NEW 2026-05-14)
   - `Crypto to AI - Neoclouds` is INCLUSIVE of both operator AND landlord patterns
-  - `Greenfield` is a real sub-segment (auto-migrates per file 06 §10 / enrichment-protocols.md §7)
+  - `Greenfield` is a real sub-segment (auto-migrates per file 06 §10 / `context/account-tiering/enrichment-protocols.md` §7)
   - Case-sensitive quirks: `Dark Fiber Specialist - Fiber Operator` (capital O), `AI Infrastructure providers - Neocloud` (lowercase p), `Crypto to AI - Neoclouds` (trailing s)
 - **`account_tier_legacy` is archived** (Phase 1.3, 2026-05-13). Read `account_tier` directly. No legacy fallback.
 - **`hs_is_target_account`** (was `target_account`) - manual override. When true, Stage 4 logs the computed tier but skips the tier write. All other segment/sub-segment/enriched fields still write at Stage 5.
@@ -138,7 +151,7 @@ When triggered by CRM Guardian or manually for re-enrichment of existing account
 | `customer_segment`, `company_sub_segment`, `account_tier`, `segmentation_confidence` | Overwrite from fresh classification (subject to CRM Guardian safety tiers on deal-protected accounts) |
 | `state` | **Overwrite** from Apollo `primary_location.state` when present. Apollo wins over stale HubSpot (companies relocate HQs; M&A shifts HQ) |
 | `country` | **Overwrite** from Apollo `primary_location.country`. Non-US rewrites trigger owner cascade to Tim Ziemer |
-| `hubspot_owner_id` | **Re-derive** from refreshed `state` / `country` per territory-model.md. Cascade to contacts |
+| `hubspot_owner_id` | **Re-derive** from refreshed `state` / `country` per `context/hubspot/territory-model.md`. Cascade to contacts |
 | `linkedin_company_page` | **Overwrite** from Apollo `linkedin_url` when Apollo returns non-empty value differing from HubSpot. Companies change handles after rebrands / M&A |
 | `domain` | **Conditional overwrite** - if HubSpot `domain` is blank OR Apollo's primary domain differs AND the HubSpot value no longer resolves (dead DNS / redirect to a new domain), write Apollo's domain. If both HubSpot and Apollo have live-but-different domains, flag as Tier 2 (applied + flagged to Cooper) rather than Tier 1 - this is a rebrand signal worth reviewing |
 | `infrastructure_profile`, `fabric_provisioning_approach`, `geographic_focus` | Overwrite from fresh research |
@@ -230,11 +243,7 @@ Look for: specific products, wholesale vs. retail divisions, dark fiber/lit/wave
 
 **Step 4: `web_search` for `[company_name] company overview`**  -  ONLY if website was thin/down/uninformative.
 
-**Derive `hubspot_owner_id` from Apollo's HQ state** using the territory map in property-schema.md:
-- East states → Tim Lieto (`161889085`)
-- West states → Ken Cunningham (`162339176`)
-- Non-US → Tim Ziemer (`159350430`)
-- State unknown after running the full Field Resolution Ladder below → leave blank for manual routing
+**Derive `hubspot_owner_id` from Apollo's HQ state** using the 5-region territory map in `context/hubspot/territory-model.md` (authoritative - do NOT inline the state list here; read and apply it at runtime). Non-US records route to Tim Ziemer (`159350430`). State unknown after running the full Field Resolution Ladder below → leave blank for manual routing.
 
 ### Field Resolution Ladder (state / country / contact email / phone)
 
@@ -509,14 +518,14 @@ Per `context/account-tiering/enrichment-protocols.md` §6 / file 06 §6:
 
 | Confidence | Trigger |
 |---|---|
-| `high_90` | Named anchor account match (anchor accounts file 06 §7) OR all required protocol questions confirmed AND infrastructure_profile pattern matches the canonical pattern for the sub-segment per enrichment-protocols.md §4 |
+| `high_90` | Named anchor account match (anchor accounts file 06 §7) OR all required protocol questions confirmed AND infrastructure_profile pattern matches the canonical pattern for the sub-segment per `context/account-tiering/enrichment-protocols.md` §4 |
 | `medium_70` | Most required questions confirmed, infrastructure_profile partial match, no contradicting D1 disqualifier |
 | `low_5069` | Half or fewer required questions confirmed, OR catch-all sub-segment defaulted-to with only negative-exclusion evidence (no positive evidence) |
-| `manual_review_required` | 2+ protocols match equally and the tiebreaker (file 06 §6 / `working/tiebreakers.md`) cannot resolve |
+| `manual_review_required` | 2+ protocols match equally and the tiebreaker (`context/account-tiering/sub-segment-qualification-full.md` §6) cannot resolve |
 
 ### Step 3.5 - Tiebreaker (if 2+ sub-segments match)
 
-If two or more sub-segments are tied after Step 3.4, apply the named tiebreaker for that specific pair per file 06 §6 / `working/tiebreakers.md`. Each pair has its own deterministic tiebreaker - do NOT freeform.
+If two or more sub-segments are tied after Step 3.4, apply the named tiebreaker for that specific pair per `context/account-tiering/sub-segment-qualification-full.md` §6. Each pair has its own deterministic tiebreaker - do NOT freeform.
 
 If the tiebreaker resolves → final sub-segment string + adjusted confidence.
 
@@ -548,7 +557,7 @@ Call the tier compute function with these inputs (per `context/account-tiering/t
 - Apollo / website signals captured during Stage 1b
 - `hs_is_target_account` (manual override flag from HubSpot record)
 
-Apply the algorithm per `tier-compute-spec.md` §4:
+Apply the algorithm per `context/account-tiering/tier-compute-spec.md` §4:
 - Step A0 - Pre-classification disqualifier guard (re-check D1 disqualifiers didn't slip through)
 - Step A - Manual override: **if `hs_is_target_account = true`, compute the tier and log it in the audit reason, but DO NOT write `account_tier`.** Stage 5 still writes all segment/sub-segment/enriched fields normally - the override only freezes the tier write.
 - Step B - Defaults lookup (canonical defaults table, §5)
@@ -576,7 +585,7 @@ Run all 4 self-validation checks. If any fails, downgrade or escalate before wri
 
 1. **Sub-segment nullness check** - If `customer_segment` is an ICP value (Network Operator / Fiber Operator / Data Center Colo Provider / NeoCloud / MSP/Aggregator / Enterprise-CustomerSegment) AND `company_sub_segment` is null, confirm `segmentation_confidence = manual_review_required` AND the reasoning string names both candidate sub-segments. If neither is true, halt the write - this is a silent-failure pattern (ICP segment with no sub-segment is not a valid HubSpot state).
 
-2. **Confidence-evidence alignment check** - `high_90` requires EITHER a named anchor account match (anchor-accounts.md) OR all required D5 protocol questions confirmed. If neither is true but Stage 3 emitted `high_90`, downgrade to `medium_70` and append to the reasoning string: `"downgraded from high_90: alignment check failed (no anchor, partial protocol)."`
+2. **Confidence-evidence alignment check** - `high_90` requires EITHER a named anchor account match (`context/account-tiering/sub-segment-qualification-full.md` §6 anchors) OR all required D5 protocol questions confirmed. If neither is true but Stage 3 emitted `high_90`, downgrade to `medium_70` and append to the reasoning string: `"downgraded from high_90: alignment check failed (no anchor, partial protocol)."`
 
 3. **Disqualifier audit check** - If the verdict is `customer_segment = "Other"` (eviction/Watch-List) the reasoning string MUST cite a D1 rule ID (`context/account-tiering/d1-global-disqualifiers.md`). If no D1 rule is cited, the eviction is freeform and must escalate to D7 (`cowork-scheduled-tasks/d7-edge-case-resolution/prompt.md`) rather than write `Other`.
 
@@ -631,7 +640,7 @@ XLSX with columns mapped to HubSpot property names. Ready for drag-and-drop impo
 **Fields populated from research:**
 - `state`  -  HQ state (2-letter abbreviation). Drives territory routing. Research this during Phase 1.
 - `country`  -  HQ country. Set for all accounts; critical for international routing to Tim Ziemer.
-- `hubspot_owner_id`  -  Derived from `state` using the territory map in property-schema.md. East states → Tim Lieto (161889085), West states → Ken Cunningham (162339176), International → Tim Ziemer (159350430). If state is unknown, leave blank for manual routing.
+- `hubspot_owner_id`  -  Derived from `state` using the 5-region territory map in `context/hubspot/territory-model.md` (authoritative). Apply the map at runtime - do not inline the state list. If state is unknown, leave blank for manual routing.
 - `hyperscaler_proximity`  -  Set during colo/fiber research when checking for nearby AWS/Azure/GCP regions. Values: `Announced: <50 miles`, `Announced: 50-200 miles`, `Existing Facility Nearby`, `None Known`. Strong Tier 1 trigger if <50 miles.
 - `key_tenant_segments__cloned_`  -  For colo operators only. Multi-select, semicolon-separated. Values: `cloud_providers`, `enterprises`, `carriers`, `content__hyperscale`, `financial_services`, `other`. Set based on tenant types observed during colo research. Leave blank for non-colo segments.
 
@@ -672,7 +681,7 @@ Quick reminders (NOT a substitute for reading the spec):
 4. **Best-fit + calibrated confidence, NOT default-manual-review.** Records with no positive ICP evidence → `Flagged for deletion` with D1 rule citation. `manual_review_required` is reserved for genuine multi-protocol ties.
 5. **Multi-marker classification.** `infrastructure_profile` is the PRIMARY structured signal. Revenue is dirty more often than infrastructure - infrastructure wins on conflict.
 6. **Conciseness cap.** Narrative enriched fields (`account_brief`, `provisioning_landscape`, `recent_news_or_trigger_event`) are capped at 2-4 sentences each. No em dashes - use hyphens.
-7. **Tier comes from `tier-compute-spec.md`.** Stage 4 calls the spec function; honor `hs_is_target_account = true` (compute, log, skip write).
+7. **Tier comes from `context/account-tiering/tier-compute-spec.md`.** Stage 4 calls the spec function; honor `hs_is_target_account = true` (compute, log, skip write).
 8. **Never write `maiaedge_value_proposition`** (Cooper 2026-05-14). Outreach skills own that field - they populate it at outreach time when sender, persona, and angle are all known.
 9. **Use the 30 corrected sub-segment names exactly** (case-sensitive). Read `context/account-tiering/sub-segment-qualification.md` for the canonical enum strings (verified via HubSpot MCP 2026-05-14).
 10. **End-of-pipeline verification queries run on every record** (Stage 5.2 / D5 §9). Downgrade or escalate before writing - `last_enriched_date` is written LAST, gated on completeness + verification pass.

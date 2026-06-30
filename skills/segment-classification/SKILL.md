@@ -7,14 +7,35 @@ description: Classify companies into MaiaEdge customer segments and apply segmen
 
 ## Reference Files (read before executing)
 
-- `context/account-tiering/sub-segment-qualification.md` (file 06 in the Phase 3 primary references) - the consolidated sub-segment qualification reference. Authoritative for:
+- `context/account-tiering/sub-segment-qualification.md` - the consolidated sub-segment qualification reference (file 06). Authoritative for:
   - §3 D1 Global Disqualifiers (hyperscaler / equipment vendor / government / academic / OTT / pure-software / logistics-shipping patterns)
   - §4 D2 Wholesale-arm policy (which record gets which sub-segment for split-book operators)
   - §5 D3 Disambiguation flowcharts (one per ICP - Colo, Fiber, NeoCloud, Network Op, MSP/Aggregator, Enterprise)
   - §6 Per-sub-segment classification rules with anchor accounts and confidence calibration
-- `context/account-tiering/enrichment-protocols.md` - D5 v2 operational layer (confidence calibration, catch-all guard rules, R2 / D7 routing). Read alongside file 06 when applying classification.
-- `context/hubspot/property-schema.md` - `customer_segment` / `company_sub_segment` enum values, `segmentation_confidence` definitions, `hs_is_target_account` semantics.
-- `context/copy-strategy/segment-messaging.md` - segment messaging framework (full version of the angles below).
+- `context/account-tiering/sub-segment-qualification-full.md` - full 30-value sub-segment reference with inlined D5 protocols and anchor evidence tables
+- `context/account-tiering/d1-global-disqualifiers.md` - Step 0 D1 pattern catalog (canonical source for disqualifier categories and resolution routing)
+- `context/account-tiering/d2-wholesale-arm-policy.md` - wholesale-arm split-book policy (parent vs child record sub-segment assignment)
+- `context/account-tiering/d3-disambiguation-flowcharts.md` - per-ICP disambiguation flowcharts (one per segment; apply after D1 check)
+- `context/account-tiering/enrichment-protocols.md` - D5 v2 operational layer (confidence calibration, catch-all guard rules, R2 / D7 routing). Read alongside sub-segment-qualification.md when applying classification.
+- `context/account-tiering/tier-compute-spec.md` - tier computation algorithm + signal_heat enum (§11.5/§11.6); required when cascade step 2 recomputes account_tier
+- `context/hubspot/property-schema.md` - `customer_segment` / `company_sub_segment` enum values, `segmentation_confidence` definitions, `hs_is_target_account` semantics
+- `context/hubspot/hubspot-values.md` - canonical enum strings for `customer_segment` and `company_sub_segment` (load-bearing case/punctuation; cited in cascade step 1)
+- `context/core/segment-qualification.md` - ICP qualification criteria and proof-based Quick Classification Tests
+- `context/core/icp-playbook.md` - per-segment worked examples, persona pain points, and objection handling
+- `context/copy-strategy/segment-messaging.md` - segment messaging framework (full version of the angles below)
+
+**MEDIUM (load when relevant):**
+- `context/account-tiering/icp-deep-dives/` - 6 per-ICP deep-dives (B-and-C-{neocloud,colocation,fiber-operator,network-op,enterprise,msp-aggregator}.md); use for anchor-match verification in borderline cases
+- `context/enrichment/research-routes.md` - research sourcing priorities per segment
+- `context/segments/neocloud.md` - NeoCloud segment cheatsheet (NC1-NC5 threshold matrix, GPU pricing context)
+
+## Before You Start
+
+Two things that change the output:
+1. **From-scratch or correction?** New company with no prior classification (research required), or an existing HubSpot record where the segment looks wrong (cascade from current values)?
+2. **Single company or batch?** For a batch, share the list and I'll work through each; for a single company, paste the name, domain, and any context you have.
+
+Coach: if you just drop a company name, I'll treat it as from-scratch single-company and start with the D1 check - redirect me if that is wrong.
 
 ## Step 0: D1 Global Disqualifier Check (run FIRST, before any segment routing)
 
@@ -528,7 +549,7 @@ When `customer_segment` is changed on a company record  -  whether from new clas
 
 5. **Sync to contacts:** Update `customer_segment` on all associated contacts to match the new company segment. Company record is source of truth.
 
-6. **Update `last_enriched_date`:** Set to today's date (YYYY-MM-DD).
+6. **Update `last_enriched_date`:** Set to today's date (YYYY-MM-DD) ONLY when a full Stage 1-3 research pass was performed (new web research + Apollo + segment classification + Completeness Gate pass). Do NOT bump on enum migration, cascade-only field corrections, or any write that did not include a full research pass. Partial writes (sub-segment correction without re-research, tier recompute, confidence adjustment) leave `last_enriched_date` unchanged.
 
 7. **Clear `flagged_for_deletion_reason` on exit:** If the OLD segment was `"Flagged for deletion"` and the NEW segment is an active ICP segment (or `Other` / `Partner Target`), clear `flagged_for_deletion_reason` to empty in the same write. The reason code must never linger on a record that is no longer flagged.
 

@@ -343,20 +343,23 @@ For neoclouds (GPU cloud providers like Lambda Labs, Crusoe, Together AI, RunPod
 
 Key Insight: For neoclouds, Status Quo is the #1 competitor (same as other segments). They don't know they have a network problem. They experience it as distributed AI infrastructure that's hard to connect. Lead with "connecting distributed AI infrastructure simply" - observability is a supporting benefit under the DETERMINISTIC pillar, not the lead (V4.1).
 
-#### Megaport/Latitude.sh Competitive Threat (Emerging  -  2024+)
+#### The On-Ramp Incumbents Became Compute Competitors (Megaport + Equinix  -  updated June 2026)
 
-Megaport acquired Latitude.sh in 2024, creating a bundled GPU-as-a-Service + networking play. This is a direct threat to neoclouds  -  especially `AI Infrastructure providers - Neocloud`  -  who might accept a single-vendor bundle rather than building their own connectivity.
+The third-party fabric providers we have always positioned against are no longer just connectivity middlemen. In 2026 they are building and brokering AI compute directly, which turns every tenant an operator sends to their portal into a tenant shopping inside a competitor's marketplace. Two distinct mechanisms, same tenant-loss outcome:
 
-| Dimension | Megaport/Latitude.sh | MaiaEdge |
+- **Megaport is building its own compute.** It acquired bare-metal/GPU provider Latitude.sh (completed Dec 2025) and on June 3, 2026 raised A$827.3M to stand up a "Globally-Distributed AI Inference Cloud" across its 1,100+ connected data centers in 31 countries  -  private connectivity plus bare-metal NVIDIA GPU plus an on-demand GPU pool (A$350M) plus a VAST data layer. That is, almost word for word, the proposition MaiaEdge enables operators to own for themselves.
+- **Equinix is brokering everyone else's compute.** It is NOT selling its own GPUs. It launched the Distributed AI Hub (Mar 2026), Fabric Intelligence (Apr 2026), and Geo Zones (May 2026) as a neutral place where enterprises discover, connect to, and consume third-party GPU clouds, model vendors, and data platforms. The tenant now shops for compute inside Equinix's ecosystem, not the operator's. Different mechanism, same loss of the relationship.
+
+| Dimension | Megaport / Equinix | MaiaEdge |
 |-----------|---------------------|----------|
-| **Model** | Bundled GPU + networking. One vendor, one contract. | Sovereignty  -  own your paths, own your data, own your roadmap. |
-| **Customer Relationship** | Megaport owns the customer and the margin. | You own the customer, the brand, and the pricing. |
-| **Lock-in Risk** | High. GPU + network bundle creates switching costs. | Low. MaiaEdge is a fabric layer  -  you choose carriers, colos, and cloud partners. |
-| **Sovereign Routing** | No geographic path guarantees. | Policy-based sovereign routing with jurisdictional compliance. |
+| **Model** | A destination you connect into  -  their network, their (or their partners') GPU pool, their portal. | Carrier infrastructure you deploy into the sites and carriers you already have. You build your own fabric. |
+| **Customer relationship** | They own the customer and the margin; you become their tenant. | You own the customer, the brand, the pricing. You are the landlord, not a tenant. |
+| **Lock-in risk** | High  -  a compute + network bundle (Megaport) or ecosystem gravity (Equinix) creates switching costs. | Low  -  a fabric layer across carriers, colos, and clouds you choose. |
+| **Sovereign routing** | Geo Zones is a premium tier you rent; no path guarantees off-platform. | Policy-based sovereign routing with jurisdictional proof, on paths you control. |
 
-**Counter-positioning:** "Megaport wants to be your GPU provider AND your network provider. That's a lot of control to hand one vendor. MaiaEdge gives you deterministic paths under YOUR control. Use Megaport for reach if you want  -  but own the path."
+**Counter-positioning (independence vs. tenancy):** "The bundles connect you into someone else's network and someone else's GPU pool, and you become their tenant. This is carrier infrastructure you drop into your own sites, so the fabric and the visibility stay yours across whatever carriers and colos you already use. Use them for reach if you want, but own the path."
 
-**Most relevant to:** `AI Infrastructure providers - Neocloud` sub-segment (Cirrascale, Vultr, Fluidstack, DigitalOcean, Nscale) who are evaluating bundled alternatives.
+**Who this hits (2026):** strongest for `AI Infrastructure providers - Neocloud` (the bundle's exact target) and any colocation operator whose tenants are being pulled into a third-party fabric's compute marketplace; also a live consideration for Enterprise multi-DC buyers weighing Megaport / Equinix Fabric. **Cold copy stays generic ("third-party fabric providers"); name Megaport or Equinix only in live conversation and objection-handling**, per the credibility-anchor rule.
 
 Neocloud Discovery Signal: If a colo prospect mentions GPU cloud tenants (Lambda Labs, Crusoe, etc.), that's a neocloud lead. Every colo conversation should generate neocloud intelligence.
 Dimension | Orchestration Platforms | MaiaEdge

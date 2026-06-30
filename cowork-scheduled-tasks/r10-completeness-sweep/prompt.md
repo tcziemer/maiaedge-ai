@@ -13,6 +13,7 @@ This is an **autonomous filler, not a review queue** — it writes the fills dir
 ## What it does NOT touch (no collision with existing routines)
 
 - **Blank `customer_segment`** -> R1 Fresh Enrichment owns these. Excluded.
+- **Non-ICP segments (`customer_segment IN ("Other", "Partner Target")`)** -> Excluded (2026-06-08 loop fix). These are competitive/partner reference records, NOT ICP accounts. The 30 `company_sub_segment` values are ICP-only and the narrative/structured enriched fields are ICP-classification inputs, so an `Other`/`Partner Target` record can NEVER satisfy the `company_sub_segment` trigger — leaving it pulled into the pool every run as a permanently-unfillable "incomplete" record (the same non-drainable class as the `hs_is_target_account` frozen-tier loop). R10 chases ICP records that fell between R1/R2/R-Tier-Audit; non-ICP `signal_heat`/`account_tier` upkeep is covered by R0/R1 creation defaults (`Cold`) + R2's 120-day rotation. Excluded at the trigger (Stage 1) so they never enter the pool.
 - **`last_enriched_date` ≥ 120 days stale** -> R2 owns full re-enrichment. Excluded (R10 is for the *non-stale but incomplete* gap).
 - **`segmentation_confidence = manual_review_required`** -> D7 owns these. Excluded.
 - **`last_enriched_date = today`** -> R1/R2 just wrote it; don't re-touch. Excluded.
@@ -23,18 +24,20 @@ This is an **autonomous filler, not a review queue** — it writes the fills dir
 
 ## Mandatory completeness set (the fields R10 guarantees are present)
 
+**Segment-aware (2026-06-08).** R10 only runs against ICP `customer_segment` values (the 6 ICPs); `Other` / `Partner Target` are excluded at the trigger. The forced set below therefore applies to ICP records. The `Forced?` column is marked **ICP** where the field only makes sense for an ICP record — if a non-ICP record ever reaches Stage 2 by another path, treat the ICP-only fields as N/A (do NOT invent an ICP `company_sub_segment` or fabricate ICP-classification enriched fields on a non-ICP reference; framework wins — the 30 sub-segments are ICP-only).
+
 | Field | Fill source | Forced? |
 |---|---|---|
-| `company_sub_segment` | classification (D3/D5) | Yes |
+| `company_sub_segment` | classification (D3/D5) | Yes (ICP only — no valid value on non-ICP) |
 | `account_tier` | `compute_tier` (tier-compute-spec) | Yes (seed-once on frozen blanks — see below) |
 | `signal_heat` | `compute_signal_heat` | Yes (default `Cold` if no signal history) |
 | `segmentation_confidence` | classification | Yes |
 | `account_brief` | research (account-brief skill, 2-4 sentence cap) | Yes |
-| `geographic_focus` | research | Yes |
-| `infrastructure_profile` | research (canonical enum bands) | Yes |
-| `hyperscaler_proximity` | research (enum, `None Known` sentinel) | Yes |
-| `fabric_provisioning_approach` | research (enum, snake_case multi-select) | Yes |
-| `provisioning_landscape` | research (2-4 sentence cap) | Yes |
+| `geographic_focus` | research | Yes (ICP only) |
+| `infrastructure_profile` | research (canonical enum bands) | Yes (ICP only — ICP-classification input) |
+| `hyperscaler_proximity` | research (enum, `None Known` sentinel) | Yes (ICP only) |
+| `fabric_provisioning_approach` | research (enum, snake_case multi-select) | Yes (ICP only) |
+| `provisioning_landscape` | research (2-4 sentence cap) | Yes (ICP only) |
 | `state` / `country` | Apollo firmographic (if web research can't resolve) | Yes |
 | `hubspot_owner_id` | territory model (only if blank AND state/country known; else leave for R6) | Best-effort |
 | `recent_news_or_trigger_event` | NOT forced — event-driven, owned by Signal Scan | No |
@@ -62,6 +65,7 @@ Trigger (OR-combined filterGroups, each AND-ing the common exclusions below):
 
 Common exclusions applied to every group:
 - `customer_segment` HAS_PROPERTY AND NEQ `"Flagged for deletion"`
+- `customer_segment` NOT_IN (`"Other"`, `"Partner Target"`) — **2026-06-08 loop fix.** Non-ICP references can never satisfy the `company_sub_segment` trigger (ICP-only enum), so without this they re-surface every run as permanently-unfillable "incomplete" records. R10 is an ICP-record completeness sweep; this keeps the pool drainable. (HubSpot caps filterGroups at 18 filters total, so 5 trigger groups x (1 trigger + 1 NEQ-flagged + 2 NEQ-non-ICP) = 20 exceeds the cap — instead keep the server filter to `NEQ "Flagged for deletion"` + the trigger, and apply the `Other`/`Partner Target` drop CLIENT-SIDE on each returned page.)
 - `segmentation_confidence` NEQ `manual_review_required`
 - `last_enriched_date` NEQ today (ET) AND (`last_enriched_date` ≥ today-120d OR NOT_HAS_PROPERTY) — i.e. not in R2's stale window
 - Company ID != `124293230301`
@@ -121,3 +125,6 @@ Mirror the other routines: HubSpot 429/5xx -> backoff x3 then log + continue; 40
 3. **Open deals are not a stop** — enriched-field / sub_segment / tier / heat fills write on the company record regardless of deal stage; deal records are never touched.
 4. **No standalone DM** — quiet-on-success; rolls into the one CRM Ops Daily Digest (4:45 PM). Direct DM only on fatal abort or circuit-breaker trip.
 5. **Apollo:** 25/run sub-cap. Current weekly utilization is near zero, so this fits inside the 850 cap today; revisit toward the recommended ~1,100 raise as overall volume grows.
+
+## Decisions (added 2026-06-08, Cooper — non-drainable-pool loop fix)
+6. **R10 is ICP-only.** `customer_segment IN ("Other", "Partner Target")` is excluded at the Stage 1 trigger (server `NEQ "Flagged for deletion"` + client-side `Other`/`Partner Target` drop, because the 18-filter cap blocks doing all of it server-side). Root cause: the `company_sub_segment NOT_HAS_PROPERTY` trigger group re-surfaced the entire `Other`/`Partner Target` population every run (2026-06-08: 75/75 of the capped pool, dominating the ~553 raw union) and could never be satisfied, because the 30 `company_sub_segment` values are ICP-only and a non-ICP reference has no valid value — the same non-drainable class as the `hs_is_target_account` frozen-tier ResetData loop. Fix carries through three places: the "What it does NOT touch" list, the Stage 1 common exclusions, and the now segment-aware mandatory completeness set. Non-ICP `signal_heat`/`account_tier` upkeep remains covered by R0/R1 creation defaults + R2's 120-day rotation. The one-time backlog of pre-default `Other` records missing `signal_heat` was cleared in the 2026-06-08 R10 run (22 set to `Cold`).

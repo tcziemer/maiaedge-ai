@@ -173,9 +173,11 @@ Colo claiming "sovereign" or "jurisdiction-controlled" capability needs policy-d
 
 Source: Operator press, DCD Regulation tag, DCF.
 
-Pattern: `("sovereign"|"data residency"|"jurisdictional"|"EU AI Act"|"CLOUD Act") AND (colocation|facility|tenant)`
+Pattern: `("sovereign"|"data residency"|"jurisdictional"|"EU AI Act"|"CLOUD Act"|"GRID Act"|"data center moratorium"|"interconnection threshold") AND (colocation|facility|tenant)`
 
 Freshness: 90d. Confidence: MED-HIGH.
+
+**Scope note - US domestic regulatory pressure (2026):** The sovereignty signal is no longer EU-only. The proposed US GRID Act (20MW federal-review threshold) plus 300+ state-level data-center bills and 100+ local moratoriums are pushing regulated tenants to ask which jurisdiction their traffic crossed, not just where data sits - which is a provable-path product fit. Treat a colo's public response to GRID Act / state-bill / moratorium pressure (compliance statements, jurisdiction-aware placement claims, business-model restructuring language) as a C-B5 fire. This is an INTERNAL angle-selection trigger for the regulated-workload moat - keep GRID Act and bill-count specifics OUT of cold copy; lead outreach with the tenant's own question per `context/segments/colocation.md` § Sovereign Tenant Requirements.
 
 ---
 

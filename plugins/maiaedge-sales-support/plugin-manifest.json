@@ -1,12 +1,19 @@
 {
   "name": "maiaedge-sales-support",
-  "version": "1.1.0",
-  "skills": ["call-prep", "competitive-intel", "sales-enablement", "account-brief"],
+  "version": "1.2.0",
+  "skills": [
+    "call-prep",
+    "competitive-intel",
+    "sales-enablement",
+    "account-brief"
+  ],
   "context": [
     "core/maiaedge-101.md",
     "core/messaging-framework.md",
     "core/competitive-positioning.md",
+    "core/differentiation-naas-aggregator.md",
     "core/icp-playbook.md",
+    "core/segment-qualification.md",
     "core/terminology-glossary.md",
     "account-tiering/tier-compute-spec.md",
     "account-tiering/sub-segment-qualification.md",
@@ -23,8 +30,15 @@
     "sales/pricing-reference.md",
     "sales/neocloud-strategy-brief.md",
     "sales/edge-ai-thesis-montauk.md",
+    "sales/use-case-taxonomy.md",
+    "sales/call-intelligence.md",
+    "sales/marketplace-seeding-strategy.md",
+    "outreach/email-writing-rules.md",
+    "hubspot/territory-model.md",
     "product/proof-points.md",
-    "product/ai-market-positioning.md"
+    "product/ai-market-positioning.md",
+    "product/pbc-pce-datasheet.md",
+    "product/integrated-switch-datasheet.md"
   ],
   "static": []
 }

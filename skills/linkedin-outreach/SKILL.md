@@ -5,6 +5,17 @@ description: Write LinkedIn connection requests for MaiaEdge prospects. Use when
 
 # MaiaEdge LinkedIn Connection Requests
 
+## Clarification (Ask Before Writing)
+
+Two questions that change the output:
+
+1. **Sender / territory:** Which sender? See `context/hubspot/territory-model.md` for the 5-region map. If Markus Hendrich (Europe), European compliance + sovereignty framing apply and LinkedIn-first is legally required for DE/AT/IT.
+2. **Sequence context:** Standalone LinkedIn touch, or Day -3 before Email 1? If in-sequence, the LinkedIn angle must differ from Email 1's (same problem, different lens).
+
+Coach: share contact name, title, company, and segment if known - rough answers still unlock a sharper message.
+
+---
+
 ## Hard Gate Before Writing
 
 Emit a complete **Research Receipt** (format in the Receipt section) for each contact before writing that contact's message body. The Receipt requires literal search query strings actually run, paired with results: minimum 3 if claiming a cataloged signal, minimum 5 if claiming NONE. Contact-level finding required on every Receipt.
@@ -19,28 +30,29 @@ The sender intro is removed from the body (recipient sees sender from LinkedIn U
 
 ## Reference Files
 
-- **email-writing-rules.md**  -  Core outreach philosophy: angle-first, research as fuel, segment lock, public-signal observations, banned brand-voice constructions, "fabric-in-a-box" ban in cold body, "Federation" verb ban (noun phrase "Federated Private Networking" allowed only in partner-facing collateral). LinkedIn follows the same philosophy, adapted to the LinkedIn length target.
-- **segment-language.md**  -  **Read this before writing.** Insider vocabulary, daily reality, conversational patterns, and insider vs outsider examples per segment. This is how you sound like you've been in their world, not like you researched them.
-- **segment-messaging.md**  -  Per-segment value-prop matrices and embed-by-contrast templates. Network Operator §5 is split into Tier 1 (Global + National) vs Tier 2/3 Regional Wholesale lead motions.
-- **messaging-framework.md**  -  Segment-specific messaging rules and positioning
-- **persona-targeting-blocklist.md**  -  **Pre-write gate.** Titles excluded from standard LinkedIn batch cadence (Director-Carrier-Wholesale, Director-Field-Operations, Country-Manager-at-HQ-product-org, Account Executive, CSM). See "Persona Pre-Check" below.
-- **pre-cadence-hygiene.md**  -  **Pre-write gate.** LinkedIn-status check on lead pull is one of three list-hygiene filters that run before any contact enters the cadence.
-- **sender-profiles.md**  -  Sender identities, territories, voice characteristics (sender intro is NOT in the LinkedIn body - recipient sees sender from LinkedIn UI)
-- **outbound-playbook.md**  -  Multi-touch sequence cadence (LinkedIn is typically Day 2)
-- **Segment cheatsheets** (colocation.md, fiber-operator.md, neocloud.md, network-operator.md, msp-aggregator.md, **enterprise.md**)  -  Deep context for pain points, discovery questions, and competitive landscape per segment
-- **signal-framework.md**  -  Universal signal types, scoring, noise list. Required for the Public Signal Cited rule.
-- **[segment]-signals.md**  -  Per-segment cataloged signals. The `Pattern:` field for each cataloged Tier A signal becomes the actual web search query when grounding a LinkedIn message. Required reading for the segment being targeted.
-- **sub-segment-qualification.md** (context/core/)  -  Authoritative list of the 30 active `company_sub_segment` values. Use the exact case-sensitive HubSpot string when referencing sub-segments.
-- **enrichment-protocols.md** (context/core/)  -  Canonical definitions of `account_brief`, `recent_news_or_trigger_event`, `fabric_provisioning_approach`, and `geographic_focus` - the four enriched fields that ground LinkedIn angle selection in real prospect substance.
+- **context/outreach/voice-gold-standard.md**  -  **Hold open WHILE writing.** §A is the LinkedIn bar (the three Cooper-flagged craft-voice messages). Imitate the register; never reuse exemplar phrasing verbatim.
+- **context/outreach/email-writing-rules.md**  -  Core outreach philosophy: angle-first, research as fuel, segment lock, public-signal observations, § Craft Voice (the cold-conversion register), banned brand-voice constructions, "fabric-in-a-box" ban in cold body, "Federation" verb ban (noun phrase "Federated Private Networking" allowed only in partner-facing collateral). LinkedIn follows the same philosophy, adapted to the LinkedIn length target.
+- **context/copy-strategy/segment-language.md**  -  **Read this before writing.** Insider vocabulary, daily reality, conversational patterns, and insider vs outsider examples per segment. This is how you sound like you've been in their world, not like you researched them.
+- **context/copy-strategy/segment-messaging.md**  -  Per-segment value-prop matrices and embed-by-contrast templates. Network Operator §5 is split into Tier 1 (Global + National) vs Tier 2/3 Regional Wholesale lead motions.
+- **context/core/messaging-framework.md**  -  Segment-specific messaging rules and positioning
+- **context/outreach/persona-targeting-blocklist.md**  -  **Pre-write gate.** Titles excluded from standard LinkedIn batch cadence (Director-Carrier-Wholesale, Director-Field-Operations, Country-Manager-at-HQ-product-org, Account Executive, CSM). See "Persona Pre-Check" below.
+- **context/outreach/pre-cadence-hygiene.md**  -  **Pre-write gate.** LinkedIn-status check on lead pull is one of three list-hygiene filters that run before any contact enters the cadence.
+- **context/outreach/sender-profiles.md**  -  Sender identities, territories, voice characteristics (sender intro is NOT in the LinkedIn body - recipient sees sender from LinkedIn UI)
+- **context/copy-strategy/outbound-playbook.md**  -  Multi-touch sequence cadence (LinkedIn connect defaults to Day -3, before Email 1)
+- **Segment cheatsheets** (context/segments/colocation.md, context/segments/fiber-operator.md, context/segments/neocloud.md, context/segments/network-operator.md, context/segments/msp-aggregator.md, **context/segments/enterprise.md**)  -  Deep context for pain points, discovery questions, and competitive landscape per segment
+- **context/signals/signal-framework.md**  -  Universal signal types, scoring, noise list. Required for the Public Signal Cited rule.
+- **context/signals/[segment]-signals.md**  -  Per-segment cataloged signals. The `Pattern:` field for each cataloged Tier A signal becomes the actual web search query when grounding a LinkedIn message. Required reading for the segment being targeted.
+- **context/account-tiering/sub-segment-qualification.md**  -  Authoritative list of the 30 active `company_sub_segment` values. Use the exact case-sensitive HubSpot string when referencing sub-segments.
+- **context/account-tiering/enrichment-protocols.md**  -  Canonical definitions of `account_brief`, `recent_news_or_trigger_event`, `fabric_provisioning_approach`, and `geographic_focus` - the four enriched fields that ground LinkedIn angle selection in real prospect substance.
+- **context/hubspot/territory-model.md**  -  Authoritative 5-region sender map. Load at runtime for Central/Europe routing; apply `get_owner()` instead of hardcoded state lists. Required for every sender selection decision.
+- **context/europe/europe-email-compliance.md**  -  LinkedIn-first is legally required (not just stylistic) for DE/AT/IT; cold LinkedIn without opt-in is unlawful in those countries. Gate every European contact through this file before routing.
+- **context/core/icp-playbook.md**  -  Per-role pain language by segment. Use for the swap test and to sharpen the contact-angle choice when the role is ambiguous or the contact-level research is thin.
+- **context/europe/sovereignty-positioning.md**  -  DORA/NIS2 sovereignty angle for Markus Hendrich / European prospects. Required when the sender is Markus or the prospect HQ is in Europe.
+- **context/signals/universal-platform-signals.md**  -  AP-1/AP-3/AP-7 openers for contacts where no segment-specific cataloged signal exists; use as the NONE-posture angle source before falling back to inferred segment pain.
 
 ## Persona Pre-Check (Pre-Write Gate, Mandatory)
 
-Before writing any LinkedIn DM, verify the contact's title is NOT on the persona-targeting blocklist (`context/outreach/persona-targeting-blocklist.md`). The blocklist applies equally to LinkedIn batch DMs and cold-email batches - the same persona model gates both channels. Specifically:
-
-- **Universal blocks:** Account Executive, Account Manager, Customer Success Manager.
-- **Aggregator / NaaS / TSD blocks:** Director - Carrier Wholesale, Wholesale Manager, Director - Sales (Wholesale).
-- **Fiber / ISP blocks:** Director - Field Operations, GM / Regional Operations Manager.
-- **International carrier blocks:** Country Manager / GM - [Country] at carriers with HQ product organizations, Finance Director / Treasurer.
+Before writing any LinkedIn DM, verify the contact's title is NOT on the persona-targeting blocklist (`context/outreach/persona-targeting-blocklist.md`) - the same persona model gates LinkedIn DMs and cold-email batches. It blocks four buckets: universal (Account Executive / Account Manager / CSM), aggregator-NaaS-TSD (Director-Carrier-Wholesale / Wholesale Manager / Director-Sales-Wholesale), fiber-ISP (Director-Field-Operations / Regional Ops Manager), and international-carrier (Country Manager at HQ-product orgs / Finance Director). Full list + rationale in that file.
 
 If the contact title is on the blocklist, do NOT write a LinkedIn DM. Surface the contact in the Cooper-review queue.
 
@@ -52,7 +64,7 @@ The difference from email: you have room for exactly one problem statement and a
 
 **Earned-Problem Doctrine (canonical in email-writing-rules.md).** At 35-50 words there is no room
 to recover from an offending claim. Lead with a problem the contact is publicly talking about or will
-predictably hit as they grow — framed forward-state, never as a verdict on their current setup — then
+predictably hit as they grow - framed forward-state, never as a verdict on their current setup - then
 the one easy-solution line. Never assert how their business runs today unless a public signal proves it.
 
 ## Angle Selection: Company + Contact (Mandatory)
@@ -86,32 +98,41 @@ The angle is chosen at the intersection of the company's situation AND the conta
 
 ## Sender Selection
 
-The sender is the person who will appear as the connection-request initiator in LinkedIn's UI. Use the same territory-based sender logic as email. See **sender-profiles.md** for the full mapping.
+The sender is the person who will appear as the connection-request initiator in LinkedIn's UI. Use the same territory-based sender logic as email. The authoritative 5-region map and owner IDs live in `context/hubspot/territory-model.md` - load that file and apply `get_owner()` at runtime. Do NOT inline or hardcode state lists here.
 
-| Prospect HQ | Sender (LinkedIn account that initiates the request) |
-|---|---|
-| Tim Lieto's 30 East states | Tim Lieto |
-| Ken Cunningham's 20 West states + DC | Ken Cunningham |
-| Outside US | Tim Lieto (Timothy Ziemer for strategic) |
-| Unknown | Tim Lieto (default) |
+Current senders: Tim Lieto (Northeast + West interim, 161889085), Ken Cunningham (Southeast, 162339176), Tory Teague (Central, 165480917), Markus Hendrich (Europe, 164949459), Tim Ziemer (International + Tier 1 SP, 159350430), Cooper (Unassigned, 160267902). Region boundaries are in `context/hubspot/territory-model.md`.
+
+See `context/hubspot/territory-model.md` for the full territory definitions and state-to-region mapping. For European prospects, Markus Hendrich applies European compliance + sovereignty framing; LinkedIn-first is legally required (not stylistic) in DE/AT/IT.
 
 Founder senders (Abilash, Timothy Ziemer) can be used for LinkedIn when the email sequence uses a founder sender. Match the sender across channels.
 
 **Sender identification happens via LinkedIn's UI, NOT in the message body.** The recipient sees who sent the connection request automatically. Adding "Tim from MaiaEdge." to the body is redundant and triggers the sales-pitch reflex before they read the actual message.
 
-## Format
+## Format - Craft Voice Is the Default
+
+The default register is the CRAFT pattern (the Cooper-flagged bar, voice-gold-standard.md §A). Four moves in ≤280 chars:
 
 ```
-[Recipient first name], [observation/question with company-specific signal]. [Optional: one sentence of context]. [CTA or no CTA].
+[First name], [structural truth of their world, competence credited]. [Craft line: "the layer I work on" / "what I spend my days on" + one concrete mechanic]. [Honest-reason or micro-ask close].
 ```
 
-**No sender intro in the body.** Sender identification happens via LinkedIn's UI when the connection request lands. `"[Sender first name] from MaiaEdge."` in the message body is BANNED.
+**The three calibration messages (imitate the moves, never the words):**
 
-**Length target:** 35-50 words. Hard cap: 280 characters (under LinkedIn's 300 hard limit).
+> Sergio, you know better than most that every operator in an alliance brings its own network, so each integration tends to get engineered from scratch. The layer I work on lets partners plug in once and reuse it, which felt close enough to your patch to be worth connecting.
 
-**Public-signal observation preferred opener:** When you have a cataloged signal from `context/signals/[segment]-signals.md`, lead with "saw the [signal type]" / "caught your panel at…" - same Public Signal Cited rule as cold email applies. The signal observation grounds the message in something specific the writer actually looked at.
+> Matt, customers mostly reach GPU clouds over whatever path they can arrange, which means the product's last hop is best-effort no matter how good the compute is. Fixing that hop is what I spend my days on, and it felt close enough to your world that connecting made sense.
 
-**No CTA when a strong illumination question carries the close.** "Worth connecting?" is optional. If the message ends with a real question, the question IS the ask. The recipient can connect and answer or just connect.
+> Jeffery, Megaport raising close to $600M to move into compute signals the network's becoming part of the AI product. Arc tunes GPUs to the limit, so the path into them is the next place performance leaks. We're working with other neoclouds on owning it. Open to connect?
+
+Market-catalyst openers (the Jeffery pattern) are for COMMERCIAL seats only, one light clause, calibrated to whether THIS reader would assign the signal weight. Deep-technical seats get the lived problem (the Matt pattern); cut the catalyst entirely.
+
+**No sender intro in the body.** Sender identification happens via LinkedIn's UI when the connection request lands. `"[Sender first name] from MaiaEdge."` in the message body is BANNED. Everything sends from reps and co-founders - the message must sound like a practitioner, never an SDR.
+
+**Length target:** 35-50 words. **Hard cap: 280 characters - count and EMIT the count** under every message as `char count: N/280`. (Over-cap messages are truncated or rejected by LinkedIn; a message without an emitted char count fails QA.)
+
+**Public-signal observation opener** stays available when a cataloged signal exists ("saw the [signal type]") - same Public Signal Cited rule as cold email.
+
+**Closes:** honest-reason ("felt close enough to your patch to be worth connecting"), micro-ask ("Open to connect?" / "Worth connecting?"), or no CTA when a strong illumination question carries the close. Never the same close twice within an account; no close on >20% of a batch.
 
 ## Research Receipt (Hard Gate Before Each Message)
 
@@ -139,6 +160,8 @@ Searches run (literal query strings - not paraphrased):
 
 Company-level finding: [signal description with source quote + date, OR "NONE - no Tier A or Tier B hits across [N] searches"]
 Contact-level finding: [what THIS specific contact owns / recent role activity / why they care about THIS facet of the problem. REQUIRED on every Receipt, including when company finding is NONE.]
+Load-bearing assumption: [the ONE thing the angle assumes is true about how their business works today] → [VERIFIED via source | UNVERIFIED → reframe forward-state / hedge / cut before writing]
+Anchor in the message: [the ONE company/contact-specific fact from the findings above that the message is built on] → Swap test: [why this message would NOT make sense sent to a different company in the same segment]. If you cannot name a non-generic anchor, the message is a template - reframe or mark RESEARCH INCOMPLETE.
 
 Signal code: [F-A1 | NC-A2 | NO-B3 | NON-CATALOG | NONE]
 Posture: [DIRECT | ASKED] - [one-line reason tied to the finding above]
@@ -152,7 +175,7 @@ Posture: [DIRECT | ASKED] - [one-line reason tied to the finding above]
 
 ### Refuse-to-write rule
 
-If you cannot honestly fill all four sections (Searches Run with at least 3 literal queries paired with results, Company-level finding, Contact-level finding, Posture with reason), output `RESEARCH INCOMPLETE: [specific reason]` in place of the message body and move on. Do NOT fabricate a Receipt.
+If you cannot honestly fill all required sections (Searches Run with at least 3 literal queries paired with results, Company-level finding, Contact-level finding, Load-bearing assumption, Anchor-in-the-message with its swap test, Posture with reason), output `RESEARCH INCOMPLETE: [specific reason]` in place of the message body and move on. Do NOT fabricate a Receipt. The Anchor field is the output gate: if the message is not built on a named company/contact-specific fact (if it would still read as sent-to-them with a different company name swapped in), it is a segment template and is invalid output even when the searches were run - re-research or reframe, do not ship it. If the load-bearing assumption is UNVERIFIED and asserts how their business works today (for example that they have not already solved the problem), the angle is not ready - reframe forward-state or cut before writing.
 
 ## Contact Angle Quick Reference
 
@@ -203,12 +226,12 @@ At 35-50 words you only have room for the words that earn their place. Make ever
 <!-- Canonical source: context/outreach/email-writing-rules.md -->
 ## Tone Rules
 
-Write the way a person types a message to a peer they respect. The six human-voice qualities from email-writing-rules.md apply here too, EXCEPT the specific-mechanic peer line (no room for it under the char cap — see the note in the banned-phrase list below). In priority order:
+Write the way a person types a message to a peer they respect. The six human-voice qualities from email-writing-rules.md apply here too, EXCEPT the specific-mechanic peer line (no room for it under the char cap - see the note in the banned-phrase list below). In priority order:
 
-1. **Reasoning flows; facts don't stack.** Connect your reasoning with so / since / but / even though — that connective tissue is the biggest tell that a human wrote it. One bare fragment per body, max. Don't stack three clipped declaratives.
+1. **Reasoning flows; facts don't stack.** Connect your reasoning with so / since / but / even though - that connective tissue is the biggest tell that a human wrote it. One bare fragment per body, max. Don't stack three clipped declaratives.
 2. **Say the thing; don't announce it.** State the point as a clause, not a labeled section. No "here's the thing," no colon-prefixed setups, no "what caught my eye."
 3. **Talk to them.** Active voice, second person. "Your team provisions," not "the team provisions." A DM written about them reads like a report; one written to them reads like a person.
-4. **Plain words, kept industry words.** Swap the consultant words (productizing → sell / turn up; operating model → way of working; addressable / TAM → the sites you can reach; monetize → new revenue / get paid for, but keep operator-native "monetize idle fiber"; leverage / utilize / enablement / "solution" → plain words). Keep the insider terms they actually say — DIA, NNI, off-net, route miles, lit / dark, meet-me room, cross-connect, attach rate, GPU cluster, deterministic paths. Those read peer.
+4. **Plain words, kept industry words.** Swap the consultant words (productizing → sell / turn up; operating model → way of working; addressable / TAM → the sites you can reach; monetize → new revenue / get paid for, but keep operator-native "monetize idle fiber"; leverage / utilize / enablement / "solution" → plain words). Keep the insider terms they actually say - DIA, NNI, off-net, route miles, lit / dark, meet-me room, cross-connect, attach rate, GPU cluster, deterministic paths. Those read peer.
 5. **Honest, spoken uncertainty.** When you're inferring, sound like a person being straight: "hard to tell from outside," "tends to," "usually." Keep the 30% hedge cap on "I'd guess" / "I'd imagine."
 6. **Rhythm.** Vary sentence length. A connected sentence next to a short one lands; three stacked fragments read as ad copy.
 
@@ -270,7 +293,8 @@ Full Enterprise positioning, sub-segment cheatsheets, persona pain language, obj
 - **Sovereignty pairing:** Always pair speed with ownership. "Your team provisions in minutes" not just "provision in minutes." Exception: neoclouds (they ARE the customer, so data sovereignty language only  -  "sovereign by design," "paths you control"). [Canonical source: context/outreach/email-writing-rules.md]
 
 **Never:**
-- Em dashes (replace with commas or periods)
+- Em dashes, colons, and dashes-as-punctuation (spaced hyphen, double hyphen, en dash). Replace with commas or periods; hyphenated compounds (cross-connect, on-net) are fine
+- Move-announcing transitions ("another angle on this," "one more thought," "quick thought," "worth a thought"). Just say the thing
 - "I noticed" / "I saw" / "I came across" / "Following your work"
 - "Impressive" or any flattery language
 - Credibility anchors (no Acme Packet, no 128 Technology, no "$2.55B exits")
@@ -279,12 +303,12 @@ Full Enterprise positioning, sub-segment cheatsheets, persona pain language, obj
 - Pitching MaiaEdge features. The goal is connection acceptance, not a sale.
 - Customer names (anonymize any proof points)
 - **"Fabric-in-a-box"** in LinkedIn body. Use "interconnection layer," "service fabric," or "build your own fabric" in DM body instead. The phrase stays canonical in cheatsheets, the 101, sales enablement, and live conversations but does NOT appear in DMs.
-- **"Federation" as a verb** ("federate with partners," "federation creates network effects") in LinkedIn body. Translate to segment-native vocabulary: "extend your reach," "sell into new markets," "connect to partners instantly," "reach beyond your footprint." The noun phrase "Federated Private Networking" is the MaiaEdge category descriptor and is allowed only in partner-facing collateral (101, cheatsheets, deck) — still banned in DM body.
-- "We built carrier infrastructure that…" / "We built MaiaEdge for…" / "We help operators…" - brand-voice constructions BANNED in LinkedIn body. Use "I" voice ("I've been working on infrastructure that…"). **The full "we" ban holds for LinkedIn.** Email gets one carve-out — the specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]") — but that is an EMAIL-only exception. At 35-50 words / 280 chars there's no room for it, so LinkedIn keeps the complete we-ban. Stay in "I" voice or second person.
+- **"Federation" as a verb** ("federate with partners," "federation creates network effects") in LinkedIn body. Translate to segment-native vocabulary: "extend your reach," "sell into new markets," "connect to partners instantly," "reach beyond your footprint." The noun phrase "Federated Private Networking" is the MaiaEdge category descriptor and is allowed only in partner-facing collateral (101, cheatsheets, deck) - still banned in DM body.
+- "We built carrier infrastructure that…" / "We built MaiaEdge for…" / "We help operators…" - brand-voice constructions BANNED in LinkedIn body. Use "I" voice ("I've been working on infrastructure that…"). **The full "we" ban holds for LinkedIn.** Email gets one carve-out - the specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]") - but that is an EMAIL-only exception. At 35-50 words / 280 chars there's no room for it, so LinkedIn keeps the complete we-ban. Stay in "I" voice or second person.
 
 ## Sequence Integration
 
-When used as part of a multi-touch sequence (see **outbound-playbook.md**), LinkedIn is typically sent on **Day 2** after Email 1.
+When used as part of a multi-touch sequence (see **outbound-playbook.md**), the connection request defaults to **Day −3, BEFORE Email 1** - the connect is the warm-up, the email carries the ask and books the meeting. On accept: thank-you DM + account one-pager within 24-48h per the branded-doc outbound variant, then the next email touch names one claim from the one-pager and carries the meeting ask. The thank-you DM, that post-one-pager email, and any verbal DM reply are written via the **warm-follow-up** skill (voice-gold-standard.md §E is its calibration set).
 
 **Critical rule:** The LinkedIn message should NOT repeat Email 1's angle word-for-word. It should reference the same underlying problem from a different entry point. If Email 1 led with provisioning speed, LinkedIn might lead with the competitive threat that creates. Same problem, different lens.
 
@@ -292,12 +316,12 @@ If the prospect already received Email 1 and sees a LinkedIn request with identi
 
 ## Research as Fuel (Same Standard as Email)
 
-The same principle from email-writing-rules.md applies here: research is fuel, not content. The research should be invisible in the message. It exists only in:
+The same principle from email-writing-rules.md applies here: research is fuel, not content. The research is invisible **by default** in the message; the one exception is a why-now signal you cite as an observation (see below). It exists in the message as:
 - **The precision of the problem named**  -  could only come from knowing this company
 - **The authenticity of the language**  -  uses their terms, not ours
 - **The relevance of the angle**  -  addresses what this person actually deals with
 
-**What this means at 35-50 words:** You don't recite their stats back to them ("40K route miles," "12 states," "30kW racks"). Instead, the research tells you WHICH problem to lead with. If you found a cataloged signal (BEAD subgrant, M&A announcement, exec hire), you can cite the signal directly with "saw the [signal]" - that's a public-signal observation, not research display. If you only have inferred patterns, you lead with the problem and skip the source citation.
+**What this means at 35-50 words:** You don't recite their stats back to them ("40K route miles," "12 states," "30kW racks"). Instead, the research tells you WHICH problem to lead with. If you found a cataloged signal (BEAD subgrant, M&A announcement, exec hire), you can cite the signal directly with "saw the [signal]" - that's a public-signal observation, not research display. If you only have inferred patterns, you lead with the problem and skip the source citation. The bar for citing the signal: it ties to the value prop and creates urgency. A static stat (route miles, facility count) never earns the space; a fresh signal often does.
 
 **The test:** Would someone with 15 years in their segment read this and think "this person gets it"? Or would they think "this person Googled me"?
 
@@ -421,10 +445,10 @@ Off-event opener pattern:
 [Recipient first name], [observation or question grounded in the cataloged signal you found, or in segment-native insider pain]. [Optional: one-sentence context]. [CTA or no CTA].
 ```
 
-Off-event closing CTAs to rotate (use ONE per message):
+Off-event closing CTA patterns (use ONE per message; paraphrase - never the same close twice within an account):
+- Honest-reason close: "felt close enough to your patch to be worth connecting."
 - "Worth connecting?"
 - "Curious how you're handling that."
-- "Dealing with something similar?"
 - (No CTA - let the illumination question carry the close.)
 
 The signal-grounded opener replaces "coming to [event]?" structurally: it's the credibility move that proves the writer actually looked at something concrete about THIS contact.
@@ -461,6 +485,8 @@ coming to [event]? [one lowercase human sentence about why talking makes sense b
 8. `coming to itw? the clearwave combined footprint only shows up as competitive advantage when delivery across both sides matches the speed of the sales pitch. curious where that stands.`
 
 ## Warm Contact Handling
+
+This section governs warm TARGETING before the connection request goes out. Once the prospect accepts or replies, switch to the **warm-follow-up** skill - it owns every message after the prospect responds.
 
 If the contact has HubSpot activity, classify them as WARM and modify approach.
 
@@ -506,12 +532,14 @@ For conference/trade show batches:
 
 ## Quality Checklist
 
-- [ ] Target 35-50 words, max 280 characters (count before delivering, under LinkedIn's 300 hard limit)
+- [ ] Target 35-50 words, max 280 characters - **char count EMITTED under the message** (`char count: N/280`); over-cap messages are rewritten, never shipped
+- [ ] Craft register present (structural truth + "the layer I work on"-class identity line) OR a deliberate signal-opener variant; no exemplar phrasing reused verbatim
 - [ ] Segment verified against research (if mismatch, corrected and flagged)
 - [ ] If segment corrected, message uses corrected segment's vocabulary
 - [ ] **NO sender intro in body** (no "Tim from MaiaEdge." / "Ken from MaiaEdge." - recipient sees sender from LinkedIn UI)
 - [ ] **Opens with recipient's first name** followed by a comma, then directly into the observation/question
-- [ ] **Research Receipt present above the message body** with all four sections complete: Searches Run (≥3 literal queries paired with results, ≥5 if claiming NONE), Company-level finding, Contact-level finding, Posture with reason. "NONE" without literal queries above it is research-skipping and fails this check.
+- [ ] **Research Receipt present above the message body** with all required sections complete: Searches Run (≥3 literal queries paired with results, ≥5 if claiming NONE), Company-level finding, Contact-level finding, Load-bearing assumption, Posture with reason. "NONE" without literal queries above it is research-skipping and fails this check.
+- [ ] **Load-Bearing Assumption Gate:** the assumption the angle depends on is verified against a source or reframed forward-state. Never assert they have not already solved the problem without a source (assume competence). See `context/outreach/email-writing-rules.md` § The Load-Bearing Assumption Gate.
 - [ ] **Public-signal observation opener preferred** when a cataloged signal exists ("saw the Tennessee build wraps in Feb")
 - [ ] Angle is company-specific (could not be sent to another company in the same segment)
 - [ ] Angle is contact-specific (could not be sent to a different role at the same company)
@@ -520,14 +548,15 @@ For conference/trade show batches:
   unverifiable current-state claim), framed without implying their setup is broken, with one
   easy-solution line.
 - [ ] Research absorbed, not displayed (no reciting stats or facts back to them)
-- [ ] **"I" voice, not "we" voice.** No brand-voice constructions ("We help operators…" / "We work with…" / "We give you…" / "We built carrier infrastructure that…" / "We built MaiaEdge for…" - all BANNED in LinkedIn DMs). The email-only specific-mechanic peer line does NOT apply here — it's a char-cap exception, so LinkedIn keeps the full we-ban.
+- [ ] **"I" voice, not "we" voice.** No brand-voice constructions ("We help operators…" / "We work with…" / "We give you…" / "We built carrier infrastructure that…" / "We built MaiaEdge for…" - all BANNED in LinkedIn DMs). The email-only specific-mechanic peer line does NOT apply here - it's a char-cap exception, so LinkedIn keeps the full we-ban.
 - [ ] **No "fabric-in-a-box"** in DM body. Phrase is cheatsheet / live-conversation only.
 - [ ] **No "Federation" as a verb** in DM body ("federate with partners," etc.) Translate per segment-language.md. "Federated Private Networking" noun phrase is partner-facing-collateral only - not in DMs.
 - [ ] **Persona pre-check passed** - contact title is not on `context/outreach/persona-targeting-blocklist.md`.
 - [ ] Correct sender for the territory (sender = LinkedIn account that initiates the request)
 - [ ] CTA is OPTIONAL when a strong illumination question carries the close. If included, low-friction ("Worth connecting?" or equivalent).
 - [ ] **Posture differs from E1** (per the per-sequence rotation rule). If E1 was DIRECT, LinkedIn can be ASKED, and vice versa.
-- [ ] No em dashes anywhere
+- [ ] No em dashes, colons, or dash-as-punctuation anywhere (scan for ":", " - ", "--"; hyphenated compounds fine)
+- [ ] No move-announcing transitions ("another angle," "one more thought," "quick thought")
 - [ ] No banned phrases (see writing rules)
 - [ ] No competitor names, customer names, or credibility anchors
 - [ ] Doesn't repeat Email 1 language if part of a sequence
@@ -536,66 +565,19 @@ For conference/trade show batches:
 
 ---
 
+## Logging (Mandatory - the channel is invisible without it)
+
+LinkedIn accepts, DM replies, and one-pager deliveries are not queryable anywhere in HubSpot unless they are logged. The motion cannot be measured or improved without this protocol:
+
+1. **On send:** complete the HubSpot LinkedIn task (task body = profile URL, blank line, message - per the standard task format).
+2. **On ACCEPT:** write the DM text into the contact's `linked_in_message` property and log a note `LinkedIn accept YYYY-MM-DD`.
+3. **On one-pager delivery:** log a note on the contact: `one-pager sent: [file name] via LinkedIn DM YYYY-MM-DD`.
+4. **On DM reply:** log the reply text as a note (LinkedIn replies live nowhere else).
+
+These four writes are the entire accept-rate / dual-channel funnel. Reps' 30 seconds per event buys the only measurement the channel has.
+
+---
+
 ## Final Step: Signal Push-Back to HubSpot
 
-**Inviolable rule:** this step runs AFTER the drafted LinkedIn DM has been delivered to the rep. The push-back must never gate, delay, or alter the primary output. If anything in this step fails, the rep already has their message in hand — signal-engine staleness is a routine-recovery problem, not a rep-blocker. Skip silently on any failure; the next R-Tier-Audit run reconciles the signal fields.
-
-### When to write back
-
-During your research above (the company-level + contact-level lookups), you ran web search and (optionally) web fetch. If that research surfaced a **signal-grade event** — funding round, exec hire, M&A, facility/market launch, public outage / RCA, earnings-language shift, or any U1-U6 / AP / FR class in [`context/signals/signal-framework.md`](../../context/signals/signal-framework.md) — score it against the Signal Scan rubric (Tier × Freshness × Confidence). **Only events scoring ≥8 trigger the push-back.** Sub-8 noise stays silent.
-
-### Comparison gate (write only if fresher)
-
-Read current `last_signal_date` for this company via `mcp__claude_ai_HubSpot__get_crm_objects`. If your discovered **event date** is strictly newer than HubSpot's value (or HubSpot's value is null), proceed. Otherwise no write — Signal Scan or a more recent outreach push-back already has equal-or-fresher data. Idempotent no-op.
-
-### The write block
-
-One `mcp__claude_ai_HubSpot__manage_crm_objects` call with `updateRequest.objects[]`, `objectType: "companies"`, `confirmationStatus: "CONFIRMATION_WAIVED_FOR_SESSION"`. Fields:
-
-- `recent_news_or_trigger_event` — pure narrative, no date prefix. Format: `"[Signal Type] - [one-line summary]"`. 2-4 sentences, ≤250 char hard cap.
-- `last_signal_date` — the **event date** (YYYY-MM-DD), extracted from the source article. If the body doesn't explicitly state the event date, use article publication date as a ±few-day approximation. Semantics narrowed 2026-05-28 — event date, NOT today's run date.
-- `last_signal_score` — your rubric score (number, typically 0-60).
-- `signal_count_last_30d` — read current value. If current `last_signal_date` is within 30d of your new event date, increment by 1. If current is null or >30d old, write 1.
-- `signal_heat` — recompute per the inlined spec below. **Title Case enum:** `Hot` / `Warm` / `Cool` / `Cold`. Lowercase is silently rejected.
-- `account_tier` — recompute per [`context/account-tiering/tier-compute-spec.md`](../../context/account-tiering/tier-compute-spec.md) §4. **Only write if `hs_is_target_account != true`** — flag freezes tier (heat continues regardless).
-
-### `compute_signal_heat` (inlined from `context/account-tiering/tier-compute-spec.md` §11.5)
-
-```
-signal_heat is computed top-down, first match wins:
-
-Hot   IF (last_signal_score >= 45 AND last_signal_date <= 60 days ago)
-       OR signal_count_last_30d >= 2
-       OR account has any associated open deal past `appointmentscheduled`
-
-Warm  IF last_signal_score 27-44 AND last_signal_date <= 60 days ago
-
-Cool  IF last_signal_date <= 180 days ago AND not already Hot/Warm
-
-Cold  IF last_signal_date > 180 days ago OR last_signal_date IS NULL
-
-Inputs: last_signal_score, last_signal_date (event date), signal_count_last_30d, open-deal state.
-Output: enum `Hot` | `Warm` | `Cool` | `Cold` (Title Case per HubSpot).
-
-Override behavior:
-- hs_is_target_account = true does NOT freeze signal_heat.
-  Tier is rep-locked; heat always reports the truth.
-```
-
-Heat writes are idempotent — skip if `computed_heat == current_heat`.
-
-### Stamping policy
-
-**Do NOT bump `last_enriched_date`.** Outreach-time signal push-backs are partial writes, not full enrichment passes. R2's 120-day rotation owns the freshness guarantee.
-
-### Audit log
-
-Add a HubSpot company note alongside the field writes:
-
-```
-Signal push-back from linkedin-outreach on YYYY-MM-DD: discovered <signal type> event YYYY-MM-DD, score <N>. Heat <prior> -> <new>. Tier <prior> -> <new>.
-```
-
-### Failure handling
-
-If any MCP call fails: log to run report under "Signal push-back deferred" and continue. The rep already has their DM. R-Tier-Audit reconciles next run. **Never surface push-back failures to the rep as a blocker.**
+**Runs AFTER the drafted LinkedIn DM is delivered to the rep - never before, never blocking.** Follow the canonical procedure in `context/signals/outreach-signal-pushback.md`: if your research surfaced a signal-grade event scoring ≥8 whose event date is newer than HubSpot's `last_signal_date`, write the five signal fields plus `account_tier` (only when `hs_is_target_account != true`), recompute heat per `context/account-tiering/tier-compute-spec.md` §11.5, do NOT bump `last_enriched_date`, and log the audit note. Skip silently on any failure - the rep already has their DM and R-Tier-Audit reconciles next run.

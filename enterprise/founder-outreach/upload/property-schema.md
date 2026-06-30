@@ -538,7 +538,7 @@ Select ALL that apply per company. Semicolon-separated in output.
 
 ## 12. Enrichment Properties (the 8 enriched fields the bot populates)
 
-Per Cooper feedback 2026-05-14: the enrichment bot populates **8 fields** during research (Stage 1b of the 5-stage research-first workflow). `maiaedge_value_proposition` is OUT OF ENRICHMENT SCOPE - populated by outreach skills (cold-email / linkedin-outreach / prospect-research / sdr-pipeline) at outreach time. **Conciseness cap: 2-4 sentences each on narrative fields.** At thousands-of-records scale, brevity beats completeness.
+Per Cooper feedback 2026-05-14: the enrichment bot populates **8 fields** during research (Stage 1b of the 5-stage research-first workflow). `maiaedge_value_proposition` is RETIRED (Cooper 2026-05-26): the field still exists in HubSpot but NO skill writes it - not enrichment, not outreach. Leave it alone. **Conciseness cap: 2-4 sentences each on narrative fields.** At thousands-of-records scale, brevity beats completeness.
 
 | # | Property Name | Label | Type | Length cap (Cooper 2026-05-14) | Description |
 |---|---|---|---|---|---|
@@ -551,11 +551,11 @@ Per Cooper feedback 2026-05-14: the enrichment bot populates **8 fields** during
 | 7 | `recent_news_or_trigger_event` | Recent News / Trigger Events | String | **2-4 sentences, pure narrative** | Most recent news / funding / leadership / signal. Surfaces Greenfield funding rounds, M&A drift, anchor drift, operational-status transitions. **Do NOT date-prefix the narrative** (post-2026-05-28) — the event date lives in `last_signal_date` for filterability. The narrative is plain prose describing what happened. |
 | 8 | `last_enriched_date` | Last enriched date | **Date** (HubSpot date-type; returns + accepts `YYYY-MM-DD`) |  -  | Auto-populated at Stage 5 on a passing definitive gate (see CLAUDE.md Unified `last_enriched_date` Stamping Policy). Gates R2 120-day re-enrichment cadence. **Live HubSpot type verified 2026-05-14: `date` (NOT string).** HubSpot's search API filter operators (`LT` / `GT` / `LTE` / `GTE`) accept `YYYY-MM-DD` string values directly against date-type properties (verified live with `last_enriched_date LT "2026-02-01"` returning 442 records), so routine queries using ISO date strings continue to work without conversion to epoch milliseconds. |
 
-### Not in enrichment scope (outreach concern)
+### Retired property (do not write)
 
-| Property Name | Label | Length cap | Owner |
-|---|---|---|---|
-| `maiaedge_value_proposition` | MaiaEdge value proposition | 4-5 sentences | **Outreach skills only** - cold-email / linkedin-outreach / prospect-research / sdr-pipeline populate on-demand at outreach time using customer_segment-specific messaging template + enriched-field personalization. Enrichment bot does NOT write this field. |
+| Property Name | Label | Status |
+|---|---|---|
+| `maiaedge_value_proposition` | MaiaEdge value proposition | **RETIRED 2026-05-26.** The field still exists in HubSpot but NO skill writes it (neither enrichment nor outreach). Earlier (2026-05-14) it was scoped to outreach skills; that was reversed. Do not write it; do not surface it as a gap in completeness audits. |
 
 ### Identifier fields (not in enrichment scope but used by enrichment)
 

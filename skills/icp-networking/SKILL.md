@@ -15,11 +15,28 @@ version: 2.0.0
 
 Strategic peer networking in MaiaEdge ICP accounts. Brand exposure and relationship building, not sales outreach. Cooper Kennedy connects as a RevOps/GTM systems peer.
 
+## Before Starting
+
+Two things that change the output:
+1. Which segment(s) to target - Colo, Fiber, Network Op, NeoCloud, MSP, Enterprise, or a mix? If you have a specific account list, share it.
+2. Are there any accounts to prioritize or skip this run?
+
+Coach: if you just say "run a networking batch," start with segment priority order from the table below and the default 20-connection cap.
+
 ## Reference Files
 
-- **segment-language.md**  -  Insider vocabulary per segment. Helps identify correct segment during misclassification checks.
-- **hubspot-values.md**  -  Exact HubSpot segment and sub-segment enum values
-- **territory-model.md**  -  State-to-owner mapping for territory routing
+- **context/copy-strategy/segment-language.md** - Insider vocabulary per segment. Helps identify correct segment during misclassification checks.
+- **context/hubspot/hubspot-values.md** - Exact HubSpot segment and sub-segment enum values
+- **context/hubspot/territory-model.md** - Authoritative 5-region territory map (Northeast/Southeast/Central/Europe/International + interim West); use for all territory routing
+- **context/core/icp-playbook.md** - Per-segment ICP profiles, personas, and pain points (HIGH - used for title targeting and misclassification detection)
+- **context/hubspot/property-schema.md** - Full company and contact property inventory including `hs_marketable_status` (HIGH - auto-created contacts must set `hs_marketable_status=false`)
+- **context/hubspot/contact-schema.md** - Contact field definitions and buying-committee framework (HIGH - governs fields set on Apollo-enriched contacts)
+- **context/account-tiering/sub-segment-qualification.md** - Full 30-value company_sub_segment enum (HIGH - used for segment priority and misclassification detection)
+- **context/europe/europe-email-compliance.md** - EU cold-contact law by country; validates bare-connection approach in DE/AT/IT (MEDIUM)
+- **context/segments/enterprise.md** - Enterprise Multi-DC ICP segment detail, scale gate, and sub-segments (MEDIUM)
+- **context/segments/neocloud.md** - NeoCloud segment detail and anchor companies (MEDIUM)
+- **context/account-tiering/d1-global-disqualifiers.md** - Hard disqualifiers for targeting; skip D1 records even if in HubSpot (MEDIUM)
+- **context/core/segment-qualification.md** - Segment qualification gates and ICP boundary definitions (MEDIUM)
 
 ## Sender Profile
 
@@ -122,8 +139,8 @@ Before targeting a company, check its last activity date in HubSpot.
 | Last Activity | Action |
 |--------------|--------|
 | Within 14 days | SKIP. Active conversation in progress. |
-| 15-30 days | PROCEED with caution. Note in the log. |
-| 31+ days | CLEAR. Good networking target. |
+| 15-45 days | FLAG. Recent activity - note in the log and check before targeting. |
+| 46+ days | CLEAR. Good networking target. |
 
 Check HubSpot fields: `notes_last_contacted`, `hs_last_sales_activity_timestamp`.
 
@@ -232,11 +249,8 @@ This plugin reads existing MaiaEdge skills at runtime for domain logic. Strategy
 | Contact persona mapping | `contact-discovery` |
 | Apollo enrichment patterns | `contact-discovery` |
 | Activity gate thresholds | `sdr-pipeline` |
-| Target company lists | `references/target-companies.md` |
 
-Skills live in:
-- `/sessions/cool-great-tesla/mnt/.skills/skills/{skill-name}/SKILL.md`
-- `/sessions/cool-great-tesla/mnt/.local-plugins/marketplaces/local-desktop-app-uploads/{plugin-name}/skills/{skill-name}/SKILL.md`
+Target company lists are pulled live from HubSpot by segment priority - no static list file is used.
 
 ---
 

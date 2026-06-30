@@ -11,7 +11,7 @@
 
 ## What it does
 
-The single end-of-day ops surface for Cooper. Fires after the day's last writers (Daily Sales Activity Brief 4 PM CT, R-Tier-Audit 3 PM CT; Monday also after the signal-scan aggregator 2:30 PM CT). Reads ground truth and produces one dashboard + one DM instead of ~8 separate routine self-DMs.
+The single end-of-day ops surface for Cooper. Fires at 4:45 PM CT after the day's CRM-maintenance writers (R0 9 AM, R1 10 AM, R2 11 AM, R4 12 PM, R10 1:30 PM, R-Tier-Audit 3 PM CT; Monday also after the signal-scan aggregator 2:30 PM CT). The Daily Sales Activity Brief (6 PM CT) is a rep-facing deliverable that fires *after* this digest and is not an ops writer - the digest confirms its dispatch in one line but does not health-grade or depend on it. Reads ground truth and produces one dashboard + one DM instead of ~8 separate routine self-DMs.
 
 Sequence:
 1. **Stage 0** — preflight; resolve the since-last-digest window (Monday reaches back to Friday); read the working ledger `F0B0AFSB9LN`. Abort + one-line ping if HubSpot is unreachable.

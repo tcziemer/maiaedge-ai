@@ -39,7 +39,7 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 **Why:** Winning an AI-DC interconnect contract with 800G/1.6T and 36x fiber density exposes every NNI, partner-reach, and multi-region gap. They close the deal, realize they can't deliver cross-footprint.
 
-**Source:** Lightwave Online, Telecom Ramblings, Data Center Knowledge, DCD, FierceNetwork, operator press (Uniti, FiberLight, Zayo, Lumen, Crown Castle Fiber, Lightpath).
+**Source:** Lightwave Online, Telecom Ramblings, Data Center Knowledge, DCD, FierceNetwork, operator press (Uniti, FiberLight, Zayo, Lumen, Lightpath; Crown Castle Fiber absorbed into Zayo May 2026 - removed).
 
 **Pattern:** `("AI data center"|"hyperscaler"|"GPU cluster") AND ("dark fiber"|"IRU"|"wavelength"|"400G"|"800G") + operator name`
 
@@ -49,11 +49,25 @@ If both events fire on same fiber operator within 12 months → +6 stacking auto
 
 **Why:** An operator announcing a "real-time portal" is 12-18 months into automation and almost always hitting the NNI/Type 2 wall. ACTIVE buyers, not cold.
 
-**Source:** Fierce Network Modernization, Light Reading, MEF.net news, Capacity Media, LinkedIn company pages.
+**Source:** Fierce Network Modernization, Light Reading, Mplify (formerly MEF) news, Capacity Media, LinkedIn company pages.
 
 **Pattern:** `("launches"|"unveils") + ("NaaS"|"on-demand portal"|"API-driven"|"self-service provisioning")`. Zayo DynamicLink is the benchmark - track copycat announcements explicitly.
 
 **Freshness:** 30d. **Confidence:** HIGH.
+
+### F-A10. Operator Joins / Resells a Third-Party Fabric (NEW 2026-06-12 - differentiation window, two-event firing)
+
+**Why:** An operator announcing it has joined, resells, or white-labels a third-party fabric (Megaport, Equinix Fabric, Console Connect class) for off-net reach or cloud on-ramp just told the market two things: (1) it has the extension/cloud-reach problem and budget for it; (2) it chose to rent. Two distinct windows:
+- **At announcement:** the evaluation logic is fresh and the contract is young. The conversation is "use the fabric underneath, do not live inside it" - shared-port economics + white-label under their brand via API (the doctrine file's coexistence frame), not rip-and-replace.
+- **6-12 months post-announcement:** the ownership pain accrues (customers learning the fabric's portal, published pricing limiting bundles, and since June 2026 the fabric selling compute against them). The conversation is the doctrine's own-vs-rent line.
+
+Strongest variant: the operator's fabric partner subsequently announces an up-stack move into the operator's market (the June 2026 compute pivot pattern) - that converts a passive partnership into an active conflict, fire immediately.
+
+**Source:** Megaport/Equinix/Console Connect partner press + newsrooms, operator press releases, Capacity Media, Fierce Network, Channel coverage, LinkedIn company pages.
+
+**Pattern:** `(operator name) + ("partners with"|"joins"|"resells"|"white-labels"|"powered by") + ("Megaport"|"Equinix Fabric"|"Console Connect"|"NaaS platform"|"fabric")` OR `(fabric provider) + "welcomes" + operator`.
+
+**Freshness:** ≤30d from announcement = full Tier A (coexistence frame); 6-12 months post = re-fire once as Tier B (ownership frame). **Confidence:** MED-HIGH (joint press = HIGH; directory listing alone = MED).
 
 ### F-A5. Executive Hire - VP Network Automation / Chief Network Officer / VP Wholesale / VP Carrier Relations
 
@@ -141,7 +155,7 @@ Pattern: `"landing station"|"cable landing"|"subsea backhaul" + operator/region`
 
 ### F-B4. Public-Company Earnings Call Keyword Hits
 
-Uniti, Lumen, Frontier, Consolidated, Cogent, Crown Castle Fiber C-suite naming "provisioning speed," "automation capex," or "wholesale growth" = internal business case being built.
+Surviving public transcript set post-2026 consolidation: Uniti (UNIT), Lumen (LUMN), Cogent (CCOI), Optimum Communications (OPTU - Lightpath parent, renamed from Altice USA). Frontier delisted Jan 2026 (Verizon), Consolidated private (Searchlight), Crown Castle Fiber absorbed (Zayo), WOW! private. C-suite naming "provisioning speed," "automation capex," or "wholesale growth" = internal business case being built.
 
 Source: Seeking Alpha transcripts, Motley Fool, SEC EDGAR 10-Q/8-K, company IR pages.
 
@@ -190,6 +204,16 @@ Operators shopping an RFP for "middle-mile fabric" or "NNI automation" are in-ma
 Source: BidNet / SAM.gov, state e-procurement portals, FindRFP.
 
 Pattern: `"middle-mile"|"carrier-grade NaaS"|"automated provisioning" + NAICS 517`. Confidence: MED.
+
+### F-C6. Copper-Retirement Wholesale Exposure (NEW 2026-06-12)
+
+**Why:** The FCC's March 2026 copper-retirement order (effective May 20) plus AT&T's ~500-wire-center decommissioning wave (from June 2026, 18-state cutoffs by mid-November) forces every CLEC still buying EoC/DS1/DS3 wholesale access to re-platform its off-net buying on a deadline. INCOMPAS: in places "no viable wholesale replacement exists." A forced-timing wedge for the off-net/extension conversation.
+
+**Source:** FCC 214 discontinuance filings + network-change disclosures, AT&T wire-center lists, INCOMPAS filings, Telecompetitor, Broadband Breakfast.
+
+**Pattern:** `("copper retirement"|"214 discontinuance"|"wire center" + "decommission") + territory overlap with target CLEC` - fire on the AFFECTED operator (the wholesale buyer in the territory), not the retiring carrier.
+
+**Freshness:** 90d (deadline-driven; cutoff dates extend the window). **Confidence:** MED (territory-overlap inference; upgrade to MED-HIGH if the operator publicly references migration).
 
 ### F-C5. Earnings-Disclosed Fiber-Count Step-Change
 
@@ -268,6 +292,7 @@ See `signal-framework.md` "International Source Stack" for the full regional sta
 | **F-A7 broader M&A (announcement OR close)** | SEC filing [Robust] + ≥1 trade press OR 2 independent trade press [Robust] |
 | **F-A8 ABS / refinancing** | SEC S-1 / S-3 / 424 [Robust] + rating agency note [Medium] (Moody's / KBRA / Fitch) OR ≥1 trade press [Robust] |
 | **F-A9 consortium / federation** | Multi-operator joint press [Robust] OR state/federal middle-mile grant announcement [Robust] |
+| **F-A10 operator joins/resells a fabric** | Joint operator+fabric press [Robust] → HIGH; fabric marketplace/directory listing alone [Medium] → MED. Up-stack-conflict variant (fabric partner announces compute/competing move) fires immediately at HIGH |
 
 ### International Sources (Tim Z's territory)
 

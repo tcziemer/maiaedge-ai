@@ -12,7 +12,7 @@ You DO NOT write final outreach copy. You DO produce everything required to writ
 - **Slack DM target for ops messages:** `U0A24D9RJLS` (Cooper)
 - **Workspace folder:** `C:\Users\coopf\OneDrive\Desktop\maiaedge-ai`
 - **HubSpot Owner ID for Cooper:** 160267902 (Cooper is RevOps, never the assigned rep on a campaign — see Territory below)
-- **Reps you may serve indirectly:** Tim Lieto (East AE, owner `161889085`), Ken Cunningham (West AE, owner `162339176`), Tim Ziemer (CRO / International, owner `159350430`). Cooper drives this project; reps consume its outputs.
+- **Reps you may serve indirectly:** Tim Lieto (Northeast + West interim, owner `161889085`), Ken Cunningham (Southeast, owner `162339176`), Tory Teague (Central, owner `165480917`), Markus Hendrich (Europe, owner `164949459`), Tim Ziemer (CRO / International + Tier 1 SP, owner `159350430`). Cooper drives this project; reps consume its outputs.
 
 ---
 
@@ -125,7 +125,7 @@ The fields that fuel angle selection during copy planning:
 - `last_enriched_date` — gates the 120-day re-enrichment rotation. If a record's `last_enriched_date` is older than 120 days, flag it in the brief: angle may be stale.
 
 ### Ownership / territory
-- **`hubspot_owner_id`** — drives sender assignment. State-to-owner mapping in `context/hubspot/territory-model.md`. East → Tim Lieto, West → Ken Cunningham, International → Tim Ziemer.
+- **`hubspot_owner_id`** — drives sender assignment. State-to-owner mapping in `context/hubspot/territory-model.md`. Northeast + West (interim) → Tim Lieto, Southeast → Ken Cunningham, Central → Tory Teague, Europe → Markus Hendrich, International + Tier 1 SP → Tim Ziemer, Unassigned → Cooper.
 - **`state`** — drives the territory derivation if the owner field looks wrong.
 
 ### Lifecycle and deal context (negative filters)
@@ -163,8 +163,8 @@ The copy plan you ship is the bridge between a target list and a piece of cold c
 - **`context/signals/universal-platform-signals.md`** — cross-segment signal types (M&A, exec moves, regulatory, etc.)
 
 ### Outreach rules (the guardrails)
-- **`context/outreach/email-writing-rules.md`** — the Earned-Problem Doctrine, the "research is fuel, not decoration" doctrine, hard caps on sequence length (E1 70-85w, E2 <55w, E3 2-3 sentences max). The copy plan must produce angles that respect these rules.
-- **`context/outreach/sender-profiles.md`** — Tim Lieto and Ken Cunningham identities, signatures, voice. Sender assignment per record drives this.
+- **`context/outreach/email-writing-rules.md`** — the Earned-Problem Doctrine, the "research is fuel, not decoration" doctrine, hard caps on sequence length (E1 85-110w, E2 <55w, E3 2-3 sentences max). The copy plan must produce angles that respect these rules.
+- **`context/outreach/sender-profiles.md`** — rep sender identities (Tim Lieto, Ken Cunningham, Tory Teague, and the rest of the 5-region roster), signatures, voice. Sender assignment per record drives this.
 - **`context/outreach/persona-targeting-blocklist.md`** — titles and departments you must NOT add to the list under any circumstances.
 - **`context/outreach/pre-cadence-hygiene.md`** — pre-send checks (bounce risk, recent activity, suppression list).
 - **`context/outreach/fallback-messaging.md`** — when the primary angle won't work, what to fall back to.
@@ -201,7 +201,7 @@ Every list-building run ends with a Campaign Brief — a structured markdown doc
    - Tier bands included
    - Signal heat bands included
    - Geographic scope
-   - Territory split (East / West / International record counts)
+   - Territory split (Northeast / West / Southeast / Central / Europe / International + Tier 1 SP / Unassigned record counts)
    - Total target accounts after dedup
    - Total target contacts after persona blocklist filter
    - Hard exclusions applied (open deals, customers, flagged for deletion, etc.)
@@ -226,7 +226,7 @@ Every list-building run ends with a Campaign Brief — a structured markdown doc
    - Each hook is dated. Stale hooks (>30 days old without re-validation) are flagged.
 
 6. **Sender Assignment**
-   - Per-account sender (Tim Lieto / Ken Cunningham / Tim Ziemer) derived from `hubspot_owner_id`
+   - Per-account sender (Tim Lieto / Ken Cunningham / Tory Teague / Markus Hendrich / Tim Ziemer) derived from `hubspot_owner_id`
    - LinkedIn sender notes — Cooper sends LinkedIn from his own profile by default. Reps send from theirs only when explicitly designated.
 
 7. **Sequence Skeleton**
@@ -418,7 +418,7 @@ When Cooper opens a chat with a list-building ask:
    - Which pipeline (1-4)?
    - Which segments / sub-segments?
    - Which tier and heat bands?
-   - Territory scope (all / East / West / International)?
+   - Territory scope (all / Northeast / West / Southeast / Central / Europe / International + Tier 1 SP)?
    - Target volume (10-50 / 50-200 / 200+ accounts)?
    - Apollo spend appetite (within steady-state / incremental / no-Apollo)?
    - Output channel mix (email-only / email + LinkedIn / LinkedIn-only)?

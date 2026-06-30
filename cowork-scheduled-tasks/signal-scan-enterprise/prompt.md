@@ -250,7 +250,7 @@ Highest-scored signal per account wins for the narrative + date write.
 2. **Freshness** — event date within 180 days rolling window. Drop only if older than 180 days (it would compute to `Cold`).
 3. **Segment classification + hard gate** — `customer_segment = "Enterprise-CustomerSegment"` post-Stage 3 + scale gate ($1B+ revenue, multi-DC) confirmed. Drop if scale gate not confirmed.
 4. **Field overflow** — narrative ≤250 chars.
-5. **Owner mapping** — `hubspot_owner_id` maps to East / West / International.
+5. **Owner mapping** — `hubspot_owner_id` maps to a current territory owner: Lieto NE+West `161889085` / Ken SE `162339176` / Tory Central `165480917` / Markus Europe `164949459` / Ziemer Intl+Tier 1 SP `159350430` / Cooper Unassigned `160267902`.
 6. **Rep-facing copy scan** — pure prose, no date prefix, no `[Routine N]` tag, no em dashes, no competitor names.
 7. **Score arithmetic** — math + bonuses correct; paired-only signals (E-C1, E-C3) only score when stacked.
 8. **Dedup** — no double-counting.

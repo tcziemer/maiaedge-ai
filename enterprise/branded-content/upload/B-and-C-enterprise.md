@@ -138,6 +138,10 @@ Banks, investment firms, insurers, payment networks, capital-markets infrastruct
 
 **Secondary angles:** FFIEC physical-path verification ("the 'diverse' path that wasn't"); DORA CTPP concentration risk (Megaport / Equinix Fabric as designated third party); deterministic inter-DC paths (microbursts, brownouts); cloud on-ramps under their control instead of Megaport / Equinix Fabric dependency.
 
+**Current why-nows (2026):**
+- **REDUNDANT** - carrier consolidation is invalidating diverse-path attestations. As formerly-independent fiber collapses under fewer owners, a wave that was diverse from the incumbent now shares regional aggregation with the carriers the bank would pick as Path B. Present as a reasoned observation worth re-testing against today's ownership map, not as a single cited fact.
+- **SOVEREIGN** - DORA's first oversight cycle (live 2026) extends the CTPP critical-third-party list past the hyperscalers to connectivity and data-center providers (Colt, Deutsche Telekom, Orange, Equinix, InterXion). The concentration question now reaches the fabric the on-ramps ride, and best-effort routing still cannot show the examiner the path.
+
 **Use Case 5 (M&A) is the highest-fit lead per `enterprise-use-cases.md`.** Use Case 1 (dark fiber redundancy) and Use Case 8 (policy-based path control with audit trails) are co-leads when the recipient is a Network Architect or CSO/CISO respectively.
 
 ### HubSpot fields R1/R2 must populate
@@ -233,8 +237,8 @@ Multi-hospital Integrated Delivery Networks (IDNs) and large health systems with
 - **Named Epic customer** (most large IDNs are; Hyperdrive cutover signals fresh DC project budget)
 - **NOC presence** — many IDNs run 24x7 clinical IT operations
 - **LinkedIn / Greenhouse / Lever / Ashby postings** for VP / Director Clinical Network Operations, EHR Infrastructure, Imaging Network, Clinical IT Architecture
-- **HITRUST r2 scope** + **HIPAA Security Rule NPRM (Dec 27, 2024)** TLS 1.3 compliance mentions
-- **California AB 749** zero-trust microsegmentation language (CA hospitals only — effective Jan 1, 2025)
+- **HITRUST r2 scope** + **HIPAA Security Rule NPRM (Dec 27, 2024)** TLS 1.2+ / encryption-in-transit mentions (NPRM not finalized as of mid-2026)
+- **OCR ransomware consent orders (April 23, 2026)** - corrective action plans requiring network segmentation, asset inventory, and ePHI data-flow mapping (enforced now, rule-independent)
 - **HSCC Sector Mapping toolkit + Updated Model Contract Language** participation (Oct/Nov 2025)
 - **TEFCA participation** — federated query traffic to QHINs (real new network flow 2024-2025)
 - **Cosmos contribution** (Epic cross-customer research dataset)
@@ -259,7 +263,7 @@ Multi-hospital Integrated Delivery Networks (IDNs) and large health systems with
 5. **Cleveland Clinic** (Cleveland, OH) — academic medical center, multi-state + international (UAE / London)
 6. **NewYork-Presbyterian** (NY, NY) — academic, 10 hospitals, Cornell + Columbia affiliates
 7. **Mass General Brigham** (Boston, MA) — academic, 14 hospitals, Harvard affiliate
-8. **Trinity Health** (Livonia, MI) — 88 hospitals, 26 states, mid-merger with UPMC closing 2026
+8. **Trinity Health** (Livonia, MI) — 88 hospitals, 26 states, independent IDN and ALSO divesting hospitals to stabilize finances (2026). CORRECTION 2026-06-12: Trinity Health (Livonia) is NOT merging with UPMC — UPMC is acquiring "Trinity Health System" (Steubenville, OH), a CommonSpirit regional system, close expected Fall 2026. Two different entities; do not conflate in outreach.
 9. **UPMC** (Pittsburgh, PA) — 40 hospitals, consolidating from 9 EHRs (post-merger network integration window)
 10. **Banner Health** (Phoenix, AZ) — 33 hospitals, 6 states
 11. **Providence** (Renton, WA) — 51 hospitals, 7 western states
@@ -285,6 +289,10 @@ Multi-hospital Integrated Delivery Networks (IDNs) and large health systems with
 **Lead (dark fiber redundancy anchor — default for Healthcare + Retail):** "Your two-DC Epic active/passive depends on inter-DC replication. RPO of 90 seconds → 15 seconds is the conversation we keep having with IDNs mid-Hyperdrive." Pivot to: "Diverse dark fiber redundancy between EHR DCs that's actually diverse — PBCs at each end with diverse fibers in, automated failover, no routing protocols."
 
 **Secondary angles:** Cloud on-ramps under enterprise control for radiology / Cogito-on-Azure analytics; policy-based path control for HIPAA flows + HITRUST audit trails; new acquired-hospital site bring-up in days not 9-month carrier-circuit cycle (M&A integration angle).
+
+**Current why-nows (2026):**
+- **SOVEREIGN** - OCR ransomware consent-order corrective action plans are enforcing network segmentation, asset inventory, and ePHI data-flow mapping right now, rule or no rule. The IDN has to prove the segmentation, not assert it.
+- **REDUNDANT / AUTOMATED** - AI imaging is crushing inter-DC bandwidth. AI-reconstructed studies and 200GB+ tomosynthesis volumes moving between the imaging archive and read sites were never re-provisioned for; the inherited carrier circuit was sized for an older study weight. Each new read site or acquired hospital (UPMC's Epic cutover wave) is a connectivity turn-up before the first image moves.
 
 **Use Case 1 (dark fiber redundancy) + Use Case 8 (audit trails) are co-leads.** Use Case 7 (new site bring-up) fires when an acquired-hospital cutover signal is the trigger.
 
@@ -427,6 +435,11 @@ National retailers and large distribution networks with multi-DC corporate IT AN
 **Lead (dark fiber redundancy — Meijer-archetype):** "DC-to-DC replication lag is the thing nobody escalates until BOPIS times out. Your 'diverse' fiber paths between primary and DR riding the same metro conduit is the 2024-2025 retail story (Hot Topic, Albertsons-style audits)." Pivot to: "Dark fiber pair between primary DCs with PBCs at each end, automated failover, no routing protocols. The freeze window (Aug-Jan) is the only window. Q1/Q2 is the decision."
 
 **Secondary angles:** Cloud on-ramp for SaaS + analytics under retailer control (Albertsons Azure preferred, Walmart Sparky agents); PCI v4.0 segmentation reduction (cut audit scope by two-thirds); peak readiness / Cyber Monday capacity; deterministic paths into highest-traffic DCs (Symbotic robotics, pick-to-light jitter).
+
+**Current why-nows (2026):**
+- **SOVEREIGN** - PCI v4.0.1 Req 11.4.7 now requires the segmentation around the cardholder data environment to be **penetration-tested**, not asserted. The retailer has to prove the control held on a schedule; a path-control plane that produces the evidence is the difference between an assertion and an attestation.
+- **AUTOMATED** - robotics-DC bring-up is connectivity-led. Symbotic Gen-2 across 42 Walmart DCs (early 2026) and Costco Port St. Lucie (March 2026) each light up as a carrier turn-up before the first bot moves; the carrier install is the long pole, not the racks.
+- **AUTOMATED + cost control (GenAI egress)** - production shopping agents (Walmart Sparky, Kroger's Gemini rollout nationwide Jan 2026) ground inference in real-time data in corporate DCs while the inference runs cloud-side, so cross-cloud / cross-region egress (~$0.087/GB) scales with adoption as a new CFO-visible cost line. The inference path is now a cost decision, not just a latency one. Same logic flows to FS and BPO model-grounding.
 
 **Use Case 1 + Use Case 2 are co-leads.** Use Case 8 (PCI v4.0 audit-scope reduction) when recipient is CSO/CISO.
 
@@ -584,6 +597,11 @@ BPO and outsourced operations providers running multi-site delivery centers on a
 
 **Secondary angles:** Delivery-center reliability across geographies (Manila → Cebu failover, Super Typhoon Nov 2025 board-level moment); client data sovereignty (their clients' regulated data riding their network — DORA flow-down, India DPDP, RBI 2025); new-client onboarding 14 weeks → 3 weeks (Use Case 7); per-tenant audit trails for client InfoSec audits.
 
+**Rebase off per-seat (the seat-volume premise is eroding):** AI is decoupling BPO revenue from headcount (Genpact's CEO says the business is moving off per-seat; Teleperformance is among Europe's most-shorted names on that fear), so the per-seat ramp story is the wrong lead. Keep "every new client adds a tail," but anchor it to the regulatory/outcome frame:
+- **SOVEREIGN (primary)** - per-client jurisdictional path proof. RBI 2025 directions, April 2026 deadline, require proof that an Indian client's data never sits where a foreign regulator can reach it; DPDP and DORA flow-down stack the same obligation. The tail each client adds is a jurisdictional attestation, not a seat count.
+- **REDUNDANT** - uptime is margin when the BPO bills per resolution instead of per seat. The path that fails the jurisdictional audit is the one eating margin every minute it wobbles.
+- **AUTOMATED** - fast nearshore site activation (CGS Colombia, VXI Egypt class); the carrier install gates the client commit date.
+
 **Use Case 5 (M&A) + Use Case 7 (new site bring-up) are co-leads.** Use Case 8 (audit-ready policy enforcement) when recipient is Chief Compliance or InfoSec lead.
 
 ### HubSpot fields R1/R2 must populate
@@ -668,7 +686,7 @@ Deloitte, McKinsey, BCG, Bain, Oliver Wyman, AlixPartners are project-based cons
 
 All 12 NA Healthcare anchors verified still independent + multi-DC + Epic-instance customers: HCA Healthcare, Ascension, CommonSpirit, Kaiser Permanente, Cleveland Clinic, NewYork-Presbyterian, Mass General Brigham, Trinity Health, UPMC, Banner Health, Providence, Intermountain Health.
 
-**Additional verified anchors surfaced beyond the original 6:** Mass General Brigham, Trinity Health (mid-merger with UPMC closing 2026), UPMC (consolidating from 9 EHRs), Banner Health, Providence, Intermountain Health (post-SCL merger).
+**Additional verified anchors surfaced beyond the original 6:** Mass General Brigham, Trinity Health (Livonia - NOT the UPMC target; see anchor #8 correction), UPMC (consolidating from 9 EHRs; acquiring CommonSpirit's Ohio "Trinity Health System," close Fall 2026), Banner Health, Providence, Intermountain Health (post-SCL merger).
 
 **EU/APAC anchors added:** NHS England trust-level (Manchester University, Imperial College), Karolinska/Region Stockholm, Apollo Hospitals India.
 

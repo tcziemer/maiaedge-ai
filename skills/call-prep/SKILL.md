@@ -14,14 +14,72 @@ Triggers automatically when preparing for meetings or calls with MaiaEdge prospe
 - User asks for discovery questions or talk tracks
 - User mentions "call prep," "meeting prep," or "preparing for [company]"
 
+## Clarification
+
+Before I build your call brief, two questions:
+1. Which segment is this prospect in? (Fiber / Colo / Network Op / Neocloud / MSP-Aggregator / Enterprise - plus sub-segment if known, e.g. "AI Signals colo" or "Tier 1 Inference neocloud")
+2. What kind of call - first discovery, POC scoping, or further along?
+
+Coach: if you only have a company name, share it and I'll flag what's missing.
+
 ## Reference Files
 
 For deeper context during call preparation, consult:
-- **Segment cheatsheets:** `colocation.md`, `fiber-operator.md`, `neocloud.md`, `network-operator.md`, `msp-aggregator.md`
-- **competitive-positioning.md**  -  Battle cards, objection handling by competitor
-- **proof-points.md**  -  Customer stories and public quotes (Arvig, RevNet, NTT, IENTC, Ocean Networks)
-- **pricing-reference.md**  -  PBC/PCE SKUs, term pricing, discount policy
-- **call-intelligence.md**  -  Patterns from past calls organized by segment
+
+**Segment context (angles + qualification):**
+- `context/segments/colocation.md` - Colo segment angles, signals, qualification
+- `context/segments/fiber-operator.md` - Fiber segment angles, signals, qualification
+- `context/segments/neocloud.md` - NeoCloud segment angles, signals, qualification
+- `context/segments/network-operator.md` - Network Operator segment angles, signals, qualification
+- `context/segments/msp-aggregator.md` - MSP/Aggregator segment angles, signals, qualification
+- `context/segments/enterprise.md` - Enterprise (Multi-DC ICP) segment scope, hard gate, sub-segments
+
+**Partner cheatsheets (objection handling + persona matrix):**
+- `context/partner-assets/cheatsheet-colocation.md` - Colo objection handling, persona matrix
+- `context/partner-assets/cheatsheet-fiber-operator.md` - Fiber objection handling, persona matrix
+- `context/partner-assets/cheatsheet-neocloud.md` - NeoCloud objection handling, persona matrix
+- `context/partner-assets/cheatsheet-network-operator.md` - Network Operator objection handling, persona matrix
+- `context/partner-assets/cheatsheet-msp-aggregator.md` - MSP/Aggregator objection handling, persona matrix
+- `context/partner-assets/cheatsheet-enterprise.md` - Enterprise objection handling, persona matrix
+
+**Competitive + positioning:**
+- `context/core/competitive-positioning.md` - Battle cards, objection handling by competitor
+- `context/core/differentiation-naas-aggregator.md` - Cold-safe vs live-call NaaS doctrine; Megaport/Equinix live-call objection handling
+- `context/core/icp-playbook.md` - Objection handling per segment; worked per-segment examples and persona pain
+- `context/copy-strategy/segment-language.md` - Segment-specific vocabulary and angle selection
+
+**Product + proof:**
+- `context/product/proof-points.md` - Customer stories and public quotes (Arvig, RevNet, NTT, IENTC, Ocean Networks)
+- `context/product/ai-market-positioning.md` - AI-inference positioning (latency as the bottleneck, deterministic paths). Read for calls with neocloud / AI-colo prospects.
+- `context/product/pbc-pce-datasheet.md` - Full PBC/PCE hardware and software spec for technical deep dives
+- `context/partner-assets/product-quick-reference.md` - Quick-reference SKU and capability summary
+- `context/partner-assets/maiaedge-101.md` - Partner edition; has the 30-second pitch by segment
+
+**Sales context:**
+- `context/sales/pricing-reference.md` - PBC/PCE SKUs, term pricing, discount policy
+- `context/sales/call-intelligence.md` - Patterns from past calls organized by segment
+- `context/sales/use-case-taxonomy.md` - Canonical use cases (21 operator + Enterprise-specific). Map the prospect's likely needs to named use cases before the call so discovery questions land on real territory.
+- `context/sales/edge-ai-thesis-montauk.md` - Third-party (Montauk Capital) validation of the distributed edge-AI + latency-bottleneck narrative. Exec-level discovery hook and business-case framing for AI-adjacent prospects.
+- `context/sales/neocloud-strategy-brief.md` - NeoCloud go-to-market strategy, competitive angles, and pricing intelligence
+- `context/segments/enterprise-use-cases.md` - Enterprise-specific use cases and in-house net-eng discovery patterns
+- `context/product/cloud-onramp-business-case.md` - Cloud on-ramp economics model (break-even, margin tiers, multi-cloud vs BGP)
+- `context/product/economic-impact-acg-whitepaper.md` - Third-party ACG whitepaper ROI validation for exec-level business case
+
+**HubSpot / deal schema (for POC scoping and deal-stage alignment):**
+- `context/hubspot/poc-schema.md` - POC structure, stages, and required fields
+- `context/hubspot/deals-schema.md` - Deal stages, defaults, and MEDDPICC fields
+- `context/hubspot/call-schema.md` - Call engagement fields and logging schema
+
+**Compliance + sovereignty:**
+- `context/europe/sovereignty-positioning.md` - DORA/NIS2 angle for European prospects; sovereign routing framing
+- `context/marketing/sovereign-routing-explainer.md` - Technical explainer for path-level sovereignty claims
+
+**Glossary:**
+- `context/core/terminology-glossary.md` - Canonical product and network terminology for technical conversations
+- `context/partner-assets/use-case-gpu-cluster-connectivity.md` - GPU cluster connectivity use case deep dive (NeoCloud + AI-colo)
+
+**Territory:**
+- `context/hubspot/territory-model.md` - Authoritative 5-region owner map (Northeast / Southeast / Central / Europe / International). Use to confirm which rep owns the account before the call.
 
 ## Meeting Prep Framework
 

@@ -180,9 +180,12 @@ Write this structured report to the on-disk run report at `weekly-reports/YYYY-M
 - **Subject (use as the report's top heading):** `CRM Guardian - Persona Fill (Weekly) - [YYYY-MM-DD] - [N] contacts created, [M] Tier 3 held, [K] manual sourcing needed`
 - **Hero:** Tier 1+2 accounts scanned, persona gaps detected, contacts created (Tier 2), Tier 3 holds, suppressions, Apollo credits consumed.
 - **Created (Tier 2) - by rep territory:**
-  - Tim Lieto (East): account name | persona role | new contact (firstname, jobtitle, email)
-  - Ken Cunningham (West): same
-  - Tim Ziemer (International): same
+  - Tim Lieto (Northeast + West): account name | persona role | new contact (firstname, jobtitle, email)
+  - Ken Cunningham (Southeast): same
+  - Tory Teague (Central): same
+  - Markus Hendrich (Europe): same
+  - Tim Ziemer (International + Tier 1 SP): same
+  - Unassigned (Cooper): same
   This per-rep grouping helps Cooper preview which contacts will appear on each rep's dashboard.
 - **Tier 3 held:** unverified Apollo, LinkedIn-departed, deal-protected at `contractsent`, customer-history (informational).
 - **Suppressed:** suppression-check failures (opt-out, hard-bounced, duplicate, flagged) - count + reasons.

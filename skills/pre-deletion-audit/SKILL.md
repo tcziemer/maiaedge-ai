@@ -17,12 +17,14 @@ This skill is the single choke point through which every "mark this non-fit for 
 
 ## Reference Files
 
-- `context/hubspot/property-schema.md` - company property reference, `customer_segment` values
+- `context/hubspot/property-schema.md` - company property reference, `customer_segment` values, `flagged_for_deletion_reason` 7-code canonical set (§2.1)
 - `context/hubspot/contact-schema.md` - contact property reference, `flagged_for_deletion` boolean, activity fields
 - `context/hubspot/hubspot-values.md` - enum value mapping
 - `context/hubspot/territory-model.md` - owner mapping (used in notes for traceability)
+- `context/hubspot/poc-schema.md` - POC pipeline stages; required to evaluate whether a contact is on an active POC (Preservation Rules, activity signals)
 - `context/core/segment-qualification.md` - ICP definition (what counts as in/out)
 - `context/core/icp-playbook.md` - ICP boundaries for segment re-evaluation
+- `context/segments/enterprise.md` - Enterprise ICP hard scale gate (Step 0 Enterprise defensive check; $1B+ / multi-DC / Equinix Fabric criteria)
 
 ## ICP Segments (in scope) - 6 segments as of 2026-05-11
 
@@ -159,7 +161,7 @@ Decision tree:
 
 For each associated contact on the duplicate company:
 
-1. **Activity check** (see "Activity Threshold" section).
+1. **Activity check** (see "Preservation Rules" section).
    - If activity present: mark as PRESERVE_AND_REASSOCIATE.
    - If no activity: mark as REASSOCIATE_OR_FLAG (see below).
 2. **Dedup check against primary:** Does the primary already have a contact with the same `email` (case-insensitive) OR same `firstname + lastname + company`?

@@ -44,6 +44,8 @@ Research should power the email's voice and angle. It should never show up as di
 
 **HARD FAIL: Research display is a disqualifying flaw, not a point deduction.** If company facts are stated as standalone observations (route miles, facility counts, funding amounts, geographic descriptions), the email scores 0 on this dimension regardless of other qualities. See Email-Writing-Rules.md "Research Display Detection" for the full detection checklist and translation table.
 
+**HARD FAIL (the other direction): Research ABSENCE is equally disqualifying.** Research has two opposite failure modes, and they fail this dimension equally. Display is research shown clumsily. Absence is no company-specific research done at all, so the email is a segment template with the name swapped in. **The swap test: mentally replace the company name and the contact with a different company/contact in the same segment. If the email still reads as fully sent-to-them, the research was skipped and it scores 0 here, the same as research display.** Good segment voice is NOT proof of research: a perfectly-voiced, swappable line ("Every multi-state deal that stalls on provisioning is margin walking out the door" - true of all 300 fiber operators) passes the voice test and FAILS this dimension. The email must be BOTH invisible-research AND impossible-to-have-written-for-anyone-else. The most common way this dimension is gamed is dodging the display sin by going generic - that is not a pass, it is the other hard fail. The relevance has to come from something true of THIS company that a template could not contain (a route they just lit, the market they just entered, the build they announced, the role this exact contact owns, or one fresh why-now signal stated as an observation). See Email-Writing-Rules.md § The Relevance Principle and § The Load-Bearing Assumption Gate.
+
 **9-10  -  Invisible Research:**
 You can't point to where the research is in the email. But the email couldn't have been written without it. The angle is so specific to this company's situation that it required deep research to find. No "I noticed" or "I saw." No dropped stats. Just a problem framed with precision that comes from knowing their business.
 
@@ -193,7 +195,7 @@ Is the angle calibrated to what this specific persona cares about in their daily
 
 ## Dimension 7: Brevity & Density (Weight: 5%)
 
-Every sentence earns its place. No filler. Within the sequence caps (Email 1: 70-85w, Email 2: <55w, Email 3: 2-3 sentences).
+Every sentence earns its place. No filler. Within the sequence caps (Email 1: 85-110w, Email 2: <55w, Email 3: 2-3 sentences).
 
 **9-10:** Impossibly tight. Every word does work. Removing any sentence would lose something important.
 **7-8:** Lean and focused. Maybe one sentence that could be tighter.
@@ -202,7 +204,7 @@ Every sentence earns its place. No filler. Within the sequence caps (Email 1: 70
 **1-2:** Wall of text. Way over the cap. Redundant points.
 
 **Sequence length caps (apply across all segments, canonical in context/outreach/email-writing-rules.md):**
-- Email 1: 70-85 words, 1-3 paragraphs, proper spacing, first name on its own line
+- Email 1: 85-110 words, 1-3 paragraphs, proper spacing, first name on its own line
 - Email 2: under 55 words, first name line, no re-intro, no meta-references
 - Email 3: 2-3 sentences max, first name line, exactly one CTA, "show is coming up" energy OR detached close
 
@@ -235,7 +237,7 @@ Single question. Low friction. Conversational. Not needy.
 **1-2:** Desperate, manipulative, or absent.
 
 **CTA rules:**
-- ONE question. Never stack.
+- ONE ask. Never stack (the give-close IS the ask when used — give + call-ask stacked = two asks, fails).
 - No "I'd love to..." or "I'd be happy to..."
 - No "Let me know if..." (passive, easy to ignore)
 - No calendar links in first email
@@ -323,6 +325,22 @@ If the writer used DIRECT posture without a signal to back it (or ASKED posture 
 
 ---
 
+## Dimension 12: Batch Distinctiveness (PASS/FAIL gate, scored per BATCH — added 2026-06-12)
+
+Every dimension above scores one email; this one scores the batch, where same-account colleagues (who forward emails internally) actually experience the copy. Not weighted into the formula — a FAIL means rewrite before the batch ships, regardless of per-email scores.
+
+**PASS requires all of:**
+- No closing string on >20% of the batch; no close repeated within an account.
+- No 8-word sequence repeated across contacts at the same account; no 8-gram in >30% of the batch.
+- ≥3 distinct E1 opener patterns per 10 contacts; same-account openers all differ.
+- No phrase shipped verbatim from voice-gold-standard.md, fallback-messaging.md, or any rule file's pattern examples.
+- Craft identity present: the batch reads like a practitioner you could name wrote it, not "I" voice with no job attached.
+- **Company-specific anchor in every email (the templating gate).** Each email names at least one thing true of THAT company that a template could not contain (a route they lit, the market they entered, the build they announced, the role this exact contact owns, a fresh signal). A batch where each email is differently-worded but each names only a segment-generic problem FAILS: distinct wording is not company-specific relevance. The tell is the swap test applied across the batch - if you can move any email to a different company in the same segment without it reading wrong, the research was skipped on that email. Distinct-but-generic is the most common way a batch passes the n-gram checks above and still ships as templates.
+
+**The evidence this gate exists:** June 2026 — one CTA on 28/28 E1s, one sanctioned peer line on 29, same-account E1s 40-75% identical, 0 human replies on 584 contacts, and 76% of unsubscribes clustered at multi-threaded accounts. Every per-email rule passed; the batch failed.
+
+---
+
 ## Calculating the Overall Score
 
 ```
@@ -339,7 +357,7 @@ For neoclouds, redistribute Sovereignty (4%) equally across the other 10 dimensi
 - **9-10**: This email sounds like it was written by someone who spent 10 years in their industry. I'd reply.
 - **7-8**: Strong voice, authentic framing. Minor tweaks to sharpen.
 - **5-6**: Competent but sounds like a salesperson, not a peer. Missing the vocabulary or lived-in quality.
-- **3-4**: Template voice. Could swap in any company name. Research displayed, not absorbed.
+- **3-4**: Template voice. Could swap in any company name - the research was either skipped (segment-generic) or displayed, not absorbed.
 - **1-2**: Wrong segment, wrong language, or reads like automated outreach.
 
 ---
@@ -356,7 +374,10 @@ Each is a Tier-1-severity flag - not a stylistic point deduction. Score 0 on the
 | **Hedge cap violation** ("I'd guess" / "I'd imagine" in >30% of E1s in a batch of 10+) | Dimension 11 (Claim Diplomacy) | -1 point per excess instance | Cap stays at 30%. The Smartlead audit found 60%+ usage. Rewrite the excess using direct assertion, illumination question, premise hedge, peer observation, market observation, or role-native voice (see email-writing-rules.md § Hedge Variety Requirement). |
 | **Persona-blocklist contact appears in output** | Pre-cadence gate, not a dimension | Disqualifying - pull from batch | Director-Carrier-Wholesale, Director-Field-Operations, Country-Manager-at-HQ-product-org, Account Executive, CSM. See `context/outreach/persona-targeting-blocklist.md`. The blocklist runs before write-time; if a contact slipped through, surface in the Cooper-review queue. |
 | **"Saw the [event] coming up" template for E3 sent past the event week** | Dimension 11 + Sequence-level Breakup Execution | -1 point per occurrence | Universal "[event] is around the corner" template formally retired (Decision 4). Use the three-option rotation per email-writing-rules.md § E3 three-option rotation. |
-| **Competitor names in cold body** (Megaport, Equinix Fabric, Lumen PCF, Cisco, Juniper, etc.) | Dimension 5 (Segment Lock) | Tier-1 / score 0 on Dimension 5 | Cross-Segment Rule 2 (existing). The anti-position framing in `segment-messaging.md` § Anti-position framing surfaces the cheatsheet anti-position into cold-safe language without naming competitors. |
+| **Competitor names in cold body** (Megaport, Equinix Fabric, Lumen PCF, Cisco, Juniper, etc.) | Dimension 5 (Segment Lock) | Tier-1 / score 0 on Dimension 5 | Cross-Segment Rule 2 (existing). The anti-position framing in `segment-messaging.md` § Anti-position framing surfaces the cheatsheet anti-position into cold-safe language without naming competitors. (Campaign-brief-sanctioned market catalysts — e.g. Megaport-as-signal in Campaign A — are the documented exception.) |
+| **Yes/no thought-question close** ("Is this something you've thought about?" class) | Dimension 8 (CTA Quality) | Tier-1 / score 0 on Dimension 8 | 0-for-28 in June 2026. Rewrite to a soft call-ask statement, the show-me give, or an honest-reason close (email-writing-rules.md § CTAs). |
+| **Zero-ask passive E3 closer** ("Easy to reach me if that becomes a priority.") | Dimension 8 + Sequence-level Breakup Execution | Tier-1 / rewrite | Every E3 carries exactly one actionable ask. |
+| **Batch stamp** (any closing string >20% of batch, or same-account 8-gram repeat) | Dimension 12 (Batch Distinctiveness) | FAIL the batch | Rewrite flagged emails; re-run the Batch Fingerprint Gate before export. |
 
 ---
 
@@ -371,7 +392,7 @@ When critiquing a full sequence, also evaluate:
 | **Posture Rotation** | Does the 3-email sequence rotate posture across the touches? E1 declarative, E2 asked, E3 take-away or detached. The same contact getting three declarative pain statements in a row reads as one writer pushing one angle three times. The same contact getting declarative-asked-detached reads as one writer thinking out loud across a window of time. The LinkedIn touch should also use a different posture than E1. Automatic 1-point deduction at the sequence level if all three touches use the same posture. |
 | **Escalation Logic** | Does urgency build naturally? Not manufactured  -  earned through value. |
 | **Spacing** | 3-5 days between touches. Not too aggressive, not too passive. |
-| **Breakup Execution** | Does the final touch provide graceful exit while leaving the door open? E3 has TWO valid energy modes: (1) timing-anchored ("show is coming up" - for accounts with a real milestone) and (2) detached close that matches the silence ("Sounds like the timing isn't right. Easy to reach me if it ever lands differently." / "I'll stop here. Door's open if anything shifts." - for non-event sequences without a real timing hook). Manufactured urgency when there's no real milestone is a deduction. **Deal-cycle phrases are BANNED in cold E3** ("Have you shelved this?" / "Have you given up on this project?" assume the prospect agreed something existed - they belong in active-deal nurture, not cold outreach). Automatic 1-point deduction if a deal-cycle phrase appears in cold E3. |
+| **Breakup Execution** | Does the final touch leave the door open while still ASKING something? E3 has TWO valid energy modes: (1) timing-anchored ("show is coming up" - for accounts with a real milestone) and (2) detached close that matches the silence BUT still carries one actionable ask ("Sounds like the timing isn't right. Worth a conversation, or wrong moment?"). **Zero-ask passive closers are BANNED** ("Easy to reach me if it ever lands differently." / "Door's open if anything shifts." give the reader nothing to do — 12+ shipped June 2026, zero replies). Manufactured urgency when there's no real milestone is a deduction. **Deal-cycle phrases are BANNED in cold E3** ("Have you shelved this?" / "Have you given up on this project?" assume the prospect agreed something existed - they belong in active-deal nurture, not cold outreach). Automatic 1-point deduction if a deal-cycle phrase or zero-ask closer appears in cold E3. |
 
 ---
 

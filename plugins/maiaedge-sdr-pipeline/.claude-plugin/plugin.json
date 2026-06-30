@@ -1,6 +1,6 @@
 {
   "name": "maiaedge-sdr-pipeline",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "description": "End-to-end batch outreach pipeline. Takes a list of companies + contact titles and produces send-ready outreach.",
   "author": {
     "name": "MaiaEdge"

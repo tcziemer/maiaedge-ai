@@ -1,5 +1,7 @@
 # Email Writing Rules
 
+> **European sends (compliance gate):** if the recipient is in Europe, read `context/europe/europe-email-compliance.md` BEFORE sending. Email law is country-by-country there (ePrivacy is national, the ePrivacy Regulation was withdrawn in 2025), and Germany requires prior express consent for cold email B2B and B2C alike, so standard cold sequences into German recipients are generally unlawful. That file carries the country traffic-light, the GDPR legitimate-interest-assessment requirement, and the safer-channel guidance. This is a hard gate for the Europe / GM-Europe motion, not a style note.
+
 ## The Core Philosophy
 
 Research is fuel, not decoration. The point of researching the contact, company, and segment is not to show off stats or prove you did homework. It is to show the recipient: I understand your world. I understand your company. I understand your day-to-day. I understand your goals. Then tie strategically the best value prop for that company, contact, and segment.
@@ -84,16 +86,20 @@ Research exists for three purposes:
 2. CONFIRM the right vocabulary for their world (what terms do they use internally?)
 3. CALIBRATE the tone to their sophistication level
 
-Research findings must be invisible in the final email. They exist only in:
+Research is **invisible by default**. It shows up in the email as:
 - The precision of the problem named (could only come from knowing this company)
 - The authenticity of the language (uses their terms, not ours)
 - The relevance of the angle (addresses what this person actually cares about)
+
+**The one exception: the single signal that creates the why-now.** A fresh, specific event (a funding round, an award, an acquisition, a senior hire, a build milestone) may be named ONCE, as an observation ("Saw the BEAD award"), when it ties directly to the value prop and creates urgency. That is a public-signal observation, not research display (see the two sections below). The bar for naming ANY fact: **would removing it remove the urgency, or break the tie to what we sell?** If yes, keep it once. If the email is just as sharp without it, the fact was decoration, so cut it. Static stats (route miles, facility counts, footprint geography) almost never clear that bar; events and signals often do. And even the fact that earns its place is named as something you noticed, never recited as a possessive stat ("your $100M," "your 50 facilities").
 
 The test: forward the email to someone who's spent 15 years in this segment. Would they say "this person gets it"? Or would they say "this is a salesperson who read our website"?
 
 ### Research Display Detection (Mandatory Check)
 
 Before finalizing any email, scan every sentence for research display. Research display is a DISQUALIFYING flaw, not a minor deduction. If found, rewrite the sentence before proceeding.
+
+**Display vs. the allowed signal:** research display is a fact recited as proof-of-homework or decoration, a static stat the recipient already knows with no urgency attached ("your 5,000 route miles," "your 12 facilities"). It is NOT the same as the one why-now signal you may cite as an observation (a raise, award, M&A, hire, milestone) when it drives the value prop. The detection patterns and translation rows below are all static-stat displays, which always get absorbed. For the urgency-signal carve-out, see "Public-Signal Observations" and the Cited-Signal Cap.
 
 **Detection patterns (if ANY of these appear, the email fails):**
 - Company facts stated as standalone observations: "[Company] has [number] [things]", "[Company] is expanding into [region]", "[Company] raised $[amount]"
@@ -109,7 +115,7 @@ Before finalizing any email, scan every sentence for research display. Research 
 |---|---|---|
 | Company has 50,000 route miles | "With 50,000 route miles across the region..." | "Every multi-state deal that stalls on provisioning is margin walking out the door." |
 | Company expanding into 3 new states | "Your expansion into Kentucky, Tennessee, and Virginia..." | "New markets look great on the investor deck. The gap is usually between 'route lit' and 'first dollar of revenue flowing.'" |
-| Company raised $100M | "With $100M in new financing..." | "The buildout is funded. The question is how fast it starts paying for itself." |
+| Company raised $100M (a why-now signal) | "With $100M in new financing..." (possessive recitation) | "Saw the raise close. The buildout's funded now, so the real question is how fast it starts paying for itself." (named once as an observation, then tied to the value prop, since a fresh raise creates urgency) |
 | Company has 12 data centers | "Across your 12 facilities..." | "Every new facility adds interconnection complexity across the portfolio." |
 | Company just acquired X | "After the recent acquisition of X..." | "Unifying two provisioning systems is the kind of thing that takes 18 months unless the architecture does the heavy lifting." |
 | Company is a major APAC carrier | "Running operations across 17 countries..." | "The automation works fine within each market. The problem hits at the boundary." |
@@ -119,6 +125,8 @@ Before finalizing any email, scan every sentence for research display. Research 
 | Company signed carrier partnership | "Following your partnership with [carrier]..." | "Every new carrier relationship is another NNI, another provisioning queue, another 60-day wait." |
 
 **The test:** Read the sentence aloud. If it sounds like you're telling the recipient something about their own company, it's research display. If it sounds like you're naming a problem they live with, it's research-as-fuel.
+
+**The carve-out:** a fresh why-now signal (raise, award, M&A, hire, build milestone) named once as an observation ("Saw the X") is allowed even though it's a fact, because it creates urgency and ties to the value prop. Static stats never get that pass.
 
 ### Public-Signal Observations (Allowed When Specific)
 
@@ -162,6 +170,7 @@ Searches run (literal query strings - not paraphrased):
 
 Company-level finding: [signal description with source quote + date, OR "NONE - no Tier A or Tier B hits across [N] searches"]
 Contact-level finding: [what THIS specific contact owns / their recent role activity / why they care about THIS facet of the problem. REQUIRED on every Receipt, including when company finding is NONE.]
+Load-bearing assumption: [the ONE thing the angle assumes is true about how their business works today] → [VERIFIED via source + date, OR "UNVERIFIED - reframe forward-state / hedge / cut before writing the body"]
 
 Signal code: [F-A1 | NC-A2 | NO-B3 | NON-CATALOG | NONE]
 Posture: [DIRECT | ASKED] - [one-line reason tied to the finding above]
@@ -171,10 +180,26 @@ Posture: [DIRECT | ASKED] - [one-line reason tied to the finding above]
 - Minimum 3 literal queries if claiming a cataloged signal; minimum 5 if claiming NONE.
 - Each query gets its own result line.
 - Contact-level finding is required on every Receipt, including when company finding is NONE.
+- Load-bearing assumption is required on every Receipt. If it reads UNVERIFIED and it is an assertion about how their business works today, you may NOT put it in the body - reframe forward-state, hedge, or cut. See § The Load-Bearing Assumption Gate.
 
-If you cannot honestly fill all four sections (Searches Run, Company finding, Contact finding, Posture), you are not ready to write the email. Go back and research. Do not write the email body until the Receipt above it is complete and truthful.
+If you cannot honestly fill all five sections (Searches Run, Company finding, Contact finding, Load-bearing assumption, Posture), you are not ready to write the email. Go back and research. Do not write the email body until the Receipt above it is complete and truthful.
 
 **Self-check before every email:** Look at your output above the email body for THIS contact. Is there a Research Receipt with at least 3 literal queries paired with results, plus a contact-level finding? If no, STOP. Run the searches now. Then write.
+
+### The Load-Bearing Assumption Gate (added 2026-06-16)
+
+Most blown angles are not lazy research. They are a confident angle built on ONE unverified assumption about how the prospect's business actually works. The most common and most damaging version is assuming the prospect has NOT already solved the problem you are about to name.
+
+> June 2026, Intercity (UK MSP): the angle assumed they resell circuits and lack an owned connectivity layer. They run their own network with London/Manchester POPs and direct cloud interconnects, so the "own a billable layer" angle was dead on arrival and read as un-researched to the CRO. The research was fine. The load-bearing assumption was never checked.
+
+Before writing, isolate the single assumption the angle depends on and pressure-test it:
+
+1. **Name it.** Write the one sentence the whole angle rests on ("they resell circuits and don't own a network," "their inter-site paths are slow," "they hand the customer to a third-party fabric"). Put it on the Receipt's `Load-bearing assumption` line.
+2. **Assume competence.** If a capable team at their scale has plausibly already solved it, assume they DID until a public source proves otherwise. Concede the solved layer and angle on the gap that survives their competence (the per-customer / productization / reach-beyond-footprint gap). This is the enforcement step for the Earned-Problem Doctrine above and the assume-competence rule in the segment cheatsheets.
+3. **Verify or reframe.** If you cannot point to a source that confirms the assumption, you may NOT assert it. Reframe to the forward-state challenge of where they are going (hedged), or cut it.
+4. **Don't inherit the angle from the segment template.** The cheatsheet's default narrative (asset-light reseller, slow provisioning, no owned infrastructure) is a starting hypothesis, not a finding. Verify it fits THIS company before writing on it.
+
+UNVERIFIED on the assumption line means the angle is not ready. Reframe before writing the body. This gate applies to every channel (cold email, LinkedIn, follow-up) and to any tailored "what is MaiaEdge" paragraph written for a named account.
 
 ### Non-Functional Voice (Required, Not Banned)
 
@@ -227,7 +252,7 @@ Every email roughly follows this arc. The company-specific angle drives the prob
 1. Problem statement (1-2 sentences): Lead with the company-specific angle, framed as the problem relevant to their segment + role. This IS the hook. Use THEIR language, not ours. ("I'd guess" or "I'd imagine" if inferring.)
 2. Context bridge (1 sentence): Connect their world to that problem. Research absorbed into the framing, not displayed.
 3. MaiaEdge positioning (1-2 sentences): What we're doing about it. Share what you're building, not what you're selling. For operators: pair speed with ownership.
-4. CTA (1 sentence): One question. Low friction.
+4. Close (1 sentence): exactly ONE ask, from the close classes in § CTAs (give-close / soft call-ask statement / honest-reason / interest question). Low friction.
 
 No credibility line. No sign-off. The message does the talking, not our history. Signatures are auto-appended by the email platform.
 
@@ -293,7 +318,7 @@ Connect clauses with **so / since / but / even though** so the email reads as on
 
 ### 2. Say the thing; don't announce the thing
 
-Kill the structural signposts that telegraph the pitch: colon-prefixes ("What we keep doing for similar teams:"), "Here's the thing,", meta-framing openers ("What caught our eye…", "The angle that interests us most…"). State the point as a clause, not a labeled section.
+Kill the structural signposts that telegraph the pitch, and kill the punctuation that creates them. Colons are banned outright in subject and body (a colon is a label announcing a reveal). So are dashes used as punctuation (spaced hyphen, double hyphen, en dash as a pause). So is narration of the move itself, in any email of the sequence ("Another angle on this," "One more thought," "Quick thought," "Worth a thought," "Here's the thing,", "What caught our eye…", "The angle that interests us most…"). State the point as a clause. Just say the thing.
 
 - ✗ (MSP/Aggregator) "Here's what we keep seeing with aggregators: when a customer reports a slowdown, your team can't tell which carrier owns it."
 - ✓ (MSP/Aggregator) "When a customer reports a slowdown, the first hour goes to figuring out which upstream carrier owns it, since once traffic leaves your network you're flying blind on the path."
@@ -340,21 +365,58 @@ A flowing connected sentence next to a short punchy one. One clipped fragment pe
 
 ### The throughline
 
-Don't write to make each sentence efficient. Write so the sentences connect into one thought a peer would actually say out loud, and trust the single clearest point to carry the email. The specific-mechanic peer line (see Banned Phrases → generic-category we-claims) is the one sanctioned "we" sentence; everything else stays "I" voice or second person.
+Don't write to make each sentence efficient. Write so the sentences connect into one thought a peer would actually say out loud, and trust the single clearest point to carry the email. The craft line (see Banned Phrases → generic-category we-claims) is the sanctioned first-person identity sentence; everything else stays "I" voice or second person.
 
-## CTAs (Rotate)
+## Craft Voice (The Cold-Conversion Register — added 2026-06-12)
 
-- "Open to a conversation?"
-- "Worth a conversation?"
-- "Would a conversation make sense?"
-- "Dealing with something similar?"
-- "On your radar for this year?"
+Cold copy converts when the reader's position flips from *being diagnosed and quizzed by a stranger* to *being recognized by a fellow practitioner offering to show his work*. Everything sends from reps and co-founders — practitioners — and the copy must carry that. **Write-time reference: `context/outreach/voice-gold-standard.md`** (the exemplar set; hold it open while writing). Four moves:
 
-ONE question per email. Never stack asks. No "I'd love to..." No "Let me know if..." No calendar links. No "quick call."
+1. **Structural truth, not company diagnosis.** Name a tension that belongs to the PHYSICS of their world ("every operator in an alliance brings its own network, so each integration gets engineered from scratch" / "the product's last hop is best-effort no matter how good the compute is"). True of the category, lived by the reader, impossible to take offense at. Credit their competence when natural: "you know better than most that…". Research sharpens WHICH truth bites this company hardest right now — and stays invisible doing it.
+2. **Craft line.** The sender is a practitioner of one layer: "that handoff leg is the layer I work on" / "fixing that hop is what I spend my days on" + ONE concrete mechanic in their vocabulary. Identity, not offering.
+3. **ONE close, three classes — the give IS a close, not a separate slot (corrected 2026-06-12 per Cooper: give + call-ask stacked = two asks, redundant).** Pick exactly one:
+   - **Give-close (default for technical buyers):** the demo offer fused into a single ask: "Fifteen minutes and I can show you the whole thing end to end, whenever works on your side." Live demo is ready and sanctioned; walkthrough phrasing is the softer variant. Never follow it with a second ask sentence — a trailing clause may carry scheduling softness, never another ask. Demo pull is the strongest cold behavior on record; technical founders reply to mechanism curiosity, not pain agreement.
+   - **Soft call-ask statement (general default):** "Happy to set up time if it's worth a look."
+   - **Honest-reason close (senior business buyers):** "felt close enough to your patch to be worth a conversation" — states the actual selection reason, the credibility the Research Receipt was always trying to earn, spoken plainly.
+
+   **The account one-pager is NOT a cold-E1 give:** delivered ONLY after a LinkedIn accept (thank-you DM) or after a reply — never offered or sent cold. Once delivered, the next email touch may name one claim from it and carry the meeting ask.
+
+Anti-pattern (the June 2026 zero-reply shape): [diagnosis of their company from research] + [asserted consequence] + ["we've been helping similar teams…"] + [yes/no thought-question]. Every element individually compliant; the assembly reads robotic.
+
+## Batch Fingerprint Gate (Hard Gate Before Export — added 2026-06-12)
+
+Every rule above audits ONE email; this gate audits the BATCH, where recipients (and colleagues at the same account who forward emails internally) actually experience the copy. After writing a batch, scan ALL bodies together:
+
+1. **Closing strings:** no exact close on >20% of the batch; never the same close twice within an account.
+2. **N-grams:** no 8-word sequence repeated across contacts at the same account; flag any 8-gram appearing in >30% of the batch.
+3. **Openers:** ≥3 distinct opener patterns per 10 contacts; within an account, every opener pattern differs.
+4. **Mechanism sentences:** the craft/value clause must not repeat its wording across same-account contacts.
+5. **Exemplar bleed:** no 8-word sequence copied from `voice-gold-standard.md`, fallback templates, or any rule file. Sanctioned strings become stamps.
+6. **Abstraction check:** every mechanism clause contains a concrete object (portal, NNI, turn-up, rate sheet, SKU, path). Noun-stack mechanisms fail.
+7. **Signature-phrase census (the give and the craft line are tracked like closers).** No single wording of the give-close or the craft-identity line on >20% of the batch; the canonical examples ("Fifteen minutes and I can show you the whole thing end to end" / "is the layer I work on") never ship verbatim. Vary the register ("what I spend my days on," "fixing that hop is my whole job") AND vary WHAT the demo shows in their world: a path coming up live (fiber), a site joining the fabric (colo/infra), telemetry read against a trace (software). Yesterday's craft line is tomorrow's "We've been helping similar teams" if it isn't varied.
+
+Fail any check → rewrite the flagged emails before the batch ships. At batch scale, run it programmatically (closing-sentence census + 8-gram shingles, within-account and across-batch).
+
+## CTAs (Soft Call-Ask First — Never a Menu)
+
+The default close is a **soft call-ask STATEMENT**, not a question. Pattern examples (paraphrase every time — these are registers, not strings):
+
+- "Happy to set up time if it's worth a look."
+- "Glad to find 20 minutes while [real window: the build's ramping / the quarter's open]."
+- "Fifteen minutes and I can show you the whole thing end to end, whenever works on your side." (the give-close: demo offer and ask fused into ONE sentence; live demo is ready and sanctioned. Never follow the give with a second ask sentence.)
+- Honest-reason close for senior business buyers: "Felt close enough to what you're building to be worth a conversation."
+
+Interest-class questions are allowed as variants: "Wanted to see if it's on your radar, or still early."
+
+**BANNED: yes/no thought-question closes** ("Is this something you've thought about?" closed 28/28 June 2026 E1s and earned 0 replies). A close must give the reader something to DO.
+
+**Anti-stamp rules:** no closing string on more than 20% of any batch; never the same close twice within an account; never copy a pattern example above verbatim into output. ONE ask per email. Never stack asks. No "I'd love to..." No "Let me know if..." No calendar links in E1 (on any hot reply, propose three specific times instead of a link).
 
 ## Banned Phrases and Patterns
 
 - Em dashes (NEVER. Use periods or commas.)
+- Colons. ANYWHERE in subject or body. A colon sets up a labeled reveal ("two things: speed and reach"), which is how a deck talks, not how a person types a note. Restructure the sentence so the point arrives as a clause ("speed and reach are the two things they compete on").
+- Dashes as punctuation. No spaced hyphen (" - "), no double hyphen ("--"), no en dash used as a pause or separator. Hyphenated compound words are fine and expected (cross-connect, on-net, multi-state, self-service).
+- Move-announcing transitions ("Another angle on this," "Another thought," "One more thought," "Quick thought," "Worth a thought," "On a different note," "Different angle here"). These narrate the email instead of being the email. Just say the thing.
 - "Hope this finds you well" / "Just wanted to reach out"
 - "I noticed..." (the PHRASE; specific public-signal observations using "Saw…" / "Caught your panel…" are allowed - see "Public-Signal Observations Allowed When Specific")
 - "Saw your post..." / "I came across..." (LinkedIn surveillance)
@@ -381,11 +443,13 @@ ONE question per email. Never stack asks. No "I'd love to..." No "Let me know if
   - "The pattern I'm watching at…"
   - "I've been talking to operators in your position who…"
 
-  **Allowed exception — the specific-mechanic peer line.** A "we" attribution IS allowed when it names a SPECIFIC mechanic and a plain outcome, because that reads as spoken peer credibility, not a brand slogan:
+  **The sanctioned first-person identity sentence is the CRAFT LINE, not the peer line.** The craft line names the sender as a practitioner of one layer plus ONE concrete mechanic in the recipient's vocabulary:
 
-  > We've been helping similar [cohort] [specific mechanic], so [plain outcome].
+  > That [handoff leg / last hop / boundary] is the layer I work on, [one concrete mechanic: "the same Ethernet SKU coming up on a path you own" / "partners plug in once and reuse it"].
 
-  Example (Colo): "We've been helping multi-site colos turn a cross-connect request into reach beyond the campus, so the customer stays yours instead of walking to a carrier." The test: a reader can tell exactly what we DO from the sentence. If the "we" sentence could describe any vendor ("we help operators grow"), it's the banned generic claim. If it names the mechanic + outcome, it's the allowed peer line. One per sequence, max; never in LinkedIn (no room under the char cap). For Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale.
+  Registers that work: "the layer I work on," "what I spend my days on," "fixing that hop is my whole job." See `voice-gold-standard.md` §A/§C for the calibration exemplars. The mechanic must contain a concrete object (portal, NNI, turn-up, rate sheet, SKU, path) — abstract noun-stacks ("deterministic Ethernet a layer above the transport") are an AI tell and fail QA.
+
+  **The "We've been helping similar [cohort]…" peer line is DEMOTED, not banned:** allowed at most ONCE per ACCOUNT and ≤20% of E1s in a batch, with the mechanic wording different at every appearance. (It shipped on 29 consecutive June 2026 E1s and became the campaign's template fingerprint — sanctioned strings become stamps.) Never in LinkedIn. For Enterprise and neocloud the mechanic is data-sovereignty / audit-ready-path framing, never operator resale.
 - **Acknowledgment openers.** Banned: "Cold email, so here's the short version." / "Quick cold note since I doubt this is on your radar yet." / "We haven't met, so I'll get to it." These place the sender below the recipient and break the peer-to-peer posture. Premise hedges ("Not sure if you're already solving this, but…") accomplish the epistemic-honesty goal without subordinating the sender.
 - **Meta-framing openers.** Banned: "The [Company] angle that interests us most…" / "What caught our eye…" / "Here's what stood out…" / "The thing we keep coming back to…" / "What's interesting about [Company]…" / "One pattern we keep seeing…" / "The piece that's hardest to ignore…" These announce a thought instead of stating it. The frame around the claim eats the budget the claim itself should occupy. Lead with the claim, not the framing of the claim. A peer doesn't preface; a peer asserts. If the observation is worth making, make it directly.
 - **"No routing complexity" in Enterprise copy** is de-prioritized. In Enterprise outreach use "connect anywhere to anywhere with a click" instead. The phrase remains canonical and acceptable in operator-segment and neocloud copy.
@@ -496,7 +560,8 @@ The event or context mention does NOT always need its own paragraph. It can be a
 
 Short. Specific. Not clever.
 - Good: "[Company] provisioning" / "[Company] interconnection" / "[Company] paths"
-- Bad: "Unlock new revenue" / "Quick question" / "The future of connectivity"
+- **Genuine questions are ALLOWED for cold** when the question is real and specific to their world: "how do you handle paths beyond Jamaica?" earned the only pure-cold E2 positive in the corpus. NOT "Quick question" (that ban stands) — the question must carry substance on its own.
+- Bad: "Unlock new revenue" / "Quick question" / "The future of connectivity" / all-lowercase-intrigue styling for C-suite recipients (reads casual-AI)
 
 ### Subject-line variant guidance
 
@@ -546,7 +611,7 @@ Enterprise buyers (CIO / CFO / VP Sales-adjacent) respond better to positive-out
 These caps apply to every 3-email sequence regardless of segment. Segment-specific targets elsewhere in the codebase are soft references for tone calibration only. If a segment target suggests a higher word count for Email 1, this cap wins.
 
 ### Email 1
-- **70-85 words.** Count before finalizing.
+- **85-110 words.** Count before finalizing. Shorter wins ties; never pad.
 - **1-3 paragraphs**, with proper blank-line spacing between them.
 - **First name on its own line** before the body. Example: `Paul,` then a blank line, then paragraph one.
 - Research is INVISIBLE. No company facts, stats, counts, "I noticed," or "I saw" anywhere in the body.
@@ -558,12 +623,13 @@ These caps apply to every 3-email sequence regardless of segment. Segment-specif
 - No re-introduction. BANNED openers: "Quick follow-up," "Following up on my last email," "Circling back," "Just wanted to bump this."
 - No meta-references to Email 1. BANNED phrases: "The other angle on this," "Another way to think about this," "To build on my last note."
 - Lead straight with the new thought from a different angle category than Email 1 (Revenue, Competitive, Operational, Market Timing, Cost-of-Inaction, Peer Social Proof).
+- **The ask never grows across a sequence.** If E1 offered fifteen minutes, E2/E3 never ask for thirty — follow-up asks hold or shrink (a stranger asking for MORE time after silence reads tone-deaf; June 2026 rows escalated 15→30 minutes between E1 and E2).
 - First name on its own line before the body.
 
 ### Email 3
 - **2-3 sentences max.** Not "3-4." Not "a short paragraph." Two or three sentences, full stop.
-- **Exactly ONE CTA.** No second ask, no "hope to cross paths" tail, no "either way" closer.
-- **"Show is coming up" energy.** Timing nudge, not graceful exit. A reason the window is closing (event date, quarter end, buildout milestone) beats "no worries if not." This holds outside explicit Event Mode.
+- **Exactly ONE CTA — and there must BE one.** No second ask, no "hope to cross paths" tail, no "either way" closer. **Zero-ask passive closers are BANNED** ("Easy to reach me if that becomes a priority." / "You know where to find me." give the reader nothing to do; 12+ shipped in June 2026 with zero replies). A take-away close still carries an ask: "Worth a conversation, or wrong moment?"
+- **Timing nudge ONLY when a real window exists** (event date, quarter end, buildout milestone). Manufactured urgency with no real window reads templated (corrected 2026-06-12; the old "this holds outside Event Mode" guidance produced stale-event references). With no real window: take-away close that still asks ("Worth a conversation, or wrong moment?").
 - First name on its own line before the body.
 
 #### E3 three-option rotation
@@ -573,7 +639,7 @@ Rotate across three E3 categories. Pick the one that matches the contact and pri
 **Option 1 - Take-away close (default; works without an event anchor)**
 > [First name],
 >
-> Sounds like timing might be off, or the angle missed the mark. Door's open if this becomes useful.
+> Sounds like timing might be off, or the angle missed the mark. Worth a conversation, or wrong moment?
 
 **Option 2 - Illumination question (works when there's a real plausible "when")**
 > [First name],
@@ -583,7 +649,7 @@ Rotate across three E3 categories. Pick the one that matches the contact and pri
 **Option 3 - Peer observation with timing nudge (works when there IS a real event anchor or a real timing reason)**
 > [First name],
 >
-> Most operators who solved this in the last year said the trigger was [event - e.g., DCD-aligned: 'a tenant explicitly asked for cloud on-ramp']. If you're not there yet, no rush - door's open.
+> Most operators who solved this in the last year said the trigger was [event - e.g., DCD-aligned: 'a tenant explicitly asked for cloud on-ramp']. If you're not there yet, no rush. Door's open.
 
 **Selection rule:**
 - Has a real event happening within 2 weeks → Option 3 (event-anchored).
@@ -610,13 +676,14 @@ The segment-specific word targets in `context/copy-strategy/segment-messaging.md
 - [ ] Would this specific person want to reply? (not just "would a person write this")
 - [ ] Uses THEIR vocabulary, not ours
 - [ ] No terms from other segments
-- [ ] Email 1 is 70-85 words, 1-3 paragraphs with proper spacing
+- [ ] Email 1 is 85-110 words, 1-3 paragraphs with proper spacing
 - [ ] Email 2 is under 55 words, no re-intro, no meta-references to Email 1
-- [ ] Email 3 is 2-3 sentences max with exactly one CTA and "show is coming up" energy
+- [ ] Email 3 is 2-3 sentences max with exactly one ACTIONABLE ask (timing nudge only if a real window exists)
 - [ ] Every email opens with the recipient's first name on its own line
 - [ ] No flattery-as-problem-statement (no "X is the right play" / "X is smart" / "X is the hard part")
 - [ ] Sovereignty/ownership present (except neocloud)
-- [ ] No em dashes
+- [ ] No em dashes, no colons, no dash-as-punctuation in subject or body (scan for ":", " - ", "--"; hyphenated compounds like cross-connect are fine)
+- [ ] No move-announcing transitions ("another angle," "one more thought," "quick thought," "worth a thought") - the point arrives as a clause, not a narrated move
 - [ ] No banned phrases or patterns
 - [ ] No credibility anchors in cold email or LinkedIn (no Acme Packet, 128 Technology, Andy Ory). Those are reserved for live presentations, demos, proposals, and objection handling.
 - [ ] No sign-off (signatures auto-appended)
@@ -631,7 +698,9 @@ The segment-specific word targets in `context/copy-strategy/segment-messaging.md
 - [ ] No research display (company facts invisible, problems named)
 - [ ] No role-addressing language (no "at the [role] level", "from a [function] standpoint", etc.)
 - [ ] **Value bridge is 1 sentence max**, embedded by contrast OR standalone-but-punchy. Multi-sentence value bridge paragraph is BANNED.
-- [ ] **No generic-category we-claims** ("We help operators…" / "We work with companies like yours…" / "Most operators we talk to…"). Use "I" voice. The specific-mechanic peer line ("We've been helping similar [cohort] [specific mechanic], so [plain outcome]") is the one allowed "we" sentence (email only, not LinkedIn; one per sequence).
+- [ ] **No generic-category we-claims** ("We help operators…" / "We work with companies like yours…" / "Most operators we talk to…"). Use the craft line ("that leg is the layer I work on" + concrete mechanic) as the first-person identity sentence. The "We've been helping similar [cohort]…" peer line is demoted: ≤1 per ACCOUNT, ≤20% of E1s per batch, mechanic wording varies, never in LinkedIn.
+- [ ] **Batch Fingerprint Gate passed** (closing-string census, within-account 8-gram dedupe, ≥3 opener patterns per 10, no exemplar bleed) before export.
+- [ ] **E3 carries one actionable ask** (no zero-ask passive closers).
 - [ ] **Research Receipt present above the email body** with all four sections complete (literal Searches Run, Company-level finding, Contact-level finding, Posture). Minimum 3 queries if claiming a cataloged signal; minimum 5 if claiming NONE. "NONE" without literal queries above it is research-skipping and fails this check.
 - [ ] **Posture matches signal strength.** DIRECT when there's a real public signal you can point at; ASKED when inferring. NOT randomized to a quota.
 - [ ] **Posture rotates across the 3-email sequence to the same contact.** E1/E2/E3 should NOT all be the same posture; if E1 was DIRECT, E2 should be ASKED, etc.
@@ -644,3 +713,7 @@ The segment-specific word targets in `context/copy-strategy/segment-messaging.md
   discussing OR a predictable challenge of their stated growth — never an unverifiable claim
   about how their business runs today. Problem framed forward-state (where they're going), not
   as a failure of their current setup. One easy-solution line present.
+- [ ] **Load-Bearing Assumption Gate passed:** the one assumption the angle depends on is
+  named on the Receipt and either verified against a source or reframed forward-state/hedged.
+  Never assert the prospect has not already solved the problem without a source (assume
+  competence). See § The Load-Bearing Assumption Gate.

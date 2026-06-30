@@ -1,0 +1,71 @@
+{
+  "_comment": "Outbound one-pager content (Orchest Technologies, Gonzalo Gabriel Rico, VP Technology & Operations). MSP/Aggregator -> Telecom Aggregator (asset-light). Owner Tim Lieto (East). Post-call leave-behind from the 2026-06-12 intro call, not cold. Operator-ownership voice (your team, your brand, your customer, your margin). NO data-sovereignty, NO infra-ownership claims. JPM/Oracle/H1/Owen Goss kept out (confidential or unresolved).",
+  "account_eyebrow": "FOR ORCHEST",
+  "title_line1": "Reach without",
+  "title_accent": "building.",
+  "masthead_sub": "The layer between your carriers and your customers, now part of the product you sell.",
+  "hook": {
+    "headline": "The one step still outside your control",
+    "body": "You have automated your side of the business, the orders, the quoting, the customer experience. The underlying carrier provisioning is the one step that still moves at each carrier's pace, not yours."
+  },
+  "whynow": {
+    "headline": "The reach you sell outruns the handoff",
+    "body": "As you extend into Latin America and beyond, each new market is another set of carriers to onboard by hand. As your enterprise clients ask for clean, predictable connections across regions, the path between them is the piece still set by whichever carrier it crosses."
+  },
+  "stats": [
+    {
+      "num": "Minutes",
+      "label": "your team provisions the underlying path, not a multi-week carrier project"
+    },
+    {
+      "num": "60-90 days",
+      "label": "the old way to onboard a new carrier or region"
+    },
+    {
+      "num": "Hop by hop",
+      "label": "visibility across the carriers you resell but do not own"
+    }
+  ],
+  "plays_headline": "What controlling the path unlocks",
+  "plays": [
+    {
+      "play": "Provisioning your team runs end to end",
+      "looks": "The underlying carrier path comes up from your portal in minutes, the same motion for every carrier you aggregate, instead of waiting on a manual handoff.",
+      "pays": "Simplicity and speed become things your team controls, not things you wait on a carrier for, which is exactly what your market buys on."
+    },
+    {
+      "play": "Reach into new regions without building",
+      "looks": "Light up a private path into a new market through a partner carrier you do not own, delivered as cleanly as any other connection you sell.",
+      "pays": "Latin America and the next region become markets you can sell into now, instead of deals you pass on because the reach is not there yet."
+    },
+    {
+      "play": "A premium tier your enterprise clients feel",
+      "looks": "Deterministic private paths with hop-by-hop visibility, even across carriers you resell, so the connection your clients expect is one you can prove.",
+      "pays": "You sell connectivity others also resell, so proving a cleaner, more predictable path is how you hold margin and keep the client relationship yours."
+    }
+  ],
+  "product": {
+    "headline": "What MaiaEdge is",
+    "body": "One device at each point of presence, plus cloud orchestration that brings private, deterministic paths up in minutes across any carrier you aggregate, with hop-by-hop visibility end to end."
+  },
+  "pillars": [
+    {
+      "name": "AUTOMATE",
+      "desc": "Your team provisions the underlying path in minutes, no routing protocols to run."
+    },
+    {
+      "name": "EXTEND REACH",
+      "desc": "Light up new regions and carriers without owning new infrastructure."
+    },
+    {
+      "name": "MONETIZE",
+      "desc": "Sell private, deterministic paths under your brand and keep the customer."
+    }
+  ],
+  "cta": {
+    "lead": "Worth taking further?",
+    "body": "Fifteen minutes maps this against the carriers you aggregate and the regions you want next, and where it changes the economics first."
+  },
+  "footer_left": "MAIAEDGE  ·  PREPARED FOR ORCHEST",
+  "out_pdf": "Orchest-One-Pager.pdf"
+}

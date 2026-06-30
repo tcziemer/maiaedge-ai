@@ -1,5 +1,8 @@
 {
-  "name": "MaiaEdge Branded Doc",
-  "version": "1.0.0",
-  "description": "Generate partner-grade PDFs in the MaiaEdge brand system — Tomorrow font, gold/orange/black palette, doc-style covers. Use for segment cheat sheets, battle cards, playbooks, one-pagers, and any partner-facing PDF that should match the MaiaEdge 101 design system."
+  "name": "maiaedge-branded-doc",
+  "version": "1.1.0",
+  "description": "MaiaEdge branded PDF studio. Generates partner-grade PDFs in the MaiaEdge brand system (Tomorrow font embedded, gold/orange/black palette, doc-style covers, eyebrow-numbered sections, branded tables, component cards) plus the locked-template one-pager solution-brief renderer. Use for partner cheat sheets, MaiaEdge 101-style briefs, battle cards, playbooks, one-pagers, and technical references.",
+  "author": {
+    "name": "MaiaEdge"
+  }
 }

@@ -88,8 +88,8 @@ Every detected signal gets scored. The score drives rep-facing priority.
 Meeting Probability Score = Tier × Freshness × Confidence
 
 Tier:        A = 3, B = 2, C = 1
-Freshness:   ≤60d = 3, 60-90d = 2, >90d = drop  (Tier A signals)
-             1wk = 3, 30d = 2, 90d = 1          (Tier B signals)
+Freshness:   ≤60d = 3, 60-90d = 2, 90-180d = 1, >180d = drop  (Tier A signals)
+             1wk = 3, 30d = 2, 90d = 1                          (Tier B signals)
 Confidence:  High = 3, Med = 2, Low = 1
 
 Score Ranges (Phase 3, 2026-05-04):
@@ -100,7 +100,7 @@ Score Ranges (Phase 3, 2026-05-04):
   <8    → Dropped entirely (no CRM write either)
 ```
 
-**Tier A freshness window updated 2026-04-27 per Cooper:** announcements within the past 60 days score at full freshness for Tier A signals. The previous steep decay (1wk=3 / 30d=2 / 90d=1) over-penalized signals that the catalogs themselves describe as actionable for 60-90+ days - exec hires have 90-day mandate windows, M&A has 60-120 day post-close integration, BEAD awards have 18-24 month provisioning ramps, CTrO appointments have 12-18 month platformization mandates. A 50-day-old M&A on a HIGH-confidence Tier A signal is still a hot trigger; the old model floored it out at score 9.
+**Tier A freshness window updated 2026-04-27 per Cooper:** announcements within the past 60 days score at full freshness for Tier A signals. The previous steep decay (1wk=3 / 30d=2 / 90d=1) over-penalized signals that the catalogs themselves describe as actionable for 60-90+ days - exec hires have 90-day mandate windows, M&A has 60-120 day post-close integration, BEAD awards have 18-24 month provisioning ramps, CTrO appointments have 12-18 month platformization mandates. A 50-day-old M&A on a HIGH-confidence Tier A signal is still a hot trigger; the old model floored it out at score 9. **Extended 2026-06-04:** a 90-180d ×1 band was added (Tier A only) so a HIGH-confidence material event still clears the score-8 floor out to the 180-day `Cool` horizon (Tier A 3 × ×1 × HIGH 3 = 9); the signal-scan **detection window was widened from 14 to 180 days** to match heat relevance - anything that scores ≥8 and computes to Hot/Warm/Cool gets written, and only >180d (Cold-by-recency) is dropped for staleness. MEDIUM-confidence Tier A at 90-180d scores 6 and still drops, so the floor keeps stale noise out.
 
 **M&A two-event firing (added 2026-04-27 per Cooper):** M&A signals fire on TWO distinct events - the announcement (deal signed, not yet closed) AND the close. Each event gets its own ≤60-day Tier A freshness window. The announcement window opens a 6-18 month pre-close engagement runway BEFORE the integration window even starts; we want both. If both events fire on the same account within a 12-month window, apply +6 stacking elevation (the deal proved real and we're tracking it through the lifecycle). SEC filing types tell you which event: 8-K Item 1.01 / S-4 = announcement; 8-K Item 2.01 = close.
 

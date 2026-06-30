@@ -5,6 +5,8 @@
 ## System Prompt
 See [enterprise-prompts/branded-content.md](../../enterprise-prompts/branded-content.md). Paste into the Claude.ai Project Instructions field.
 
+> **Source of truth:** run `bash build.sh`, then upload the full contents of `enterprise/branded-content/upload/`. That built folder is the authoritative, complete set. As of 2026-06-14 the build copies the **branded-doc render payload** into `upload/assets/` (see "Branded-Doc Render Assets" below) so the skill can actually produce PDFs from inside this project. When in doubt, upload everything in `upload/` including the `assets/` tree.
+
 ## Knowledge Files — Skills (resolve at Claude.ai instance level by name)
 - skills/branded-doc/SKILL.md → `maiaedge-branded-doc.md` (primary — branded PDF generator with Tomorrow font, gold/orange/black palette, eyebrow-numbered sections, doc-style covers, table styling, ASCII-to-SVG diagram swaps)
 - skills/account-brief/SKILL.md → `maiaedge-account-brief.md` (10-section strategy briefs feeding account-specific business cases)
@@ -48,6 +50,9 @@ This project ships the **full repo context** (all `context/*.md` plus `partner-a
 
 ### Partner Assets (source markdowns for the existing branded PDF set)
 - context/partner-assets/* (maiaedge-101 partner edition, 6 segment cheatsheets, product-quick-reference — the reference examples the branded-doc skill is calibrated against)
+
+### Branded-Doc Render Assets (NEW 2026-06-14 — required for the skill to render)
+- `upload/assets/` — the build copies the branded-doc skill's full asset payload here so the renderer has its files. Includes `build.py` (the WeasyPrint renderer), `brand.css` (with `@font-face`), the 9 Tomorrow `.ttf` weights (`fonts/`), `cover-template.html`, the brand `logos/` + segment `icons/`, the 3 production SVG `diagrams/` (architecture, activation-flow, cloud-onramp), `pattern-twotone.png`, `brand-reference.md`, and the entire `onepager/` system (`render.py`, `qa.py`, `content-schema.md`, `facts.md`, `content.example.json`, vendored fonts/logo, `requirements.txt`). Without these the SKILL.md's `assets/...` relative paths resolve to nothing and no PDF renders. The skill itself (SKILL.md) uploads once at the instance level; this `assets/` tree is the project-knowledge half.
 
 ## What This Project Does
 

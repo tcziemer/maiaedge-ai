@@ -1,0 +1,71 @@
+{
+  "_comment": "Sharon AI (Khoi Hoang, VP Infrastructure). Sovereign neocloud, NEXTDC Melbourne + APAC, uses Megaport. Angle led for an infra leader: repeatable path across sites (determinism + one model), sovereignty provable end to end, private enterprise on-ramp. Research absorbed, never recited; forward-state; data-sovereignty only, no operator resale. Trimmed to one page.",
+  "account_eyebrow": "FOR SHARON AI",
+  "title_line1": "Owning the",
+  "title_accent": "Path.",
+  "masthead_sub": "As the GPU fleet standardizes across every new site, the path between them stays a fresh build each time.",
+  "hook": {
+    "headline": "The one layer that won't standardize",
+    "body": "You have standardized the hard parts. The GPU stack, the facility design, the storage repeat from site to site. The path between them does not, so the layer that should be the most uniform behaves differently everywhere the fleet grows."
+  },
+  "whynow": {
+    "headline": "Every new site repeats the same build",
+    "body": "The capacity coming online lands across more NEXTDC halls and into Asia-Pacific, and the enterprises and researchers buying it expect an in-region, private way in. Each is another path to stand up, and the sovereignty you sell is only as provable as the route underneath it."
+  },
+  "stats": [
+    {
+      "num": "Minutes",
+      "label": "New sites and customers on private paths, not a multi-week project"
+    },
+    {
+      "num": "Hop by hop",
+      "label": "End-to-end visibility across every path, including the ones you do not own"
+    },
+    {
+      "num": "2c vs 9c",
+      "label": "Private egress economics, roughly 2c a gigabyte versus 9c on the public internet"
+    }
+  ],
+  "plays_headline": "What a repeatable path unlocks",
+  "plays": [
+    {
+      "play": "One model across every site",
+      "looks": "Each facility joins one fabric once, so a new site comes up as a config push, with predictable latency and visibility between clusters.",
+      "pays": "The network stops being the part of every expansion that gets rebuilt by hand, so you scale sites without scaling connectivity projects."
+    },
+    {
+      "play": "Sovereignty that survives the audit",
+      "looks": "The route between clusters and out to each customer stays on paths you control, provable hop by hop, so in-region delivery holds up when a review digs in.",
+      "pays": "The sovereign tier you already sell gets provable underneath, a premium buyers pay more for that a compute price war cannot erase."
+    },
+    {
+      "play": "A private on-ramp customers turn on",
+      "looks": "Enterprises reach your GPU capacity over a private, in-region path instead of the public internet, and move data across clouds on routes you control.",
+      "pays": "Onboarding a customer becomes a port, not a project, and private egress runs about 2c versus 9c a gigabyte, an edge you can pass on to win them."
+    }
+  ],
+  "product": {
+    "headline": "What MaiaEdge is",
+    "body": "One device at each site or point of presence, plus cloud orchestration that brings private, deterministic paths up in minutes across any network you already run, with hop-by-hop visibility end to end. It overlays the facility, not a replacement for it."
+  },
+  "pillars": [
+    {
+      "name": "DETERMINISTIC",
+      "desc": "Predictable latency between sites, with hop-by-hop visibility into every path you ride."
+    },
+    {
+      "name": "PRIVATE",
+      "desc": "Data stays on paths you control, every path encrypted end to end, provably private."
+    },
+    {
+      "name": "INSTANT",
+      "desc": "New sites and customers on private paths in minutes, not a multi-week project."
+    }
+  ],
+  "cta": {
+    "lead": "Worth a closer look?",
+    "body": "Fifteen minutes maps where this sits against the estate you are scaling now, and which of the three it makes sense to pressure-test first."
+  },
+  "footer_left": "MAIAEDGE  ·  PREPARED FOR SHARON AI",
+  "out_pdf": "One-Pager-Sharon-AI.pdf"
+}

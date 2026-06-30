@@ -287,6 +287,8 @@ Gartner MQ MNS publication (annual) is a high-conviction signal.
 
 ## 3. `TSD Technology Services Distributor - MSP`
 
+> **⚠️ Sourcing gap (highest-leverage RevOps action).** This is the highest-value sub-segment in the ICP and currently holds **0 CRM records**. The single highest-leverage action for the whole MSP/Aggregator segment is a RevOps sourcing pass to seed the canonical TSDs into CRM: Telarus, AppDirect, AVANT, Bridgepointe, Sandler Partners, Upstack, ScanSource Intelisys. The most valuable buyers in this segment are not in the pipeline until that runs. (By contrast, `Master Agent - MSP` at ~3 records is a dead live category in 2026 — de-prioritize it.)
+
 ### Definition
 
 Distribution-tier organizations with **sub-agent / 1099 channel models**. They aggregate carrier contracts and resell through a large network of sub-agents ("Technology Advisors" or "TAs" in industry parlance, formerly "agents"). The TSD owns the master supplier agreement with carriers; sub-agents own the customer relationship and earn residual commissions. Quote desks, support functions, partner enablement, AI/security/cloud practice arms, and back-office operations are centralized at the TSD. Sub-agents sell.
@@ -323,9 +325,9 @@ Distribution-tier organizations with **sub-agent / 1099 channel models**. They a
 ### Anchor companies (verified 2026 via Omdia + public filings + 2026 M&A activity)
 
 1. **Telarus** — independent, PE-backed (Court Square Capital). **CY2024 gross billings $2.9B (+11% YoY).** GeoQuote + Telarus Hub platform. Acquisitions through 2024: TCG (2022), Chorus (2021), CarrierSales (2021), TBI (2021), Americomm (2023).
-2. **ScanSource Intelisys** — subsidiary of ScanSource (NASDAQ:SCSC). **CY2024 gross billings $2.7B (+4.5% YoY).** ScanSource FY25 $3.04B total; recurring revenue mix shifted 29.3% → 36.0% Q3 FY25 (publicly disclosed).
+2. **ScanSource Intelisys** — subsidiary of ScanSource (NASDAQ:SCSC). **CY2024 gross billings $2.7B (+4.5% YoY).** Q3 FY26 (reported May 7, 2026): recurring revenue = 34.7% of gross profit; Intelisys net sales -1.5% YoY; Intelisys annualized billings ~$2.88B. The agency segment is flat-to-down while platform / recurring services carry growth (publicly disclosed).
 3. **AVANT Communications** — independent, Pamlico Capital-backed (Dec 2025 Court Square recapitalization). **CY2024 gross billings $2.1B (+19.5% YoY).** Pathfinder decision platform. Acquired PlanetOne May 2022, CX Effect 2024.
-4. **AppDirect** — CDPQ-backed. **CY2024 gross billings $2.0B (+12.0% YoY).** 10K advisors, 1,000+ providers. M&A: WTG (2018), MicroCorp (Dec 2020), Telegration (earlier), CNSG (earlier), NXTSYS (2025-26), vCom Solutions (2025-26), Tackle.io, PartnerStack. AppSmart brand retired 2022.
+4. **AppDirect** — CDPQ-backed. **CY2024 gross billings $2.0B (+12.0% YoY).** 10K advisors, 1,000+ providers. M&A: WTG (2018), MicroCorp (Dec 2020), Telegration (earlier), CNSG (earlier), vCom Solutions (Dec 2025), NXTSYS (2025-26), Tackle.io, **PartnerStack (April 2026 — brings 138K+ B2B partners onto the platform)**. AppSmart brand retired 2022.
 5. **Bridgepointe** — Charlesbank + Carlyle AlpInvest April 2026 ($1B+ valuation). **CY2024 gross billings $755M (+32% YoY).** 400+ IT Strategists. "The Signal" portal. Scott Kinka positioning.
 6. **Sandler Partners** — independent (deliberately so per Channel Dive profile). **2024 net commission revenue ~$209M (+24% YoY).** Top 6 TSD per Omdia.
 7. **Upstack** — Berkshire Partners-backed. 36 acquisitions through 2025. Acquired Intelisys / RingCentral leading partners.
@@ -343,11 +345,19 @@ Distribution-tier organizations with **sub-agent / 1099 channel models**. They a
 
 ### Selling angle
 
-TSDs earn on volume across hundreds of sub-agents and differentiate on portfolio breadth, platform speed, AI/security/cloud practice depth, and quote-desk responsiveness. They're under structural pressure from carrier direct sales and hyperscaler interconnect bypass (Azure ExpressRoute 400G in 2026, AWS Direct Connect, Google Cloud Interconnect).
+TSDs earn on volume across hundreds of sub-agents and differentiate on portfolio breadth, platform speed, AI/security/cloud practice depth, and quote-desk responsiveness. They're under structural pressure from carrier out-automation + resale-layer commoditization (the carrier didn't leave — it cut quote time to minutes and made every advisor's quote look identical) and from hyperscaler interconnect bypass at the top fabric layer (Azure ExpressRoute 400G in 2026, AWS Direct Connect, Google Cloud Interconnect).
 
 **Lead angle (line-card add):** "Add private cloud connectivity to your line card without operating it. Your sub-agents earn on the sale; you earn on the spread. Audio Codes Live Platform pattern: provisioning weeks → hours, OpEx down 30%."
 
-**Secondary angle (AI Practice gap):** 58% of buyers want AI, 13% of TAs feel prepared. Your AI Practice needs a network layer story. MaiaEdge is the multi-operator fabric your AI Practice can white-label.
+**AI-connectivity whitespace angle (top wedge):** Every TSD launched an AI practice that sells contact-center / agentic SOFTWARE, but none owns the deterministic network PATH the AI workload rides on — that gap is where deals stall. "Your AI practice can sell the contact-center agent but not the deterministic path the workload rides on, and that gap is where the deal stalls. The version that compounds is the one where your team activates the connectivity layer in hours and keeps the customer relationship."
+
+**Per-seat-economics-breaking angle:** AI is collapsing per-seat CCaaS / UCaaS margin; durable revenue has to move to an infrastructure-anchored recurring tier the advisor BILLS (not builds). "Per-seat pricing is unwinding as AI absorbs the interactions you used to bill per head, so the margin has to move somewhere durable. An on-net connectivity layer your team productizes and bills is recurring revenue you own instead of a commission that compresses every renewal."
+
+**White-label monetization angle (MONETIZE):** Reframe from "resell another circuit" to "own a recurring tier under your brand." Internal margin math (private-label gross 50-60% vs commission 10-20%) picks this angle; the copy stays vocabulary-clean — "private-label," "brandable," "under your name," never "infrastructure you build." "Reselling a carrier circuit on commission leaves the margin and the brand with someone else. The shift that holds is a connectivity layer your customers buy under your name, on a recurring tier your team owns and prices."
+
+**Carrier-commoditization angle (reframed from abandonment):** Carriers are doubling DOWN on the channel (Comcast bought Nitel, AT&T targets 65% through partners, Verizon re-committed under a new channel chief) while out-automating quoting. The fear to sell against is "your quote is slower and looks identical," NOT "the carrier left you." "The carriers cut quote time to minutes and made the resale layer look identical across every advisor, so price is the only thing left to compete on. The way back to differentiation is a path your team activates fast and a visibility layer the customer can only get through you."
+
+**Secondary angle (AI Practice gap):** Per the Telarus 3rd Annual Tech Trends Report (survey May 2025), 58% of buyers prioritize AI, only 13% of advisors feel very prepared. Your AI Practice needs a network layer story. MaiaEdge is the multi-operator fabric your AI Practice can white-label.
 
 **Tertiary angle (replatforming window):** When a TSD is hiring for supplier strategy, platform engineering, developer experience, or VP Platform roles (signal M-A6), the connector-building window is open. "Replatforming windows are connector-building windows. MaiaEdge slots in as an OpEx platform you white-label during the rebuild rather than bolt on post-launch."
 
@@ -680,7 +690,7 @@ Primary scrape sources: AWS Marketplace partner directory, Azure Expert MSP dire
 
 **Omdia total TSD market CY2024: $16.6B gross billings (+14.5% YoY).** Top 6 control 72.3% share (combined +13.4% growth).
 
-**2025 changes:** Bridgepointe April 2026 recap (Charlesbank-led, Carlyle AlpInvest single-asset continuation vehicle, $1B+ valuation) confirms TSD-tier elevation. ScanSource Intelisys recurring revenue mix shift 29.3% → 36.0% Q3 FY25 is a publicly-disclosed leading indicator of bandwidth-resell-to-platform pivot.
+**2025 changes:** Bridgepointe April 2026 recap (Charlesbank-led, Carlyle AlpInvest single-asset continuation vehicle, $1B+ valuation) confirms TSD-tier elevation. ScanSource Q3 FY26 (reported May 7, 2026) — recurring revenue = 34.7% of gross profit, Intelisys net sales -1.5% YoY, Intelisys annualized billings ~$2.88B — is a publicly-disclosed leading indicator that the bandwidth-reselling agency model is flat-to-down while platform / recurring services carry the pivot.
 
 ## 3. IT integrators (CDW $22B, Insight $11B, ePlus $2.2B, WWT $20B+) classification
 

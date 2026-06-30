@@ -2,6 +2,23 @@ builds/
 *.xlsx
 *.csv
 .DS_Store
+.qa-tmp/
+
+# Per-run / scratch output bucket - never pushed (emptied periodically by Cooper)
+outputs/
+
+# Python build cache (branded-doc renderer compiles these; never commit them)
+__pycache__/
+*.pyc
 
 # Tim's personal working files - ignored so `git pull` never touches them
 _tim/
+
+# Local brand-asset source library (curated subset lives in skills/branded-doc/assets/)
+Brand Assets/
+
+# Pre-update backup zips (keep locally, never commit)
+maiaedge-prebackup-*.zip
+
+# virtiofs temp artifacts (leftover from sandbox zip operations)
+ziy*

@@ -226,7 +226,7 @@ Before finalizing brief:
 - [ ] No em dashes
 - [ ] Credibility anchor included
 - [ ] CTA is low-friction
-- [ ] Within sequence caps (Email 1: 70-85w, Email 2: <55w, Email 3: 2-3 sentences; canonical in context/outreach/email-writing-rules.md)
+- [ ] Within sequence caps (Email 1: 85-110w, Email 2: <55w, Email 3: 2-3 sentences; canonical in context/outreach/email-writing-rules.md)
 
 **Value Prop:**
 - [ ] Lead use case identified (not a list of 4 equal options)

@@ -5,6 +5,8 @@
 ## System Prompt
 Paste Project Instructions directly in Claude.ai (maintained in-app, not in this repo)
 
+> **Source of truth:** run `bash build.sh`, then upload the full contents of `enterprise/sales-docs/upload/`. That built folder is the authoritative, complete file set (it also ships the `partner-assets/` cheatsheet sources); the per-file lists below are a human reference and can lag the build. When in doubt, upload everything in `upload/`.
+
 ## Knowledge Files — Skills (upload as .md)
 - skills/sales-docs/SKILL.md → upload as `maiaedge-sales-docs.md`
 - skills/sales-enablement/SKILL.md → upload as `maiaedge-sales-enablement.md`

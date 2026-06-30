@@ -61,7 +61,7 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 
 ### Sub-segment fit + sub-segment-specific framing
 
-**Financial Services - Enterprise - HIGH.** Inter-DC replication for mainframe sync (FICON/GDPS/PPRC), market-data ticker plants, T+1 settlement infrastructure. FFIEC examiners explicitly ask for "physical-path verification" (FFIEC BCM IV.A.6). Carrier consolidation (Lumen → AT&T mass-markets close Feb 2026, Zayo+Crown Castle dynamics) is invalidating prior "diverse carrier" attestations. Ask about the **brownout** failure mode, not just outages.
+**Financial Services - Enterprise - HIGH.** Inter-DC replication for mainframe sync (FICON/GDPS/PPRC), market-data ticker plants, T+1 settlement infrastructure. FFIEC examiners explicitly ask for "physical-path verification" (FFIEC BCM IV.A.6). Carrier consolidation (Verizon/Frontier closed Jan 20 2026, AT&T/Lumen consumer fiber closed Feb 2 2026, Zayo/Crown Castle Fiber closed May 1 2026) is collapsing formerly-independent fiber under fewer owners and can invalidate prior "diverse carrier" attestations. Ask about the **brownout** failure mode, not just outages.
 
 **Healthcare Systems - Enterprise - HIGH.** Two-DC active/passive Epic topology depends on inter-DC replication; RPO of 90 seconds → 15 seconds is a real conversation. Imaging VLAN traffic (PACS, VNA, DICOM C-STORE) requires sub-1ms storage paths and 10Gbps floor. Most IDNs inherited a regional carrier circuit that wasn't sized for 200GB tomosynthesis studies.
 
@@ -132,7 +132,7 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 
 **Healthcare Systems - Enterprise - HIGH.** Bifurcated cloud reality: Epic Cogito on Azure (Microsoft is the Epic-blessed strategic partner), AWS for Health hosting radiology AI vendors (Aidoc, Viz.ai, Rad AI), GCP for MedLM and research. Each cloud needs ExpressRoute / Direct Connect / Cloud Interconnect from each DC, redundant pair, and the network team is tracking the renewal calendar. Encryption-in-transit becomes mandatory under the HIPAA Security Rule NPRM (Dec 2024).
 
-**Retail and Distribution - Enterprise - HIGH.** Three workloads, three clouds: customer-facing e-commerce on AWS/Azure (CloudFront / Front Door), analytics + ML on GCP for retailers using Looker/BigQuery (or Snowflake on AWS), and the new growth line - GenAI inference (Azure OpenAI for Walmart Sparky / Albertsons / Lowe's Mylow; Vertex for some). Egress cost explosion in 2025 is the surprise of the year.
+**Retail and Distribution - Enterprise - HIGH.** Three workloads, three clouds: customer-facing e-commerce on AWS/Azure (CloudFront / Front Door), analytics + ML on GCP for retailers using Looker/BigQuery (or Snowflake on AWS), and the new growth line - GenAI inference (Azure OpenAI for Walmart Sparky / Albertsons / Lowe's Mylow; Vertex / Gemini for Kroger's nationwide Jan 2026 rollout). Egress cost explosion in 2025 is the surprise of the year, and it compounds as the agents go production. The shopping agent grounds every answer in inventory and customer data that lives in the retailer's DCs while the inference runs cloud-side, so cross-cloud and cross-region egress (~$0.087/GB) scales with adoption the way nobody modeled in the pilot. The path the inference takes is now a CFO-visible cost decision, not just a latency one - and the same logic carries to FS (model-grounding off market data in the bank's DCs) and BPO (agent-assist inference off client data in the delivery center). A private path the enterprise owns end-to-end answers both the cost line and the latency line.
 
 **Outsourcing Services - Enterprise - HIGH.** Per-client tenant cloud connections are the brutal version: a 30-client delivery center may need 30 separate ExpressRoute / Direct Connect peerings. Cognizant's acquisition of Astreya (April 2026) is explicitly positioned as cloud-on-ramp delivery infrastructure. Teleperformance's Azure OpenAI partnership across 170 markets is the same story under different branding.
 
@@ -147,7 +147,7 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 | Sub-segment | Phrases to use in copy |
 |---|---|
 | Financial Services | "cross-connect vs on-ramp," "whose SLA is it?", "DORA CTPP," "concentration risk," "ExpressRoute / Direct Connect dual-redundant pair," "hairpin" (bad word) |
-| Healthcare Systems | "Epic Cogito on Azure," "AWS for Health," "ExpressRoute renewal calendar," "encryption in transit / TLS 1.3," "Tier-1 clinical apps on private path" |
+| Healthcare Systems | "Epic Cogito on Azure," "AWS for Health," "ExpressRoute renewal calendar," "encryption in transit / TLS 1.2+," "Tier-1 clinical apps on private path" |
 | Retail and Distribution | "egress cost explosion," "Azure OpenAI egress," "multi-cloud e-commerce," "BigQuery analytics path," "in-store inference traffic" |
 | Outsourcing Services | "client tenant," "per-client ExpressRoute," "shared services vs dedicated environment," "client carve-out for cloud" |
 
@@ -380,11 +380,11 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 
 **Financial Services - Enterprise - MED.** Banks aren't constantly opening new DCs; M&A integration (Use Case 5) is the closer use case. Bank DC openings do happen - JPMorgan's "just-in-time capacity, 5 to 10 years out" planning horizon means new sites are a 2-5 year project, not weeks-vs-months.
 
-**Healthcare Systems - Enterprise - MED-HIGH.** Acquired hospital onto parent Epic instance is the dominant pattern. New owned DCs are rare; new clinics and ambulatory sites are SD-WAN / MPLS edge sites - usually not Enterprise ICP territory unless they're being absorbed into core IDN infrastructure.
+**Healthcare Systems - Enterprise - MED-HIGH.** Acquired hospital onto parent Epic instance is the dominant pattern (UPMC's Epic cutover and consolidation wave is the live 2026 example - each acquired site is a connectivity turn-up before the EHR team can even start the cutover). New owned DCs are rare; new clinics and ambulatory sites are SD-WAN / MPLS edge sites - usually not Enterprise ICP territory unless they're being absorbed into core IDN infrastructure.
 
-**Retail and Distribution - Enterprise - MED.** New DC announcements happen (Costco / Walmart constantly add DCs; Publix Lakeland campus). At Enterprise-class retail, openings are 12-18 month projects of which the network is one slice. Not the hottest lead unless triggered by a specific announcement.
+**Retail and Distribution - Enterprise - MED-HIGH when robotics is the trigger.** New DC announcements happen (Costco / Walmart constantly add DCs; Publix Lakeland campus), and the 2026 robotics-DC wave makes them connectivity-led: Symbotic Gen-2 systems rolling across 42 Walmart DCs (early 2026) and Costco's Port St. Lucie automated facility (March 2026) each light up as a carrier turn-up before the first bot moves. Every robotics-enabled DC the retailer lights this year is a connectivity bring-up first, and the carrier install is the long pole, not the racks. Without that trigger, openings are 12-18 month projects of which the network is one slice.
 
-**Outsourcing Services - Enterprise - HIGH.** The strongest fit. Nearshore expansion (TaskUs Medellín / Cali, BPOs into Mexico / Colombia / Costa Rica) plus delivery-center capacity additions in Manila / Pune / Bangalore. Sales sold seats faster than carrier could install - that gap is the use case.
+**Outsourcing Services - Enterprise - HIGH.** The strongest fit. Nearshore expansion (TaskUs Medellín / Cali, CGS Colombia, VXI Egypt, BPOs into Mexico / Colombia / Costa Rica) plus delivery-center capacity additions in Manila / Pune / Bangalore. Each new site activates as a connectivity turn-up that gates the client commit date - the carrier install is the long pole, not the seats. Re-frame off seat volume: as AI decouples BPO revenue from headcount, the activation story is about how fast a new site can be brought up to serve a client, not how many seats it holds.
 
 ### Lead persona
 
@@ -404,6 +404,9 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 
 **Healthcare Systems (Director Network Engineering at an IDN mid-acquisition):**
 > "Each acquired hospital is 9-12 months of network integration before the EHR team can even start the Epic cutover. The carrier-circuit add-site cycle is the longest pole in the tent at most IDNs we look at."
+
+**Retail and Distribution (VP Network at a retailer mid-robotics-rollout):**
+> "Every robotics-enabled DC you light this year is a connectivity turn-up before the first bot moves, and the carrier install is the long pole, not the racks. The bot-control plane needs the path live before the systems integrator can even commission the floor."
 
 ### Anonymized proof-point pattern
 
@@ -425,30 +428,32 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 ### Sub-segment fit + sub-segment-specific regulatory pressure
 
 **Financial Services - Enterprise - HIGH.**
-- DORA enforceable January 17, 2025; first CTPP designations Nov 18, 2025 (AWS, Microsoft, Google).
+- DORA enforceable January 17, 2025; first CTPP designations Nov 18, 2025 (AWS, Microsoft, Google). DORA's first oversight cycle, live 2026, extends the critical-third-party list past the hyperscalers to connectivity and data-center providers (Colt, Deutsche Telekom, Orange, Equinix, InterXion) - the concentration question now reaches the fabric the on-ramps ride on, not just the clouds. Best-effort routing still cannot show the examiner the path the data took.
 - NY DFS Part 500 amendments effective Nov 1, 2025 (MFA mandate, asset inventory); first certification due April 15, 2026.
 - ESMA EU T+1 roadmap published June 30, 2025; target Oct 11, 2027.
 - FFIEC BCM IV.A.6 explicit on "physical paths used by telecommunications providers" verification.
 - SOX, PCI-DSS, GDPR, GLBA, NY DFS Part 500 stacked.
 
 **Healthcare Systems - Enterprise - HIGH.**
-- HIPAA Security Rule NPRM (Dec 27, 2024) - proposes making encryption-in-transit *required* (removing "addressable" flexibility), mandates TLS 1.3+, removes long-standing segmentation flexibility.
+- HIPAA Security Rule NPRM (Dec 27, 2024) - proposes making encryption-in-transit *required* (removing "addressable" flexibility), TLS 1.2+, removes long-standing segmentation flexibility. NOT finalized as of mid-2026 (the proposed-final window passed; a CHIME-led coalition of 100+ orgs is lobbying to withdraw it). Frame it as leverage, not a deadline.
+- OCR ransomware consent orders (April 23, 2026; four settlements) - corrective action plans explicitly require network segmentation, asset inventory, and ePHI data-flow mapping. OCR is enforcing the segmentation substance NOW, rule or no rule. This is the strongest current healthcare hook.
 - HSCC Sector Mapping & Risk Toolkit (Oct 2025) - frames cyber-risk by clinical workflow dependency.
 - HSCC updated Model Contract Language (Nov 2025) - pushes network-control obligations into vendor contracts.
-- California AB 749 (effective Jan 1, 2025) - zero-trust microsegmentation for connected medical devices at CA hospitals.
 - Post-Ascension (May 2024, 5.6M patients, Black Basta) and Change Healthcare (Feb 2024, 190M records, $3.09B annual hit) - every IDN board demanded a network-segmentation review.
 - HITRUST r2 expansion every cycle.
 
 **Retail and Distribution - Enterprise - HIGH.**
 - PCI DSS v4.0 fully in effect March 2025 - 64 new requirements, continuous segmentation validation, annual scope re-attestation.
+- PCI v4.0.1 Req 11.4.7 now requires the segmentation between the cardholder data environment and everything else to be **penetration-tested**, not merely asserted in a diagram. The retailer has to prove the control held, on a schedule, with evidence. A path-control plane that produces that evidence is the difference between an assertion and an attestation.
 - Hot Topic Nov 2024 (57M customers via third-party analytics vendor), CDK Global dealer outage 2024 - board-level segmentation reviews triggered.
 - Make-the-CISO-happy framing lands.
 
 **Outsourcing Services - Enterprise - HIGH.**
-- BPOs inherit every client's regulatory obligations.
-- DORA enforceable Jan 17, 2025 - every EU-financial-services BPO client now demands ICT third-party risk evidence.
+- BPOs inherit every client's regulatory obligations. **Lead this sub-segment off the regulatory/outcome frame, not the seat-volume frame** - AI is decoupling BPO revenue from headcount (Genpact's CEO says the business is moving off per-seat; Teleperformance is among Europe's most-shorted names on that fear), so the per-seat ramp story is eroding. The frame that survives is per-client jurisdictional path proof plus uptime-as-margin.
+- RBI 2025 directions - the April 2026 deadline now requires a BPO to prove an Indian client's data never sits where a foreign regulator can reach it. Every new client still adds a tail, but the tail is a jurisdictional attestation, not a seat count.
+- DORA enforceable Jan 17, 2025 - every EU-financial-services BPO client now demands ICT third-party risk evidence, flowing down to the BPO's connectivity layer.
 - DPDP Rules (India, 2025) - cross-border framework live, dual-regime with GDPR for Indian BPOs serving EU clients.
-- RBI 2025 NBFC Outsourcing Directions - Indian financial services BPO arms must process onshore.
+- When the BPO bills per resolution rather than per seat, uptime is margin directly: the same path that fails the jurisdictional audit is the one eating margin every minute it wobbles.
 - Client InfoSec audits demand path-level proof of jurisdictional handling.
 
 ### Lead persona
@@ -461,23 +466,23 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 | Sub-segment | Phrases |
 |---|---|
 | Financial Services | "DORA CTPP," "concentration risk," "NY DFS Part 500 certification," "FFIEC physical-path verification," "T+1 settlement infrastructure," "SCCs / BCRs," "right-to-audit clause" |
-| Healthcare Systems | "HIPAA Security Rule NPRM," "encryption in transit / TLS 1.3," "HITRUST scope expansion," "OCR portal disclosure," "HSCC Sector Mapping," "post-Ascension segmentation mandate," "Cal AB 749 microsegmentation" |
+| Healthcare Systems | "HIPAA Security Rule NPRM," "encryption in transit / TLS 1.2+," "HITRUST scope expansion," "OCR consent-order CAPs," "HSCC Sector Mapping," "post-Ascension segmentation mandate," "ePHI data-flow mapping" |
 | Retail and Distribution | "PCI DSS v4.0," "CDE scope," "in-scope vs out-of-scope," "annual scope re-attestation," "tokenization path" |
 | Outsourcing Services | "path-level proof," "client-jurisdictional attestation," "in-country processing," "data residency clause," "client InfoSec audit," "client right-to-audit" |
 
 ### Cold-email lead-angle templates
 
 **Financial Services (CSO/CISO):**
-> "DORA CTPP designations in November flowed concentration-risk obligations down to every connectivity provider. Most banks' on-ramp fabric story doesn't survive that flow-down without rework."
+> "DORA's first oversight cycle put connectivity and data-center providers on the critical-third-party list, not just the clouds. The concentration question now reaches the fabric your on-ramps ride, and best-effort routing still cannot show the examiner the path."
 
 **Healthcare Systems (CISO):**
 > "The HIPAA Security Rule NPRM removes the 'addressable' flexibility on encryption-in-transit and segmentation. Most IDNs we look at are passing today's audit and failing tomorrow's, on the same infrastructure."
 
 **Retail and Distribution (CISO or VP Network adjacent to PCI):**
-> "PCI DSS v4.0 went from optional to required in March. The 'continuous segmentation validation' clause is the one most retailers we look at can't actually evidence on their current architecture."
+> "PCI v4.0.1 Req 11.4.7 stopped letting you assert the segmentation around the cardholder data environment and started requiring you to pen-test it. Most retailers we look at can diagram the control but can't produce the proof it held on their current architecture."
 
 **Outsourcing Services (CSO/CISO or Chief Compliance Officer):**
-> "Client audits in 2025 are asking for path-level attestation that your delivery centers handled their workload inside the contracted jurisdiction. SD-WAN reports don't satisfy that question - they show overlay metrics, not the underlay topology auditors want."
+> "Your RBI clock ran out in April, and the directions now require proof that an Indian client's data never sits where a foreign regulator can reach it. When you bill per resolution instead of per seat, the same path that fails that audit is also the one eating your margin every minute it wobbles."
 
 ### Anonymized proof-point patterns
 
@@ -490,7 +495,7 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 
 | Objection | Reframe |
 |---|---|
-| "We just passed our audit." | The next cycle's questions are different. CTPP, NPRM, PCI v4.0, AB 749 - every regulatory framework moved from 'have a control' to 'prove the control was in effect on this path at this time.' |
+| "We just passed our audit." | The next cycle's questions are different. DORA CTPP, the HIPAA NPRM, PCI v4.0.1, OCR consent orders - every regulatory framework moved from 'have a control' to 'prove the control was in effect on this path at this time.' |
 | "HIPAA Security Rule NPRM isn't final." | Encryption-in-transit and segmentation are already required under the current rule's 'addressable' language with documented risk analysis. The NPRM removes the flexibility, doesn't invent the requirement. |
 | "HITRUST scope wouldn't allow new infrastructure mid-cycle." | In-scope inventory expands every cycle with each acquisition anyway. The relevant question is whether the control evidence is easier or harder with this fabric - encryption-in-transit attestation and segmentation policy logs typically score better, not worse. |
 | "Our clients audit our architecture quarterly - we can't change anything." (BPO) | Most architecture audits check for isolation, jurisdictional control, and path attestation. We give your audit team better evidence to produce for those exact questions. Change works in your favor in the audit conversation, not against it. |
@@ -512,8 +517,8 @@ Fit rating = how often this use case is the strongest lead for that sub-segment.
 - **Use Case 3 (visibility):** Recent client audit demand (BPO), trading-floor incident (financial), BOPIS failure event (retail), HIPAA breach disclosure (healthcare).
 - **Use Case 4 (AI/GPU access):** AI / GenAI deployment announcement, GPU compute contract with CoreWeave / Lambda / Crusoe, new Chief AI Officer hire.
 - **Use Case 5 (M&A integration):** Definitive merger agreement, acquisition close, post-merger integration office formation.
-- **Use Case 7 (new site bring-up):** New DC announcement, nearshore expansion, capacity-add press release.
-- **Use Case 8 (audit trails):** Regulatory enforcement event (NY DFS, HHS OCR, FFIEC, PCI Council), new framework effective date, client audit demand.
+- **Use Case 7 (new site bring-up):** New DC announcement, robotics-DC bring-up (Symbotic Gen-2 across Walmart DCs, Costco Port St. Lucie), nearshore BPO expansion (CGS Colombia, VXI Egypt), acquired-hospital Epic cutover (UPMC), capacity-add press release.
+- **Use Case 8 (audit trails):** Regulatory enforcement event (NY DFS, HHS OCR, FFIEC, PCI Council), DORA first-oversight-cycle CTPP scope reaching connectivity/colo providers (Colt, Deutsche Telekom, Orange, Equinix, InterXion), PCI v4.0.1 Req 11.4.7 segmentation pen-test, RBI 2025 April 2026 deadline, new framework effective date, client audit demand.
 
 ### The Meijer benchmark - what good Enterprise outreach looks like
 

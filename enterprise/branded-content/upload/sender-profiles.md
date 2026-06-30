@@ -12,10 +12,10 @@
 | **Name** | Tim Lieto |
 | **Title** | AVP, North America Sales |
 | **HubSpot Owner ID** | `161889085` |
-| **Territory** | East (30 US states) |
-| **States** | AL, AR, CT, DE, FL, GA, IA, IL, IN, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NH, NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV |
+| **Territory** | Northeast + West (interim) - 27 US states. See `context/hubspot/territory-model.md` (authoritative 5-region map, effective 2026-06-17). |
+| **States** | Northeast (16): NY, VA, MA, NJ, OH, PA, MI, MD, CT, DC, DE, VT, WV, NH, RI, ME. West (11, interim until the West hire lands): CA, WA, UT, OR, AZ, NV, MT, ID, WY, AK, HI |
 | **Location** | Greater Boston, MA |
-| **Default sender?** | Yes. Use Tim unless prospect is in Ken's territory. |
+| **Default sender?** | Yes for Northeast + West. Use Tim unless the prospect HQ falls in Ken's (Southeast), Tory Teague's (Central), Markus Hendrich's (Europe), or Tim Ziemer's (International) territory. |
 
 ---
 
@@ -24,11 +24,26 @@
 | Field | Value |
 |-------|-------|
 | **Name** | Ken Cunningham |
-| **Title** | Sales, East Region |
+| **Title** | Sales, Southeast Region |
 | **HubSpot Owner ID** | `162339176` |
-| **Territory** | West (20 US states + DC) |
-| **States** | AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND, NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY |
-| **Default sender?** | No. Only when prospect HQ is in his territory. |
+| **Territory** | Southeast (13 US states). See `context/hubspot/territory-model.md`. |
+| **States** | FL, IL, GA, NC, IN, MO, TN, KY, SC, AR, AL, MS, LA |
+| **Default sender?** | No. Only when the prospect HQ is in his Southeast territory. |
+
+---
+
+## Tory Teague
+
+| Field | Value |
+|-------|-------|
+| **Name** | Tory Teague |
+| **Title** | Sales, Central Region |
+| **HubSpot Owner ID** | `165480917` |
+| **Territory** | Central (11 US states). See `context/hubspot/territory-model.md`. |
+| **States** | TX, CO, IA, MN, OK, KS, WI, NE, NM, ND, SD |
+| **Default sender?** | No. Only when the prospect HQ is in his Central territory. |
+
+> Voice / craft register not yet individually calibrated. Until then, use the standard operator-mechanics register (concrete turn-up / NNI / rate-sheet / SKU language, peer tone, no credibility anchors in cold) shared by Tim Lieto and Ken Cunningham. Refine with Cooper before high-volume Central sends.
 
 ---
 
@@ -39,8 +54,36 @@
 | **Name** | Timothy Ziemer |
 | **Title** | CRO / International |
 | **HubSpot Owner ID** | `159350430` |
-| **Territory** | All non-US countries |
-| **Default sender?** | No. International accounts only. |
+| **Territory** | International (non-US, non-Europe). Europe is owned by Markus Hendrich. |
+| **Default sender?** | No. International (rest-of-world) accounts only. |
+
+---
+
+## Markus Hendrich
+
+| Field | Value |
+|-------|-------|
+| **Name** | Markus Hendrich |
+| **Title** | General Manager Europe |
+| **HubSpot Owner ID** | `164949459` |
+| **Territory** | Europe (the European slice of "International"). See `context/hubspot/territory-model.md`. |
+| **Location** | Germany |
+| **Default sender?** | Yes, for European accounts. Markus is the default owner and sender for Europe. |
+
+### Markus's Voice
+
+Markus writes as a European carrier-and-infrastructure operator's peer: someone who lives in the regional telecom, mobile, and fiber-buildout world and speaks that language natively. Regional fluency and sovereignty-literacy are his edge.
+
+**Voice characteristics:**
+- Operator-to-operator. Speaks the European carrier, fiber, and interconnection vocabulary (handoff, NNI, open access, buildout / Ausbau, cross-border path).
+- Sovereignty-literate without hype. Treats data and routing sovereignty as the operational and regulatory reality it now is in Europe, never as a buzzword.
+- Assumes competence. Writes to people who have already thought hard about resilience and sovereignty, so he frames forward-state, never "you are doing it wrong."
+- Peer register, lightly formal where the market expects it (DE / CH), warmer where it does not (UK / Nordics). Writes in the prospect's language when fluent, never machine-translated.
+- Same craft-practitioner identity as the rest of the motion: names the layer and one concrete mechanic, never a brand claim wearing I-voice.
+
+**Best for:** European carriers, fiber operators, colocation, neoclouds, MSPs, and regulated enterprise. The default European sender. Founders (Abilash / Timothy Ziemer) supplement on strategic or founder-to-founder European accounts, looped in per the coordination rule.
+
+> Note for Cooper / Markus: this voice profile is a functional starting point built from Markus's role and market, not a verified biography. Refine the register with Markus directly. Credibility anchors (specific past companies, exits) stay banned in cold copy regardless.
 
 ---
 
@@ -56,11 +99,23 @@ All senders use the same voice. The email should read as if written by a smart i
 - Acknowledges what we don't know. Never claims certainty about their business.
 - Peer tone with technical operators. Never talks down, never talks up.
 
+### The Craft Register (all senders — added 2026-06-12)
+
+Every sender is a PRACTITIONER, and the copy must carry that identity. There is no SDR anywhere in the MaiaEdge motion — every email and LinkedIn request comes from a rep or a co-founder, so the writing system must never produce an SDR voice. The craft register (canonical: email-writing-rules.md § Craft Voice; exemplars: voice-gold-standard.md):
+
+- **Tim Lieto:** "the layer I work on" / "the part of this I spend my time on is the handoff leg." Concrete operator mechanics (turn-up, NNI, rate sheet, SKU). Plain Boston-direct delivery.
+- **Ken Cunningham:** "fixing that hop is most of my job" / "I spend my days on the leg between your plant and everyone else's." Same mechanics, slightly warmer cadence.
+- **Markus Hendrich (GM Europe):** "the handoff between your network and the next operator's is the layer I work on." European carrier and fiber mechanics (NNI, open-access handoff, cross-border path, sovereign routing as a sellable service). Operator-to-operator, sovereignty-literate, never hype. In cold, craft-only; no credibility anchors.
+- **Timothy Ziemer (CRO/Founder):** craft + market: "the layer I've spent two companies working on" framing is allowed in LIVE conversation; in cold, keep it craft-only ("the path between operators is the layer I work on") — credibility anchors stay banned in cold.
+- **Abilash Menon (CEO/Founder):** builder register: "I built the layer that does X" / "this is the exact problem I've been building against." Strongest with technical founders.
+
+The craft line names the layer + ONE concrete mechanic. "I've been working on infrastructure that…" without a named layer is a brand claim wearing I-voice — rewrite it.
+
 **What it should NOT sound like:**
 - A marketing email
 - A sequence tool output
 - A mass blast with merge tags
-- An overeager SDR who just discovered LinkedIn
+- An overeager SDR who just discovered LinkedIn (there are no SDRs in this motion — see the Craft Register above)
 
 **Enforcement:** After writing, re-read the sender's profile. The email should sound like this specific person wrote it, not a generic sales tool. If the email could have been sent by any sender interchangeably, the voice isn't landing.
 
@@ -68,7 +123,7 @@ All senders use the same voice. The email should read as if written by a smart i
 
 ## Signature Protocol
 
-- Sign off with sender's first name only: "Tim" or "Ken"
+- **No typed sign-off at all.** Do not end the body with the sender's name ("Tim," "Ken," "Best," anything). The From field and the platform-appended signature carry identity; a typed name reads like a templated close. Keep the opening first-name greeting, end on the last line of the body. (Aligned 2026-06-12 with the Campaign A rule; supersedes the old "sign off with first name only" guidance.)
 - No full signature block. No title. No phone number. No "Best regards."
 - Email platform auto-appends the formal signature block. Skills never write one.
 
@@ -243,9 +298,13 @@ If it reads like a sales sequence with a founder's name, rewrite it. Should feel
 ### Signature Protocol for Founders
 
 Same as AEs:
-- Sign off with first name only: "Abilash" or "Tim" (Timothy Ziemer signs as "Tim" in founder context, but to avoid confusion with Tim Lieto, may sign "Timothy")
+- **No typed sign-off** (no "Abilash," "Tim," or "Timothy" at the bottom — aligned 2026-06-12). The From field + platform signature carry identity.
 - No full signature block, no title
 - Email platform auto-appends formal signature
+
+### Founder Cold-Batch Lane (DECISION PENDING — Cooper, 2026-06-12)
+
+Whether founders (Abilash / Timothy Z) enter the standard COLD batch motion as senders for select Tier 1 / founder-led targets is an open decision. Until Cooper decides: founders send one-off strategic outreach per the Founder vs. AE selection logic above; cold BATCHES use the three reps. The retro evidence for the lane: 9 of 18 all-time positives were CEO/founder-level repliers, and "my CEO/co-founder will be there" framing drove the best event-era threads.
 
 ---
 
@@ -254,7 +313,8 @@ Same as AEs:
 ```
 Prospect HQ in Tim Lieto's 30 states → Tim Lieto (AE)
 Prospect HQ in Ken Cunningham's 20 states + DC → Ken Cunningham (AE)
-Prospect HQ outside US → Timothy Ziemer (CRO/Founder)
+Prospect HQ in Europe → Markus Hendrich (GM Europe)
+Prospect HQ outside US and outside Europe → Timothy Ziemer (CRO/Founder)
 Prospect HQ unknown → Tim Lieto (default AE)
 
 FOUNDER OVERRIDE:

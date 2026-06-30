@@ -220,7 +220,7 @@ Before any write, validate every scored signal against:
 2. **Freshness** — event date within 180 days rolling window. Drop only if older than 180 days (it would compute to `Cold`).
 3. **Segment classification** — account is `customer_segment = "Data Center Colo Provider"` post-Stage 3. Drop if it routes elsewhere.
 4. **Field overflow** — narrative ≤250 chars. Trim or skip if exceeds.
-5. **Owner mapping** — account has a non-null `hubspot_owner_id` mapping to East (`161889085`) / West (`162339176`) / International (`159350430`). Surface owner-less accounts in the audit for Cooper review.
+5. **Owner mapping** — account has a non-null `hubspot_owner_id` mapping to a current territory owner: Northeast/West `161889085` (Lieto) / Southeast `162339176` (Ken) / Central `165480917` (Tory) / Europe `164949459` (Markus) / International + Tier 1 SP `159350430` (Ziemer) / Unassigned `160267902` (Cooper). Surface owner-less accounts in the audit for Cooper review.
 6. **Rep-facing copy scan** — narrative is pure prose, no `[YYYY-MM-DD]` prefix, no `[Routine N]` tag, no em dashes (use hyphen or restructure), no competitor names (use "third-party fabrics" instead).
 7. **Score arithmetic** — Tier × Freshness × Confidence math is correct; bonuses applied per the rules.
 8. **Dedup** — same signal not double-counted from 2 sources (same company + same event date + same signal class = dedup, keep highest-confidence source).

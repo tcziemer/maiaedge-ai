@@ -1,7 +1,9 @@
 {
   "name": "maiaedge-sdr-pipeline",
-  "version": "2.0.0",
-  "skills": ["sdr-pipeline"],
+  "version": "2.1.1",
+  "skills": [
+    "sdr-pipeline"
+  ],
   "context": [
     "core/messaging-framework.md",
     "core/segment-qualification.md",
@@ -13,6 +15,8 @@
     "outreach/persona-targeting-blocklist.md",
     "outreach/pre-cadence-hygiene.md",
     "outreach/sender-profiles.md",
+    "outreach/voice-gold-standard.md",
+    "sales/email-bot-supplemental.md",
     "hubspot/hubspot-values.md",
     "hubspot/property-schema.md",
     "hubspot/territory-model.md",
@@ -25,6 +29,7 @@
     "segments/enterprise.md",
     "segments/enterprise-use-cases.md",
     "signals/signal-framework.md",
+    "signals/outreach-signal-pushback.md",
     "signals/fiber-signals.md",
     "signals/network-operator-signals.md",
     "signals/colocation-signals.md",
@@ -35,5 +40,7 @@
     "copy-strategy/segment-messaging.md",
     "copy-strategy/segment-language.md"
   ],
-  "static": ["evals/"]
+  "static": [
+    "evals/"
+  ]
 }

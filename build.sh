@@ -98,6 +98,18 @@ for plugin_dir in "$PLUGINS_DIR"/*/; do
       if [ -d "$SKILLS_DIR/$skill" ]; then
         mkdir -p "$build_target/skills/$skill"
         cp "$SKILLS_DIR/$skill/SKILL.md" "$build_target/skills/$skill/"
+        # Skills that ship a runtime asset payload (e.g. branded-doc: the renderer,
+        # Tomorrow fonts, brand.css, diagrams, onepager/) need their full tree bundled
+        # next to SKILL.md — its relative paths (assets/build.py, assets/onepager/...)
+        # resolve from the skill root. Guarded on assets/ so SKILL.md-only skills are
+        # untouched. Mirrors copy_branded_doc_assets used for the enterprise folders.
+        if [ -d "$SKILLS_DIR/$skill/assets" ]; then
+          [ -f "$SKILLS_DIR/$skill/README.md" ] && cp "$SKILLS_DIR/$skill/README.md" "$build_target/skills/$skill/"
+          [ -f "$SKILLS_DIR/$skill/QUICKSTART.md" ] && cp "$SKILLS_DIR/$skill/QUICKSTART.md" "$build_target/skills/$skill/"
+          cp -r "$SKILLS_DIR/$skill/assets" "$build_target/skills/$skill/"
+          find "$build_target/skills/$skill/assets" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+          find "$build_target/skills/$skill/assets" -name "*.pyc" -delete 2>/dev/null || true
+        fi
       else
         echo "  WARNING: Skill $skill not found in skills/"
       fi
@@ -218,6 +230,7 @@ skill_upload_name() {
   case "$1" in
     cold-email)             echo "maiaedge-cold-outreach-writer" ;;
     linkedin-outreach)      echo "maiaedge-linkedin-outreach" ;;
+    warm-follow-up)         echo "maiaedge-warm-follow-up" ;;
     prospect-research)      echo "maiaedge-prospect-research" ;;
     segment-classification) echo "maiaedge-segment-classification" ;;
     company-enrichment)     echo "maiaedge-company-enrichment" ;;
@@ -288,10 +301,41 @@ copy_context_dir() {
   fi
 }
 
+# Copy exactly the context files a set of skills reference (canonical context/ paths in their
+# SKILL.md), flattened to dest by basename. Drives the SCOPED enterprise projects so each carries
+# only its declared skills' context - self-maintaining as skills add/drop references.
+copy_skill_deps() {
+  local dest="$1"; shift
+  local skill ref
+  for skill in "$@"; do
+    [ -f "$SKILLS_DIR/$skill/SKILL.md" ] || continue
+    grep -rhoE "context/[A-Za-z0-9_-]+/[A-Za-z0-9_./-]+\.md" "$SKILLS_DIR/$skill/SKILL.md" | sort -u | while read -r ref; do
+      [ -f "$ref" ] && cp "$ref" "$dest/"
+    done
+  done
+}
+
+# branded-doc is the one skill that carries a runtime asset payload (the renderer
+# assets/build.py, the 9 Tomorrow fonts, brand.css, cover-template.html, the SVG
+# diagrams, and the whole assets/onepager/ render+QA system). The instance-skill
+# upload is SKILL.md-only and no plugin bundles it, so any enterprise project that
+# runs branded-doc needs its assets/ tree in the project knowledge or the SKILL.md's
+# relative paths (assets/build.py, assets/onepager/render.py, ...) resolve to nothing.
+# Copy the tree (minus Python build cruft) into the projects that include the skill.
+copy_branded_doc_assets() {
+  local dest="$1"
+  if [ -d "$SKILLS_DIR/branded-doc/assets" ]; then
+    rm -rf "$dest/assets"
+    cp -r "$SKILLS_DIR/branded-doc/assets" "$dest/assets"
+    find "$dest/assets" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+    find "$dest/assets" -name "*.pyc" -delete 2>/dev/null || true
+  fi
+}
+
 # --- Sales Outreach ---
-# Skills (upload at instance level): cold-email, linkedin-outreach, prospect-research,
-# segment-classification, company-enrichment, import-processor, contact-discovery,
-# account-brief, sdr-pipeline, copy-strategist
+# Skills (upload at instance level): cold-email, linkedin-outreach, warm-follow-up,
+# prospect-research, segment-classification, company-enrichment, import-processor,
+# contact-discovery, account-brief, sdr-pipeline, copy-strategist
 SO="$ENT_DIR/sales-outreach/upload"
 mkdir -p "$SO"
 strip_skills_from_upload "$SO"
@@ -317,8 +361,9 @@ cp "$CONTEXT_DIR/product/proof-points.md" "$SO/" 2>/dev/null
 echo "  Sales Outreach: $(ls "$SO" | wc -l) files"
 
 # --- Founder Outreach ---
-# Skills (upload at instance level): cold-email, linkedin-outreach, prospect-research,
-# segment-classification, company-enrichment, contact-discovery, account-brief, copy-strategist
+# Skills (upload at instance level): cold-email, linkedin-outreach, warm-follow-up,
+# prospect-research, segment-classification, company-enrichment, contact-discovery,
+# account-brief, copy-strategist
 FO="$ENT_DIR/founder-outreach/upload"
 mkdir -p "$FO"
 strip_skills_from_upload "$FO"
@@ -489,7 +534,9 @@ cp "$CONTEXT_DIR/partner-assets/maiaedge-101.md" "$BC/maiaedge-101-partner-editi
 cp "$CONTEXT_DIR/core/maiaedge-101.md" "$BC/maiaedge-101.md"
 # Branded-doc skill consumes the call-report-styles.css as a brand stylesheet reference
 cp "$CONTEXT_DIR/sales/call-report-styles.css" "$BC/" 2>/dev/null
-echo "  Branded Content: $(ls "$BC" | wc -l) files"
+# Branded-doc render payload (fonts, build.py, brand.css, templates, diagrams, onepager/)
+copy_branded_doc_assets "$BC"
+echo "  Branded Content: $(ls "$BC" | wc -l) entries (+ assets/ tree for branded-doc)"
 
 # --- General Assistant (every context file; all skills at instance level) ---
 GA="$ENT_DIR/general-assistant/upload"
@@ -497,7 +544,42 @@ mkdir -p "$GA"
 strip_skills_from_upload "$GA"
 find "$CONTEXT_DIR" -name "*.md" -exec cp {} "$GA/" \;
 cp "$CONTEXT_DIR/sales/call-report-styles.css" "$GA/" 2>/dev/null   # non-md asset the find above misses (call-reporting)
-echo "  General Assistant: $(ls "$GA" | wc -l) files"
+# Branded-doc render payload (general-assistant includes branded-doc at instance level)
+copy_branded_doc_assets "$GA"
+echo "  General Assistant: $(ls "$GA" | wc -l) entries (+ assets/ tree for branded-doc)"
+
+# --- Scope pass: trim the 7 focused projects to their skills' context (efficiency) ---
+# Skills upload at the INSTANCE level (all available in every project), but each Claude.ai
+# project has a defined purpose. Scope its context to the union of its declared skills'
+# referenced files - derived from each SKILL.md's own canonical refs, so it stays complete and
+# self-maintaining. This CLEANS + repopulates (the per-project cp blocks above are superseded;
+# their output is wiped here). branded-content + general-assistant intentionally stay FULL
+# (built above) and are the ONLY projects carrying branded-doc + its render assets.
+echo ""
+echo "Scope pass: trimming the 7 focused projects to their skills' context"
+PS_SO="cold-email linkedin-outreach warm-follow-up prospect-research segment-classification company-enrichment import-processor contact-discovery account-brief sdr-pipeline copy-strategist"
+PS_FO="cold-email linkedin-outreach warm-follow-up prospect-research segment-classification company-enrichment contact-discovery account-brief copy-strategist"
+PS_AI="company-enrichment import-processor edge-case-researcher account-sourcing crm-hygiene pipeline-analytics territory-manager contact-discovery event-intelligence sales-enablement weekly-signal-scan account-brief"
+PS_CI="call-analysis pipeline-discipline call-reporting pipeline-analytics"
+PS_RR="pipeline-analytics call-reporting call-analysis pipeline-discipline"
+PS_CG="crm-guardian crm-hygiene company-enrichment segment-classification territory-manager account-sourcing import-processor edge-case-researcher contact-discovery pre-deletion-audit weekly-signal-scan account-brief"
+PS_SD="sales-docs sales-enablement call-prep competitive-intel"
+scope_project() {
+  local dest="$1"; shift
+  rm -rf "$dest"; mkdir -p "$dest"
+  copy_skill_deps "$dest" "$@"
+  cp "$CONTEXT_DIR/sales/call-report-styles.css" "$dest/" 2>/dev/null   # non-md asset (call-reporting/pipeline-analytics)
+}
+scope_project "$SO" $PS_SO
+scope_project "$FO" $PS_FO
+scope_project "$AI" $PS_AI
+scope_project "$CI" $PS_CI
+scope_project "$RR" $PS_RR
+scope_project "$CG" $PS_CG
+scope_project "$SD" $PS_SD
+for dest in "$SO" "$FO" "$AI" "$CI" "$RR" "$CG" "$SD"; do
+  echo "  $(basename "$(dirname "$dest")"): $(ls "$dest"/*.md 2>/dev/null | wc -l) context files (scoped)"
+done
 
 echo ""
 echo "=== Build Complete ==="

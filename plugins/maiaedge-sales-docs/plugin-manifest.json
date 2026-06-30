@@ -1,7 +1,22 @@
 {
   "name": "maiaedge-sales-docs",
-  "version": "1.1.0",
-  "skills": ["sales-docs"],
-  "context": [],
-  "static": ["references/", "templates/", "scripts/", "logos/"]
+  "version": "1.2.0",
+  "skills": [
+    "sales-docs"
+  ],
+  "context": [
+    "sales/pricing-reference.md",
+    "product/pbc-pce-datasheet.md",
+    "product/integrated-switch-datasheet.md",
+    "hubspot/deals-schema.md",
+    "hubspot/poc-schema.md",
+    "hubspot/territory-model.md",
+    "core/maiaedge-101.md"
+  ],
+  "static": [
+    "references/",
+    "templates/",
+    "scripts/",
+    "logos/"
+  ]
 }

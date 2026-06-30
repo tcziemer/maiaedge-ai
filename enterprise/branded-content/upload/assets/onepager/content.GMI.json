@@ -1,0 +1,71 @@
+{
+  "_comment": "Outbound one-pager content (GMI Cloud) - second real account, used to stress-test the template + gate.",
+  "account_eyebrow": "FOR GMI CLOUD",
+  "title_line1": "Owning the",
+  "title_accent": "Path.",
+  "masthead_sub": "The on-ramp into your compute, and why it becomes part of the product as the platform goes global.",
+  "hook": {
+    "headline": "The last layer left to the carrier",
+    "body": "You own the GPUs, the cluster engine, and the data centers across the Americas and APAC. One layer still sits outside that, the path from your compute out to the customers buying it. Owned paths behave like part of the product; rented paths behave like weather."
+  },
+  "whynow": {
+    "headline": "The on-ramp becomes the moat",
+    "body": "As the inference-native platform widens past its anchor deals, the regulated and enterprise buyers that matter most ask for a private way in. As you open each new country, the path is the piece still left to whichever network it crosses, the one part of the experience you do not yet control."
+  },
+  "stats": [
+    {
+      "num": "Minutes",
+      "label": "new sites and customers on private paths, not a multi-week project"
+    },
+    {
+      "num": "60-90 days",
+      "label": "the old way to stand up cross-region connectivity"
+    },
+    {
+      "num": "Zero",
+      "label": "routing protocols for your team to run"
+    }
+  ],
+  "plays_headline": "What owning the path unlocks",
+  "plays": [
+    {
+      "play": "A private on-ramp customers turn on",
+      "looks": "A private, branded on-ramp your customers switch on like any other GMI feature, in-region and deterministic, the same in every market you open.",
+      "pays": "You already sell the compute; the path ships in the same package, so owning it captures the connectivity margin on every deal instead of leaving it to a carrier."
+    },
+    {
+      "play": "Sovereign delivery you can prove",
+      "looks": "The path into each in-country factory stays owned and provable hop by hop, so data in motion meets the same bar as the compute and the facility.",
+      "pays": "A premium, audit-ready tier you can price into the package, recurring margin that a compute price war cannot erase."
+    },
+    {
+      "play": "One operating model across regions",
+      "looks": "Each new region comes online with the on-ramp built in, the same config in every market, instead of a fresh carrier project per country.",
+      "pays": "Each new region adds connectivity margin on the compute you already sell there, against a fabric you own, so the footprint compounds revenue."
+    }
+  ],
+  "product": {
+    "headline": "What MaiaEdge is",
+    "body": "One device at each site or point of presence, plus cloud orchestration that brings private, deterministic paths up in minutes across any network, with hop-by-hop visibility end to end."
+  },
+  "pillars": [
+    {
+      "name": "DETERMINISTIC",
+      "desc": "Predictable latency between sites, with hop-by-hop visibility into every path."
+    },
+    {
+      "name": "PRIVATE",
+      "desc": "Data stays on paths you control, every path encrypted end to end, provably private."
+    },
+    {
+      "name": "INSTANT",
+      "desc": "New sites and new customers on private paths in minutes, not a multi-week project."
+    }
+  ],
+  "cta": {
+    "lead": "Worth a closer look?",
+    "body": "Fifteen minutes walks the whole thing end to end, where it sits against the platform you have already built and which motion it unlocks first."
+  },
+  "footer_left": "MAIAEDGE  ·  PREPARED FOR GMI CLOUD",
+  "out_pdf": "example-GMI.pdf"
+}

@@ -42,6 +42,8 @@ An XLSX or CSV file with the 33-column enrichment output format. Key columns:
 
 The HubSpot import file must use HubSpot property names as column headers. Only include columns that map to actual HubSpot properties.
 
+> **Retired column - silently drop:** If the input file contains a `maiaedge_value_proposition` column, drop it without error. This property is retired (2026-05-26) and must not be written to HubSpot. Do not surface it in any output file.
+
 | # | Enrichment Column | HubSpot Column Header | HubSpot Type | Transform Required |
 |---|---|---|---|---|
 | 1 | `company_domain` | `domain` | String | Clean domain (strip protocol, www) |
@@ -59,9 +61,9 @@ The HubSpot import file must use HubSpot property names as column headers. Only 
 | 12 | `account_tier` | `account_tier` | Enumeration | **Value mapping  -  see 2D** |
 | 13 | `account_brief` | `account_brief` | String | Trim whitespace |
 | 14 | `provisioning_landscape` | `provisioning_landscape` | String | Trim whitespace |
-| 15 | `maiaedge_value_proposition` | `maiaedge_value_proposition` | String | Trim whitespace |
-| 16 | `recent_trigger` | `recent_news_or_trigger_event` | String | Direct |
-| 17 | `segmentation_confidence` | `segmentation_confidence` | Enumeration | **Value mapping  -  see 2E** |
+| 15 | `recent_trigger` | `recent_news_or_trigger_event` | String | Direct |
+| 16 | `segmentation_confidence` | `segmentation_confidence` | Enumeration | **Value mapping  -  see 2E** |
+| 17 | *(static)* | `signal_heat` | Enumeration | Set to `Cold` for all new imports (default per tier-compute-spec §11.5) |
 | 18 | *(static)* | `lifecyclestage` | Enumeration | Set to `subscriber` for all new accounts |
 | 19 | *(static)* | `hs_lead_status` | Enumeration | Set to `NEW` for all new accounts |
 | 20 | *(static)* | `type` | Enumeration | Set to `PROSPECT` for all new accounts |
@@ -249,14 +251,11 @@ The bot outputs values that are close but not exact matches to HubSpot labels. A
 
 ### 2F: Owner Assignment from State (Territory Lookup)
 
-Derive `hubspot_owner_id` from `state` using the territory map in property-schema.md:
+Derive `hubspot_owner_id` from `state` and `country` using the **authoritative 5-region territory map** in `context/hubspot/territory-model.md`. Read that file at runtime and apply `get_owner(state, country)` - do not inline or cache the map here.
 
-| State | Owner ID | Owner |
-|---|---|---|
-| AL, AR, CT, DE, FL, GA, IA, IL, IN, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NH, NJ, NY, OH, PA, RI, SC, VA, VT, WI, WV | `161889085` | Tim Lieto (East) |
-| AK, AZ, CA, CO, DC, HI, ID, KS, MT, ND, NE, NM, NV, OK, OR, SD, TN, TX, UT, WA, WY | `162339176` | Ken Cunningham (West) |
-| Non-US (any `country` that is not "United States" or "US") | `159350430` | Tim Ziemer (International) |
-| State unknown or blank | *(leave blank)* | Manual routing required |
+For non-US records (`country` is not "United States" / "US"), apply the International assignment per `context/hubspot/territory-model.md`.
+
+For `state` unknown or blank, leave `hubspot_owner_id` blank - manual routing required.
 
 ### 2G: Hyperscaler Proximity Values
 
@@ -346,8 +345,15 @@ Exclusion categories:
 ## REFERENCE FILES (read before validating writes)
 
 - `context/account-tiering/sub-segment-qualification.md` - authoritative list of the 30 active sub-segment values, parent/sub-segment pairing rules, case-sensitivity quirks
+- `context/account-tiering/sub-segment-qualification-full.md` - full consolidated reference with all 30 sub-segment protocols, ICP deep-dives, and tiebreaker rules (use when the pointer file is insufficient)
 - `context/account-tiering/enrichment-protocols.md` - D5 evidence verification protocols, D2 wholesale-arm policy, D1 disqualifiers
+- `context/account-tiering/d1-global-disqualifiers.md` - D1 disqualifier rules (hard eviction criteria applied before sub-segment routing; currently only cited via enrichment-protocols.md)
+- `context/account-tiering/d2-wholesale-arm-policy.md` - D2 wholesale-arm policy (parent/subsidiary pairs; governs whether a wholesale division qualifies independently)
+- `context/account-tiering/d3-disambiguation-flowcharts.md` - D3 flowcharts for segment disambiguation (use when enrichment output segment/sub-segment conflicts)
+- `context/account-tiering/tier-compute-spec.md` - canonical tier computation + signal_heat enum (§11.5); `signal_heat` defaults to `Cold` on new imports
 - `context/hubspot/property-schema.md` Appendix - Enum Case-Sensitivity Reference (mirrors §"Enum Case-Sensitivity Reference" below)
+- `context/hubspot/hubspot-values.md` - authoritative enum string values for all HubSpot properties; cross-reference when validating any enum write to catch drift
+- `context/hubspot/territory-model.md` - authoritative 5-region territory map; read at runtime to derive `hubspot_owner_id` in Step 2F
 
 ---
 
