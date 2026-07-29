@@ -1,0 +1,297 @@
+[
+ {
+  "id": "318192629457",
+  "name": "New Horizon Communications",
+  "domain": "nhcgrp.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "",
+  "state": "Massachusetts",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "New Horizon Communications is a US-based unified communications and managed connectivity aggregator serving SMB and mid-market. Multi-carrier aggregation across voice, SD-WAN, and managed network serv",
+  "miss": [
+   "segmentation_confidence",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318097753798",
+  "name": "Norlys Mobil Wholesale",
+  "domain": "norlys.dk",
+  "seg": "Fiber Operator",
+  "sub": "Municipal / Cooperative - Fiber operator",
+  "conf": "high_90",
+  "state": "Central Denmark Region",
+  "country": "Denmark",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Norlys is Denmark's largest energy and telecom cooperative with member-owned fiber, mobile, and energy services. Norlys Mobil is the mobile arm with wholesale plus retail motion. Cooperative ownership",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318211865329",
+  "name": "Novvacore",
+  "domain": "novvacore.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "medium_7089",
+  "state": "State of Sao Paulo",
+  "country": "Brazil",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Novvacore is a Brazilian regional fiber operator serving Sao Paulo metro and surrounding markets with B2B fiber, IP transit, and managed connectivity. Small-scale CLEC scope. ANATEL-regulated.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318363311861",
+  "name": "Rakuten Mobile",
+  "domain": "mobile.rakuten.co.jp",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "",
+  "state": "Tokyo",
+  "country": "Japan",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Japanese MNO operating cloud-native virtualized RAN. Tier 1 mobile carrier and global OpenRAN technology vendor via Rakuten Symphony. ~$2B revenue from mobile and connectivity services.",
+  "miss": [
+   "segmentation_confidence",
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319145726687",
+  "name": "Seychelles Cable Systems Company (SCCS)",
+  "domain": "sccs.sc",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Subsea cable operator",
+  "conf": "high_90",
+  "state": "",
+  "country": "Seychelles",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Seychelles-based submarine cable landing operator. Owns SEAS (first international Seychelles cable) and co-owns PEACE cable (landed March 2022). $20M infrastructure investment. Shareholders: 26% Airte",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318339892957",
+  "name": "Sky UK",
+  "domain": "sky.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "low_5069",
+  "state": "England",
+  "country": "United Kingdom",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "UK-based broadcast media and broadband company (Comcast subsidiary). Sky Broadband retail ISP plus Sky Connect B2B connectivity. Operates select owned fiber assets while reselling Openreach/CityFibre ",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319126831825",
+  "name": "Symbiote Investments",
+  "domain": "symbiote.jm",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "low_5069",
+  "state": "",
+  "country": "Jamaica",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Symbiote Investments is a Jamaican entity operating in the telecom space with regional wholesale partnerships. 'Investments' suffix and thin public profile suggest possible holding company structure r",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318106542783",
+  "name": "TCG-Partners",
+  "domain": "tcg-partners.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Master Agent - MSP",
+  "conf": "low_5069",
+  "state": "Florida",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Florida-based master agent (Telecom Consulting Group, Pompano Beach FL) with 31+ years in business, 6,000+ independent partners nationwide, and 225+ carrier/supplier options. Distributes telecom, mobi",
+  "miss": [
+   "infrastructure_profile"
+  ]
+ },
+ {
+  "id": "318330813142",
+  "name": "Telecom Argentina",
+  "domain": "telecom.com.ar",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "",
+  "state": "Buenos Aires",
+  "country": "Argentina",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Argentina's largest integrated telco (fixed plus mobile plus cable). Operates Personal mobile brand, Cablevisi\u00f3n cable, and Fibertel broadband. Tier 1 carrier with national reach.",
+  "miss": [
+   "segmentation_confidence",
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318231615184",
+  "name": "Telekom Sudan",
+  "domain": "sudantel.sd",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "",
+  "country": "",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Sudan's national incumbent telecom (Sudatel). State-owned operator with fiber, mobile, and international wholesale services. Tier 2 national carrier status.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state",
+   "country"
+  ]
+ },
+ {
+  "id": "319125023448",
+  "name": "WX Network Panama",
+  "domain": "wxnet.pa",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "",
+  "country": "Panama",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "WX Network is a Panama-based carrier with regional LATAM wholesale partnerships and B2B connectivity services. Small-scale national operator. ASEP-regulated.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318327651046",
+  "name": "Wind Telecom",
+  "domain": "windtelecom.com.do",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "",
+  "state": "Distrito Nacional",
+  "country": "Dominican Republic",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Dominican Republic fiber and telecom operator (Wind Telecom DR) serving Santo Domingo, Santiago, and other regions. Hybrid fiber and wireless network. Likely duplicate of HubSpot record 251659209447 (",
+  "miss": [
+   "segmentation_confidence",
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319231102702",
+  "name": "golis.so",
+  "domain": "golis.so",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "low_5069",
+  "state": "Gobolka Bari",
+  "country": "Somalia",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Somalia-based regional telecom and ISP (Golis Telecom) serving northern Somalia/Puntland. Mobile, internet, and limited fiber services. Limited public profile.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319173099195",
+  "name": "21st Century Technologies",
+  "domain": "21st-century.com.ng",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Nigeria",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Nigeria 21st Century Technologies, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ }
+]

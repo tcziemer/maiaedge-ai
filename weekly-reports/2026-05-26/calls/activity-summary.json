@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-26",
+  "weekday": "Tue",
+  "held": {"fresh": 1, "deal": 1, "total": 2},
+  "set":  {"fresh": 0, "deal": 1, "total": 1},
+  "upcoming_total": 8,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 0, "held": 1, "upcoming": 4},
+    "ken_cunningham": {"set": 0, "held": 0, "upcoming": 2},
+    "tim_ziemer":     {"set": 1, "held": 1, "upcoming": 2}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-18", "2026-05-20"],
+    "missing": ["2026-05-19", "2026-05-21", "2026-05-22", "2026-05-25"],
+    "status": "BASELINE BUILDING (only 2 prior weekday runs on disk; need >=3 for trend tags)",
+    "tags": null
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": false,
+    "yesterday_date": "2026-05-25",
+    "yesterday_note": "Memorial Day - routine did not fire",
+    "status": "BASELINE BUILDING - first run, no comparison"
+  },
+  "notes": "Memorial Day weekend catch-up window (Mon 16:00 ET -> Tue 15:59 ET, 24h). Total 3 engagements (2 held, 1 set); 2 of the 3 are tracked-rep owned (Cliff Miyake call/Tim Z, EPS Global meeting/Tim Lieto). Attobahn meeting (371729337031) owned by unmapped 159875488 (recurring; surfaced on 5/20 also) - filtered to audit only. MaiaEdge Onboarding upcoming (Kyle 159701452) - filtered out. Movi company record not found via name search despite $1M open pipeline associated to Thu meeting (369260239585). 1547 Critical Systems Realty + Tier Fortress + Lumen federal all referenced in Cliff Miyake call as live opportunities but none have HubSpot records yet. MEDDPICC writes: 1 Tier 1 fill on Cliff Miyake (meddpicc_competition_contact) for Tier Fortress objection. Champion observation held in audit only because no meddpicc_champion_contact field exists in this HubSpot tenant. EPS Global meeting started 15 minutes before held window close (3:45pm ET, window ended 3:59pm ET) and ended 30 minutes after; included in brief per spec but no outcome logged yet by Tim Lieto."
+}

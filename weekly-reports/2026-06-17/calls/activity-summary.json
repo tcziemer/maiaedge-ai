@@ -1,0 +1,110 @@
+{
+  "date": "2026-06-17",
+  "weekday": "Wed",
+  "held": {"fresh": 3, "deal": 0, "total": 3},
+  "set":  {"fresh": 0, "deal": 1, "total": 1},
+  "upcoming_total": 4,
+  "rep_breakdown": {
+    "tim_lieto":       {"set": 1, "set_fresh": 0, "set_deal": 1, "held": 0, "upcoming": 4},
+    "ken_cunningham":  {"set": 0, "set_fresh": 0, "set_deal": 0, "held": 0, "upcoming": 0},
+    "tim_ziemer":      {"set": 0, "set_fresh": 0, "set_deal": 0, "held": 1, "upcoming": 0},
+    "markus_hendrich": {"set": 0, "set_fresh": 0, "set_deal": 0, "held": 1, "upcoming": 0},
+    "tory_teague":     {"set": 0, "set_fresh": 0, "set_deal": 0, "held": 1, "upcoming": 0}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-06-10","2026-06-11","2026-06-12","2026-06-15","2026-06-16"],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {"held_fresh": 3.8, "held_deal": 0.6, "set_fresh": 3.0, "set_deal": 0.6},
+    "tags": {"held_fresh": "FLAT", "held_deal": "FLAT", "set_fresh": "DOWN", "set_deal": "FLAT"},
+    "note": "Three fresh-logo intros held (2 Tier 1), none on open deals. held_fresh 3 vs 3.8 FLAT (|diff|<1). held_deal 0 vs 0.6 FLAT. set_fresh 0 vs 3.0 DOWN (light booking day). set_deal 1 vs 0.6 FLAT (Colony Compute pilot)."
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-16",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 376690168529, "company": "Colony Compute", "owner": "tim_lieto", "new_ts_et": "2026-06-22T13:00", "tier": "tier_1", "segment": "Data Center Colo Provider", "fresh_or_deal": "DEAL", "note": "booked today 6/17 for 6/22; open $50k pilot (qualifiedtobuy)"},
+      {"engagement_id": 375345631968, "company": "GDT", "owner": "tim_lieto", "new_ts_et": "2026-06-24T10:30", "tier": "tier_5", "segment": "Partner Target", "fresh_or_deal": "FRESH", "note": "createdate 6/12; newly inside the 7-day window today"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 375421348573, "company": "Bouygues Telecom", "note": "6/17 09:00 ET MEETING twin -> held CALL 376491279095 (canonical w/ summary+transcript)"},
+      {"engagement_id": 376448123601, "company": "Nexus (Nick intro)", "note": "6/17 12:30 ET MEETING twin -> held CALL 376657408735 (canonical)"},
+      {"engagement_id": 375007944392, "company": "FiberLight", "note": "6/17 15:00 ET MEETING twin -> held CALL 376794629831 (canonical)"}
+    ],
+    "reached_slot_no_notes": [
+      {"engagement_id": 376435253953, "company": "Omada Technologies (follow-up)", "owner": "tim_lieto", "slot_et": "2026-06-17T14:00", "note": "Teams-invite body only, no outcome, no CALL twin -> NOT counted held; surfaced to Tim Lieto + Cooper. createdate 6/16 (yesterday's Set)."},
+      {"engagement_id": 375918337767, "company": "ambiFOX GmbH (carryover)", "note": "6/16 POC ($50k presentationscheduled) still no completion notes; absent from today's late-log catch-up -> surfaced to PT + Cooper."}
+    ],
+    "unchanged_carryover": [
+      {"engagement_id": 375964040925, "company": "Globalgig", "ts_et": "2026-06-19T13:00", "owner": "tim_lieto"},
+      {"engagement_id": 374737343181, "company": "Tim Lieto 30-Minute Introduction", "ts_et": "2026-06-23T12:30", "owner": "tim_lieto"}
+    ],
+    "note": "2 NEW (Colony Compute, GDT). No PUSHED/PULLED/DROPPED. Yesterday's 6/17 slots transitioned to held (Bouygues, Nexus, FiberLight) or reached-slot-no-notes (Omada follow-up)."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 2,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped_contacts": 2,
+    "fill_details": [
+      "Harold Alexanian (Bouygues, 465830273757): meddpicc_use_case FILLED from today's transcript (cross-border Ethernet Federation + sovereign EU routing + instant provisioning). pain/competition/criteria/metrics smart-filled today (skip-match). infrastructure left empty (not attributable from this call).",
+      "Chuck Girt (FiberLight, 441475175120): meddpicc_use_case FILLED from today's transcript (self-service multi-provider provisioning, monetization/marketplace, cloud on-ramp, sovereignty). pain/competition/criteria/metrics smart-filled today (skip-match). infrastructure left empty."
+    ],
+    "skip_details": [
+      "Nick Jones (Nexus, 473151480559): all 6 MEDDPICC fields smart-filled from today's transcript - skip-match.",
+      "Kristyn Shaughnessy (Technium, 486150012634): all 6 fields smart-filled today - skip-match."
+    ]
+  },
+  "data_hygiene_stage_5_7": {
+    "auto_fixes": 0,
+    "deferred": [
+      "Nexus (TX) owned by Tim Z (Intl) + FiberLight (TX) owned by Tory + Ecoblox (UAE) owned by Tim Lieto -> R6 territory",
+      "STACKIT/Schwarz Digits unenriched -> R1/R2/R10",
+      "Nexus campus size CRM 612 MW vs call 7.2 GW permitted -> Signal Scan / R2 narrative refresh"
+    ],
+    "escalated_to_cooper": 0
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-17T19:00 (6pm CT fire)",
+    "held_window_et": "2026-06-16T19:52 -> 2026-06-17T19:00 (rolling prior-run -> now, ~23h)",
+    "logwindow_et": "2026-06-16T19:52 -> 2026-06-17T19:00 (catch-up lookback floor 2026-06-03T19:00)",
+    "watermark_continuous": true,
+    "watermark_note": "held_start (6/16 19:52 ET) == prior run held_end (6/16 19:52 ET). Continuous, no gap back-fill.",
+    "set_window_et": "same as held; Set = 1 true forward booking (Colony Compute 6/22, Tim Lieto). Same-day CALL HUBSPOT_MEETINGS auto-logs excluded from Set.",
+    "upcoming_window_et": "2026-06-17T19:00 -> 2026-06-24T19:00; CALL upcoming query returned 0; 4 tracked-rep non-internal meetings (all Tim Lieto)",
+    "tracked_reps": ["161889085 Tim Lieto","162339176 Ken Cunningham","159350430 Tim Ziemer","164949459 Markus Hendrich","165480917 Tory Teague"],
+    "roster_change": "Tory Teague (165480917) verified active via search_owners; added as 5th tracked seller this run per prompt standing directive. Held FiberLight 376794629831.",
+    "late_log_catchups": [],
+    "held_confirmed_3": [
+      "376491279095 Bouygues Telecom (Markus) - CALL canonical, summary+transcript; MEETING twin 375421348573 collapsed; FRESH",
+      "376657408735 Nexus Data Centers (Tim Z) - CALL canonical, summary+transcript; MEETING twin 376448123601 collapsed; joint w/ Technium; FRESH",
+      "376794629831 FiberLight (Tory Teague) - CALL canonical, summary+transcript; MEETING twin 375007944392 collapsed; FRESH"
+    ],
+    "held_excluded": [
+      "376435253953 Omada follow-up (Tim Lieto) - reached 6/17 14:00 ET slot, no notes/outcome, no CALL twin -> NOT held; surfaced to Tim Lieto + Cooper",
+      "376853741303 + 374854181581 Internal Oracle Prep (Tim Lieto) - internal title + junk content -> dropped",
+      "376801818311 + 376321989361 Internal Oracle Prep (Kyle 159701452) - untracked + internal -> dropped/audit"
+    ],
+    "calendar_health_7d": {
+      "tim_lieto": "healthy",
+      "ken_cunningham": "0 calendar-sourced this window; 0 prior per 6/16 audit; third straight quiet day; no sync-broken signal -> Tim Z load/coaching note",
+      "tim_ziemer": "healthy",
+      "markus_hendrich": "healthy",
+      "tory_teague": "healthy (first tracked activity, calendar-sourced)",
+      "flags": "No zero-calendar-sourced-while-active sync flag; no Socket-pattern hand-logged held call. Ken quiet (3rd day) routed to Tim Z."
+    },
+    "delivery_status": "GREEN - all 7 DMs delivered on first attempt",
+    "dm_links": {
+      "abilash": "https://maia-edge.slack.com/archives/D0A2YNPVB96/p1781738066208249",
+      "tim_z": "https://maia-edge.slack.com/archives/D0A2817RE68/p1781738091715829",
+      "cooper": "https://maia-edge.slack.com/archives/D0A2YNL1TA4/p1781738109163989",
+      "tim_lieto": "https://maia-edge.slack.com/archives/D0A9UNDR5EW/p1781738124183119",
+      "ken_cunningham": "https://maia-edge.slack.com/archives/D0AE4AGC5KJ/p1781738137937119",
+      "pt": "https://maia-edge.slack.com/archives/D0A28180WG4/p1781738152608559",
+      "hannah": "https://maia-edge.slack.com/archives/D0A2HB6T38R/p1781738165725069"
+    }
+  }
+}

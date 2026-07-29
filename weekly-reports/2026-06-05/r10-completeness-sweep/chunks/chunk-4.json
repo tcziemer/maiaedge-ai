@@ -1,0 +1,298 @@
+[
+ {
+  "id": "319173096167",
+  "name": "Centennial",
+  "domain": "centennial.net",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Puerto Rico",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Puerto Rico Centennial, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "320373812934",
+  "name": "Cherry Capital Connection",
+  "domain": "cherrycapitalconnection.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "Michigan",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "FULL re-enrichment + Apollo. Cherry Capital Connection LLC (dba Cherry Capital Communications, cherrycapitalconnection.com / cherrycapitalcommunications.com); Elk Rapids/Traverse City MI. Founded 2000",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319194135288",
+  "name": "Cobranet",
+  "domain": "cobranet.ng",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Lagos",
+  "country": "Nigeria",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Nigeria Cobranet, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319190691566",
+  "name": "Cotas Bolivia",
+  "domain": "cotas.bo",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Bolivia",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Bolivia Cotas Bolivia, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. LATAM Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319204759254",
+  "name": "Digicel Bermuda",
+  "domain": "digicel.bm",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Bermuda",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Bermuda Digicel Bermuda, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319173096169",
+  "name": "Digicel Jamaica",
+  "domain": "digicel.com.jm",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Jamaica",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Jamaica Digicel Jamaica, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319204767444",
+  "name": "Digital Mobile Philippines",
+  "domain": "dmp.ph",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Philippines",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Philippines Digital Mobile Philippines, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. SE Asia Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319197829832",
+  "name": "Digital8 PNG",
+  "domain": "digital8.pg",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Papua New Guinea",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Papua New Guinea Digital8 PNG, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Pacific Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318207597278",
+  "name": "ENTELEGENT SOLUTIONS",
+  "domain": "entelegent.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "high_90",
+  "state": "North Carolina",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "EnTelegent Solutions is a telecom aggregator since 2008, HQ Charlotte NC. Aggregates 150+ carriers/vendors for SD-WAN, fiber, wireless LTE/5G, MPLS connectivity. 100% channel-driven. Operates multiple",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity"
+  ]
+ },
+ {
+  "id": "320364986066",
+  "name": "Execulink Telecom",
+  "domain": "execulink.ca",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "Ontario",
+  "country": "Canada",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Execulink Telecom is a Canadian telecommunications cooperative-owned operator in Woodstock, Ontario serving ~50,000 residential and business customers across southwestern Ontario since 1904. Provides ",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319173102318",
+  "name": "Fast Link Iraq",
+  "domain": "fastlinkiq.iq",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Iraq",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Iraq Fast Link Iraq, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. MENA Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319194131176",
+  "name": "Flow USVI",
+  "domain": "flow.vi",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "U.S. Virgin Islands",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "US Virgin Islands Flow USVI, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "316453414595",
+  "name": "Flux Core Data Systems",
+  "domain": "fluxcoredatasystems.com",
+  "seg": "Data Center Colo Provider",
+  "sub": "Modular - colo",
+  "conf": "high_90",
+  "state": "California",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Flux Core Data Systems (LA CA, founded 2025, 2 emp \u2014 early-stage, vet/minority-owned). Modular solar+battery distributed DCs operating off-grid. CA/NC/TX/NV sites; Compute Purchase Agreements model. 9",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "320366030585",
+  "name": "Fort Collins Connexion",
+  "domain": "fcconnexion.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "medium_7089",
+  "state": "Colorado",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Fort Collins Connexion is a 13-person city-owned municipal fiber operator serving Fort Collins with symmetrical FTTH broadband and community digital inclusion initiatives.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ }
+]

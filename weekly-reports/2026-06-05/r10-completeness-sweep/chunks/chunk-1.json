@@ -1,0 +1,280 @@
+[
+ {
+  "id": "318220838608",
+  "name": "ADG LDI",
+  "domain": "adgldi.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "Punjab",
+  "country": "Pakistan",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Pakistan Long Distance International (LDI) licensed voice carrier. International voice termination and wholesale aggregation services. Punjab-headquartered.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "223979096790",
+  "name": "Acuutech",
+  "domain": "acuutech.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Cloud + Telecom Hybrid MSP - MSP",
+  "conf": "high_90",
+  "state": "England",
+  "country": "United Kingdom",
+  "owner": "159350430",
+  "tgt": "true",
+  "led": "2026-05-18",
+  "brief": "Acuutech is a UK-based Managed Hybrid Cloud services provider (HQ Loughton Essex, about 75 employees) with international service across Europe, Asia, and North America. Recent strategic partnership wi",
+  "miss": [
+   "infrastructure_profile"
+  ]
+ },
+ {
+  "id": "208821148373",
+  "name": "BTS",
+  "domain": "bts.io",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "high_90",
+  "state": "Florida",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "true",
+  "led": "2026-05-18",
+  "brief": "BTS (Business Telecommunications Services) is a Miami-headquartered global voice, messaging, cloud, identity, and managed-services provider with strategic presence in Zaragoza Spain and Yamoussoukro C",
+  "miss": [
+   "infrastructure_profile"
+  ]
+ },
+ {
+  "id": "319126833854",
+  "name": "Blueline Madagascar",
+  "domain": "blueline.mg",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Antananarivo Province",
+  "country": "Madagascar",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Blueline Madagascar is one of Madagascar's primary ISPs and fiber operators with national reach and B2B connectivity focus. ARTEC-regulated. Africa Tier 3 carrier with wholesale partnerships and regio",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "268447803122",
+  "name": "BridgeLync",
+  "domain": "bridgelync.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "high_90",
+  "state": "Missouri",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "BridgeLync aggregates broadband from multiple on-net carriers across the US, delivering unified management through a single contract, invoice, and support point. Serves enterprise and mid-market needi",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach"
+  ]
+ },
+ {
+  "id": "316598423244",
+  "name": "CIMA Telecom",
+  "domain": "cimatelecom.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "low_5069",
+  "state": "Florida",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Florida-based telecom services provider with Caribbean and LATAM focus. Limited public profile beyond core voice/data services. Anchor-level validation pending.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319139526392",
+  "name": "Digitel Venezuela Wholesale",
+  "domain": "digitel.com.ve",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Pure Wholesale Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Capital District",
+  "country": "Venezuela",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Venezuelan carrier and MNO with external wholesale extension motion to business customers. Pure Wholesale Carrier sub-segment with regional LATAM partnerships. Tier 3 wholesale arm.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319125023419",
+  "name": "Fasttelco",
+  "domain": "fasttelco.com.kw",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Pure Wholesale Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Kuwait",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Fasttelco is stc Kuwait's B2B and wholesale carrier arm, providing enterprise connectivity, IP transit, and data services across Kuwait. CITRA-regulated. MENA Tier 3 wholesale motion within the stc Gr",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "320875891444",
+  "name": "Gazeti Telecomm",
+  "domain": "gazeti.net",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "",
+  "state": "Mexico City",
+  "country": "Mexico",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Gazeti Telecomm is a Mexican carrier-class wholesale telecom provider offering voice termination and managed connectivity services. Small-scale aggregator with national Mexico reach. Domain corrected ",
+  "miss": [
+   "segmentation_confidence",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319126830809",
+  "name": "Island Broadband",
+  "domain": "islandbb.tc",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "",
+  "country": "Turks and Caicos Islands",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Island Broadband is a Turks and Caicos local ISP and broadband provider serving the islands. Small-scale operator with Caribbean regional wholesale partnerships. TCTC-regulated. Tier 1 Carrier classif",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319132457672",
+  "name": "KN Network",
+  "domain": "knnetwork.bb",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "low_5069",
+  "state": "",
+  "country": "Barbados",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Barbados telecommunications and infrastructure entity. Limited public disclosure on carrier vs. construction/infrastructure services. Parent KN Network Services group provides infrastructure solutions",
+  "miss": [
+   "infrastructure_profile",
+   "state"
+  ]
+ },
+ {
+  "id": "319125023431",
+  "name": "Kalaam Telecom",
+  "domain": "kalaam.bh",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Bahrain",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-18",
+  "brief": "Bahraini telecom and ISP (Kalaam Telecom). Carrier services with regional wholesale partnerships. MENA Tier 3 operator.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318400654069",
+  "name": "Kyivstar JSC",
+  "domain": "kyivstar.ua",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "",
+  "state": "Khmelnytskyi Oblast",
+  "country": "Ukraine",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "Ukraine's largest mobile operator (VEON subsidiary) with mobile, fiber broadband, and IoT services. $836M revenue. Tier 1 carrier with national reach across Ukraine.",
+  "miss": [
+   "segmentation_confidence",
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "324060146411",
+  "name": "Net2Phone Canada",
+  "domain": "net2phone.ca",
+  "seg": "MSP/Aggregator",
+  "sub": "Cloud + Telecom Hybrid MSP - MSP",
+  "conf": "high_90",
+  "state": "New Jersey",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-18",
+  "brief": "net2phone Canada (formerly Versature) is an Ottawa-based UCaaS provider delivering cloud business phone, video, SMS, and contact center to Canadian enterprises, plus expansion into US, Brazil, Argenti",
+  "miss": [
+   "infrastructure_profile"
+  ]
+ }
+]

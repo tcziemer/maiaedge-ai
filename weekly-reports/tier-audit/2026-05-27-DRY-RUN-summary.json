@@ -1,0 +1,194 @@
+{
+  "total_records": 2577,
+  "tier_changes": 458,
+  "heat_changes": 12,
+  "tier_skipped_target_account": 326,
+  "heat_writes_on_target_accounts": 10,
+  "unknown_pair_warnings": 1,
+  "heat_dist": {
+    "Hot": 25,
+    "Warm": 23,
+    "Cool": 14,
+    "Cold": 2515
+  },
+  "promotions": 368,
+  "demotions": 90,
+  "hot_signal_fired": 2,
+  "white_hot_signal_fired": 0,
+  "stacked_signals_fired": 0,
+  "open_deal_fired": 4,
+  "stale_signal_fired": 0,
+  "sustained_quiet_fired": 0,
+  "top10_tier": [
+    {
+      "id": 318231692007,
+      "name": "Akton Communications",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T4",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 318231692004,
+      "name": "ONEMAX",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T4",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 318106540783,
+      "name": "SBTS",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T4",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 318231691993,
+      "name": "Teligent Telecom",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T4",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 319173099195,
+      "name": "21st Century Technologies",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T3",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 316171331312,
+      "name": "263 Global",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "International Backbone Specialist - Network Op",
+      "old": "T3",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/International Backbone Specialist - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 263392463552,
+      "name": "AUBix",
+      "segment": "Data Center Colo Provider",
+      "sub_segment": "AI Signals - colo",
+      "old": "T3",
+      "new": "T1",
+      "reason": "Default Data Center Colo Provider/AI Signals - colo = T1, no modifiers = T1"
+    },
+    {
+      "id": 319151173350,
+      "name": "Access Communications",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T3",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 319194131171,
+      "name": "Access Haiti",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T3",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    },
+    {
+      "id": 319208306378,
+      "name": "Africell Angola",
+      "segment": "Network Operator(Tier 1 / VNO)",
+      "sub_segment": "Tier 1 Carrier - Network Op",
+      "old": "T3",
+      "new": "T1",
+      "reason": "Default Network Operator(Tier 1 / VNO)/Tier 1 Carrier - Network Op = T1, no modifiers = T1"
+    }
+  ],
+  "top10_heat": [
+    {
+      "id": 265768509166,
+      "name": "HDCO Group",
+      "old": "(none)",
+      "new": "Hot",
+      "reason": "open deal past appointmentscheduled"
+    },
+    {
+      "id": 324208873163,
+      "name": "Hut 8",
+      "old": "Cold",
+      "new": "Hot",
+      "reason": "stacked signals count_30d=2"
+    },
+    {
+      "id": 324007013098,
+      "name": "TeraWulf",
+      "old": "Cold",
+      "new": "Warm",
+      "reason": "warm signal score=30.0 within 60d"
+    },
+    {
+      "id": 324060022514,
+      "name": "Astound",
+      "old": "Cold",
+      "new": "Cool",
+      "reason": "signal date within 180d, no warm/hot trigger (ds=73)"
+    },
+    {
+      "id": 324007013101,
+      "name": "Crusoe Energy Systems",
+      "old": "Cold",
+      "new": "Cool",
+      "reason": "signal date within 180d, no warm/hot trigger (ds=61)"
+    },
+    {
+      "id": 303890867935,
+      "name": "Crown Castle",
+      "old": "(none)",
+      "new": "Cold",
+      "reason": "no signal date"
+    },
+    {
+      "id": 153481186012,
+      "name": "IENTC Telecom",
+      "old": "(none)",
+      "new": "Cold",
+      "reason": "no signal date"
+    },
+    {
+      "id": 321842590405,
+      "name": "Logicalis",
+      "old": "(none)",
+      "new": "Cold",
+      "reason": "no signal date"
+    },
+    {
+      "id": 324591600333,
+      "name": "ResetData",
+      "old": "(none)",
+      "new": "Cold",
+      "reason": "no signal date"
+    },
+    {
+      "id": 155473925856,
+      "name": "RevNet",
+      "old": "Hot",
+      "new": "Cold",
+      "reason": "no signal date"
+    }
+  ],
+  "unknown_pairs": [
+    {
+      "id": 318106540781,
+      "name": "Trans Pacific Networks (TPN)",
+      "segment": "Fiber Operator",
+      "sub_segment": "Subsea cable operator"
+    }
+  ]
+}

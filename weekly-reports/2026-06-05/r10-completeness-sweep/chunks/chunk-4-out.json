@@ -1,0 +1,187 @@
+[
+ {
+  "id": "319173096167",
+  "name": "Centennial",
+  "fields": {
+   "geographic_focus": "Puerto Rico and the U.S. Virgin Islands. Historically the largest all-digital wireless carrier in Puerto Rico and the only significant fiber-based CLEC there, with a fiber-optic network serving commercial, ISP, carrier, and government customers.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Operated CDMA wireless plus a fiber CLEC network across Puerto Rico, selling switched access lines and dedicated circuits to enterprise, ISP, carrier, and government customers via traditional carrier OSS/BSS and manual circuit ordering. Private, deterministic on-demand paths to cloud on-ramps were not part of the legacy model. Note: Centennial Communications was acquired by AT&T in 2009-2010 and the Centennial brand was retired, so this record likely reflects a defunct/absorbed entity rather than an active independent carrier.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Centennial Communications (Centennial de Puerto Rico) was acquired by AT&T, with FCC approval in Nov 2009 and brand absorption completed July 2010. The domain centennial.net does not represent an active independent Puerto Rico carrier; this record is a strong candidate for Defunct/out of business or Duplicate (merged into AT&T). Fields filled against the historical footprint."
+ },
+ {
+  "id": "320373812934",
+  "name": "Cherry Capital Connection",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Small regional operator delivering fiber-to-the-premise plus fixed point-to-point and point-to-multipoint wireless across a 12-county area of northwest lower Michigan (Traverse City region), passing roughly 14,000 households. Connectivity is provisioned through manual, ticket-driven processes typical of a rural broadband builder, with no automated fabric or cloud on-ramp. Private, deterministic paths to cloud and partner endpoints are an unaddressed gap."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319194135288",
+  "name": "Cobranet",
+  "fields": {
+   "geographic_focus": "Nigeria. HQ in Lekki, Lagos, with corporate internet and data services across Lagos, Abuja, and other major Nigerian cities. Part of the Boulos Group.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Business-focused ISP delivering corporate internet over a fixed-wireless and microwave-backhaul backbone (70+ Exalt microwave links delivering gigabit Ethernet) plus a growing UGO fibre service, with roughly 85 points of presence. Provisioning is manual and ticket-driven across a redundant radio network. Private, deterministic on-demand paths to cloud and partner endpoints are a gap for its enterprise customers."
+  },
+  "low_confidence": false,
+  "flag_note": "Cobranet is a Lagos business-focused fixed-wireless/fiber ISP (~3,300 subscribers), not a national Tier 1 MNO. Sub-segment Tier 1 Carrier - Network Op likely overstates it; conservative fields filled, classification not changed."
+ },
+ {
+  "id": "319190691566",
+  "name": "Cotas Bolivia",
+  "fields": {
+   "geographic_focus": "Bolivia. Telecommunications cooperative headquartered in Santa Cruz de la Sierra, with its principal operations in the Department of Santa Cruz and service reach across Bolivia.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Full-service telecom cooperative providing fixed and wireless telephony, long-distance, data transmission, satellite solutions, internet, and pay TV, primarily in Santa Cruz. Connectivity is provisioned through traditional incumbent OSS/BSS and manual circuit ordering. Private, deterministic on-demand paths to cloud on-ramps are a gap for its business and carrier customers.",
+   "state": "Santa Cruz"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319204759254",
+  "name": "Digicel Bermuda",
+  "fields": {
+   "geographic_focus": "Bermuda. National mobile network operator plus fixed fibre (FTTH/FTTB) provider, marketed as Bermuda's only 100% true fibre network, serving residential and business customers islandwide.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Operates a mobile network plus a fiber-to-the-home/business network (gig-speed, launched 2017) serving Bermuda, with enterprise connectivity, cybersecurity, and cloud offerings via Digicel Business. Provisioning runs through standard carrier OSS/BSS and account-managed circuit ordering. Private, deterministic on-demand paths from the island to cloud on-ramps are a gap for enterprise customers.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Single-island operator (Bermuda); functionally a national carrier for that market but small-scale. Tier 1 Carrier label overstates footprint; fields filled conservatively."
+ },
+ {
+  "id": "319173096169",
+  "name": "Digicel Jamaica",
+  "fields": {
+   "geographic_focus": "Jamaica. Leading national mobile network operator (Digicel's first market, launched 2001) with ~2.2 million subscribers, 98%+ population coverage, island-wide 4G LTE, 5G rollout underway, plus fixed fibre and fixed-wireless home broadband.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "National MNO operating island-wide 4G LTE (with 5G underway), Digicel+ fibre broadband in urban centers, and fixed-wireless LTE home broadband elsewhere, serving consumer and enterprise customers. Connectivity is provisioned through standard mobile/fixed carrier OSS/BSS and manual enterprise circuit ordering. Private, deterministic on-demand paths to cloud on-ramps are a gap for its business segment.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319204767444",
+  "name": "Digital Mobile Philippines",
+  "fields": {
+   "geographic_focus": "Philippines. Legal entity behind DITO Telecommunity, the country's third national mobile network operator, with ~86% population coverage and over 12 million subscribers.",
+   "infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "National greenfield 4G/5G MNO (DITO Telecommunity) that launched commercial service in 2021 to challenge the PLDT/Globe duopoly, with a brand-new nationwide RAN and core plus a growing fixed-5G business offering. Connectivity is provisioned through a modern carrier OSS/BSS stack. Private, deterministic on-demand paths to cloud on-ramps are a gap for its enterprise customers.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Digital Mobile Philippines, Inc. is the corporate entity operating the DITO Telecommunity brand, a major national MNO (~12M subscribers), not a Tier 3 regional carrier. The brief's 'SE Asia Tier 3' framing understates it; classification not changed."
+ },
+ {
+  "id": "319197829832",
+  "name": "Digital8 PNG",
+  "fields": {
+   "geographic_focus": "Stated as Papua New Guinea per the CRM record; no independent public evidence of an operating carrier under this name was found. PNG's documented mobile/network operators are Digicel PNG, Vodafone PNG, and Telikom/bmobile.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "No public evidence was found of an operating network or facilities for an entity named Digital8 under the digital8.pg domain. PNG's recognized carriers are Digicel, Vodafone PNG, and Telikom/bmobile. If this entity exists it is most likely a small ISP, reseller, or IT services firm rather than a Tier 1 carrier; footprint could not be substantiated.",
+   "state": ""
+  },
+  "low_confidence": true,
+  "flag_note": "No corroborating evidence found in any telecom database or web source for 'Digital8 PNG' as a network operator. PNG has three recognized MNOs (Digicel, Vodafone PNG, Telikom/bmobile). Tier 1 Carrier - Network Op classification is unverifiable; candidate for re-research or eviction (possible dead/unknown entity). Fields filled conservatively with low_confidence."
+ },
+ {
+  "id": "318207597278",
+  "name": "ENTELEGENT SOLUTIONS",
+  "fields": {
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known"
+  },
+  "low_confidence": false,
+  "flag_note": "EnTelegent is an asset-light telecom aggregator/agent (100+ carrier relationships, US-based NOCs, TEM/WEM) with no owned network route miles or facilities, so infrastructure_profile is None Identified per the pure-aggregator rule."
+ },
+ {
+  "id": "320364986066",
+  "name": "Execulink Telecom",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Independent operator headquartered in Woodstock, Ontario that owns and operates an expanding fibre-to-the-home network plus DSL and fixed-wireless across southwestern Ontario (London, Kitchener-Waterloo, Hamilton, Brantford, and surrounding rural communities), serving roughly 50,000 customers. Connectivity is provisioned through manual, ticket-driven processes typical of a regional CLEC. Private, deterministic on-demand paths to cloud and partner endpoints are a gap for its business customers."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319173102318",
+  "name": "Fast Link Iraq",
+  "fields": {
+   "geographic_focus": "Iraq, primarily the Kurdistan Region (northern Iraq). Operates as Fastlink, the first 4G LTE operator in Iraq, providing mobile broadband across Kurdistan.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Regional fixed/mobile 4G LTE broadband operator serving the Kurdistan Region of Iraq, selling prepaid and bundled internet to consumers and businesses over a wireless network. Provisioning is manual and ticket-driven typical of an emerging-market regional ISP. Private, deterministic on-demand paths to cloud on-ramps are a gap and largely outside its current model.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Fast Link Iraq (Fastlink) is a regional 4G LTE broadband operator in the Kurdistan Region, not a national Tier 1 carrier. Tier 1 Carrier - Network Op overstates footprint; classification not changed."
+ },
+ {
+  "id": "319194131176",
+  "name": "Flow USVI",
+  "fields": {
+   "geographic_focus": "U.S. Virgin Islands. Flow is the regional brand of Liberty Latin America (Liberty VI), providing 5G mobile (95% population coverage), fixed wireless, and an expanding true-fibre network across the USVI.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Operates as Liberty VI under the Flow brand, delivering 5G mobile, fixed-wireless, and symmetrical fibre internet (250 Mbps to 1 Gbps) across the U.S. Virgin Islands, backed by Liberty Latin America's regional scale. Connectivity is provisioned through standard carrier OSS/BSS and account-managed circuit ordering. Private, deterministic on-demand paths from the islands to cloud on-ramps are a gap for enterprise customers.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Flow USVI is the USVI operation of Liberty Latin America (Liberty VI), a small-territory operator. Functionally the incumbent carrier for that market but not a global Tier 1; fields filled conservatively."
+ },
+ {
+  "id": "316453414595",
+  "name": "Flux Core Data Systems",
+  "fields": {
+   "geographic_focus": "United States, headquartered in the Los Angeles area (Glendale, California) with stated/planned distributed sites in CA, NC, TX, and NV.",
+   "infrastructure_profile": "Facilities: Small (<5)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "Early-stage (founded 2025) operator of modular, solar-plus-battery off-grid distributed data centers, selling on-demand compute via Compute Purchase Agreements to enterprises, AI developers, and cloud providers. Capacity is delivered through its own deployment model with no carrier-grade network fabric or cloud on-ramp described. Private, deterministic paths between its distributed sites and customer/cloud endpoints are an unbuilt gap.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Flux Core is a pre-revenue/early-stage (2025-founded, ~2 employees) modular compute provider, not an established colo operator. Classified Modular - colo in CRM; footprint is aspirational rather than operational. Fields reflect a small/nascent build; candidate for greenfield/watch status."
+ },
+ {
+  "id": "320366030585",
+  "name": "Fort Collins Connexion",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "City-owned municipal fibre-to-the-premises operator delivering symmetrical residential and business broadband (up to 8 Gbps) across Fort Collins, covering roughly 63% of the city and expanding into rural Larimer County. Connectivity is provisioned through manual, ticket-driven municipal processes with no automated fabric or cloud on-ramp. Private, deterministic paths to cloud and partner endpoints are an unaddressed gap."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ }
+]

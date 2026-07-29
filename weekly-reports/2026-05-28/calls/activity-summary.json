@@ -1,0 +1,57 @@
+{
+  "date": "2026-05-28",
+  "weekday": "Thu",
+  "held": {"fresh": 3, "deal": 0, "total": 3},
+  "set":  {"fresh": 4, "deal": 0, "total": 4},
+  "upcoming_total": 12,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 0, "held": 1, "upcoming": 2},
+    "ken_cunningham": {"set": 0, "held": 0, "upcoming": 3},
+    "tim_ziemer":     {"set": 4, "held": 2, "upcoming": 7}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-26", "2026-05-27"],
+    "missing": ["2026-05-25 (Memorial Day - routine did not fire)"],
+    "status": "BASELINE BUILDING (2 prior weekday runs on disk; need >=3 for trend tags). Trend arrows expected to go live on the 2026-05-29 run.",
+    "tags": null
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-05-27",
+    "pushed": [
+      {"engagement_id": 371640554182, "title": "Technium POC Discussion", "old_ts_et": "2026-05-28T12:00", "new_ts_et": "2026-06-01T14:00", "days_pushed": 4, "owner": "tim_lieto", "is_deal": true, "company": "Technium", "tier": "tier_2", "segment": "MSP/Aggregator", "deal_name": "Technium - Lab", "deal_stage": "presentationscheduled", "deal_amount": 5000, "deal_close_date": "2026-05-29 (tomorrow)"},
+      {"engagement_id": 369260239585, "title": "Maia / Movi - SW & CPE Cont'd", "old_ts_et": "2026-05-28T16:30", "new_ts_et": "2026-05-29T15:30", "days_pushed": 1, "owner": "tim_lieto", "is_deal": true, "company": "Movi", "tier": "unknown", "segment": "unknown", "deal_total_amount": 1000000, "deal_stages": ["qualifiedtobuy", "1996673735"]}
+    ],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 372332516081, "title": "Catch up (Vinco)", "new_ts_et": "2026-05-28T16:30", "owner": "tim_ziemer", "company": "Vinco", "tier": "tier_2", "segment": "MSP/Aggregator"},
+      {"engagement_id": 371961028327, "title": "Maiaedge/Astound Introductions", "new_ts_et": "2026-06-01T17:00", "owner": "tim_ziemer", "company": "Astound", "tier": "tier_2", "segment": "Fiber Operator"},
+      {"engagement_id": 372287513325, "title": "Call w/MaiaEdge & ONUG - Connect", "new_ts_et": "2026-06-03T15:00", "owner": "tim_ziemer", "company": "ONUG", "tier": "tier_5", "segment": "Other (Partner Target)"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 369403183813, "title": "Verizon/MaiaEdge/Mplify Meeting", "owner": "tim_ziemer"},
+      {"engagement_id": 369406782164, "title": "MaiaEdge Intro to Imperium Data", "owner": "tim_lieto"}
+    ]
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 0,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 3,
+    "skipped": 6,
+    "hold_details": [
+      {"contact": "Paul Ruelas (Verizon, AVP Strategic Connectivity)", "field": "identify_pain", "evidence": "implicit need to normalize last-mile L2 connectivity over broadband - tangential, not explicit"},
+      {"contact": "Brian Hill (Imperium, President & Co-Founder)", "field": "economic_buyer", "evidence": "Co-Founder role implies EB context but not explicitly stated"},
+      {"contact": "Brian Hill (Imperium)", "field": "identify_pain", "evidence": "ISPs need to maintain customer relationships while extending services - tangential acknowledgment, not validated as own pain"}
+    ],
+    "audit_notes": [
+      "Steve Quayle (Imperium) referenced as customer-use-case explorer but no HubSpot contact exists. Tim Lieto follow-up needed to bring him into CRM.",
+      "Nexus call (Tim Z) has no HubSpot company association; partner contacts from Technium + Pearce only. Project-team coordination, not a Nexus prospect/customer call."
+    ]
+  },
+  "notes": "Held: 3 external calls, all FRESH (no open deals on associated companies). Tim Z held 2 (Nexus partner sync 11am, Verizon/Mplify Tier 1 demo 3pm). Tim Lieto held 1 (Imperium Data intro 3:30pm). Ken held 0. Set: 4 new bookings, all Tim Z (Astound Tier 2 Fiber Op, Vinco Tier 2 MSP/Aggregator catch up today 4:30pm, ONUG 6/3, Nexus sync booked yesterday eve). Up7d: 12 across all three reps; Tim Z carries 7 (heavy 6/1). Calendar movement is the substance: 2 PUSHED both Tim Lieto-owned DEAL items (Technium POC 4 days slip past close date, Movi cont'd 1 day slip), 3 NEW (Vinco today, Astound 6/1, ONUG 6/3). No MEDDPICC writes - 3 Tier 3 holds (Paul Ruelas implicit pain, Brian Hill EB + pain), 0 Tier 1/2 writes, audit-flagged Steve Quayle for contact creation. Tracked-rep filter dropped: Cooper's own AI tooling catch up meeting (noon ET self-meeting). Movi company record still missing (recurring R3/R6 flag from 5/26 + 5/27). Nexus has no HubSpot record despite recurring partner-project mentions. Trend baseline BUILDING - 2 prior runs on disk, arrows go live 5/29.",
+  "edge_cases": [
+    "CALL 372323825373 'Maia / Movi - SW & CPE Cont'd' has hs_timestamp 2026-05-28T20:30:18Z (4:30 PM ET, 30 min after held window end 3:59:59pm ET). hs_call_status=COMPLETED. NOT included in today's held pool per strict window. Tomorrow's run will pick up if its window covers it. Tim Lieto-owned. Separate from meeting 369260239585 (now pushed to 5/29 19:30 UTC)."
+  ]
+}

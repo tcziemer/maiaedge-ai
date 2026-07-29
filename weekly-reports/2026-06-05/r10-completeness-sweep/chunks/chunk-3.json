@@ -1,0 +1,298 @@
+[
+ {
+  "id": "319194131171",
+  "name": "Access Haiti",
+  "domain": "access.ht",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Haiti",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Haiti Access Haiti, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "320307860198",
+  "name": "Advanced Stream Broadband",
+  "domain": "advancedstream.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "Washington",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "FULL re-enrichment + Apollo (data conflict flagged). Advanced Stream Broadband (advancedstream.com); Tacoma WA-based fiber-optic ISP per website. Apollo enrichment surfaces 'Leo Finnegan Construction ",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319208306378",
+  "name": "Africell Angola",
+  "domain": "africell.ao",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Luanda Province",
+  "country": "Angola",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Angola Africell Angola, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319194135286",
+  "name": "Africom Zimbabwe",
+  "domain": "africom.co.zw",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Harare Province",
+  "country": "Zimbabwe",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Zimbabwe Africom Zimbabwe, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "317237932750",
+  "name": "Airtel Seychelles",
+  "domain": "airtel.sc",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "",
+  "country": "Seychelles",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Airtel subsidiary for Seychelles island market. Too small an operation for MaiaEdge ICP. EXCLUDE: Too small market.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318231692007",
+  "name": "Akton Communications",
+  "domain": "akton.net",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "Ljubljana",
+  "country": "Slovenia",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Akton Communications \u2014 Ljubljana-based Slovenian telecom founded 1991, expanded to international provider serving Adriatic region. 43 employees. Established regional carrier with European footprint. H",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319182211807",
+  "name": "Aviso Telecom",
+  "domain": "avisotel.ci",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Cote d'Ivoire",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Cote d'Ivoire Aviso Telecom, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "320366166738",
+  "name": "BAM Broadband",
+  "domain": "bambroadband.com",
+  "seg": "Fiber Operator",
+  "sub": "Municipal / Cooperative - Fiber operator",
+  "conf": "medium_7089",
+  "state": "Colorado",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "true",
+  "led": "2026-05-19",
+  "brief": "BAM Broadband is a 43-person regional fiber and fixed wireless operator in Colorado and Arizona offering symmetrical broadband up to 8 Gbps with FTTH-to-home deployment and recent acquisition integrat",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319182206700",
+  "name": "BVI Phones",
+  "domain": "bviphones.com",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "British Virgin Islands",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "British Virgin Islands BVI Phones, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319197821676",
+  "name": "Busy Internet",
+  "domain": "busy.com.gh",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Ghana",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Ghana Busy Internet, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318223398594",
+  "name": "CLEARCOM COMUNICACIONES, S.A.P.I. DE C.V",
+  "domain": "clearcom.mx",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "State of Mexico",
+  "country": "Mexico",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "CLEARCOM Comunicaciones SAPI (Naucalpan, State of Mexico, founded 2011, 18 emp, ~$1-10M rev). IFT-authorized Mexican telecom \u2014 IP-based platforms, fiber optic + wireless networks, unified comms 'Comun",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319197829831",
+  "name": "CSL Samoa",
+  "domain": "csl.ws",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Upolu",
+  "country": "Samoa",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Samoa CSL Samoa, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Pacific Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319182218965",
+  "name": "Canl+",
+  "domain": "canl.nc",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "South Province",
+  "country": "New Caledonia",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "New Caledonia Canl+, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Pacific Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "300329366233",
+  "name": "Cast AI",
+  "domain": "cast.ai",
+  "seg": "NeoCloud",
+  "sub": "AI Infrastructure providers - Neocloud",
+  "conf": "high_90",
+  "state": "Florida",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Kubernetes automation platform cutting 50%+ cloud costs on AWS/Azure/GCP. ML-based GPU right-sizing. 2,000+ customers including Hugging Face. AI workload optimization layer.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ }
+]

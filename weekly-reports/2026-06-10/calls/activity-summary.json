@@ -1,0 +1,197 @@
+{
+ "date": "2026-06-10",
+ "weekday": "Wed",
+ "held": {
+  "fresh": 2,
+  "deal": 1,
+  "total": 3
+ },
+ "set": {
+  "fresh": 2,
+  "deal": 2,
+  "total": 4
+ },
+ "upcoming_total": 6,
+ "rep_breakdown": {
+  "tim_lieto": {
+   "set": 3,
+   "held": 1,
+   "upcoming": 2
+  },
+  "ken_cunningham": {
+   "set": 0,
+   "held": 2,
+   "upcoming": 1
+  },
+  "tim_ziemer": {
+   "set": 1,
+   "held": 0,
+   "upcoming": 3
+  },
+  "markus_hendrich": {
+   "set": 0,
+   "held": 0,
+   "upcoming": 0
+  }
+ },
+ "trend_baseline": {
+  "prior_runs_used": [
+   "2026-06-03",
+   "2026-06-04",
+   "2026-06-05",
+   "2026-06-08",
+   "2026-06-09"
+  ],
+  "status": "LIVE (5 prior weekday runs on disk)",
+  "averages": {
+   "held_fresh": 2.0,
+   "held_deal": 0.6,
+   "set_fresh": 1.4,
+   "set_deal": 0.6
+  },
+  "tags": {
+   "held_fresh": "FLAT",
+   "held_deal": "FLAT",
+   "set_fresh": "FLAT",
+   "set_deal": "UP"
+  }
+ },
+ "calendar_movement": {
+  "yesterday_snapshot_present": true,
+  "yesterday_date": "2026-06-09",
+  "pushed": [],
+  "pulled_in": [],
+  "dropped": [],
+  "new": [
+   {
+    "engagement_id": 375031680752,
+    "company": "Cirrascale Cloud Services",
+    "owner": "tim_lieto",
+    "new_ts_et": "2026-06-15T16:00",
+    "note": "Tier 1 NeoCloud first meeting, booked today"
+   },
+   {
+    "engagement_id": 375024702155,
+    "company": "Technium / SBA Edge",
+    "owner": "tim_lieto",
+    "new_ts_et": "2026-06-11T09:30",
+    "note": "rebook of the 6/9 dropped-content Technium/SBA slot; open $5k lab deal"
+   },
+   {
+    "engagement_id": 375007944392,
+    "company": "FiberLight",
+    "owner": "tim_ziemer",
+    "new_ts_et": "2026-06-17T15:00",
+    "note": "booked 6/3, rolled into 7d window today"
+   },
+   {
+    "engagement_id": 375026009848,
+    "company": "Pearce Services",
+    "owner": "tim_ziemer",
+    "new_ts_et": "2026-06-16T11:00",
+    "note": "Nexus-Pearce sync, booked today"
+   }
+  ],
+  "transitioned_to_held": [
+   {
+    "engagement_id": 373499554501,
+    "company": "Myakka Communications",
+    "note": "6/10 11:30 ET pricing call -> held CALL 375031178994; MEETING twin collapsed"
+   },
+   {
+    "engagement_id": 374188036845,
+    "company": "United Teleports (via NCTC)",
+    "note": "6/10 14:30 ET discovery -> held CALL 375056552672; MEETING twin collapsed"
+   }
+  ],
+  "note": "702 Communications + Fusion Broadband unchanged vs yesterday. No PUSHED/PULLED IN/DROPPED. Markus untitled 6/16 meeting excluded (artifact, 3rd day). Tim/Sorell 6/16 excluded (internal)."
+ },
+ "meddpicc_writes": {
+  "tier_1_fills": 0,
+  "tier_1_refreshes": 0,
+  "tier_2_drift": 0,
+  "tier_3_holds": 0,
+  "skipped": 7,
+  "skip_details": [
+   "Anthony Salamoni (BroadStar, 489067118326): all 6 fields smart-filled today 22:20Z with this call's content (site-scaled pricing ask, NAT alternative, 4x10 QSFP). Populated + matches -> skip.",
+   "David Clar (RocNet, 415247650542): fields current incl. today's smart-fill. Skip.",
+   "Mark Ackaway (Myakka, 484589650637): all 6 fields smart-filled today from the pricing call (self-build alternative, E-Rate metrics). Skip.",
+   "William Baines (484536816318): fields current; email @dragonfly.net (parent is Flagged for deletion) - would skip on company gate regardless.",
+   "Craig Pedersen + Andrew Esparza (NCTC) + Bob Tynan (RocNet): partner contacts, no deal scope; smart-fill already stamped NOT_DISCUSSED content from the 96s United Teleports recording. No writes."
+  ],
+  "note": "HubSpot native smart-fill (22:20Z daily pass) populated all contact MEDDPICC before this run fired; per matrix every field = populated + matches most-recent transcript -> skip silently. Zero CRM Guardian writes this run."
+ },
+ "run_meta": {
+  "run_time_et": "2026-06-10T19:01 (6pm CT fire)",
+  "held_window_et": "2026-06-09T19:00 -> 2026-06-10T19:01",
+  "logwindow_et": "2026-06-09T19:00 -> 2026-06-10T19:01 (catch-up lookback floor 2026-05-27)",
+  "watermark_continuous": true,
+  "set_window_et": "same as held; Set = 4 true forward bookings (3 held-call auto-logs excluded as createdate~=timestamp HUBSPOT_MEETINGS logs)",
+  "upcoming_window_et": "2026-06-10T19:01 -> 2026-06-17T19:01; CALL upcoming query returned 0",
+  "tracked_reps": [
+   "161889085 Tim Lieto",
+   "162339176 Ken Cunningham",
+   "159350430 Tim Ziemer",
+   "164949459 Markus Hendrich"
+  ],
+  "late_log_catchups": [],
+  "dedup_collapsed": [
+   "MEETING 374916279996 collapsed into CALL 375023066841 (BroadStar/RocNet quick sync twin; CALL canonical)",
+   "MEETING 373499554501 collapsed into CALL 375031178994 (Myakka pricing twin; CALL canonical)",
+   "MEETING 374188036845 collapsed into CALL 375056552672 (United Teleports twin; CALL canonical)"
+  ],
+  "audit_dropped": [
+   "MEETING 374854181581 'Tim/Sorell' 6/16 (Tim Lieto) - internal (Sorell = MaiaEdge Fellow); excluded from Upcoming.",
+   "MEETING 374360388287 (untitled, Markus, 6/16 04:30 ET) - no company/title; excluded from Upcoming; 3rd consecutive day flagged."
+  ],
+  "calendar_health_7d": {
+   "tim_lieto": "4+ calendar-sourced objects",
+   "ken_cunningham": "4+ (2 held HUBSPOT_MEETINGS calls + meeting twins)",
+   "tim_ziemer": "1 (Pearce sync)",
+   "markus_hendrich": "1 (untitled artifact - quality flagged, not zero)",
+   "flags": "none at zero; all 3 held calls calendar-sourced"
+  },
+  "data_hygiene_flags": [
+   "United Teleports: no company record in CRM; held discovery call 375056552672 associated to NCTC + RocNet only.",
+   "Fast Wave (Flagged for deletion) still associated to BroadStar call/deal - flagged 6/9, persists.",
+   "Dragonfly Internet (Flagged for deletion) associated to Myakka held call - association noise.",
+   "Markus untitled 6/16 meeting 374360388287 - 3rd consecutive day."
+  ],
+  "for_you_routing": {
+   "abilash": [
+    "Cirrascale Tier 1 on calendar 6/15",
+    "NCTC channel producing (United Teleports intro)"
+   ],
+   "tim_z": [
+    "BroadStar leadership pricing decision needed",
+    "small-operator pricing-fit pattern (Myakka + BroadStar same window)"
+   ],
+   "cooper": [
+    "United Teleports missing company record",
+    "Fast Wave stale association persists",
+    "Dragonfly association noise on Myakka call",
+    "Markus untitled meeting 3rd day"
+   ],
+   "tim_lieto": [
+    "BroadStar proposal gated on pricing decision + PoC wk 6/15",
+    "Technium/SBA tomorrow 9:30 ET",
+    "Cirrascale 6/15 prep"
+   ],
+   "ken_cunningham": [
+    "United Teleports debrief (recording cut)",
+    "Myakka post-July-4 reconnect + leave-behind"
+   ],
+   "pt": [
+    "BroadStar PoC install wk 6/15 Miami Mon/Tue; 4x10 QSFP open question; shipment risk"
+   ]
+  },
+  "dm_links": {
+   "abilash": "https://maia-edge.slack.com/archives/D0A2YNPVB96/p1781132798793699",
+   "tim_z": "https://maia-edge.slack.com/archives/D0A2817RE68/p1781132823646299",
+   "cooper": "https://maia-edge.slack.com/archives/D0A2YNL1TA4/p1781132851039789",
+   "tim_lieto": "https://maia-edge.slack.com/archives/D0A9UNDR5EW/p1781132876967519",
+   "ken_cunningham": "https://maia-edge.slack.com/archives/D0AE4AGC5KJ/p1781132900966629",
+   "pt": "https://maia-edge.slack.com/archives/D0A28180WG4/p1781132924504809"
+  }
+ }
+}

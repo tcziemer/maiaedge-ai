@@ -1,0 +1,6 @@
+[
+ {"hs_object_id": 375964040925, "hs_timestamp": "2026-06-19T18:00:00Z", "hubspot_owner_id": "161889085", "company_name": "Globalgig", "account_tier": "tier_2", "segment": "MSP/Aggregator", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 376690168529, "hs_timestamp": "2026-06-22T18:00:00Z", "hubspot_owner_id": "161889085", "company_name": "Colony Compute", "account_tier": "tier_1", "segment": "Data Center Colo Provider", "fresh_or_deal": "DEAL"},
+ {"hs_object_id": 374737343181, "hs_timestamp": "2026-06-23T17:30:00Z", "hubspot_owner_id": "161889085", "company_name": "Tim Lieto - 30 Minute Introduction", "account_tier": "unknown", "segment": "unclassified", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375345631968, "hs_timestamp": "2026-06-24T15:30:00Z", "hubspot_owner_id": "161889085", "company_name": "GDT", "account_tier": "tier_5", "segment": "Partner Target", "fresh_or_deal": "FRESH"}
+]

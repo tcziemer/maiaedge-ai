@@ -1,0 +1,167 @@
+[
+ {
+  "id": "318220838608",
+  "name": "ADG LDI",
+  "fields": {
+   "geographic_focus": "Headquartered in Punjab, Pakistan. National Long Distance and International (LDI) licensed carrier with a domestic voice network across strategic regions of Pakistan and direct interconnects to all Pakistani GSM operators; serves international and national carriers for inbound/outbound termination.",
+   "infrastructure_profile": "POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "ADG LDI runs an integrated IP and TDM voice platform (Dialogic-based core switching) for wholesale call completion, with traffic carried over interconnects and POPs across Pakistan. Provisioning is voice-termination-oriented and handled through carrier interconnect agreements and manual NOC/switch configuration rather than an automated data-fabric portal. Private, deterministic IP paths for data or cloud on-ramp are not part of its current model."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "223979096790",
+  "name": "Acuutech",
+  "fields": {
+   "infrastructure_profile": "None Identified"
+  },
+  "low_confidence": false,
+  "flag_note": "Acuutech is a managed hybrid-cloud MSP (Azure-consistent platform on UK datacentres) and does not own network route-miles, POPs, or colo facilities of its own; None Identified is the correct infrastructure_profile for an MSP/Aggregator."
+ },
+ {
+  "id": "208821148373",
+  "name": "BTS",
+  "fields": {
+   "infrastructure_profile": "None Identified"
+  },
+  "low_confidence": false,
+  "flag_note": "BTS is a global wholesale/retail voice, messaging and IPX aggregator (600+ interconnections, proprietary S1 platform) that rides partner interconnects rather than owning terrestrial route-miles or POPs; None Identified fits the Telecom Aggregator sub-segment."
+ },
+ {
+  "id": "319126833854",
+  "name": "Blueline Madagascar",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Blueline (a Gulfsat Madagascar brand) is a national ISP/fiber and mobile operator serving 40,000+ customers across Madagascar's main cities, including a ~400km domestic fiber build plus satellite backhaul for rural reach. Connectivity is provisioned through its own access network and upstream international capacity, configured manually by its NOC. There is no automated provisioning fabric, and private, deterministic paths to cloud are a clear gap given its emerging-market footprint."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "268447803122",
+  "name": "BridgeLync",
+  "fields": {
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes"
+  },
+  "low_confidence": false,
+  "flag_note": "BridgeLync is a US carrier/broadband aggregator delivering multi-carrier access under a single contract, invoice and support point; it does not own underlying network infrastructure, so None Identified is correct for infrastructure_profile."
+ },
+ {
+  "id": "316598423244",
+  "name": "CIMA Telecom",
+  "fields": {
+   "geographic_focus": "Headquartered in Miami, Florida (subsidiary of CIMA Group, operating since 1981). Global wholesale and retail voice carrier handling 3B+ minutes annually, with a Caribbean and Latin America commercial focus alongside worldwide termination relationships.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "CIMA Telecom operates a fully redundant IP-based voice network providing global termination with integrated anti-fraud, run from its Miami NOC. It is a wholesale/retail voice carrier that scales via carrier interconnect agreements rather than owning terrestrial route-miles, so provisioning is interconnect- and switch-driven rather than data-fabric automated. Private, deterministic IP paths and cloud on-ramp are outside its voice-centric model."
+  },
+  "low_confidence": false,
+  "flag_note": "Record is classified Fiber Operator / Regional CLEC, but CIMA Telecom presents as a wholesale/retail voice carrier (3B+ minutes, IP voice termination) with no evidence of an owned access fiber or CLEC network; fields filled conservatively but the Fiber Operator classification looks like a likely mismatch."
+ },
+ {
+  "id": "319139526392",
+  "name": "Digitel Venezuela Wholesale",
+  "fields": {
+   "geographic_focus": "Headquartered in Caracas (Capital District), Venezuela. National GSM mobile operator (~3M subscribers, ~15% market share) with nationwide 2G/3G/4G coverage and emerging 5G FWA trials; the wholesale arm extends carrier and connectivity services to business customers within Venezuela and regional LATAM partners.",
+   "infrastructure_profile": "POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Digitel runs a national mobile network (GSM/WCDMA/LTE) supported by an OSS/BSS stack typical of a facilities-based MNO, with a wholesale motion that resells capacity and connectivity to business customers and partner carriers. Provisioning follows standard mobile-operator OSS workflows and carrier interconnect agreements rather than an automated inter-cloud fabric. Deterministic private paths to hyperscalers are a gap given Venezuela has no operational hyperscaler region."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319125023419",
+  "name": "Fasttelco",
+  "fields": {
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "FASTtelco is a Kuwait City-based ISP and data-communications carrier (part of the stc Kuwait group) offering broadband, IP telephony/SIP, WAN, colocation, and international termination, carrying roughly 50-100 Gbps of traffic. It provisions enterprise and wholesale connectivity through its national network and upstream capacity using stc-group OSS/BSS processes. Automated, deterministic private paths to hyperscalers are a gap since Kuwait has no operational hyperscaler region nearby.",
+   "state": "Al Asimah"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "320875891444",
+  "name": "Gazeti Telecomm",
+  "fields": {
+   "segmentation_confidence": "medium_7089",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Gazeti Telecomm is a licensed Mexican carrier-class wholesale provider offering voice termination and A2P/P2P SMS aggregation (SMPP 3.4 / REST API) with direct routes across LATAM, based in Mexico City. It is an aggregator that rides interconnect routes rather than owning terrestrial infrastructure, so provisioning is interconnect- and platform-driven with manual route management. Private, deterministic IP paths to cloud are outside its wholesale voice/SMS model."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319126830809",
+  "name": "Island Broadband",
+  "fields": {
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Island Broadband is a small local ISP serving the Turks and Caicos Islands, with its footprint centered on Providenciales and the other inhabited islands. It provisions broadband access over its local network and upstream subsea capacity, configured manually by a small operations team. As a single-territory island operator it has no automated provisioning fabric and no nearby hyperscaler on-ramp, making private deterministic paths a clear gap.",
+   "state": "Providenciales"
+  },
+  "low_confidence": true,
+  "flag_note": "Record is classified Tier 1 Carrier - Network Op, but Island Broadband is a small single-territory Turks and Caicos ISP, not a Tier 1 carrier; fields filled conservatively. Limited public disclosure on islandbb.tc, so infrastructure_profile is a best-supported estimate (low_confidence)."
+ },
+ {
+  "id": "319132457672",
+  "name": "KN Network",
+  "fields": {
+   "infrastructure_profile": "None Identified",
+   "state": "Saint Michael"
+  },
+  "low_confidence": true,
+  "flag_note": "KN Network (knnetwork.bb / KN Network Services International (Barbados) Ltd, linked to the KN/KN Circet infrastructure-services group) appears to be a telecom/infrastructure construction and managed-services contractor, not a facilities-based Tier 1 carrier or ISP. None Identified is the conservative infrastructure_profile; the Tier 1 Carrier - Network Op classification looks likely wrong. State set to Saint Michael (Bridgetown) as best-effort HQ parish; low public disclosure (low_confidence)."
+ },
+ {
+  "id": "319125023431",
+  "name": "Kalaam Telecom",
+  "fields": {
+   "geographic_focus": "Headquartered in Bahrain (Manama) with offices in Saudi Arabia, Kuwait, UAE, Jordan and the UK. Operates ~53 PoPs across 25 countries, its own KNOT terrestrial cable system spanning Kuwait, Bahrain, KSA, UAE and Qatar, plus consortium ownership in the EIG subsea cable; serves regional and international wholesale carriers and hyperscalers across MENA.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Large (50-99)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Kalaam Telecom provisions wholesale and enterprise connectivity over its owned KNOT terrestrial cable system and EIG subsea capacity, terminating at ~53 PoPs across 25 countries, with a carrier-agnostic one-stop offering for carriers and hyperscalers. Provisioning runs through standard carrier OSS/BSS and circuit-delivery workflows rather than an automated self-service data fabric. Deterministic, on-demand private paths between metros and clouds remain a gap relative to NaaS-style fabrics."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318400654069",
+  "name": "Kyivstar JSC",
+  "fields": {
+   "segmentation_confidence": "high_90",
+   "geographic_focus": "Headquartered in Kyiv, Ukraine (VEON Group subsidiary). National operator serving 22.4M+ mobile subscribers and 1.2M+ home internet customers, with the largest 4G network in Ukraine covering ~96% of the population in government-controlled territory, plus fixed broadband and Starlink direct-to-cell services.",
+   "infrastructure_profile": "POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Kyivstar operates a nationwide mobile (2G/3G/4G, 6,000+ base stations added in 2025) and fixed-broadband network across Ukraine, managed through a full carrier-grade OSS/BSS stack as a VEON-group MNO. Connectivity and enterprise services are provisioned via standard operator workflows and interconnect agreements rather than an automated multi-cloud fabric. Private, deterministic paths to hyperscalers are a gap since Ukraine has no operational hyperscaler cloud region."
+  },
+  "low_confidence": false,
+  "flag_note": "HubSpot state on this record is 'Khmelnytskyi Oblast', but Kyivstar JSC is headquartered in Kyiv; geographic_focus reflects the correct HQ (state not in miss array, left unchanged)."
+ },
+ {
+  "id": "324060146411",
+  "name": "Net2Phone Canada",
+  "fields": {
+   "infrastructure_profile": "None Identified"
+  },
+  "low_confidence": false,
+  "flag_note": "net2phone Canada (formerly Versature) is a cloud UCaaS provider delivering hosted voice/video/SMS over the public internet; it owns no network route-miles, POPs or facilities, so None Identified is correct for the Cloud + Telecom Hybrid MSP sub-segment."
+ }
+]

@@ -1,0 +1,297 @@
+[
+ {
+  "id": "316504259305",
+  "name": "Sparktelecomm",
+  "domain": "sparktelecomm.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "Federal District",
+  "country": "Mexico",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "FULL re-enrichment + Apollo confirmed. Spark Telecomm (sparktelecomm.com); Mexico City. ~23 emp. SMS A2P, voice, WhatsApp, RCS, DIDs, Direct Carrier Billing, in-house developed messaging gateway + sip",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319197822663",
+  "name": "Standard Telecom DRC",
+  "domain": "standard-telecom.cd",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Democratic Republic of the Congo",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "DR Congo Standard Telecom DRC, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319197827820",
+  "name": "Supercable Venezuela",
+  "domain": "supercable.com.ve",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Capital District",
+  "country": "Venezuela",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Venezuela Supercable Venezuela, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. LATAM Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319194136276",
+  "name": "Surfline Communications",
+  "domain": "surflineghana.com",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Ghana",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Ghana Surfline Communications, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318223398595",
+  "name": "Tecomsa Telecommuncations",
+  "domain": "tecomsa-ltd.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "Limassol",
+  "country": "Cyprus",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Tecomsa SAL (Lebanon HQ, Cyprus office Limassol, founded 2007, 53 emp, ~$1-10M rev). Lebanese IT+telecom hybrid \u2014 international voice termination wholesale (since 2011), A2P SMS, IT distribution, cust",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319190598331",
+  "name": "Telecom Vanuatu Limited (TVL)",
+  "domain": "tvl.vu",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "North Carolina",
+  "country": "Vanuatu",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Vanuatu primary carrier. ICN1 subsea cable landing. Wholesale transport services alongside retail/mobile. Pacific incumbent.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318231691997",
+  "name": "Telesol Group",
+  "domain": "telesolgroup.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Managed Network Services - MSP",
+  "conf": "medium_7089",
+  "state": "North Holland",
+  "country": "Netherlands",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Telesol Group \u2014 Netherlands-based global managed network infrastructure services. Multi-brand transmission equipment sales, installation, maintenance, testing. 76 employees, founded 2006, HQ Amsterdam",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318219105988",
+  "name": "Telespace",
+  "domain": "telespace.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Managed Network Services - MSP",
+  "conf": "medium_7089",
+  "state": "Texas",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "TeleSpace LLC \u2014 Austin TX-based cloud collaboration provider. Cisco Powered voice, video, contact center as monthly subscriptions. 3 employees, founded 2012. Asset-light managed services reseller of C",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319194138308",
+  "name": "Telesur",
+  "domain": "telesur.sr",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "Amazonas",
+  "country": "Suriname",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Suriname Telesur, regional fiber operator with regional clec - fiber operator motion. Serves enterprise DIA + wholesale transit. LATAM Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318231691993",
+  "name": "Teligent Telecom",
+  "domain": "teligent.se",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "Stockholms laen",
+  "country": "Sweden",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Teligent Telecom (Sweden) \u2014 Swedish telecom infrastructure + custom software, 20+ years experience. 160 employees, $33M revenue, founded 1990. Comprehensive enterprise services. Established mid-size N",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318231692005",
+  "name": "Ten Peaks Data Centres",
+  "domain": "tenpeaks.ca",
+  "seg": "Data Center Colo Provider",
+  "sub": "Standard - colo",
+  "conf": "medium_7089",
+  "state": "",
+  "country": "",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Ten Peaks Data Centres \u2014 Canadian colocation operator (LinkedIn confirmed). Limited public information beyond LinkedIn presence. Minimal Apollo enrichment data. Classification based on company name (D",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state",
+   "country"
+  ]
+ },
+ {
+  "id": "319208306408",
+  "name": "Tizeti Networks",
+  "domain": "tizeti.com",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Prahova",
+  "country": "Nigeria",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Nigeria Tizeti Networks, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "320307860199",
+  "name": "Tombigbee Fiber",
+  "domain": "tombigbeefiber.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "Mississippi",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "FULL re-enrichment + Apollo. State corrected Alabama\u2192Mississippi (Apollo confirms Tupelo MS HQ). Tombigbee Fiber, LLC (tombigbeefiber.com); Tupelo MS. Founded 2019. ~6 emp. Subsidiary of Tombigbee Ele",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319208306409",
+  "name": "VIPNET",
+  "domain": "vipnet.ci",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Abidjan",
+  "country": "Cote d'Ivoire",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Cote d'Ivoire VIPNET, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ }
+]

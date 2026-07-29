@@ -1,0 +1,65 @@
+{
+  "date": "2026-06-08",
+  "weekday": "Mon",
+  "held": {"fresh": 1, "deal": 0, "total": 1},
+  "set":  {"fresh": 0, "deal": 0, "total": 0},
+  "upcoming_total": 5,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 0, "held": 0, "upcoming": 0},
+    "ken_cunningham": {"set": 0, "held": 1, "upcoming": 3},
+    "tim_ziemer":     {"set": 0, "held": 0, "upcoming": 2},
+    "markus_hendrich":{"set": 0, "held": 0, "upcoming": 0}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05"],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {"held_fresh": 2.4, "held_deal": 1.4, "set_fresh": 2.0, "set_deal": 0.2},
+    "tags": {"held_fresh": "DOWN", "held_deal": "DOWN", "set_fresh": "DOWN", "set_deal": "FLAT"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-05",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 368678544084, "company": "Fusion Broadband", "owner": "tim_ziemer", "new_ts_et": "2026-06-15T12:00", "note": "pre-existing meeting (created 5/8) that rolled into the 7-day horizon as the window advanced; not a fresh booking"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 374669997774, "company": "Segra", "note": "6/8 14:00 ET SegraFiber overview+demo -> held call (canonical CALL; MEETING twin 374199263980 collapsed)"},
+      {"engagement_id": 374116121297, "company": "Crosslake", "owner": "tim_lieto", "note": "6/8 19:00 ET reached its slot exactly at window close; no summary/transcript - dropped to audit, will surface tomorrow if notes land"}
+    ],
+    "note": "702 Communications (374027050703) shifted 6/12 19:00->19:30 (<1h, noise, ignored). Mplify/Myakka/United Teleports unchanged. No DROPPED, no PUSHED, no PULLED IN."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 1,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 0,
+    "fill_details": [
+      {"contact": "Steve Hartman (Segra, Managing Director Carrier Sales) id 297204007630", "fields": ["meddpicc_pain_contact", "meddpicc_use_case"], "evidence": "Today's Segra overview+demo (call 374669997774, transcript+summary): 90-day circuit builds risk losing customers to faster carriers, wants minutes-not-months provisioning on owned fiber; fiber operator monetizing 45k+ mile network via instant automated L2 + off-net reach / infra sharing. Both fields empty pre-write (num_notes 6); metrics + infrastructure_contact already smart-filled today (skip). criteria + competition not clearly discussed (skip). Property names per project spec."}
+    ]
+  },
+  "dm_delivery": {
+    "abilash": {"user_id": "U06RVK9NTQR", "channel": "D0A2YNPVB96", "ts": "1780959952.909469", "status": "delivered"},
+    "tim_z":   {"user_id": "U08CMD5PMQE", "channel": "D0A2817RE68", "ts": "1780959967.486229", "status": "delivered"},
+    "cooper":  {"user_id": "U0A24D9RJLS", "channel": "D0A2YNL1TA4", "ts": "1780959983.196789", "status": "delivered"}
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-08T19:00 (6pm CT fire)",
+    "held_window_et": "2026-06-05T19:00 -> 2026-06-08T19:00 (rolling prior-run -> now, gapless Monday weekend catch-up ~72h; prior lastRunAt = Fri 6/5 19:00)",
+    "set_window_et": "same as held; 0 true external forward bookings (Markus 6/16 untitled meeting has no company/title - excluded; Dario/Markus 6/6 sync is internal)",
+    "upcoming_window_et": "2026-06-08T19:00 -> 2026-06-15T19:00 (next 7 days); CALL upcoming query returned 0; 5 tracked-rep MEETINGs",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer", "164949459 Markus Hendrich"],
+    "dedup_collapsed": [
+      "MEETING 374199263980 collapsed into CALL 374669997774 (Segra twin; CALL canonical = carries summary/transcript)",
+      "MEETING 374268543684 collapsed into CALL 374583576275 (Sync Dario & Markus twin)"
+    ],
+    "audit_dropped": [
+      "CALL 374583576275 + MEETING twin 374268543684 'Sync Dario & Markus' (Markus) - internal onboarding/outreach-strategy sync with MaiaEdge advisor Dario Mussi (Advisor-Consultant, personal gmail); 0 external company, no prospect content. Excluded per Internal-Only Filter (permissive: obvious internal sync).",
+      "MEETING 374116121297 'Tim (Maia) & David (Crosslake)' (Tim Lieto) 6/8 19:00 ET - external company but no summary/transcript (Teams-invite body only), reached its slot at window close; dropped per skip rule (no extractable content).",
+      "MEETING 374360388287 (untitled, Markus, ts 6/16 08:30) - forward-dated booking created today but no company association and no title; not counted as Set (unverifiable as prospect booking) and outside 7-day upcoming window. Data-hygiene flag to Cooper."
+    ]
+  }
+}

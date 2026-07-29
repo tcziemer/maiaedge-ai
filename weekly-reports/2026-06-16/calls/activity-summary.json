@@ -1,0 +1,120 @@
+{
+  "date": "2026-06-16",
+  "weekday": "Tue",
+  "held": {"fresh": 7, "deal": 0, "total": 7},
+  "set":  {"fresh": 4, "deal": 0, "total": 4},
+  "upcoming_total": 6,
+  "rep_breakdown": {
+    "tim_lieto":       {"set": 3, "held": 5, "upcoming": 3},
+    "ken_cunningham":  {"set": 0, "held": 0, "upcoming": 0},
+    "tim_ziemer":      {"set": 1, "held": 1, "upcoming": 2},
+    "markus_hendrich": {"set": 0, "held": 1, "upcoming": 1}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-15"],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {"held_fresh": 2.6, "held_deal": 0.8, "set_fresh": 2.4, "set_deal": 1.0},
+    "tags": {"held_fresh": "UP", "held_deal": "FLAT", "set_fresh": "UP", "set_deal": "DOWN"},
+    "note": "Partner + fresh-logo heavy day. held_fresh 7 vs 2.6 UP. held_deal 0 vs 0.8 FLAT (abs diff <1). set_fresh 4 vs 2.4 UP. set_deal 0 vs 1.0 DOWN. Zero open-deal calls held; the one open deal in motion (ambiFOX POC) reached its slot with no notes logged so was not counted held."
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-15",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 376435253953, "company": "Omada Technologies (follow-up)", "owner": "tim_lieto", "new_ts_et": "2026-06-17T14:00", "tier": "other", "segment": "Other", "note": "Omada partner follow-up booked today for 6/17"},
+      {"engagement_id": 376448123601, "company": "Nexus (Nick -> Kristyn & Julie)", "owner": "tim_ziemer", "new_ts_et": "2026-06-17T12:30", "tier": "unknown", "segment": "unclassified", "note": "intro call booked today for 6/17"},
+      {"engagement_id": 374737343181, "company": "Tim Lieto 30-Minute Introduction (scheduler link)", "owner": "tim_lieto", "new_ts_et": "2026-06-23T13:30", "tier": "unknown", "segment": "unclassified", "note": "createdate 6/9 but newly inside the 7-day window today"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 375900414684, "company": "Ecoblox", "note": "6/16 09:00 ET MEETING twin -> held CALL 376092707534 (canonical w/ summary+transcript)"},
+      {"engagement_id": 375214606020, "company": "Arc Compute", "note": "6/16 09:00 ET MEETING twin -> held CALL 376112484081 (canonical)"},
+      {"engagement_id": 375972764394, "company": "ConRes (Lunch - Tim & Janet)", "note": "6/16 12:00 ET calendar twin -> held MEETING 376466862830 (logged notes)"},
+      {"engagement_id": 375918337767, "company": "ambiFOX GmbH", "note": "6/16 05:40 ET reached slot; NO completion notes logged -> NOT counted held; surfaced to PT + Cooper"},
+      {"engagement_id": 375026009848, "company": "Pearce Services", "note": "6/16 11:00 ET reached slot; NO completion notes logged -> NOT counted held; surfaced to Cooper"}
+    ],
+    "note": "No PUSHED/PULLED/DROPPED. Yesterday's 6/16 slots transitioned to held (Ecoblox, Arc, ConRes) or reached-slot-no-notes (ambiFOX, Pearce). Bouygues 6/17, FiberLight 6/17, Globalgig 6/19 carry unchanged. 3 NEW today (Omada follow-up, Nexus, 30-min intro)."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 2,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped_contacts": 5,
+    "fill_details": [
+      "Igor Briski (Ecoblox Architect, 461518801594): meddpicc_pain_contact + meddpicc_infrastructure_contact FILLED from today's Ecoblox intro transcript. meddpicc_use_case + meddpicc_metrics_contact were HubSpot smart-filled earlier today (skip-match). competition/criteria not stated (skip).",
+      "Joshua Gelata (Arc Compute Infra Lead, 466004508398): meddpicc_pain_contact + meddpicc_infrastructure_contact FILLED from today's Arc intro transcript. use_case + metrics HubSpot smart-filled (skip-match). competition/criteria not stated (skip)."
+    ],
+    "skip_details": [
+      "matija@ecoblox.io (474350847716): secondary Ecoblox evaluator, no title; Igor (named Architect) covers the account-level discovery -> skip to avoid duplicate writes.",
+      "Christopher Farden (Omada, 503404813028): partner VAR intro, not a buying prospect; topic was joint targets not Omada's own pain -> skip.",
+      "Tom Phillips (Wasabi, 502509197032): partner/cloud-destination exploration; network-performance pain noted but no deal and exploratory -> skip per confidence guard (captured in narrative).",
+      "Carsten Fraszczak (STACKIT/Schwarz Digits, 491957068477): first exploratory call, no pain/use-case stated as STACKIT's need yet -> skip.",
+      "ambiFOX contacts (Sebastian Gruendken 497189373682, Daniel Gebing 449675523825): 6/16 meeting had no logged notes/transcript -> no attributable evidence -> skip."
+    ]
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-16T19:52 (6pm CT fire)",
+    "held_window_et": "2026-06-15T19:00 -> 2026-06-16T19:52 (rolling prior-run -> now, ~25h)",
+    "logwindow_et": "2026-06-15T19:00 -> 2026-06-16T19:52 (catch-up lookback floor 2026-06-02T19:52)",
+    "watermark_continuous": true,
+    "watermark_note": "held_start (6/15 19:00 ET) == Monday run held_end (6/15 19:00 ET). Continuous, no gap back-fill.",
+    "set_window_et": "same as held; Set = 4 true forward bookings (Wasabi book-and-hold, Troubadour [ts 7/16], Omada follow-up [6/17] - Tim Lieto; Nexus [6/17] - Tim Z). Held HUBSPOT_MEETINGS auto-logs + manually back-logged partner meetings excluded from Set.",
+    "upcoming_window_et": "2026-06-16T19:52 -> 2026-06-23T19:52; CALL upcoming query returned 0; 6 tracked-rep non-internal meetings",
+    "tracked_reps": ["161889085 Tim Lieto","162339176 Ken Cunningham","159350430 Tim Ziemer","164949459 Markus Hendrich"],
+    "tory_teague_note": "still no HubSpot owner record found; not yet a tracked seller this run",
+    "late_log_catchups": [],
+    "held_confirmed_7": [
+      "376092707534 Ecoblox (Tim Lieto) - CALL canonical, summary+transcript; MEETING twin 375900414684 collapsed",
+      "376112484081 Arc Compute (Tim Z) - CALL canonical, summary+transcript; MEETING twin 375214606020 collapsed",
+      "376466862830 ConRes/Continental Resources (Tim Lieto) - MEETING logged notes; calendar twin 375972764394 ('Lunch - Tim & Janet') collapsed",
+      "376371842772 Sumauma (Tim Lieto) - MEETING logged notes",
+      "376468742857 Omada Technologies (Tim Lieto) - MEETING logged notes",
+      "376391614148 Wasabi Technologies (Tim Lieto) - CALL hand-logged body; MEETING twins 375994466003 ('Wasabi/Tom Phillips Intro call') + 376415975141 ('Tim/Boomer', Boomer=Tom Phillips) collapsed",
+      "374360388287 STACKIT/Schwarz Digits (Markus) - MEETING placeholder in-window; logged-notes record 376364412607 (owner-less, ts mis-stamped 2025-06-16) clustered for narrative + contacts"
+    ],
+    "held_excluded_no_notes": [
+      "375918337767 ambiFOX GmbH (Markus) - reached 6/16 05:40 ET slot; body is Teams-invite only, no outcome, no logged notes, no CALL twin. DEAL($50k presentationscheduled)+POC. NOT counted held; surfaced to PT + Cooper as logging/POC follow-up.",
+      "375026009848 Pearce Services (Tim Z) - reached 6/16 11:00 ET slot; Teams-invite body only, no outcome/notes. Tier 5 Other. NOT counted held; surfaced to Cooper."
+    ],
+    "audit_dropped_untracked_or_internal": [
+      "375355562698 'MaiaEdge presentation' (Kyle Blackwell 159701452, 6/16 18:00 ET) - UNTRACKED owner -> audit only",
+      "376321989361 'Internal - Oracle Hyperscaler Prep' (Kyle 159701452, 6/17) - untracked + internal -> excluded from Upcoming",
+      "375376203450 'Oracle/MaiaEdge.io Intro' (Kyle 159701452, 6/18) - untracked -> excluded from Upcoming",
+      "374854181581 'Internal - Oracle Hyperscaler Prep' (Tim Lieto, 6/17 19:00Z) - internal (title) -> excluded from Upcoming",
+      "374360388287-sibling: 376364412607 owner-less STACKIT notes clustered into held (not double-counted)"
+    ],
+    "calendar_health_7d": {
+      "tim_lieto": "healthy - Ecoblox HUBSPOT_MEETINGS call + many calendar meetings. Wasabi hand-logged CALL has MEETING twins (not Socket pattern). ConRes/Sumauma/Omada partner meetings manually logged end-of-day (normal).",
+      "ken_cunningham": "0 activity this window AND 0 prior window (6/15). No calendar-sourced objects observed this run. Quiet-rep signal (second straight) -> flagged to Tim Z, not a hard calendar-sync flag yet.",
+      "tim_ziemer": "healthy - Arc HUBSPOT_MEETINGS call + FiberLight/Nexus bookings. Pearce reached slot no notes.",
+      "markus_hendrich": "healthy - STACKIT meeting + ambiFOX/Bouygues calendar objects. ambiFOX reached slot no notes.",
+      "flags": "No rep at zero calendar-sourced objects in 7d while otherwise active (Ken is genuinely quiet, not sync-broken). ambiFOX (Markus) + Pearce (Tim Z) reached-slot-no-notes -> Cooper logging-health line."
+    },
+    "data_hygiene_flags": [
+      "STACKIT/Schwarz Digits company 327944646384 unenriched (no name/segment/tier) - queue enrichment; notable German sovereign-cloud (Schwarz Group) account.",
+      "Ecoblox (327... 315067284210, Dubai/UAE) owned by Tim Lieto (East) while account is International + Markus-led - possible owner re-derive to International.",
+      "ambiFOX 6/16 POC meeting + Pearce 6/16 sync reached slots with no completion notes - logging discipline / possible reschedule."
+    ],
+    "for_you_routing": {
+      "abilash": ["Arc Compute Tier1 (joined call)","Ecoblox Tier1 re-engaged","STACKIT new logo","Wasabi partnership (Acme Packet overlap)"],
+      "tim_z": ["ambiFOX POC no-notes confirm","Ken 0/0/0 second straight","Arc Compute next step","Wasabi exec presentation"],
+      "cooper": ["logging health ambiFOX+Pearce","data hygiene STACKIT unenriched + Ecoblox territory","MEDDPICC 2 fills","run health continuous"],
+      "tim_lieto": ["Ecoblox demo next step","Wasabi exec presentation","Omada joint targets","upcoming Omada 6/17 + Globalgig 6/19"],
+      "ken_cunningham": ["(0 items - FOR YOU omitted)"],
+      "pt": ["ambiFOX active POC no-notes confirm","Ecoblox demo/POC forming"]
+    },
+    "dm_links": {
+      "abilash": "https://maia-edge.slack.com/archives/D0A2YNPVB96/p1781654919553249",
+      "tim_z": "https://maia-edge.slack.com/archives/D0A2817RE68/p1781654953729919",
+      "cooper": "https://maia-edge.slack.com/archives/D0A2YNL1TA4/p1781654973473459",
+      "tim_lieto": "https://maia-edge.slack.com/archives/D0A9UNDR5EW/p1781654990755489",
+      "ken_cunningham": "https://maia-edge.slack.com/archives/D0AE4AGC5KJ/p1781655007227369",
+      "pt": "https://maia-edge.slack.com/archives/D0A28180WG4/p1781655024190879"
+    },
+    "delivery_status": "GREEN - all 6 DMs delivered on first attempt",
+    "tooling_note": "search_crm_objects associatedWith used for all association hydration (companies/contacts/deals/tickets). Slack MCP standard-markdown contract (**bold**, fenced code blocks); arrows rendered as -> to avoid any glyph issues."
+  }
+}

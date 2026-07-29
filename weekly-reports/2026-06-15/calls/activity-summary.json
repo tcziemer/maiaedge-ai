@@ -1,0 +1,190 @@
+{
+  "date": "2026-06-15",
+  "weekday": "Mon",
+  "held": {
+    "fresh": 4,
+    "deal": 1,
+    "total": 5
+  },
+  "set": {
+    "fresh": 3,
+    "deal": 1,
+    "total": 4
+  },
+  "upcoming_total": 8,
+  "rep_breakdown": {
+    "tim_lieto": {
+      "set": 3,
+      "held": 2,
+      "upcoming": 3
+    },
+    "ken_cunningham": {
+      "set": 0,
+      "held": 0,
+      "upcoming": 0
+    },
+    "tim_ziemer": {
+      "set": 0,
+      "held": 3,
+      "upcoming": 3
+    },
+    "markus_hendrich": {
+      "set": 1,
+      "held": 0,
+      "upcoming": 2
+    }
+  },
+  "trend_baseline": {
+    "prior_runs_used": [
+      "2026-06-08",
+      "2026-06-09",
+      "2026-06-10",
+      "2026-06-11",
+      "2026-06-12"
+    ],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {
+      "held_fresh": 2.0,
+      "held_deal": 0.6,
+      "set_fresh": 1.8,
+      "set_deal": 0.8
+    },
+    "tags": {
+      "held_fresh": "UP",
+      "held_deal": "FLAT",
+      "set_fresh": "UP",
+      "set_deal": "FLAT"
+    },
+    "note": "Prospecting-heavy Monday weekend catch-up. held_fresh 4 vs 2.0 UP. held_deal 1 vs 0.6 FLAT (abs diff <1). set_fresh 3 vs 1.8 UP. set_deal 1 vs 0.8 FLAT. 2 of the 4 fresh held are Mplify Lisbon late-log conference touches (NTT, Verizon)."
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-12",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {
+        "engagement_id": 375900414684,
+        "company": "Ecoblox",
+        "owner": "tim_lieto",
+        "new_ts_et": "2026-06-16T09:00",
+        "tier": "tier_1",
+        "segment": "Data Center Colo Provider",
+        "sub_segment": "AI Signals - colo",
+        "note": "Tier 1 AI colo (Dubai); booked today for 6/16 intro"
+      },
+      {
+        "engagement_id": 375918337767,
+        "company": "ambiFOX GmbH",
+        "owner": "markus_hendrich",
+        "new_ts_et": "2026-06-16T05:40",
+        "tier": "tier_2",
+        "segment": "MSP/Aggregator",
+        "note": "Germany; open $50k deal at presentation + active POC ticket touched today; booked today"
+      },
+      {
+        "engagement_id": 375964040925,
+        "company": "Globalgig",
+        "owner": "tim_lieto",
+        "new_ts_et": "2026-06-19T14:00",
+        "tier": "tier_2",
+        "segment": "MSP/Aggregator",
+        "note": "booked today for 6/19"
+      },
+      {
+        "engagement_id": 375972764394,
+        "company": "Continental Resources (ConRes)",
+        "owner": "tim_lieto",
+        "new_ts_et": "2026-06-16T12:00",
+        "tier": "unknown",
+        "segment": "unclassified",
+        "note": "Janet Gray (Account Manager); company created today, unenriched; titled 'Lunch - Tim & Janet' but external ConRes contact"
+      }
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {
+        "engagement_id": 375031680752,
+        "company": "Cirrascale",
+        "note": "6/15 16:00 ET MaiaEdge & Cirrascale -> held CALL 375973892802; MEETING twin collapsed"
+      },
+      {
+        "engagement_id": 368678544084,
+        "company": "Fusion Broadband SA",
+        "note": "6/15 12:00 ET touch-base -> held CALL 375911640772; MEETING twin collapsed"
+      }
+    ],
+    "note": "Arc Compute 6/16, Pearce 6/16, FiberLight 6/17, Bouygues 6/17 unchanged vs Friday (carryover upcoming). Cirrascale + Fusion reached their slots and transitioned to held. No PUSHED/PULLED/DROPPED."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 6,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped_contacts": 3,
+    "fill_details": [
+      "Al Lucarelli (Cirrascale VP Sales, 499028845289): meddpicc_pain_contact + meddpicc_infrastructure_contact FILLED from today's Cirrascale intro call. competition + use_case were HubSpot smart-filled today (match -> skip). criteria + metrics ambiguous (skip). No deal -> contact-level only.",
+      "Steve Bremer (Socket Fiber Dir Wholesale & Channel, 492002195149): meddpicc_pain + use_case + competition + infrastructure FILLED from today's Socket Fiber intro (all 6 empty pre-write). criteria (next-step, not stated) + metrics (none quantified) skipped. No deal -> contact-level only."
+    ],
+    "skip_details": [
+      "Fusion Broadband contact(s): held touch-base recording captured no usable content (number-reading only); no MEDDPICC evidence -> skip.",
+      "Yuta Yamagishi (NTT, 502191387339): Mplify Lisbon conference note; no MEDDPICC category stated as a need -> skip.",
+      "Scott Lawrence (Verizon SVP, 492087057130): Mplify Lisbon follow-up; 'Ethernet over 5G' too exploratory to attribute -> skip per confidence guard."
+    ]
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-15T19:00 (6pm CT fire)",
+    "held_window_et": "2026-06-12T16:10 -> 2026-06-15T19:00 (rolling prior-run -> now; Monday weekend catch-up ~72h)",
+    "logwindow_et": "2026-06-12T16:10 -> 2026-06-15T19:00 (catch-up lookback floor 2026-06-01)",
+    "watermark_continuous": true,
+    "watermark_note": "held_start (6/12 16:10 ET) == Friday run held_end (6/12 16:10 ET). Continuous, no gap back-fill. Friday fired early at 16:10 ET so Friday-evening activity correctly falls in this window.",
+    "set_window_et": "same as held; Set = 4 true forward bookings (Ecoblox, Globalgig, ConRes/Lunch - Tim Lieto; ambiFOX - Markus). Held HUBSPOT_MEETINGS auto-log CALLs + the 2 Mplify late-log meetings excluded from Set (createdate >= or after timestamp = logs not bookings).",
+    "upcoming_window_et": "2026-06-15T19:00 -> 2026-06-22T19:00; CALL upcoming query returned 0; 8 tracked-rep meetings",
+    "tracked_reps": [
+      "161889085 Tim Lieto",
+      "162339176 Ken Cunningham",
+      "159350430 Tim Ziemer",
+      "164949459 Markus Hendrich"
+    ],
+    "late_log_catchups": [
+      "MEETING 375905805049 NTT/Yuta Yamagishi (Tim Z) - held ~6/11 17:00Z, logged today 6/15 13:40Z. [late log], within 14d floor, not in seen-ledger.",
+      "MEETING 375917926102 Verizon/Scott Lawrence (Tim Z) - held ~6/8 17:00Z, logged today 6/15 13:28Z. [late log], within 14d floor, not in seen-ledger."
+    ],
+    "dedup_collapsed": [
+      "MEETING 375031680752 -> CALL 375973892802 (Cirrascale twin; CALL canonical w/ summary+transcript)",
+      "MEETING 368678544084 -> CALL 375911640772 (Fusion twin; CALL canonical)",
+      "CALL 375974084288 + MEETING 375911355076 'Meat' clustered (Tim Z) -> DROPPED (see audit_dropped)"
+    ],
+    "audit_dropped": [
+      "CALL 375974084288 + MEETING twin 375911355076 'Meat' (Tim Z, 6/15 16:30-16:40 ET) - personal/non-business recording. Sole contact Andy Epstein (personal gmail, no company); summary is an interpersonal exchange, zero sales content. Dropped: not a prospect/customer/partner engagement. Recommend deleting the recording.",
+      "MEETING 374360388287 (untitled, Markus, 6/16 08:30 ET) - no title/company; recurring artifact since ~6/8. Excluded from Upcoming. Recommend delete.",
+      "MEETING 375355562698 'MaiaEdge presentation' (Kyle Blackwell 159701452, 6/16 18:00 ET) - UNTRACKED owner -> audit only.",
+      "MEETING 375376203450 'Oracle/MaiaEdge.io Intro' (Kyle Blackwell 159701452, 6/18 17:00 ET) - untracked owner -> audit only.",
+      "MEETING 374854181581 'Internal - Oracle Hyperscaler Prep' (Tim Lieto, 6/16 18:00 ET) - internal (title) -> excluded from Upcoming."
+    ],
+    "calendar_health_7d": {
+      "tim_lieto": "healthy - Cirrascale HUBSPOT_MEETINGS call today + Ecoblox/Globalgig/ConRes bookings. Socket Fiber held call hand-logged (INTEGRATIONS_PLATFORM, manual notes, no MEETING twin) - flagged to Cooper.",
+      "ken_cunningham": "non-zero trailing 7d (702 demo 6/12, Myakka+United Teleports 6/10). 0 activity THIS window - silence signal, not a calendar-health flag.",
+      "tim_ziemer": "non-zero - Fusion HUBSPOT_MEETINGS call today + Arc/Pearce/FiberLight bookings. 2 Mplify late-logs are CRM_UI manual conference notes, not calendar-sourced.",
+      "markus_hendrich": "non-zero - ambiFOX + Bouygues bookings calendar-sourced. Untitled 6/16 artifact persists.",
+      "flags": "Socket Fiber (Tim Lieto) hand-logged not calendar-sourced -> Cooper FOR YOU (Socket pattern). No rep at zero calendar-sourced objects in 7d."
+    },
+    "data_hygiene_flags": [
+      "NTT contact Yuta Yamagishi (502191387339) + Verizon contact Scott Lawrence (492087057130) have NO associated company record - link to NTT / Verizon companies.",
+      "Socket Fiber held call hand-logged, not calendar-sourced (calendar-sync watch).",
+      "'Meat' personal recording (Tim Z + Andy Epstein) - recommend delete.",
+      "Markus untitled 6/16 meeting 374360388287 - recurring artifact."
+    ],
+    "dm_links": {
+      "abilash": "https://maia-edge.slack.com/archives/D0A2YNPVB96/p1781565588428309",
+      "tim_z": "https://maia-edge.slack.com/archives/D0A2817RE68/p1781565613935639",
+      "cooper": "https://maia-edge.slack.com/archives/D0A2YNL1TA4/p1781565630900859",
+      "tim_lieto": "https://maia-edge.slack.com/archives/D0A9UNDR5EW/p1781565653251409",
+      "ken_cunningham": "https://maia-edge.slack.com/archives/D0AE4AGC5KJ/p1781565666996009",
+      "pt": "https://maia-edge.slack.com/archives/D0A28180WG4/p1781565682033899"
+    },
+    "delivery_status": "GREEN - all 6 DMs delivered on first attempt",
+    "tooling_note": "query_crm_data cross-object SELECT with hs_object_id IN(...) returned HubSpot internal errors repeatedly; pivoted to search_crm_objects associatedWith for all association hydration. Slack canvas F0B0AFSB9LN read returned >1M chars (oversized); run-log appended via saved-file section lookup.",
+    "formatting_note": "DMs sent with standard markdown (**bold**, fenced code blocks) per the connected Slack MCP contract; converts to Slack mrkdwn server-side."
+  }
+}

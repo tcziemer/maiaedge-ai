@@ -1,0 +1,97 @@
+[
+ {
+  "id": "316491210473",
+  "name": "Vapor IO",
+  "fields": {
+   "geographic_focus": "US-based (Austin, Texas HQ) edge colocation operator with its Kinetic Grid micro modular data centers deployed across roughly 30+ US metro markets, plus early European expansion in Barcelona via a Cellnex partnership.",
+   "infrastructure_profile": "Facilities: Enterprise (50+)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "Vapor IO operates clusters of automated micro modular data centers sited at fiber intersections, cell towers, and rights-of-way, stitched together by a metro and national edge-to-edge backbone and orchestrated through its proprietary Kinetic Grid software platform. Provisioning and interconnect run through that homegrown grid control plane rather than a third-party fabric. Cross-metro and partner-network handoffs into low-latency, deterministic private paths are where carrier infrastructure complements its edge footprint."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318231692002",
+  "name": "Whisl Telecom",
+  "fields": {
+   "geographic_focus": "US-focused intermediate voice provider headquartered in Garland, Texas, operating as a regulatory-compliance-oriented voice carrier/aggregator. Backed by IQSTEL (NASDAQ-traded), with worldwide voice termination reach but no owned physical network footprint.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Whisl is an asset-light, FCC-registered intermediate voice provider centered on robocall mitigation, STIR/SHAKEN, and fraud protection rather than owned transport. It interconnects with upstream and downstream carriers for voice termination and manages compliance and routing through carrier ticket and SIP-trunk arrangements. With no owned fiber or facilities, there is no native deterministic private-path layer; connectivity is brokered through partner carriers."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "320997081786",
+  "name": "ambiFOX GmbH",
+  "fields": {
+   "segmentation_confidence": "high_90",
+   "geographic_focus": "German IT managed-services and network provider headquartered in Ahaus (North Rhine-Westphalia), serving SMEs, law firms, and multi-site businesses across Germany and parts of Europe.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "ambiFOX is an IT-outsourcing and managed-services provider that delivers NaaS and SD-WAN via its nocware cloud-native orchestration layer, built on Juniper/128 Technology Session Smart Routing and partner SD-WAN technology. It provisions and manages customer site-to-site networks as an overlay over third-party access circuits rather than owning physical transport. Underlying deterministic, private path capacity from carrier infrastructure is what its overlay would ride on."
+  },
+  "low_confidence": false,
+  "flag_note": "Asset-light MSP/managed-services and SD-WAN/NaaS overlay provider (nocware) - no owned network. MSP/Aggregator classification looks correct; recording high_90 to fill the blank confidence."
+ },
+ {
+  "id": "319190683379",
+  "name": "bmobile Vodafone",
+  "fields": {
+   "geographic_focus": "National mobile and telecom operator in Trinidad and Tobago, the bmobile brand of TSTT (majority government-owned, formerly Cable & Wireless JV), serving the twin-island domestic market with some regional Caribbean wholesale and roaming reach.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "As the incumbent national MNO/telco for Trinidad and Tobago, bmobile/TSTT provisions mobile (GSM/UMTS/LTE) and fixed services through a conventional carrier OSS/BSS stack and domestic backbone. Enterprise and wholesale circuits are delivered through traditional carrier ordering and provisioning processes. Programmatic, on-demand private interconnect to clouds and partner networks is largely absent, which is where deterministic carrier-infrastructure paths would extend its reach."
+  },
+  "low_confidence": false,
+  "flag_note": "Sub-segment is Tier 1 Carrier - Network Op, but bmobile is a small twin-island national MNO (the bmobile brand of TSTT), not a global Tier 1 carrier. Footprint and POP scale are domestic Caribbean. Suspected over-tiering; left classification unchanged per instructions."
+ },
+ {
+  "id": "324170890955",
+  "name": "Allstream",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Allstream is now a Zayo-owned Canadian fiber operator; the acquired network added ~18,000 route miles (12,500 long-haul plus 5,500 metro) reaching ~3,300 on-net buildings across Canada's top five metros, with the Allstream brand retained for legacy voice and small-business services. Provisioning runs through Zayo's national OSS/BSS and service-automation stack for transport, wavelengths, and Ethernet. Deterministic on-demand private interconnect into clouds and partner fabrics is where carrier infrastructure extends the underlying fiber."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "324104658647",
+  "name": "Cleareon",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Cleareon is a New York metro dark fiber and carrier-neutral transport specialist whose dense fiber connects the area's carrier hotels and data centers (111 8th Avenue and similar) out toward enterprise buildings in NYC, New Jersey, and Brooklyn. It sells Layer 1 dark fiber plus lit Ethernet/IP services, with provisioning driven by manual cross-connect, LOA/CFA, and circuit-turn-up workflows typical of a metro dark fiber provider. On-demand, programmatic private-path provisioning is the gap that carrier infrastructure addresses on top of its fiber."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "326325672653",
+  "name": "Hub One",
+  "fields": {
+   "company_sub_segment": "Tier 1 Carrier - Network Op"
+  },
+  "low_confidence": false,
+  "flag_note": "Hub One (Groupe ADP subsidiary) is a French alternative telecom/digital-services operator running private 4G/5G, fiber, WiFi and managed networks for enterprises - a regional/national operator rather than a true global Tier 1, pure-wholesale, subsea, or cable-MSO. Tier 1 Carrier - Network Op is the closest fit among the available options."
+ },
+ {
+  "id": "326163435208",
+  "name": "Win s.a. (NRB)",
+  "fields": {
+   "company_sub_segment": "Tier 1 Carrier - Network Op"
+  },
+  "low_confidence": false,
+  "flag_note": "Win s.a. (NRB Group) is a Belgian/Wallonia network operator and ICT integrator running its own proprietary network plus the carrier-neutral Wallonia Data Center - a regional operator, not a global Tier 1, pure-wholesale, subsea, or cable MSO. Tier 1 Carrier - Network Op is the best available fit among the limited Network Operator options."
+ }
+]

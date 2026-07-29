@@ -1,0 +1,194 @@
+[
+ {
+  "id": "319176782542",
+  "name": "Myanmar Net",
+  "fields": {
+   "geographic_focus": "Operates in Myanmar as a fixed and fixed-wireless broadband ISP (brand of Frontiir). Footprint spans Yangon, Mandalay, Naypyitaw, Bago, Taunggyi, Mawlamyine and other major cities, serving 3.5M+ users.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Myanmar Net runs a metro fiber and fixed-wireless access network reaching homes and businesses across major Myanmar cities, with business internet and basic enterprise data services layered on top. Connectivity to customers is provisioned through its own access plant and manual operational workflows rather than an automated fabric. Private, deterministic inter-metro and cross-border paths to cloud or partner endpoints are a gap given its emerging-market access-centric model.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Brief labels this a 'carrier/MNO' but Myanmar Net (Frontiir) is a fixed/fixed-wireless broadband ISP, not a mobile network operator. Sub-segment 'Tier 1 Carrier - Network Op' likely overstated; it is a national/regional broadband ISP."
+ },
+ {
+  "id": "319176780504",
+  "name": "NetCo Lebanon",
+  "fields": {
+   "geographic_focus": "Lebanon-based telecom/network company serving residential and business customers domestically. Footprint and scale could not be confirmed through public sources.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "NetCo Lebanon appears to operate as a Lebanese internet/data service provider distributing connectivity that ultimately rides the state-owned OGERO fixed backbone, the model used by most Lebanese DSPs and ISPs. Provisioning would follow manual, ticket-driven access workflows typical of small national ISPs. Public evidence is thin, so its footprint and any private deterministic-path capability are unconfirmed.",
+   "state": ""
+  },
+  "low_confidence": true,
+  "flag_note": "Almost no public footprint for netco.com.lb. Conservative defaults used. 'Tier 1 Carrier - Network Op' at high_90 confidence looks overstated for what appears to be a small Lebanese ISP/DSP."
+ },
+ {
+  "id": "319190694588",
+  "name": "Newcom Gibraltar",
+  "fields": {
+   "geographic_focus": "Gibraltar-based communications provider serving the British Overseas Territory of Gibraltar. Specific scale and service mix could not be confirmed publicly.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Newcom appears to be a small Gibraltar communications/ISP operator in a market dominated by the incumbent Gibtelecom. Any retail or business connectivity it sells would likely ride leased or wholesale infrastructure and be provisioned through manual, small-operator workflows. Footprint is unconfirmed and there is no evidence of an automated provisioning fabric or significant owned route plant.",
+   "state": ""
+  },
+  "low_confidence": true,
+  "flag_note": "No reliable public footprint for newcom.gi. Conservative defaults used. 'Tier 1 Carrier - Network Op' at high_90 confidence is overstated; Gibraltar is a single-territory market and Newcom is at most a small ISP/reseller, not a Tier 1 carrier."
+ },
+ {
+  "id": "319204764394",
+  "name": "Newroz Telecom",
+  "fields": {
+   "geographic_focus": "Headquartered in Erbil, Iraq, operating across the Kurdistan Region of Iraq. Largest integrated ISP in Kurdistan with 100,000+ subscribers and 1,500+ km of fiber connecting the region to international networks.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Newroz (Allai Newroz) runs an integrated fiber, fixed-line and 4G/LTE network across Iraqi Kurdistan, with 1,500+ km of fiber backbone carrying broadband, voice and enterprise data. Customer and enterprise circuits are provisioned through its own access and transport plant using regional, largely manual operational processes typical of an emerging-market operator. Private, deterministic on-ramps to hyperscaler clouds and international partners are a gap given the lack of nearby hyperscaler regions and automated fabric tooling.",
+   "state": "Erbil"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319182219973",
+  "name": "PDS Pacific Data Systems",
+  "fields": {
+   "geographic_focus": "Headquartered in Tamuning, Guam, operating since 1969 with presence in Guam, Saipan (CNMI) and Hawaii. FCC-authorized 214 facilities-based carrier and Guam CLEC.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "PDS is a Guam-based facilities-based CLEC and total IT/telecom solutions provider offering voice, internet access, data circuits and enterprise networking (VoIP PBX, Cisco networks) across Guam, Saipan and Hawaii. Circuits and services are provisioned through its own local-exchange plant plus integration work, using manual, project-based operational workflows. Private deterministic inter-island and cloud on-ramp paths are a gap given the remote Pacific footprint and absence of nearby hyperscaler regions.",
+   "state": "Guam"
+  },
+  "low_confidence": false,
+  "flag_note": "PDS is a Guam CLEC plus IT systems integrator/MSP, not a Tier 1 carrier; sub-segment 'Tier 1 Carrier - Network Op' is overstated."
+ },
+ {
+  "id": "319173106384",
+  "name": "PTI Pacifica",
+  "fields": {
+   "geographic_focus": "Headquartered in Tamuning, Guam, doing business as IT&E. Serves Guam and the Northern Mariana Islands (CNMI); subsidiary of Pacific Telecom Inc. Operates the MTC Interisland Cable System (MICS) submarine cable linking Saipan, Tinian, Rota and Guam.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "PTI Pacifica (IT&E) is a facilities-based local exchange carrier in the CNMI and CLEC in Guam, providing mobile, fiber, internet, voice and data center services, and it owns the MICS interisland submarine cable connecting the Marianas. Connectivity is provisioned over its own access, transport and subsea plant through manual, regionally-run operational processes. Private deterministic paths to mainland hyperscalers are a gap given the remote Pacific location and lack of nearby hyperscaler regions.",
+   "state": "Guam"
+  },
+  "low_confidence": false,
+  "flag_note": "PTI Pacifica (IT&E) is a regional Guam/CNMI CLEC with an interisland subsea cable, not a global Tier 1 carrier; sub-segment 'Tier 1 Carrier - Network Op' is overstated."
+ },
+ {
+  "id": "301784664824",
+  "name": "Pellera Technologies",
+  "fields": {
+   "geographic_focus": "Headquartered in Tallahassee, Florida, operating across the United States (national IT solutions and managed services provider). Formed July 2025 from the merger of Converge Technology Solutions and Mainline Information Systems; ~$4B pro forma 2024 revenue.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "Pellera is an enterprise and mid-market IT solutions and managed services provider focused on hybrid cloud, cybersecurity, AI, app modernization, data and managed services, not an owner of network or carrier infrastructure. It resells and operates connectivity on behalf of clients via cloud and carrier partners rather than provisioning its own deterministic paths. Private, deterministic multi-cloud and inter-site connectivity for its enterprise clients is a gap it would source from carriers and fabrics rather than build.",
+   "state": "Florida"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "320373560057",
+  "name": "Ponderosa Telephone Company",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Ponderosa is a rural California ILEC/CLEC serving roughly 10,000 homes and businesses across ~1,650 sq mi of Sierra Nevada and Central California terrain over GPON/XGS-PON fiber delivering up to 10 Gbps symmetrical. Customer circuits are provisioned through its own access plant and traditional, largely manual local-exchange operational workflows. Private deterministic paths to cloud and metro fabric endpoints are a gap given its rural, access-focused footprint."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318209570537",
+  "name": "Revaltex Group OU",
+  "fields": {
+   "geographic_focus": "Headquartered in Harju County, Estonia, operating internationally as a telecom consulting and services firm (MVNO/MVNE enablement, eSIM, IMSI hosting, IoT wholesale mobile connectivity, telecom due diligence).",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Revaltex is an asset-light Estonian telecom consultancy and aggregator that enables MVNO/MVNE, eSIM and IoT mobile connectivity by brokering and hosting access on underlying mobile networks rather than owning physical plant. Connectivity is provisioned through partner-carrier integrations and platform/IMSI hosting arrangements managed by hand. It owns no route plant or deterministic transport, so private path delivery would depend entirely on its upstream carrier partners.",
+   "state": "Harju County"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318106540787",
+  "name": "RouteTrust",
+  "fields": {
+   "geographic_focus": "Headquartered in Austin, Texas, United States. Small (~6 employee) cloud-based voice-operations software company serving enterprise and wholesale communications providers, primarily US-focused.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "RouteTrust is an asset-light, cloud-based voice-operations SaaS vendor offering a Class IV softswitch, least-cost routing, toll-free management, DID inventory and call-quality analytics for carriers and wholesalers. It automates voice routing and operational workflows in software rather than owning network or carrier infrastructure. It provisions no physical paths itself; private deterministic transport is outside its product scope and would be supplied by its customers' underlying carriers.",
+   "state": "Texas"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318106540783",
+  "name": "SBTS",
+  "fields": {
+   "geographic_focus": "Headquartered in Minato, Tokyo, Japan as S and BTS Global K.K., a 2017 JV between BTS and SoftBank Corp. Serves carriers, CPaaS providers, hyperscalers and enterprises globally with regional specialization in APAC and the Middle East.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "SBTS is a SoftBank/BTS joint venture delivering international voice, messaging, fraud-protection and cloud-based communications services and consulting rather than owning carrier network infrastructure. It improves and brokers connectivity on top of SoftBank's and partner networks and recently launched travel eSIM services. It does not provision its own deterministic physical paths; private transport would be supplied by SoftBank or other underlying carriers.",
+   "state": "Tokyo"
+  },
+  "low_confidence": false,
+  "flag_note": "SBTS is a managed communications-tech / messaging-and-voice services JV (CPaaS-adjacent), not an infrastructure-owning Tier 1 carrier. Sub-segment 'Tier 1 Carrier - Network Op' is overstated; it is closer to MSP/Aggregator."
+ },
+ {
+  "id": "319182213851",
+  "name": "SWIFT Networks",
+  "fields": {
+   "geographic_focus": "Headquartered in Lagos, Nigeria, operating as a facilities-based fixed-wireless and fiber broadband provider primarily across Lagos and major Nigerian urban areas.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "SWIFT Networks is a Nigerian facilities-based broadband operator delivering internet and data over licensed 3.5GHz fixed-wireless (WTTx) and fiber (FTTx) to homes, estates and businesses, plus an LTE overlay. Customer connectivity is provisioned through its own licensed wireless and fiber access plant using manual operational workflows. Private deterministic on-ramps to hyperscaler clouds and international partners are a gap given the access-centric, emerging-market footprint.",
+   "state": "Lagos"
+  },
+  "low_confidence": false,
+  "flag_note": "SWIFT Networks is a regional Nigerian fixed-wireless/fiber broadband ISP, not a Tier 1 carrier; sub-segment 'Tier 1 Carrier - Network Op' is overstated."
+ },
+ {
+  "id": "319182207726",
+  "name": "Setar",
+  "fields": {
+   "geographic_focus": "National incumbent telecom operator for the island of Aruba (SETAR N.V., 100% government-owned), headquartered in Oranjestad. Full-service mobile, fixed, fiber, cable TV and internet provider across Aruba.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Setar is Aruba's national incumbent carrier running mobile (LTE, with a Nokia 5G transformation underway), FTTH, cable TV and fixed telephony across the island, operated through standard incumbent OSS/BSS systems. Services are provisioned over its own end-to-end island network. Private, deterministic off-island paths to hyperscaler clouds are a gap given Aruba's lack of nearby hyperscaler regions and reliance on a small number of subsea links.",
+   "state": ""
+  },
+  "low_confidence": false,
+  "flag_note": "Setar is a single-island national incumbent telco; 'Tier 1 Carrier - Network Op' is defensible as the national carrier but it is a small-island operator, not a global Tier 1. Footprint is Aruba-only."
+ },
+ {
+  "id": "320366030584",
+  "name": "SilverLight Fiber Networks",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "SilverLight is a privately funded open-access fiber network built and operated by Silver Star Communications across the town of Jackson, Wyoming, delivering up to 10 Gbps symmetrical and letting multiple retail ISPs (e.g. Intellipop) compete over the shared fiber. It provisions wholesale access to ISP partners over its own metro fiber plant using manual, build-driven operational workflows. Private, deterministic long-haul and cloud on-ramp paths beyond the local Jackson footprint are a gap given the single-town, access-layer scope."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ }
+]

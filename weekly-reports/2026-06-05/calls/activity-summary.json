@@ -1,0 +1,76 @@
+{
+  "date": "2026-06-05",
+  "weekday": "Fri",
+  "held": {"fresh": 2, "deal": 2, "total": 4},
+  "set":  {"fresh": 3, "deal": 0, "total": 3},
+  "upcoming_total": 6,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 1, "held": 1, "upcoming": 1},
+    "ken_cunningham": {"set": 2, "held": 1, "upcoming": 4},
+    "tim_ziemer":     {"set": 0, "held": 2, "upcoming": 1},
+    "markus_hendrich":{"set": 0, "held": 0, "upcoming": 0}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04"],
+    "missing": ["2026-05-29 (Fri - routine did not fire, no calls dir)"],
+    "status": "LIVE (4 prior weekday runs on disk)",
+    "averages": {"held_fresh": 2.5, "held_deal": 1.25, "set_fresh": 1.75, "set_deal": 0.25},
+    "tags": {"held_fresh": "FLAT", "held_deal": "FLAT", "set_fresh": "UP", "set_deal": "FLAT"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-04",
+    "pushed": [
+      {"engagement_id": 373499554501, "company": "Myakka Communications", "owner": "ken_cunningham", "old_ts_et": "2026-06-05T11:00", "new_ts_et": "2026-06-10T11:30", "tier": "tier_3", "segment": "Fiber Operator", "fresh_or_deal": "FRESH", "note": "held today as call 374164718284; meeting object pushed to 6/10 as the pricing follow-up touch"}
+    ],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 374199263980, "company": "SegraFiber", "owner": "ken_cunningham", "new_ts_et": "2026-06-08T14:00", "segment": "Fiber Operator (likely)", "note": "overview/demo booked today"},
+      {"engagement_id": 374116121297, "company": "Crosslake", "owner": "tim_lieto", "new_ts_et": "2026-06-08T15:00", "note": "Tim (Maia) & David (Crosslake)"},
+      {"engagement_id": 374188036845, "company": "United Teleports", "owner": "ken_cunningham", "new_ts_et": "2026-06-10T14:30", "note": "teleport/satellite discussion booked today"},
+      {"engagement_id": 374027050703, "company": "702 Communications", "owner": "ken_cunningham", "new_ts_et": "2026-06-12T15:00", "note": "overview/demo; created 6/4 20:13 ET after yesterday run, surfaces as NEW"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 373684232891, "company": "SBA Edge / Technium", "note": "6/5 9:00 ET intro -> held call 374116827894"},
+      {"engagement_id": 369260239585, "company": "HDCO/Movi", "note": "6/5 17:00 ET -> held call 374223647439"}
+    ],
+    "note": "Mplify Board (369613257448, 6/9) unchanged vs yesterday. SBA/Technium + Movi reached their meeting times today and transitioned to held. Myakka held + rebooked follow-up to 6/10."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 1,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 5,
+    "fill_details": [
+      {"contact": "Jared Benson (SBA Edge, Dir Strategic Sales - Edge Infra) id 465811045113", "field": "meddpicc_pain_contact", "evidence": "Today's SBA Edge/Technium intro (call 374116827894): bandwidth circuits arrive after the edge site is built/delivered, stalling activation; SBA wants outsourced provisioning + 24/7 monitoring so distributed AI edge pods turn up faster. Pain field empty pre-write (competition/criteria/use_case already smart-filled today). #PAIN_PROVISIONING #PAIN_OPERATIONAL"}
+    ],
+    "skip_details": [
+      "Michael Joseph (Technium CTO id 424214627034, num_notes 165): all 6 MEDDPICC fields richly smart-filled today - matches SBA/Technium call, skip.",
+      "Mark Ackaway (Myakka, Dir Network Eng id 484589650637, num_notes 19): competition/criteria/use_case smart-filled today from Myakka call, skip.",
+      "William Baines (Myakka, VP Net Deployment id 484536816318, email @dragonfly.net, num_notes 7): fields smart-filled today; primary company may resolve to Dragonfly (Flagged for deletion) - flagged to Cooper. Skip.",
+      "Victor Rodriguez (HDCO/Movi id 390062034636, num_notes 100): all MEDDPICC richly smart-filled today from Movi call, skip.",
+      "Daniel Gebing (ambiFOX Co-Founder/MD id 449675523825, num_notes 13): comprehensive MEDDPICC from prior 3/5 call; today's AmbiFox meeting is a logged note (no transcript) confirming PoC progression, no new MEDDPICC category - preserve, skip. s.bartels + Lisa Kemper (admin, num_notes 2): no MEDDPICC evidence, skip silently."
+    ]
+  },
+  "dm_delivery": {
+    "abilash": {"user_id": "U06RVK9NTQR", "channel": "D0A2YNPVB96", "ts": "1780700841.910119", "status": "delivered"},
+    "tim_z":   {"user_id": "U08CMD5PMQE", "channel": "D0A2817RE68", "ts": "1780700867.432969", "status": "delivered"},
+    "cooper":  {"user_id": "U0A24D9RJLS", "channel": "D0A2YNL1TA4", "ts": "1780700892.893139", "status": "delivered"}
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-05T19:00 (6pm CT fire)",
+    "held_window_et": "2026-06-04T19:00 -> 2026-06-05T19:00 (rolling prior-run -> now, gapless ~24h)",
+    "set_window_et": "same as held; Set measured on true forward MEETING bookings created in window (AmbiFox log excluded - createdate > timestamp)",
+    "upcoming_window_et": "2026-06-05T19:00 -> 2026-06-12T19:00 (next 7 days); CALL upcoming query returned 0",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer", "164949459 Markus Hendrich"],
+    "dedup_collapsed": [
+      "MEETING 373684232891 collapsed into CALL 374116827894 (SBA/Technium twin, same title/time/owner; CALL canonical = richer)",
+      "MEETING 369260239585 collapsed into CALL 374223647439 (Movi twin)"
+    ],
+    "audit_dropped": [
+      "No internal-only syncs in window. No sub-1-min content-less calls. AmbiFox MEETING 374199437014 timestamp 06:11Z is a logging artifact (meeting logged 16:19Z with full notes) - kept as held external partner engagement."
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "date": "2026-06-03",
+  "weekday": "Wed",
+  "held": {"fresh": 2, "deal": 0, "total": 2},
+  "set":  {"fresh": 2, "deal": 0, "total": 2},
+  "upcoming_total": 8,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 1, "held": 0, "upcoming": 3},
+    "ken_cunningham": {"set": 1, "held": 0, "upcoming": 2},
+    "tim_ziemer":     {"set": 0, "held": 2, "upcoming": 3}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-26", "2026-05-27", "2026-05-28", "2026-06-01", "2026-06-02"],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {"held_fresh": 1.8, "held_deal": 1.2, "set_fresh": 2.8, "set_deal": 0.2},
+    "tags": {"held_fresh": "FLAT", "held_deal": "DOWN", "set_fresh": "FLAT", "set_deal": "FLAT"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-02",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 373499554501, "company": "Myakka Communications", "owner": "ken_cunningham", "new_ts_et": "2026-06-05T11:00", "note": "pricing proposal - advancing signal"},
+      {"engagement_id": 373696105146, "company": "BroadStar", "owner": "tim_lieto", "new_ts_et": "2026-06-04T09:30", "tier": "tier_5", "note": "huddle"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 372944438972, "company": "Digital Realty", "note": "6/3 14:00 ET intro -> held call 373669254885"},
+      {"engagement_id": 372352846528, "company": "LatWan", "note": "6/3 09:30 ET intro -> held call 373416124109"}
+    ],
+    "note": "No reschedule movement vs yesterday's snapshot. Yesterday's 6/3-dated items (Digital Realty, LatWan, ACG, ONUG) all reached their meeting time today and transitioned/passed; none dropped. ONUG (16:00 ET) occurred just after the 15:59 ET held cutoff and will land in tomorrow's held window."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 2,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 1,
+    "fill_details": [
+      {"contact": "Thiago Caro (LatWan, CEO) id 467642756839", "fields": ["meddpicc_pain_contact", "meddpicc_use_case"], "evidence": "Today's LatWan intro call (373416124109, transcript+summary): CEO Thiago Caro engaged on programmable Ethernet, explicit interest in extending LatWan DIA customers into multiple data centers without IP complexity while keeping brand+margin in-house vs a third-party interconnection fabric. Both fields empty pre-write (num_notes 6 / num_contacted 4); clear and attributable to Thiago. Property names verified via search_properties before write."}
+    ],
+    "skip_details": [
+      "Digital Realty: founder-led intro (Tim Z + Abilash with Travis Ewert + team). Primary external attendee Travis Ewert not found among the 217 associated CRM contacts (mostly facilities/network-eng). Writing pain/use-case to a wrong contact = mis-attribution; skipped and flagged Travis Ewert for contact creation/identification."
+    ]
+  },
+  "dm_delivery": {
+    "abilash": {"user_id": "U06RVK9NTQR", "channel": "D0A2YNPVB96", "ts": "1780520916.197009", "status": "delivered"},
+    "tim_z":   {"user_id": "U08CMD5PMQE", "channel": "D0A2817RE68", "ts": "1780520930.635789", "status": "delivered"},
+    "cooper":  {"user_id": "U0A24D9RJLS", "channel": "D0A2YNL1TA4", "ts": "1780520947.686039", "status": "delivered"}
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-03T17:01 (nominal cadence 4pm CT = 5pm ET)",
+    "held_window_et": "2026-06-02T16:00 -> 2026-06-03T15:59 (24h Tue-Fri standard)",
+    "set_window_et": "same as held; Set measured on true MEETING bookings created in window, excluding auto call-logs whose createdate==meeting time (consistent with prior-run methodology)",
+    "upcoming_window_et": "2026-06-03T17:01 -> 2026-06-10T17:01 (next 7 days); CALL upcoming query returned 0, MEETING query returned the 8 tracked-rep items",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer"],
+    "audit_dropped_non_tracked": [
+      "CALL 373696168663 'Digital Realty - Intro Call' owner None - duplicate transcript log of the Digital Realty call (373669254885); owner-less so filtered to audit, dedup avoids double-count",
+      "MEETING 373514089155 'Intro Call: MaiaEdge / Latwan' owner None - duplicate of LatWan call; filtered to audit",
+      "MEETING 373757620963 'Hannah Roberts and Peter Fetterolf' (ACG Research, Tier 5 Partner Target) Tim Z - analyst/AR touch, no transcript/summary/company-deal content; excluded from held count + per-call snapshot (no extractable content)"
+    ],
+    "window_gap_flag": "CALL 373322854124 'Discovery Call - Voice Exchange & Path Border Controller' (Tim Z, dur 10m) timestamped 2026-06-02T09:30 ET but createdate 2026-06-02T21:17 ET. Logged after yesterday's run fired and before today's held window start (6/2 16:00) - fell between windows, never surfaced in a brief. Flagged to Cooper."
+  }
+}

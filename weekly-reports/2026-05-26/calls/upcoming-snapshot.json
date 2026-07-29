@@ -1,0 +1,111 @@
+[
+  {
+    "hs_object_id": 371156031178,
+    "type": "MEETING",
+    "title": "Dinner EPS Global/MaiaEdge/Aria Networks",
+    "hs_timestamp": "2026-05-26T23:00:00Z",
+    "hubspot_owner_id": "161889085",
+    "owner_name": "Tim Lieto",
+    "company_id": 319494358732,
+    "company_name": "EPSGlobal",
+    "account_tier": "tier_3",
+    "segment": "Partner Target",
+    "fresh_or_deal": "FRESH"
+  },
+  {
+    "hs_object_id": 369770144486,
+    "type": "MEETING",
+    "title": "Commercial Discussion - MaiaEdge",
+    "hs_timestamp": "2026-05-27T13:30:00Z",
+    "hubspot_owner_id": "159350430",
+    "owner_name": "Tim Ziemer",
+    "company_id": null,
+    "company_name": "(ambiguous - HDCO Group or Acuutech in associated companies; not resolved this run)",
+    "account_tier": "unknown",
+    "segment": "unknown",
+    "fresh_or_deal": "FRESH"
+  },
+  {
+    "hs_object_id": 371640554182,
+    "type": "MEETING",
+    "title": "Technium/MaiaEdge - POC Discussion",
+    "hs_timestamp": "2026-05-28T16:00:00Z",
+    "hubspot_owner_id": "161889085",
+    "owner_name": "Tim Lieto",
+    "company_id": 264034971368,
+    "company_name": "Technium",
+    "account_tier": "tier_2",
+    "segment": "MSP/Aggregator",
+    "fresh_or_deal": "DEAL",
+    "associated_deal": {"id": 323891060419, "name": "Technium - Lab", "amount": 5000, "stage": "presentationscheduled"}
+  },
+  {
+    "hs_object_id": 369403183813,
+    "type": "MEETING",
+    "title": "Verizon/MaiaEdge/Mplify Meeting",
+    "hs_timestamp": "2026-05-28T19:00:00Z",
+    "hubspot_owner_id": "159350430",
+    "owner_name": "Tim Ziemer",
+    "company_id": 192899501812,
+    "company_name": "Verizon (+ MEF/Mplify + Verizon Belgium/Norway subs)",
+    "account_tier": "tier_1",
+    "segment": "Network Operator(Tier 1 / VNO)",
+    "fresh_or_deal": "FRESH"
+  },
+  {
+    "hs_object_id": 369406782164,
+    "type": "MEETING",
+    "title": "MaiaEdge Intro to Imperium Data",
+    "hs_timestamp": "2026-05-28T19:30:00Z",
+    "hubspot_owner_id": "161889085",
+    "owner_name": "Tim Lieto",
+    "company_id": 321573875439,
+    "company_name": "Imperium Data Networks",
+    "account_tier": "tier_5",
+    "segment": "Other",
+    "fresh_or_deal": "FRESH"
+  },
+  {
+    "hs_object_id": 369260239585,
+    "type": "MEETING",
+    "title": "Maia / Movi - SW & CPE Cont'd",
+    "hs_timestamp": "2026-05-28T20:30:00Z",
+    "hubspot_owner_id": "161889085",
+    "owner_name": "Tim Lieto",
+    "company_id": null,
+    "company_name": "Movi (company record not located in this run; flagged for Cooper)",
+    "account_tier": "unknown",
+    "segment": "unknown",
+    "fresh_or_deal": "DEAL",
+    "associated_deals": [
+      {"id": 323907068655, "name": "Movi - CPE expansion", "amount": 600000, "stage": "qualifiedtobuy"},
+      {"id": 323837255366, "name": "Movi - 22 x 100G expansion", "amount": 400000, "stage": "1996673735"}
+    ]
+  },
+  {
+    "hs_object_id": 369684404951,
+    "type": "MEETING",
+    "title": "GDT / MaiaEdge:  Intro's to broader team",
+    "hs_timestamp": "2026-06-01T16:00:00Z",
+    "hubspot_owner_id": "162339176",
+    "owner_name": "Ken Cunningham",
+    "company_id": 322365611722,
+    "company_name": "GDT",
+    "account_tier": "tier_5",
+    "segment": "Partner Target",
+    "fresh_or_deal": "FRESH"
+  },
+  {
+    "hs_object_id": 370631086828,
+    "type": "MEETING",
+    "title": "Myakka/Dragonfly <> MaiaEdge Overview and Demo",
+    "hs_timestamp": "2026-06-02T14:00:00Z",
+    "hubspot_owner_id": "162339176",
+    "owner_name": "Ken Cunningham",
+    "company_id": 322400606929,
+    "company_name": "Myakka Communications, Inc.",
+    "account_tier": "tier_3",
+    "segment": "Fiber Operator",
+    "fresh_or_deal": "FRESH"
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-04",
+  "weekday": "Thu",
+  "held": {"fresh": 4, "deal": 0, "total": 4},
+  "set":  {"fresh": 1, "deal": 1, "total": 2},
+  "upcoming_total": 4,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 0, "held": 2, "upcoming": 1},
+    "ken_cunningham": {"set": 1, "held": 1, "upcoming": 1},
+    "tim_ziemer":     {"set": 1, "held": 1, "upcoming": 2},
+    "markus_hendrich":{"set": 0, "held": 0, "upcoming": 0}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-28", "2026-06-01", "2026-06-02", "2026-06-03"],
+    "missing": ["2026-05-29 (Fri - routine did not fire, no calls dir)"],
+    "status": "LIVE (4 prior weekday runs on disk)",
+    "averages": {"held_fresh": 2.25, "held_deal": 1.25, "set_fresh": 2.5, "set_deal": 0.0},
+    "tags": {"held_fresh": "UP", "held_deal": "DOWN", "set_fresh": "DOWN", "set_deal": "UP"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-03",
+    "pushed": [
+      {"engagement_id": 369260239585, "company": "HDCO Group (Movi)", "owner": "tim_lieto", "old_ts_et": "2026-06-04T16:00", "new_ts_et": "2026-06-05T17:00", "tier": "tier_2", "segment": "Data Center Colo Provider", "fresh_or_deal": "DEAL", "deal_amount": 600000, "note": "internal Maia/Movi sync logged 6/4; formal meeting moved to 6/5"}
+    ],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 373684232891, "company": "Technium / SBA Edge", "owner": "tim_ziemer", "new_ts_et": "2026-06-05T09:00", "tier": "tier_2", "segment": "MSP/Aggregator", "fresh_or_deal": "DEAL", "note": "three-way intro; Technium-Lab deal $5k presentationscheduled open"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 373938761417, "company": "BroadStar/RocNet", "note": "6/4 9:30 ET huddle -> held"},
+      {"engagement_id": 372425427682, "company": "1623 Farnam", "note": "6/4 11:00 ET demo -> held call 373996639990"},
+      {"engagement_id": 372968931022, "company": "Fibernow", "note": "6/4 15:00 ET intro -> held call 374093773501"},
+      {"engagement_id": 371909524207, "company": "Bell", "note": "6/4 15:00 ET intro -> held call 374006278858"}
+    ],
+    "note": "Most of yesterday's 8 upcoming items were 6/4-dated and reached their meeting time today; 4 transitioned to held external calls. Imperium/Acronym MaiaEdge Intro (372931022529) outcome=RESCHEDULED, timestamp now past, not counted as DROPPED (no new date in 7d window). ONUG (372287513325, 6/3 4pm) captured by rolling window but no transcript/summary - dropped to audit."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 4,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 2,
+    "fill_details": [
+      {"contact": "Matt Reed (1623 Farnam, VP Biz Dev) id 170484885225", "field": "meddpicc_use_case", "evidence": "1623 Farnam demo - cloud on-ramp + DC interconnect (Omaha/Minnesota) for colo tenants. Field empty pre-write; pain/competition/criteria already smart-filled today."},
+      {"contact": "Javier Aguirre (FiberNow, CTO) id 494738317015", "field": "meddpicc_use_case", "evidence": "FiberNow intro - L2 Ethernet over DIA for fast site turn-up + Starlink/fixed-wireless backup on lower-capacity sites. Field empty pre-write."},
+      {"contact": "Jason Lee (Bell, Architect) id 492298513121", "field": "meddpicc_use_case", "evidence": "Bell intro - international private Ethernet without an NNI via edge device over DIA, Ethernet over wireless/satellite. Field empty pre-write."},
+      {"contact": "Robin Constantin (Bell, Head of Global Sales) id 489851881158", "field": "meddpicc_use_case", "evidence": "Bell intro - international off-net Ethernet via edge device, bridging into existing carrier Ethernet core. Field empty pre-write."}
+    ],
+    "skip_details": [
+      "David Clar (RocNet, id 415247650542): all 6 MEDDPICC fields richly populated and smart-filled today (num_notes 44) - matches BroadStar huddle, skip. Anthony Salamoni (BroadStar, the actual prospect) still not a CRM contact - recurring flag.",
+      "Brian Hill (Imperium, id 481831323346): mis-associated to the FiberNow call; his fields reflect Imperium calls and are fully populated. Skip (no mis-attribution)."
+    ]
+  },
+  "dm_delivery": {
+    "abilash": {"user_id": "U06RVK9NTQR", "channel": "D0A2YNPVB96", "ts": "1780614516.357759", "status": "delivered"},
+    "tim_z":   {"user_id": "U08CMD5PMQE", "channel": "D0A2817RE68", "ts": "1780614538.378369", "status": "delivered"},
+    "cooper":  {"user_id": "U0A24D9RJLS", "channel": "D0A2YNL1TA4", "ts": "1780614562.644819", "status": "delivered"}
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-04T19:00 (6pm CT fire)",
+    "held_window_et": "2026-06-03T15:59 -> 2026-06-04T19:00 (rolling prior-run -> now, gapless; ~27h, captured the deferred ONUG tail)",
+    "set_window_et": "same as held; Set measured on true forward MEETING bookings created in window",
+    "upcoming_window_et": "2026-06-04T19:00 -> 2026-06-11T19:00 (next 7 days); CALL upcoming query returned 0",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer", "164949459 Markus Hendrich"],
+    "audit_dropped_internal_or_noncontent": [
+      "CALL 374002779867 'MaiaEdge Intro' (Tim Z) - internal Tim Z + Tory Teague onboarding/strategy chat (15m); no prospect content. Imperium/Acronym company associations are leftover from the rescheduled slot (372931022529). Excluded from held.",
+      "CALL 374006380256 'Maia / Movi - SW & CPE Cont'd' (Tim Lieto) - internal Abilash + Tim pipeline sync (12m), no external attendee; tied to open Movi deal $600k. Excluded from held as internal. Nugget: Victor (Movi) accepted Fiber Now collaboration proposal; ~5 new potential customers flagged.",
+      "MEETING 372287513325 'Call w/MaiaEdge & ONUG - Connect' (Tim Z) - held 6/3 4pm, Tier 5 partner/analyst (ONUG), no transcript/summary - dropped per skip rule (no extractable content).",
+      "Tory Teague: surfaced in logged calls but no HubSpot owner ID yet - to be added as 5th tracked seller once provisioned."
+    ]
+  }
+}

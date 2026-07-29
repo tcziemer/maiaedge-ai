@@ -1,0 +1,188 @@
+[
+ {
+  "id": "316528134882",
+  "name": "Go4Mobility",
+  "fields": {
+   "geographic_focus": "HQ in Lisbon, Portugal, with offices in Madrid, Maputo (Mozambique), and Luanda (Angola). Operates as a wholesale messaging and mobile services aggregator with reach across roughly 10 countries in Europe and Lusophone Africa.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "Go4Mobility runs a wholesale SMS gateway, SIP trunking, and content-aggregation/billing platform, interconnecting to mobile operators via direct links and local partners rather than owning physical transport. Connectivity to its messaging and voice platform is delivered over its own software stack and partner routes. Deterministic private paths between its platform nodes and operator interconnects are a potential gap, but as an aggregator it carries no fiber or POP infrastructure of its own."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified MSP/Aggregator - Telecom Aggregator, which fits. It is an A2P SMS / voice wholesale aggregator with no physical network, so infrastructure_profile is correctly None Identified."
+ },
+ {
+  "id": "319204762327",
+  "name": "Golis Telecom",
+  "fields": {
+   "geographic_focus": "Headquartered in Bosaso, the commercial capital of the autonomous Puntland state in northeastern Somalia. Provides GSM/3G/4G mobile, fixed-line, and internet services across major Puntland cities and 50+ districts, with limited expansion into other parts of Somalia and Somaliland.",
+   "infrastructure_profile": "POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Golis is a regional mobile and fixed operator serving Puntland, provisioning connectivity over its own GSM/3G/4G radio network and regional wholesale interconnect partnerships. Business-customer extension is handled through manual, ticket-driven processes typical of an emerging-market MNO. Deterministic private paths to data centers or cloud on-ramps are essentially absent in this market, making them a clear gap for any enterprise-grade connectivity need."
+  },
+  "low_confidence": false,
+  "flag_note": "Sub-segment is Tier 1 Carrier - Network Op, but Golis is a regional Puntland MNO (Africa Tier 3), not a Tier 1 carrier. Filled conservatively without changing classification."
+ },
+ {
+  "id": "319190688481",
+  "name": "Hai Telecommunications",
+  "fields": {
+   "geographic_focus": "Based in Zambia, operating nationally as the retail arm of Liquid Intelligent Technologies Zambia (formerly CEC Liquid). Owns an extensive domestic fiber network via partnerships with CEC Liquid and ZESCO and reaches international capacity through subsea cables on both African coasts.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Hai provisions FTTH, MPLS, and LTE connectivity for home, business, and enterprise customers over fiber it operates through CEC Liquid and ZESCO partnerships, backed by Liquid's pan-African backbone and subsea routes. As part of Liquid Intelligent Technologies, it provisions through a standard OSS/BSS-driven operator stack. Deterministic, private, on-demand paths to specific cloud regions remain a gap given Zambia's distance from major hyperscaler on-ramps.",
+   "state": "Lusaka Province"
+  },
+  "low_confidence": false,
+  "flag_note": "Now operates as Liquid Intelligent Technologies Zambia retail brand (Hai). Sub-segment Tier 1 Carrier overstates a national-retail ISP, but kept as-is per instructions."
+ },
+ {
+  "id": "319190597360",
+  "name": "Hawaiki Cable",
+  "fields": {
+   "geographic_focus": "Headquartered in Auckland, New Zealand, and owned by BW Digital (BW Group). Operates a ~15,000 km trans-Pacific subsea cable linking Australia, New Zealand, American Samoa, Hawaii, and Oregon on the US West Coast, with landing stations in Sydney, Mangawhai Heads, Kapolei, and Pacific City.",
+   "infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Hawaiki is a carrier-neutral, pure-play subsea operator selling wholesale capacity (spectrum, wavelengths, and IRUs) on its trans-Pacific cable to carriers, content providers, and governments. Provisioning is contract-and-IRU-driven across a small set of landing stations rather than software-defined or on-demand. Deterministic, programmable private paths from landing-station POPs into specific cloud regions are a gap that an automated fabric overlay could address.",
+   "state": "Auckland"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319190691567",
+  "name": "Hexabyte",
+  "fields": {
+   "geographic_focus": "Tunisian internet service provider headquartered in Tunis (with operational roots in Beja), serving residential and business customers nationwide through roughly 18 offices across Tunisia. One of five private ISPs that rely on the Tunisian Internet Agency (ATI) for upstream network management.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Hexabyte provisions ADSL, fiber, and WiFi broadband plus hosting and value-added services to Tunisian consumers and SMBs, depending on the Tunisian Internet Agency for core upstream connectivity. Provisioning is retail-ISP and manual/ticket-driven rather than software-defined. Private, deterministic paths to international cloud on-ramps are a gap given its reliance on ATI-managed upstream."
+  },
+  "low_confidence": false,
+  "flag_note": "Sub-segment Tier 1 Carrier - Network Op overstates a small retail ISP dependent on ATI for upstream. Filled conservatively without reclassifying."
+ },
+ {
+  "id": "318223398591",
+  "name": "Intelepeer",
+  "fields": {
+   "geographic_focus": "Headquartered in Dania Beach, Florida (United States), operating as a US-based cloud communications software vendor serving enterprises nationally, primarily in healthcare, financial services, retail, and utilities.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "IntelePeer sells a Communications Automation Platform (CPaaS) delivering AI-driven voice, SMS, and analytics through APIs and low/no-code tools, riding on cloud infrastructure rather than owning physical transport. Provisioning is software-and-API-driven on its own Atmosphere platform. As a software-only provider it owns no fiber, POPs, or facilities."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified MSP/Aggregator - Managed Network Services, but IntelePeer is a software-only CPaaS/communications-automation vendor with no physical network. infrastructure_profile correctly None Identified; may warrant review of ICP fit."
+ },
+ {
+  "id": "320366317242",
+  "name": "LFT Fiber",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "LFT Fiber (formerly LUS Fiber) is a community-owned, 100% FTTH network operated by Lafayette Utilities System, passing roughly 95,000 households and businesses across Lafayette Parish and nearby rural communities. It provisions residential and business internet, TV, and phone over its own municipal fiber plant using a standard operator OSS/BSS workflow. Deterministic private paths from its metro fiber to specific cloud regions are a gap, as its focus is last-mile access rather than cloud interconnect."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319190692541",
+  "name": "Lightspeed Communications",
+  "fields": {
+   "geographic_focus": "Based in Manama, Bahrain, serving residential and business customers with fixed broadband nationally. Acquired by Kalaam Telecom (from Jordan Telecom/Orange), making the combined entity Bahrain's second-largest business broadband ISP.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Lightspeed provisions ADSL/fiber broadband, dedicated internet, MPLS, IPLC, and VoIP to Bahraini residential and business customers, now operating under Kalaam Telecom. Provisioning follows a regional fixed-ISP model with manual/ticket-driven workflows. Private, deterministic on-demand paths to global cloud on-ramps are a gap for its enterprise customer base.",
+   "state": "Capital Governorate"
+  },
+  "low_confidence": false,
+  "flag_note": "Sub-segment Tier 1 Carrier - Network Op overstates a small Bahrain ISP (~4,000 business customers pre-acquisition, now part of Kalaam). Filled conservatively without reclassifying."
+ },
+ {
+  "id": "319197820613",
+  "name": "Logic",
+  "fields": {
+   "geographic_focus": "Headquartered in George Town, Grand Cayman, Cayman Islands. Provides TV, internet, mobile, and phone services to residential and business customers, with a fibre network covering over 75% of homes in the Cayman Islands.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Logic (formerly WestTel) is the leading Cayman Islands fixed and mobile operator, provisioning service over its own fibre, fixed-wireless, and mobile-wireless infrastructure. Provisioning follows a small-island operator model with manual/ticket-driven workflows. Deterministic private paths to mainland cloud regions are a gap given the islands' distance from major hyperscaler on-ramps."
+  },
+  "low_confidence": false,
+  "flag_note": "Sub-segment Tier 1 Carrier - Network Op overstates a single-island operator (Caribbean Tier 3). Filled conservatively without reclassifying."
+ },
+ {
+  "id": "319204762328",
+  "name": "MAGECI",
+  "fields": {
+   "geographic_focus": "Listed as based in Rwanda, but no public evidence of a telecom operator named MAGECI at mageci.rw could be found in research. Footprint unverified.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "No verifiable public information was found on MAGECI as a Rwandan network operator; it does not appear in standard lists of Rwanda telecom or mobile operators (MTN, Airtel, KT Rwanda Networks, Axiom, BSC, etc.). Unable to confirm any physical connectivity footprint or provisioning model. Values supplied are conservative defaults pending verification.",
+   "state": "Kigali"
+  },
+  "low_confidence": true,
+  "flag_note": "Could not verify MAGECI as a real telecom/network operator in Rwanda after web research; no online presence found and absent from all Rwanda operator directories. Classified high_90 Tier 1 Carrier appears unsupported - recommend manual review of this record's existence and classification. State 'Kigali' is a best-guess default for a Rwanda company HQ."
+ },
+ {
+  "id": "319182211819",
+  "name": "Malitel",
+  "fields": {
+   "geographic_focus": "Headquartered in Bamako, Mali, as the mobile arm of Sotelma (the former state incumbent), majority-owned by Maroc Telecom. Operates nationally as Mali's second-largest mobile operator (~41% market share) plus fixed-line and internet services.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Sotelma-Malitel is a national incumbent provisioning mobile (2G/3G/4G), fixed telephony, and internet over its own nationwide network, backed by Maroc Telecom's group infrastructure and OSS/BSS systems. Provisioning follows a standard national-operator stack. Deterministic, private, on-demand paths to specific hyperscaler regions are a gap given Mali's distance from major cloud on-ramps."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319190684408",
+  "name": "Massy Stores Telecom",
+  "fields": {
+   "geographic_focus": "Trinidad and Tobago based (Massy Technologies InfoCom, part of the Massy Group), with regional offices in Jamaica, Barbados, and Antigua serving the Caribbean and parts of Central America.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Massy Technologies InfoCom is a regional ICT and managed-services integrator delivering cloud, enterprise content management, communication solutions, ATMs, and data analytics rather than operating a carrier network. It resells and integrates connectivity and IT solutions for Caribbean enterprises. As a systems integrator/MSP it owns no carrier fiber or POP footprint of its own."
+  },
+  "low_confidence": false,
+  "flag_note": "Record name 'Massy Stores Telecom' resolves to Massy Technologies InfoCom, a Caribbean ICT/managed-services integrator, not a Tier 1 carrier or MNO. Classification Tier 1 Carrier - Network Op looks wrong; this is closer to an MSP/integrator. Filled conservatively without reclassifying."
+ },
+ {
+  "id": "318231692000",
+  "name": "Megatel Netcom Corporation",
+  "fields": {
+   "geographic_focus": "Headquartered in El Monte, California (greater Los Angeles), United States. Operates as a small international voice/SMS wholesale and VoIP provider with global termination reach but a minimal physical footprint.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Megatel Netcom is a small LA-based wholesale voice and SMS provider offering A-Z voice termination, SMS hubbing, IP-PBX, and VoIP rather than operating physical fiber or last-mile plant. It provisions via switch/SIP interconnects with carrier partners using manual processes. As a voice/SMS wholesaler it carries no route-mile or facility infrastructure of its own."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified Fiber Operator - Regional CLEC, but Megatel is a ~12-employee wholesale voice/SMS/VoIP reseller with no fiber plant. infrastructure_profile is None Identified; classification as a fiber CLEC looks incorrect - recommend review."
+ },
+ {
+  "id": "319176778433",
+  "name": "Movicel Angola",
+  "fields": {
+   "geographic_focus": "Headquartered in Luanda, Angola, operating nationally as one of Angola's main mobile operators. Runs roughly 2,800 sites (about 1,200 4G-enabled) concentrated in Luanda, Benguela, Huambo, and provincial capitals.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Movicel is a national Angolan MNO (formerly state-owned) provisioning 2G/3G/4G/5G mobile voice and data over roughly 2,800 cell sites plus supporting transport. Provisioning follows a national-operator OSS/BSS model. Deterministic, private, on-demand paths to specific cloud regions are a gap given Angola's distance from major hyperscaler on-ramps.",
+   "state": "Luanda Province"
+  },
+  "low_confidence": false,
+  "flag_note": "Sub-segment Tier 1 Carrier - Network Op is generous for a national-but-second-tier Angolan MNO, but it is a genuine facilities-based operator. Kept as-is."
+ }
+]

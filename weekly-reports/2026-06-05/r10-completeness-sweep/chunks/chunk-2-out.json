@@ -1,0 +1,182 @@
+[
+ {
+  "id": "318192629457",
+  "name": "New Horizon Communications",
+  "fields": {
+   "segmentation_confidence": "high_90",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "New Horizon Communications is a Communications Stack Provider that aggregates third-party access (fiber, broadband, LTE/5G, satellite, copper) across multi-location businesses onto a single invoice, layered with UCaaS, SD-WAN, and managed network services. It owns no transport facilities of its own and provisions by ordering and stitching underlying carrier circuits, then managing them. Connectivity orders flow through manual carrier-by-carrier procurement and ticketing rather than an automated fabric. Private, deterministic inter-site paths are a gap because each location depends on whatever local access NHC can resell."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318097753798",
+  "name": "Norlys Mobil Wholesale",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Enterprise (50K+);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Norlys is Denmark's largest energy and telecom cooperative, owning the country's largest fiber network (fiber to 900,000-plus addresses, roughly 40 percent of the country) and half of the largest mobile network after acquiring Telia Denmark. The mobile wholesale arm sells capacity and access on top of that owned fiber and mobile infrastructure to MVNOs and other resellers. Provisioning runs through a digital BSS and managed-services stack (Cerillion BSS, Cisco) tuned for consumer and wholesale volume. Deterministic, low-latency private paths between data centers and partners are a gap relative to its broad consumer-access footprint."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318211865329",
+  "name": "Novvacore",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Novvacore is an ANATEL-regulated regional operator running roughly 640 km of metro fiber (about 150 km underground plus 490 km aerial) across Sao Paulo, Barueri, and Santana de Parnaiba, interconnecting major data centers with dedicated internet, Metro Ethernet, IP transit (50 Mbps to 40 Gbps), and a small 2 MW colocation footprint. It serves around 300 B2B clients, roughly 75 percent financial sector, who need low-latency interconnection. Provisioning is handled directly over its own metro fiber via manual circuit turn-up and account engineering. Automated, on-demand private path provisioning across that data-center mesh is a gap."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318363311861",
+  "name": "Rakuten Mobile",
+  "fields": {
+   "segmentation_confidence": "high_90",
+   "geographic_focus": "National mobile carrier headquartered in Tokyo, Japan, with nationwide reach across the Japanese archipelago. 4G population coverage exceeds 98 percent (99.9 percent with the 700 MHz platinum band) and the network spans the country.",
+   "infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Large (50-99)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "Rakuten Mobile is a Tier 1 Japanese MNO operating a cloud-native, fully virtualized RAN with 57,000-plus 4G base stations and 7,000-plus 5G sites, serving over 10 million subscribers. Its network is software-defined end to end and commercialized externally as the Rakuten Symphony OpenRAN platform. Provisioning and orchestration run on its own homegrown automation stack rather than a third-party fabric. The gap is deterministic private interconnection between its cloud infrastructure, partners, and enterprise customers outside the mobile core."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319145726687",
+  "name": "Seychelles Cable Systems Company (SCCS)",
+  "fields": {
+   "geographic_focus": "Headquartered in Victoria, Seychelles. Operates international submarine cable landing infrastructure connecting the Seychelles to East Africa and onward to Asia/Europe, including the SEAS cable to Tanzania and the Seychelles branch of the PEACE cable to Kenya.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Seychelles Cable Systems Company is a special-purpose subsea operator that owns the SEAS cable (Seychelles to Tanzania) and the Seychelles branch of the PEACE system (about 1,800 km to Kenya), plus the cable landing stations in Victoria and at Perseverance Island. It wholesales international capacity to local carriers (shareholders include Airtel and Cable & Wireless Seychelles) rather than serving end users. Capacity is provisioned through long-cycle IRU and lease contracts negotiated manually. On-demand, deterministic provisioning of that international capacity is a gap given the consortium SPV operating model."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318339892957",
+  "name": "Sky UK",
+  "fields": {
+   "geographic_focus": "UK-based broadcast media and broadband company headquartered in England (Comcast subsidiary), serving consumers and businesses nationally across the United Kingdom and Ireland.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Sky is a national broadband and pay-TV provider that delivers home and Sky Connect B2B connectivity predominantly by reselling wholesale FTTP from Openreach and, since 2024, CityFibre, rather than operating its own access fiber at scale. Provisioning rides the underlying wholesale partners' platforms, ordered and managed through Sky's own large-scale OSS/BSS. Its differentiation is service, bundling, and support, not owned transport. Deterministic private interconnection is largely out of scope given the reseller access model."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified as 'Regional CLEC - Fiber operator' but Sky is a national Comcast-owned media/broadband ISP that primarily resells Openreach/CityFibre wholesale access rather than operating its own regional fiber plant. Better fit is a national reseller/Cable MSO division or a non-ICP reseller, not a regional CLEC. Did not change classification per instructions."
+ },
+ {
+  "id": "319126831825",
+  "name": "Symbiote Investments",
+  "fields": {
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "Symbiote Investments Limited is the holding entity behind the Caricel brand, which sought to become Jamaica's third mobile carrier with a planned LTE-only network in the Kingston Metropolitan Area. Its six telecom licences were revoked by the Jamaican government in 2018 and the revocation was upheld through to the Privy Council in 2021, ending the venture. No operational network was ever launched at scale and there is no evidence of current provisioning capability. There is effectively no live infrastructure or provisioning model to assess.",
+   "state": "Kingston Parish"
+  },
+  "low_confidence": true,
+  "flag_note": "Classified 'Tier 1 Carrier - Network Op' but Symbiote (Caricel) is a defunct would-be Jamaican MNO whose licences were revoked in 2018 and never launched a commercial network at scale. Not a Tier 1 carrier; strong candidate for Flagged for deletion (Defunct / out of business). Did not change classification per instructions."
+ },
+ {
+  "id": "318106542783",
+  "name": "TCG-Partners",
+  "fields": {
+   "infrastructure_profile": "None Identified"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318330813142",
+  "name": "Telecom Argentina",
+  "fields": {
+   "segmentation_confidence": "high_90",
+   "geographic_focus": "Argentina's largest integrated telco, headquartered in Buenos Aires, with nationwide fixed, mobile, and cable footprint across Argentina (and adjacent Southern Cone operations). Operates the Personal mobile brand and Personal Fibra/Flow fixed broadband.",
+   "infrastructure_profile": "Route Miles: Enterprise (50K+);POPs: Large (50-99)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Telecom Argentina is a Tier 1 integrated operator with roughly 21.6 million mobile lines and about 4 million fixed broadband subscribers, running the country's largest 4G network plus extensive HFC and fiber (Personal Fibra) across Argentina. It provisions consumer and enterprise connectivity through a national OSS/BSS over its own access and backbone. Enterprise and data-center interconnect is delivered via traditional circuit and MPLS provisioning. On-demand, deterministic private paths between clouds, data centers, and enterprise sites are a gap relative to its mass-market access scale."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318231615184",
+  "name": "Telekom Sudan",
+  "fields": {
+   "geographic_focus": "Sudan's national incumbent telecom (Sudatel Telecom Group), headquartered in Khartoum, Sudan, with operations across Sudan, Senegal, Mauritania, and the UAE and international wholesale reach across North and West Africa.",
+   "infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Sudatel is Sudan's incumbent carrier with over 25,000 km of terrestrial fiber and 11,000-plus km of subsea capacity, two Port Sudan cable landing stations on EASSy/SMW3/SMW4/EIG, and consortium stakes in SAS, ACE, and EASSy. It provides retail mobile (Sudani brand), fixed, and international wholesale to carriers across the region, provisioning capacity through a national OSS/BSS and long-cycle wholesale IRU/lease contracts. Cross-border circuits are turned up via traditional carrier processes. Automated, deterministic private provisioning across its regional footprint is a gap.",
+   "state": "Khartoum",
+   "country": "Sudan"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319125023448",
+  "name": "WX Network Panama",
+  "fields": {
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "WX Network is described as a small Panama-based carrier offering B2B connectivity and regional LATAM wholesale partnerships under ASEP regulation, but it has a very thin public footprint and no verifiable evidence of owned long-haul or metro fiber assets. Available research suggests a small-scale national operator or reseller rather than a facilities-heavy carrier. Connectivity is most likely provisioned over leased or partner capacity through manual processes. Owned infrastructure and any automated provisioning fabric could not be confirmed."
+  },
+  "low_confidence": true,
+  "flag_note": "Minimal verifiable public footprint for WX Network Panama (wxnet.pa); search returned no company-specific evidence of owned network assets. Conservative defaults applied. Classified 'Tier 1 Carrier - Network Op' appears overstated for an entity with no confirmable national backbone; may be a small operator/reseller warranting re-research. Did not change classification per instructions."
+ },
+ {
+  "id": "318327651046",
+  "name": "Wind Telecom",
+  "fields": {
+   "segmentation_confidence": "medium_7089",
+   "geographic_focus": "Dominican Republic fixed-wireless and fiber operator headquartered in Santo Domingo (Distrito Nacional), with footprint concentrated in Santo Domingo, Santiago, Puerto Plata, and the Punta Cana/Bavaro corridor.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Wind Telecom is a Dominican Republic operator delivering broadband and voice over a hybrid network of WiMAX/LTE fixed wireless, point-to-point microwave, MMDS pay-TV, and fiber (GPON), with a data center and B2B passive/active fiber and managed services. It owns one of the larger fiber footprints in the DR but provisions largely through manual circuit and wireless link turn-up. Service is concentrated in a handful of metros rather than national backbone scale. On-demand, deterministic private interconnection across sites is a gap."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319231102702",
+  "name": "golis.so",
+  "fields": {
+   "geographic_focus": "Regional telecom operator headquartered in Bosaso, Puntland, northeastern Somalia. Coverage spans major Puntland cities and 50-plus districts (Garowe, Galkacyo, Qardho, and others), extending into parts of Somaliland.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Golis Telecom is the largest operator in Somalia's Puntland region, running GSM/3G/4G mobile, fixed line, and high-speed fiber and broadband internet over a backbone of 1,000-plus cellular towers and 100-plus branches. It serves consumers and businesses across Puntland and into Somaliland, provisioning connectivity through manual, regionally-managed processes. Infrastructure is mobile-and-access centric with limited long-haul fiber. Deterministic private interconnection and any automated provisioning fabric are gaps."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319173099195",
+  "name": "21st Century Technologies",
+  "fields": {
+   "geographic_focus": "Nigerian carrier headquartered in Lagos, operating extensive metropolitan fiber across major Nigerian cities (Lagos metro core) with redundant international subsea capacity. National reach via fiber backbone complemented by satellite.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "21st Century Technologies owns and operates one of Nigeria's most extensive metropolitan optical fiber networks, built with Siemens, offering dedicated internet up to 10 Gbps, IRU capacity, and redundant international subsea connectivity to government, enterprise, and home customers. It provisions corporate dedicated access and transport directly over its owned metro fiber and subsea capacity, largely through manual circuit engineering and turn-up. The footprint is concentrated in Lagos and major metros rather than nationwide backbone. Automated, deterministic private path provisioning is a gap."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ }
+]

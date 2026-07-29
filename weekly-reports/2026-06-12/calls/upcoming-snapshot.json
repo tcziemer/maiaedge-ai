@@ -1,0 +1,8 @@
+[
+ {"hs_object_id": 375031680752, "hs_timestamp": "2026-06-15T20:00:00Z", "hubspot_owner_id": "161889085", "company_name": "Cirrascale Cloud Services", "account_tier": "tier_1", "segment": "NeoCloud", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 368678544084, "hs_timestamp": "2026-06-15T16:00:00Z", "hubspot_owner_id": "159350430", "company_name": "Fusion Broadband", "account_tier": "unknown", "segment": "unknown", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375214606020, "hs_timestamp": "2026-06-16T13:00:00Z", "hubspot_owner_id": "159350430", "company_name": "Arc Compute", "account_tier": "tier_1", "segment": "NeoCloud", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375026009848, "hs_timestamp": "2026-06-16T15:00:00Z", "hubspot_owner_id": "159350430", "company_name": "Pearce Services", "account_tier": "tier_5", "segment": "Other", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375007944392, "hs_timestamp": "2026-06-17T19:00:00Z", "hubspot_owner_id": "159350430", "company_name": "FiberLight", "account_tier": "tier_2", "segment": "Fiber Operator", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375421348573, "hs_timestamp": "2026-06-17T13:00:00Z", "hubspot_owner_id": "164949459", "company_name": "Bouygues Telecom", "account_tier": "tier_1", "segment": "Network Operator(Tier 1 / VNO)", "fresh_or_deal": "FRESH"}
+]

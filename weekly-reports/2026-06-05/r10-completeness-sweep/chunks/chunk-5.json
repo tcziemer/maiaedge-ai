@@ -1,0 +1,301 @@
+[
+ {
+  "id": "316528134882",
+  "name": "Go4Mobility",
+  "domain": "go4mobility.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "Lisbon",
+  "country": "Portugal",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "FULL re-enrichment + Apollo confirmed. Go4Mobility (go4mobility.com); Lisbon Portugal HQ + Madrid+Maputo+Luanda offices. ~45 emp, ~$5M revenue. Founded 2005. Owned by PDMFC. 10-country reach. Wholesal",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319204762327",
+  "name": "Golis Telecom",
+  "domain": "golistelecom.com",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Gobolka Bari",
+  "country": "Somalia",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Somalia Golis Telecom, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319190688481",
+  "name": "Hai Telecommunications",
+  "domain": "haitelecom.zm",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Zambia",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Zambia Hai Telecommunications, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319190597360",
+  "name": "Hawaiki Cable",
+  "domain": "hawaikicable.com",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Subsea cable operator",
+  "conf": "high_90",
+  "state": "",
+  "country": "New Zealand",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "15,000km trans-Pacific subsea cable, 67 Tbps, carrier-neutral. Links Australia, New Zealand, American Samoa, Hawaii, and 5 PoPs on US West Coast. Pure-play subsea wholesale operator.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319190691567",
+  "name": "Hexabyte",
+  "domain": "hexabyte.tn",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Tunis Governorate",
+  "country": "Tunisia",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Tunisia Hexabyte, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. MENA Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318223398591",
+  "name": "Intelepeer",
+  "domain": "intelepeer.ai",
+  "seg": "MSP/Aggregator",
+  "sub": "Managed Network Services - MSP",
+  "conf": "high_90",
+  "state": "Florida",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "IntelePeer \u2014 telecommunications software (CPaaS) company, AI-powered Communications Automation Platform. 320 employees, $112.5M revenue, founded 2003, HQ Dania Beach FL. Sells AI-driven voice/SMS auto",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "320366317242",
+  "name": "LFT Fiber",
+  "domain": "lftfiber.com",
+  "seg": "Fiber Operator",
+  "sub": "Municipal / Cooperative - Fiber operator",
+  "conf": "medium_7089",
+  "state": "Louisiana",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "LFT Fiber is an 82-person municipal FTTH operator in Louisiana serving residential and business customers across multiple parishes with fiber-to-the-home infrastructure.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319190692541",
+  "name": "Lightspeed Communications",
+  "domain": "lightspeed.bh",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Bahrain",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Bahrain Lightspeed Communications, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. MENA Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319197820613",
+  "name": "Logic",
+  "domain": "logic.ky",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "George Town",
+  "country": "Cayman Islands",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Cayman Islands Logic, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319204762328",
+  "name": "MAGECI",
+  "domain": "mageci.rw",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Rwanda",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Rwanda MAGECI, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319182211819",
+  "name": "Malitel",
+  "domain": "malitel.ml",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Bamako Capital District",
+  "country": "Mali",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Mali Malitel, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319190684408",
+  "name": "Massy Stores Telecom",
+  "domain": "massytech.com",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Trinidad and Tobago",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Trinidad and Tobago Massy Stores Telecom, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "318231692000",
+  "name": "Megatel Netcom Corporation",
+  "domain": "megatelnet.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "low_5069",
+  "state": "California",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Megatel Netcom Corporation \u2014 small LA-based 'global telecom' with 20+ years ICT experience. 12 employees, founded 2009, HQ El Monte CA. Niche operator with global ambitions but minimal scale. Tier 5 d",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319176778433",
+  "name": "Movicel Angola",
+  "domain": "movicel.ao",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Angola",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Angola Movicel Angola, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ }
+]

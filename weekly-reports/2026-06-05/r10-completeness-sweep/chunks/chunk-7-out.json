@@ -1,0 +1,185 @@
+[
+ {
+  "id": "316504259305",
+  "name": "Sparktelecomm",
+  "fields": {
+   "geographic_focus": "HQ in Mexico City (Polanco), Mexico. Licensed Mexican telecom operator delivering messaging and voice across Mexico and the broader LATAM region via direct operator connections and partner routes.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "homegrownproprietary_platform",
+   "provisioning_landscape": "Spark Telecomm provisions A2P SMS, CLI/direct voice routes, DIDs, WhatsApp/RCS and Direct Carrier Billing through an in-house developed messaging gateway plus SIP connectivity to carrier partners. As a messaging/voice aggregator it rides upstream operator interconnects rather than owning transport, so private deterministic paths between its platform and partner DCs/carriers are provisioned ad hoc over public IP or per-carrier SIP trunks."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319197822663",
+  "name": "Standard Telecom DRC",
+  "fields": {
+   "geographic_focus": "HQ in Kinshasa (Gombe), Democratic Republic of the Congo. Small national operator/ISP serving business customers in DRC with regional wholesale partnerships; very limited published footprint.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Standard Telecom Congo (STC) operates a small BGP network (AS328003) with a single upstream and minimal peering, extending connectivity to DRC business customers. Provisioning is manual and ticket-driven against upstream transit; there is no automated fabric, and private deterministic paths to cloud or partner endpoints would be a clear gap.",
+   "state": "Kinshasa"
+  },
+  "low_confidence": true,
+  "flag_note": "Classified Tier 1 Carrier - Network Op but evidence (AS328003: 1 upstream, 1 peer, single Kinshasa office) indicates a small DRC operator/ISP, not a Tier 1 carrier. Likely over-tiered; kept classification but filled conservatively."
+ },
+ {
+  "id": "319197827820",
+  "name": "Supercable Venezuela",
+  "fields": {
+   "geographic_focus": "HQ in Caracas (Capital District), Venezuela. Pioneer coaxial cable TV and fiber broadband operator serving Caracas and several Venezuelan cities (Puerto La Cruz, Maracay, Maturin, Margarita, Los Teques).",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Supercable historically provisioned cable-TV and HFC/fiber residential and business internet (B-point and Blue Connection plans, 10 Mbps to 1 Gbps) across Venezuelan metros. Provisioning was a traditional manual MSO truck-roll and last-mile model with no automated interconnect fabric; private deterministic paths to cloud or partner DCs are not part of its model."
+  },
+  "low_confidence": false,
+  "flag_note": "Venezuelan regulator CONATEL suspended Supercable's license on 2026-03-14 (60-day subscriber migration window) and the company is reportedly in liquidation. Likely defunct/non-operating - recommend a status check and possible eviction. Classified Tier 1 Carrier but it is a regional cable MSO, not a Tier 1 carrier."
+ },
+ {
+  "id": "319194136276",
+  "name": "Surfline Communications",
+  "fields": {
+   "geographic_focus": "HQ in Accra, Ghana. Wholly Ghanaian-owned operator running the country's first commercial 4G LTE network across Accra, Tema and Takoradi, with a nationwide expansion to 700+ cell sites.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Surfline provisions LTE mobile wireless broadband to consumers and businesses over an owned RAN (Huawei/Alcatel-Lucent gear, IBM/Microsoft partnerships) backhauled to its Accra core. Connectivity is provisioned through carrier OSS/BSS over the cellular network; there is no automated private fabric to cloud on-ramps, so deterministic enterprise paths to hyperscalers are a gap.",
+   "state": "Greater Accra"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318223398595",
+  "name": "Tecomsa Telecommuncations",
+  "fields": {
+   "geographic_focus": "HQ in Beirut, Lebanon with a Cyprus office in Limassol. Wholesale international voice and SMS aggregator plus IT distribution, with customer reach across Africa, Asia and Latin America.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Tecomsa provisions wholesale international voice termination and A2P SMS through carrier interconnects plus IT distribution and managed/software services. As an aggregator it buys and resells termination capacity over partner networks rather than owning transport, so routing is provisioned via per-carrier SIP/SMPP arrangements with no private deterministic fabric of its own."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319190598331",
+  "name": "Telecom Vanuatu Limited (TVL)",
+  "fields": {
+   "geographic_focus": "HQ in Port Vila, Vanuatu. Incumbent fixed and mobile carrier serving Vanuatu, dependent on the ICN1 subsea cable (Port Vila to Suva, Fiji) for international capacity onto the Southern Cross trans-Pacific network.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "TVL provisions fixed (ADSL, WiMAX, leased lines) and mobile services across Vanuatu, with all international traffic riding the single ICN1 subsea cable to Fiji and onward to Southern Cross. Provisioning is a traditional incumbent OSS/manual model; the single-cable dependency (10-day outage after the 2024 earthquake) makes resilient, deterministic private paths to cloud a clear gap."
+  },
+  "low_confidence": false,
+  "flag_note": "HubSpot state field is 'North Carolina' which is wrong for a Vanuatu carrier (should be Shefa/Port Vila). State not in miss array so not corrected here; flagging for cleanup."
+ },
+ {
+  "id": "318231691997",
+  "name": "Telesol Group",
+  "fields": {
+   "geographic_focus": "HQ in Amsterdam, Netherlands, operating globally with 24/7 NOCs in Europe and Asia. Field technicians deploy worldwide to build and maintain carrier and enterprise network infrastructure.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "TeleSol Group is a managed network infrastructure services firm - it sells, installs, tests and maintains multi-brand transmission/WDM equipment, runs PoP-build and rack-and-stack projects, and provides 24/7 hardware maintenance for carriers, financial institutions and cloud providers. It does not own transport or operate a network of its own, so it is a services/integration vendor rather than a connectivity provisioner."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318219105988",
+  "name": "Telespace",
+  "fields": {
+   "geographic_focus": "HQ in Austin, Texas, United States. Asset-light cloud collaboration provider serving B2B customers across US market segments.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "TeleSpace resells Cisco-Powered UCaaS, TPaaS (TelePresence) and CCaaS as monthly subscriptions, holding Cisco Master Cloud and Managed Services certification. It owns no network or facilities and delivers services over Cisco's hosted collaboration platform and the public internet, so it is a managed cloud-collaboration reseller with no private connectivity fabric of its own."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319194138308",
+  "name": "Telesur",
+  "fields": {
+   "geographic_focus": "HQ in Paramaribo, Suriname. State-owned incumbent telco and the sole fixed-line/fixed-broadband provider nationwide, rolling out fiber along the coastal belt plus mobile (GSM/UMTS/LTE/5G) as TeleG.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Telesur is Suriname's incumbent, provisioning fixed voice, DSL and a growing national FTTH footprint (National Broadband Project completed 2019) plus mobile up to 5G over owned infrastructure. Provisioning runs through incumbent OSS/BSS; international reach depends on limited subsea/satellite capacity, so automated private deterministic paths to hyperscaler cloud on-ramps are a gap."
+  },
+  "low_confidence": false,
+  "flag_note": "HubSpot state 'Amazonas' looks incorrect for a Paramaribo-based Suriname incumbent. State not in miss array so not corrected here."
+ },
+ {
+  "id": "318231691993",
+  "name": "Teligent Telecom",
+  "fields": {
+   "geographic_focus": "HQ in Stockholm region, Sweden, with offices in Germany, France, Morocco, Malaysia, UK, US, Philippines and Singapore. Sells telecom network software globally to operators such as BT, Telia, Maroc Telecom, Etisalat and Telenor.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "Teligent Telecom is a carrier-grade network software and systems-integration vendor (P90/E platform) delivering converged services, next-gen messaging/voicemail, mass-calling and legacy-system replacement to operators. It does not own or operate a transport network of its own, so it is a software/VAS supplier rather than a connectivity provider."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified Tier 1 Carrier - Network Op, but Teligent is a telecom SOFTWARE/systems-integration company that sells to carriers (BT, Telia, etc.), not a carrier itself. Likely misclassification; recommend reclassifying as software vendor / Other or Flagged for deletion. Filled conservatively without changing classification."
+ },
+ {
+  "id": "318231692005",
+  "name": "Ten Peaks Data Centres",
+  "fields": {
+   "geographic_focus": "Independent colocation/data-centre operator. Public evidence most strongly supports a New Zealand operator (formed 2026 from Spark NZ data-centre assets, nationwide carrier-neutral facilities); the CRM domain (tenpeaks.ca) implies a Canadian entity that could not be independently confirmed.",
+   "infrastructure_profile": "Facilities: Mid-Size (5-19)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Ten Peaks operates carrier-neutral colocation and cloud/co-location facilities (DataCenterMap lists ~13 sites for the TenPeaks brand). Customer cross-connects and interconnection are provisioned through traditional manual cross-connect/LOA-CFA processes typical of an independent colo; an automated interconnection fabric or cloud on-ramp is not evidenced and would be a gap.",
+   "state": "",
+   "country": "Canada"
+  },
+  "low_confidence": true,
+  "flag_note": "Domain/country conflict: CRM domain is tenpeaks.ca (Canada) but the clearly-documented TenPeaks Data Centres is in New Zealand (tenpeaks.co.nz, ex-Spark assets). Could not confirm a Canadian Ten Peaks colo. Country left as 'Canada' per CRM domain and task note that Ten Peaks is a colo, but identity is unverified - recommend identity verification before relying on these values. Facilities band is an estimate."
+ },
+ {
+  "id": "319208306408",
+  "name": "Tizeti Networks",
+  "fields": {
+   "infrastructure_profile": "POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Tizeti (wifi.com.ng) provisions fixed-wireless unlimited internet and public Wi-Fi over solar-powered towers using 5.4 GHz Wi-Fi and 3.5 GHz LTE bands, serving Lagos, Ogun, Port Harcourt, Benin, Oyo and Accra. Provisioning is a manual fixed-wireless CPE-install model backhauled to its base stations; there is no automated private fabric, so deterministic enterprise paths to cloud on-ramps are a gap."
+  },
+  "low_confidence": false,
+  "flag_note": "HubSpot state 'Prahova' (a Romanian county) is wrong for a Nigerian operator; footprint is Lagos/Ogun/Rivers/Oyo plus Accra, Ghana. State not in miss array so not corrected. Tizeti is a fixed-wireless ISP rather than a Tier 1 carrier."
+ },
+ {
+  "id": "320307860199",
+  "name": "Tombigbee Fiber",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Tombigbee Fiber, LLC is the FTTH subsidiary of Tombigbee Electric Power Association, building roughly 4,000 route miles of fiber to serve ~44,500 co-op members across Lee and Itawamba counties, Mississippi (HQ Tupelo). Provisioning is a residential/business FTTH model over its own rural fiber plant via standard install workflows; automated private interconnect to cloud or carrier fabrics is not part of the model."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319208306409",
+  "name": "VIPNET",
+  "fields": {
+   "infrastructure_profile": "POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "VIPNET is an alternative ISP in Cote d'Ivoire (3rd-largest ISP, 1st alternative operator), HQ in Cocody, Abidjan, with licensed 3.5/10/11/18 GHz spectrum for WiMAX, LTE, FH and VSAT plus hosting/cloud services. Provisioning is a manual fixed-wireless/VSAT and leased-line model over owned radio infrastructure; there is no automated interconnect fabric, so private deterministic paths to hyperscaler cloud are a gap."
+  },
+  "low_confidence": false,
+  "flag_note": "VIPNET is an alternative ISP/operator rather than a Tier 1 carrier (it is the country's 1st alternative operator / 3rd ISP). Filled conservatively without changing classification."
+ }
+]

@@ -1,0 +1,185 @@
+[
+ {
+  "id": "319194131171",
+  "name": "Access Haiti",
+  "fields": {
+   "geographic_focus": "Haiti. HQ in Port-au-Prince (Ouest department) with fiber and 4G LTE coverage across Port-au-Prince and provincial cities including Cap-Haitien, Port-de-Paix, Gonaives, Jacmel, Les Cayes and Jeremie, reaching a population of roughly 3-5 million.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Access Haiti builds and operates its own fiber and 4G LTE access networks and sells dedicated internet, VoIP, VPN and managed WiFi to corporate, government, SME and residential customers. Connectivity is provisioned through its own access plant plus regional wholesale and submarine-cable transit partnerships, with no evidence of a self-service or programmatic fabric. Private, deterministic onward paths to cloud or partner endpoints are a manual gap fulfilled via point-to-point circuits.",
+   "state": "Ouest"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "320307860198",
+  "name": "Advanced Stream Broadband",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Advanced Stream Broadband is a small regional fiber and cable ISP serving Tacoma and the South Puget Sound (University Place, Fircrest, Fife, Lakewood, Puyallup) plus several Utah communities, riding the municipal Click! Network plant for last-mile. It provisions residential and small-business broadband, phone and fiber service via manual ticket-and-truck-roll workflows rather than any programmatic interconnect. There is no self-service fabric, so deterministic private paths to cloud or enterprise endpoints would be a manual buildout."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319208306378",
+  "name": "Africell Angola",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Africell Angola is a licensed mobile network operator that owns and controls most of its ~700-tower 2G/3G/4G estate across Luanda, Benguela, Huila and Kwanza Sul, serving over five million subscribers with nationwide expansion targeted by 2027. Service activation runs through a carrier-grade OSS/BSS provisioning stack tuned for mobile and home-broadband subscribers. Deterministic private interconnect to clouds or enterprise sites is not a productized motion and would be handled as bespoke transport."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319194135286",
+  "name": "Africom Zimbabwe",
+  "fields": {
+   "geographic_focus": "Zimbabwe. HQ in Harare. Licensed converged operator (IAP/ISP plus mobile) serving roughly 100,000 internet customers nationwide via fiber, fixed wireless and mobile broadband.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Africom is a Zimbabwean converged communications provider (since 1995) delivering integrated data, voice and video over broadband plus mobile services to about 100,000 customers. It provisions connectivity through its own access network and upstream transit, using manual order-and-activation workflows typical of a mid-tier national ISP. Programmatic private interconnect to cloud or partner endpoints is not offered and would be delivered as a manual circuit."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "317237932750",
+  "name": "Airtel Seychelles",
+  "fields": {
+   "geographic_focus": "Seychelles. Mobile-led operator headquartered on Mahe (Greater Victoria) with 4G/LTE and selective 5G across the inhabited islands of Mahe, Praslin and La Digue. Market leader with roughly 55% subscriber share on a small island base.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Airtel Seychelles is a small island mobile network operator (acquired from Telecom Seychelles in 2010) focused on prepaid/postpaid mobile, home broadband and enterprise plans across Mahe, Praslin and La Digue. Subscriber and service provisioning runs through Airtel's standard mobile OSS/BSS. As a small island MNO it has no programmatic interconnect fabric, so private deterministic paths off-island depend on submarine-cable transit and manual circuit delivery.",
+   "state": "Mahe"
+  },
+  "low_confidence": false,
+  "flag_note": "Classified as Fiber Operator / Regional CLEC but Airtel Seychelles is a mobile network operator, and the existing brief itself flags it as 'EXCLUDE: too small market.' Likely a Network Operator (small MNO) at best, or out of ICP scope. Filled conservatively without changing classification."
+ },
+ {
+  "id": "318231692007",
+  "name": "Akton Communications",
+  "fields": {
+   "geographic_focus": "Slovenia (HQ Ljubljana) with operations across the Adriatic/Western Balkans (Croatia, Bosnia, Serbia, North Macedonia, Montenegro) and international PoPs in Vienna and Frankfurt. Carrier serving 300+ international partners.",
+   "infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "standard_ossbss_stack",
+   "provisioning_landscape": "Akton is an established international carrier (founded 1991) running its own metro fiber in Ljubljana, Zagreb, Sarajevo, Belgrade, Skopje and Podgorica plus international PoPs in Vienna and Frankfurt, offering DIA, IP VPN, IPLC, voice/SMS wholesale and colocation. Provisioning is handled through a standard carrier OSS/BSS and partner interconnects rather than a self-service fabric. Private, deterministic on-ramps to hyperscalers at its Frankfurt/Vienna PoPs are a gap relative to programmatic fabric peers."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319182211807",
+  "name": "Aviso Telecom",
+  "fields": {
+   "geographic_focus": "Cote d'Ivoire. HQ in Abidjan (Plateau). Fixed broadband ISP arm associated with Cote d'Ivoire Telecom, serving consumer and business internet (ADSL, fixed LTE, FTTH) primarily in Abidjan and major urban centers.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Aviso is the retail/ISP brand tied to Cote d'Ivoire Telecom, delivering fixed broadband (ADSL, fixed LTE, fiber-to-home) to Ivorian consumers and businesses, mostly around Abidjan. Service activation runs through legacy national-operator order workflows rather than any programmatic interconnect. Deterministic private paths to cloud or partner endpoints are not a productized motion and would be provisioned manually over the incumbent transport.",
+   "state": "Abidjan"
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "320366166738",
+  "name": "BAM Broadband",
+  "fields": {
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "BAM Broadband is a regional fiber and fixed-wireless operator (HQ Greenwood Village, CO; formed from DirectLink in Colorado and Desert iNet in Arizona) building FTTH and symmetrical service up to 8 Gbps across the South Denver and Phoenix/Scottsdale/Tempe metros. It provisions residential and business broadband through manual install and ticket workflows with no programmatic interconnect fabric. Deterministic private on-ramps to the AWS/Azure/GCP regions in its Denver and Phoenix footprint are a gap fulfilled by bespoke circuits."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "319182206700",
+  "name": "BVI Phones",
+  "fields": {
+   "geographic_focus": "British Virgin Islands. Local mobile/telecom operator (CCT brand lineage) headquartered on Tortola, serving the BVI's roughly 33,000-population market with mobile and fixed services.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "BVI Phones is a small local Caribbean telecom serving the British Virgin Islands (CCT/Caribbean Cellular lineage), one of three operators in a roughly 33,000-person market offering mobile and fixed connectivity. Provisioning is handled through manual, small-operator order and activation processes. With no programmatic fabric, private deterministic off-island paths depend on submarine-cable transit and manually delivered circuits.",
+   "state": "Tortola"
+  },
+  "low_confidence": true,
+  "flag_note": "Classified high_90 as 'Tier 1 Carrier - Network Op' but BVI Phones is a sub-33k-population island operator, not a Tier 1 carrier. Domain bviphones.com appears tied to the CCT/Caribbean Cellular local operator. Filled conservatively; likely over-tiered (small island MNO, possibly out of ICP)."
+ },
+ {
+  "id": "319197821676",
+  "name": "Busy Internet",
+  "fields": {
+   "geographic_focus": "Ghana. HQ in Accra (Ring Road East, Greater Accra). National ISP with 4G LTE in Greater Accra/Tema plus fiber, satellite and radio broadband nationwide.",
+   "infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Busy Internet (founded 2001) is a Ghanaian ISP delivering 4G LTE in Greater Accra and Tema plus nationwide fiber, satellite and radio broadband, data hosting and serviced offices. It provisions broadband and hosting through its own access network and upstream transit using manual order workflows. Programmatic private interconnect to cloud or partner endpoints is not offered and would be a manual circuit buildout."
+  },
+  "low_confidence": false,
+  "flag_note": ""
+ },
+ {
+  "id": "318223398594",
+  "name": "CLEARCOM COMUNICACIONES, S.A.P.I. DE C.V",
+  "fields": {
+   "geographic_focus": "Mexico. HQ in the State of Mexico / Mexico City metro (Naucalpan / Cuauhtemoc). Enterprise communications provider operating nationally as an MVNO on ALTAN Redes plus IP, fiber and wireless solutions.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "Existing Facility Nearby",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "CLEARCOM is a Mexican enterprise-communications provider (founded 2011) delivering IP telephony, unified comms, managed call-center, videoconferencing and connectivity, operating as an MVNO over ALTAN Redes rather than owning national transport. It aggregates and resells underlying carrier and mobile capacity, so connectivity is provisioned through manual orders against partner infrastructure. As an aggregator it has no programmatic fabric and no owned deterministic-path infrastructure."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified as MSP/Aggregator (Telecom Aggregator). Research confirms aggregator/MVNO model (rides ALTAN Redes), so infrastructure_profile set to None Identified per aggregator guidance."
+ },
+ {
+  "id": "319197829831",
+  "name": "CSL Samoa",
+  "fields": {
+   "geographic_focus": "Samoa. HQ in Apia (Saleufi, Upolu). Locally owned ICT company and ISP serving the Samoan market with internet, hosting/DNS and ICT services, and a Starlink retail partnership.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Computer Services Limited (CSL) is a small, locally owned Samoan ISP and ICT provider (founded 1977) in Apia offering internet access, hosting/DNS and, recently, retail Starlink service. It provisions connectivity through its own access plus upstream transit and satellite, using manual small-operator workflows. There is no programmatic fabric, so private deterministic paths off-island rely on submarine-cable or satellite transit and bespoke circuits."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified high_90 as 'Tier 1 Carrier - Network Op' but CSL is a small island ISP/ICT shop, not a Tier 1 carrier. Filled conservatively; likely over-tiered (small ISP, possibly out of ICP)."
+ },
+ {
+  "id": "319182218965",
+  "name": "Canl+",
+  "fields": {
+   "geographic_focus": "New Caledonia. ISP (Can'L) headquartered in Noumea (South Province) serving ADSL and fiber internet, holding roughly 24% of New Caledonia's market via indirect access over the OPT-NC public network.",
+   "infrastructure_profile": "POPs: Small (<10)",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "manuallegacy_processes",
+   "provisioning_landscape": "Can'L is a New Caledonian ISP (about 24% market share) selling ADSL and fiber internet primarily through indirect access over the OPT-NC incumbent network rather than owning core transport. It provisions subscriber broadband via manual order workflows against the public operator's plant. With no owned fabric, deterministic private paths to cloud or partner endpoints would depend on OPT-NC transport and submarine-cable transit, delivered manually."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified high_90 as 'Tier 1 Carrier - Network Op' but Can'L is a retail ISP reselling indirect access over OPT-NC's network, not a Tier 1 carrier. Filled conservatively; likely over-tiered."
+ },
+ {
+  "id": "300329366233",
+  "name": "Cast AI",
+  "fields": {
+   "geographic_focus": "United States. HQ in Miami, Florida, with offices in Vilnius (Lithuania), New York, Dallas, London and Tel Aviv. Sells a Kubernetes optimization SaaS globally to cloud users on AWS, Azure and GCP.",
+   "infrastructure_profile": "None Identified",
+   "hyperscaler_proximity": "None Known",
+   "fabric_provisioning_approach": "none_identified",
+   "provisioning_landscape": "Cast AI is a software-only Kubernetes automation and cost-optimization platform (founded 2019) that rightsizes, autoscales and rebalances customers' clusters on AWS, Azure, GCP and on-prem to cut cloud spend. It owns no network, data-center or GPU infrastructure and does not provision physical connectivity; it operates as an optimization layer on top of others' cloud capacity. There is no transport footprint, so deterministic private-path connectivity is not applicable to its model."
+  },
+  "low_confidence": false,
+  "flag_note": "Classified high_90 as NeoCloud / 'AI Infrastructure providers' but Cast AI is a software-only Kubernetes cost-optimization SaaS that owns no GPU, data-center or network infrastructure. It is an optimization layer on top of hyperscalers, not an infrastructure provider. Strong suspected misclassification; infrastructure fields set to None Identified / none_identified. Likely out of ICP."
+ }
+]

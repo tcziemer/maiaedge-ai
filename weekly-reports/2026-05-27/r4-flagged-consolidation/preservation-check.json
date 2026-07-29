@@ -1,0 +1,423 @@
+[
+  {
+    "id": "486602587880",
+    "name": "Bastien Vidal",
+    "email": "bastien@hivenet.com",
+    "owner": "159350430",
+    "createdate": "2026-05-15T14:20:12.740Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": null,
+    "notes_last_contacted": null,
+    "company_id": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "created 2026-05-15 (fresh)"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": null,
+    "sig5_lifecycle": false,
+    "sig6_fresh": true
+  },
+  {
+    "id": "486129442545",
+    "name": "Chris Burton",
+    "email": "chris@mpnexlevel.com",
+    "owner": "161889085",
+    "createdate": "2026-05-14T20:00:03.931Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": null,
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "created 2026-05-14 (fresh)"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": null,
+    "sig5_lifecycle": false,
+    "sig6_fresh": true
+  },
+  {
+    "id": "476652573403",
+    "name": "Michael Hall",
+    "email": "m.hall@hyperlink-networks.com",
+    "owner": "161889085",
+    "createdate": "2026-04-03T15:02:17.874Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-21T19:53:33.659Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-04-21"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "465830273723",
+    "name": "Jon Cleaver",
+    "email": "jon.cleaver@symbio.global",
+    "owner": "159350430",
+    "createdate": "2026-04-03T15:02:08.084Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-28T16:13:08.649Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-04-28"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "465761569489",
+    "name": "Joseph Yapsuga",
+    "email": "joseph.yapsuga@iptransferllc.net",
+    "owner": "161889085",
+    "createdate": "2026-04-03T15:01:45.158Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-16T22:00:00Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-04-16"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "465834282718",
+    "name": "Mohammed Nazrul Islam",
+    "email": "nazrul@manor.net",
+    "owner": "159350430",
+    "createdate": "2026-04-03T15:01:39.936Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-27T21:35:45.401Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-04-27"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "464779318976",
+    "name": "Ryan Sabia",
+    "email": "ryansabia@overyondr.com",
+    "owner": "159350430",
+    "createdate": "2026-04-01T13:40:00.876Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-21T14:54:53.196Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-04-21"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "455480763107",
+    "name": "Jason Scandrol",
+    "email": "jscandrol@lspower.com",
+    "owner": "161889085",
+    "createdate": "2026-03-11T21:46:42.166Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-16T09:00:00Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-03-16"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "451518850806",
+    "name": "Colin Sharkey",
+    "email": "colin@fp8.ai",
+    "owner": "160267902",
+    "createdate": "2026-03-06T19:45:01.837Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-16T18:06:25Z",
+    "notes_last_contacted": "2026-04-14T12:59:03Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_contacted 2026-04-14",
+      "notes_last_updated 2026-04-16"
+    ],
+    "sig1_nlc_recent": true,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "451588831988",
+    "name": "Sebastian Metti",
+    "email": "sebastian@saturncloud.io",
+    "owner": "160267902",
+    "createdate": "2026-03-06T19:44:24.975Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-16T13:00:00Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-03-16"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "451588830920",
+    "name": "Niraj Yagnik",
+    "email": "niraj@fp8.ai",
+    "owner": "160267902",
+    "createdate": "2026-03-06T19:43:23.044Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-16T13:00:00Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-03-16"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "451559667429",
+    "name": "Frank Scandariato",
+    "email": "frank.scandariato@edged.us",
+    "owner": "160267902",
+    "createdate": "2026-03-06T19:43:14.710Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-16T09:00:00Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-03-16"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "441572856521",
+    "name": "Mary Westerhold",
+    "email": "mjschwartz@madisontelco.com",
+    "owner": "161889085",
+    "createdate": "2026-02-26T19:45:19.711Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": null,
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": false,
+    "reasons": [],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": null,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "441467623152",
+    "name": "Steven Garvin",
+    "email": "sgarvin@essextel.com",
+    "owner": "161889085",
+    "createdate": "2026-02-26T19:45:03.535Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-04-23T16:30:52.119Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-04-23"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "426016365276",
+    "name": "Vinay Nagpal",
+    "email": "vnagpal@everstream.net",
+    "owner": "161889085",
+    "createdate": "2026-02-12T22:19:56.009Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-02-26T12:00:00Z",
+    "notes_last_contacted": null,
+    "flagged_for_deletion": "false",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-02-26"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "476512699073",
+    "name": "Jacob Hinton",
+    "email": "jake@hivelocity.net",
+    "owner": "161889085",
+    "createdate": "2026-01-30T22:52:57.365Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-16T09:00:00Z",
+    "notes_last_contacted": null,
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-03-16"
+    ],
+    "sig1_nlc_recent": null,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "314701034216",
+    "name": "Michael Honeycutt",
+    "email": "michael.honeycutt@corero.com",
+    "owner": "161889085",
+    "createdate": "2025-11-06T21:13:58.308Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-12T17:18:37Z",
+    "notes_last_contacted": "2025-11-07T14:47:01.195Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-03-12"
+    ],
+    "sig1_nlc_recent": false,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "261906818771",
+    "name": "Paulo Machado",
+    "email": "paulo@sumaumatelecom.com.br",
+    "owner": "159350430",
+    "createdate": "2025-09-26T18:19:38.821Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-05-15T19:39:12Z",
+    "notes_last_contacted": "2026-05-15T18:44:53Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_contacted 2026-05-15",
+      "notes_last_updated 2026-05-15"
+    ],
+    "sig1_nlc_recent": true,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "261906818770",
+    "name": "Macatoci Kanashiro",
+    "email": "maca@sumaumatelecom.com.br",
+    "owner": "159350430",
+    "createdate": "2025-09-26T18:19:38.821Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-05-15T19:39:12Z",
+    "notes_last_contacted": "2026-05-15T18:44:53Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_contacted 2026-05-15",
+      "notes_last_updated 2026-05-15"
+    ],
+    "sig1_nlc_recent": true,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "297261432562",
+    "name": "Rami Yaron",
+    "email": "ryaron@flow-sec.com",
+    "owner": "159350430",
+    "createdate": "2025-09-09T19:52:08.324Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-03-31T20:09:09Z",
+    "notes_last_contacted": "2026-03-31T20:09:09Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_contacted 2026-03-31",
+      "notes_last_updated 2026-03-31"
+    ],
+    "sig1_nlc_recent": true,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "487432186604",
+    "name": "Rob Schumann",
+    "email": "rob@truepacket.io",
+    "owner": "161889085",
+    "createdate": "2025-08-05T16:42:00.404Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-05-05T20:02:10Z",
+    "notes_last_contacted": "2026-05-05T19:44:45Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_contacted 2026-05-05",
+      "notes_last_updated 2026-05-05"
+    ],
+    "sig1_nlc_recent": true,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "155989136102",
+    "name": "Craig Daiker",
+    "email": "craig.daiker@crowncastle.com",
+    "owner": "162339176",
+    "createdate": "2025-06-25T20:50:21.949Z",
+    "lifecyclestage": "lead",
+    "notes_last_updated": "2026-02-27T13:39:17Z",
+    "notes_last_contacted": "2025-12-19T17:00:00Z",
+    "flagged_for_deletion": "false",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_updated 2026-02-27"
+    ],
+    "sig1_nlc_recent": false,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  },
+  {
+    "id": "486369299174",
+    "name": "Lynn Bruns",
+    "email": "lynn.bruns@is-grp.com",
+    "owner": "161889085",
+    "createdate": "2025-02-26T21:16:17.541Z",
+    "lifecyclestage": "other",
+    "notes_last_updated": "2026-04-24T16:53:06Z",
+    "notes_last_contacted": "2026-04-24T16:53:06Z",
+    "preserved_no_dealcheck": true,
+    "reasons": [
+      "notes_last_contacted 2026-04-24",
+      "notes_last_updated 2026-04-24"
+    ],
+    "sig1_nlc_recent": true,
+    "sig2_nlu_recent": true,
+    "sig5_lifecycle": false,
+    "sig6_fresh": false
+  }
+]

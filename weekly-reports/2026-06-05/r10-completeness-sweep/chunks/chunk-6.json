@@ -1,0 +1,302 @@
+[
+ {
+  "id": "319176782542",
+  "name": "Myanmar Net",
+  "domain": "myanmarnet.com.mm",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Republic of the Union of Myanmar",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Myanmar Myanmar Net, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. SE Asia Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319176780504",
+  "name": "NetCo Lebanon",
+  "domain": "netco.com.lb",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Lebanon",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Lebanon NetCo Lebanon, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. MENA Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319190694588",
+  "name": "Newcom Gibraltar",
+  "domain": "newcom.gi",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Gibraltar",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Gibraltar Newcom Gibraltar, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Med Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319204764394",
+  "name": "Newroz Telecom",
+  "domain": "newroztel.iq",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Iraq",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Iraq Newroz Telecom, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. MENA Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319182219973",
+  "name": "PDS Pacific Data Systems",
+  "domain": "pdspacific.gu",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Guam",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Guam PDS Pacific Data Systems, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Pacific Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319173106384",
+  "name": "PTI Pacifica",
+  "domain": "pti-pacifica.gu",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Guam",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Guam PTI Pacifica, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Pacific Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "301784664824",
+  "name": "Pellera Technologies",
+  "domain": "pellera.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Cloud + Telecom Hybrid MSP - MSP",
+  "conf": "medium_7089",
+  "state": "Florida",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "FULL re-enrichment + Apollo. *** TIER UPGRADE Tier 3\u2192Tier 2 ***. Pellera Technologies (pellera.com); Tallahassee FL HQ. Formed July 21, 2025 from merger of Converge Technology Solutions + Mainline Inf",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "320373560057",
+  "name": "Ponderosa Telephone Company",
+  "domain": "ponderosa-broadband.com",
+  "seg": "Fiber Operator",
+  "sub": "Regional CLEC - Fiber operator",
+  "conf": "high_90",
+  "state": "California",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Ponderosa Telephone Company is a 115-year-old California Regional ILEC/CLEC operating a GPON/XGS-PON fiber network across 1,650 sq mi of Sierra Nevada foothills terrain - delivering 1 Gbps to 10 Gbps ",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318209570537",
+  "name": "Revaltex Group OU",
+  "domain": "revaltex.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "Harju County",
+  "country": "Estonia",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Revaltex Group \u2014 Estonia-based telecom consulting firm specializing in MVNO/MVNE services, eSIM platforms, B2B services, IMSI profile hosting, telecom due diligence, IoT wholesale mobile connectivity,",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318106540787",
+  "name": "RouteTrust",
+  "domain": "routetrust.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Managed Network Services - MSP",
+  "conf": "medium_7089",
+  "state": "Texas",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "RouteTrust \u2014 Austin TX cloud-based voice operations platform. Improves voice operations through intelligent automation. 6 employees, founded 2015. Asset-light voice-ops SaaS / MSP. Very small org but ",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318106540783",
+  "name": "SBTS",
+  "domain": "sbtsglobal.io",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "medium_7089",
+  "state": "Tokyo",
+  "country": "Japan",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "SBTS (S and BTS Global K.K.) \u2014 Tokyo-based telecom JV between BTS and SoftBank Corp. Founded 2017, 33 employees, HQ Minato Tokyo. Specializes in simplifying global communications. SoftBank lineage giv",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319182213851",
+  "name": "SWIFT Networks",
+  "domain": "swift-networks.ng",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Nigeria",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Nigeria SWIFT Networks, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Africa Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "319182207726",
+  "name": "Setar",
+  "domain": "setar.aw",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "",
+  "country": "Aruba",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Aruba Setar, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape",
+   "state"
+  ]
+ },
+ {
+  "id": "320366030584",
+  "name": "SilverLight Fiber Networks",
+  "domain": "silverlight-fiber.com",
+  "seg": "Fiber Operator",
+  "sub": "Dark Fiber Specialist - Fiber Operator",
+  "conf": "medium_7089",
+  "state": "Wyoming",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "SilverLight Fiber Networks is a privately funded open-access fiber operator in Jackson, Wyoming enabling multiple ISP partners to deliver gigabit broadband over shared fiber infrastructure.",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ }
+]

@@ -1,0 +1,189 @@
+id	name	domain	sub	tier	tgt	heat	sig_date	sig_score	sig_cnt	owner
+297969950446	6G AI Sweden	6g.ai	AI Infrastructure providers - 	tier_1		Cold				159350430
+298005835458	AceCloud	acecloud.ai	AI Infrastructure providers - 	tier_1		Cold				159350430
+314337129201	Aethir	aethir.com	Large Scale GPU - Neocloud	tier_1	T	Cold				159350430
+314347194071	Aion	aion.xyz	Large Scale GPU - Neocloud	tier_1		Cold				162339176
+316007524065	Akash Network	akash.network	Large Scale GPU - Neocloud	tier_1		Cold				162339176
+303445636824	Aleria AI	aleria.ai	AI Infrastructure providers - 	tier_1		Cold				159350430
+323259815670	Andromeda	andromeda.ai	AI Infrastructure providers - 	tier_2	T	Cold				162339176
+297960965846	Anyscale	anyscale.com	AI Infrastructure providers - 	tier_1		Cold				162339176
+239751073471	Applied Digital	applieddigital.com	Crypto to AI - Neoclouds	tier_1	T	Hot	2026-05-29	33	2	162339176
+311400162028	Arc Compute	arccompute.io	AI Infrastructure providers - 	tier_1		Cold				159350430
+326646278880	Assembly	assembly.nl	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+303409448696	Atlas Cloud AI	atlascloud.ai	AI Infrastructure providers - 	tier_1		Cold				162339176
+297936669377	BentoCloud	bentoml.com	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+326712100572	Bit Digital	bit-digital.com	Crypto to AI - Neoclouds	tier_1		Cold				161889085
+240442367678	Bitdeer Technologies	bitdeer.com	Crypto to AI - Neoclouds	tier_1		Cool	2026-03-30	18	1	159350430
+298005835457	Bitfarms	bitfarms.com	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-06-04	27	1	159350430
+326672272092	Bitzero	bitzero.com	Crypto to AI - Neoclouds	tier_1		Warm	2026-05-05	27	1	159350430
+264601327291	Blockfusion	blockfusion.com	Crypto to AI - Neoclouds	tier_1	T	Cold				161889085
+326715722488	Boost Run	boostrun.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				161889085
+326719330033	BUZZ HPC	buzzhpc.ai	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+300347451125	Cassava Technologies	cassavatechnologies.com	AI Infrastructure providers - 	tier_1		Cool	2026-03-18	18	1	159350430
+296850118389	Cipher Mining	ciphermining.com	Crypto to AI - Neoclouds	tier_1	T	Cool	2026-03-25	18	1	161889085
+317271861986	Cirrascale Cloud Services	cirrascale.com	AI Infrastructure providers - 	tier_1	T	Cold				162339176
+303405064913	Civo	civo.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+303449222869	Claro Brazil AI	claro.com.br	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+264413011658	CleanSpark	cleanspark.com	Crypto to AI - Neoclouds	tier_2		Cool	2026-01-14	9	1	162339176
+326390357746	CloudFerro	cloudferro.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+314337079014	Conexum	conexum.co	AI Infrastructure providers - 	tier_1		Cold				161889085
+240415542983	Core Scientific	corescientific.com	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-05-06	27	1	162339176
+303842934518	Core42	core42.ai	Sovereign AI Clouds - Neocloud	tier_1		Warm	2026-05-26	27	1	159350430
+240431524557	CoreWeave	coreweave.com	Large Scale GPU - Neocloud	tier_1	T	Warm	2026-05-15	33	1	161889085
+326703205065	Corvex	corvex.ai	AI Infrastructure providers - 	tier_1	T	Cold				161889085
+324007013101	Crusoe Energy Systems	crusoe.ai	Crypto to AI - Neoclouds	tier_1	T	Cool	2026-03-27	32	1	162339176
+320876610267	Cudo Compute	cudoventures.com	AI Infrastructure providers - 	tier_2	T	Cold				159350430
+297782865629	Cyfuture Cloud	cyfuture.cloud	AI Infrastructure providers - 	tier_1		Cold				159350430
+240435183333	DataCrunch	verda.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+318219155162	DataCrunch	datacrunch.io	AI Infrastructure providers - 	tier_1	T	Cold				159350430
+297975387888	Dataoorts	dataoorts.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+300374927055	Deep Infra	deepinfra.com	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+303396147961	Denvr Dataworks	denvrdata.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+303925580502	Deutsche Telekom AI Cloud	telekom.de	Sovereign AI Clouds - Neocloud	tier_1	T	Warm	2026-04-30	27	1	159350430
+326692012738	Digi Power X	digipower.com	Crypto to AI - Neoclouds	tier_1		Warm	2026-05-05	27	1	161889085
+298011233986	DigitalOcean	digitalocean.com	AI Infrastructure providers - 	tier_1		Cool	2026-04-21	18	1	162339176
+322837059308	Domyn	domyn.io	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+316621828851	Duos Technologies	duostech.com	AI Infrastructure providers - 	tier_1	T	Cold				161889085
+298009434837	E2E Networks	e2enetworks.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+325222860480	Edgevana	edgevana.com	AI Infrastructure providers - 	tier_1		Cold				162339176
+193866877684	Enzu	enzu.com	AI Infrastructure providers - 	tier_1		Cold				162339176
+326722923223	Evroc	evroc.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+298009434843	Exoscale	exoscale.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+296880096959	fal.ai	fal.ai	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+311548817115	farmGPU	farmgpu.com	AI Infrastructure providers - 	tier_1	T	Cold				162339176
+303926291174	Fastweb AI	fastweb.it	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+326646218483	Featherless AI	featherless.ai	Tier 1 Inference - Neocloud	tier_1	T	Cold				162339176
+326733731545	Fireworks AI	fireworks.ai	Tier 1 Inference - Neocloud	tier_1	T	Cold				162339176
+239793615562	Firmus	firmus.co	Sovereign AI Clouds - Neocloud	tier_1		Cool	2026-04-15	18	1	159350430
+326713801456	FlexAI	flex.ai	AI Infrastructure providers - 	tier_1	T	Cold				159350430
+314142327527	Flexnode	flexnode.io	AI Infrastructure providers - 	tier_2	T	Cold				161889085
+240447926006	FluidStack	fluidstack.io	Large Scale GPU - Neocloud	tier_1	T	Cool	2026-04-30			161889085
+301280580336	Foxconn AI Cloud	foxconn.com	Large Scale GPU - Neocloud	tier_1		Cold				159350430
+303405064912	FPT AI Factory	fpt.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+300361949930	Freyr	freyr-ai.sg	AI Infrastructure providers - 	tier_1		Cold				159350430
+301240503024	FriendliAI	friendli.ai	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+301316953844	G42	g42.ai	Sovereign AI Clouds - Neocloud	tier_1	T	Cool	2026-05-15	21	1	159350430
+324071115455	Galaxy Digital	galaxydigital.io	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-05-05	27	1	161889085
+253733597934	Gcore	gcore.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+240392277690	Genesis Cloud	genesiscloud.com	AI Infrastructure providers - 	tier_1	T	Cold				159350430
+298009434842	GMI Cloud	gmicloud.ai	AI Infrastructure providers - 	tier_1		Cool	2026-06-03	18	1	162339176
+297940265692	GMO Internet Group	gmo.jp	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+303405064911	Greenidge Generation	greenidge.com	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-05-18	33	1	161889085
+314532044490	GreenNode	greennode.ai	Large Scale GPU - Neocloud	tier_1		Cold				159350430
+240390403774	Groq	groq.com	Tier 1 Inference - Neocloud	tier_2		Cool	2026-05-28	8	1	162339176
+240444307193	Highreso	highreso.jp	AI Infrastructure providers - 	tier_1		Cold				159350430
+244551342805	Hive Digital Technologies	hiveblockchain.com	Crypto to AI - Neoclouds	tier_1	T	Cool	2026-03-18	18	1	159350430
+296880096971	HostKey	hostkey.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+326166215417	Hot Aisle	hotaisle.xyz	AI Infrastructure providers - 	tier_1	T	Cold				161889085
+303287302902	HUMAIN	humain.ai	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+324208873163	Hut 8	hut8.com	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-06-04	33	1	161889085
+298002235111	Hydra Host	hydrahost.com	AI Infrastructure providers - 	tier_1		Cold				161889085
+314352890581	Hyperbolic	hyperbolic.ai	Tier 1 Inference - Neocloud	tier_2	T	Cold				162339176
+297984383722	Hyperstack (NexGen Cloud)	hyperstack.cloud	Large Scale GPU - Neocloud	tier_1	T	Cold				159350430
+311548817114	Hypertec	hypertec.com	Large Scale GPU - Neocloud	tier_1		Cold				159350430
+326694120171	iGenius	igenius.ai	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+311381571269	Impossible Cloud	impossiblecloud.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+303423198924	Indosat Lintasarta GPU Merdeka	indosatlintasarta.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+317273591519	Inference.net	inference.net	Tier 1 Inference - Neocloud	tier_1	T	Cold				162339176
+268070011606	Ionic Digital	ionic.digital	Crypto to AI - Neoclouds	tier_1	T	Cold				161889085
+318121584335	ionstream	ionstream.ai	AI Infrastructure providers - 	tier_1		Cold				162339176
+240444244684	Iris Energy (IREN)	iren.com	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-06-01	33	1	159350430
+297987984062	JarvisLabs	jarvislabs.ai	AI Infrastructure providers - 	tier_1		Cold				159350430
+326532538071	Kakao Cloud	kakaocloud.com	Sovereign AI Clouds - Neocloud	tier_1	T	Warm	2026-04-15	30	0	159350430
+300467292882	KDDI AI Cloud	kddi.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+311386967793	Keel Infrastructure	keelinfra.com	Crypto to AI - Neoclouds	tier_1		Cold				161889085
+303467192035	Koyeb	koyeb.com	Tier 1 Inference - Neocloud	tier_2		Cold				161889085
+303399739102	Lambda	lambda.ai	Large Scale GPU - Neocloud	tier_1	T	Cool	2026-03-16	18	1	162339176
+297918677723	Latitude.sh	latitude.sh	AI Infrastructure providers - 	tier_1	T	Cold				161889085
+300724801231	Lightning AI	lightning.ai	Tier 1 Inference - Neocloud	tier_2		Cold				161889085
+303397868271	Linode (Akamai)	linode.com	AI Infrastructure providers - 	tier_1		Cold				161889085
+266984898241	Liquid Web	liquidweb.com	AI Infrastructure providers - 	tier_2	T	Cold				161889085
+326585995981	LuxProvide	lxp.lu	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+326733731547	Lyceum Technology	lyceum.technology	Sovereign AI Clouds - Neocloud	tier_2	T	Cold				159350430
+297770284744	Marathon Digital	mara.com	Crypto to AI - Neoclouds	tier_1	T	Cool	2026-04-30			161889085
+297782865626	Massed Compute	massedcompute.com	AI Infrastructure providers - 	tier_1		Cold				162339176
+303423198925	Mawson Infrastructure	mawsoninc.com	Crypto to AI - Neoclouds	tier_1		Cold				161889085
+326167978717	Micro Logic	micrologic.ca	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+326167978715	Mistral Compute	mistral.ai	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+297918677710	Modal	modal.com	Tier 1 Inference - Neocloud	tier_2		Cool	2026-05-21	12	1	161889085
+311358187234	Moonshot Energy	moonshotus.com	Crypto to AI - Neoclouds	tier_1		Cold				162339176
+326699605731	Nava	nava.com	AI Infrastructure providers - 	tier_1	T	Cold				159350430
+301136592630	Naver Cloud	ncloud.com	Sovereign AI Clouds - Neocloud	tier_1		Warm	2026-06-07	27	1	159350430
+240440573644	Nebius	nebius.com	Large Scale GPU - Neocloud	tier_1	T	Warm	2026-05-01	27	1	159350430
+314501196508	Nebul	nebul.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+296850118383	NeevCloud	neevcloud.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+300340117192	NewYork GreenCloud	nygreencloud.com	AI Infrastructure providers - 	tier_1		Cold				161889085
+316466007749	NexGen Cloud	nexgencloud.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+300724509379	Nexus Core Systems	nexuscoresystems.com	Greenfield	tier_2		Cold				159350430
+298009434839	Neysa	neysa.ai	AI Infrastructure providers - 	tier_1		Cold				159350430
+326154804931	Neysa Networks	neysanetworks.com	Large Scale GPU - Neocloud	tier_1		Cold				159350430
+326674125535	NHN Cloud	nhncloud.com	Sovereign AI Clouds - Neocloud	tier_1	T	Warm	2026-04-15	32	0	159350430
+240444199640	Northern Data Group	northerndata.de	Crypto to AI - Neoclouds	tier_1	T	Cold				159350430
+297894135492	Northflank	northflank.com	Tier 1 Inference - Neocloud	tier_2		Cold				159350430
+240242364125	Nscale	nscale.com	Sovereign AI Clouds - Neocloud	tier_1	T	Hot	2026-06-02	33	2	159350430
+326715722487	NxtGen	nxtgen.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+297293654769	Oblivus	oblivus.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+301240492757	Omniva	omniva.com	AI Infrastructure providers - 	tier_1		Cold				162339176
+303442039544	Ooredoo Qatar AI Cloud	ooredoo.qa	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+297934868205	OpenMetal	openmetal.io	AI Infrastructure providers - 	tier_1		Cold				161889085
+297782865630	Ori Industries	ori.co	AI Infrastructure providers - 	tier_1		Cold				159350430
+303850856122	OVHcloud	ovhcloud.com	Large Scale GPU - Neocloud	tier_1	T	Cold				159350430
+296846534387	PaleBlueDot AI	palebluedot.ai	AI Infrastructure providers - 	tier_1		Cold				162339176
+324190689997	Paperspace	paperspace.com	AI Infrastructure providers - 	tier_2	T	Cold				161889085
+326672302824	Parasail	parasail.io	Tier 1 Inference - Neocloud	tier_2	T	Cold				162339176
+303424995021	PoliCloud	policloud.com	AI Infrastructure providers - 	tier_1	T	Cold				159350430
+326715722484	Prime Intellect	primeintellect.ai	AI Infrastructure providers - 	tier_1	T	Cold				162339176
+320892129013	Prometheus Hyperscale	prometheushyperscale.com	Crypto to AI - Neoclouds	tier_1	T	Cold				162339176
+326154754787	Qai	qai.qa	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+326690308818	Qubrid AI	qubrid.com	AI Infrastructure providers - 	tier_1	T	Cold				161889085
+297940265699	QumulusAI	qumulusai.com	AI Infrastructure providers - 	tier_1		Cold				161889085
+303370363624	Reliance Jio AI	jio.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+296883684061	Replicate	replicate.com	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+324591600333	ResetData	resetdata.com.au	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+297892337355	Riot Platforms	riotplatforms.com	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-04-30	27	1	162339176
+322537130689	Riot Platforms, Inc.	riot.inc	Crypto to AI - Neoclouds	tier_1		Cold				162339176
+240415486656	RunPod	runpod.io	Large Scale GPU - Neocloud	tier_1	T	Cold				162339176
+301269805760	Runware	runware.ai	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+297888732862	Rutilea	rutilea.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+298002235113	Sakura Internet	sakura.ad.jp	Sovereign AI Clouds - Neocloud	tier_1		Cool	2026-03-27	9	1	159350430
+297982584519	Salad Cloud	salad.com	Tier 1 Inference - Neocloud	tier_2		Cold				162339176
+303377637098	SambaNova	sambanovasystems.com	Tier 1 Inference - Neocloud	tier_2	T	Cool	2026-03-15			162339176
+300374619852	Sarvam AI	sarvam.ai	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+240444244683	Scaleway	scaleway.com	AI Infrastructure providers - 	tier_1	T	Cold				159350430
+297986183869	Seeweb	seeweb.it	AI Infrastructure providers - 	tier_1		Cold				159350430
+326390357747	Sesterce	sesterce.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+239772420819	SF Compute	sfcompute.com	Large Scale GPU - Neocloud	tier_1		Cold				162339176
+303848694477	Shadeform	shadeform.ai	AI Infrastructure providers - 	tier_1		Cold				162339176
+322836352708	Sharon AI	sharonai.com.au	AI Infrastructure providers - 	tier_1		Cold				159350430
+326710096623	SiliconFlow	siliconflow.com	Tier 1 Inference - Neocloud	tier_1	T	Cold				159350430
+198403706562	Singtel RE:AI	singtel.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+297989642972	SK Telecom GPUaaS	sktelecom.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+324007728852	SoftBank AI Cloud	softbank.jp	Sovereign AI Clouds - Neocloud	tier_1	T	Warm	2026-05-25	27	1	159350430
+303374043856	SOLUNA	soluna.io	Crypto to AI - Neoclouds	tier_1	T	Warm	2026-05-19	27	1	161889085
+301205051103	Soluna Computing	solunacomputing.com	Crypto to AI - Neoclouds	tier_1		Cold				161889085
+326585940676	Southern Cross AI (SCX)	scx.ai	Sovereign AI Clouds - Neocloud	tier_1	T	Cold	2025-10-22	30	0	159350430
+326722976497	STACKIT	stackit.cloud	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+301136594647	Starcloud	starcloud.ai	Greenfield	tier_2		Cold				162339176
+326164366053	STN (GPU One)	stninc.com	AI Infrastructure providers - 	tier_1	T	Cold				162339176
+297770284747	Sustainable Metal Cloud	smc.co	Crypto to AI - Neoclouds	tier_1		Cold				159350430
+303848694494	Swisscom AI	swisscom.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+297892337359	Syntys (Ooredoo)	ooredoo.com	AI Infrastructure providers - 	tier_1		Cold				159350430
+314519695046	Taiga Cloud	taigacloud.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+301316966113	Telenor AI Factory	telenor.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+251659209450	TELUS Sovereign AI	telus.com	Sovereign AI Clouds - Neocloud	tier_1	T	Warm	2026-05-12	27	1	159350430
+303474610936	TensorPool	tensorpool.ai	AI Infrastructure providers - 	tier_1		Cold				162339176
+239793577663	TensorWave	tensorwave.com	Large Scale GPU - Neocloud	tier_1	T	Cold				162339176
+324007013098	TeraWulf	terawulf.com	Crypto to AI - Neoclouds	tier_1	T	Hot	2026-05-26	33	2	161889085
+326390357748	ThinkOn	thinkon.com	Sovereign AI Clouds - Neocloud	tier_1	T	Cold				159350430
+297969950451	Thunder Compute	thundercompute.com	AI Infrastructure providers - 	tier_1		Cold				162339176
+239751073470	Together AI	together.ai	Large Scale GPU - Neocloud	tier_1	T	Cold				162339176
+297164273399	Trooper AI	trooper.ai	AI Infrastructure providers - 	tier_1		Cold				159350430
+311405563594	UrsaCloud	ursacloud.com	Greenfield	tier_2		Cold				159350430
+318865028831	Vast.ai	vast.ai	AI Infrastructure providers - 	tier_1		Cold				162339176
+240415486657	Voltage Park	voltagepark.com	Large Scale GPU - Neocloud	tier_1	T	Cold				162339176
+240392240847	Vultr	vultr.com	AI Infrastructure providers - 	tier_1	T	Cool	2026-04-01	18	1	161889085
+240190285514	White Fiber	whitefiber.com	AI Infrastructure providers - 	tier_1	T	Warm	2026-05-21	27	1	161889085
+303449222870	Yotta Data Services	yottadc.com	Sovereign AI Clouds - Neocloud	tier_1		Cold				159350430
+326699661004	YTL	ytl.com.my	Large Scale GPU - Neocloud	tier_1		Cold				159350430
+303399663350	YTL AI Cloud	ytl.com	Sovereign AI Clouds - Neocloud	tier_1		Cool	2026-05-15	18	1	159350430
+303849415365	Zadara, Inc.	zadara.com	AI Infrastructure providers - 	tier_1		Cold				162339176

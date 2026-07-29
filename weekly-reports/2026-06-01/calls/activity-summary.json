@@ -1,0 +1,66 @@
+{
+  "date": "2026-06-01",
+  "weekday": "Mon",
+  "held": {"fresh": 1, "deal": 3, "total": 4},
+  "set":  {"fresh": 4, "deal": 0, "total": 4},
+  "upcoming_total": 14,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 1, "held": 2, "upcoming": 2},
+    "ken_cunningham": {"set": 0, "held": 0, "upcoming": 3},
+    "tim_ziemer":     {"set": 3, "held": 2, "upcoming": 9}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-26", "2026-05-27", "2026-05-28"],
+    "missing": ["2026-05-29 (Fri - routine did not fire, no calls dir)"],
+    "status": "LIVE (3 prior weekday runs on disk; trend tags active this run)",
+    "averages": {"held_fresh": 1.67, "held_deal": 0.33, "set_fresh": 3.33, "set_deal": 0.33},
+    "tags": {"held_fresh": "FLAT", "held_deal": "UP", "set_fresh": "FLAT", "set_deal": "FLAT"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": false,
+    "intended_compare_date": "2026-05-29",
+    "actual_compare_date": "2026-05-28",
+    "note": "Fri 5/29 run did not fire (no calls dir / no upcoming-snapshot.json). Per spec the absent file would force BASELINE BUILDING, but the most-recent available snapshot (Thu 5/28) was used instead for a useful 4-day comparison; gap noted in brief.",
+    "pushed": [
+      {"engagement_id": 369260239585, "company": "HDCO Group (Movi)", "owner": "tim_lieto", "old_ts_et": "2026-05-29T15:30", "new_ts_et": "2026-06-04T16:00", "tier": "tier_2", "segment": "Data Center Colo Provider", "fresh_or_deal": "DEAL", "deal_amount": 600000},
+      {"engagement_id": 371835531965, "company": "Broadstar + RocNet", "owner": "ken_cunningham", "old_ts_et": "2026-05-29T13:00", "new_ts_et": "2026-06-02T13:00", "tier": "tier_5", "fresh_or_deal": "FRESH"},
+      {"engagement_id": 372287513325, "company": "ONUG", "owner": "tim_ziemer", "old_ts_et": "2026-06-03T15:00", "new_ts_et": "2026-06-03T16:00", "tier": "tier_5", "note": "1h push, minor, below top-5"}
+    ],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 372944438972, "company": "Digital Realty", "owner": "tim_ziemer", "new_ts_et": "2026-06-03T14:00", "tier": "tier_1", "segment": "Data Center Colo Provider"},
+      {"engagement_id": 372425427682, "company": "1623 Farnam", "owner": "ken_cunningham", "new_ts_et": "2026-06-04T11:00", "tier": "tier_1", "segment": "Data Center Colo Provider"},
+      {"engagement_id": 372352846528, "company": "LatWan", "owner": "tim_ziemer", "new_ts_et": "2026-06-03T09:30", "tier": "tier_2", "segment": "MSP/Aggregator"},
+      {"engagement_id": 372968931022, "company": "Fibernow", "owner": "tim_lieto", "new_ts_et": "2026-06-04T15:00", "tier": "tier_3", "segment": "Fiber Operator"},
+      {"engagement_id": 372522791611, "company": "Imperium Data Networks / Acronym Solutions (assoc ambiguous)", "owner": "tim_ziemer", "new_ts_et": "2026-06-02T12:30", "tier": "n/a"},
+      {"engagement_id": 372931022529, "company": "Imperium Data Networks / Acronym Solutions (assoc ambiguous)", "owner": "tim_ziemer", "new_ts_et": "2026-06-04T16:00", "tier": "n/a"},
+      {"engagement_id": 372434455261, "company": "ACG Research (Hannah Roberts / Peter Fetterolf)", "owner": "tim_ziemer", "new_ts_et": "2026-06-03T14:00", "tier": "tier_5", "segment": "Partner Target"},
+      {"engagement_id": 372495895269, "company": "Technium/Pearce weekly project mtg", "owner": "tim_ziemer", "new_ts_et": "2026-06-02T11:30", "tier": "tier_2", "note": "project execution mtg"},
+      {"engagement_id": 372510963417, "company": "Technium/Pearce weekly project mtg", "owner": "tim_ziemer", "new_ts_et": "2026-06-02T12:00", "tier": "tier_2", "note": "project execution mtg (dup slot)"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 369770144486, "company": "Acuutech", "note": "6/1 13:30 meeting -> held call 372844545751"},
+      {"engagement_id": 371640554182, "company": "Technium", "note": "6/1 14:00 POC -> held call 372940742345"},
+      {"engagement_id": 371927577302, "company": "AT&T", "note": "6/1 14:30 -> held call 373004329678"}
+    ]
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 0,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 1,
+    "skipped": 3,
+    "note": "All substantive-call prospect contacts (Victor Rodriguez/HDCO, Bhavesh Mehta/Acuutech, Chris Painter/AT&T) already carry richly populated, smart-auto-filled MEDDPICC (num_notes 96-136) reflecting recent calls. No empty fields to fill; overwriting would degrade auto-maintained tagged content. Technium/Michael Joseph call captured note-taker housekeeping only (no extractable evidence). Conservative 0-write run per the default-not-to-write principle."
+  },
+  "dm_delivery": {
+    "abilash": {"channel": "D0A2YNPVB96", "ts": "1780359746.728819", "status": "delivered_with_correction", "note": "First send mis-attached Cooper FOR YOU; correction DM (ts 1780359769.158579) sent with Abilash FOR YOU"},
+    "tim_z":   {"channel": "D0A2817RE68", "ts": "1780359795.206029", "status": "delivered"},
+    "cooper":  {"channel": "D0A2YNL1TA4", "ts": "1780359821.129699", "status": "delivered"}
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-01T20:13 (late fire; nominal cadence 4pm CT)",
+    "held_window_et": "2026-05-29T16:00 -> 2026-06-01T15:59",
+    "held_window_note": "Monday weekend catch-up ~72h. End fixed at today 15:59 ET per spec; calls 16:00-20:13 ET today roll into tomorrow's window."
+  }
+}

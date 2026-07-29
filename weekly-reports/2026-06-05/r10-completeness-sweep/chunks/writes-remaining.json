@@ -1,0 +1,1026 @@
+[
+{
+"objectType": "companies",
+"objectId": 319126831825,
+"properties": {
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "Symbiote Investments Limited is the holding entity behind the Caricel brand, which sought to become Jamaica's third mobile carrier with a planned LTE-only network in the Kingston Metropolitan Area. Its six telecom licences were revoked by the Jamaican government in 2018 and the revocation was upheld through to the Privy Council in 2021, ending the venture. No operational network was ever launched at scale and there is no evidence of current provisioning capability. There is effectively no live infrastructure or provisioning model to assess.",
+"state": "Kingston Parish",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318106542783,
+"properties": {
+"infrastructure_profile": "None Identified"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318330813142,
+"properties": {
+"segmentation_confidence": "high_90",
+"geographic_focus": "Argentina's largest integrated telco, headquartered in Buenos Aires, with nationwide fixed, mobile, and cable footprint across Argentina (and adjacent Southern Cone operations). Operates the Personal mobile brand and Personal Fibra/Flow fixed broadband.",
+"infrastructure_profile": "Route Miles: Enterprise (50K+);POPs: Large (50-99)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Telecom Argentina is a Tier 1 integrated operator with roughly 21.6 million mobile lines and about 4 million fixed broadband subscribers, running the country's largest 4G network plus extensive HFC and fiber (Personal Fibra) across Argentina. It provisions consumer and enterprise connectivity through a national OSS/BSS over its own access and backbone. Enterprise and data-center interconnect is delivered via traditional circuit and MPLS provisioning. On-demand, deterministic private paths between clouds, data centers, and enterprise sites are a gap relative to its mass-market access scale.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231615184,
+"properties": {
+"geographic_focus": "Sudan's national incumbent telecom (Sudatel Telecom Group), headquartered in Khartoum, Sudan, with operations across Sudan, Senegal, Mauritania, and the UAE and international wholesale reach across North and West Africa.",
+"infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Sudatel is Sudan's incumbent carrier with over 25,000 km of terrestrial fiber and 11,000-plus km of subsea capacity, two Port Sudan cable landing stations on EASSy/SMW3/SMW4/EIG, and consortium stakes in SAS, ACE, and EASSy. It provides retail mobile (Sudani brand), fixed, and international wholesale to carriers across the region, provisioning capacity through a national OSS/BSS and long-cycle wholesale IRU/lease contracts. Cross-border circuits are turned up via traditional carrier processes. Automated, deterministic private provisioning across its regional footprint is a gap.",
+"state": "Khartoum",
+"country": "Sudan",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319125023448,
+"properties": {
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "WX Network is described as a small Panama-based carrier offering B2B connectivity and regional LATAM wholesale partnerships under ASEP regulation, but it has a very thin public footprint and no verifiable evidence of owned long-haul or metro fiber assets. Available research suggests a small-scale national operator or reseller rather than a facilities-heavy carrier. Connectivity is most likely provisioned over leased or partner capacity through manual processes. Owned infrastructure and any automated provisioning fabric could not be confirmed.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318327651046,
+"properties": {
+"segmentation_confidence": "medium_7089",
+"geographic_focus": "Dominican Republic fixed-wireless and fiber operator headquartered in Santo Domingo (Distrito Nacional), with footprint concentrated in Santo Domingo, Santiago, Puerto Plata, and the Punta Cana/Bavaro corridor.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Wind Telecom is a Dominican Republic operator delivering broadband and voice over a hybrid network of WiMAX/LTE fixed wireless, point-to-point microwave, MMDS pay-TV, and fiber (GPON), with a data center and B2B passive/active fiber and managed services. It owns one of the larger fiber footprints in the DR but provisions largely through manual circuit and wireless link turn-up. Service is concentrated in a handful of metros rather than national backbone scale. On-demand, deterministic private interconnection across sites is a gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319231102702,
+"properties": {
+"geographic_focus": "Regional telecom operator headquartered in Bosaso, Puntland, northeastern Somalia. Coverage spans major Puntland cities and 50-plus districts (Garowe, Galkacyo, Qardho, and others), extending into parts of Somaliland.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Golis Telecom is the largest operator in Somalia's Puntland region, running GSM/3G/4G mobile, fixed line, and high-speed fiber and broadband internet over a backbone of 1,000-plus cellular towers and 100-plus branches. It serves consumers and businesses across Puntland and into Somaliland, provisioning connectivity through manual, regionally-managed processes. Infrastructure is mobile-and-access centric with limited long-haul fiber. Deterministic private interconnection and any automated provisioning fabric are gaps.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319173099195,
+"properties": {
+"geographic_focus": "Nigerian carrier headquartered in Lagos, operating extensive metropolitan fiber across major Nigerian cities (Lagos metro core) with redundant international subsea capacity. National reach via fiber backbone complemented by satellite.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "21st Century Technologies owns and operates one of Nigeria's most extensive metropolitan optical fiber networks, built with Siemens, offering dedicated internet up to 10 Gbps, IRU capacity, and redundant international subsea connectivity to government, enterprise, and home customers. It provisions corporate dedicated access and transport directly over its owned metro fiber and subsea capacity, largely through manual circuit engineering and turn-up. The footprint is concentrated in Lagos and major metros rather than nationwide backbone. Automated, deterministic private path provisioning is a gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319194131171,
+"properties": {
+"geographic_focus": "Haiti. HQ in Port-au-Prince (Ouest department) with fiber and 4G LTE coverage across Port-au-Prince and provincial cities including Cap-Haitien, Port-de-Paix, Gonaives, Jacmel, Les Cayes and Jeremie, reaching a population of roughly 3-5 million.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Access Haiti builds and operates its own fiber and 4G LTE access networks and sells dedicated internet, VoIP, VPN and managed WiFi to corporate, government, SME and residential customers. Connectivity is provisioned through its own access plant plus regional wholesale and submarine-cable transit partnerships, with no evidence of a self-service or programmatic fabric. Private, deterministic onward paths to cloud or partner endpoints are a manual gap fulfilled via point-to-point circuits.",
+"state": "Ouest",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320307860198,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Advanced Stream Broadband is a small regional fiber and cable ISP serving Tacoma and the South Puget Sound (University Place, Fircrest, Fife, Lakewood, Puyallup) plus several Utah communities, riding the municipal Click! Network plant for last-mile. It provisions residential and small-business broadband, phone and fiber service via manual ticket-and-truck-roll workflows rather than any programmatic interconnect. There is no self-service fabric, so deterministic private paths to cloud or enterprise endpoints would be a manual buildout.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319208306378,
+"properties": {
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Africell Angola is a licensed mobile network operator that owns and controls most of its ~700-tower 2G/3G/4G estate across Luanda, Benguela, Huila and Kwanza Sul, serving over five million subscribers with nationwide expansion targeted by 2027. Service activation runs through a carrier-grade OSS/BSS provisioning stack tuned for mobile and home-broadband subscribers. Deterministic private interconnect to clouds or enterprise sites is not a productized motion and would be handled as bespoke transport.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319194135286,
+"properties": {
+"geographic_focus": "Zimbabwe. HQ in Harare. Licensed converged operator (IAP/ISP plus mobile) serving roughly 100,000 internet customers nationwide via fiber, fixed wireless and mobile broadband.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Africom is a Zimbabwean converged communications provider (since 1995) delivering integrated data, voice and video over broadband plus mobile services to about 100,000 customers. It provisions connectivity through its own access network and upstream transit, using manual order-and-activation workflows typical of a mid-tier national ISP. Programmatic private interconnect to cloud or partner endpoints is not offered and would be delivered as a manual circuit.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 317237932750,
+"properties": {
+"geographic_focus": "Seychelles. Mobile-led operator headquartered on Mahe (Greater Victoria) with 4G/LTE and selective 5G across the inhabited islands of Mahe, Praslin and La Digue. Market leader with roughly 55% subscriber share on a small island base.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Airtel Seychelles is a small island mobile network operator (acquired from Telecom Seychelles in 2010) focused on prepaid/postpaid mobile, home broadband and enterprise plans across Mahe, Praslin and La Digue. Subscriber and service provisioning runs through Airtel's standard mobile OSS/BSS. As a small island MNO it has no programmatic interconnect fabric, so private deterministic paths off-island depend on submarine-cable transit and manual circuit delivery.",
+"state": "Mahe",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231692007,
+"properties": {
+"geographic_focus": "Slovenia (HQ Ljubljana) with operations across the Adriatic/Western Balkans (Croatia, Bosnia, Serbia, North Macedonia, Montenegro) and international PoPs in Vienna and Frankfurt. Carrier serving 300+ international partners.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Akton is an established international carrier (founded 1991) running its own metro fiber in Ljubljana, Zagreb, Sarajevo, Belgrade, Skopje and Podgorica plus international PoPs in Vienna and Frankfurt, offering DIA, IP VPN, IPLC, voice/SMS wholesale and colocation. Provisioning is handled through a standard carrier OSS/BSS and partner interconnects rather than a self-service fabric. Private, deterministic on-ramps to hyperscalers at its Frankfurt/Vienna PoPs are a gap relative to programmatic fabric peers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182211807,
+"properties": {
+"geographic_focus": "Cote d'Ivoire. HQ in Abidjan (Plateau). Fixed broadband ISP arm associated with Cote d'Ivoire Telecom, serving consumer and business internet (ADSL, fixed LTE, FTTH) primarily in Abidjan and major urban centers.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Aviso is the retail/ISP brand tied to Cote d'Ivoire Telecom, delivering fixed broadband (ADSL, fixed LTE, fiber-to-home) to Ivorian consumers and businesses, mostly around Abidjan. Service activation runs through legacy national-operator order workflows rather than any programmatic interconnect. Deterministic private paths to cloud or partner endpoints are not a productized motion and would be provisioned manually over the incumbent transport.",
+"state": "Abidjan",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320366166738,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "BAM Broadband is a regional fiber and fixed-wireless operator (HQ Greenwood Village, CO; formed from DirectLink in Colorado and Desert iNet in Arizona) building FTTH and symmetrical service up to 8 Gbps across the South Denver and Phoenix/Scottsdale/Tempe metros. It provisions residential and business broadband through manual install and ticket workflows with no programmatic interconnect fabric. Deterministic private on-ramps to the AWS/Azure/GCP regions in its Denver and Phoenix footprint are a gap fulfilled by bespoke circuits.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182206700,
+"properties": {
+"geographic_focus": "British Virgin Islands. Local mobile/telecom operator (CCT brand lineage) headquartered on Tortola, serving the BVI's roughly 33,000-population market with mobile and fixed services.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "BVI Phones is a small local Caribbean telecom serving the British Virgin Islands (CCT/Caribbean Cellular lineage), one of three operators in a roughly 33,000-person market offering mobile and fixed connectivity. Provisioning is handled through manual, small-operator order and activation processes. With no programmatic fabric, private deterministic off-island paths depend on submarine-cable transit and manually delivered circuits.",
+"state": "Tortola",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319197821676,
+"properties": {
+"geographic_focus": "Ghana. HQ in Accra (Ring Road East, Greater Accra). National ISP with 4G LTE in Greater Accra/Tema plus fiber, satellite and radio broadband nationwide.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Busy Internet (founded 2001) is a Ghanaian ISP delivering 4G LTE in Greater Accra and Tema plus nationwide fiber, satellite and radio broadband, data hosting and serviced offices. It provisions broadband and hosting through its own access network and upstream transit using manual order workflows. Programmatic private interconnect to cloud or partner endpoints is not offered and would be a manual circuit buildout.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318223398594,
+"properties": {
+"geographic_focus": "Mexico. HQ in the State of Mexico / Mexico City metro (Naucalpan / Cuauhtemoc). Enterprise communications provider operating nationally as an MVNO on ALTAN Redes plus IP, fiber and wireless solutions.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "CLEARCOM is a Mexican enterprise-communications provider (founded 2011) delivering IP telephony, unified comms, managed call-center, videoconferencing and connectivity, operating as an MVNO over ALTAN Redes rather than owning national transport. It aggregates and resells underlying carrier and mobile capacity, so connectivity is provisioned through manual orders against partner infrastructure. As an aggregator it has no programmatic fabric and no owned deterministic-path infrastructure.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319197829831,
+"properties": {
+"geographic_focus": "Samoa. HQ in Apia (Saleufi, Upolu). Locally owned ICT company and ISP serving the Samoan market with internet, hosting/DNS and ICT services, and a Starlink retail partnership.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Computer Services Limited (CSL) is a small, locally owned Samoan ISP and ICT provider (founded 1977) in Apia offering internet access, hosting/DNS and, recently, retail Starlink service. It provisions connectivity through its own access plus upstream transit and satellite, using manual small-operator workflows. There is no programmatic fabric, so private deterministic paths off-island rely on submarine-cable or satellite transit and bespoke circuits.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182218965,
+"properties": {
+"geographic_focus": "New Caledonia. ISP (Can'L) headquartered in Noumea (South Province) serving ADSL and fiber internet, holding roughly 24% of New Caledonia's market via indirect access over the OPT-NC public network.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Can'L is a New Caledonian ISP (about 24% market share) selling ADSL and fiber internet primarily through indirect access over the OPT-NC incumbent network rather than owning core transport. It provisions subscriber broadband via manual order workflows against the public operator's plant. With no owned fabric, deterministic private paths to cloud or partner endpoints would depend on OPT-NC transport and submarine-cable transit, delivered manually.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 300329366233,
+"properties": {
+"geographic_focus": "United States. HQ in Miami, Florida, with offices in Vilnius (Lithuania), New York, Dallas, London and Tel Aviv. Sells a Kubernetes optimization SaaS globally to cloud users on AWS, Azure and GCP.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "Cast AI is a software-only Kubernetes automation and cost-optimization platform (founded 2019) that rightsizes, autoscales and rebalances customers' clusters on AWS, Azure, GCP and on-prem to cut cloud spend. It owns no network, data-center or GPU infrastructure and does not provision physical connectivity; it operates as an optimization layer on top of others' cloud capacity. There is no transport footprint, so deterministic private-path connectivity is not applicable to its model.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319173096167,
+"properties": {
+"geographic_focus": "Puerto Rico and the U.S. Virgin Islands. Historically the largest all-digital wireless carrier in Puerto Rico and the only significant fiber-based CLEC there, with a fiber-optic network serving commercial, ISP, carrier, and government customers.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Operated CDMA wireless plus a fiber CLEC network across Puerto Rico, selling switched access lines and dedicated circuits to enterprise, ISP, carrier, and government customers via traditional carrier OSS/BSS and manual circuit ordering. Private, deterministic on-demand paths to cloud on-ramps were not part of the legacy model. Note: Centennial Communications was acquired by AT&T in 2009-2010 and the Centennial brand was retired, so this record likely reflects a defunct/absorbed entity rather than an active independent carrier.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320373812934,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Small regional operator delivering fiber-to-the-premise plus fixed point-to-point and point-to-multipoint wireless across a 12-county area of northwest lower Michigan (Traverse City region), passing roughly 14,000 households. Connectivity is provisioned through manual, ticket-driven processes typical of a rural broadband builder, with no automated fabric or cloud on-ramp. Private, deterministic paths to cloud and partner endpoints are an unaddressed gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319194135288,
+"properties": {
+"geographic_focus": "Nigeria. HQ in Lekki, Lagos, with corporate internet and data services across Lagos, Abuja, and other major Nigerian cities. Part of the Boulos Group.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Business-focused ISP delivering corporate internet over a fixed-wireless and microwave-backhaul backbone (70+ Exalt microwave links delivering gigabit Ethernet) plus a growing UGO fibre service, with roughly 85 points of presence. Provisioning is manual and ticket-driven across a redundant radio network. Private, deterministic on-demand paths to cloud and partner endpoints are a gap for its enterprise customers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190691566,
+"properties": {
+"geographic_focus": "Bolivia. Telecommunications cooperative headquartered in Santa Cruz de la Sierra, with its principal operations in the Department of Santa Cruz and service reach across Bolivia.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Full-service telecom cooperative providing fixed and wireless telephony, long-distance, data transmission, satellite solutions, internet, and pay TV, primarily in Santa Cruz. Connectivity is provisioned through traditional incumbent OSS/BSS and manual circuit ordering. Private, deterministic on-demand paths to cloud on-ramps are a gap for its business and carrier customers.",
+"state": "Santa Cruz",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319204759254,
+"properties": {
+"geographic_focus": "Bermuda. National mobile network operator plus fixed fibre (FTTH/FTTB) provider, marketed as Bermuda's only 100% true fibre network, serving residential and business customers islandwide.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Operates a mobile network plus a fiber-to-the-home/business network (gig-speed, launched 2017) serving Bermuda, with enterprise connectivity, cybersecurity, and cloud offerings via Digicel Business. Provisioning runs through standard carrier OSS/BSS and account-managed circuit ordering. Private, deterministic on-demand paths from the island to cloud on-ramps are a gap for enterprise customers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319173096169,
+"properties": {
+"geographic_focus": "Jamaica. Leading national mobile network operator (Digicel's first market, launched 2001) with ~2.2 million subscribers, 98%+ population coverage, island-wide 4G LTE, 5G rollout underway, plus fixed fibre and fixed-wireless home broadband.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "National MNO operating island-wide 4G LTE (with 5G underway), Digicel+ fibre broadband in urban centers, and fixed-wireless LTE home broadband elsewhere, serving consumer and enterprise customers. Connectivity is provisioned through standard mobile/fixed carrier OSS/BSS and manual enterprise circuit ordering. Private, deterministic on-demand paths to cloud on-ramps are a gap for its business segment.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319204767444,
+"properties": {
+"geographic_focus": "Philippines. Legal entity behind DITO Telecommunity, the country's third national mobile network operator, with ~86% population coverage and over 12 million subscribers.",
+"infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "National greenfield 4G/5G MNO (DITO Telecommunity) that launched commercial service in 2021 to challenge the PLDT/Globe duopoly, with a brand-new nationwide RAN and core plus a growing fixed-5G business offering. Connectivity is provisioned through a modern carrier OSS/BSS stack. Private, deterministic on-demand paths to cloud on-ramps are a gap for its enterprise customers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319197829832,
+"properties": {
+"geographic_focus": "Stated as Papua New Guinea per the CRM record; no independent public evidence of an operating carrier under this name was found. PNG's documented mobile/network operators are Digicel PNG, Vodafone PNG, and Telikom/bmobile.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "No public evidence was found of an operating network or facilities for an entity named Digital8 under the digital8.pg domain. PNG's recognized carriers are Digicel, Vodafone PNG, and Telikom/bmobile. If this entity exists it is most likely a small ISP, reseller, or IT services firm rather than a Tier 1 carrier; footprint could not be substantiated.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318207597278,
+"properties": {
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320364986066,
+"properties": {
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Independent operator headquartered in Woodstock, Ontario that owns and operates an expanding fibre-to-the-home network plus DSL and fixed-wireless across southwestern Ontario (London, Kitchener-Waterloo, Hamilton, Brantford, and surrounding rural communities), serving roughly 50,000 customers. Connectivity is provisioned through manual, ticket-driven processes typical of a regional CLEC. Private, deterministic on-demand paths to cloud and partner endpoints are a gap for its business customers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319173102318,
+"properties": {
+"geographic_focus": "Iraq, primarily the Kurdistan Region (northern Iraq). Operates as Fastlink, the first 4G LTE operator in Iraq, providing mobile broadband across Kurdistan.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Regional fixed/mobile 4G LTE broadband operator serving the Kurdistan Region of Iraq, selling prepaid and bundled internet to consumers and businesses over a wireless network. Provisioning is manual and ticket-driven typical of an emerging-market regional ISP. Private, deterministic on-demand paths to cloud on-ramps are a gap and largely outside its current model.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319194131176,
+"properties": {
+"geographic_focus": "U.S. Virgin Islands. Flow is the regional brand of Liberty Latin America (Liberty VI), providing 5G mobile (95% population coverage), fixed wireless, and an expanding true-fibre network across the USVI.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Operates as Liberty VI under the Flow brand, delivering 5G mobile, fixed-wireless, and symmetrical fibre internet (250 Mbps to 1 Gbps) across the U.S. Virgin Islands, backed by Liberty Latin America's regional scale. Connectivity is provisioned through standard carrier OSS/BSS and account-managed circuit ordering. Private, deterministic on-demand paths from the islands to cloud on-ramps are a gap for enterprise customers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 316453414595,
+"properties": {
+"geographic_focus": "United States, headquartered in the Los Angeles area (Glendale, California) with stated/planned distributed sites in CA, NC, TX, and NV.",
+"infrastructure_profile": "Facilities: Small (<5)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "homegrownproprietary_platform",
+"provisioning_landscape": "Early-stage (founded 2025) operator of modular, solar-plus-battery off-grid distributed data centers, selling on-demand compute via Compute Purchase Agreements to enterprises, AI developers, and cloud providers. Capacity is delivered through its own deployment model with no carrier-grade network fabric or cloud on-ramp described. Private, deterministic paths between its distributed sites and customer/cloud endpoints are an unbuilt gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320366030585,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "City-owned municipal fibre-to-the-premises operator delivering symmetrical residential and business broadband (up to 8 Gbps) across Fort Collins, covering roughly 63% of the city and expanding into rural Larimer County. Connectivity is provisioned through manual, ticket-driven municipal processes with no automated fabric or cloud on-ramp. Private, deterministic paths to cloud and partner endpoints are an unaddressed gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 316528134882,
+"properties": {
+"geographic_focus": "HQ in Lisbon, Portugal, with offices in Madrid, Maputo (Mozambique), and Luanda (Angola). Operates as a wholesale messaging and mobile services aggregator with reach across roughly 10 countries in Europe and Lusophone Africa.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "homegrownproprietary_platform",
+"provisioning_landscape": "Go4Mobility runs a wholesale SMS gateway, SIP trunking, and content-aggregation/billing platform, interconnecting to mobile operators via direct links and local partners rather than owning physical transport. Connectivity to its messaging and voice platform is delivered over its own software stack and partner routes. Deterministic private paths between its platform nodes and operator interconnects are a potential gap, but as an aggregator it carries no fiber or POP infrastructure of its own.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319204762327,
+"properties": {
+"geographic_focus": "Headquartered in Bosaso, the commercial capital of the autonomous Puntland state in northeastern Somalia. Provides GSM/3G/4G mobile, fixed-line, and internet services across major Puntland cities and 50+ districts, with limited expansion into other parts of Somalia and Somaliland.",
+"infrastructure_profile": "POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Golis is a regional mobile and fixed operator serving Puntland, provisioning connectivity over its own GSM/3G/4G radio network and regional wholesale interconnect partnerships. Business-customer extension is handled through manual, ticket-driven processes typical of an emerging-market MNO. Deterministic private paths to data centers or cloud on-ramps are essentially absent in this market, making them a clear gap for any enterprise-grade connectivity need.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190688481,
+"properties": {
+"geographic_focus": "Based in Zambia, operating nationally as the retail arm of Liquid Intelligent Technologies Zambia (formerly CEC Liquid). Owns an extensive domestic fiber network via partnerships with CEC Liquid and ZESCO and reaches international capacity through subsea cables on both African coasts.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Hai provisions FTTH, MPLS, and LTE connectivity for home, business, and enterprise customers over fiber it operates through CEC Liquid and ZESCO partnerships, backed by Liquid's pan-African backbone and subsea routes. As part of Liquid Intelligent Technologies, it provisions through a standard OSS/BSS-driven operator stack. Deterministic, private, on-demand paths to specific cloud regions remain a gap given Zambia's distance from major hyperscaler on-ramps.",
+"state": "Lusaka Province",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190597360,
+"properties": {
+"geographic_focus": "Headquartered in Auckland, New Zealand, and owned by BW Digital (BW Group). Operates a ~15,000 km trans-Pacific subsea cable linking Australia, New Zealand, American Samoa, Hawaii, and Oregon on the US West Coast, with landing stations in Sydney, Mangawhai Heads, Kapolei, and Pacific City.",
+"infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Small (<10)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Hawaiki is a carrier-neutral, pure-play subsea operator selling wholesale capacity (spectrum, wavelengths, and IRUs) on its trans-Pacific cable to carriers, content providers, and governments. Provisioning is contract-and-IRU-driven across a small set of landing stations rather than software-defined or on-demand. Deterministic, programmable private paths from landing-station POPs into specific cloud regions are a gap that an automated fabric overlay could address.",
+"state": "Auckland",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190691567,
+"properties": {
+"geographic_focus": "Tunisian internet service provider headquartered in Tunis (with operational roots in Beja), serving residential and business customers nationwide through roughly 18 offices across Tunisia. One of five private ISPs that rely on the Tunisian Internet Agency (ATI) for upstream network management.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Hexabyte provisions ADSL, fiber, and WiFi broadband plus hosting and value-added services to Tunisian consumers and SMBs, depending on the Tunisian Internet Agency for core upstream connectivity. Provisioning is retail-ISP and manual/ticket-driven rather than software-defined. Private, deterministic paths to international cloud on-ramps are a gap given its reliance on ATI-managed upstream.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318223398591,
+"properties": {
+"geographic_focus": "Headquartered in Dania Beach, Florida (United States), operating as a US-based cloud communications software vendor serving enterprises nationally, primarily in healthcare, financial services, retail, and utilities.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "homegrownproprietary_platform",
+"provisioning_landscape": "IntelePeer sells a Communications Automation Platform (CPaaS) delivering AI-driven voice, SMS, and analytics through APIs and low/no-code tools, riding on cloud infrastructure rather than owning physical transport. Provisioning is software-and-API-driven on its own Atmosphere platform. As a software-only provider it owns no fiber, POPs, or facilities.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320366317242,
+"properties": {
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "LFT Fiber (formerly LUS Fiber) is a community-owned, 100% FTTH network operated by Lafayette Utilities System, passing roughly 95,000 households and businesses across Lafayette Parish and nearby rural communities. It provisions residential and business internet, TV, and phone over its own municipal fiber plant using a standard operator OSS/BSS workflow. Deterministic private paths from its metro fiber to specific cloud regions are a gap, as its focus is last-mile access rather than cloud interconnect.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190692541,
+"properties": {
+"geographic_focus": "Based in Manama, Bahrain, serving residential and business customers with fixed broadband nationally. Acquired by Kalaam Telecom (from Jordan Telecom/Orange), making the combined entity Bahrain's second-largest business broadband ISP.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Lightspeed provisions ADSL/fiber broadband, dedicated internet, MPLS, IPLC, and VoIP to Bahraini residential and business customers, now operating under Kalaam Telecom. Provisioning follows a regional fixed-ISP model with manual/ticket-driven workflows. Private, deterministic on-demand paths to global cloud on-ramps are a gap for its enterprise customer base.",
+"state": "Capital Governorate",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319197820613,
+"properties": {
+"geographic_focus": "Headquartered in George Town, Grand Cayman, Cayman Islands. Provides TV, internet, mobile, and phone services to residential and business customers, with a fibre network covering over 75% of homes in the Cayman Islands.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Logic (formerly WestTel) is the leading Cayman Islands fixed and mobile operator, provisioning service over its own fibre, fixed-wireless, and mobile-wireless infrastructure. Provisioning follows a small-island operator model with manual/ticket-driven workflows. Deterministic private paths to mainland cloud regions are a gap given the islands' distance from major hyperscaler on-ramps.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319204762328,
+"properties": {
+"geographic_focus": "Listed as based in Rwanda, but no public evidence of a telecom operator named MAGECI at mageci.rw could be found in research. Footprint unverified.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "No verifiable public information was found on MAGECI as a Rwandan network operator; it does not appear in standard lists of Rwanda telecom or mobile operators (MTN, Airtel, KT Rwanda Networks, Axiom, BSC, etc.). Unable to confirm any physical connectivity footprint or provisioning model. Values supplied are conservative defaults pending verification.",
+"state": "Kigali",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182211819,
+"properties": {
+"geographic_focus": "Headquartered in Bamako, Mali, as the mobile arm of Sotelma (the former state incumbent), majority-owned by Maroc Telecom. Operates nationally as Mali's second-largest mobile operator (~41% market share) plus fixed-line and internet services.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Sotelma-Malitel is a national incumbent provisioning mobile (2G/3G/4G), fixed telephony, and internet over its own nationwide network, backed by Maroc Telecom's group infrastructure and OSS/BSS systems. Provisioning follows a standard national-operator stack. Deterministic, private, on-demand paths to specific hyperscaler regions are a gap given Mali's distance from major cloud on-ramps.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190684408,
+"properties": {
+"geographic_focus": "Trinidad and Tobago based (Massy Technologies InfoCom, part of the Massy Group), with regional offices in Jamaica, Barbados, and Antigua serving the Caribbean and parts of Central America.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Massy Technologies InfoCom is a regional ICT and managed-services integrator delivering cloud, enterprise content management, communication solutions, ATMs, and data analytics rather than operating a carrier network. It resells and integrates connectivity and IT solutions for Caribbean enterprises. As a systems integrator/MSP it owns no carrier fiber or POP footprint of its own.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231692000,
+"properties": {
+"geographic_focus": "Headquartered in El Monte, California (greater Los Angeles), United States. Operates as a small international voice/SMS wholesale and VoIP provider with global termination reach but a minimal physical footprint.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Megatel Netcom is a small LA-based wholesale voice and SMS provider offering A-Z voice termination, SMS hubbing, IP-PBX, and VoIP rather than operating physical fiber or last-mile plant. It provisions via switch/SIP interconnects with carrier partners using manual processes. As a voice/SMS wholesaler it carries no route-mile or facility infrastructure of its own.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319176778433,
+"properties": {
+"geographic_focus": "Headquartered in Luanda, Angola, operating nationally as one of Angola's main mobile operators. Runs roughly 2,800 sites (about 1,200 4G-enabled) concentrated in Luanda, Benguela, Huambo, and provincial capitals.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Movicel is a national Angolan MNO (formerly state-owned) provisioning 2G/3G/4G/5G mobile voice and data over roughly 2,800 cell sites plus supporting transport. Provisioning follows a national-operator OSS/BSS model. Deterministic, private, on-demand paths to specific cloud regions are a gap given Angola's distance from major hyperscaler on-ramps.",
+"state": "Luanda Province",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319176782542,
+"properties": {
+"geographic_focus": "Operates in Myanmar as a fixed and fixed-wireless broadband ISP (brand of Frontiir). Footprint spans Yangon, Mandalay, Naypyitaw, Bago, Taunggyi, Mawlamyine and other major cities, serving 3.5M+ users.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Myanmar Net runs a metro fiber and fixed-wireless access network reaching homes and businesses across major Myanmar cities, with business internet and basic enterprise data services layered on top. Connectivity to customers is provisioned through its own access plant and manual operational workflows rather than an automated fabric. Private, deterministic inter-metro and cross-border paths to cloud or partner endpoints are a gap given its emerging-market access-centric model.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319176780504,
+"properties": {
+"geographic_focus": "Lebanon-based telecom/network company serving residential and business customers domestically. Footprint and scale could not be confirmed through public sources.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "NetCo Lebanon appears to operate as a Lebanese internet/data service provider distributing connectivity that ultimately rides the state-owned OGERO fixed backbone, the model used by most Lebanese DSPs and ISPs. Provisioning would follow manual, ticket-driven access workflows typical of small national ISPs. Public evidence is thin, so its footprint and any private deterministic-path capability are unconfirmed.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190694588,
+"properties": {
+"geographic_focus": "Gibraltar-based communications provider serving the British Overseas Territory of Gibraltar. Specific scale and service mix could not be confirmed publicly.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Newcom appears to be a small Gibraltar communications/ISP operator in a market dominated by the incumbent Gibtelecom. Any retail or business connectivity it sells would likely ride leased or wholesale infrastructure and be provisioned through manual, small-operator workflows. Footprint is unconfirmed and there is no evidence of an automated provisioning fabric or significant owned route plant.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319204764394,
+"properties": {
+"geographic_focus": "Headquartered in Erbil, Iraq, operating across the Kurdistan Region of Iraq. Largest integrated ISP in Kurdistan with 100,000+ subscribers and 1,500+ km of fiber connecting the region to international networks.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Newroz (Allai Newroz) runs an integrated fiber, fixed-line and 4G/LTE network across Iraqi Kurdistan, with 1,500+ km of fiber backbone carrying broadband, voice and enterprise data. Customer and enterprise circuits are provisioned through its own access and transport plant using regional, largely manual operational processes typical of an emerging-market operator. Private, deterministic on-ramps to hyperscaler clouds and international partners are a gap given the lack of nearby hyperscaler regions and automated fabric tooling.",
+"state": "Erbil",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182219973,
+"properties": {
+"geographic_focus": "Headquartered in Tamuning, Guam, operating since 1969 with presence in Guam, Saipan (CNMI) and Hawaii. FCC-authorized 214 facilities-based carrier and Guam CLEC.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "PDS is a Guam-based facilities-based CLEC and total IT/telecom solutions provider offering voice, internet access, data circuits and enterprise networking (VoIP PBX, Cisco networks) across Guam, Saipan and Hawaii. Circuits and services are provisioned through its own local-exchange plant plus integration work, using manual, project-based operational workflows. Private deterministic inter-island and cloud on-ramp paths are a gap given the remote Pacific footprint and absence of nearby hyperscaler regions.",
+"state": "Guam",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319173106384,
+"properties": {
+"geographic_focus": "Headquartered in Tamuning, Guam, doing business as IT&E. Serves Guam and the Northern Mariana Islands (CNMI); subsidiary of Pacific Telecom Inc. Operates the MTC Interisland Cable System (MICS) submarine cable linking Saipan, Tinian, Rota and Guam.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "PTI Pacifica (IT&E) is a facilities-based local exchange carrier in the CNMI and CLEC in Guam, providing mobile, fiber, internet, voice and data center services, and it owns the MICS interisland submarine cable connecting the Marianas. Connectivity is provisioned over its own access, transport and subsea plant through manual, regionally-run operational processes. Private deterministic paths to mainland hyperscalers are a gap given the remote Pacific location and lack of nearby hyperscaler regions.",
+"state": "Guam",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 301784664824,
+"properties": {
+"geographic_focus": "Headquartered in Tallahassee, Florida, operating across the United States (national IT solutions and managed services provider). Formed July 2025 from the merger of Converge Technology Solutions and Mainline Information Systems; ~$4B pro forma 2024 revenue.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "Pellera is an enterprise and mid-market IT solutions and managed services provider focused on hybrid cloud, cybersecurity, AI, app modernization, data and managed services, not an owner of network or carrier infrastructure. It resells and operates connectivity on behalf of clients via cloud and carrier partners rather than provisioning its own deterministic paths. Private, deterministic multi-cloud and inter-site connectivity for its enterprise clients is a gap it would source from carriers and fabrics rather than build.",
+"state": "Florida",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320373560057,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Ponderosa is a rural California ILEC/CLEC serving roughly 10,000 homes and businesses across ~1,650 sq mi of Sierra Nevada and Central California terrain over GPON/XGS-PON fiber delivering up to 10 Gbps symmetrical. Customer circuits are provisioned through its own access plant and traditional, largely manual local-exchange operational workflows. Private deterministic paths to cloud and metro fabric endpoints are a gap given its rural, access-focused footprint.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318209570537,
+"properties": {
+"geographic_focus": "Headquartered in Harju County, Estonia, operating internationally as a telecom consulting and services firm (MVNO/MVNE enablement, eSIM, IMSI hosting, IoT wholesale mobile connectivity, telecom due diligence).",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Revaltex is an asset-light Estonian telecom consultancy and aggregator that enables MVNO/MVNE, eSIM and IoT mobile connectivity by brokering and hosting access on underlying mobile networks rather than owning physical plant. Connectivity is provisioned through partner-carrier integrations and platform/IMSI hosting arrangements managed by hand. It owns no route plant or deterministic transport, so private path delivery would depend entirely on its upstream carrier partners.",
+"state": "Harju County",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318106540787,
+"properties": {
+"geographic_focus": "Headquartered in Austin, Texas, United States. Small (~6 employee) cloud-based voice-operations software company serving enterprise and wholesale communications providers, primarily US-focused.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "RouteTrust is an asset-light, cloud-based voice-operations SaaS vendor offering a Class IV softswitch, least-cost routing, toll-free management, DID inventory and call-quality analytics for carriers and wholesalers. It automates voice routing and operational workflows in software rather than owning network or carrier infrastructure. It provisions no physical paths itself; private deterministic transport is outside its product scope and would be supplied by its customers' underlying carriers.",
+"state": "Texas",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318106540783,
+"properties": {
+"geographic_focus": "Headquartered in Minato, Tokyo, Japan as S and BTS Global K.K., a 2017 JV between BTS and SoftBank Corp. Serves carriers, CPaaS providers, hyperscalers and enterprises globally with regional specialization in APAC and the Middle East.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "SBTS is a SoftBank/BTS joint venture delivering international voice, messaging, fraud-protection and cloud-based communications services and consulting rather than owning carrier network infrastructure. It improves and brokers connectivity on top of SoftBank's and partner networks and recently launched travel eSIM services. It does not provision its own deterministic physical paths; private transport would be supplied by SoftBank or other underlying carriers.",
+"state": "Tokyo",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182213851,
+"properties": {
+"geographic_focus": "Headquartered in Lagos, Nigeria, operating as a facilities-based fixed-wireless and fiber broadband provider primarily across Lagos and major Nigerian urban areas.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "SWIFT Networks is a Nigerian facilities-based broadband operator delivering internet and data over licensed 3.5GHz fixed-wireless (WTTx) and fiber (FTTx) to homes, estates and businesses, plus an LTE overlay. Customer connectivity is provisioned through its own licensed wireless and fiber access plant using manual operational workflows. Private deterministic on-ramps to hyperscaler clouds and international partners are a gap given the access-centric, emerging-market footprint.",
+"state": "Lagos",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319182207726,
+"properties": {
+"geographic_focus": "National incumbent telecom operator for the island of Aruba (SETAR N.V., 100% government-owned), headquartered in Oranjestad. Full-service mobile, fixed, fiber, cable TV and internet provider across Aruba.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Setar is Aruba's national incumbent carrier running mobile (LTE, with a Nokia 5G transformation underway), FTTH, cable TV and fixed telephony across the island, operated through standard incumbent OSS/BSS systems. Services are provisioned over its own end-to-end island network. Private, deterministic off-island paths to hyperscaler clouds are a gap given Aruba's lack of nearby hyperscaler regions and reliance on a small number of subsea links.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320366030584,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "SilverLight is a privately funded open-access fiber network built and operated by Silver Star Communications across the town of Jackson, Wyoming, delivering up to 10 Gbps symmetrical and letting multiple retail ISPs (e.g. Intellipop) compete over the shared fiber. It provisions wholesale access to ISP partners over its own metro fiber plant using manual, build-driven operational workflows. Private, deterministic long-haul and cloud on-ramp paths beyond the local Jackson footprint are a gap given the single-town, access-layer scope.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 316504259305,
+"properties": {
+"geographic_focus": "HQ in Mexico City (Polanco), Mexico. Licensed Mexican telecom operator delivering messaging and voice across Mexico and the broader LATAM region via direct operator connections and partner routes.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "homegrownproprietary_platform",
+"provisioning_landscape": "Spark Telecomm provisions A2P SMS, CLI/direct voice routes, DIDs, WhatsApp/RCS and Direct Carrier Billing through an in-house developed messaging gateway plus SIP connectivity to carrier partners. As a messaging/voice aggregator it rides upstream operator interconnects rather than owning transport, so private deterministic paths between its platform and partner DCs/carriers are provisioned ad hoc over public IP or per-carrier SIP trunks.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319197822663,
+"properties": {
+"geographic_focus": "HQ in Kinshasa (Gombe), Democratic Republic of the Congo. Small national operator/ISP serving business customers in DRC with regional wholesale partnerships; very limited published footprint.",
+"infrastructure_profile": "POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Standard Telecom Congo (STC) operates a small BGP network (AS328003) with a single upstream and minimal peering, extending connectivity to DRC business customers. Provisioning is manual and ticket-driven against upstream transit; there is no automated fabric, and private deterministic paths to cloud or partner endpoints would be a clear gap.",
+"state": "Kinshasa",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319197827820,
+"properties": {
+"geographic_focus": "HQ in Caracas (Capital District), Venezuela. Pioneer coaxial cable TV and fiber broadband operator serving Caracas and several Venezuelan cities (Puerto La Cruz, Maracay, Maturin, Margarita, Los Teques).",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Supercable historically provisioned cable-TV and HFC/fiber residential and business internet (B-point and Blue Connection plans, 10 Mbps to 1 Gbps) across Venezuelan metros. Provisioning was a traditional manual MSO truck-roll and last-mile model with no automated interconnect fabric; private deterministic paths to cloud or partner DCs are not part of its model.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319194136276,
+"properties": {
+"geographic_focus": "HQ in Accra, Ghana. Wholly Ghanaian-owned operator running the country's first commercial 4G LTE network across Accra, Tema and Takoradi, with a nationwide expansion to 700+ cell sites.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Surfline provisions LTE mobile wireless broadband to consumers and businesses over an owned RAN (Huawei/Alcatel-Lucent gear, IBM/Microsoft partnerships) backhauled to its Accra core. Connectivity is provisioned through carrier OSS/BSS over the cellular network; there is no automated private fabric to cloud on-ramps, so deterministic enterprise paths to hyperscalers are a gap.",
+"state": "Greater Accra",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318223398595,
+"properties": {
+"geographic_focus": "HQ in Beirut, Lebanon with a Cyprus office in Limassol. Wholesale international voice and SMS aggregator plus IT distribution, with customer reach across Africa, Asia and Latin America.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Tecomsa provisions wholesale international voice termination and A2P SMS through carrier interconnects plus IT distribution and managed/software services. As an aggregator it buys and resells termination capacity over partner networks rather than owning transport, so routing is provisioned via per-carrier SIP/SMPP arrangements with no private deterministic fabric of its own.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190598331,
+"properties": {
+"geographic_focus": "HQ in Port Vila, Vanuatu. Incumbent fixed and mobile carrier serving Vanuatu, dependent on the ICN1 subsea cable (Port Vila to Suva, Fiji) for international capacity onto the Southern Cross trans-Pacific network.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "TVL provisions fixed (ADSL, WiMAX, leased lines) and mobile services across Vanuatu, with all international traffic riding the single ICN1 subsea cable to Fiji and onward to Southern Cross. Provisioning is a traditional incumbent OSS/manual model; the single-cable dependency (10-day outage after the 2024 earthquake) makes resilient, deterministic private paths to cloud a clear gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231691997,
+"properties": {
+"geographic_focus": "HQ in Amsterdam, Netherlands, operating globally with 24/7 NOCs in Europe and Asia. Field technicians deploy worldwide to build and maintain carrier and enterprise network infrastructure.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "TeleSol Group is a managed network infrastructure services firm - it sells, installs, tests and maintains multi-brand transmission/WDM equipment, runs PoP-build and rack-and-stack projects, and provides 24/7 hardware maintenance for carriers, financial institutions and cloud providers. It does not own transport or operate a network of its own, so it is a services/integration vendor rather than a connectivity provisioner.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318219105988,
+"properties": {
+"geographic_focus": "HQ in Austin, Texas, United States. Asset-light cloud collaboration provider serving B2B customers across US market segments.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "TeleSpace resells Cisco-Powered UCaaS, TPaaS (TelePresence) and CCaaS as monthly subscriptions, holding Cisco Master Cloud and Managed Services certification. It owns no network or facilities and delivers services over Cisco's hosted collaboration platform and the public internet, so it is a managed cloud-collaboration reseller with no private connectivity fabric of its own.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319194138308,
+"properties": {
+"geographic_focus": "HQ in Paramaribo, Suriname. State-owned incumbent telco and the sole fixed-line/fixed-broadband provider nationwide, rolling out fiber along the coastal belt plus mobile (GSM/UMTS/LTE/5G) as TeleG.",
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Telesur is Suriname's incumbent, provisioning fixed voice, DSL and a growing national FTTH footprint (National Broadband Project completed 2019) plus mobile up to 5G over owned infrastructure. Provisioning runs through incumbent OSS/BSS; international reach depends on limited subsea/satellite capacity, so automated private deterministic paths to hyperscaler cloud on-ramps are a gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231691993,
+"properties": {
+"geographic_focus": "HQ in Stockholm region, Sweden, with offices in Germany, France, Morocco, Malaysia, UK, US, Philippines and Singapore. Sells telecom network software globally to operators such as BT, Telia, Maroc Telecom, Etisalat and Telenor.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "none_identified",
+"provisioning_landscape": "Teligent Telecom is a carrier-grade network software and systems-integration vendor (P90/E platform) delivering converged services, next-gen messaging/voicemail, mass-calling and legacy-system replacement to operators. It does not own or operate a transport network of its own, so it is a software/VAS supplier rather than a connectivity provider.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231692005,
+"properties": {
+"geographic_focus": "Independent colocation/data-centre operator. Public evidence most strongly supports a New Zealand operator (formed 2026 from Spark NZ data-centre assets, nationwide carrier-neutral facilities); the CRM domain (tenpeaks.ca) implies a Canadian entity that could not be independently confirmed.",
+"infrastructure_profile": "Facilities: Mid-Size (5-19)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Ten Peaks operates carrier-neutral colocation and cloud/co-location facilities (DataCenterMap lists ~13 sites for the TenPeaks brand). Customer cross-connects and interconnection are provisioned through traditional manual cross-connect/LOA-CFA processes typical of an independent colo; an automated interconnection fabric or cloud on-ramp is not evidenced and would be a gap.",
+"country": "Canada",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319208306408,
+"properties": {
+"infrastructure_profile": "POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Tizeti (wifi.com.ng) provisions fixed-wireless unlimited internet and public Wi-Fi over solar-powered towers using 5.4 GHz Wi-Fi and 3.5 GHz LTE bands, serving Lagos, Ogun, Port Harcourt, Benin, Oyo and Accra. Provisioning is a manual fixed-wireless CPE-install model backhauled to its base stations; there is no automated private fabric, so deterministic enterprise paths to cloud on-ramps are a gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320307860199,
+"properties": {
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Small (<10)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Tombigbee Fiber, LLC is the FTTH subsidiary of Tombigbee Electric Power Association, building roughly 4,000 route miles of fiber to serve ~44,500 co-op members across Lee and Itawamba counties, Mississippi (HQ Tupelo). Provisioning is a residential/business FTTH model over its own rural fiber plant via standard install workflows; automated private interconnect to cloud or carrier fabrics is not part of the model.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319208306409,
+"properties": {
+"infrastructure_profile": "POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "VIPNET is an alternative ISP in Cote d'Ivoire (3rd-largest ISP, 1st alternative operator), HQ in Cocody, Abidjan, with licensed 3.5/10/11/18 GHz spectrum for WiMAX, LTE, FH and VSAT plus hosting/cloud services. Provisioning is a manual fixed-wireless/VSAT and leased-line model over owned radio infrastructure; there is no automated interconnect fabric, so private deterministic paths to hyperscaler cloud are a gap.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 316491210473,
+"properties": {
+"geographic_focus": "US-based (Austin, Texas HQ) edge colocation operator with its Kinetic Grid micro modular data centers deployed across roughly 30+ US metro markets, plus early European expansion in Barcelona via a Cellnex partnership.",
+"infrastructure_profile": "Facilities: Enterprise (50+)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "homegrownproprietary_platform",
+"provisioning_landscape": "Vapor IO operates clusters of automated micro modular data centers sited at fiber intersections, cell towers, and rights-of-way, stitched together by a metro and national edge-to-edge backbone and orchestrated through its proprietary Kinetic Grid software platform. Provisioning and interconnect run through that homegrown grid control plane rather than a third-party fabric. Cross-metro and partner-network handoffs into low-latency, deterministic private paths are where carrier infrastructure complements its edge footprint.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 318231692002,
+"properties": {
+"geographic_focus": "US-focused intermediate voice provider headquartered in Garland, Texas, operating as a regulatory-compliance-oriented voice carrier/aggregator. Backed by IQSTEL (NASDAQ-traded), with worldwide voice termination reach but no owned physical network footprint.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Whisl is an asset-light, FCC-registered intermediate voice provider centered on robocall mitigation, STIR/SHAKEN, and fraud protection rather than owned transport. It interconnects with upstream and downstream carriers for voice termination and manages compliance and routing through carrier ticket and SIP-trunk arrangements. With no owned fiber or facilities, there is no native deterministic private-path layer; connectivity is brokered through partner carriers.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 320997081786,
+"properties": {
+"segmentation_confidence": "high_90",
+"geographic_focus": "German IT managed-services and network provider headquartered in Ahaus (North Rhine-Westphalia), serving SMEs, law firms, and multi-site businesses across Germany and parts of Europe.",
+"infrastructure_profile": "None Identified",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "homegrownproprietary_platform",
+"provisioning_landscape": "ambiFOX is an IT-outsourcing and managed-services provider that delivers NaaS and SD-WAN via its nocware cloud-native orchestration layer, built on Juniper/128 Technology Session Smart Routing and partner SD-WAN technology. It provisions and manages customer site-to-site networks as an overlay over third-party access circuits rather than owning physical transport. Underlying deterministic, private path capacity from carrier infrastructure is what its overlay would ride on.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 319190683379,
+"properties": {
+"geographic_focus": "National mobile and telecom operator in Trinidad and Tobago, the bmobile brand of TSTT (majority government-owned, formerly Cable & Wireless JV), serving the twin-island domestic market with some regional Caribbean wholesale and roaming reach.",
+"infrastructure_profile": "Route Miles: Mid-Size (1K-10K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "None Known",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "As the incumbent national MNO/telco for Trinidad and Tobago, bmobile/TSTT provisions mobile (GSM/UMTS/LTE) and fixed services through a conventional carrier OSS/BSS stack and domestic backbone. Enterprise and wholesale circuits are delivered through traditional carrier ordering and provisioning processes. Programmatic, on-demand private interconnect to clouds and partner networks is largely absent, which is where deterministic carrier-infrastructure paths would extend its reach.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 324170890955,
+"properties": {
+"infrastructure_profile": "Route Miles: Large (10K-50K);POPs: Mid-Size (10-49)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "standard_ossbss_stack",
+"provisioning_landscape": "Allstream is now a Zayo-owned Canadian fiber operator; the acquired network added ~18,000 route miles (12,500 long-haul plus 5,500 metro) reaching ~3,300 on-net buildings across Canada's top five metros, with the Allstream brand retained for legacy voice and small-business services. Provisioning runs through Zayo's national OSS/BSS and service-automation stack for transport, wavelengths, and Ethernet. Deterministic on-demand private interconnect into clouds and partner fabrics is where carrier infrastructure extends the underlying fiber.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 324104658647,
+"properties": {
+"infrastructure_profile": "Route Miles: Small (<1K);POPs: Small (<10)",
+"hyperscaler_proximity": "Existing Facility Nearby",
+"fabric_provisioning_approach": "manuallegacy_processes",
+"provisioning_landscape": "Cleareon is a New York metro dark fiber and carrier-neutral transport specialist whose dense fiber connects the area's carrier hotels and data centers (111 8th Avenue and similar) out toward enterprise buildings in NYC, New Jersey, and Brooklyn. It sells Layer 1 dark fiber plus lit Ethernet/IP services, with provisioning driven by manual cross-connect, LOA/CFA, and circuit-turn-up workflows typical of a metro dark fiber provider. On-demand, programmatic private-path provisioning is the gap that carrier infrastructure addresses on top of its fiber.",
+"last_enriched_date": "2026-06-05"
+}
+},
+{
+"objectType": "companies",
+"objectId": 326325672653,
+"properties": {
+"company_sub_segment": "Tier 1 Carrier - Network Op"
+}
+},
+{
+"objectType": "companies",
+"objectId": 326163435208,
+"properties": {
+"company_sub_segment": "Tier 1 Carrier - Network Op"
+}
+}
+]

@@ -1,0 +1,8 @@
+[
+ {"hs_object_id": 375421348573, "hs_timestamp": "2026-06-17T13:00:00Z", "hubspot_owner_id": "164949459", "company_name": "Bouygues Telecom", "account_tier": "tier_1", "segment": "Network Operator(Tier 1 / VNO)", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 376448123601, "hs_timestamp": "2026-06-17T16:30:00Z", "hubspot_owner_id": "159350430", "company_name": "Nexus (Nick intro to Kristyn & Julie)", "account_tier": "unknown", "segment": "unclassified", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 376435253953, "hs_timestamp": "2026-06-17T18:00:00Z", "hubspot_owner_id": "161889085", "company_name": "Omada Technologies", "account_tier": "other", "segment": "Other", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375007944392, "hs_timestamp": "2026-06-17T19:00:00Z", "hubspot_owner_id": "159350430", "company_name": "FiberLight", "account_tier": "tier_2", "segment": "Fiber Operator", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 375964040925, "hs_timestamp": "2026-06-19T18:00:00Z", "hubspot_owner_id": "161889085", "company_name": "Globalgig", "account_tier": "tier_2", "segment": "MSP/Aggregator", "fresh_or_deal": "FRESH"},
+ {"hs_object_id": 374737343181, "hs_timestamp": "2026-06-23T17:30:00Z", "hubspot_owner_id": "161889085", "company_name": "Tim Lieto 30-Minute Introduction (scheduler link)", "account_tier": "unknown", "segment": "unclassified", "fresh_or_deal": "FRESH"}
+]

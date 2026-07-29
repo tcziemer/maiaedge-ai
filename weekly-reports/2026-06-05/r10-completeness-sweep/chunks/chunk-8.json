@@ -1,0 +1,161 @@
+[
+ {
+  "id": "316491210473",
+  "name": "Vapor IO",
+  "domain": "vapor.io",
+  "seg": "Data Center Colo Provider",
+  "sub": "Modular - colo",
+  "conf": "high_90",
+  "state": "Texas",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Vapor IO (Austin TX, founded 2015, 15 emp, $12M rev, $180M funded Series C). Carrier-neutral edge-to-edge colocation operator \u2014 Kinetic Grid platform deploying micro modular DCs at base of telecom tow",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "318231692002",
+  "name": "Whisl Telecom",
+  "domain": "whisl.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "medium_7089",
+  "state": "Texas",
+  "country": "United States",
+  "owner": "162339176",
+  "tgt": "",
+  "led": "2026-05-19",
+  "brief": "Whisl Telecom \u2014 Garland TX FCC-registered voice carrier focused on robocall mitigation and regulatory compliance. 2 employees, founded 2018. Asset-light voice aggregator/MSP. Very small org but specia",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "320997081786",
+  "name": "ambiFOX GmbH",
+  "domain": "ambifox.com",
+  "seg": "MSP/Aggregator",
+  "sub": "Telecom Aggregator - MSP",
+  "conf": "",
+  "state": "Nordrhein-Westfalen",
+  "country": "Germany",
+  "owner": "159350430",
+  "tgt": "true",
+  "led": "2026-05-19",
+  "brief": "ambiFOX GmbH; Ahaus Germany. IT outsourcing + managed services + secure network solutions. Specializes in NaaS, SD-WAN (Cisco Meraki + VMware + Juniper), Session Smart Routing (128T). Active opportuni",
+  "miss": [
+   "segmentation_confidence",
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "319190683379",
+  "name": "bmobile Vodafone",
+  "domain": "bmobile.co.tt",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "Tier 1 Carrier - Network Op",
+  "conf": "high_90",
+  "state": "Port of Spain",
+  "country": "Trinidad and Tobago",
+  "owner": "159350430",
+  "tgt": "false",
+  "led": "2026-05-19",
+  "brief": "Trinidad and Tobago bmobile Vodafone, carrier/MNO with external extension motion to business customers. Regional wholesale partnerships. Caribbean Tier 3.",
+  "miss": [
+   "geographic_focus",
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "324170890955",
+  "name": "Allstream",
+  "domain": "allstream.com",
+  "seg": "Fiber Operator",
+  "sub": "Tier 2 National Wholesale - Fiber operator",
+  "conf": "high_90",
+  "state": "Ontario",
+  "country": "Canada",
+  "owner": "159350430",
+  "tgt": "true",
+  "led": "2026-05-22",
+  "brief": "Allstream is a Canadian national wholesale fiber operator now owned by Zayo, operating as a subsidiary brand supporting legacy small-business voice services (phone lines, PRIs) while broader fiber con",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "324104658647",
+  "name": "Cleareon",
+  "domain": "cleareon.com",
+  "seg": "Fiber Operator",
+  "sub": "Dark Fiber Specialist - Fiber Operator",
+  "conf": "high_90",
+  "state": "New York",
+  "country": "United States",
+  "owner": "161889085",
+  "tgt": "true",
+  "led": "2026-05-22",
+  "brief": "Cleareon is a New York metro dark fiber specialist providing carrier-neutral fiber transport and colocation interconnect across the NYC, NJ, and Tri-State carrier-hotel ecosystem. Pure-play dark fiber",
+  "miss": [
+   "infrastructure_profile",
+   "hyperscaler_proximity",
+   "fabric_provisioning_approach",
+   "provisioning_landscape"
+  ]
+ },
+ {
+  "id": "326325672653",
+  "name": "Hub One",
+  "domain": "hubone.fr",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "",
+  "conf": "high_90",
+  "state": "Ile-de-France",
+  "country": "France",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-06-04",
+  "brief": "Hub One is a French alternative telecommunications operator (a Groupe ADP / Aeroports de Paris company) operating France's largest private 4G network, scalable to 5G, serving over 1,500 enterprises in",
+  "miss": [
+   "company_sub_segment"
+  ]
+ },
+ {
+  "id": "326163435208",
+  "name": "Win s.a. (NRB)",
+  "domain": "win.be",
+  "seg": "Network Operator(Tier 1 / VNO)",
+  "sub": "",
+  "conf": "medium_7089",
+  "state": "Walloon Region",
+  "country": "Belgium",
+  "owner": "159350430",
+  "tgt": "",
+  "led": "2026-06-04",
+  "brief": "Win S.A. is a Belgian network operator and ICT service integrator in Wallonia, founded in 1988 and part of the NRB group. It operates its own proprietary network and the Wallonia Data Center, deliveri",
+  "miss": [
+   "company_sub_segment"
+  ]
+ }
+]

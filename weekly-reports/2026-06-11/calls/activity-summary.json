@@ -1,0 +1,92 @@
+{
+  "date": "2026-06-11",
+  "weekday": "Thu",
+  "held": {"fresh": 1, "deal": 1, "total": 2},
+  "set":  {"fresh": 2, "deal": 0, "total": 2},
+  "upcoming_total": 6,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 1, "held": 2, "upcoming": 1},
+    "ken_cunningham": {"set": 0, "held": 0, "upcoming": 1},
+    "tim_ziemer":     {"set": 1, "held": 0, "upcoming": 4},
+    "markus_hendrich":{"set": 0, "held": 0, "upcoming": 0}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-06-04", "2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10"],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {"held_fresh": 2.0, "held_deal": 0.8, "set_fresh": 1.4, "set_deal": 1.0},
+    "tags": {"held_fresh": "DOWN", "held_deal": "FLAT", "set_fresh": "FLAT", "set_deal": "DOWN"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-10",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 375214606020, "company": "Arc Compute", "owner": "tim_ziemer", "new_ts_et": "2026-06-16T09:00", "tier": "tier_1", "segment": "NeoCloud", "note": "Intro to MaiaEdge booked today 11:30 ET; contact Joshua Gelata (Infrastructure Lead); second Tier 1 NeoCloud first-meeting of the week alongside Cirrascale 6/15"}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 375024702155, "company": "Technium / SBA Edge", "note": "6/11 09:30 ET joint session -> held CALL 375208925919; MEETING twin collapsed"}
+    ],
+    "note": "702 Communications, Fusion Broadband, Cirrascale, Pearce, FiberLight all unchanged vs yesterday. No PUSHED / PULLED IN / DROPPED. Tim/Sorell 6/16 excluded (internal). Markus untitled 6/16 meeting excluded (artifact, 4th day)."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 0,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 3,
+    "skip_details": [
+      "Jared Benson (SBA Edge, 465811045113): all 6 contact MEDDPICC fields smart-filled today 22:38Z with this call's content (90-190d circuit delays, stranded assets, REIT services-revenue cap, pod form factor). Populated + matches most-recent transcript -> skip.",
+      "Michael Joseph (Technium CTO, 424214627034) on Technium/SBA call: all 6 fields smart-filled today 22:38Z, content matches. Skip.",
+      "Michael Joseph on Mike/Tim follow-up call (375264121548): transcript thin (coordination touch, no MEDDPICC-grade evidence); fields already current from the morning call. Skip."
+    ],
+    "note": "HubSpot native smart-fill (22:38Z pass, 5:38 PM CT - before this 6 PM CT fire) populated all contact MEDDPICC ahead of the run, same pattern as 6/10. Deal at presentationscheduled (not contractsent) so writes were permitted - none needed. Zero CRM Guardian writes."
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-11T19:01 (6pm CT fire)",
+    "held_window_et": "2026-06-10T19:01 -> 2026-06-11T19:01",
+    "logwindow_et": "2026-06-10T19:01 -> 2026-06-11T19:01 (catch-up lookback floor 2026-05-28)",
+    "watermark_continuous": true,
+    "set_window_et": "same as held; Set = 2 true forward bookings (Mike/Tim MEETING 375235111642 created 14:49 ET for 16:00 ET = book-and-hold; Arc Compute 375214606020 created 11:30 ET for 6/16). The 2 held CALL objects excluded from Set as HUBSPOT_MEETINGS auto-logs (createdate ~= timestamp).",
+    "upcoming_window_et": "2026-06-11T19:01 -> 2026-06-18T19:01; CALL upcoming query returned 0",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer", "164949459 Markus Hendrich"],
+    "late_log_catchups": [],
+    "dedup_collapsed": [
+      "MEETING 375024702155 collapsed into CALL 375208925919 (Technium/SBA twin; CALL canonical, carries summary + transcript)",
+      "MEETING 375235111642 collapsed into CALL 375264121548 (Mike/Tim twin; CALL canonical)"
+    ],
+    "audit_dropped": [
+      "MEETING 374854181581 'Tim/Sorell' 6/16 (Tim Lieto) - internal (Sorell = MaiaEdge Fellow); excluded from Upcoming.",
+      "MEETING 374360388287 (untitled, Markus, 6/16 04:30 ET) - no title/company; excluded from Upcoming; 4th consecutive day flagged."
+    ],
+    "calendar_health_7d": {
+      "tim_lieto": "6+ calendar-sourced objects (2 held HUBSPOT_MEETINGS calls today + meeting twins + Cirrascale booking)",
+      "ken_cunningham": "2+ (6/10 held HUBSPOT_MEETINGS calls: Myakka + United Teleports)",
+      "tim_ziemer": "2 (Pearce 6/10 + Arc Compute 6/11 bookings)",
+      "markus_hendrich": "1 (untitled 6/8 artifact - quality flagged, not zero)",
+      "flags": "none at zero; both held calls today calendar-sourced (HUBSPOT_MEETINGS). Counts derived from this run's pulls + 6/10 run audit rather than a fresh 7d count query - sufficient signal, noted as estimate."
+    },
+    "data_hygiene_flags": [
+      "Mike/Tim call 375264121548 (Technium CTO) NOT associated to open Technium - Lab deal 323891060419 - classified FRESH by mechanical rule; skews mix. Routed to Cooper FOR YOU.",
+      "Markus untitled 6/16 meeting 374360388287 - 4th consecutive day."
+    ],
+    "for_you_routing": {
+      "abilash": ["Two Tier 1 NeoCloud first meetings booked (Cirrascale 6/15 + Arc Compute 6/16)", "SBA Edge 1k-2k site DIA program shape + REIT constraint"],
+      "tim_z": ["SBA Edge wants provisioning + monitoring owned by MaiaEdge; Jared (his contact) pressing quote speed", "his calendar load: 4 of 6 team meetings next 7d"],
+      "cooper": ["Mike/Tim deal-association gap", "Markus untitled meeting 4th day + calendar health clean"],
+      "tim_lieto": ["Technium - Lab quote gate + POC active", "Cirrascale 6/15 prep"],
+      "ken_cunningham": ["702 Communications demo Fri 6/12 3:30 PM ET"],
+      "pt": ["POC - Technium - Lab: DIA-to-pod model scoped; pod form-factor fit + quote turnaround gate"]
+    },
+    "dm_links": {
+      "abilash": "https://maia-edge.slack.com/archives/D0A2YNPVB96/p1781219208727489",
+      "tim_z": "https://maia-edge.slack.com/archives/D0A2817RE68/p1781219238147209",
+      "cooper": "https://maia-edge.slack.com/archives/D0A2YNL1TA4/p1781219271121499",
+      "tim_lieto": "https://maia-edge.slack.com/archives/D0A9UNDR5EW/p1781219300401849",
+      "ken_cunningham": "https://maia-edge.slack.com/archives/D0AE4AGC5KJ/p1781219316672619",
+      "pt": "https://maia-edge.slack.com/archives/D0A28180WG4/p1781219334873249"
+    },
+    "formatting_note": "DMs sent with standard markdown (**bold**) per the connected Slack MCP contract, which converts to Slack mrkdwn server-side; code-block tables + bullet/blockquote conventions per prompt."
+  }
+}

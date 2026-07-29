@@ -1,0 +1,47 @@
+{
+  "date": "2026-05-27",
+  "weekday": "Wed",
+  "held": {"fresh": 1, "deal": 0, "total": 1},
+  "set":  {"fresh": 6, "deal": 0, "total": 6},
+  "upcoming_total": 11,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 0, "held": 1, "upcoming": 3},
+    "ken_cunningham": {"set": 1, "held": 0, "upcoming": 3},
+    "tim_ziemer":     {"set": 5, "held": 0, "upcoming": 5}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-26"],
+    "missing": ["2026-05-25 (Memorial Day - routine did not fire)"],
+    "status": "BASELINE BUILDING (1 prior weekday run on disk; need >=3 for trend tags). Trend arrows expected to go live after 2026-05-29 run.",
+    "tags": null
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-05-26",
+    "pushed": [
+      {"engagement_id": 369770144486, "title": "Commercial Discussion (Acuutech)", "old_ts_et": "2026-05-27T09:30", "new_ts_et": "2026-06-01T09:30", "days_pushed": 5, "owner": "tim_ziemer", "is_deal": true, "company": "Acuutech", "deal_stage": "presentationscheduled", "deal_close_date": "2026-04-30 (past)"}
+    ],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 371909524207, "title": "Bell & MaiaEdge", "new_ts_et": "2026-06-04T15:00", "owner": "tim_ziemer", "company": "Bell", "tier": "tier_1", "segment": "Network Operator(Tier 1 / VNO)"},
+      {"engagement_id": 371927577302, "title": "MaiaEdge Update Chris / AT&T", "new_ts_et": "2026-06-01T14:30", "owner": "tim_ziemer", "company": "AT&T", "tier": "tier_1", "segment": "Network Operator(Tier 1 / VNO)"},
+      {"engagement_id": 371813082833, "title": "Lunch (AT&T)", "new_ts_et": "2026-06-01T13:30", "owner": "tim_ziemer", "company": "AT&T", "tier": "tier_1", "segment": "Network Operator(Tier 1 / VNO)"},
+      {"engagement_id": 371835531965, "title": "Broadstar / RocNet", "new_ts_et": "2026-05-29T13:00", "owner": "ken_cunningham", "company": "Broadstar + RocNet", "tier": "tier_5"}
+    ],
+    "dropped": []
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 0,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 16,
+    "reason": "Only held engagement (EPS Global Dinner) had empty body (email disclaimer only), no outcome, no transcript - no extractable evidence for any contact-level field"
+  },
+  "dm_delivery": {
+    "cooper": {"channel": "D0A2YNL1TA4", "ts": "1779916150.109309", "status": "delivered"},
+    "abilash": {"channel": "D0A2YNPVB96", "ts": "1779916168.151419", "status": "delivered"},
+    "tim_z": {"channel": "D0A2817RE68", "ts": "1779916186.840329", "status": "delivered"}
+  },
+  "notes": "Quiet day. 1 held meeting (EPS Global relationship dinner at ITW, no notes logged). 6 set meetings - heavy Tim Z day (5 of 6: 2 ITW backfills for past meetings 5/19 + 5/21, plus 3 forward bookings on Bell + AT&T x2 all Tier 1 Network Operator). Calendar movement section was the substance of the brief: Acuutech (Tim Z DEAL presentationscheduled) PUSHED 5 days from 5/27 to 6/1 - deal close date 4/30 already past = STALLING. 4 NEW Tier 1 / Tier 5 bookings (Bell 6/4, AT&T x2 on 6/1, Broadstar/RocNet 5/29). Trend baseline still BUILDING (1 prior run on disk post Memorial Day). No MEDDPICC writes - held meeting had no transcript evidence. All 3 DMs delivered cleanly."
+}

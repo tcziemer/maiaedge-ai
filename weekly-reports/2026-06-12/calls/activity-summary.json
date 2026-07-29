@@ -1,0 +1,97 @@
+{
+  "date": "2026-06-12",
+  "weekday": "Fri",
+  "held": {"fresh": 5, "deal": 0, "total": 5},
+  "set":  {"fresh": 4, "deal": 0, "total": 4},
+  "upcoming_total": 6,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 3, "held": 1, "upcoming": 1},
+    "ken_cunningham": {"set": 0, "held": 1, "upcoming": 0},
+    "tim_ziemer":     {"set": 0, "held": 3, "upcoming": 4},
+    "markus_hendrich":{"set": 1, "held": 0, "upcoming": 1}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-06-05", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11"],
+    "status": "LIVE (5 prior weekday runs on disk)",
+    "averages": {"held_fresh": 1.4, "held_deal": 1.0, "set_fresh": 1.6, "set_deal": 0.8},
+    "tags": {"held_fresh": "UP", "held_deal": "DOWN", "set_fresh": "UP", "set_deal": "FLAT"},
+    "note": "All-FRESH day: 5 held + 4 set, zero open-deal engagements. held_fresh 5 vs 1.4 avg is a strong prospecting surge (UP). held_deal 0 vs 1.0 (DOWN). set_deal 0 vs 0.8 -> FLAT (avg does not exceed today by >=1)."
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-11",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 375421348573, "company": "Bouygues Telecom", "owner": "markus_hendrich", "new_ts_et": "2026-06-17T09:00", "tier": "tier_1", "segment": "Network Operator(Tier 1 / VNO)", "sub_segment": "Tier 1 Carrier - Network Op", "note": "Booked today 13:46 ET for 6/17 09:00 ET; first major international Tier 1 on Markus's board (France)."}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 374027050703, "company": "702 Communications", "note": "6/12 15:30 ET demo was upcoming yesterday; held (in progress) today via CALL 375346929351. Not flagged DROPPED (timestamp past at run-time)."}
+    ],
+    "note": "Cirrascale 6/15, Arc Compute 6/16, Pearce 6/16, FiberLight 6/17, Fusion Broadband 6/15 all unchanged vs yesterday. Only NEW = Bouygues. GDT 6/24 + Pilot Fiber 7/7 booked today but beyond 7-day window (Set only, not Upcoming). Oracle Hyperscaler Prep 374854181581 = internal (dropped). Markus untitled 374360388287 = artifact (dropped). Kyle's Oracle Intro 375376203450 = untracked owner (audit)."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 1,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 4,
+    "fill_details": [
+      "Gonzalo Gabriel Rico (Orchest Technologies, contact 497845420787): meddpicc_infrastructure_contact FILLED (was empty, lifetime call 1, clear/specific/attributable). Value: asset-light telecom aggregator, leases Layer 1/Layer 2 (DWDM) capacity, resells to large enterprise (referenced JP Morgan Chase) across LATAM. Other 5 fields skipped - intro call surfaced no pain/use-case/criteria/competition/metrics as a stated need. No associated deal so no deal-level sync impact."
+    ],
+    "skip_details": [
+      "Gonzalo Rico - pain/use_case/criteria/competition/metrics: topic not surfaced as a need on an exploratory first call. Skipped (confidence guard).",
+      "702 Communications (Ken Budd) - demo IN_PROGRESS at run-time, no summary/transcript/body. No MEDDPICC evidence available. Skip.",
+      "GlobalConnect (Alexander Hoffmann) - 2 held sessions, no summary logged, no company record. No extractable evidence. Skip.",
+      "Lumen (David Shacochis) - late-log meeting, no summary. Competitor/partner touch. Skip."
+    ]
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-12T16:10 (fired earlier than the 6pm CT schedule)",
+    "held_window_et": "2026-06-11T19:01 -> 2026-06-12T16:10",
+    "logwindow_et": "2026-06-11T19:01 -> 2026-06-12T16:10 (catch-up lookback floor 2026-05-29)",
+    "watermark_continuous": true,
+    "watermark_note": "held_start (6/11 19:01 ET) == prior run held_end (6/11 19:01 ET). Continuous, no gap back-fill needed.",
+    "set_window_et": "same as held; Set = 4 true forward bookings (Orchest MEETING 375309232868 created 6/11 21:05 ET for 6/12 10:30 = book-and-hold; GDT 375345631968 created today for 6/24; Pilot Fiber 375439008489 created today for 7/7; Bouygues 375421348573 created today for 6/17). Held HUBSPOT_MEETINGS CALLs + the GlobalConnect/Lumen back-logged meetings excluded from Set (createdate ~= or after timestamp = logs not bookings).",
+    "upcoming_window_et": "2026-06-12T16:10 -> 2026-06-19T16:10; CALL upcoming query returned 0; 6 tracked-rep meetings",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer", "164949459 Markus Hendrich"],
+    "late_log_catchups": [
+      "Lumen MEETING 375421016785 (Tim Z) - held 6/10 08:30 ET, logged 6/12 13:47 ET. Surfaced as Held [late log]. Within 14d lookback, not in seen-ledger."
+    ],
+    "dedup_collapsed": [
+      "MEETING 375309232868 collapsed into CALL 375402556103 (Orchest twin; CALL canonical, carries summary + transcript)",
+      "MEETING 374027050703 collapsed into CALL 375346929351 (702 twin; CALL canonical)"
+    ],
+    "audit_dropped": [
+      "MEETING 374854181581 'Internal - Oracle Hyperscaler Prep' 6/16 (Tim Lieto) - internal prep (title self-identifies); excluded from Upcoming.",
+      "MEETING 374360388287 (untitled, Markus, 6/16 04:30 ET) - no title/company; excluded; 5th+ consecutive day flagged for Cooper.",
+      "MEETING 375376203450 'Oracle/MaiaEdge.io Intro' 6/18 (owner 159701452 Kyle Blackwell) - untracked owner; external (Oracle) but not in tracked-seller roster; audit only, not in Set/Upcoming tallies."
+    ],
+    "calendar_health_7d": {
+      "tim_lieto": "healthy - Orchest HUBSPOT_MEETINGS call today + bookings (GDT, Pilot Fiber, Cirrascale)",
+      "ken_cunningham": "healthy - 702 HUBSPOT_MEETINGS demo today",
+      "tim_ziemer": "non-zero but quality flag - GlobalConnect (2) + Lumen are manually-logged MEETING objects with no summary and no company association",
+      "markus_hendrich": "non-zero - Bouygues booking today (calendar-sourced) + untitled artifact",
+      "flags": "no rep at zero calendar-sourced objects. Tim Z data-capture quality flag (no summary/company on 3 international touches) routed to Cooper FOR YOU."
+    },
+    "for_you_routing": {
+      "abilash": ["Tier 1 first-meeting stack: Bouygues 6/17 + Cirrascale 6/15 + Arc Compute 6/16", "all-fresh prospecting day, deal motion quiet"],
+      "tim_z": ["Markus booked Tier 1 Bouygues 6/17 - prep sync", "his loaded week: Arc Compute/Pearce/FiberLight/Fusion 4 mtgs", "log GlobalConnect + Lumen notes (no summary/company)"],
+      "cooper": ["Tim Z GlobalConnect+Lumen no company/summary hygiene gap", "Markus untitled 6/16 artifact 5th day - delete", "MEDDPICC 1 Tier 1 fill (Orchest)", "trend baseline LIVE, fresh spike genuine"],
+      "tim_lieto": ["Orchest exploratory only - test for real use case", "Cirrascale 6/15 prep", "booked GDT 6/24 + Pilot Fiber 7/7"],
+      "ken_cunningham": ["702 demo in progress at run-time - log the summary"],
+      "pt": ["0 items - no POC-attached accounts in today's pools; FOR YOU omitted, shared body only"]
+    },
+    "dm_links": {
+      "abilash": "https://maia-edge.slack.com/archives/D0A2YNPVB96/p1781295521952979",
+      "tim_z": "https://maia-edge.slack.com/archives/D0A2817RE68/p1781295542209269",
+      "cooper": "https://maia-edge.slack.com/archives/D0A2YNL1TA4/p1781295562832809",
+      "tim_lieto": "https://maia-edge.slack.com/archives/D0A9UNDR5EW/p1781295594454099",
+      "ken_cunningham": "https://maia-edge.slack.com/archives/D0AE4AGC5KJ/p1781295613744839",
+      "pt": "https://maia-edge.slack.com/archives/D0A28180WG4/p1781295632198369"
+    },
+    "delivery_status": "GREEN - all 6 DMs delivered on first attempt",
+    "formatting_note": "DMs sent with standard markdown (**bold**, fenced code blocks) per the connected Slack MCP contract, which converts to Slack mrkdwn server-side."
+  }
+}

@@ -1,0 +1,196 @@
+{
+ "reported": [
+  {
+   "id": "374820906737",
+   "first_reported": "2026-06-09",
+   "hs_timestamp": "2026-06-09T15:31:01Z",
+   "pool": "held",
+   "note": "BroadStar/RocNet MaiaEdge PoC Sync"
+  },
+  {
+   "id": "374828807907",
+   "first_reported": "2026-06-09",
+   "hs_timestamp": "2026-06-09T13:00:14Z",
+   "pool": "held",
+   "note": "Mplify Board of Directors Strategy Meeting"
+  },
+  {
+   "id": "375023066841",
+   "first_reported": "2026-06-10",
+   "hs_timestamp": "2026-06-10T15:03:28Z",
+   "pool": "held",
+   "note": "Quick Sync - Broadstar/RocNet/MaiaEdge"
+  },
+  {
+   "id": "375031178994",
+   "first_reported": "2026-06-10",
+   "hs_timestamp": "2026-06-10T15:30:22Z",
+   "pool": "held",
+   "note": "Myakka <> MaiaEdge pricing proposal"
+  },
+  {
+   "id": "375056552672",
+   "first_reported": "2026-06-10",
+   "hs_timestamp": "2026-06-10T18:30:53Z",
+   "pool": "held",
+   "note": "MaiaEdge Discussion with United Teleports"
+  },
+  {
+   "id": "375208925919",
+   "first_reported": "2026-06-11",
+   "hs_timestamp": "2026-06-11T13:30:17Z",
+   "pool": "held",
+   "note": "MaiaEdge / Technium / SBA joint session (MEETING twin 375024702155 collapsed)"
+  },
+  {
+   "id": "375264121548",
+   "first_reported": "2026-06-11",
+   "hs_timestamp": "2026-06-11T20:00:11Z",
+   "pool": "held",
+   "note": "Mike/Tim - Technium CTO follow-up (MEETING twin 375235111642 collapsed)"
+  },
+  {
+   "id": "375402556103",
+   "first_reported": "2026-06-12",
+   "hs_timestamp": "2026-06-12T14:30:55Z",
+   "pool": "held",
+   "note": "MaiaEdge & Orchest Intro Call (MEETING twin 375309232868 collapsed)"
+  },
+  {
+   "id": "375346929351",
+   "first_reported": "2026-06-12",
+   "hs_timestamp": "2026-06-12T19:30:19Z",
+   "pool": "held",
+   "note": "702 Communications demo - IN_PROGRESS at run-time, no summary (MEETING twin 374027050703 collapsed)"
+  },
+  {
+   "id": "375419878088",
+   "first_reported": "2026-06-12",
+   "hs_timestamp": "2026-06-12T09:00:00Z",
+   "pool": "held",
+   "note": "GlobalConnect / Alexander Hoffmann Session 1 (Tim Z, no summary/company)"
+  },
+  {
+   "id": "375401246410",
+   "first_reported": "2026-06-12",
+   "hs_timestamp": "2026-06-12T11:30:00Z",
+   "pool": "held",
+   "note": "GlobalConnect / Alexander Hoffmann Session 2 (Tim Z, no summary/company)"
+  },
+  {
+   "id": "375421016785",
+   "first_reported": "2026-06-12",
+   "hs_timestamp": "2026-06-10T08:30:00Z",
+   "pool": "held",
+   "note": "Lumen / David Shacochis [late log] - held 6/10, logged 6/12 (Tim Z, no summary)"
+  },
+  {
+   "id": "375973892802",
+   "first_reported": "2026-06-15",
+   "hs_timestamp": "2026-06-15T20:00:56Z",
+   "pool": "held",
+   "note": "Cirrascale intro (MEETING twin 375031680752 collapsed)"
+  },
+  {
+   "id": "375974098629",
+   "first_reported": "2026-06-15",
+   "hs_timestamp": "2026-06-15T17:00:00Z",
+   "pool": "held",
+   "note": "Socket Fiber / Steve Bremer intro (hand-logged INTEGRATIONS_PLATFORM)"
+  },
+  {
+   "id": "375911640772",
+   "first_reported": "2026-06-15",
+   "hs_timestamp": "2026-06-15T16:00:39Z",
+   "pool": "held",
+   "note": "Fusion Broadband SA touch-base (empty recording; MEETING twin 368678544084 collapsed)"
+  },
+  {
+   "id": "375905805049",
+   "first_reported": "2026-06-15",
+   "hs_timestamp": "2026-06-11T17:00:00Z",
+   "pool": "held",
+   "note": "NTT / Yuta Yamagishi Mplify Lisbon [late log] (Tim Z, no company record)"
+  },
+  {
+   "id": "375917926102",
+   "first_reported": "2026-06-15",
+   "hs_timestamp": "2026-06-08T17:00:00Z",
+   "pool": "held",
+   "note": "Verizon / Scott Lawrence Mplify Lisbon [late log] (Tim Z, no company record)"
+  },
+  {
+   "id": "376092707534",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T13:00:24Z",
+   "pool": "held",
+   "note": "Ecoblox intro (Tim Lieto; MEETING twin 375900414684 collapsed)"
+  },
+  {
+   "id": "376112484081",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T13:00:43Z",
+   "pool": "held",
+   "note": "Arc Compute intro (Tim Z; MEETING twin 375214606020 collapsed)"
+  },
+  {
+   "id": "376466862830",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T00:00:00Z",
+   "pool": "held",
+   "note": "ConRes partnership lunch (Tim Lieto; calendar twin 375972764394 collapsed)"
+  },
+  {
+   "id": "376371842772",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T00:00:00Z",
+   "pool": "held",
+   "note": "Sumauma partner enablement (Tim Lieto)"
+  },
+  {
+   "id": "376468742857",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T00:00:00Z",
+   "pool": "held",
+   "note": "Omada partner intro (Tim Lieto)"
+  },
+  {
+   "id": "376391614148",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T00:00:00Z",
+   "pool": "held",
+   "note": "Wasabi/Tom Phillips (Tim Lieto; MEETING twins 375994466003 + 376415975141 'Tim/Boomer' collapsed)"
+  },
+  {
+   "id": "374360388287",
+   "first_reported": "2026-06-16",
+   "hs_timestamp": "2026-06-16T08:30:00Z",
+   "pool": "held",
+   "note": "STACKIT/Schwarz Digits first call (Markus; notes record 376364412607 clustered)"
+  },
+  {
+   "id": "376491279095",
+   "first_reported": "2026-06-17",
+   "hs_timestamp": "2026-06-17T13:00:29Z",
+   "pool": "held",
+   "note": "Bouygues Telecom / Harold Alexanian (Markus); MEETING twin 375421348573 collapsed; FRESH Tier 1 Network Op"
+  },
+  {
+   "id": "376657408735",
+   "first_reported": "2026-06-17",
+   "hs_timestamp": "2026-06-17T16:30:12Z",
+   "pool": "held",
+   "note": "Nexus Data Centers campus kickoff (Tim Z, joint w/ Technium); MEETING twin 376448123601 collapsed; FRESH Tier 1 AI colo"
+  },
+  {
+   "id": "376794629831",
+   "first_reported": "2026-06-17",
+   "hs_timestamp": "2026-06-17T19:00:21Z",
+   "pool": "held",
+   "note": "FiberLight / Chuck Girt (Tory Teague - first tracked call); MEETING twin 375007944392 collapsed; FRESH Tier 2 Fiber"
+  }
+ ],
+ "trimmed_before": "2026-05-18",
+ "_seeded": "2026-06-09 seed at guardrail rollout; future runs append + 30d-trim per prompt Stage 8",
+ "_last_run": "2026-06-17 appended 3 held IDs (Bouygues, Nexus, FiberLight); trimmed 0; Tory Teague (165480917) now tracked seller; Omada follow-up + ambiFOX intentionally NOT ledgered (reached slot, no notes - re-catchable if logged later)"
+}

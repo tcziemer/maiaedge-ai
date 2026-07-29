@@ -1,0 +1,206 @@
+{
+  "week_iso": "2026-W25",
+  "week_start_et": "2026-06-15",
+  "weekly_cap": 850,
+  "enforcement": "enabled",
+  "enforcement_note": "Auto-rolled W24 -> W25 on 2026-06-15 R1 10am CT fire (R1/R2 own the weekly rollover; the 2026-06-15 8:30am Signal Scan Colo entry was logged under the pre-roll W24 label, read+append only). W24 closed at 0/850 (0% utilization). Steady-state caps per Apollo_Weekly_Budget_Spec.md. Header consumed/by_routine reflect W25-only consumption.",
+  "consumed": 2,
+  "by_routine": {
+    "fresh-enrichment": 0,
+    "stale-reenrichment": 0,
+    "territory-hygiene": 0,
+    "persona-fill": 0,
+    "weekly-signal-scan": 2,
+    "quarterly-job-changes": 0
+  },
+  "history": [
+    {
+      "date": "2026-06-15",
+      "routine": "weekly-signal-scan",
+      "consumed": 2,
+      "running_total": 2,
+      "note": "Signal Scan Fiber 2026-06-15 10am-ish CT - Stage 3 new-account enrich attempts. 3 domains attempted (usconnect.net found=1cr; win-technology.com wrong-entity match=1cr; gorange.com empty=0cr). Net 2 billable. Sub-cap 35, used 2 of 35. 21 matched-account signal writes (Apollo-free). 0 NEW accounts created (range.net + wintechnology.com already in CRM; usconnect/cbn/altibox deferred). W24 weekly 2/850."
+    },
+    {
+      "date": "2026-06-01",
+      "routine": "weekly-signal-scan",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "Signal Scan: Colo (per-segment, 2026-06-01 Mon). QUIET in-window week. Detection window 2026-05-18 to 2026-06-01. 460-record Colo tier 1-3 target pool. 1 in-window candidate (Digital Realty BCN1 Barcelona new-market launch, event 5/18) scored C-C2 Tier C = 4, below floor 8 -> silent drop, 0 writes. 4 material colo deals (Digi Power X/Cerebras, Bitzero/OneQode, Equinix KL2, Hut 8 Beacon Point) confirmed but event-dated 5/5-5/12, out of window -> logged as carryover for 2026-06-08. 0 NEW accounts, 0 Apollo. Sub-cap 35, used 0 of 35. Weekly W22 0/850."
+    },
+    {
+      "date": "2026-06-01",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-01 - 2/2 candidates processed after 6-record Tier 3 client-side exclude (8 raw; standing R0/R1/R2 holds: columbus-networks MISDOMAIN, GATCO, Synnap, Spartan Data Centers, Attobahn, Tract Capital dup - all confirmed unchanged/manual_review_required). 1 NEW Tier 3 hold: Verizon (325110366958, verizonwireless.com) - Stage 0 dedup found it duplicates master ICP record 192899501812 (Verizon/verizon.com, Network Operator Tier 1 Carrier, tier_1, target account); deferred to R3, written segmentation_confidence=manual_review_required + dedup account_brief, no last_enriched_date bump, no segment write. 1 frozen-tier no-op: ResetData (324591600333, NeoCloud/Sovereign AI Clouds, high_90, fully enriched 2026-05-26) - account_tier blank caught by Filter Group B2 but hs_is_target_account=true freezes tier write per inviolable rule; recurring daily reappearance loop already escalated to Cooper (2026-05-28/29). 0 HubSpot ICP/Other/eviction writes. 0 Apollo credits (no firmographic gaps; classifications from HubSpot reads + public knowledge). All 4 end-of-pipeline self-checks vacuously PASS. Sub-cap 30, used 0 of 30. Weekly W22: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-01",
+      "routine": "weekly-signal-scan",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "Signal Scan: NeoCloud (per-segment, 2026-06-01 Mon). QUIET in-window week. Detection window 2026-05-18 to 2026-06-01. 154-record NeoCloud tier 1-3 target pool. 1 in-window scored write: SoftBank AI Cloud (324007728852) NC-A2 sovereign AI GPU cloud launch on NVIDIA GB200 NVL72 in Japan, event 2026-05-25, score 27, heat Cold->Warm, tier frozen (hs_is_target_account=true), last_enriched_date NOT bumped. 0 NEW accounts, 0 Apollo. Other material NeoCloud moves (Hut 8 5/6, IREN/Nvidia 5/7, SambaNova/Argyll 5/6-11, Nebius/Bloom 5/14, FluidStack Nov-25/Apr-26) all event-dated before 5/18 cutoff -> dropped. Sub-cap 55, used 0 of 55. Weekly W22 0/850."
+    },
+    {
+      "date": "2026-06-01",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-01 11am CT -- 0-candidate GREEN run. Filter A (last_enriched_date < 2026-02-01, exclude Flagged-for-deletion + MaiaEdge own): 0 records. Filter B (never-enriched + segment populated): 1 raw = MaiaEdge own 124293230301 (hard-stop), excluded -> 0 net. 3,124 active companies, all enriched <120 days ago. 7th consecutive 0-candidate R2 (05-25/26/27/28/29 + today). R2 Tier 3 carryover queue empty (re-verified 2026-05-25 audit; confirmed since). Standing canvas Tier 3 holds are R0/R1/R3 scope (gatco, columbus-networks, Verizon dedup), not R2. 0 Apollo, 0 writes, 0 segment changes, 0 evictions, 0 new Tier 3. Sub-cap 50, used 0 of 50. Weekly W22: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-02",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-02 - 10/10 candidates processed after 7-record Tier 3 client-side exclude (17 raw; 311-ID exclude set parsed from canvas F0B0AFSB9LN R0/R1/R2/R3/R4 sections). W22->W23 auto-rollover at run start (W22 closed 0/850). Path alpha: 5 full ICP writes - GSL Networks (Network Operator/International Backbone Specialist/tier_1/medium_7089/Tim Z), Telia Company (Network Operator/Tier 1 Carrier/tier_1/high_90/Tim Z, NOT a dup of divested Telia Carrier/Arelion or Telia Lietuva), Plumas-Sierra Rural Electric Cooperative (Fiber Operator/Municipal-Cooperative/tier_4/high_90/Ken - PST fiber subsidiary + $67M CPUC middle-mile grants), Optage/K-Opticom (Fiber Operator/Regional CLEC/tier_3/high_90/Tim Z - Kansai Electric FTTH eo HIKARI), GetOnward/Onward (Fiber Operator/Regional CLEC/tier_3/high_90/Ken - SURPRISE ICP, formerly Inyo Networks, registered CA/NV CLEC running Digital 395 middle-mile, routed gamma->alpha). Path gamma: 1 Flagged for deletion (MJM Innovations - transit-management software vendor, No ICP fit). 3 Tier 3 dedup holds for R3: Digital Fortress dfcolo.com (325323215608, dup of 264034894551 digital-fortress.com), us.ntt.net (325335796410, NTT GIN email-subdomain artifact, dup of NTT 277437319928), g.softbank.co.jp (325335795443, email-subdomain artifact, dup of SoftBank Corp - recurring import pattern). 1 no-op: ResetData (324591600333, NeoCloud/Sovereign AI, hs_is_target_account=true freezes tier; recurring B2 reappearance loop already escalated to Cooper). 0 Apollo credits (all classifications from public web research + HubSpot dedup reads; state/country already populated from import so no firmographic gaps). All 4 end-of-pipeline self-checks PASS. Sub-cap 30, used 0 of 30. Weekly W23: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-03",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-03 - 3/3 candidates processed after 10-record Tier 3 client-side exclude (13 raw; 254-ID exclude set parsed from canvas F0B0AFSB9LN R0/R1/R2/R4 hold sections). 1 Path-alpha full ICP write: Optum (325636927166, optum.com) -> Enterprise-CustomerSegment / Healthcare Systems - Enterprise / tier_3 / high_90 / signal_heat=Cold / owner Tim Lieto (MN=East, unchanged). Enterprise scale gate PASSED decisively: Healthcare Systems vertical (health-services+tech arm of UnitedHealth Group), $250B+ revenue, multi-DC UHG footprint (Baxtel + $100M DC build), in-house Optum Technology net-eng org (Lighthouse config-control, Cisco national telehealth net). No dup (no Optum/UnitedHealth existing record). 1 Path-gamma Flagged for deletion: FreeConferenceCall (325540511471, freeconferencecall.com) -> No ICP fit (UCaaS conferencing/collaboration app, 800k biz customers, not carrier infra, not partner/competitor ref). 1 Path-beta frozen-tier NO-OP: ResetData (324591600333, NeoCloud/Sovereign AI Clouds, high_90, last_enriched 2026-05-26) - account_tier blank caught by B2 but hs_is_target_account=true freezes tier write; recurring daily B2 reappearance loop already escalated to Cooper. 0 NEW Tier 3 holds. 0 Apollo credits (scale obvious from public web research; state/country populated from import, no firmographic gaps). All 4 end-of-pipeline self-checks PASS. Sub-cap 30, used 0 of 30. Weekly W23: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-03",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-03 11am CT -- 0-candidate GREEN run. Today=2026-06-03, 120-day cutoff=2026-02-03. Filter A (last_enriched_date < 2026-02-03, exclude Flagged-for-deletion + MaiaEdge own): 0 records. Filter B (never-enriched + segment populated, exclude Flagged-for-deletion): 1 raw = MaiaEdge own 124293230301 (customer_segment=Other, hard-stop), excluded -> 0 net. ~3,100 active companies, all enriched <120 days ago (May migration + Mass Re-Enrichment Sweep). 9th consecutive 0-candidate R2 (05-25/26/27/28/29, 06-01, today). R2 Tier 3 carryover queue empty (re-verified 2026-05-25 audit; confirmed since). Standing canvas holds (gatco.net, columbus-networks, g.softbank.co.jp, us.ntt.net) are R0/R3 dedup scope, not R2. 0 Apollo, 0 writes, 0 segment changes, 0 evictions, 0 new Tier 3. Sub-cap 50, used 0 of 50. Weekly W23: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-04",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "[RECOVERED BY R2 2026-06-04] R1's history entry was left truncated/unterminated mid-write earlier today, corrupting apollo-budget.json (unterminated string at original line 172). R2 repaired the file (backup at apollo-budget.json.corrupt-bak-20260604). R1's actual run detail lives in its on-disk run report under weekly-reports/2026-06-04/. Header counters (consumed 0, fresh-enrichment 0) were already consistent and untouched; Apollo assumed 0 per recent R1 pattern - verify against R1 disk report if precise accounting is needed."
+    },
+    {
+      "date": "2026-06-04",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-04 11am CT -- 1-candidate GREEN run. Filter A (last_enriched_date < 2026-02-04, exclude Flagged-for-deletion + MaiaEdge own): 0. Filter B (never-enriched + segment populated): 1 = Broadstar (323981908725, broadstar.com). Processed RE_ENRICH_FULL: completed 6 blank enriched fields + refreshed account_brief, upgraded segmentation_confidence manual_review_required -> high_90 (Fiber Operator / Regional CLEC unchanged - manual_review was a stale dedup-naming artifact, NOT real ambiguity per F.3), recomputed tier_2 (open-deal modifier holds; hs_is_target_account not set), signal_heat Hot preserved (open deal past appointmentscheduled), last_enriched_date stamped 2026-06-04. Owner PRESERVED (Ken 162339176) despite FL=East=Tim Lieto, because Ken runs active open deal 'Broadstar - New Logo' $10k presentationscheduled + POC - flagged to Cooper. Confirmed Broadstar is NOT a duplicate of Gigabit Fiber TX (193867595510); R3 dedup hold resolvable. 0 Apollo (firmographics current). 0 evictions, 0 segment changes, 0 new Tier 3. enum: 'Route Miles: Small (<1K)' / 'None Known' / 'manuallegacy_processes'. Sub-cap 50, used 0 of 50. Weekly W23: 0/850, 850 remaining. Also repaired R1's truncated history entry (see prior entry)."
+    },
+    {
+      "date": "2026-06-05",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-05 - 2/2 candidates processed after 16-record Tier 3 client-side exclude (18 raw; 580-ID conservative superset parsed from canvas F0B0AFSB9LN, all 16 excludes verified as genuine standing R3-dedup stubs/Tier 3 holds not fresh ICP). 2 Path-alpha full ICP writes: AcceleCom (326325637881, accelecom.com) -> Fiber Operator / Long Haul / Backbone - Fiber operator / tier_2 / high_90 / signal_heat=Cold, Georgia's largest middle-mile wholesale fiber provider (acquired Georgia Public Web 2022), HQ Louisville KY so owner Tim Lieto (East) unchanged, state corrected Georgia->Kentucky per HQ territory rule (both East); BTC Broadband (326286037697, mybtc.com) -> Fiber Operator / Regional CLEC - Fiber operator / tier_3 / high_90 / signal_heat=Cold, 110-yr independent Bixby OK ILEC (Bixby Telephone Co) now fiber broadband + business cloud voice, name set from blank, state set Oklahoma, owner Ken (West) unchanged. 0 Tier 3 new holds. 0 evictions. 0 Apollo credits (classifications from public web research; firmographics clear). All 4 end-of-pipeline self-checks PASS. Sub-cap 30, used 0 of 30. Weekly W23: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-05",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-05 11am CT -- FIRST Filter-C pre-spread run. Filter A (last_enriched_date < 2026-02-05, exclude Flagged-for-deletion + MaiaEdge own): 0. Filter B (never-enriched + segment): 0 net (MaiaEdge own filtered). A+B < 40 -> Filter group C (rotation pre-spread, added 2026-06-04) fired: pulled 40 oldest-enriched not-yet-stale active records (enriched 2026-02-17 to 2026-04-01) from 3,352-active pool, sorted last_enriched_date ASC, to smooth load toward the late-Sept 120-day cliff. All 40 are non-ICP Other/Partner references. Processed 19: re-stamped last_enriched_date=2026-06-05 (tier no-op for Other, heat Cold for all; heat backfilled where missing on Senet/Ocolo/Helios Towers/Autelecom). Web-verified + account_brief written for Level 3 (legacy Lumen/Cirion), Springfield Telecom (fiber-deploy vendor), Comfone (roaming/IPX hub), Highline (Brazil towerco) - all confirmed Other. 1 Tier 3 hold (no bump): team.telstra.com (316598423243) Telstra subdomain dedup stub -> R3 (us.ntt.net pattern). 20 under-enriched opaque Other micro-records DEFERRED (no bump) for a deliberate field-completion pass rather than fabricate briefs unattended; flagged HGC (possible construction-co misclassify) + Associated Carrier (thin identity) for re-validation. 0 Apollo (all firmographics current / classifications from public knowledge + web research). 0 evictions, 0 segment changes. 2 HubSpot batch writes 10/10 + 9/9 OK. Sub-cap 50, used 0 of 50. Weekly W23: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-08",
+      "routine": "weekly-signal-scan",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "Signal Scan: Colo 2026-06-08 (Mon). 180d window, all-tier scope. Target 466 active (467 total - 1 type=Customer). 5 matched-account signal writes (QTS 27/Warm; RadiusDC 18/Cool; Sify 18/Cool; H5 9/Cool; atNorth 9/Cool) - all were Cold, no stored last_signal_date, passed anti-churn. 0 NEW accounts, 0 Apollo (no NEW-account creation; matched writes are Apollo-free). 3 anti-churn skips (Equinix/DataBank/Digital Realty already hold newer/higher signals). 1 canvas carryover RESOLVED: Digi Power X re-routed colo->NeoCloud NC5 per Op Principle 9 (Digihost BTC heritage), flagged for NeoCloud scan, not created here. Bitzero/Hut 8/Applied Digital also routed to NeoCloud. Sub-cap 35, used 0 of 35. Weekly W23: 0/850, 850 remaining. [Colo note reconstructed by NeoCloud scan after concurrent-write truncation at 15:35 UTC; corrupt copy at apollo-budget.json.bak-20260608-ncscan]"
+    },
+    {
+      "date": "2026-06-08",
+      "routine": "weekly-signal-scan",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "Signal Scan: NeoCloud 2026-06-08 (Mon). FIRST full run under 180d window + all-tier scope. Target 163 active NeoCloud (complete pool). 33 writes (31 matched + 2 NEW), 0 failed. NEW: Digi Power X 326692012738 (Cerebras 40MW AL, owner Tim Lieto) + Bitzero 326672272092 (OneQode 110MW Norway, owner Ken). 180d window surfaced the public AI-infra backlog the old 14d window dropped (debt: CoreWeave/IREN/Hut8/Core Sci/Applied Digital/Core42; NVIDIA Exemplar/DSX: Vultr/YTL/GMI/Naver/Lambda; sovereign: DT-Munich/TELUS/G42/Cassava/Firmus). 7 stacked-signal accounts (+6): Applied Digital/TeraWulf/Nscale Hot count2; IREN/CoreWeave/Hut8/Greenidge 33. Anti-churn skips: Nebius/FluidStack/SoftBank/SambaNova. 0 Apollo (NEW from public web research; interactive-confirm guardrail unavailable in scheduled run). Sub-cap 55, used 0 of 55. Weekly W23: 0/850, 850 remaining. Also repaired the truncated Colo entry (see prior entry)."
+    },
+    {
+      "date": "2026-06-08",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-08 11am CT -- GREEN steady-state run, 10 records written (0 Apollo). Filter A (last_enriched_date < 2026-02-08): 0. Filter B (never-enriched + segment): 8 raw -> 7 net (MaiaEdge own hard-stopped) = the 7 low_5069 ICP records R1 wrote un-stamped this morning and handed to R2/D7. Processed: 6 keepers upgraded low_5069 -> medium_7089 + stamped (Hal Service Fiber/RegionalCLEC, Blue Cross NC Enterprise/FinSvcs, T-Systems Brasil Enterprise/Outsourcing-D2, Verve Cloud MSP/CloudTelecomHybrid [brief refreshed: Digerati divested controlling stake, now independent], Telvantis MSP/TelecomAggregator, EQUADEX MSP/CloudTelecomHybrid); 1 Tier 3 dedup hold no-stamp (BlueRim Networks 326179855037 -> acquired by Smartaira Jan 2022, dup of existing Smartaira ICP 267091939028, manual_review_required, route R3). Filter C pre-spread fired (A+B=7<40): 3 genuine field-completions stamped (Clockwork.io, Speedflow, didXL - all were missing all 7 enriched fields, researched + briefs written, confirmed Other software/wholesale-voice vendors); 1 surprise-ICP Tier 3 flag no-write (MMR Fiber Solutions/SouthWestern Power 175221473010 -> mmrfiber.com is an emerging open-access wholesale long-haul dark fiber operator misfiled as Other tier_5 under power-parent domain; entity-split ambiguity, flagged for Cooper/R3); ~16 opaque Feb-24 Other micro-records deferred to field-completion pass (missing all enriched fields; will hit Filter A naturally ~2026-06-24). 0 evictions, 0 Flagged-for-deletion, 0 segment hard-flips. T-Systems family flagged to R3. Sub-cap 50, used 0 of 50. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-09",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-09 - 34/34 processable candidates fully drained (65 raw -> 34 after 31-record Tier 3 client-side exclude; cap 100 steady-state). All 31 excludes verified against canvas F0B0AFSB9LN as genuine standing Tier 3 / R3-dedup holds (incl. 5 NEW 2026-06-09 R0 holds: t.ht.hr, consultants.ooredoo.qa, bb.softbank.co.jp, wechsler.ch, bertellifamily.org). Path alpha: 20 full ICP writes - 7 Network Operator Tier 1 Carrier (Vivo BR tier_1/high_90, DISH tier_1/high_90, Reliance/Jio tier_1/high_90, Telenor DK/PK/SE + T-Mobile PL all tier_2/medium_7089 challenger-MNO fix-directly demotion), 1 Fiber Op Regional CLEC (LitFiber), 9 NeoCloud (LuxProvide/STACKIT/exoscale/iGenius/Nebul[assembly.nl] Sovereign AI Clouds; Neysa[$1.2B Blackstone Feb-26]/YTL[GB200 ops] Large Scale GPU; Denvr AI Infra providers; Bit Digital Crypto-to-AI per Op-Principle-9), 3 Enterprise (Swiss Re + Swiss Life FinSvcs, FPT Software Outsourcing). Path gamma: 3 Other vendor/ecosystem keeps (Indus Towers towerco, SambaNova D1-chip-vendor [owner->Ken US/CA], SKTA SKT-VC-arm) + 11 Flagged for deletion (Riversand/Ace Cloud Hosting/MyRealData/Intellinet/Recursal/Replicate/FCR Investments/SEOX/Bits in Flight/OIB/Ibghy - all No-ICP-fit or hard-junk). Path beta: 0 (all 34 processable were blank-segment Filter Group A new imports). 0 Tier 3 new holds, 0 deferrals - full drain. 4 dedup notes for R3: Telenor PK->PTCL, Reliance->Jio, assembly.nl->Nebul, MyRealData->Ace. 0 Apollo credits (all firmographics from web research + import data; no apollo_organizations_enrich calls). All 4 end-of-pipeline self-checks PASS. Sub-cap 30, used 0 of 30. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-09",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-09 11am CT -- GREEN Filter-C pre-spread run, 16 records written (0 Apollo). Filter A (last_enriched_date < 2026-02-09): 0. Filter B (never-enriched + segment): 2 raw -> MaiaEdge own hard-stop + BlueRim Networks (standing R3 dedup Tier 3 hold) = 0 net processable. A+B<40 -> Filter C pre-spread fired (active pool 3,422); processed the 16 opaque 2026-02-24 field-completion micro-records deferred by 2026-06-08 R2 (all were missing all 7 enriched fields). All 16 researched via web_search + completed (account_brief/geographic_focus/infrastructure_profile=None Identified/fabric=none_identified/confidence/heat=Cold) and stamped last_enriched_date=2026-06-09. All confirmed Other / PARTNER_KEEP non-ICP ecosystem refs (voice/SMS aggregators: Pai/HDTandem/JapTel/Latcomm/Innovative Telecom/ALCASAGAR; fibre+general contractors: NPS/HGC/BNS; OSS/BSS+SaaS software: LB Networks/GCS/MasNegocio; NaaS/MSP: Bumblebee/WIT ONE/go2uno). 0 evictions, 0 Flagged-for-deletion, 0 segment changes, 0 surprise-ICP, 0 new Tier 3 holds. Bumblebee state corrected Vermont->California + owner->Ken (Palo Alto HQ). 2 standing R3 Tier 3 holds carried forward (MMR Fiber 175221473010, team.telstra 316598423243). ~30 well-briefed 2026-04-01 Other records deferred (no field gap; due ~2026-07-30). 2 HubSpot batches 8/8 + 8/8 OK. Sub-cap 50, used 0 of 50. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-10",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-10 - 2/2 processable candidates fully drained (14 raw -> 2 after 12-record Tier 3 client-side exclude; cap 100 steady-state). All 12 excludes verified individually against canvas F0B0AFSB9LN as genuine standing holds (R3 dedup: Poly-AI/PolyAI pair, ConvergeOne vs C1, Cityside Networks vs Cityside Fiber, SoftBank Capital; R0 2026-06-09 subdomain/non-business: t.ht.hr, bb.softbank.co.jp, consultants.ooredoo.qa, wechsler.ch, bertellifamily.org; R6 dead-site Cooper-owned terrycorder.com; standing MISDOMAIN columbus-networks/finetechnologies.co) - no over-exclusion. Path alpha: 1 full ICP write - Cyfuture (326866083559, cyfuture.com) Data Center Colo Provider / Standard - colo / tier_3 / high_90 / signal_heat=Cold, India operator with 4 MeitY-empaneled Tier III colocation DCs (Noida x2, Jaipur, Raipur) + Chennai 500-rack build, owner Tim Ziemer (India/International) unchanged. Path gamma: 1 Flagged for deletion - CMDB360 (326927535860, cmdb360.com) No ICP fit (ITSM/CMDB config-management software product, Base2Summit LLC, MSP cloud-asset tooling; not carrier infra, not partner/competitor ref). Path beta: 0. 0 Tier 3 new holds, 0 deferrals - full drain. 0 Apollo credits (firmographics from public web research; state/country pre-populated from import). All 4 end-of-pipeline self-checks PASS. Sub-cap 30, used 0 of 30. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-10",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-10 11am CT -- GREEN Filter-C pre-spread run, 39 records written (0 Apollo). Filter A (last_enriched_date < 2026-02-10): 0. Filter B (never-enriched + segment): 0 net (MaiaEdge own hard-stopped). A+B<40 -> Filter C pre-spread fired (active pool 3,411 with last_enriched_date >= 2026-02-10); pulled 45 oldest-enriched not-yet-stale records (2026-02-24 to 2026-04-02), processed 40 (cap), deferred 3 newest (SES, Huawei, Kyndryl 04-01/02 - return next run). 38 well-briefed non-ICP Other/Partner records re-stamped last_enriched_date=2026-06-10 (the deferred 2026-04-01 cohort due ~2026-07-30; restamp staggers next due-date to ~2026-10-08, smoothing the Sept cliff). tier no-op for all (Other tier_4/tier_5, heat Cold, no signal modifiers); infrastructure_profile='None Identified'+fabric='none_identified' filled on 10 blank-field records (Titan/Omnispace/Telespazio/Linxa/Hylan/Maktech/Fibracem/Konnexx/Novatel/MP Nexlevel). 1 EVICTION (date bumped): Novus (316285596350, novusint.com) -> Flagged for deletion, No ICP fit. WRONG-ENTITY enrichment caught by diff check: domain novusint.com + state Missouri are Novus International (animal health/nutrition, St. Charles MO, owned Mitsui/Nippon Soda); prior brief mis-described the unrelated Vancouver ISP Novus Entertainment (novusnow.ca). Re-briefed + name set 'Novus International'. 1 Tier 3 hold (no write, no bump): Intercontinental Exchange (311326703342, ice.com) - Other/tier_3/'Borderline ICP fit'/blank sub-segment; web-confirmed Tier-4 DCs Mahwah NJ + Basildon UK + SFTI/ICE Global Network colo+connectivity to trading firms; passes Enterprise/Financial-Services gate ($9B+ rev, 3+ DCs, in-house net eng, FinServ vertical) BUT also exhibits Data-Center-Colo-Provider behavior (sells colo+fabric) - 2 sub-segments with positive evidence, 0 deals (no protection), genuine reclassification decision -> held for Cooper per conservative principle, recommend Enterprise/Financial Services - Enterprise vs Colo disambiguation. 2 standing R3 Tier 3 holds carried forward (MMR Fiber 175221473010 entity-split, team.telstra 316598423243 subdomain dedup). 0 segment hard-flips beyond the Novus eviction. 4 HubSpot batches 10/10/10/9 all OK. Sub-cap 50, used 0 of 50. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-11",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-11 - 9/9 processable candidates fully drained (22 raw -> 9 after 13-record Tier 3 client-side exclude; cap 100 steady-state). All 13 excludes verified individually against canvas F0B0AFSB9LN (5 R0 2026-06-09 holds t.ht.hr/consultants.ooredoo.qa/bb.softbank.co.jp/wechsler.ch/bertellifamily.org + SoftBank Capital 326735614690 R3 dedup + zzz-qa-retest-conflict R6 QA hold + terrycorder.com R6 + Poly-AI/PolyAI/ConvergeOne/Cityside Networks R3 dedup + columbus-networks MISDOMAIN). Path alpha: 2 full ICP writes - Mosaic Technologies (326979656425, experiencemosaic.com) Fiber Operator / Municipal-Cooperative / tier_4 / high_90 (CTC Telcom dba, Chibardun coop lineage, Cameron WI, 6-county FTTH, $12.6M PSC grants; owner Tim Lieto WI=East unchanged); Nextlink Internet (327020509900) MISDOMAIN Tier 1 HIGH fix from email-subdomain artifact team.nxlink.com -> name + domain nextlinkinternet.com, Fiber Operator / Regional CLEC / tier_3 / medium_7089 (Hudson Oaks TX, FW+FTTH 100k+ subs 12 states, $1B invested, Nokia multi-gig; owner Ken TX=West unchanged; prior team.nxlink.com stub 322353590992 no longer in CRM - same-pattern import artifact now permanently resolved). 7 NEW Tier 3 holds: 3 R3-dedup stubs with manual_review_required written (Anthem Business Group 326986523374 parent of Anthem Broadband 314346084052; Lumos Networks lumosnet.com 326675592899 dup of Lumos Fiber 324060022515; Long Lines Broadband longlines.biz 326675587819 dup of Long Lines 323823198918) + 4 ZZZ QA fixtures (326975435454/326967068387/326617190107/326958660290) canvas-held with NO HubSpot writes to avoid contaminating Cooper's QA test state (deliberate gate deviation, matches R6 zzz-qa-retest-conflict precedent). 0 evictions, 0 Path beta, 0 deferrals - full drain. 0 Apollo credits (all classifications from public web research + HubSpot dedup reads). All 4 end-of-pipeline self-checks PASS. Sub-cap 30, used 0 of 30. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-11",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-11 11am CT -- GREEN Filter-C pre-spread run, 37 records written (0 Apollo). Filter A (last_enriched_date < 2026-02-11): 0. Filter B (never-enriched + segment): 0. Filter C fired (active pool 3,412): 45 oldest-enriched returned (02-24 to 04-27 cohort), took 40, deferred 5 newest (Telx Computers, QKS Group, Weka, Arqit, NASI - return next run). 3 standing Tier 3 holds carried unprocessed/no-bump (MMR Fiber 175221473010, team.telstra 316598423243, ICE 311326703342). FULL x2: T-Systems (news refresh T Cloud Public sovereign expansion, provisioning_landscape + hyperscaler_proximity filled, confidence->high_90; tier write SKIPPED hs_is_target_account=true) + Madison Communications (web-verified Regional CLEC, confidence medium_7089->high_90). LIGHT x35: 4 EVICTIONS Tier 2 (PowerBridge consumer AV hardware, Backbone Digital marketing agency, EIS Visual proposal-media consultancy, Exa wrong-entity Dassault-CFD artifact - all No ICP fit, all verified 0 deals) + 12 brief-fills w/ None Identified sentinels + heat Cold (ServiceNow/Discernity/Related/Enxoo/Cooley/Bank Street Group [name fixed from 'Bank Street Coup']/iconectiv/IDC/Prodapt/AXON Networks/Sage Management/Huawei Cloud) + 19 re-stamps (7 heat backfills Cold: CWIT/BGIS/Fiverr/Toptel/Gartner/Tomorrow Networks/UK Cloud). Viasat stale news cleared (event 2026-01-05 >90d, recent_news + last_signal_date both cleared per Step 17). Flagged for Cooper: Huawei tier_1 + Kyndryl tier_2 anomalies on Other records (left untouched); Related Companies possible future ICP via Related Digital DC arm. 4 batches 10/10/10/7, 0 failures. Sub-cap 50, used 0 of 50. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-12",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-12 - 4/4 processable candidates fully drained (24 raw -> 4 after 20-record verified Tier 3 client-side exclude; cap 100 steady-state). 1 Path-alpha ICP write: Integrity Advanced Technologies (327026419390, integrityatech.com) -> Fiber Operator / Long Haul / Backbone - Fiber operator / tier_2 / low_5069 / heat Cold; tribally owned Teya ANC + Integrity Technologies Corp JV (Dec 2024) with CONUS dark+lit fiber marketed for alternative long haul, carrier diversity, rural connectivity; route-mile scale unverified so infrastructure_profile=None Identified and ICP gate FAILED by design (low_5069 < medium floor) -> no last_enriched_date stamp, handed to R2 Filter B / D7 per 2026-06-08 precedent. Data fixes in same write: country Brazil -> United States (import artifact; HQ North Dakota per company site), state=North Dakota, owner Tim Ziemer -> Ken Cunningham (ND=West). 3 NEW Tier 3 R3-dedup holds, all alternate-TLD import stubs of classified Feb-2026 records (2nd consecutive day of this import pattern - import-source dedup key issue flagged to Cooper): Inland Cellular inlandcell.com 327072714478 (primary 320873011959 inlandcellular.com; primary also carries a fresh unwritten signal - First Step Internet acquisition announced 2026-05-08), Grantsburg Telecom grantsburgtelcom.com 327026292423 (primary 320876610252 grantsburgtelcom.net), Fort Mojave Telecommunications ftmojave.net 327063752413 (primary 297782865622 ftmojave.com). manual_review_required + dedup briefs written on stubs, no segment writes, no stamps. 0 evictions, 0 Path beta, 0 deferrals - full drain. 1 HubSpot batch 4/4 OK. All 4 end-of-pipeline self-checks PASS. Run health YELLOW (3 mechanical dedup holds). 0 Apollo credits. Sub-cap 30, used 0 of 30. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-12",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R2 Cowork 2026-06-12 11am CT -- GREEN Filter-C pre-spread run, 39 records written (0 Apollo). Filter A (last_enriched_date < 2026-02-12): 0. Filter B (never-enriched + segment): 1 net = Integrity Advanced Technologies (327026419390, R1's same-day low_5069 unstamped handoff). FULL x1: Integrity RECLASSIFIED Fiber Operator/Long Haul -> MSP/Aggregator / Telecom Aggregator - MSP / medium_7089 + stamped; deep-dive found the 400k-route-mile dark fiber claim is aggregated partner capacity (partner page = all federal-contracting services firms, zero carrier asset owners), tribally owned Teya JV resells network solutions via federal vehicles; tier_2 unchanged (MSP null... default T2, no modifiers, 0 deals verified), heat Cold unchanged; contact segment-mirror skipped per contact-enum gap. Filter C pre-spread fired (A+B=1<40): took 39 oldest (2026-02-24 to 04-27 cohort), deferred 3 (Fiber Gaming Network, Gaichu, Sterling and Wilson - return next run). LIGHT x38 processed: 7 EVICTIONS Tier 2 (Nashoba Valley Tech HS school, CodeDay hackathon nonprofit, IIM Ahmedabad business school, LANEX generic WI web agency, NASI space workforce cert org, BT Int'l Korea insurance [import name-confusion artifact], Telemetro Reporta Panama TV broadcaster - all No ICP fit, all verified 0 deals) + 21 brief-fills w/ None Identified sentinels + heat Cold (incl. 2 name fixes: testower.us -> Tower Engineering Solutions [Congruex], appledorerg -> Appledore Research; verified keepers: Vytal fiber construction, GigRx/SP Data fiber-sales BPO, Oculum white-label UC PaaS, Iometrix MEF/Mplify cert lab, GeoResults/Opensignal data, Canoga Perkins alive at MWC26, QKS Group analyst, + knowledge-briefed OpenAI/Amdocs/HubSpot/Alibaba/Tencent/Weka/Arqit/Nile/Greenhill-Mizuho/VSG/Atlantic-ACM/RTInsights) + 10 sentinel+heat+stamp re-verifications (TeleGeography, FreeWheel, Ubiquiti, Tele-Plus, Telx Computers, Star Solutions, Clear-Com, Davis Infra, JAWAB, MNJ). 1 NEW Tier 3 hold no-bump: Confluence Research (192890159856, confluenceresearch.com.au) - 2x web_search inconclusive, domain unfetchable, re-verification failed, held for next run. 3 standing R3-scope holds carried (MMR Fiber 175221473010, team.telstra 316598423243, ICE 311326703342). 4 batches 10/10/10/9, 0 failures. Sub-cap 50, used 0 of 50. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-15",
+      "routine": "weekly-signal-scan",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "Signal Scan: Colo 2026-06-15 (Mon). 180d window (2025-12-17 to 2026-06-15), all-tier scope. Target 471 total Colo (~470 active; type!=Customer, excl MaiaEdge own). 14 writes (11 matched + 3 NEW), 0 failed. Active week - busy early-June DC news cycle. NEW (Apollo 0 - interactive-confirm guardrail unavailable in scheduled run; created from public web research per 2026-06-08 NeoCloud precedent): Kasi Cloud Datacenters 327581198017 (Lagos NG, Standard-colo, tier_2/Warm, Tim Z), DC North 327599085257 (Varazdin HR, Standard-colo, tier_3/Cool, Tim Z), Lefdal Mine Datacenter 327599216356 (Norway, Standard-colo, tier_4/Cool, Tim Z). Matched score-27 Warm: CyrusOne (Hot, open deal DFW1 POC; Freestone 380MW), atNorth (Norway NOR01 120MW), Kao Data (Nebius 22MW Harlow), Digital Edge (Seoul SEL5 60MW), Flexential (Hillsboro acq), DartPoints (Lexington acq), Prime DC (Sacramento SMF02), Keppel DC (Ansan 60MW), ST Telemedia GDC (Jakarta 2/3/5/6 builds), Ark Data Centers (Longcross 36MW, tier_3->tier_2 on hot signal). PowerHouse DC LIGHT 9/Cool (Arcola hyperscale lease; refreshed a 13-month-stale signal). Anti-churn skips: NTT DATA (stored 2026-04-20 newer than 03-03 event), QTS (Richmond filing unverified + lower materiality than stored Van Wert 27), Equinix/DataBank/Digital Realty (stored newer/higher). WhiteFiber routed to NeoCloud (Bit Digital crypto heritage, Op Principle 9). Cogent/I Squared 1B colo platform deferred (no named OpCo yet). last_enriched_date bumped only on the 3 NEW creates. 3-week source x-streak: job boards (#8) + hyperscaler feeds (#10) -> flag Sources Needing Development. Sub-cap 35, used 0 of 35. Weekly W24: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-15",
+      "routine": "fresh-enrichment",
+      "consumed": 0,
+      "running_total": 0,
+      "note": "R1 Cowork 2026-06-15 - 4/4 processable candidates fully drained (23 raw -> 4 after 19-record Tier 3 client-side exclude; cap 100 steady-state). W24->W25 ISO weekly auto-rollover at run start (W24 closed 0/850; the 2026-06-15 8:30am Signal Scan Colo logged under the pre-roll W24 label per its read+append-only design). All 19 excludes verified against canvas F0B0AFSB9LN: 4 R1 dedup stubs (Grantsburg Telecom 327026292423, Anthem Business Group 326986523374, Lumos Networks 326675592899, Long Lines Broadband 326675587819), 5 ZZZ QA fixtures (326675544806/326975435454/326967068387/326617190107/326958660290), 3 R0 2026-06-09 subdomain/non-business (t.ht.hr 326713856698, wechsler.ch 326642118391, bertellifamily.org 326731977463), SoftBank Capital 326735614690 R3 dedup, terrycorder.com 326207777466 R6, Poly-AI/PolyAI/ConvergeOne/Cityside Networks R3 dedup, columbus-networks 324597786339 MISDOMAIN. Path alpha: 1 full ICP write - Jefferson Telecom (327225613026) -> Fiber Operator / Regional CLEC - Fiber operator / tier_3 / high_90 / heat Cold, independent Iowa ILEC (est 1938) 100% FTTH gig across Greene County since 2001; owner Tim Lieto (IA=East); contact Jamie Daubendiek already segment-synced. Path gamma: 1 Flagged for deletion - Pearce Renewables (327108158163) -> No ICP fit (renewable-energy O&M services, 850+ techs, New Mountain Capital; not carrier infra, no reference value). 2 NEW Tier 3 holds: Midtel Cable Tv (327010669253, midtel.net) R3-dedup stub of canonical MIDTEL 300468012733 (midtel.com, Fiber Operator/Regional Cable Operator, tier_3) - manual_review_required, no stamp; wvsupport.net (327229537012) AMBIGUOUS - unnamed, blank HQ, owner Cooper, no web footprint, Apollo not found (R6), web_fetch blocked by content restriction so dead-domain unverifiable - manual_review_required, held for Cooper to confirm test-vs-prospect. 0 Path beta, 0 deferrals - full drain. HubSpot batches 1/1 + 3/3 OK. All 4 end-of-pipeline self-checks PASS. Run health YELLOW (2 Tier 3 holds). 0 Apollo credits. Sub-cap 30, used 0 of 30. Weekly W25: 0/850, 850 remaining."
+    },
+    {
+      "date": "2026-06-15",
+      "routine": "weekly-signal-scan",
+      "consumed": 0,
+      "running_total": 2,
+      "note": "Signal Scan: NeoCloud 2026-06-15 (Mon). Steady-state week-2 run after the 06-08 full-window catch-up. 180d window (2025-12-17 to 2026-06-15), all-tier scope. Target 188 active NeoCloud (complete pool, grown from 163). 9 matched writes, 0 NEW, 0 failed. Anti-churn suppressed the stored public-name backlog (IREN/Hut8/Core Sci/Bitzero/Bitfarms/TeraWulf/Nscale/White Fiber/Naver all = stored or older). Writes: Applied Digital 33/Hot (Delta Forge 2 210MW lease 6/08, stacked), SOLUNA 33/Hot (Metrobloks JV 6/03, stacked), Crusoe 33/Hot (4.9GW + NC-A6 hiring spike 6/09, stacked), SK Telecom 30/Warm (sovereign DSX/NCP 6/07), Cipher 27/Warm ($810M notes+Amazon 70MW 6/08), GMI Cloud 27/Warm (Magna AI sovereign factory 6/05), Sharon AI 27/Warm (NVIDIA GB300 6/12), TensorWave 18/Cool (Series B 6/10), Hydra Host 9/Cool LIGHT (Duos B300 GPUaaS mgmt 6/05). Digi Power X skipped (newer 6/03 Vera Rubin smaller than stored 27, avoid demotion). Riot SMR MoU dropped (non-binding power). Source-coverage streak broken: IX/job-boards/PeeringDB reached via bash curl (Crusoe NC-A6 found). 0 NEW (Duos Edge AI borderline edge-DC logged for sourcing; USD.AI lender out of scope). Sub-cap 55, used 0 of 55. Weekly W25: 2/850 (Fiber earlier today), 848 remaining."
+    },
+    {
+      "date": "2026-06-15",
+      "routine": "stale-reenrichment",
+      "consumed": 0,
+      "running_total": 2,
+      "note": "R2 Cowork 2026-06-15 11am CT -- GREEN Filter-C pre-spread run, 39 records re-stamped (0 Apollo). Filter A (last_enriched_date < 2026-02-15, excl Flagged + MaiaEdge own): 0. Filter B (never-enriched + segment): 0. A+B<40 -> Filter C pre-spread fired (active not-yet-stale pool 3,384); pulled 45 oldest (02-24 to 05-01 cohort), re-stamped 39 well-briefed Other/Partner keepers to last_enriched_date=2026-06-15 + signal_heat=Cold backfill (staggering the late-Sept 120-day cliff). tier no-op for all (Other/Partner, compute_tier guards non-ICP segments). 0 evictions, 0 segment changes, 0 new R2 Tier 3 holds. Cross-routine handoffs: Confluence Research 192890159856 -> D7 (2nd consecutive re-verification failure; confluenceresearch.com.au resolves to no clear AU entity); FPT 300724801211 (fptsoftware.com, Other tier_5) -> R3 dedup, duplicate of FPT Software 326715774698 (fpt-software.com, Enterprise/Outsourcing ICP, R1 06-09); FPT AI Factory 303405064912 (fpt.com, NeoCloud) is a legit separate arm. 4 standing holds carried unprocessed (MMR Fiber 175221473010 entity-split->R3/Cooper, team.telstra 316598423243 subdomain dedup->R3, ICE 311326703342 Enterprise-vs-Colo->Cooper, Boldyn/Mobilitie 318223366892 dup of 300402132682->R3). 4 HubSpot batches 10/10/10/9, 0 failures. Sub-cap 50, used 0 of 50. Weekly W25: 2/850 (Signal Scan Fiber earlier today), 848 remaining."
+    },
+    

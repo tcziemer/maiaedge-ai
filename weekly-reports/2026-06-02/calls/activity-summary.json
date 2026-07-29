@@ -1,0 +1,67 @@
+{
+  "date": "2026-06-02",
+  "weekday": "Tue",
+  "held": {"fresh": 3, "deal": 2, "total": 5},
+  "set":  {"fresh": 0, "deal": 0, "total": 0},
+  "upcoming_total": 10,
+  "rep_breakdown": {
+    "tim_lieto":      {"set": 0, "held": 0, "upcoming": 2},
+    "ken_cunningham": {"set": 0, "held": 2, "upcoming": 1},
+    "tim_ziemer":     {"set": 0, "held": 3, "upcoming": 7}
+  },
+  "trend_baseline": {
+    "prior_runs_used": ["2026-05-26", "2026-05-27", "2026-05-28", "2026-06-01"],
+    "missing": ["2026-05-29 (Fri - routine did not fire, no calls dir)"],
+    "status": "LIVE (4 prior weekday runs on disk; trend tags active this run)",
+    "averages": {"held_fresh": 1.5, "held_deal": 1.0, "set_fresh": 3.5, "set_deal": 0.25},
+    "tags": {"held_fresh": "UP", "held_deal": "UP", "set_fresh": "DOWN", "set_deal": "FLAT"}
+  },
+  "calendar_movement": {
+    "yesterday_snapshot_present": true,
+    "yesterday_date": "2026-06-01",
+    "pushed": [],
+    "pulled_in": [],
+    "new": [
+      {"engagement_id": 369613257448, "company": "Mplify (industry body)", "owner": "tim_ziemer", "new_ts_et": "2026-06-09T09:00", "tier": "n/a", "note": "Board of Directors strategy meeting; rolled into the 7-day window as the window advanced (was outside yesterday's horizon). Industry-body governance, low priority."}
+    ],
+    "dropped": [],
+    "transitioned_to_held": [
+      {"engagement_id": 370631086828, "company": "Myakka Communications", "note": "6/2 10:00 ET demo -> held meeting (no call log / no summary)"},
+      {"engagement_id": 371835531965, "company": "Broadstar + RocNet", "note": "6/2 13:00 ET -> held call 373280993991"},
+      {"engagement_id": 372522791611, "company": "SIPNAV (no company record)", "note": "6/2 12:30 ET -> held call 373118530277"},
+      {"engagement_id": 372510963417, "company": "Technium/Pearce", "note": "6/2 12:00 ET -> held call 373238758082"},
+      {"engagement_id": 372495895269, "company": "Technium/Pearce", "note": "6/2 11:30 ET dup slot -> rolled into held Technium call"},
+      {"engagement_id": 371961028327, "company": "Astound", "note": "6/1 17:00 ET -> held call 373061426911"}
+    ],
+    "note": "No reschedule movement detected vs yesterday's snapshot. The day's story is conversion: yesterday's full 6/2 slate (5 meetings) all converted to held calls."
+  },
+  "meddpicc_writes": {
+    "tier_1_fills": 2,
+    "tier_1_refreshes": 0,
+    "tier_2_drift": 0,
+    "tier_3_holds": 0,
+    "skipped": 7,
+    "fill_details": [
+      {"contact": "Ken Rice (SIPNAV, CTO) id 491948684990", "fields": ["meddpicc_pain_contact", "meddpicc_use_case"], "evidence": "Today's discovery call summary: intermediate SIP carrier ~1B calls/day, very low per-call margins requiring efficient traffic management; explicit interest in backup connectivity + peering. Fields were empty; clear and attributable to Ken Rice."}
+    ],
+    "skip_details": [
+      "Astound: William Yates + Kevin Fonkert MEDDPICC already comprehensively populated from today's call (smart-fill, num_notes 5/22) - matches, skip.",
+      "Technium/Pearce: Kristyn Shaughnessy, Michael Joseph (CTO, num_notes 140), Jeremy Gallagher (142), William Bushman (214), James Salvato - richly populated; today's 6-min SOW-housekeeping sync added no extractable evidence (Michael Joseph's fields for today read NOT_DISCUSSED). Preserve older snapshots, skip.",
+      "Broadstar/RocNet: David Clar (RocNet, num_notes 40) richly populated; today's call was about Broadstar's needs (Anthony Salamoni, not a CRM contact), not David/RocNet - writing Broadstar pain to David's record would be mis-attribution. Skip, flag Anthony Salamoni for contact creation.",
+      "Myakka: no summary/transcript - nothing to extract."
+    ]
+  },
+  "dm_delivery": {
+    "abilash": {"user_id": "U06RVK9NTQR", "channel": "D0A2YNPVB96", "ts": "1780434705.510509", "status": "delivered"},
+    "tim_z":   {"user_id": "U08CMD5PMQE", "channel": "D0A2817RE68", "ts": "1780434730.767079", "status": "delivered"},
+    "cooper":  {"user_id": "U0A24D9RJLS", "channel": "D0A2YNL1TA4", "ts": "1780434755.833439", "status": "delivered"}
+  },
+  "run_meta": {
+    "run_time_et": "2026-06-02T17:01 (late fire; nominal cadence 4pm CT = 5pm ET)",
+    "held_window_et": "2026-06-01T16:00 -> 2026-06-02T15:59 (24h Tue-Fri standard)",
+    "set_window_et": "same as held; measured by MEETING create-date (true booking signal), NOT auto-generated HUBSPOT_MEETINGS call logs (whose createdate equals meeting time and would conflate Set with Held). 0 meetings booked in window.",
+    "upcoming_window_et": "2026-06-02T17:01 -> 2026-06-09T17:01 (next 7 days); queried on MEETING object (future engagements log as MEETING, not CALL - the CALL upcoming query returned 0).",
+    "tracked_reps": ["161889085 Tim Lieto", "162339176 Ken Cunningham", "159350430 Tim Ziemer"],
+    "audit_dropped_non_tracked": ["MEETING 373010767566 'Austausch' owner 164949459 (unmapped) - held-window meeting, filtered to audit only"]
+  }
+}
